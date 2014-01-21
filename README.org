@@ -1,0 +1,138 @@
+#+TITLE: Electromagnetism classes of Licence 3 - README
+#+AUTHOR: Xavier Garrido
+
+* Introduction
+
+This repository contains materials for Electromagnetism classes given
+in Licence 3 of Fundamental Physics at the University of Paris Sud.
+
+* Installation
+
+You will need special =orgmode= settings to translate the =org= files into =pdf=
+documents. All the needed code is embedded within this file in the next
+sections. Nevertheless, you will need to install some [[https://github.com/xgarrido/latex-templates][latex-templates]] specially
+developed for such purpose.
+
+There is no need to detangle this file since emacs will do it when you
+will use the Makefile in the corresponding directories. So, next step will be to
+do =make= within the different directories.
+
+* Orgmode settings
+:PROPERTIES:
+:TANGLE: README.el
+:END:
+** Settings for =org= to =pdf= conversion
+*** Requirements
+#+BEGIN_SRC emacs-lisp
+  (require 'ox-latex)
+#+END_SRC
+*** Place table caption below table
+#+BEGIN_SRC emacs-lisp
+  (setq org-latex-table-caption-above nil)
+#+END_SRC
+*** No author
+#+BEGIN_SRC emacs-lisp
+  (setq org-export-with-author nil)
+#+END_SRC
+*** Code blocks
+This activates a number of widely used languages, you are encouraged to activate
+more languages using the customize interface for the =org-babel-load-languages=
+variable, or with an elisp form like the one below.  The customize interface of
+=org-babel-load-languages= contains an up to date list of the currently
+supported languages.
+#+BEGIN_SRC emacs-lisp
+  (org-babel-do-load-languages
+   'org-babel-load-languages
+   '((emacs-lisp . t)
+     (latex . t)))
+#+END_SRC
+
+You are encouraged to add the following to your personal configuration
+although it is not added by default as a security precaution.
+#+BEGIN_SRC emacs-lisp
+  (setq org-confirm-babel-evaluate nil)
+#+END_SRC
+
+*** Keep LaTeX logfiles
+#+BEGIN_SRC emacs-lisp
+  (setq org-latex-remove-logfiles nil)
+#+END_SRC
+*** Default list of LaTeX packages
+Only include one default package and remove all the crapppy stuff included by
+=org= \rightarrow =latex= translation.
+
+#+BEGIN_SRC emacs-lisp
+  (add-to-list 'org-latex-packages-alist '("" "org-preamble"))
+#+END_SRC
+*** Filters
+**** Change =table= into =figure= env
+When graphics are placed into table cells then change the default table
+environment into figure
+#+BEGIN_SRC emacs-lisp
+  (defun sk-multicolumn-figure (contents backend info)
+    (when (and (org-export-derived-backend-p backend 'latex)
+               (string-match "table" contents)
+               (string-match "includegraphics" contents))
+      (replace-regexp-in-string "table" "figure" contents)))
+  (add-to-list 'org-export-filter-table-functions 'sk-multicolumn-figure)
+#+END_SRC
+
+*** Defining =org-latex-classes=
+
+#+BEGIN_SRC emacs-lisp
+  (unless (boundp 'org-latex-classes)
+    (setq org-latex-classes nil))
+#+END_SRC
+
+#+BEGIN_SRC emacs-lisp :results none
+  (add-to-list 'org-latex-classes
+               '("npp-class"
+                 "\\documentclass{scrartcl}
+                  [PACKAGES]
+                  \\usepackage[oldschool]{teaching-classes-style}
+                  \\usepackage{vc-style}
+                  [NO-DEFAULT-PACKAGES]"
+                 ("\\section{%s}" . "\\section*{%s}")
+                 ("\\subsection{%s}" . "\\subsection*{%s}")
+                 ("\\subsubsection{%s}" . "\\subsubsection*{%s}")
+                 ("\\paragraph{%s}" . "\\paragraph*{%s}")
+                 ("\\subparagraph{%s}" . "\\subparagraph*{%s}")))
+#+END_SRC
+*** Define dedicated function for export
+#+BEGIN_SRC emacs-lisp
+  (defun npp-export-classes ()
+    (progn
+      (setq org-latex-default-class "npp-class")
+      (org-latex-export-to-pdf)
+      ))
+#+END_SRC
+*** Set LaTeX command
+#+BEGIN_SRC emacs-lisp
+  (defun npp-latexmk-cmd (backend)
+    "When exporting from .org with latex, automatically run latex,
+        pdflatex, or xelatex as appropriate, using latexmk."
+    (when (org-export-derived-backend-p backend 'latex)
+      (setq org-latex-pdf-process '("jobname=$(basename %f | sed 's/\.tex//');latexmk -xelatex -shell-escape %f; mv ${jobname}.* latex.d/.; mv latex.d/${jobname}.{org,tex,pdf,fdb_latexmk,toc} ."))
+      )
+    )
+  (org-add-hook 'org-export-before-processing-hook 'npp-latexmk-cmd)
+#+END_SRC
+*** LaTeX stylesheets
+**** VC status
+:PROPERTIES:
+:MKDIRP: yes
+:TANGLE: latex.d/vc-style.sty
+:END:
+
+#+NAME: vc-status
+#+BEGIN_SRC sh :results output :tangle no
+  if [ -d .git ]; then
+      log=$(LC_MESSAGES=en git --no-pager log -1 HEAD --date=short --pretty=format:"\texttt{git} commit \href{https://github.com/xgarrido/master_npp_teaching/commit/%H}{\color{gray}\texttt{%h}} \$-\$ %ad")
+      echo "\renewcommand*{\PrelimText}{\textnormal{\small\color{gray}${log}}}"
+  fi
+#+END_SRC
+
+#+BEGIN_SRC latex :noweb yes
+  \RequirePackage{prelim2e}
+  <<vc-status()>>
+#+END_SRC

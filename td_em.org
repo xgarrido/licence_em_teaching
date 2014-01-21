@@ -1,0 +1,5 @@
+#+TITLE: Correction TD Électromagnétisme
+#+AUTHOR: Xavier Garrido
+#+DATE: 21/01/14
+#+OPTIONS: ^:{} toc:2
+#+LATEX_HEADER_EXTRA: \newcommand{\vec}[1]{\overrightarrow{#1}}
