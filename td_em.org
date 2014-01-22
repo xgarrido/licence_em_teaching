@@ -2,4 +2,168 @@
 #+AUTHOR: Xavier Garrido
 #+DATE: 21/01/14
 #+OPTIONS: ^:{} toc:2
-#+LATEX_HEADER_EXTRA: \newcommand{\vec}[1]{\overrightarrow{#1}}
+#+LATEX_HEADER_EXTRA: \newcommand{\vv}[1]{\overrightarrow{#1}}
+
+* TD1 : Électromagnétisme & relativité
+
+*Transformation de Lorentz :* $\beta=\tfrac{v}{c}$ et
+ $\gamma=\tfrac{1}{\surd{1-\beta^2}}$. Si $\mathcal{R}^\prime$ est en mouvement
+ rectiligne uniforme selon l'axe $x$ par rapport à $\mathcal{R}$ alors
+ #+BEGIN_SRC latex
+   \begin{equation*}
+     \begin{bmatrix}
+       ct^\prime\\x^\prime\\y^\prime\\z^\prime
+     \end{bmatrix}
+     =
+     \begin{bmatrix}
+       \gamma&-\beta\gamma&0&0\\
+       -\beta\gamma&\gamma&0&0\\
+       0&0&1&0\\
+       0&0&0&1
+     \end{bmatrix}
+     \cdot
+     \begin{bmatrix}
+       ct\\x\\y\\z
+     \end{bmatrix}
+   \end{equation*}
+ #+END_SRC
+ et la transformation inverse
+ #+BEGIN_SRC latex
+   \begin{equation*}
+     \begin{bmatrix}
+       ct\\x\\y\\z
+     \end{bmatrix}
+     =
+     \begin{bmatrix}
+       \gamma&+\beta\gamma&0&0\\
+       +\beta\gamma&\gamma&0&0\\
+       0&0&1&0\\
+       0&0&0&1
+     \end{bmatrix}
+     \cdot
+     \begin{bmatrix}
+       ct^\prime\\x^\prime\\y^\prime\\z^\prime
+     \end{bmatrix}
+   \end{equation*}
+ #+END_SRC
+
+*Transformation du champ EM :*
+
+Composantes tangentielles au déplacement
+$\vv{E}^\prime_\parallel=\vv{E}_\parallel$ et
+$\vv{B}^\prime_\parallel=\vv{B}_\parallel$.
+
+Composantes normales au déplacement
+#+BEGIN_SRC latex
+  \begin{align*}
+    \vv{E}^\prime_\perp&= \gamma\,\left(\vv{E}_\perp+\vv{v}\times\vv{B}_\perp\right)\\
+    \vv{B}^\prime_\perp&= \gamma\,\left(\vv{B}_\perp-\vv{v}\times\frac{\vv{E}_\perp}{c^2}\right)
+  \end{align*}
+#+END_SRC
+ou
+#+BEGIN_SRC latex
+  \begin{align*}
+    \vv{E}_\perp&= \gamma\,\left(\vv{E}^\prime_\perp-\vv{v}\times\vv{B}^\prime_\perp\right)\\
+    \vv{B}_\perp&= \gamma\,\left(\vv{B}^\prime_\perp+\vv{v}\times\frac{\vv{E}^\prime_\perp}{c^2}\right)
+  \end{align*}
+#+END_SRC
+
+*Remarques :*
+- les "quantités" perpendiculaires au déplacement telles les longueurs ($y$ et
+  $z$ dans notre cas), ne subissent pas les effets de la relativité. Autrement
+  dit une longueur $y$ restera inchangée sous la transformation
+  $\mathcal{R}\rightarrow\mathcal{R}^\prime$ : $y=y\prime$
+
+** Force entre des électrons qui se déplacent côte à côte
+
+#+BEGIN_CENTER
+#+ATTR_LATEX: :width 0.7\linewidth
+[[file:./figures/referentiel_relat_1.pdf]]
+#+END_CENTER
+
+1) Soit $\mathcal{R}^\prime$ le référentiel où les particules sont au repos. Le
+   champ électrique exercé sur $M_2$ par $M_1$ s'écrit
+   #+BEGIN_SRC latex
+     \begin{equation*}
+       \vv{E}^\prime(M_2) = -\frac{e}{4\pi\epsilon_0\,d^2}\vv{u}_{z^\prime}
+     \end{equation*}
+   #+END_SRC
+   /i.e./ le champ électrique coulombien. Les particules étant au repos, il n'y
+   a pas de déplacement de charge donc $\vv{B}^\prime(M_2)=\vv{0}$. La force
+   (coulombienne) qui s'exerce sur l'électron en $M_2$ est
+   #+BEGIN_SRC latex
+     \begin{equation*}
+       \vv{F}^\prime(M_2)=-e\vv{E}^\prime(M_2)-e\vv{v}\times\vv{B}^\prime(M_2)=\frac{e^2}{4\pi\epsilon_0\,d^2}\vv{u}_{z^\prime}=-\vv{F}^\prime(M_1)
+     \end{equation*}
+   #+END_SRC
+   soit une force répulsive.
+
+2) Dans $\mathcal{R}$, on applique les règles de transformation du champ EM soit
+   $\vv{E}^\prime_\parallel=\vv{E}_\parallel=\vv{0}$ et
+   $\vv{B}^\prime_\parallel=\vv{B}_\parallel=\vv{0}$. Les composantes normales
+   deviennent
+   #+BEGIN_SRC latex
+     \begin{align*}
+       \vv{E}_\perp&= \gamma\,\left(\vv{E}^\prime_\perp-\vv{v}\times\vv{B}^\prime_\perp\right)\\
+       \vv{B}_\perp&= \gamma\,\left(\vv{B}^\prime_\perp+\vv{v}\times\frac{\vv{E}^\prime_\perp}{c^2}\right)
+     \end{align*}
+   #+END_SRC
+   On déduit que
+   #+BEGIN_SRC latex
+     \begin{equation*}
+       \vv{E}_\perp=\gamma\left(\vv{E}^\prime_\perp-\vv{v}\times\vv{B}^\prime_\perp\right)=\gamma\vv{E}^\prime_\perp=-\frac{\gamma e}{4\pi\epsilon_0\,d^2}\vv{u}_z
+     \end{equation*}
+   #+END_SRC
+   sachant que $\vv{u}_z=\vv{u}_{z^\prime}$.
+
+   Le champ magnétique $\vv{B}_\perp$ est égal à
+   $\gamma\vv{v}\times\frac{\vv{E}^\prime_\perp}{c^2}$ soit
+   #+BEGIN_SRC latex
+     \begin{align*}
+       \vv{B}_\perp&=\frac{\gamma\,vE^\prime_\perp}{c^2}\,\vv{u}_x\times\vv{u}_z=-\frac{\gamma\,vE^\prime_\perp}{c^2}\,\vv{u}_y\\
+       &=\frac{\gamma v}{c^2}\times\frac{e}{4\pi\epsilon_0\,d^2}\,\vv{u}_y\text{ avec } \mu_0\epsilon_0c^2=1\\
+       &=\frac{\mu_0\gamma ve}{4\pi d^2}\vv{u}_y
+     \end{align*}
+   #+END_SRC
+   La force résultante est égale à
+   #+BEGIN_SRC latex
+     \begin{align*}
+       \vv{F}(M_2)&=-e\vv{E}(M_2)-e\vv{v}\times\vv{B}(M_2)\\
+       &=-e\gamma\vv{E}^\prime(M_2)+ev^2\vv{u}_x\times\vv{u_y}\frac{E^\prime(M_2)}{c^2}\\
+       &=-e\gamma\vv{E}^\prime(M_2)\left[1-\frac{v^2}{c^2}\right]\text{ avec }\gamma=\frac{1}{\surd{1-v^2/c^2}}\\
+       &=-e\gamma\vv{E}^\prime(M_2)\times\frac{1}{\gamma^2}=\frac{\vv{F}^\prime(M_2)}{\gamma}
+     \end{align*}
+   #+END_SRC
+   Globalement, $F^\prime(M_2)>F(M_2)$. La force d'origine magnétique induite
+   par le déplacement des particules compense l'augmentation de la force
+   électrique de répulsion.
+
+   *AN:*
+
+   $\mathcal{E}=\gamma mc^2 - mc^2=(\gamma-1)mc^2$ donc
+   $\gamma=1+\frac{\mathcal{E}}{mc^2}$. La masse de l'électron est 0.511 MeV.
+
+   Pour $\mathcal{E}=\unit[1]{eV}$, $\gamma\sim1$
+   #+BEGIN_SRC latex
+     \begin{align*}
+       F&=F^\prime=\frac{e^2}{4\pi\epsilon_0\,d^2}=\frac{e^2\mu_0c^2}{4\pi d^2}\\
+       &=\frac{e^2c^2\times4\pi\,10^{-7}}{4\pi d^2}=\frac{(1.6\,10^{-19})^2\times(3\,10^8)^2\times10^{-7}}{(10^{-3})^2}\\
+       &=\unit[2.3\,10^{-22}]{N}
+     \end{align*}
+   #+END_SRC
+
+   Pour $\mathcal{E}=\unit[1]{eV}$, $\gamma\simeq3$
+   #+BEGIN_SRC latex
+     \begin{align*}
+       F&=\frac{F^\prime}{3}=\unit[7.7\,10^{-23}]{N}
+     \end{align*}
+   #+END_SRC
+
+3) $v\rightarrow0$, $\beta\ll1$ et donc $\gamma\simeq1+\tfrac{\beta^2}{2}$
+   #+BEGIN_SRC latex
+     \begin{align*}
+       \vv{F}&=\frac{\vv{F}^\prime}{\gamma}\\
+       &=\vv{F}^\prime\times\left(1-\beta^2\right)^{1/2}\\
+       &\simeq\left(1-\tfrac{\beta^2}{2}\right)\vv{F}^\prime
+     \end{align*}
+   #+END_SRC

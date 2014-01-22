@@ -86,7 +86,7 @@ environment into figure
 
 #+BEGIN_SRC emacs-lisp :results none
   (add-to-list 'org-latex-classes
-               '("npp-class"
+               '("em-class"
                  "\\documentclass{scrartcl}
                   [PACKAGES]
                   \\usepackage[oldschool]{teaching-classes-style}
@@ -100,22 +100,22 @@ environment into figure
 #+END_SRC
 *** Define dedicated function for export
 #+BEGIN_SRC emacs-lisp
-  (defun npp-export-classes ()
+  (defun em-export-classes ()
     (progn
-      (setq org-latex-default-class "npp-class")
+      (setq org-latex-default-class "em-class")
       (org-latex-export-to-pdf)
       ))
 #+END_SRC
 *** Set LaTeX command
 #+BEGIN_SRC emacs-lisp
-  (defun npp-latexmk-cmd (backend)
+  (defun em-latexmk-cmd (backend)
     "When exporting from .org with latex, automatically run latex,
         pdflatex, or xelatex as appropriate, using latexmk."
     (when (org-export-derived-backend-p backend 'latex)
       (setq org-latex-pdf-process '("jobname=$(basename %f | sed 's/\.tex//');latexmk -xelatex -shell-escape %f; mv ${jobname}.* latex.d/.; mv latex.d/${jobname}.{org,tex,pdf,fdb_latexmk,toc} ."))
       )
     )
-  (org-add-hook 'org-export-before-processing-hook 'npp-latexmk-cmd)
+  (org-add-hook 'org-export-before-processing-hook 'em-latexmk-cmd)
 #+END_SRC
 *** LaTeX stylesheets
 **** VC status
@@ -127,7 +127,7 @@ environment into figure
 #+NAME: vc-status
 #+BEGIN_SRC sh :results output :tangle no
   if [ -d .git ]; then
-      log=$(LC_MESSAGES=en git --no-pager log -1 HEAD --date=short --pretty=format:"\texttt{git} commit \href{https://github.com/xgarrido/master_npp_teaching/commit/%H}{\color{gray}\texttt{%h}} \$-\$ %ad")
+      log=$(LC_MESSAGES=en git --no-pager log -1 HEAD --date=short --pretty=format:"\texttt{git} commit \href{https://github.com/xgarrido/licence_em_teaching/commit/%H}{\color{gray}\texttt{%h}} \$-\$ %ad")
       echo "\renewcommand*{\PrelimText}{\textnormal{\small\color{gray}${log}}}"
   fi
 #+END_SRC

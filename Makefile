@@ -15,7 +15,7 @@ pdf: $(files_pdf)
 
 $(files_pdf): %.pdf: %.org README.org
 	@echo "NOTICE: Exporting $< to pdf..."
-	@TEXINPUTS="./latex.d:$$TEXINPUTS" $(EMACS) --visit "$<" --funcall npp-export-classes
+	@TEXINPUTS="./latex.d:$$TEXINPUTS" $(EMACS) --visit "$<" --funcall em-export-classes
 #> /dev/null 2>&1
 
 clean:
