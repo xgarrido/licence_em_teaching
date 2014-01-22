@@ -1,0 +1,64 @@
+\begin{tikzpicture}[y=-1cm]
+  \sf
+
+  \definecolor{red}{RGB}{221,42,43}
+  \definecolor{green}{RGB}{132,184,24}
+  \definecolor{blue}{RGB}{0,72,112}
+  \definecolor{orange}{RGB}{192,128,64}
+  \definecolor{gray}{RGB}{107,108,110}
+
+  \draw[very thick,black,<->] (5.87375,2.54) -- (5.87375,6.0325) -- (8.09625,3.81);
+  \draw[very thick,black,->] (5.87375,6.0325) -- (9.04875,6.0325);
+  \draw[very thick,black,<->] (15.39875,5.08) -- (15.39875,11.1125) -- (18.7325,7.77875);
+  \draw[very thick,black,->] (15.39875,11.1125) -- (21.59,11.1125);
+
+
+  \draw[blue,fill=blue] (12.22375,10.795) circle (0.0762cm);
+  \draw[blue,fill=blue] (13.0175,11.1125) circle (0.0762cm);
+  \draw[blue,fill=blue] (13.81125,10.795) circle (0.0762cm);
+  \draw[blue,fill=blue] (13.97,11.27125) circle (0.0762cm);
+  \draw[blue,fill=blue] (11.90625,11.43) circle (0.0762cm);
+  \draw[blue,fill=blue] (14.76375,10.95375) circle (0.0762cm);
+  \draw[blue,fill=blue] (15.5575,11.43) circle (0.0762cm);
+  \draw[blue,fill=blue] (16.1925,10.795) circle (0.0762cm);
+  \draw[blue,fill=blue] (14.9225,11.43) circle (0.0762cm);
+  \draw[blue,fill=blue] (14.9225,10.795) circle (0.0762cm);
+  \draw[blue,fill=blue] (17.145,11.43) circle (0.0762cm);
+  \draw[blue,fill=blue] (16.51,11.27125) circle (0.0762cm);
+  \draw[blue,fill=blue] (17.4625,10.795) circle (0.0762cm);
+  \draw[blue,fill=blue] (18.415,11.43) circle (0.0762cm);
+  \draw[blue,fill=blue] (18.25625,10.795) circle (0.0762cm);
+  \draw[blue,fill=blue] (16.98625,10.95375) circle (0.0762cm);
+  \draw[blue,fill=blue] (17.93875,11.43) circle (0.0762cm);
+  \draw[blue,fill=blue] (18.57375,10.63625) circle (0.0762cm);
+  \draw[blue,fill=blue] (19.52625,10.95375) circle (0.0762cm);
+  \draw[blue,fill=blue] (19.20875,11.43) circle (0.0762cm);
+  \draw[blue,fill=blue] (18.89125,10.95375) circle (0.0762cm);
+
+  \draw[very thick,blue] (11.43,10.4775) -- (20.32,10.4775);
+  \draw[very thick,blue] (11.43,11.7475) -- (20.32,11.7475);
+
+  \draw[black, ->] (11.27125,11.1125) -- (11.27125,10.4775);
+
+  \draw[blue] (15.5575,11.43) -- (16.35125,12.3825);
+
+  \path (6.19125,2.2225) node[text=black,anchor=base west]   {\large{}$z$};
+  \path (8.255,3.65125) node[text=black,anchor=base west]    {\large{}$y$};
+  \path (9.525,6.0325) node[text=black,anchor=base west]     {\large{}$x$};
+  \path (15.39875,4.60375) node[text=black,anchor=base west] {\large{}$z^\prime$};
+  \path (19.05,7.62) node[text=black,anchor=base west]       {\large{}$y^\prime$};
+  \path (21.9075,11.1125) node[text=black,anchor=base west]  {\large{}$x^\prime$};
+  \path (16.26875,12.7) node[text=blue,anchor=base west] {\large{}$m,q$};
+  \path (10.795,10.895) node[text=black,anchor=base west] {\large{}$R$};
+
+  \begin{scope}[yshift=3cm,xshift=-10cm]
+    \path (20.7075,11.0125) node[text=black,anchor=base west]  {\large{}$\overrightarrow{u}$};
+    \draw[very thick,black,->] (20.39875,11.1125) -- (21.59,11.1125);
+  \end{scope}
+
+\end{tikzpicture}%
+
+%% Configure (x)emacs for this file ...
+%% Local Variables:
+%% mode: latex
+%% End:
