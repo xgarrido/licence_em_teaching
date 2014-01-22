@@ -285,3 +285,57 @@ ou
       #+END_SRC
 
    2) Calcul du champ électrique $\vv{E}(M)$
+
+      Densité volumique et linéique de charge
+      $\rho=\gamma\rho^\prime\rightarrow\lambda=\gamma\lambda_0$ d'où
+      #+BEGIN_SRC latex
+        \begin{equation*}
+          \vv{E}(M)=\frac{\gamma\lambda_0}{2\pi\epsilon_0\,D}\vv{u}_r
+        \end{equation*}
+      #+END_SRC
+
+      Le courant dans le fil est $\text{d}I=\vv{j}.\text{d}\vv{S}$ soit
+      $I=j\times S$ et le champ magnétique $\vv{B}(M)$ s'écrit (/cf./ polycopié
+      page 88, Chapitre Magnétostatique)
+      #+BEGIN_SRC latex
+        \begin{align*}
+          \vv{B}(M)&=\frac{\mu_0I}{2\pi\,D}\vv{u}_\theta\\
+          &=\frac{\mu_0jS}{2\pi\,D}\vv{u}_\theta
+        \end{align*}
+      #+END_SRC
+      or $j=\rho u=\gamma\rho^\prime u=\frac{\gamma\lambda_0u}{S}$ d'où
+      #+BEGIN_SRC latex
+        \begin{align*}
+          \vv{B}(M)&=\frac{\gamma\mu_0\lambda_0u}{2\pi\,D}\vv{u}_\theta\text{ avec } \mu_0\epsilon_0c^2=1\\
+          \vv{B}(M)&=\frac{\gamma u}{c^2}E^\prime(M)\vv{u}_\theta
+        \end{align*}
+      #+END_SRC
+
+3) Transformation des champs
+   1) Transformation du champ électrique avec $\vv{B}^\prime=\vv{0}$
+      #+BEGIN_SRC latex
+        \begin{align*}
+          \vv{E}_\perp&= \gamma\,\left(\vv{E}^\prime_\perp-\vv{u}\times\vv{B}^\prime_\perp\right)\\
+          \vv{E}(M)&= \gamma\,\vv{E}^\prime(M)\text{ vrai } \vv{E}(M)=\frac{\gamma\lambda_0}{2\pi\epsilon_0\,D}\vv{u}_r
+        \end{align*}
+      #+END_SRC
+
+      Transformation du champ magnétique
+      #+BEGIN_SRC latex
+        \begin{align*}
+          \vv{B}_\perp&= \gamma\,\left(\vv{B}^\prime_\perp+\vv{u}\times\frac{\vv{E}^\prime_\perp}{c^2}\right)\\
+          \vv{B}(M)&=\gamma u\frac{E^\prime(M)}{c^2}\vv{u}_x\times\vv{u}_r\\
+          &=\frac{\gamma u}{c^2}E^\prime(M)\vv{u}_\theta
+        \end{align*}
+      #+END_SRC
+
+   2) $\vv{E}^\prime.\vv{B}^\prime=0$ et
+      $\vv{E}.\vv{B}=\frac{\gamma^2u}{c^2}E^{\prime2}\,\vv{u}_\theta.\vv{u}_r=0$
+   3)
+      #+BEGIN_SRC latex
+        \begin{align*}
+          E^2-B^2c^2 &= (\gamma E^\prime)^2 - \left(\frac{\gamma u}{c^2}\right)^2E^{\prime2}c^2\\
+          &=(\gamma E^\prime)^2\left(1-\frac{u^2}{c^2}\right)=E^{\prime2}\\
+          &=E^{\prime2}-B^{\prime2}c^2\text{ puisque }B^\prime=0
+        \end{align*}
+      #+END_SRC
