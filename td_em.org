@@ -2,6 +2,7 @@
 #+AUTHOR: Xavier Garrido
 #+DATE: 21/01/14
 #+OPTIONS: ^:{} toc:2
+#+LATEX_HEADER: \usepackage{wasysym}
 #+LATEX_HEADER_EXTRA: \newcommand{\vv}[1]{\overrightarrow{#1}}
 
 * TD1 : Électromagnétisme & relativité
@@ -152,7 +153,7 @@ ou
      \end{align*}
    #+END_SRC
 
-   Pour $\mathcal{E}=\unit[1]{eV}$, $\gamma\simeq3$
+   Pour $\mathcal{E}=\unit[1]{MeV}$, $\gamma\simeq3$
    #+BEGIN_SRC latex
      \begin{align*}
        F&=\frac{F^\prime}{3}=\unit[7.7\,10^{-23}]{N}
@@ -167,3 +168,34 @@ ou
        &\simeq\left(1-\tfrac{\beta^2}{2}\right)\vv{F}^\prime
      \end{align*}
    #+END_SRC
+** Fil chargé
+1) Dans $\mathcal{R}^\prime$, les charges électriques sont immobiles \equiv
+   électrostatique. La charge électrique $Q^\prime$ se déduit de la densité
+   linéique de charge $\lambda_0$
+   #+BEGIN_SRC latex
+     \begin{equation*}
+       Q^\prime=\lambda_0\times\ell^\prime=\rho^\prime\times S^\prime\times\ell^\prime
+     \end{equation*}
+   #+END_SRC
+   d'où $\rho^\prime=\tfrac{\lambda_0}{S^\prime}=\tfrac{\lambda_0}{S}$ car la
+   surface $S$ est une quantité perpendiculaire au déplacement donc
+   $S=S^\prime$.
+
+   Les charges étant immobiles, il n'y a pas de courant d'où
+   $\vv{j}^\prime=\vv{0}$ et donc pas de champ magnétique
+   $\vv{B}^\prime=\vv{0}$. Le champ électrique $\vv{E}^\prime$ se déduit du
+   théorème de Gauss, en évaluant au préalable, les symétries et les invariances
+   de la distribution de charge. Ainsi, en coordonnées cylindriques où
+   $\vv{u}_x=\vv{u}_z$, les plans $(\vv{u}_r,\vv{u}_\theta)$ et
+   $(\vv{u}_r,\vv{u}_z)$ sont plans de symétrie de la distribution de charge. Le
+   champ électrique résultant est donc contenu dans chacun de ces plans soit
+   $\vv{E}(M) = E(M)\vv{u}_r$. Par ailleurs, la distribution de charge est
+   invariante par rotation $\theta$ et par translation $x\equiv z$ donc
+   $E(M)=E(r,\theta,z)=E(r)$.
+
+   Le théorème de Gauss
+   #+BEGIN_SRC latex
+     \begin{equation*}
+       \oiint_{S}\vv{E}\cdot\text{d}\vv{S}=\frac{Q_\text{int.}}{\epsilon_0}
+     \end{equation*}
+#+END_SRC
