@@ -198,4 +198,90 @@ ou
      \begin{equation*}
        \oiint_{S}\vv{E}\cdot\text{d}\vv{S}=\frac{Q_\text{int.}}{\epsilon_0}
      \end{equation*}
-#+END_SRC
+   #+END_SRC
+   où la surface de Gauss $S$ est un cylindre de rayon $D^\prime$ et de hauteur
+   $h$. En tenant compte des invariances et symétries de la distribution de
+   charge, on obtient le champ $\vv{E}^\prime(M)$
+   #+BEGIN_SRC latex
+     \begin{equation*}
+       \vv{E}^\prime(M)\times2\pi D^\prime\times h = \frac{\lambda_0\times h}{\epsilon_0}
+     \end{equation*}
+   #+END_SRC
+   soit
+   #+BEGIN_SRC latex
+     \begin{equation*}
+       \vv{E}^\prime(M)=\frac{\lambda_0}{2\pi\epsilon_0D^\prime}\vv{u}_r
+     \end{equation*}
+   #+END_SRC
+
+2) Calculs dans $\mathcal{R}$
+   1) Contraction des longeurs car $L$ est colinéaire au déplacement du
+      cylindre.
+      #+BEGIN_SRC latex
+        \begin{equation*}
+          L=\frac{L^\prime}{\gamma}\text{ mais } S = S^\prime\text{ car } S,S^\prime\perp\vv{u}
+        \end{equation*}
+      #+END_SRC
+
+      Invariance de la charge électrique $Q=Q^\prime$ (ce postulat n'a jamais
+      été mis en défaut).
+      #+BEGIN_SRC latex
+        \begin{equation*}
+          Q=Q^\prime=\rho^\prime\times S^\prime\times L^\prime=\rho\times S\times L
+        \end{equation*}
+      #+END_SRC
+      d'où
+      #+BEGIN_SRC latex
+        \begin{equation*}
+          \rho=\rho^\prime\times\frac{L^\prime}{L}=\gamma\rho^\prime
+        \end{equation*}
+      #+END_SRC
+
+      Densité de courant $\vv{j}$
+      #+BEGIN_SRC latex
+        \begin{equation*}
+          \vv{j}=\rho\cdot\vv{u}=\rho u\vv{u}_x
+        \end{equation*}
+      #+END_SRC
+
+      Le 4-vecteur $\vv{J}=(\rho c,\vv{j})$ est un 4-vecteur de Lorentz si
+      l'égalité
+      #+BEGIN_SRC latex
+        \begin{equation*}
+          \begin{bmatrix}
+            \rho^\prime c\\j^\prime_x\\j^\prime_y\\j^\prime_z
+          \end{bmatrix}
+          =
+          \begin{bmatrix}
+            \gamma&-\beta\gamma&0&0\\
+            -\beta\gamma&\gamma&0&0\\
+            0&0&1&0\\
+            0&0&0&1
+          \end{bmatrix}
+          \cdot
+          \begin{bmatrix}
+            \rho c\\j_x\\j_y\\j_z
+          \end{bmatrix}
+        \end{equation*}
+       #+END_SRC
+      La distribution de courant est nulle dans $\mathcal{R}^\prime$ donc
+      $j^\prime_x=j^\prime_y=j^\prime_z=0$ $j_y=j_z=0$ et
+      #+BEGIN_SRC latex
+        \begin{align*}
+          \gamma\rho c - \beta\gamma j_x&= \gamma\rho c-\beta\gamma\rho u\\
+          &=\gamma\rho c-\beta\gamma\rho u\times\frac{c}{c}\\
+          &=\gamma\rho c\left(1-\beta^2\right)\\
+          &=\gamma\rho c\times\frac{1}{\gamma^2}=\frac{\rho c}{\gamma}\\
+          &=\rho^\prime c
+        \end{align*}
+      #+END_SRC
+      De même,
+      #+BEGIN_SRC latex
+        \begin{align*}
+          -\beta\gamma\rho c+\gamma j_x&=-\beta\gamma\rho c+\gamma\rho u\\
+          &=-\gamma\rho u+\gamma\rho u\\
+          &=0=j^\prime_x
+        \end{align*}
+      #+END_SRC
+
+   2) Calcul du champ électrique $\vv{E}(M)$
