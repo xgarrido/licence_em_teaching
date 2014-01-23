@@ -1,0 +1,39 @@
+\begin{tikzpicture}[y=-1cm]
+  \sf
+  \definecolor{red}{RGB}{221,42,43}
+  \definecolor{green}{RGB}{132,184,24}
+  \definecolor{blue}{RGB}{0,72,112}
+  \definecolor{orange}{RGB}{192,128,64}
+  \definecolor{gray}{RGB}{107,108,110}
+  \draw[very thick,black,<->] (5.87375,2.54) -- (5.87375,6.0325) -- (8.09625,3.81);
+  \draw[very thick,black,->] (5.87375,6.0325) -- (9.04875,6.0325);
+  \draw[very thick,black,dashed,<->] (15.39875,5.08) -- (15.39875,11.1125) -- (18.7325,7.77875);
+  \draw[very thick,black,dashed,->] (15.39875,11.1125) -- (21.59,11.1125);
+
+  \begin{scope}[xshift=-10pt]
+    \draw[very thick,black,<-] (6.97375,3.54) -- (6.97375,4.5325);
+    \path (6.2075,4.2125) node[text=black,anchor=base west]  {\large{}$\overrightarrow{B}$};
+  \end{scope}
+  \begin{scope}[xshift=10pt,yshift=-20pt]
+    \draw[very thick,black,->] (7.37375,4.5325) -- (8.09625,3.81);
+    \path (7.6075,4.8125) node[text=black,anchor=base west]  {\large{}$\overrightarrow{E}$};
+  \end{scope}
+
+  \begin{scope}[yshift=3cm,xshift=-10cm]
+    \path (20.7075,11.0125) node[text=black,anchor=base west]  {\large{}$\overrightarrow{u}$};
+    \draw[very thick,black,->] (20.39875,11.1125) -- (21.59,11.1125);
+  \end{scope}
+
+  \path (6.19125,2.2225) node[text=black,anchor=base west]   {\large{}$z$};
+  \path (8.255,3.65125) node[text=black,anchor=base west]    {\large{}$y$};
+  \path (9.525,6.0325) node[text=black,anchor=base west]     {\large{}$x$};
+  \path (15.39875,4.60375) node[text=black,anchor=base west] {\large{}$z^\prime$};
+  \path (19.05,7.62) node[text=black,anchor=base west]       {\large{}$y^\prime$};
+  \path (21.9075,11.1125) node[text=black,anchor=base west]  {\large{}$x^\prime$};
+
+\end{tikzpicture}%
+
+%% Configure (x)emacs for this file ...
+%% Local Variables:
+%% mode: latex
+%% End:

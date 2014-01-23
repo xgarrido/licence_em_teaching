@@ -86,7 +86,7 @@ ou
    champ électrique exercé sur $M_2$ par $M_1$ s'écrit
    #+BEGIN_SRC latex
      \begin{equation*}
-       \vv{E}^\prime(M_2) = -\frac{e}{4\pi\epsilon_0\,d^2}\vv{u}_{z^\prime}
+       \vv{E}^\prime(M_2) = \frac{q_1}{4\pi\epsilon_0}\times\frac{\vv{M_1M_2}}{M_1M_2^3}=-\frac{e}{4\pi\epsilon_0\,d^2}\vv{u}_{z^\prime}
      \end{equation*}
    #+END_SRC
    /i.e./ le champ électrique coulombien. Les particules étant au repos, il n'y
@@ -130,7 +130,7 @@ ou
    #+BEGIN_SRC latex
      \begin{align*}
        \vv{F}(M_2)&=-e\vv{E}(M_2)-e\vv{v}\times\vv{B}(M_2)\\
-       &=-e\gamma\vv{E}^\prime(M_2)+ev^2\vv{u}_x\times\vv{u_y}\frac{E^\prime(M_2)}{c^2}\\
+       &=-e\gamma\vv{E}^\prime(M_2)+e\gamma v^2\vv{u}_x\times\vv{u_y}\frac{E^\prime(M_2)}{c^2}\\
        &=-e\gamma\vv{E}^\prime(M_2)\left[1-\frac{v^2}{c^2}\right]\text{ avec }\gamma=\frac{1}{\surd{1-v^2/c^2}}\\
        &=-e\gamma\vv{E}^\prime(M_2)\times\frac{1}{\gamma^2}=\frac{\vv{F}^\prime(M_2)}{\gamma}
      \end{align*}
@@ -171,13 +171,13 @@ ou
 ** Fil chargé
 1) Dans $\mathcal{R}^\prime$, les charges électriques sont immobiles \equiv
    électrostatique. La charge électrique $Q^\prime$ se déduit de la densité
-   linéique de charge $\lambda_0$
+   linéique de charge $\lambda_0^\prime$
    #+BEGIN_SRC latex
      \begin{equation*}
-       Q^\prime=\lambda_0\times\ell^\prime=\rho^\prime\times S^\prime\times\ell^\prime
+       Q^\prime=\lambda_0^\prime\times\ell^\prime=\rho^\prime\times S^\prime\times\ell^\prime
      \end{equation*}
    #+END_SRC
-   d'où $\rho^\prime=\tfrac{\lambda_0}{S^\prime}=\tfrac{\lambda_0}{S}$ car la
+   d'où $\rho^\prime=\tfrac{\lambda_0^\prime}{S^\prime}=\tfrac{\lambda_0^\prime}{S}$ car la
    surface $S$ est une quantité perpendiculaire au déplacement donc
    $S=S^\prime$.
 
@@ -204,13 +204,13 @@ ou
    distribution de charge, on obtient le champ $\vv{E}^\prime(M)$
    #+BEGIN_SRC latex
      \begin{equation*}
-       \vv{E}^\prime(M)\times2\pi D^\prime\times h = \frac{\lambda_0\times h}{\epsilon_0}
+       E^\prime(M)\times2\pi D^\prime\times h = \frac{\lambda_0^\prime\times h}{\epsilon_0}
      \end{equation*}
    #+END_SRC
    soit
    #+BEGIN_SRC latex
      \begin{equation*}
-       \vv{E}^\prime(M)=\frac{\lambda_0}{2\pi\epsilon_0D^\prime}\vv{u}_r
+       \vv{E}^\prime(M)=\frac{\lambda_0^\prime}{2\pi\epsilon_0D^\prime}\vv{u}_r
      \end{equation*}
    #+END_SRC
 
@@ -287,10 +287,10 @@ ou
    2) Calcul du champ électrique $\vv{E}(M)$
 
       Densité volumique et linéique de charge
-      $\rho=\gamma\rho^\prime\rightarrow\lambda=\gamma\lambda_0$ d'où
+      $\rho=\gamma\rho^\prime\rightarrow\lambda_0=\gamma\lambda_0^\prime$ d'où
       #+BEGIN_SRC latex
         \begin{equation*}
-          \vv{E}(M)=\frac{\gamma\lambda_0}{2\pi\epsilon_0\,D}\vv{u}_r
+          \vv{E}(M)=\frac{\gamma\lambda_0^\prime}{2\pi\epsilon_0\,D}\vv{u}_r
         \end{equation*}
       #+END_SRC
 
@@ -303,10 +303,10 @@ ou
           &=\frac{\mu_0jS}{2\pi\,D}\vv{u}_\theta
         \end{align*}
       #+END_SRC
-      or $j=\rho u=\gamma\rho^\prime u=\frac{\gamma\lambda_0u}{S}$ d'où
+      or $j=\rho u=\gamma\rho^\prime u=\frac{\gamma\lambda_0^\prime u}{S}$ d'où
       #+BEGIN_SRC latex
         \begin{align*}
-          \vv{B}(M)&=\frac{\gamma\mu_0\lambda_0u}{2\pi\,D}\vv{u}_\theta\text{ avec } \mu_0\epsilon_0c^2=1\\
+          \vv{B}(M)&=\frac{\gamma\mu_0\lambda_0^\prime u}{2\pi\,D}\vv{u}_\theta\text{ avec } \mu_0\epsilon_0c^2=1\\
           \vv{B}(M)&=\frac{\gamma u}{c^2}E^\prime(M)\vv{u}_\theta
         \end{align*}
       #+END_SRC
@@ -316,7 +316,7 @@ ou
       #+BEGIN_SRC latex
         \begin{align*}
           \vv{E}_\perp&= \gamma\,\left(\vv{E}^\prime_\perp-\vv{u}\times\vv{B}^\prime_\perp\right)\\
-          \vv{E}(M)&= \gamma\,\vv{E}^\prime(M)\text{ vrai } \vv{E}(M)=\frac{\gamma\lambda_0}{2\pi\epsilon_0\,D}\vv{u}_r
+          \vv{E}(M)&= \gamma\,\vv{E}^\prime(M)\text{ vrai } \vv{E}(M)=\frac{\gamma\lambda_0^\prime}{2\pi\epsilon_0\,D}\vv{u}_r
         \end{align*}
       #+END_SRC
 
@@ -515,3 +515,56 @@ ou
       $V=\unit[0.1]{MV}$, $\gamma=1.2$ \rightarrow $\frac{\Delta R}{R_0}=0.5=50\%$
 
       $V=\unit[10]{MV}$,$\gamma=21$ \rightarrow $\frac{\Delta R}{R_0}=1.5\,10^{-5}$
+** Particule chargée dans des champs électrique et magnétique perpendiculaires
+
+#+BEGIN_CENTER
+#+ATTR_LATEX: :width 0.7\linewidth
+[[file:./figures/referentiel_relat_4.pdf]]
+#+END_CENTER
+
+Soit $\vv{E}=E\vv{u}_y$ et $\vv{B}=B\vv{u}_z$ avec $Bc>E$. Le référentiel
+$\mathcal{R}^\prime$ doit être tel que $\vv{E}^\prime=\vv{0}$ soit
+#+BEGIN_SRC latex
+  \begin{align*}
+    \vv{E}^\prime_\parallel&=\vv{E}_\parallel=\vv{0}\\
+    \vv{E}^\prime_\perp&=\gamma\left(\vv{E}_\perp+\vv{u}\times\vv{B}_\perp\right)=\vv{0}
+  \end{align*}
+#+END_SRC
+
+La première condition est vérifiée du fait que $\vv{E}$ est orthogonal au
+vecteur déplacement $\vv{u}$. La seconde condition est vérifiée si
+#+BEGIN_SRC latex
+  \begin{align*}
+    \vv{E}+\vv{u}\times\vv{B}&=\vv{0}\\
+    E\vv{u}_y + uB\,\vv{u}_x\times\vv{u}_z&=\vv{0}\\
+    E-Bu&=0\\
+    u&=\frac{E}{B}
+  \end{align*}
+#+END_SRC
+
+Pour obtenir un champ électrique nul dans le référentiel $\mathcal{R}^\prime$,
+il faut donc que la vitesse de déplacement $u$ du référentiel $\mathcal{R}^\prime$
+par rapport au référentiel $\mathcal{R}$ soit égale au rapport du champ
+électrique $E$ sur le champ magnétique $B$. La vitesse ainsi obtenue est, par
+ailleurs, inférieure à $c$ du fait que $Bc>E$.
+
+Calcul du champ magnétique $\vv{B}^\prime$ :
+#+BEGIN_SRC latex
+  \begin{align*}
+    \vv{B}^\prime_\parallel&=\vv{B}_\parallel=\vv{0}\\
+    \vv{B}^\prime_\perp&=\gamma_e\left(\vv{B}_\perp-\vv{u}\times\frac{\vv{E}_\perp}{c^2}\right)\\
+    &=\gamma_e\left(B\vv{u}_z-\frac{uE}{c^2}\vv{u}_x\times\vv{u}_y\right)\\
+    &=\gamma_e\left(B\vv{u}_z-\frac{u^2}{c^2}B\vv{u}_z\right)\\
+    &=\frac{\vv{B}}{\gamma_e}
+  \end{align*}
+#+END_SRC
+
+La force de Lorentz $\vv{F}^\prime$ qui s'applique à la particule de charge $q$
+est purement magnétique $q\vv{v}\times\vv{B}^\prime$. Le principe fondamental de
+la dynamique $\vv{F}^\prime=q\vv{v}\times\vv{B}=m\vv{a}$ se traduit par un
+trajectoire circulaire de rayon $R$
+#+BEGIN_SRC latex
+  \begin{equation*}
+    \frac{v^2}{R}=\frac{qvB^\prime}{m}\rightarrow R=\frac{mv}{qB^\prime}=\frac{\gamma_emv}{qB}
+  \end{equation*}
+#+END_SRC
