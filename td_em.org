@@ -380,7 +380,7 @@ ou
         \end{equation*}
       #+END_SRC
       soit une force répulsive.
-   2) Mécanique classique ou Newtonienne $\Upsigma\vv{F}=m\vv{a}$
+   2) Mécanique classique ou Newtonienne $\Upsigma\vv{F}=m\vv{a}$ [fn:1]
       #+BEGIN_SRC latex
         \begin{align*}
           \vv{F}^\prime&=m\vv{a}=m\ddot{R}\vv{u}_r=m\frac{\text{d}^2R}{\text{d}t^{\prime2}}\vv{u}_r\\
@@ -390,7 +390,7 @@ ou
       Solutions du type $R(t^\prime)=Ae^{\alpha t^\prime}+Be^{-\alpha t^\prime}$
       où $\alpha^2=\tfrac{q\rho_0}{2m\epsilon_0}$. Or à $t^\prime=0$, $R=R_0$ et
       $\dot{R}=0$ d'où $A\alpha-B\alpha=0\rightarrow A=B$ et $A+B=R_0\rightarrow
-      A=\tfrac{R_0}{2}$. La solution à l'équation différentielle est ainsi
+      A=\tfrac{R_0}{2}$. La solution de l'équation différentielle est ainsi
       #+BEGIN_SRC latex
         \begin{equation*}
           R(t^\prime)=\frac{R_0}{2}e^{\alpha t^\prime}+\frac{R_0}{2}e^{-\alpha t^\prime}=R_0\cosh\alpha t^\prime
@@ -451,7 +451,7 @@ ou
        #+BEGIN_SRC latex
          \begin{align*}
            \vv{F}(r=R)&=q\vv{E}(R)+q\vv{u}\times\vv{B}(R)\\
-           &=\frac{q\rho}{2\epsilon_0}\vv{R}+\frac{q\mu_0\rho u^2R}{2}\vv{u_x}\times\vv{u}_theta\\
+           &=\frac{q\rho}{2\epsilon_0}\vv{R}+\frac{q\mu_0\rho u^2R}{2}\vv{u_x}\times\vv{u}_\theta\\
            &=\frac{q\rho}{2\epsilon_0}R\vv{u}_r-\frac{q\mu_0\rho u^2R}{2}R\vv{u}_r\text{ soit avec } \mu_0\epsilon_0c^2=1\\
            &=\frac{q\rho}{2\epsilon_0}\vv{R}\left(1-\frac{u^2}{c^2}\right)\\
            &=\frac{q\rho}{2\epsilon_0\gamma^2}\vv{R}
@@ -469,14 +469,14 @@ ou
            \rho=\gamma\rho_0
          \end{equation*}
        #+END_SRC
-   4) Le principe fondamentale de la dynamique relativiste
+   4) Le principe fondamental de la dynamique en relativité
       #+BEGIN_SRC latex
         \begin{align*}
           \frac{\text{d}}{\text{d}t}\left(\gamma m\vv{u}\right)&=\Upsigma\vv{F}\\
           \gamma m\frac{\text{d}\vv{u}}{\text{d}t}+m\vv{u}\frac{\text{d}\gamma}{\text{d}t}&=\vv{F}
         \end{align*}
       #+END_SRC
-      or $\vv{F}\parallel\vv{u}_r$ imliquant que le second terme
+      or $\vv{F}\parallel\vv{u}_r$ impliquant que le second terme
       $m\vv{u}\tfrac{\text{d}\gamma}{\text{d}t}$ soit nul. Soit
       #+BEGIN_SRC latex
         \begin{align*}
@@ -485,7 +485,7 @@ ou
           \ddot{R}-\frac{q\rho}{2\epsilon_0m}\frac{R}{\gamma^3}&=0
         \end{align*}
       #+END_SRC
-      La solution à cette équation différentielle s'écrit $R(t)=R_0\cosh\zeta t$
+      La solution de cette équation différentielle s'écrit $R(t)=R_0\cosh\zeta t$
       où $\zeta^2=\frac{q\rho}{2\epsilon_0m\gamma^3}$.
 
       La variation relative de rayon $\Delta R/R_0$ devient
@@ -510,7 +510,7 @@ ou
         \end{equation*}
       #+END_SRC
 
-      Applications numériques :
+      *Applications numériques :*
 
       $V=\unit[0.1]{MV}$, $\gamma=1.2$ \rightarrow $\frac{\Delta R}{R_0}=0.5=50\%$
 
@@ -568,3 +568,9 @@ trajectoire circulaire de rayon $R$
     \frac{v^2}{R}=\frac{qvB^\prime}{m}\rightarrow R=\frac{mv}{qB^\prime}=\frac{\gamma_emv}{qB}
   \end{equation*}
 #+END_SRC
+
+* Footnotes
+
+[fn:1] le vecteur accélération $\vv{a}$ s'écrit en toute rigueur
+$(\ddot{r}-r\dot{\theta}^2)\vv{u}_r+(2\dot{r}\dot{\theta}+r\ddot{\theta})\vv{u}_\theta$. À
+défaut de vitesse angulaire $\dot{\theta}$ initiale, on supposera donc que $\dot{\theta}=0$.
