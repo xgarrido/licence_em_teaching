@@ -7,6 +7,7 @@
 
 * TD1 : Électromagnétisme & relativité
 
+** Introduction
 *Transformation de Lorentz :* $\beta=\tfrac{v}{c}$ et
  $\gamma=\tfrac{1}{\surd{1-\beta^2}}$. Si $\mathcal{R}^\prime$ est en mouvement
  rectiligne uniforme selon l'axe $x$ par rapport à $\mathcal{R}$ alors
@@ -366,7 +367,7 @@ ou
        \gamma m\frac{d\vv{v}}{dt}&=q\vv{v}\times\vv{B}
      \end{align*}
    #+END_SRC
-   soit, au facteur $\gamma=$ près, identique à l'équation du mouvement pour une
+   soit, au facteur $\gamma$ près, identique à l'équation du mouvement pour une
    particule non-relativiste. La pulsation $\omega=\tfrac{qB}{m\gamma}$ est
    inférieure à la pulsation classique d'un cyclotron
    $\omega_c=\tfrac{qB}{m}$. La trajectoire est alors circulaire autour du champ
@@ -424,6 +425,76 @@ ou
        &=\unit[0.93]{MeV}=1.55\,10^{-4}\mathcal{E}
      \end{align*}
    #+END_SRC
+
+3) Les pertes d'énergie induites par le rayonnement ont pour conséquence une
+   diminution de l'énergie totale $\mathcal{E}=\gamma mc^2$ : les particules
+   perdent de la vitesse. La variation d'énergie $d\mathcal{E}$ est égale à
+   $-\mathcal{P}_r\,dt$ soit une variation du facteur de Lorentz $\gamma$
+   #+BEGIN_SRC latex
+     \begin{align*}
+       mc^2d\gamma&=-\mathcal{P}_rdt\\
+       \frac{d\gamma}{dt}&=-\mathcal{P}_r\times\frac{1}{mc^2}\\
+       &=-\frac{q^2\gamma^4}{6\pi\epsilon_0c^3}\times\frac{v^4}{R^2}\times\frac{1}{mc^2}
+     \end{align*}
+   #+END_SRC
+   En supposant la trajectoire toujours circulaire de rayon
+   $R=\gamma\tfrac{mv}{qB}=\tfrac{\gamma v}{\omega_c}$
+   #+BEGIN_SRC latex
+     \begin{align*}
+       \frac{d\gamma}{dt}&=-\frac{q^2\gamma^4}{6\pi\epsilon_0c^3}\times\frac{v^4}{R^2}\times\frac{1}{mc^2}\\
+       &=-\frac{q^2\gamma^4}{6\pi\epsilon_0c^3}\times\frac{v^4\omega_c^2}{\gamma^2v^2}\times\frac{1}{mc^2}\\
+       &=-\frac{q^2\omega_c^2}{6\pi\epsilon_0c^3}\times\frac{1}{mc^2}\times\gamma^2v^2\\
+     \end{align*}
+   #+END_SRC
+   or $\gamma^2v^2=c^2(\gamma^2-1)$ d'où
+   #+BEGIN_SRC latex
+     \begin{align*}
+       \frac{d\gamma}{dt}&=-\frac{q^2\omega_c^2}{6\pi\epsilon_0mc^3}\times\left(\gamma^2-1\right)\\
+       \frac{d\gamma}{\gamma^2-1}&=-\frac{dt}{\tau}\text{ avec }\tau=\frac{6\pi\epsilon_0mc^3}{q^2\omega_c^2}
+     \end{align*}
+   #+END_SRC
+   En intégrant l'équation précédente, on obtient
+   #+BEGIN_SRC latex
+     \begin{align*}
+       \frac{d\gamma}{\gamma^2-1}&=-\frac{dt}{\tau}\\
+       \frac{d\gamma}{1-\gamma^2}&=\frac{dt}{\tau}\\
+       \frac{d\gamma}{1+\gamma}+\frac{d\gamma}{1-\gamma}&=2\frac{dt}{\tau}\\
+       \ln(\gamma+1)-\ln(\gamma-1)&=\frac{2t}{\tau}+\text{constante}\\
+       \ln\frac{\gamma+1}{\gamma-1}&=\frac{2t}{\tau}+\text{constante}\\
+       \frac{\gamma+1}{\gamma-1}&=Ke^{\tfrac{2t}{\tau}}
+     \end{align*}
+   #+END_SRC
+   où, à $t=0,\gamma=\gamma_0=\tfrac{1}{\surd{1-v_0^2/c^2}}$,
+   $K=\frac{\gamma_0+1}{\gamma_0-1}$. On obtient ainsi
+   #+BEGIN_SRC latex
+     \begin{align*}
+       \gamma&=\frac{Ke^{\tfrac{2t}{\tau}}+1}{Ke^{\tfrac{2t}{\tau}}-1}\\
+       &=\frac{K+e^{-\tfrac{2t}{\tau}}}{K-e^{-\tfrac{2t}{\tau}}}
+     \end{align*}
+   #+END_SRC
+   et
+   #+BEGIN_SRC latex
+     \begin{align*}
+       \mathcal{E}=\gamma mc^2=\frac{Ke^{\tfrac{2t}{\tau}}+1}{Ke^{\tfrac{2t}{\tau}}-1}\times mc^2
+     \end{align*}
+   #+END_SRC
+
+   Lorsque $t\rightarrow\infty$, $\gamma\simeq\frac{K}{K}=1$ et l'énergie totale
+   $\mathcal{E}$ est alors uniquement l'énergie de masse de la particule, la
+   vitesse et donc l'énergie cinétique sont nulles.
+
+   Le rayon $R$, proportionnel à $\gamma v$, diminue en fonction du
+   temps. Ainsi, la trajectoire demeure circulaire à chaque instant $t$ mais
+   avec un rayon de courbure chaque fois plus faible en raison des pertes
+   d'énergie par rayonnement. Les particules décrivent une spirale.
+   #+BEGIN_SRC latex
+     \centering
+     \begin{tikzpicture}[scale=0.95]
+       \draw [,domain=0:25.1327,variable=\t,smooth,samples=75]
+       plot ({\t r}: {0.002*\t*\t});
+     \end{tikzpicture}
+   #+END_SRC
+
 ** Particule chargée dans des champs électrique et magnétique perpendiculaires
 
 #+BEGIN_CENTER
