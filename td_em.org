@@ -339,6 +339,144 @@ ou
           &=E^{\prime2}-B^{\prime2}c^2\text{ puisque }B^\prime=0
         \end{align*}
       #+END_SRC
+** Particule chargée dans un champ magnétique uniforme
+1) L'impulsion relativiste s'écrit $\vv{p}=\gamma m\vv{v}$, l'énergie totale
+   étant égale à $\mathcal{E}=\gamma mc^2$. Le principe fondamental de la
+   dynamique devient
+   #+BEGIN_SRC latex
+     \begin{align*}
+       \frac{d\vv{p}}{dt}&=\Upsigma\vv{F}\\
+       \frac{d}{dt}(\gamma m\vv{v})&=q\vv{v}\times\vv{B}
+     \end{align*}
+   #+END_SRC
+
+   L'énergie totale $\mathcal{E}$ est égale à la variation temporelle de
+   puissance $\tfrac{d\mathcal{P}}{dt}$. Or
+   #+BEGIN_SRC latex
+     \begin{align*}
+       \mathcal{P}&=\vv{F}_\text{magnétique}.\vv{v}\\
+       &=(q\vv{v}\times\vv{B}).\vv{v}\\
+       &=0
+     \end{align*}
+   #+END_SRC
+   L'énergie $\mathcal{E}$ est donc constante \rightarrow $v=v_0$ et
+   $\gamma=\tfrac{1}{\surd{1-v_0^2/c^2}}$. L'équation du mouvement devient
+   #+BEGIN_SRC latex
+     \begin{align*}
+       \gamma m\frac{d\vv{v}}{dt}&=q\vv{v}\times\vv{B}
+     \end{align*}
+   #+END_SRC
+   soit, au facteur $\gamma=$ près, identique à l'équation du mouvement pour une
+   particule non-relativiste. La pulsation $\omega=\tfrac{qB}{m\gamma}$ est
+   inférieure à la pulsation classique d'un cyclotron
+   $\omega_c=\tfrac{qB}{m}$. La trajectoire est alors circulaire autour du champ
+   magnétique $\vv{B}$ et de rayon $R=\gamma\tfrac{mv_0}{qB}$.
+
+2) L'accélération dans le cas d'un mouvement uniforme circulaire est
+   l'accélération centripète d'expression
+   #+BEGIN_SRC latex
+     \begin{align*}
+       \vv{a}=\frac{d\vv{v}}{dt}=-\frac{v_0^2}{R}\vv{u}_r
+     \end{align*}
+   #+END_SRC
+   Le produit vectoriel $\vv{v}\times\vv{a}$ devient
+   #+BEGIN_SRC latex
+     \begin{align*}
+       \vv{v}\times\vv{a}=v_0\vv{u}_\theta\times-\frac{v_0^2}{R}\vv{u}_r=\frac{v_0^3}{R}\vv{u}_z
+     \end{align*}
+   #+END_SRC
+   La puissance rayonnée $\mathcal{P}_r$ se réduit à
+   #+BEGIN_SRC latex
+     \begin{align*}
+       \mathcal{P}_r&=\frac{q^2\gamma^6}{6\pi\epsilon_0c^3}\left[\vv{a}^2-\left(\frac{1}{c}\vv{v}\times\vv{a}\right)^2\right]\\
+       &=\frac{q^2\gamma^6}{6\pi\epsilon_0c^3}\left[\frac{v_0^4}{R^2}-\frac{v_0^6}{R^2c^2}\right]\\
+       &=\frac{q^2\gamma^6}{6\pi\epsilon_0c^3}\times\frac{v_0^4}{R^2}\left[1-\frac{v_0^2}{c^2}\right]\text{ avec } \frac{1}{\gamma^2}=1-\frac{v_0^2}{c^2}\\
+       &=\frac{q^2\gamma^4}{6\pi\epsilon_0c^3}\times\frac{v_0^4}{R^2}=\text{constante}
+     \end{align*}
+   #+END_SRC
+   et l'énergie rayonnée par tour $\mathcal{E}_r=\mathcal{P}_r\times T$ avec
+   $T=\tfrac{2\pi R}{v_0}$ devient
+   #+BEGIN_SRC latex
+     \begin{align*}
+       \mathcal{E}_r&=\frac{q^2\gamma^4}{6\pi\epsilon_0c^3}\times\frac{v_0^4}{R^2}\times\frac{2\pi R}{v_0}\\
+       &=\frac{q^2\gamma^4}{3\epsilon_0R}\times\frac{v_0^3}{c^3}
+     \end{align*}
+   #+END_SRC
+   Dans la limite ultra-relativiste, $v\rightarrow c$, l'énergie rayonnée est égale à
+   $\mathcal{E}_r=\frac{q^2\gamma^4}{3\epsilon_0R}$.
+
+   *Application numérique :*
+
+   Le faisceau de particules est constitué d'électrons de masse
+   $mc^2=\unit[0.511]{MeV}$. Le facteur de Lorentz $\gamma$ se déduit de l'énergie
+   totale $\mathcal{E}=\unit[6]{GeV}$
+   #+BEGIN_SRC latex
+     \begin{equation*}
+       \gamma=\frac{\mathcal{E}}{mc^2}=12\,000\text{ soit }\frac{v}{c}=0.999999996527\simeq1
+     \end{equation*}
+   #+END_SRC
+   L'énergie rayonnée exprimée en eV est alors égale à
+   #+BEGIN_SRC latex
+     \begin{align*}
+       \left.\mathcal{E}_r\right|_\text{eV}&=\frac{e^2}{3\epsilon_0R}\times\gamma^4\times\frac{1}{e}\\
+       &=\frac{1.6\,10^{-19}}{3\times8.85\,10^{-12}\times134}\times(12000)^4\\
+       &=\frac{1.6\times(1.2)^4}{3\times8.85\times1.34}\times\unit[10^{7}]{eV}\\
+       &=\unit[0.93]{MeV}=1.55\,10^{-4}\mathcal{E}
+     \end{align*}
+   #+END_SRC
+** Particule chargée dans des champs électrique et magnétique perpendiculaires
+
+#+BEGIN_CENTER
+#+ATTR_LATEX: :width 0.7\linewidth
+[[file:./figures/referentiel_relat_4.pdf]]
+#+END_CENTER
+
+Soit $\vv{E}=E\vv{u}_y$ et $\vv{B}=B\vv{u}_z$ avec $Bc>E$. Le référentiel
+$\mathcal{R}^\prime$ doit être tel que $\vv{E}^\prime=\vv{0}$ soit
+#+BEGIN_SRC latex
+  \begin{align*}
+    \vv{E}^\prime_\parallel&=\vv{E}_\parallel=\vv{0}\\
+    \vv{E}^\prime_\perp&=\gamma\left(\vv{E}_\perp+\vv{u}\times\vv{B}_\perp\right)=\vv{0}
+  \end{align*}
+#+END_SRC
+
+La première condition est vérifiée du fait que $\vv{E}$ est orthogonal au
+vecteur déplacement $\vv{u}$. La seconde condition est vérifiée si
+#+BEGIN_SRC latex
+  \begin{align*}
+    \vv{E}+\vv{u}\times\vv{B}&=\vv{0}\\
+    E\vv{u}_y + uB\,\vv{u}_x\times\vv{u}_z&=\vv{0}\\
+    E-Bu&=0\\
+    u&=\frac{E}{B}
+  \end{align*}
+#+END_SRC
+
+Pour obtenir un champ électrique nul dans le référentiel $\mathcal{R}^\prime$,
+il faut donc que la vitesse de déplacement $u$ du référentiel $\mathcal{R}^\prime$
+par rapport au référentiel $\mathcal{R}$ soit égale au rapport du champ
+électrique $E$ sur le champ magnétique $B$. La vitesse ainsi obtenue est, par
+ailleurs, inférieure à $c$ du fait que $Bc>E$.
+
+Calcul du champ magnétique $\vv{B}^\prime$ :
+#+BEGIN_SRC latex
+  \begin{align*}
+    \vv{B}^\prime_\parallel&=\vv{B}_\parallel=\vv{0}\\
+    \vv{B}^\prime_\perp&=\gamma_e\left(\vv{B}_\perp-\vv{u}\times\frac{\vv{E}_\perp}{c^2}\right)\\
+    &=\gamma_e\left(B\vv{u}_z-\frac{uE}{c^2}\vv{u}_x\times\vv{u}_y\right)\\
+    &=\gamma_e\left(B\vv{u}_z-\frac{u^2}{c^2}B\vv{u}_z\right)\\
+    &=\frac{\vv{B}}{\gamma_e}
+  \end{align*}
+#+END_SRC
+
+La force de Lorentz $\vv{F}^\prime$ qui s'applique à la particule de charge $q$
+est purement magnétique $q\vv{v}\times\vv{B}^\prime$. Le principe fondamental de
+la dynamique $\vv{F}^\prime=q\vv{v}\times\vv{B}=m\vv{a}$ se traduit par un
+trajectoire circulaire de rayon $R$
+#+BEGIN_SRC latex
+  \begin{equation*}
+    \frac{v^2}{R}=\frac{qvB^\prime}{m}\rightarrow R=\frac{mv}{qB^\prime}=\frac{\gamma_emv}{qB}
+  \end{equation*}
+#+END_SRC
 
 ** Étude de la charge d'espace
 
@@ -515,59 +653,6 @@ ou
       $V=\unit[0.1]{MV}$, $\gamma=1.2$ \rightarrow $\frac{\Delta R}{R_0}=0.5=50\%$
 
       $V=\unit[10]{MV}$,$\gamma=21$ \rightarrow $\frac{\Delta R}{R_0}=1.5\,10^{-5}$
-** Particule chargée dans des champs électrique et magnétique perpendiculaires
-
-#+BEGIN_CENTER
-#+ATTR_LATEX: :width 0.7\linewidth
-[[file:./figures/referentiel_relat_4.pdf]]
-#+END_CENTER
-
-Soit $\vv{E}=E\vv{u}_y$ et $\vv{B}=B\vv{u}_z$ avec $Bc>E$. Le référentiel
-$\mathcal{R}^\prime$ doit être tel que $\vv{E}^\prime=\vv{0}$ soit
-#+BEGIN_SRC latex
-  \begin{align*}
-    \vv{E}^\prime_\parallel&=\vv{E}_\parallel=\vv{0}\\
-    \vv{E}^\prime_\perp&=\gamma\left(\vv{E}_\perp+\vv{u}\times\vv{B}_\perp\right)=\vv{0}
-  \end{align*}
-#+END_SRC
-
-La première condition est vérifiée du fait que $\vv{E}$ est orthogonal au
-vecteur déplacement $\vv{u}$. La seconde condition est vérifiée si
-#+BEGIN_SRC latex
-  \begin{align*}
-    \vv{E}+\vv{u}\times\vv{B}&=\vv{0}\\
-    E\vv{u}_y + uB\,\vv{u}_x\times\vv{u}_z&=\vv{0}\\
-    E-Bu&=0\\
-    u&=\frac{E}{B}
-  \end{align*}
-#+END_SRC
-
-Pour obtenir un champ électrique nul dans le référentiel $\mathcal{R}^\prime$,
-il faut donc que la vitesse de déplacement $u$ du référentiel $\mathcal{R}^\prime$
-par rapport au référentiel $\mathcal{R}$ soit égale au rapport du champ
-électrique $E$ sur le champ magnétique $B$. La vitesse ainsi obtenue est, par
-ailleurs, inférieure à $c$ du fait que $Bc>E$.
-
-Calcul du champ magnétique $\vv{B}^\prime$ :
-#+BEGIN_SRC latex
-  \begin{align*}
-    \vv{B}^\prime_\parallel&=\vv{B}_\parallel=\vv{0}\\
-    \vv{B}^\prime_\perp&=\gamma_e\left(\vv{B}_\perp-\vv{u}\times\frac{\vv{E}_\perp}{c^2}\right)\\
-    &=\gamma_e\left(B\vv{u}_z-\frac{uE}{c^2}\vv{u}_x\times\vv{u}_y\right)\\
-    &=\gamma_e\left(B\vv{u}_z-\frac{u^2}{c^2}B\vv{u}_z\right)\\
-    &=\frac{\vv{B}}{\gamma_e}
-  \end{align*}
-#+END_SRC
-
-La force de Lorentz $\vv{F}^\prime$ qui s'applique à la particule de charge $q$
-est purement magnétique $q\vv{v}\times\vv{B}^\prime$. Le principe fondamental de
-la dynamique $\vv{F}^\prime=q\vv{v}\times\vv{B}=m\vv{a}$ se traduit par un
-trajectoire circulaire de rayon $R$
-#+BEGIN_SRC latex
-  \begin{equation*}
-    \frac{v^2}{R}=\frac{qvB^\prime}{m}\rightarrow R=\frac{mv}{qB^\prime}=\frac{\gamma_emv}{qB}
-  \end{equation*}
-#+END_SRC
 
 * Footnotes
 
