@@ -555,7 +555,7 @@ trajectoire circulaire de rayon $R$
 #+ATTR_LATEX: :width 0.7\linewidth
 [[file:./figures/referentiel_relat_3.pdf]]
 #+END_CENTER
-À $t=t^\prime=0$, $R=R_0$ et $\dot{R}=\dot{R}^\prime=0$
+À $t=t^\prime=0$, $R=R_0$, $\dot{R}=\dot{R}^\prime=0$ et $\dot{\theta}=0$
 
 1) dans $\mathcal{R}^\prime$, $\rho_0=$ constante
    1) Champ électrique $\vv{E}^\prime(M)$
