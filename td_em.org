@@ -4,6 +4,8 @@
 #+OPTIONS: ^:{} toc:2
 #+LATEX_HEADER: \usepackage{wasysym}
 #+LATEX_HEADER_EXTRA: \newcommand{\vv}[1]{\overrightarrow{#1}}
+#+LATEX_HEADER_EXTRA: \renewcommand{\div}{\ensuremath{\text{div}}}
+#+LATEX_HEADER_EXTRA: \newcommand{\rot}{\ensuremath{\vv{\text{rot}}}}
 
 * TD1 : Électromagnétisme & relativité
 
@@ -724,6 +726,89 @@ trajectoire circulaire de rayon $R$
       $V=\unit[0.1]{MV}$, $\gamma=1.2$ \rightarrow $\frac{\Delta R}{R_0}=0.5=50\%$
 
       $V=\unit[10]{MV}$,$\gamma=21$ \rightarrow $\frac{\Delta R}{R_0}=1.5\,10^{-5}$
+
+* TD2 : Équations de Maxwell dans le vide et champ électromagnétique
+** "Propriétés mécaniques" du champ électromagnétique
+1) Énergie
+   1) Force de Lorentz : $\vv{F}=q\vv{E}+q\vv{v}\times\vv{B}$
+
+      Équations de Maxwell :
+      | Maxwell-Gauss                   | $\div\vv{E}=\vv{\nabla}.\vv{E}=\tfrac{\rho}{\epsilon_0}$                    |
+      | Conservation du flux magnétique | $\div\vv{B}=\vv{\nabla}.\vv{B}=0$                                           |
+      | Maxwell-Faraday                 | $\rot.\vv{E}=-\tfrac{\partial\vv{B}}{\partial t}$                           |
+      | Maxwell-Ampère                  | $\rot.\vv{B}=\mu_0\vv{j}+\mu_0\epsilon_0\tfrac{\partial\vv{E}}{\partial t}$ |
+
+   2) Équation locale de conservation de la charge
+      #+BEGIN_SRC latex
+        \begin{align*}
+          \div\left(\rot.\vv{B}\right)=\vv{\nabla}.\left(\vv{\nabla}\times\vv{B}\right)&=0\\
+          \mu_0\div\vv{j}+\mu_0\epsilon_0\frac{\partial}{\partial t}\div\vv{E}&=0\\
+          \div\vv{j}+\frac{\partial\rho}{\partial t}=0
+        \end{align*}
+      #+END_SRC
+
+   3) La puissance $\mathcal{P}$ s'écrit comme le produit de la force $\vv{F}$ par la
+      vitesse de la particule\nbsp$\vv{v}$ :
+      #+BEGIN_SRC latex
+        \begin{equation*}
+          \mathcal{P}=\vv{F}.\vv{v}=q\vv{E}.\vv{v}+q(\vv{v}\times\vv{B}).\vv{v}=q\vv{E}.\vv{v}
+        \end{equation*}
+      #+END_SRC
+      La puissance par unité de volume
+      $\tfrac{d\mathcal{P}}{d\tau}=nq\vv{E}.\vv{v}$ or $\vv{j}=nq\vv{v}$ d'où
+      $\tfrac{d\mathcal{P}}{d\tau}=\vv{j}.\vv{E}$
+
+   4) $\vv{R}=\tfrac{\vv{E}\times\vv{B}}{\mu_0}$ et
+      $u=\tfrac{\epsilon_0E^2}{2}+\tfrac{B^2}{2\mu_0}$
+      #+BEGIN_SRC latex
+        \begin{align*}
+          \div\vv{R}&=\frac{1}{\mu_0}\div\left(\vv{E}\times\vv{B}\right)\text{ avec }\div\left(\vv{a}\times\vv{b}\right)=\vv{b}.\rot\vv{a}-\vv{a}.\rot\vv{b}\\
+          &=\frac{1}{\mu_0}\left(\vv{B}.\rot\vv{E}-\vv{E}.\rot\vv{B}\right)\\
+          &=\frac{1}{\mu_0}\left(\vv{B}\times-\frac{\partial\vv{B}}{\partial t}-\vv{E}\left(\mu_0\vv{j}+\mu_0\epsilon_0\frac{\partial\vv{E}}{\partial t}\right)\right)\\
+          &=\frac{1}{\mu_0}\left(-\frac{1}{2}\frac{\partial B^2}{\partial t}-\frac{\mu_0\epsilon_0}{2}\frac{\partial E^2}{\partial t}-\mu_0\vv{j}.\vv{E}\right)\\
+          &=-\frac{\partial u}{\partial t}-\vv{j}.\vv{E}
+        \end{align*}
+        \begin{align*}
+          \div\vv{R}+\frac{\partial u}{\partial t}+\vv{j}.\vv{E}=0
+        \end{align*}
+      #+END_SRC
+
+   5) $\|\vv{E}\|=E_0\cos\omega t$, $\|\vv{B}\|=B_0\sin\omega t$
+      #+BEGIN_SRC latex
+        \begin{align*}
+          \iiint_V\div\vv{R}d\tau+\iiint_V\frac{\partial u}{\partial t}d\tau+\iiint_V\vv{j}.\vv{E}d\tau=0\\
+          \iiint_V\div\vv{R}d\tau+\iiint_V\frac{\partial u}{\partial t}d\tau+\underbrace{\iiint_V\frac{d\mathcal{P}}{d\tau}d\tau}_{\mathcal{P}_{\text{EM}\rightarrow\,q}}=0\\
+        \end{align*}
+      #+END_SRC
+      En appliquant le théorème d'Ostrogradsky
+      $\oiint_S\vv{a}.d\vv{S}=\iiint_V\div\vv{a}d\tau$, on obtient
+      #+BEGIN_SRC latex
+        \begin{align*}
+          \oiint_S\vv{R}.d\vv{S}+\iiint_V\frac{\partial u}{\partial t}d\tau+\mathcal{P}_{\text{EM}\rightarrow\,q}=0
+        \end{align*}
+      #+END_SRC
+      La puissance moyenne sortante devient
+      #+BEGIN_SRC latex
+      \begin{align*}
+      \left\langle\oiint_S\vv{R}.d\vv{S}\right\rangle_T+\left\langle\iiint_V\frac{\partial u}{\partial t}d\tau\right\rangle_T+\left\langle\mathcal{P}_{\text{EM}\rightarrow\,q}\right\rangle_T=0\\
+\left\langle\mathcal{P}_\text{sortant}\right\rangle_T+\iiint_V\left\langle\frac{\partial u}{\partial t}d\tau\right\rangle_T+\left\langle\mathcal{P}_{\text{EM}\rightarrow\,q}\right\rangle_T=0
+      \end{align*}
+      #+END_SRC
+      Or
+      #+BEGIN_SRC latex
+      \begin{align*}
+\frac{\partial u}{\partial t}&=\frac{\epsilon_0E_0^2}{2}\times2\cos\omega t\sin\omega t+\frac{B_0^2}{2}\times2\cos\omega t\sin\omega t\\
+\left\langle\frac{\partial u}{\partial t}\right\rangle_T&=0
+      \end{align*}
+      #+END_SRC
+      soit
+      #+BEGIN_SRC latex
+        \begin{align*}
+          \left\langle\mathcal{P}_\text{sortant}\right\rangle_T+\left\langle\mathcal{P}_{\text{EM}\rightarrow\,q}\right\rangle_T=0\\
+          \left\langle\mathcal{P}_\text{entrant}\right\rangle_T=\left\langle\mathcal{P}_{\text{EM}\rightarrow\,q}\right\rangle_T
+        \end{align*}
+      #+END_SRC
+
 
 * Footnotes
 
