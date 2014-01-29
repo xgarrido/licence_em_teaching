@@ -729,7 +729,7 @@ trajectoire circulaire de rayon $R$
 
 * TD2 : Équations de Maxwell dans le vide et champ électromagnétique
 ** "Propriétés mécaniques" du champ électromagnétique
-1) Énergie
+1) *Énergie*
    1) Force de Lorentz : $\vv{F}=q\vv{E}+q\vv{v}\times\vv{B}$
 
       Équations de Maxwell :
@@ -773,7 +773,7 @@ trajectoire circulaire de rayon $R$
         \end{align*}
       #+END_SRC
 
-   5) $\|\vv{E}\|=E_0\cos\omega t$, $\|\vv{B}\|=B_0\sin\omega t$
+   5) $\vv{E}=\vv{E}_0\cos\omega t$, $\vv{B}=\vv{B_0}\sin\omega t$
       #+BEGIN_SRC latex
         \begin{align*}
           \iiint_V\div\vv{R}d\tau+\iiint_V\frac{\partial u}{\partial t}d\tau+\iiint_V\vv{j}.\vv{E}d\tau=0\\
@@ -789,17 +789,18 @@ trajectoire circulaire de rayon $R$
       #+END_SRC
       La puissance moyenne sortante devient
       #+BEGIN_SRC latex
-      \begin{align*}
-      \left\langle\oiint_S\vv{R}.d\vv{S}\right\rangle_T+\left\langle\iiint_V\frac{\partial u}{\partial t}d\tau\right\rangle_T+\left\langle\mathcal{P}_{\text{EM}\rightarrow\,q}\right\rangle_T=0\\
-\left\langle\mathcal{P}_\text{sortant}\right\rangle_T+\iiint_V\left\langle\frac{\partial u}{\partial t}d\tau\right\rangle_T+\left\langle\mathcal{P}_{\text{EM}\rightarrow\,q}\right\rangle_T=0
-      \end{align*}
+        \begin{align*}
+          \left\langle\oiint_S\vv{R}.d\vv{S}\right\rangle_T+\left\langle\iiint_V\frac{\partial u}{\partial t}d\tau\right\rangle_T+\left\langle\mathcal{P}_{\text{EM}\rightarrow\,q}\right\rangle_T=0\\
+          \left\langle\mathcal{P}_\text{sortant}\right\rangle_T+\iiint_V\left\langle\frac{\partial u}{\partial t}d\tau\right\rangle_T+\left\langle\mathcal{P}_{\text{EM}\rightarrow\,q}\right\rangle_T=0
+        \end{align*}
       #+END_SRC
       Or
       #+BEGIN_SRC latex
-      \begin{align*}
-\frac{\partial u}{\partial t}&=\frac{\epsilon_0E_0^2}{2}\times2\cos\omega t\sin\omega t+\frac{B_0^2}{2}\times2\cos\omega t\sin\omega t\\
-\left\langle\frac{\partial u}{\partial t}\right\rangle_T&=0
-      \end{align*}
+        \begin{align*}
+          \frac{\partial u}{\partial t}&=\frac{\epsilon_0E_0^2}{2}\times2\cos\omega t\sin\omega t+\frac{B_0^2}{2\mu_0}\times2\cos\omega t\sin\omega t\\
+          \left\langle\frac{\partial u}{\partial t}\right\rangle_T&=\epsilon_0E_0^2\left\langle\sin2\omega t\right\rangle_T+\frac{1}{\mu_0}B_0^2\left\langle\sin2\omega t\right\rangle_T\\
+          \left\langle\frac{\partial u}{\partial t}\right\rangle_T&=0
+        \end{align*}
       #+END_SRC
       soit
       #+BEGIN_SRC latex
@@ -809,7 +810,79 @@ trajectoire circulaire de rayon $R$
         \end{align*}
       #+END_SRC
 
+2) *Impulsion*
 
+   #+BEGIN_CENTER
+   #+ATTR_LATEX: :width 0.6\linewidth
+   [[file:onde_plane.pdf]]
+   #+END_CENTER
+
+   Onde plane progressive $\vv{B}=\tfrac{\vv{u}_z\times\vv{E}}{c}$
+
+   1)
+         #+BEGIN_SRC latex
+           \begin{align*}
+             \mathcal{P}&=\frac{dW}{dt}\text{ avec }\mathcal{P}=q\vv{E}.\vv{v}\\
+             W&=\int_0^Tq\vv{E}.\vv{v}dt
+           \end{align*}
+         #+END_SRC
+
+   2) La variation d'impulsion $\vv{p}$ par unité de temps est égale à la force
+      de Lorentz $\vv{F}$
+      #+BEGIN_SRC latex
+        \begin{align*}
+          \frac{d\vv{p}}{dt}=\vv{F}
+        \end{align*}
+      #+END_SRC
+      d'où
+      #+BEGIN_SRC latex
+        \begin{align*}
+          \vv{p}&=\int_0^T\vv{F}dt=\int_0^Tq\left(\vv{E}+\vv{v}\times\vv{B}\right)dt\\
+          &=\int_0^Tq\vv{E}dt+\int_0^Tq\vv{v}\times\left(\frac{\vv{u}_z\times\vv{E}}{c}\right)dt
+        \end{align*}
+      #+END_SRC
+      La première intégrale est nulle car $\vv{E}=\vv{E}_0\cos\omega t$. Pour
+      déterminer l'expression de la seconde intégrale, on utilise la formule
+      ci-dessous
+      #+BEGIN_SRC latex
+        \begin{align*}
+          \vv{a}\times\left(\vv{b}\times\vv{c}\right)=\left(\vv{a}.\vv{c}\right)\vv{b}-\left(\vv{a}.\vv{b}\right)\vv{c}
+        \end{align*}
+      #+END_SRC
+      L'impulsion $\vv{p}$ devient
+      #+BEGIN_SRC latex
+        \begin{align*}
+          \vv{p}&=\int_0^T\frac{q}{c}\left(\vv{v}.\vv{E}\right)\vv{u}_zdt-\int_0^T\frac{q}{c}\left(\vv{v}.\vv{u}_z\right)\vv{E}dt
+        \end{align*}
+      #+END_SRC
+      or $\vv{v}.\vv{u}_z=0$ car la particule est maintenue dans le plan
+      $z=0$. L'expression de l'impulsion se réduit donc
+      #+BEGIN_SRC latex
+        \begin{align*}
+          \vv{p}=\int_0^T\frac{q}{c}\left(\vv{v}.\vv{E}\right)\vv{u}_zdt=\frac{W}{c}\vv{u}_z
+        \end{align*}
+      #+END_SRC
+
+   3) L'énergie d'un photon $E=h\nu=\tfrac{hc}{\lambda}$ est égale à $pc$ /via/
+      la relation de de Broglie reliant onde et matière $\lambda=\tfrac{h}{p}$
+
+3) *Moment cinétique* $\sigma_z=\vv{OM}\times\vv{p}$
+   1) $[\sigma_z]=[L]\times[M][L][T^{-1}]=[M]\times[L^2]\times[T^{-1}]$ et
+      $[W]=[M][L^2][T^{-2}]$ d'où
+      #+BEGIN_SRC latex
+        \begin{align*}
+          [W]&=\frac{[\sigma_z]}{[T]}\\
+          W&=k\frac{\sigma_z}{T}
+        \end{align*}
+      #+END_SRC
+   2) $\vv{p}=\tfrac{W}{c}\vv{u}_z$
+      #+BEGIN_SRC latex
+        \begin{align*}
+          \left.\vv{\sigma}_z\right|_O&=\vv{OM}\times\vv{p}=\vv{OM}\times\frac{W}{c}\vv{u}_z\\
+          \left.\vv{\sigma}_z\right|_A&=\vv{AM}\times\vv{p}=\underbrace{\vv{AO}}_{\parallel\vv{u}_z}\times\frac{W}{c}\vv{u}_z+\vv{OM}\times\frac{W}{c}\vv{u}_z\\
+          &=\left.\vv{\sigma}_z\right|_O
+        \end{align*}
+      #+END_SRC
 * Footnotes
 
 [fn:1] le vecteur accélération $\vv{a}$ s'écrit en toute rigueur

@@ -1,0 +1,45 @@
+\begin{tikzpicture}[x={(0.866cm,-0.5cm)}, y={(0.866cm,0.5cm)}, z={(0cm,1cm)}, scale=1.0,
+    %Option for nice arrows
+    >=stealth, %
+    inner sep=0pt, outer sep=2pt,%
+    axis/.style={thick,->},
+    wave/.style={thick,color=#1,smooth},
+    polaroid/.style={fill=black!50!white, opacity=0.3},
+  ]
+  % Colors
+  \definecolor{red}{RGB}{221,42,43}
+  \definecolor{green}{RGB}{132,184,24}
+  \definecolor{blue}{RGB}{0,72,112}
+  \definecolor{orange}{RGB}{192,128,64}
+  \definecolor{gray}{RGB}{107,108,110}
+
+  % Frame
+  \coordinate (O) at (0, 0, 0);
+  \draw[axis] (O) -- +(8,  0,   0) node [right] {z};
+  \draw[axis] (6,0,0) -- +(0,  2.5, 0) node [right] {x};
+  \draw[axis] (6,0,0) -- +(0,  0,   2) node [above] {y};
+
+  \filldraw[polaroid] (6,-2,-1.5) -- (6,-2,1.5) -- (6,2,1.5) -- (6,2,-1.5) -- (6,-2,-1.5);
+
+  \begin{scope}
+    \scriptsize
+    \draw[thick,->] (6,0,0) node[anchor=south, yshift=5pt, xshift=-5pt]{$O$} -- (6,+0.5,+0.5)node[anchor=south,xshift=2pt]{$M(m,q)$};;
+  \end{scope}
+
+  % Electric field vectors
+  \draw[wave=blue, variable=\x,samples at={0,0.25,...,6}]
+  plot (\x,{sin(2*\x r)},0)node[anchor=north]{$\overrightarrow{E}$};
+
+  %Polarized light between polaroid and thin section
+  \foreach \x in{0, 0.25,...,6}
+  \draw[color=blue,->] (\x,0,0) -- (\x,{sin(2*\x r)},0);
+
+  \draw[wave=green, variable=\x, samples at={0.0,0.25,...,6}]
+  plot (\x, {0.26*0.26*sin(2*(\x) r)},  {0.966*0.26*sin(2*(\x) r)}) node[anchor=north]{$\overrightarrow{B}$};
+
+  \foreach \x in{0.0,0.25,...,6} {
+    \draw[color=green,->] (\x, 0, 0) --
+    (\x, {0.26*0.26*sin(2*(\x) r)}, {0.966*0.26*sin(2*(\x) r)});
+  }
+
+\end{tikzpicture}
