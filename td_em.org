@@ -489,6 +489,7 @@ ou
    temps. Ainsi, la trajectoire demeure circulaire à chaque instant $t$ mais
    avec un rayon de courbure chaque fois plus faible en raison des pertes
    d'énergie par rayonnement. Les particules décrivent une spirale.
+
    #+BEGIN_SRC latex
      \centering
      \begin{tikzpicture}[scale=0.95]
@@ -820,12 +821,12 @@ trajectoire circulaire de rayon $R$
    Onde plane progressive $\vv{B}=\tfrac{\vv{u}_z\times\vv{E}}{c}$
 
    1)
-         #+BEGIN_SRC latex
-           \begin{align*}
-             \mathcal{P}&=\frac{dW}{dt}\text{ avec }\mathcal{P}=q\vv{E}.\vv{v}\\
-             W&=\int_0^Tq\vv{E}.\vv{v}dt
-           \end{align*}
-         #+END_SRC
+            #+BEGIN_SRC latex
+              \begin{align*}
+                \mathcal{P}&=\frac{dW}{dt}\text{ avec }\mathcal{P}=q\vv{E}.\vv{v}\\
+                W&=\int_0^Tq\vv{E}.\vv{v}dt
+              \end{align*}
+            #+END_SRC
 
    2) La variation d'impulsion $\vv{p}$ par unité de temps est égale à la force
       de Lorentz $\vv{F}$
@@ -852,21 +853,22 @@ trajectoire circulaire de rayon $R$
       L'impulsion $\vv{p}$ devient
       #+BEGIN_SRC latex
         \begin{align*}
-          \vv{p}&=\int_0^T\frac{q}{c}\left(\vv{v}.\vv{E}\right)\vv{u}_zdt-\int_0^T\frac{q}{c}\left(\vv{v}.\vv{u}_z\right)\vv{E}dt
+          \vv{p}&=\int_0^T\frac{q}{c}\left(\vv{v}.\vv{E}\right)\vv{u}_z\,dt-\int_0^T\frac{q}{c}\left(\vv{v}.\vv{u}_z\right)\vv{E}dt
         \end{align*}
       #+END_SRC
       or $\vv{v}.\vv{u}_z=0$ car la particule est maintenue dans le plan
       $z=0$. L'expression de l'impulsion se réduit donc
       #+BEGIN_SRC latex
         \begin{align*}
-          \vv{p}=\int_0^T\frac{q}{c}\left(\vv{v}.\vv{E}\right)\vv{u}_zdt=\frac{W}{c}\vv{u}_z
+          \vv{p}=\int_0^T\frac{q}{c}\left(\vv{v}.\vv{E}\right)\vv{u}_z\,dt=\frac{W}{c}\vv{u}_z
         \end{align*}
       #+END_SRC
 
    3) L'énergie d'un photon $E=h\nu=\tfrac{hc}{\lambda}$ est égale à $pc$ /via/
       la relation de de Broglie reliant onde et matière $\lambda=\tfrac{h}{p}$
 
-3) *Moment cinétique* $\sigma_z=\vv{OM}\times\vv{p}$
+3) *Moment cinétique* $\vv{\sigma}_0=\vv{r}\times\vv{p}=\vv{OM}\times\vv{p}$ et
+   $\sigma_z=\vv{\sigma}_0.\vv{u}_z$
    1) $[\sigma_z]=[L]\times[M][L][T^{-1}]=[M]\times[L^2]\times[T^{-1}]$ et
       $[W]=[M][L^2][T^{-2}]$ d'où
       #+BEGIN_SRC latex
@@ -878,11 +880,110 @@ trajectoire circulaire de rayon $R$
    2) $\vv{p}=\tfrac{W}{c}\vv{u}_z$
       #+BEGIN_SRC latex
         \begin{align*}
-          \left.\vv{\sigma}_z\right|_O&=\vv{OM}\times\vv{p}=\vv{OM}\times\frac{W}{c}\vv{u}_z\\
-          \left.\vv{\sigma}_z\right|_A&=\vv{AM}\times\vv{p}=\underbrace{\vv{AO}}_{\parallel\vv{u}_z}\times\frac{W}{c}\vv{u}_z+\vv{OM}\times\frac{W}{c}\vv{u}_z\\
-          &=\left.\vv{\sigma}_z\right|_O
+          \vv{\sigma}_O&=\vv{OM}\times\vv{p}=\vv{OM}\times\frac{W}{c}\vv{u}_z\\
+          \vv{\sigma}_A&=\vv{AM}\times\vv{p}=\underbrace{\vv{AO}}_{\parallel\vv{u}_z}\times\frac{W}{c}\vv{u}_z+\vv{OM}\times\frac{W}{c}\vv{u}_z\\
+          &=\vv{\sigma}_O=\vv{\sigma}
         \end{align*}
       #+END_SRC
+   3) Expression de $\sigma_z$
+      #+BEGIN_SRC latex
+        \begin{align*}
+          \vv{\sigma}&=\vv{OM}\times\vv{p}\text{ or }\frac{d\vv{p}}{dt}=\vv{F}=q\vv{E}+q\vv{v}\times\vv{B}+\vv{F}_\text{ext.}\\
+          d\vv{\sigma}&=\vv{OM}\times d\vv{p}\\
+          d\sigma_z&=d\vv{\sigma}.\vv{u}_z\\
+          \sigma_z&=\left[\underbrace{\int_0^T\vv{OM}\times q\vv{E}dt}_{\text{\ding{192}}}+\underbrace{\int_0^T\vv{OM}\times q(\vv{v}\times\vv{B})dt}_{\text{\ding{193}}}+\underbrace{\int_0^T\vv{OM}\times\vv{F}_\text{ext.}\,dt}_{\text{\ding{194}}}\right].\vv{u}_z
+        \end{align*}
+      #+END_SRC
+
+      Calcul de \ding{192}
+      #+BEGIN_SRC latex
+        \begin{align*}
+          \text{\ding{192}}&=q\int_0^T\left(\vv{OM}\times\vv{E}\right).\vv{u}_z\,dt\\
+          &=q\int_0^T\left(\vv{E}\times\vv{u}_z\right).\vv{OM}\,dt\\
+          &=-q\int_0^T\vv{OM}.\left(\vv{u}_z\times\vv{E}(M,t)\right)\,dt
+        \end{align*}
+      #+END_SRC
+      or $\vv{E}(M,t)=\vv{E}(O,t)$ car l'onde EM est plane et le calcul se fait
+      en $z=0$
+
+      Calcul de \ding{193}
+      #+BEGIN_SRC latex
+        \begin{align*}
+          \text{\ding{193}}&=q\int_0^T\vv{OM}\times\underbrace{\left(\vv{v}\times\vv{B}\right)}_{\vv{v}\perp\vv{B}=0}.\vv{u}_zdt
+        \end{align*}
+      #+END_SRC
+      ou
+      #+BEGIN_SRC latex
+        \begin{align*}
+          \vv{a}\times\left(\vv{b}\times\vv{c}\right)=\left(\vv{a}.\vv{c}\right).\vv{b}-\left(\vv{a}.\vv{b}\right).\vv{c}
+        \end{align*}
+        \begin{align*}
+          \text{\ding{193}}&=q\left[\int_0^T\left(\vv{OM}.\vv{B}\right).\underbrace{\vv{v}.\vv{u}_z}_{\vv{v}\perp\vv{u}_z=0}dt-\int_0^T\left(\vv{OM}.\vv{v}\right).\underbrace{\vv{B}.\vv{u}_z}_{\vv{B}\perp\vv{u}_z=0}dt\right]
+        \end{align*}
+      #+END_SRC
+
+      Calcul de \ding{194} : $\vv{F}_\text{ext.}\perp\vv{u}_z$ sinon la
+      particule ne serait plus maintenue dans le plan $z=0$ d'où
+      $\vv{OM}\times\vv{F}_\text{ext.}=0$.
+
+      Seul le champ électrique $\vv{E}$ de l'onde EM contribue au moment
+      cinétique cédé à la particule $q$
+      #+BEGIN_SRC latex
+        \begin{align*}
+          \sigma_z=-q\int_0^T\vv{OM}.\left(\vv{u}_z\times\vv{E}(O,t)\right)dt
+        \end{align*}
+      #+END_SRC
+   4) Polarisation circulaire gauche
+      #+BEGIN_SRC latex
+        \begin{align*}
+          \vv{E}(O,t)=
+          \begin{pmatrix}
+            E_0\cos\omega t\\E_0\sin\omega t\\0
+          \end{pmatrix}
+        \end{align*}
+        \begin{align*}
+          \frac{d\vv{E}(O,t)}{dt}=
+          \begin{pmatrix}
+            -E_0\sin\omega t\\E_0\cos\omega t\\0
+          \end{pmatrix}
+        \end{align*}
+        \begin{align*}
+          \vv{u}_z\times\vv{E}(O,t)=
+          \begin{pmatrix}
+            0\\0\\1
+          \end{pmatrix}
+          \times
+          \begin{pmatrix}
+            E_0\cos\omega t\\E_0\sin\omega t\\0
+          \end{pmatrix}
+          =
+          \begin{pmatrix}
+            -E_0\sin\omega t\\E_0\cos\omega t\\0
+          \end{pmatrix}
+          =\frac{1}{\omega}\,\frac{d\vv{E}(O,t)}{dt}
+        \end{align*}
+      #+END_SRC
+      d'où
+      #+BEGIN_SRC latex
+        \begin{align*}
+          \sigma_z=-\frac{q}{\omega}\int_0^T\vv{OM}.\frac{d\vv{E}(O,t)}{dt}dt
+        \end{align*}
+      #+END_SRC
+      En intégrant par partie /i.e./ $(uv)^\prime=u^\prime v+v^\prime
+      u\rightarrow\int u^\prime v=[uv]-\int v^\prime u$
+      #+BEGIN_SRC latex
+        \begin{align*}
+          \sigma_z&=-\frac{q}{\omega}\left[\underbrace{\left[\vv{OM}.\vv{E}\right]_0^T}_{\vv{E}(O,0)=\vv{E}(O,T)}-\int_0^T\frac{d\vv{OM}}{dt}.\vv{E}(O,t)dt\right]\\
+          &=\frac{q}{\omega}\int_0^T\vv{v}.\vv{E}(O,t)\,dt=\frac{W}{\omega}
+        \end{align*}
+      #+END_SRC
+
+      $\omega=\tfrac{2\pi}{T}$ d'où $W=2\pi\frac{\sigma_z}{T}=\hbar\omega$ soit
+      $\sigma_z=+\hbar$. Sur une période $T$, le champ EM cède à la particule
+      $q$, un moment cinétique égal à $+\hbar$
+   5) Le moment cinétique de photons polarisé circulairement droite est alors
+      $-\hbar$, et $\sigma_z=0$ pour une polarisation rectiligne (rectligne
+      \equiv circulaire droite + circulaire gauche)
 * Footnotes
 
 [fn:1] le vecteur accélération $\vv{a}$ s'écrit en toute rigueur
