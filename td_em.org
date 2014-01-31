@@ -997,6 +997,79 @@ trajectoire circulaire de rayon $R$
       $-\hbar$, et $\sigma_z=0$ pour une polarisation rectiligne (rectiligne
       \equiv circulaire droite + circulaire gauche)
 
+** Interprétation corpusculaire de la pression de radiation
+
+#+BEGIN_CENTER
+#+ATTR_LATEX: :width 0.5\linewidth
+ [[./pression_radiation.pdf]]
+#+END_CENTER
+
+#+BEGIN_SRC latex
+  \begin{align*}
+    \vv{F}=\frac{d\vv{p}}{dt}, P=\frac{F}{S}=\frac{d\vv{p}/dt}{S}
+  \end{align*}
+#+END_SRC
+
+1) Onde plane monochromatique :
+   $\vv{B}=\frac{\vv{k}\times\vv{E}}{\omega}=\frac{\vv{u_k}\times\vv{E}}{c}=\frac{E}{c}\vv{u}_B$. La
+   densité volumique d'énergie électromagnétique $u$ est égale à
+   #+BEGIN_SRC latex
+     \begin{align*}
+       u&=\frac{\epsilon_0E^2}{2}+\frac{B^2}{2\mu_0}\\
+       u&=\frac{\epsilon_0E^2}{2}+\frac{E^2}{2\mu_0c^2}\\
+       u&=\epsilon_0E^2\\
+       \left\langle u\right\rangle_T&=\left\langle\epsilon_0E_0^2\cos^2\left(\vv{k}.\vv{r}-\omega t\right)\right\rangle_T\\
+       \left\langle u\right\rangle_T&=\frac{\epsilon_0E_0^2}{2}
+     \end{align*}
+   #+END_SRC
+
+   L'intensité $I$ est par définition la puissance moyenne par unité de surface
+   $S$ [fn:3]
+   #+BEGIN_SRC latex
+     \begin{align*}
+       I&=\frac{P_W}{S}=\frac{dE}{Sdt}\text{ où }\\
+       dE&=\langle u\rangle\times S\times c\times dt\\
+       I&=\frac{\langle u\rangle\times Scdt}{Sdt}=\langle u\rangle\times c
+     \end{align*}
+   #+END_SRC
+2) Calcul de la densité $N$ de photons dans le faisceau
+   #+BEGIN_SRC latex
+     \begin{align*}
+       \langle u\rangle&=N\times E=N\times \frac{hc}{\lambda}\\
+       \frac{I}{c}&=N\times \frac{hc}{\lambda}\\
+       N&=\frac{I\lambda}{hc^2}=\frac{9\,10^4\times5.15\,10^{-7}}{6.62\,10^{-34}\times(3\,10^8)^2}=\unit[7.8\,10^{14}]{photons/m^3}
+     \end{align*}
+   #+END_SRC
+
+3) Choc élastique $E_1=E_2$ d'où $p_1c=p_2c\rightarrow p_1=p_2=p$. La
+   conservation de l'impulsion
+   #+BEGIN_SRC latex
+     \begin{align*}
+       \vv{p}_1&=\vv{p}_2+\Updelta\vv{p}_0\\
+       \Updelta\vv{p_0}&=\vv{p}_1 - \vv{p}_2=2p\cos\theta\vv{u}_z\\
+       \|\Updelta\vv{p}_0\|&=\frac{2h}{\lambda}\cos\theta=\frac{2\times6.62\,10^{-34}}{5.15\,10^{-7}}\frac{\sqrt3}{2}=\unit[2.08\,10^{-27}]{kg.m.s^{-1}}
+     \end{align*}
+   #+END_SRC
+
+4)
+   #+BEGIN_SRC latex
+     \begin{align*}
+       x&=\frac{N\times V_\text{cylindre}}{S_\text{projetée}\times dt}\text{ où }S_\text{projetée}=S_\text{cylindre}/\cos\theta\\
+       &=\frac{N\times S_\text{cylindre}\times\cos\theta cdt}{S_\text{cylindre}\times dt}\\
+       &=Nc\cos\theta=\frac{I\lambda}{hc}\cos\theta\\
+       &=\frac{9\,10^4\times5.15\,10^{-7}}{6.62\,10^{-34}\times3\,10^8}\cos 30=\unit[2\,10^{23}]{photon.m^{-2}.s^{-1}}
+     \end{align*}
+   #+END_SRC
+
+5)
+   #+BEGIN_SRC latex
+     \begin{align*}
+       P&=\frac{d\vv{p}}{Sdt}=x\cdot\Updelta p_0\\
+       &=\frac{I\lambda}{hc}\cos\theta\times\frac{2h}{\lambda}\cos\theta\\
+       &=\frac{2I\cos^2\theta}{c}=\frac{2\times9\,10^4\times\cos^230}{3\,10^8}=\unit[4.5\,10^{-4}]{N/m^2}\\
+       &\text{ avec }I=\frac{\epsilon_0E_0^2c}{2}, P=\epsilon_0E_0^2\cos^2\theta
+     \end{align*}
+   #+END_SRC
 * Électrostatique dans le vide
 ** Condensateur cylindrique
 
@@ -1060,3 +1133,7 @@ défaut de vitesse angulaire $\dot{\theta}$ initiale, on supposera donc que $\do
 maintenir la particule dans le plan $z=0$. Elles sont donc soit comprises dans
 le plan $(xOy)$ soit opposées vectoriellement $\Upsigma\vv{F}=\vv{0}$. Le moment
 cinétique induit par ces forces est donc nul du fait de $\vv{OM}\times\vv{F}_\text{ext.}=\vv{0}$
+
+[fn:3] l'intensité $I$ est également égale au vecteur de Poynting moyen
+$I=\|\langle\vv{R}\rangle\|$ avec $\vv{R}=\frac{\vv{E}\times\vv{B}}{\mu_0}$ et
+$\vv{B}=\frac{\vv{k}\times\vv{E}}{\omega}$

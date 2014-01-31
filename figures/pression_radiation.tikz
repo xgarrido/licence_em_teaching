@@ -1,0 +1,61 @@
+\begin{tikzpicture}[
+    media/.style={font={\footnotesize\sffamily}},
+    wave/.style={
+      decorate,decoration={snake,post length=1.4mm,amplitude=2mm,
+        segment length=2mm},thick},
+    interface/.style={
+      % The border decoration is a path replacing decorator.
+      % For the interface style we want to draw the original path.
+      % The postaction option is therefore used to ensure that the
+      % border decoration is drawn *after* the original path.
+      postaction={draw,decorate,decoration={border,angle=-45,
+          amplitude=0.3cm,segment length=2mm}}},
+  ]
+  \sf
+  % Colors
+  \definecolor{red}{RGB}{221,42,43}
+  \definecolor{green}{RGB}{132,184,24}
+  \definecolor{blue}{RGB}{0,72,112}
+  \definecolor{orange}{RGB}{192,128,64}
+  \definecolor{gray}{RGB}{107,108,110}
+
+  % Round rectangle
+  \fill[gray!10,rounded corners] (-3,-2) rectangle (3,0);
+  %% % Interface
+  \draw[gray,line width=.5pt,interface](-3,0)--(3,0);
+  % Vertical dashed line
+  \draw[dashed,gray](0,-2)--(0,3);
+  % Coordinates system
+  %%\draw(0,0.15)node[above]{$x$};
+  \draw[<->,line width=1pt] (1,0) node[above]{$y$}-|(0,-1) node[left]{$z$};
+  % Incidence
+  \draw[->,wave]
+  (135:3.2cm)--(135:2.5cm)node[right]{$\overrightarrow{p}_1$};
+  \draw[gray](0:0cm)--(135:2cm);
+  \path (0,0)++(113:1cm)node{$\theta$};
+  \draw[->](0,0.75)arc(90:135:.75cm);
+  %% % Transmission
+  %% \draw[->,wave]
+  %% (-30:2.5cm)--(-30:3.2cm)node[right]{$f^+$};
+  %% \draw[gray](0:0cm)--(-30:2cm);
+  %% \path (0,0)++(-60:1cm)node{$\theta$};
+  %% \draw[->] (0,-0.75) arc (-90:-30:.75cm);
+  % Reflection
+  \draw[->,wave]
+  (45:2.5cm)--(45:3.2cm)node[right]{$\overrightarrow{p}_2$};
+  %% \path (0,0)++(-22:1.75cm) node{$\psi$};
+  \draw[gray](0:0cm)--(45:2cm);
+  \path (0,0)++(67:1cm)node{$\theta$};
+  \draw[->](0,0.75)arc(90:45:.75cm);
+
+  %% % $x$ axis
+  %% \filldraw[fill=white,line width=1pt](0,0)circle(.12cm);
+  %% \draw[line width=.6pt] (0,0)
+  %% +(-135:.12cm) -- +(45:.12cm)
+  %% +(-45:.12cm) -- +(135:.12cm);
+
+\end{tikzpicture}
+%% Configure (x)emacs for this file ...
+%% Local Variables:
+%% mode: latex
+%% End:
