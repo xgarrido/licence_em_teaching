@@ -1,0 +1,48 @@
+\begin{tikzpicture}[
+  >=stealth, %
+  inner sep=0pt, outer sep=2pt,%
+  axis/.style={thick,->},
+  cylinder/.style={thick}
+]
+  \sf
+  % Colors
+  \definecolor{red}{RGB}{221,42,43}
+  \definecolor{green}{RGB}{132,184,24}
+  \definecolor{blue}{RGB}{0,72,112}
+  \definecolor{orange}{RGB}{192,128,64}
+  \definecolor{gray}{RGB}{107,108,110}
+
+  \fill[top color=gray!50!black,bottom color=gray!10,middle
+    color=gray,shading=axis,opacity=0.25] (0,0) circle (2cm and 0.5cm);
+  \fill[left color=gray!50!black,right color=gray!50!black,middle
+    color=gray!50,shading=axis,opacity=0.25] (2,0) -- (2,6) arc (360:180:2cm and
+  0.5cm) -- (-2,0) arc (180:360:2cm and 0.5cm);
+  \fill[top color=gray!90!,bottom color=gray!2,middle color=gray!30,shading=axis,opacity=0.25] (0,6) circle (2cm and 0.5cm);
+  \draw (-2,6) -- (-2,0) arc (180:360:2cm and 0.5cm) -- (2,6) ++ (-2,0) circle (2cm and 0.5cm);
+  \draw[densely dashed] (-2,0) arc (180:0:2cm and 0.5cm);
+
+  \begin{scope}[scale=1.2,yshift=-2cm]
+    \fill[top color=gray!50!black,bottom color=gray!10,middle
+      color=gray,shading=axis,opacity=0.25] (0,0) circle (2cm and 0.5cm);
+    \fill[left color=gray!50!black,right color=gray!50!black,middle
+      color=gray!50,shading=axis,opacity=0.25] (2,0) -- (2,6) arc (360:180:2cm and
+    0.5cm) -- (-2,0) arc (180:360:2cm and 0.5cm);
+    \fill[top color=gray!90!,bottom color=gray!2,middle color=gray!30,shading=axis,opacity=0.25] (0,6) circle (2cm and 0.5cm);
+    \draw (-2,6) -- (-2,0) arc (180:360:2cm and 0.5cm) -- (2,6) ++ (-2,0) circle (2cm and 0.5cm);
+    \draw[densely dashed] (-2,0) arc (180:0:2cm and 0.5cm);
+    \draw[axis] (0,6) -- (2,6) node[anchor=west] {$b$};
+  \end{scope}
+
+  %% Axis
+  \draw[axis] (0,-2) -- (0,+8) node[anchor=south] {$z$};
+  \draw[axis] (0,+1.5) -- (+5,+1.5) node[anchor=west] {$y$};
+  \draw[axis,rotate around={200:(0,1.5)}] (0,+1.5) -- (+5,+1.5) node[anchor=north west] {$x$};
+
+  \draw[axis] (0,6) -- (2,6) node[anchor=west] {$a$};
+
+\end{tikzpicture}%
+
+%% Configure (x)emacs for this file ...
+%% Local Variables:
+%% mode: latex
+%% End:

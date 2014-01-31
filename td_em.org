@@ -747,6 +747,22 @@ trajectoire circulaire de rayon $R$
           \div\vv{j}+\frac{\partial\rho}{\partial t}=0
         \end{align*}
       #+END_SRC
+      *Remarques*
+
+      - En régime stationnaire, $\div\vv{j}=0$ /i.e./ champ à flux conservatif,
+        on retrouve la loi des n\oe uds de Kirchhoff à savoir que l'intensité du
+        courant $i_1=i_2+i_3$
+
+      - Dans le conducteur, la densité de courant $\vv{j}$ s'exprime en fonction
+        du champ $\vv{E}$ et de la conductivité $\gamma$ (exprimée en Siemens
+        par mètre) : $\vv{j}=\gamma\vv{E}$ d'où
+        #+BEGIN_SRC latex
+          \begin{align*}
+            \frac{\partial\rho}{\partial t}+\frac{\gamma}{\epsilon_0}\rho=0\text{ et }\rho(t)=\rho_0\,e^{-t/\tau}\text{ où }\tau=\frac{\epsilon_0}{\gamma}\sim\frac{10^{-11}}{10^7}\sim\unit[10^{-18}]{s}
+          \end{align*}
+        #+END_SRC
+        Dans un conducteur, il n'y a donc pas de charge en volume : le courant et
+        donc les charges se déplaçant en surface.
 
    3) La puissance $\mathcal{P}$ s'écrit comme le produit de la force $\vv{F}$ par la
       vitesse de la particule\nbsp$\vv{v}$ :
@@ -765,7 +781,7 @@ trajectoire circulaire de rayon $R$
         \begin{align*}
           \div\vv{R}&=\frac{1}{\mu_0}\div\left(\vv{E}\times\vv{B}\right)\text{ avec }\div\left(\vv{a}\times\vv{b}\right)=\vv{b}.\rot\vv{a}-\vv{a}.\rot\vv{b}\\
           &=\frac{1}{\mu_0}\left(\vv{B}.\rot\vv{E}-\vv{E}.\rot\vv{B}\right)\\
-          &=\frac{1}{\mu_0}\left(\vv{B}\times-\frac{\partial\vv{B}}{\partial t}-\vv{E}\left(\mu_0\vv{j}+\mu_0\epsilon_0\frac{\partial\vv{E}}{\partial t}\right)\right)\\
+          &=\frac{1}{\mu_0}\left(-\vv{B}.\frac{\partial\vv{B}}{\partial t}-\vv{E}.\left(\mu_0\vv{j}+\mu_0\epsilon_0\frac{\partial\vv{E}}{\partial t}\right)\right)\\
           &=\frac{1}{\mu_0}\left(-\frac{1}{2}\frac{\partial B^2}{\partial t}-\frac{\mu_0\epsilon_0}{2}\frac{\partial E^2}{\partial t}-\mu_0\vv{j}.\vv{E}\right)\\
           &=-\frac{\partial u}{\partial t}-\vv{j}.\vv{E}
         \end{align*}
@@ -820,16 +836,16 @@ trajectoire circulaire de rayon $R$
 
    Onde plane progressive $\vv{B}=\tfrac{\vv{u}_z\times\vv{E}}{c}$
 
-   1)
-            #+BEGIN_SRC latex
-              \begin{align*}
-                \mathcal{P}&=\frac{dW}{dt}\text{ avec }\mathcal{P}=q\vv{E}.\vv{v}\\
-                W&=\int_0^Tq\vv{E}.\vv{v}dt
-              \end{align*}
-            #+END_SRC
+   1) Calcul de la puissance $\mathcal{P}$
+      #+BEGIN_SRC latex
+        \begin{align*}
+          \mathcal{P}&=\frac{dW}{dt}\text{ avec }\mathcal{P}=q\vv{E}.\vv{v}\\
+          W&=\int_0^Tq\vv{E}.\vv{v}dt
+        \end{align*}
+      #+END_SRC
 
-   2) La variation d'impulsion $\vv{p}$ par unité de temps est égale à la force
-      de Lorentz $\vv{F}$
+   2) La variation d'impulsion $\vv{p}$ par unité de temps induite par le
+      passage de l'onde EM est égale à la force de Lorentz $\vv{F}$
       #+BEGIN_SRC latex
         \begin{align*}
           \frac{d\vv{p}}{dt}=\vv{F}
@@ -867,8 +883,8 @@ trajectoire circulaire de rayon $R$
    3) L'énergie d'un photon $E=h\nu=\tfrac{hc}{\lambda}$ est égale à $pc$ /via/
       la relation de de Broglie reliant onde et matière $\lambda=\tfrac{h}{p}$
 
-3) *Moment cinétique* $\vv{\sigma}_0=\vv{r}\times\vv{p}=\vv{OM}\times\vv{p}$ et
-   $\sigma_z=\vv{\sigma}_0.\vv{u}_z$
+3) *Moment cinétique* $\vv{\sigma}_O=\vv{r}\times\vv{p}=\vv{OM}\times\vv{p}$ et
+   $\sigma_z=\vv{\sigma}_O.\vv{u}_z$
    1) $[\sigma_z]=[L]\times[M][L][T^{-1}]=[M]\times[L^2]\times[T^{-1}]$ et
       $[W]=[M][L^2][T^{-2}]$ d'où
       #+BEGIN_SRC latex
@@ -885,13 +901,13 @@ trajectoire circulaire de rayon $R$
           &=\vv{\sigma}_O=\vv{\sigma}
         \end{align*}
       #+END_SRC
-   3) Expression de $\sigma_z$
+   3) Expression de $\sigma_z$ [fn:2]
       #+BEGIN_SRC latex
         \begin{align*}
-          \vv{\sigma}&=\vv{OM}\times\vv{p}\text{ or }\frac{d\vv{p}}{dt}=\vv{F}=q\vv{E}+q\vv{v}\times\vv{B}+\vv{F}_\text{ext.}\\
+          \vv{\sigma}&=\vv{OM}\times\vv{p}\text{ or }\frac{d\vv{p}}{dt}=\vv{F}_\text{Lorentz}=q\vv{E}+q\vv{v}\times\vv{B}\\
           d\vv{\sigma}&=\vv{OM}\times d\vv{p}\\
           d\sigma_z&=d\vv{\sigma}.\vv{u}_z\\
-          \sigma_z&=\left[\underbrace{\int_0^T\vv{OM}\times q\vv{E}dt}_{\text{\ding{192}}}+\underbrace{\int_0^T\vv{OM}\times q(\vv{v}\times\vv{B})dt}_{\text{\ding{193}}}+\underbrace{\int_0^T\vv{OM}\times\vv{F}_\text{ext.}\,dt}_{\text{\ding{194}}}\right].\vv{u}_z
+          \sigma_z&=\left[\underbrace{\int_0^T\vv{OM}\times q\vv{E}dt}_{\text{\ding{192}}}+\underbrace{\int_0^T\vv{OM}\times q(\vv{v}\times\vv{B})dt}_{\text{\ding{193}}}\right].\vv{u}_z
         \end{align*}
       #+END_SRC
 
@@ -909,7 +925,7 @@ trajectoire circulaire de rayon $R$
       Calcul de \ding{193}
       #+BEGIN_SRC latex
         \begin{align*}
-          \text{\ding{193}}&=q\int_0^T\vv{OM}\times\underbrace{\left(\vv{v}\times\vv{B}\right)}_{\vv{v}\perp\vv{B}=0}.\vv{u}_zdt
+          \text{\ding{193}}&=q\int_0^T\vv{OM}\times\underbrace{\left(\vv{v}\times\vv{B}\right)}_{\vv{v}\parallel\vv{B}=0}.\vv{u}_zdt
         \end{align*}
       #+END_SRC
       ou
@@ -921,10 +937,6 @@ trajectoire circulaire de rayon $R$
           \text{\ding{193}}&=q\left[\int_0^T\left(\vv{OM}.\vv{B}\right).\underbrace{\vv{v}.\vv{u}_z}_{\vv{v}\perp\vv{u}_z=0}dt-\int_0^T\left(\vv{OM}.\vv{v}\right).\underbrace{\vv{B}.\vv{u}_z}_{\vv{B}\perp\vv{u}_z=0}dt\right]
         \end{align*}
       #+END_SRC
-
-      Calcul de \ding{194} : $\vv{F}_\text{ext.}\perp\vv{u}_z$ sinon la
-      particule ne serait plus maintenue dans le plan $z=0$ d'où
-      $\vv{OM}\times\vv{F}_\text{ext.}=0$.
 
       Seul le champ électrique $\vv{E}$ de l'onde EM contribue au moment
       cinétique cédé à la particule $q$
@@ -944,7 +956,7 @@ trajectoire circulaire de rayon $R$
         \begin{align*}
           \frac{d\vv{E}(O,t)}{dt}=
           \begin{pmatrix}
-            -E_0\sin\omega t\\E_0\cos\omega t\\0
+            -E_0\omega\sin\omega t\\E_0\omega\cos\omega t\\0
           \end{pmatrix}
         \end{align*}
         \begin{align*}
@@ -982,10 +994,67 @@ trajectoire circulaire de rayon $R$
       $\sigma_z=+\hbar$. Sur une période $T$, le champ EM cède à la particule
       $q$, un moment cinétique égal à $+\hbar$
    5) Le moment cinétique de photons polarisé circulairement droite est alors
-      $-\hbar$, et $\sigma_z=0$ pour une polarisation rectiligne (rectligne
+      $-\hbar$, et $\sigma_z=0$ pour une polarisation rectiligne (rectiligne
       \equiv circulaire droite + circulaire gauche)
+
+* Électrostatique dans le vide
+** Condensateur cylindrique
+#+ATTR_LATEX: :float wrap :placement {l}{0.3\textwidth} :width 0.3\textwidth
+[[./cylinders.pdf]]
+
+En considérant $h\gg a,b$, le problème est invariant par translation le long de
+l'axe des cylindres. Par ailleurs, le problème est invariant par rotation soit
+$E(M)=E(r)$. En coordonnées cylindriques, les plans $(\vv{u}_r,\vv{u}_\theta)$
+et $(\vv{u}_r,\vv{u}_z)$ sont des plans de symétrie de la distribution de
+charge. On déduit que le champ électrique s'écrit
+#+BEGIN_SRC latex
+  \begin{align*}
+    \vv{E}(M)=E(r)\vv{u}_r
+  \end{align*}
+#+END_SRC
+Le choix de la surface de Gauss est alors un cylindre de rayon $r$ et de hauteur
+$h$
+#+BEGIN_SRC latex
+  \begin{align*}
+    \oiint_S\vv{E}.\,d\vv{S}&=\iiint_V\frac{\rho}{\epsilon_0}d\tau=\frac{\Upsigma Q_\text{int.}}{\epsilon_0}\\
+    E(r)\times2\pi rh&=\frac{\Upsigma Q_\text{int.}}{\epsilon_0}\\
+    \vv{E}(M)&=\frac{\Upsigma Q_\text{int.}}{2\pi\epsilon_0}\times\frac{1}{rh}\vv{u}_r
+  \end{align*}
+#+END_SRC
+- pour $r<a$, $Q_\text{int.}=0$ d'où $\vv{E}(r<a)=\vv{0}$
+- pour $a<r<b$, $Q_\text{int.}=Q_a$ d'où
+  $\vv{E}(a<r<b)=\frac{Q_a}{2\pi\epsilon_0rh}\vv{u}_r$
+- pour $r>b$, $Q_\text{int.}=Q_a+Q_b=0$ d'où $\vv{E}(r>b)=\vv{0}$
+
+La capacité d'un condensateur $C$ est égale au rapport de la charge dans le
+condensateur sur le potentiel électrique appliqué aux bornes du condensateur
+soit $C=\tfrac{Q}{V}$. Par ailleurs, le champ électrique $\vv{E}$ est égal au
+gradient du potentiel électrique
+$\vv{E}=-\vv{\text{grad}}V=-\tfrac{dV}{dr}\vv{u}_r$. Soit
+#+BEGIN_SRC latex
+  \begin{align*}
+    -\frac{dV}{dr}&=\frac{Q_a}{2\pi\epsilon_0rh}\\
+    -\int_{V_a}^{V_b}dV&=\int_a^b\frac{Q_a}{2\pi\epsilon_0h}\frac{dr}{r}\\
+    -V_b+V_a&=\frac{Q_a}{2\pi\epsilon_0h}\ln\frac{b}{a}\\
+    V_a&=\frac{Q_a}{2\pi\epsilon_0h}\ln\frac{b}{a}=\frac{Q_a}{C}\\
+    C&=\frac{2\pi\epsilon_0h}{\ln\frac{b}{a}}
+  \end{align*}
+#+END_SRC
+
+*Application numérique*
+#+BEGIN_SRC latex
+  \begin{align*}
+    \frac{C}{h}=\frac{2\pi\epsilon_0}{\ln\frac{b}{a}}=\frac{2\pi\times8.85\,10^{-12}}{\ln8}=\unit[2.7\,10^{-11}]{F/m}
+  \end{align*}
+#+END_SRC
+
 * Footnotes
 
 [fn:1] le vecteur accélération $\vv{a}$ s'écrit en toute rigueur
 $(\ddot{r}-r\dot{\theta}^2)\vv{u}_r+(2\dot{r}\dot{\theta}+r\ddot{\theta})\vv{u}_\theta$. À
 défaut de vitesse angulaire $\dot{\theta}$ initiale, on supposera donc que $\dot{\theta}=0$.
+
+[fn:2] les forces extérieures $\vv{F}_\text{ext.}$ ont pour objectif de
+maintenir la particule dans le plan $z=0$. Elles sont donc soit comprises dans
+le plan $(xOy)$ soit opposées vectoriellement $\Upsigma\vv{F}=\vv{0}$. Le moment
+cinétique induit par ces forces est donc nul du fait de $\vv{OM}\times\vv{F}_\text{ext.}=\vv{0}$
