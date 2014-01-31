@@ -999,9 +999,9 @@ trajectoire circulaire de rayon $R$
 
 * Électrostatique dans le vide
 ** Condensateur cylindrique
-#+ATTR_LATEX: :float wrap :placement {l}{0.3\textwidth} :width 0.3\textwidth
-[[./cylinders.pdf]]
 
+#+ATTR_LATEX: :float wrap :placement {l}{0.4\textwidth} :width 0.3\textwidth
+[[./cylinders.pdf]]
 En considérant $h\gg a,b$, le problème est invariant par translation le long de
 l'axe des cylindres. Par ailleurs, le problème est invariant par rotation soit
 $E(M)=E(r)$. En coordonnées cylindriques, les plans $(\vv{u}_r,\vv{u}_\theta)$
@@ -1012,6 +1012,7 @@ charge. On déduit que le champ électrique s'écrit
     \vv{E}(M)=E(r)\vv{u}_r
   \end{align*}
 #+END_SRC
+
 Le choix de la surface de Gauss est alors un cylindre de rayon $r$ et de hauteur
 $h$
 #+BEGIN_SRC latex
@@ -1021,6 +1022,7 @@ $h$
     \vv{E}(M)&=\frac{\Upsigma Q_\text{int.}}{2\pi\epsilon_0}\times\frac{1}{rh}\vv{u}_r
   \end{align*}
 #+END_SRC
+
 - pour $r<a$, $Q_\text{int.}=0$ d'où $\vv{E}(r<a)=\vv{0}$
 - pour $a<r<b$, $Q_\text{int.}=Q_a$ d'où
   $\vv{E}(a<r<b)=\frac{Q_a}{2\pi\epsilon_0rh}\vv{u}_r$
