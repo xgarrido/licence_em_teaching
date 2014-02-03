@@ -804,7 +804,7 @@ trajectoire circulaire de rayon $R$
           \oiint_S\vv{R}.d\vv{S}+\iiint_V\frac{\partial u}{\partial t}d\tau+\mathcal{P}_{\text{EM}\rightarrow\,q}=0
         \end{align*}
       #+END_SRC
-      La puissance moyenne sortante devient
+      La puissance moyenne sortant de la surface fermée[fn:4] devient
       #+BEGIN_SRC latex
         \begin{align*}
           \left\langle\oiint_S\vv{R}.d\vv{S}\right\rangle_T+\left\langle\iiint_V\frac{\partial u}{\partial t}d\tau\right\rangle_T+\left\langle\mathcal{P}_{\text{EM}\rightarrow\,q}\right\rangle_T=0\\
@@ -925,10 +925,10 @@ trajectoire circulaire de rayon $R$
       Calcul de \ding{193}
       #+BEGIN_SRC latex
         \begin{align*}
-          \text{\ding{193}}&=q\int_0^T\vv{OM}\times\underbrace{\left(\vv{v}\times\vv{B}\right)}_{\vv{v}\parallel\vv{B}=0}.\vv{u}_zdt
+          \text{\ding{193}}&=q\int_0^T\vv{OM}\times\left(\vv{v}\times\vv{B}\right).\vv{u}_zdt
         \end{align*}
       #+END_SRC
-      ou
+      or
       #+BEGIN_SRC latex
         \begin{align*}
           \vv{a}\times\left(\vv{b}\times\vv{c}\right)=\left(\vv{a}.\vv{c}\right).\vv{b}-\left(\vv{a}.\vv{b}\right).\vv{c}
@@ -1070,6 +1070,11 @@ trajectoire circulaire de rayon $R$
        &\text{ avec }I=\frac{\epsilon_0E_0^2c}{2}, P=\epsilon_0E_0^2\cos^2\theta
      \end{align*}
    #+END_SRC
+
+  *Application expérimentale:* La pression de radiation aussi faible soit elle,
+  est un bruit important pour les interféromètres de hautes sensibilité tels que
+  Virgo (/cf./ [[http://tel.archives-ouvertes.fr/tel-00175254/en/]]).
+
 * Électrostatique dans le vide
 ** Condensateur cylindrique
 
@@ -1137,3 +1142,7 @@ cinétique induit par ces forces est donc nul du fait de $\vv{OM}\times\vv{F}_\t
 [fn:3] l'intensité $I$ est également égale au vecteur de Poynting moyen
 $I=\|\langle\vv{R}\rangle\|$ avec $\vv{R}=\frac{\vv{E}\times\vv{B}}{\mu_0}$ et
 $\vv{B}=\frac{\vv{k}\times\vv{E}}{\omega}$
+
+[fn:4] il s'agit de la puissance sortant d'une surface *fermée* qui correspond
+/i.e./ au différentiel entre la puissance ayant pénétrée dans le volume et la
+puissance sortant de ce volume.
