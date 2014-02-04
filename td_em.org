@@ -1128,6 +1128,10 @@ $\vv{E}=-\vv{\text{grad}}V=-\tfrac{dV}{dr}\vv{u}_r$. Soit
   \end{align*}
 #+END_SRC
 
+** Méthode des images
+#+ATTR_LATEX: :float wrap :placement {l}{0.4\linewidth}
+[[./boule_conductrice.pdf]]
+
 * Footnotes
 
 [fn:1] le vecteur accélération $\vv{a}$ s'écrit en toute rigueur
