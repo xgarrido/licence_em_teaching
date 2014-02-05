@@ -1,0 +1,51 @@
+%% document-wide tikz options and styles
+
+\tikzset{%
+  >=latex, % option for nice arrows
+  inner sep=0pt,%
+  outer sep=2pt,%
+  mark coordinate/.style={inner sep=0pt,outer sep=0pt,minimum size=3pt,
+    fill=black,circle}%
+}
+\begin{tikzpicture}
+  \sf
+  \definecolor{red}{RGB}{221,42,43}
+  \definecolor{green}{RGB}{105,182,40}
+  \definecolor{blue}{RGB}{0,51,153}
+  \definecolor{orange}{RGB}{192,128,64}
+  \definecolor{gray}{RGB}{107,108,110}
+
+  %% some definitions
+
+  \def\R{2.5} % sphere radius
+
+  %% \fill[ball color=white] (0,0) circle (\R); % 3D lighting effect
+  \draw[dashed] (0,0) circle (0.8*\R);
+
+  %% characteristic points
+
+  \coordinate[mark coordinate] (O) at (0,0);
+  \coordinate[mark coordinate] (P) at (0,1.3*\R);
+  \coordinate[mark coordinate] (N) at (0,-1.3*\R);
+  \coordinate[mark coordinate] (M) at (0.8*\R,\R);
+
+  \draw[->] (0,-1.6*\R) -- (0,1.6*\R) node[above] {$z$};
+  \begin{scope}[yshift=2.6cm,rotate=45,scale=0.4]
+    \fill[white] (-0.1,-0.3) rectangle (0.1,0.3);
+    \draw (-0.1,0.3) -- (-0.1,-0.3)  (0.1,0.3) -- (0.1,-0.3);
+  \end{scope}
+  \begin{scope}[yshift=-2.6cm,rotate=45,scale=0.4]
+    \fill[white] (-0.1,-0.3) rectangle (0.1,0.3);
+    \draw (-0.1,0.3) -- (-0.1,-0.3)  (0.1,0.3) -- (0.1,-0.3);
+  \end{scope}
+
+  %% draw lines and put labels
+
+  \draw (O) node[above left] {$\mathbf{O}$} -- (M) node[above right] {$\mathbf{M}$};
+  \draw[->,thin] (90:0.5*\R) to[bend left=30] node[pos=0.55,yshift=6pt] {$\theta$} (52:0.5*\R);
+  \draw (P) node[left] {$\mathbf{P}$};
+  \draw (P) node[right] {$+q$};
+  \draw (N) node[left] {$\mathbf{N}$};
+  \draw (N) node[right] {$-q$};
+
+\end{tikzpicture}

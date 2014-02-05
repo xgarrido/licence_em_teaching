@@ -1345,6 +1345,38 @@ $\vv{E}=-\vv{\text{grad}}V=-\tfrac{dV}{dr}\vv{u}_r$. Soit
         \end{align*}
       #+END_SRC
       /i.e./ le potentiel généré en $O$ par la particule $q$.
+3) Boule conductrice dans un champ électrostatique uniforme
+   #+BEGIN_CENTER
+   #+ATTR_LATEX: :width 0.3\textwidth
+   [[./boule_conductrice_field.pdf]]
+   #+END_CENTER
+
+   1) Les champs électrostatiques créés par chaque charge se superposent en $M$
+      #+BEGIN_SRC latex
+        \begin{align*}
+          \vv{E}(M)&=\frac{1}{4\pi\epsilon_0}\left(\frac{q}{PM^3}\vv{PM}-\frac{q}{NM^3}\vv{NM}\right)\\
+          \text{avec }\vv{PM}&=\vv{PO}+\vv{OM}\\
+          PM^3&=\left(Z^2+r^2+2\vv{PO}.\vv{OM}\right)^{3/2}\\
+          PM^3&=Z^3\left(1-2\frac{r}{Z}\cos\theta+\frac{r^2}{Z^2}\right)^{3/2}
+        \end{align*}
+      #+END_SRC
+      Pour $r\leq R$, l'expression de la longueur $PM$ devient au premier ordre
+      en $\frac{r}{Z}$ ($Z\gg R$)
+      #+BEGIN_SRC latex
+        \begin{align*}
+          PM^3&\simeq Z^3\left(1-2\frac{r}{Z}\cos\theta\right)^{3/2}\\
+          \frac{1}{PM^3}&\simeq\frac{1}{Z^3}\left(1+3\frac{r}{Z}\cos\theta\right)
+        \end{align*}
+      #+END_SRC
+      De même
+      #+BEGIN_SRC latex
+        \begin{align*}
+          \frac{1}{NM^3}&\simeq\frac{1}{Z^3}\left(1-3\frac{r}{Z}\cos\theta\right)
+        \end{align*}
+      #+END_SRC
+
+
+
 * Footnotes
 
 [fn:1] le vecteur accélération $\vv{a}$ s'écrit en toute rigueur
