@@ -8,16 +8,16 @@
 #+LATEX_HEADER_EXTRA: \newcommand{\rot}{\ensuremath{\vv{\text{rot}}}}
 #+LATEX_HEADER_EXTRA: \newcommand{\grad}{\ensuremath{\vv{\text{grad}}}}
 
-* TD1 : Électromagnétisme & relativité
+* TD1 : Électromagnétisme & relativité                             :noexport:
 
 ** Introduction
 *Transformation de Lorentz :* $\beta=\tfrac{v}{c}$ et
- $\gamma=\tfrac{1}{\surd{1-\beta^2}}$. Si $\mathcal{R}^\prime$ est en mouvement
+ $\gamma=\tfrac{1}{\surd{1-\beta^2}}$. Si $\mathcal{R}'$ est en mouvement
  rectiligne uniforme selon l'axe $x$ par rapport à $\mathcal{R}$ alors
  #+BEGIN_SRC latex
    \begin{equation*}
      \begin{bmatrix}
-       ct^\prime\\x^\prime\\y^\prime\\z^\prime
+       ct'\\x'\\y'\\z'
      \end{bmatrix}
      =
      \begin{bmatrix}
@@ -47,7 +47,7 @@
      \end{bmatrix}
      \cdot
      \begin{bmatrix}
-       ct^\prime\\x^\prime\\y^\prime\\z^\prime
+       ct'\\x'\\y'\\z'
      \end{bmatrix}
    \end{equation*}
  #+END_SRC
@@ -55,21 +55,21 @@
 *Transformation du champ EM :*
 
 Composantes tangentielles au déplacement
-$\vv{E}^\prime_\parallel=\vv{E}_\parallel$ et
-$\vv{B}^\prime_\parallel=\vv{B}_\parallel$.
+$\vv{E}'_\parallel=\vv{E}_\parallel$ et
+$\vv{B}'_\parallel=\vv{B}_\parallel$.
 
 Composantes normales au déplacement
 #+BEGIN_SRC latex
   \begin{align*}
-    \vv{E}^\prime_\perp&= \gamma\,\left(\vv{E}_\perp+\vv{v}\times\vv{B}_\perp\right)\\
-    \vv{B}^\prime_\perp&= \gamma\,\left(\vv{B}_\perp-\vv{v}\times\frac{\vv{E}_\perp}{c^2}\right)
+    \vv{E}'_\perp&= \gamma\,\left(\vv{E}_\perp+\vv{v}\times\vv{B}_\perp\right)\\
+    \vv{B}'_\perp&= \gamma\,\left(\vv{B}_\perp-\vv{v}\times\frac{\vv{E}_\perp}{c^2}\right)
   \end{align*}
 #+END_SRC
 ou
 #+BEGIN_SRC latex
   \begin{align*}
-    \vv{E}_\perp&= \gamma\,\left(\vv{E}^\prime_\perp-\vv{v}\times\vv{B}^\prime_\perp\right)\\
-    \vv{B}_\perp&= \gamma\,\left(\vv{B}^\prime_\perp+\vv{v}\times\frac{\vv{E}^\prime_\perp}{c^2}\right)
+    \vv{E}_\perp&= \gamma\,\left(\vv{E}'_\perp-\vv{v}\times\vv{B}'_\perp\right)\\
+    \vv{B}_\perp&= \gamma\,\left(\vv{B}'_\perp+\vv{v}\times\frac{\vv{E}'_\perp}{c^2}\right)
   \end{align*}
 #+END_SRC
 
@@ -77,7 +77,7 @@ ou
 - les "quantités" perpendiculaires au déplacement telles les longueurs ($y$ et
   $z$ dans notre cas), ne subissent pas les effets de la relativité. Autrement
   dit une longueur $y$ restera inchangée sous la transformation
-  $\mathcal{R}\rightarrow\mathcal{R}^\prime$ : $y=y\prime$
+  $\mathcal{R}\rightarrow\mathcal{R}'$ : $y=y\prime$
 
 ** Force entre des électrons qui se déplacent côte à côte
 
@@ -86,46 +86,46 @@ ou
 [[file:./figures/referentiel_relat_1.pdf]]
 #+END_CENTER
 
-1) Soit $\mathcal{R}^\prime$ le référentiel où les particules sont au repos. Le
+1) Soit $\mathcal{R}'$ le référentiel où les particules sont au repos. Le
    champ électrique exercé sur $M_2$ par $M_1$ s'écrit
    #+BEGIN_SRC latex
      \begin{equation*}
-       \vv{E}^\prime(M_2) = \frac{q_1}{4\pi\epsilon_0}\times\frac{\vv{M_1M_2}}{M_1M_2^3}=-\frac{e}{4\pi\epsilon_0\,d^2}\vv{u}_{z^\prime}
+       \vv{E}'(M_2) = \frac{q_1}{4\pi\epsilon_0}\times\frac{\vv{M_1M_2}}{M_1M_2^3}=-\frac{e}{4\pi\epsilon_0\,d^2}\vv{u}_{z'}
      \end{equation*}
    #+END_SRC
    /i.e./ le champ électrique coulombien. Les particules étant au repos, il n'y
-   a pas de déplacement de charge donc $\vv{B}^\prime(M_2)=\vv{0}$. La force
+   a pas de déplacement de charge donc $\vv{B}'(M_2)=\vv{0}$. La force
    (coulombienne) qui s'exerce sur l'électron en $M_2$ est
    #+BEGIN_SRC latex
      \begin{equation*}
-       \vv{F}^\prime(M_2)=-e\vv{E}^\prime(M_2)-e\vv{v}\times\vv{B}^\prime(M_2)=\frac{e^2}{4\pi\epsilon_0\,d^2}\vv{u}_{z^\prime}=-\vv{F}^\prime(M_1)
+       \vv{F}'(M_2)=-e\vv{E}'(M_2)-e\vv{v}\times\vv{B}'(M_2)=\frac{e^2}{4\pi\epsilon_0\,d^2}\vv{u}_{z'}=-\vv{F}'(M_1)
      \end{equation*}
    #+END_SRC
    soit une force répulsive.
 
 2) Dans $\mathcal{R}$, on applique les règles de transformation du champ EM soit
-   $\vv{E}^\prime_\parallel=\vv{E}_\parallel=\vv{0}$ et
-   $\vv{B}^\prime_\parallel=\vv{B}_\parallel=\vv{0}$. Les composantes normales
+   $\vv{E}'_\parallel=\vv{E}_\parallel=\vv{0}$ et
+   $\vv{B}'_\parallel=\vv{B}_\parallel=\vv{0}$. Les composantes normales
    deviennent
    #+BEGIN_SRC latex
      \begin{align*}
-       \vv{E}_\perp&= \gamma\,\left(\vv{E}^\prime_\perp-\vv{v}\times\vv{B}^\prime_\perp\right)\\
-       \vv{B}_\perp&= \gamma\,\left(\vv{B}^\prime_\perp+\vv{v}\times\frac{\vv{E}^\prime_\perp}{c^2}\right)
+       \vv{E}_\perp&= \gamma\,\left(\vv{E}'_\perp-\vv{v}\times\vv{B}'_\perp\right)\\
+       \vv{B}_\perp&= \gamma\,\left(\vv{B}'_\perp+\vv{v}\times\frac{\vv{E}'_\perp}{c^2}\right)
      \end{align*}
    #+END_SRC
    On déduit que
    #+BEGIN_SRC latex
      \begin{equation*}
-       \vv{E}_\perp=\gamma\left(\vv{E}^\prime_\perp-\vv{v}\times\vv{B}^\prime_\perp\right)=\gamma\vv{E}^\prime_\perp=-\frac{\gamma e}{4\pi\epsilon_0\,d^2}\vv{u}_z
+       \vv{E}_\perp=\gamma\left(\vv{E}'_\perp-\vv{v}\times\vv{B}'_\perp\right)=\gamma\vv{E}'_\perp=-\frac{\gamma e}{4\pi\epsilon_0\,d^2}\vv{u}_z
      \end{equation*}
    #+END_SRC
-   sachant que $\vv{u}_z=\vv{u}_{z^\prime}$.
+   sachant que $\vv{u}_z=\vv{u}_{z'}$.
 
    Le champ magnétique $\vv{B}_\perp$ est égal à
-   $\gamma\vv{v}\times\frac{\vv{E}^\prime_\perp}{c^2}$ soit
+   $\gamma\vv{v}\times\frac{\vv{E}'_\perp}{c^2}$ soit
    #+BEGIN_SRC latex
      \begin{align*}
-       \vv{B}_\perp&=\frac{\gamma\,vE^\prime_\perp}{c^2}\,\vv{u}_x\times\vv{u}_z=-\frac{\gamma\,vE^\prime_\perp}{c^2}\,\vv{u}_y\\
+       \vv{B}_\perp&=\frac{\gamma\,vE'_\perp}{c^2}\,\vv{u}_x\times\vv{u}_z=-\frac{\gamma\,vE'_\perp}{c^2}\,\vv{u}_y\\
        &=\frac{\gamma v}{c^2}\times\frac{e}{4\pi\epsilon_0\,d^2}\,\vv{u}_y\text{ avec } \mu_0\epsilon_0c^2=1\\
        &=\frac{\mu_0\gamma ve}{4\pi d^2}\vv{u}_y
      \end{align*}
@@ -134,12 +134,12 @@ ou
    #+BEGIN_SRC latex
      \begin{align*}
        \vv{F}(M_2)&=-e\vv{E}(M_2)-e\vv{v}\times\vv{B}(M_2)\\
-       &=-e\gamma\vv{E}^\prime(M_2)+e\gamma v^2\vv{u}_x\times\vv{u_y}\frac{E^\prime(M_2)}{c^2}\\
-       &=-e\gamma\vv{E}^\prime(M_2)\left[1-\frac{v^2}{c^2}\right]\text{ avec }\gamma=\frac{1}{\surd{1-v^2/c^2}}\\
-       &=-e\gamma\vv{E}^\prime(M_2)\times\frac{1}{\gamma^2}=\frac{\vv{F}^\prime(M_2)}{\gamma}
+       &=-e\gamma\vv{E}'(M_2)+e\gamma v^2\vv{u}_x\times\vv{u_y}\frac{E'(M_2)}{c^2}\\
+       &=-e\gamma\vv{E}'(M_2)\left[1-\frac{v^2}{c^2}\right]\text{ avec }\gamma=\frac{1}{\surd{1-v^2/c^2}}\\
+       &=-e\gamma\vv{E}'(M_2)\times\frac{1}{\gamma^2}=\frac{\vv{F}'(M_2)}{\gamma}
      \end{align*}
    #+END_SRC
-   Globalement, $F^\prime(M_2)>F(M_2)$. La force d'origine magnétique induite
+   Globalement, $F'(M_2)>F(M_2)$. La force d'origine magnétique induite
    par le déplacement des particules compense l'augmentation de la force
    électrique de répulsion.
 
@@ -151,7 +151,7 @@ ou
    Pour $\mathcal{E}=\unit[1]{eV}$, $\gamma\sim1$
    #+BEGIN_SRC latex
      \begin{align*}
-       F&=F^\prime=\frac{e^2}{4\pi\epsilon_0\,d^2}=\frac{e^2\mu_0c^2}{4\pi d^2}\\
+       F&=F'=\frac{e^2}{4\pi\epsilon_0\,d^2}=\frac{e^2\mu_0c^2}{4\pi d^2}\\
        &=\frac{e^2c^2\times4\pi\,10^{-7}}{4\pi d^2}=\frac{(1.6\,10^{-19})^2\times(3\,10^8)^2\times10^{-7}}{(10^{-3})^2}\\
        &=\unit[2.3\,10^{-22}]{N}
      \end{align*}
@@ -160,34 +160,34 @@ ou
    Pour $\mathcal{E}=\unit[1]{MeV}$, $\gamma\simeq3$
    #+BEGIN_SRC latex
      \begin{align*}
-       F&=\frac{F^\prime}{3}=\unit[7.7\,10^{-23}]{N}
+       F&=\frac{F'}{3}=\unit[7.7\,10^{-23}]{N}
      \end{align*}
    #+END_SRC
 
 3) $v\rightarrow0$, $\beta\ll1$ et donc $\gamma\simeq1+\tfrac{\beta^2}{2}$
    #+BEGIN_SRC latex
      \begin{align*}
-       \vv{F}&=\frac{\vv{F}^\prime}{\gamma}\\
-       &=\vv{F}^\prime\times\left(1-\beta^2\right)^{1/2}\\
-       &\simeq\left(1-\tfrac{\beta^2}{2}\right)\vv{F}^\prime
+       \vv{F}&=\frac{\vv{F}'}{\gamma}\\
+       &=\vv{F}'\times\left(1-\beta^2\right)^{1/2}\\
+       &\simeq\left(1-\tfrac{\beta^2}{2}\right)\vv{F}'
      \end{align*}
    #+END_SRC
 ** Fil chargé
-1) Dans $\mathcal{R}^\prime$, les charges électriques sont immobiles \equiv
-   électrostatique. La charge électrique $Q^\prime$ se déduit de la densité
-   linéique de charge $\lambda_0^\prime$
+1) Dans $\mathcal{R}'$, les charges électriques sont immobiles \equiv
+   électrostatique. La charge électrique $Q'$ se déduit de la densité
+   linéique de charge $\lambda_0'$
    #+BEGIN_SRC latex
      \begin{equation*}
-       Q^\prime=\lambda_0^\prime\times\ell^\prime=\rho^\prime\times S^\prime\times\ell^\prime
+       Q'=\lambda_0'\times\ell'=\rho'\times S'\times\ell'
      \end{equation*}
    #+END_SRC
-   d'où $\rho^\prime=\tfrac{\lambda_0^\prime}{S^\prime}=\tfrac{\lambda_0^\prime}{S}$ car la
+   d'où $\rho'=\tfrac{\lambda_0'}{S'}=\tfrac{\lambda_0'}{S}$ car la
    surface $S$ est une quantité perpendiculaire au déplacement donc
-   $S=S^\prime$.
+   $S=S'$.
 
    Les charges étant immobiles, il n'y a pas de courant d'où
-   $\vv{j}^\prime=\vv{0}$ et donc pas de champ magnétique
-   $\vv{B}^\prime=\vv{0}$. Le champ électrique $\vv{E}^\prime$ se déduit du
+   $\vv{j}'=\vv{0}$ et donc pas de champ magnétique
+   $\vv{B}'=\vv{0}$. Le champ électrique $\vv{E}'$ se déduit du
    théorème de Gauss, en évaluant au préalable, les symétries et les invariances
    de la distribution de charge. Ainsi, en coordonnées cylindriques où
    $\vv{u}_x=\vv{u}_z$, les plans $(\vv{u}_r,\vv{u}_\theta)$ et
@@ -203,18 +203,18 @@ ou
        \oiint_{\mathcal{S}}\vv{E}\cdot\text{d}\vv{S}=\frac{Q_\text{int.}}{\epsilon_0}
      \end{equation*}
    #+END_SRC
-   où la surface de Gauss $\mathcal{S}$ est un cylindre de rayon $D^\prime$ et
+   où la surface de Gauss $\mathcal{S}$ est un cylindre de rayon $D'$ et
    de hauteur $h$. En tenant compte des invariances et symétries de la
-   distribution de charge, on obtient le champ $\vv{E}^\prime(M)$
+   distribution de charge, on obtient le champ $\vv{E}'(M)$
    #+BEGIN_SRC latex
      \begin{equation*}
-       E^\prime(M)\times2\pi D^\prime\times h = \frac{\lambda_0^\prime\times h}{\epsilon_0}
+       E'(M)\times2\pi D'\times h = \frac{\lambda_0'\times h}{\epsilon_0}
      \end{equation*}
    #+END_SRC
    soit
    #+BEGIN_SRC latex
      \begin{equation*}
-       \vv{E}^\prime(M)=\frac{\lambda_0^\prime}{2\pi\epsilon_0D^\prime}\vv{u}_r
+       \vv{E}'(M)=\frac{\lambda_0'}{2\pi\epsilon_0D'}\vv{u}_r
      \end{equation*}
    #+END_SRC
 
@@ -223,21 +223,21 @@ ou
       cylindre.
       #+BEGIN_SRC latex
         \begin{equation*}
-          L=\frac{L^\prime}{\gamma}\text{ mais } S = S^\prime\text{ car } S,S^\prime\perp\vv{u}
+          L=\frac{L'}{\gamma}\text{ mais } S = S'\text{ car } S,S'\perp\vv{u}
         \end{equation*}
       #+END_SRC
 
-      Invariance de la charge électrique $Q=Q^\prime$ (ce postulat n'a jamais
+      Invariance de la charge électrique $Q=Q'$ (ce postulat n'a jamais
       été mis en défaut).
       #+BEGIN_SRC latex
         \begin{equation*}
-          Q=Q^\prime=\rho^\prime\times S^\prime\times L^\prime=\rho\times S\times L
+          Q=Q'=\rho'\times S'\times L'=\rho\times S\times L
         \end{equation*}
       #+END_SRC
       d'où
       #+BEGIN_SRC latex
         \begin{equation*}
-          \rho=\rho^\prime\times\frac{L^\prime}{L}=\gamma\rho^\prime
+          \rho=\rho'\times\frac{L'}{L}=\gamma\rho'
         \end{equation*}
       #+END_SRC
 
@@ -253,7 +253,7 @@ ou
       #+BEGIN_SRC latex
         \begin{equation*}
           \begin{bmatrix}
-            \rho^\prime c\\j^\prime_x\\j^\prime_y\\j^\prime_z
+            \rho' c\\j'_x\\j'_y\\j'_z
           \end{bmatrix}
           =
           \begin{bmatrix}
@@ -268,15 +268,15 @@ ou
           \end{bmatrix}
         \end{equation*}
        #+END_SRC
-      La distribution de courant est nulle dans $\mathcal{R}^\prime$ donc
-      $j^\prime_x=j^\prime_y=j^\prime_z=0$ $j_y=j_z=0$ et
+      La distribution de courant est nulle dans $\mathcal{R}'$ donc
+      $j'_x=j'_y=j'_z=0$ $j_y=j_z=0$ et
       #+BEGIN_SRC latex
         \begin{align*}
           \gamma\rho c - \beta\gamma j_x&= \gamma\rho c-\beta\gamma\rho u\\
           &=\gamma\rho c-\beta\gamma\rho u\times\frac{c}{c}\\
           &=\gamma\rho c\left(1-\beta^2\right)\\
           &=\gamma\rho c\times\frac{1}{\gamma^2}=\frac{\rho c}{\gamma}\\
-          &=\rho^\prime c
+          &=\rho' c
         \end{align*}
       #+END_SRC
       De même,
@@ -284,17 +284,17 @@ ou
         \begin{align*}
           -\beta\gamma\rho c+\gamma j_x&=-\beta\gamma\rho c+\gamma\rho u\\
           &=-\gamma\rho u+\gamma\rho u\\
-          &=0=j^\prime_x
+          &=0=j'_x
         \end{align*}
       #+END_SRC
 
    2) Calcul du champ électrique $\vv{E}(M)$
 
       Densité volumique et linéique de charge
-      $\rho=\gamma\rho^\prime\rightarrow\lambda_0=\gamma\lambda_0^\prime$ d'où
+      $\rho=\gamma\rho'\rightarrow\lambda_0=\gamma\lambda_0'$ d'où
       #+BEGIN_SRC latex
         \begin{equation*}
-          \vv{E}(M)=\frac{\gamma\lambda_0^\prime}{2\pi\epsilon_0\,D}\vv{u}_r
+          \vv{E}(M)=\frac{\gamma\lambda_0'}{2\pi\epsilon_0\,D}\vv{u}_r
         \end{equation*}
       #+END_SRC
 
@@ -307,40 +307,40 @@ ou
           &=\frac{\mu_0jS}{2\pi\,D}\vv{u}_\theta
         \end{align*}
       #+END_SRC
-      or $j=\rho u=\gamma\rho^\prime u=\frac{\gamma\lambda_0^\prime u}{S}$ d'où
+      or $j=\rho u=\gamma\rho' u=\frac{\gamma\lambda_0' u}{S}$ d'où
       #+BEGIN_SRC latex
         \begin{align*}
-          \vv{B}(M)&=\frac{\gamma\mu_0\lambda_0^\prime u}{2\pi\,D}\vv{u}_\theta\text{ avec } \mu_0\epsilon_0c^2=1\\
-          \vv{B}(M)&=\frac{\gamma u}{c^2}E^\prime(M)\vv{u}_\theta
+          \vv{B}(M)&=\frac{\gamma\mu_0\lambda_0' u}{2\pi\,D}\vv{u}_\theta\text{ avec } \mu_0\epsilon_0c^2=1\\
+          \vv{B}(M)&=\frac{\gamma u}{c^2}E'(M)\vv{u}_\theta
         \end{align*}
       #+END_SRC
 
 3) Transformation des champs
-   1) Transformation du champ électrique avec $\vv{B}^\prime=\vv{0}$
+   1) Transformation du champ électrique avec $\vv{B}'=\vv{0}$
       #+BEGIN_SRC latex
         \begin{align*}
-          \vv{E}_\perp&= \gamma\,\left(\vv{E}^\prime_\perp-\vv{u}\times\vv{B}^\prime_\perp\right)\\
-          \vv{E}(M)&= \gamma\,\vv{E}^\prime(M)\text{ vrai } \vv{E}(M)=\frac{\gamma\lambda_0^\prime}{2\pi\epsilon_0\,D}\vv{u}_r
+          \vv{E}_\perp&= \gamma\,\left(\vv{E}'_\perp-\vv{u}\times\vv{B}'_\perp\right)\\
+          \vv{E}(M)&= \gamma\,\vv{E}'(M)\text{ vrai } \vv{E}(M)=\frac{\gamma\lambda_0'}{2\pi\epsilon_0\,D}\vv{u}_r
         \end{align*}
       #+END_SRC
 
       Transformation du champ magnétique
       #+BEGIN_SRC latex
         \begin{align*}
-          \vv{B}_\perp&= \gamma\,\left(\vv{B}^\prime_\perp+\vv{u}\times\frac{\vv{E}^\prime_\perp}{c^2}\right)\\
-          \vv{B}(M)&=\gamma u\frac{E^\prime(M)}{c^2}\vv{u}_x\times\vv{u}_r\\
-          &=\frac{\gamma u}{c^2}E^\prime(M)\vv{u}_\theta
+          \vv{B}_\perp&= \gamma\,\left(\vv{B}'_\perp+\vv{u}\times\frac{\vv{E}'_\perp}{c^2}\right)\\
+          \vv{B}(M)&=\gamma u\frac{E'(M)}{c^2}\vv{u}_x\times\vv{u}_r\\
+          &=\frac{\gamma u}{c^2}E'(M)\vv{u}_\theta
         \end{align*}
       #+END_SRC
 
-   2) $\vv{E}^\prime.\vv{B}^\prime=0$ et
+   2) $\vv{E}'.\vv{B}'=0$ et
       $\vv{E}.\vv{B}=\frac{\gamma^2u}{c^2}E^{\prime2}\,\vv{u}_\theta.\vv{u}_r=0$
    3)
       #+BEGIN_SRC latex
         \begin{align*}
-          E^2-B^2c^2 &= (\gamma E^\prime)^2 - \left(\frac{\gamma u}{c^2}\right)^2E^{\prime2}c^2\\
-          &=(\gamma E^\prime)^2\left(1-\frac{u^2}{c^2}\right)=E^{\prime2}\\
-          &=E^{\prime2}-B^{\prime2}c^2\text{ puisque }B^\prime=0
+          E^2-B^2c^2 &= (\gamma E')^2 - \left(\frac{\gamma u}{c^2}\right)^2E^{\prime2}c^2\\
+          &=(\gamma E')^2\left(1-\frac{u^2}{c^2}\right)=E^{\prime2}\\
+          &=E^{\prime2}-B^{\prime2}c^2\text{ puisque }B'=0
         \end{align*}
       #+END_SRC
 ** Particule chargée dans un champ magnétique uniforme
@@ -506,11 +506,11 @@ ou
 #+END_CENTER
 
 Soit $\vv{E}=E\vv{u}_y$ et $\vv{B}=B\vv{u}_z$ avec $Bc>E$. Le référentiel
-$\mathcal{R}^\prime$ doit être tel que $\vv{E}^\prime=\vv{0}$ soit
+$\mathcal{R}'$ doit être tel que $\vv{E}'=\vv{0}$ soit
 #+BEGIN_SRC latex
   \begin{align*}
-    \vv{E}^\prime_\parallel&=\vv{E}_\parallel=\vv{0}\\
-    \vv{E}^\prime_\perp&=\gamma\left(\vv{E}_\perp+\vv{u}\times\vv{B}_\perp\right)=\vv{0}
+    \vv{E}'_\parallel&=\vv{E}_\parallel=\vv{0}\\
+    \vv{E}'_\perp&=\gamma\left(\vv{E}_\perp+\vv{u}\times\vv{B}_\perp\right)=\vv{0}
   \end{align*}
 #+END_SRC
 
@@ -525,30 +525,30 @@ vecteur déplacement $\vv{u}$. La seconde condition est vérifiée si
   \end{align*}
 #+END_SRC
 
-Pour obtenir un champ électrique nul dans le référentiel $\mathcal{R}^\prime$,
-il faut donc que la vitesse de déplacement $u$ du référentiel $\mathcal{R}^\prime$
+Pour obtenir un champ électrique nul dans le référentiel $\mathcal{R}'$,
+il faut donc que la vitesse de déplacement $u$ du référentiel $\mathcal{R}'$
 par rapport au référentiel $\mathcal{R}$ soit égale au rapport du champ
 électrique $E$ sur le champ magnétique $B$. La vitesse ainsi obtenue est, par
 ailleurs, inférieure à $c$ du fait que $Bc>E$.
 
-Calcul du champ magnétique $\vv{B}^\prime$ :
+Calcul du champ magnétique $\vv{B}'$ :
 #+BEGIN_SRC latex
   \begin{align*}
-    \vv{B}^\prime_\parallel&=\vv{B}_\parallel=\vv{0}\\
-    \vv{B}^\prime_\perp&=\gamma_e\left(\vv{B}_\perp-\vv{u}\times\frac{\vv{E}_\perp}{c^2}\right)\\
+    \vv{B}'_\parallel&=\vv{B}_\parallel=\vv{0}\\
+    \vv{B}'_\perp&=\gamma_e\left(\vv{B}_\perp-\vv{u}\times\frac{\vv{E}_\perp}{c^2}\right)\\
     &=\gamma_e\left(B\vv{u}_z-\frac{uE}{c^2}\vv{u}_x\times\vv{u}_y\right)\\
     &=\gamma_e\left(B\vv{u}_z-\frac{u^2}{c^2}B\vv{u}_z\right)\\
     &=\frac{\vv{B}}{\gamma_e}
   \end{align*}
 #+END_SRC
 
-La force de Lorentz $\vv{F}^\prime$ qui s'applique à la particule de charge $q$
-est purement magnétique $q\vv{v}\times\vv{B}^\prime$. Le principe fondamental de
-la dynamique $\vv{F}^\prime=q\vv{v}\times\vv{B}=m\vv{a}$ se traduit par un
+La force de Lorentz $\vv{F}'$ qui s'applique à la particule de charge $q$
+est purement magnétique $q\vv{v}\times\vv{B}'$. Le principe fondamental de
+la dynamique $\vv{F}'=q\vv{v}\times\vv{B}=m\vv{a}$ se traduit par un
 trajectoire circulaire de rayon $R$
 #+BEGIN_SRC latex
   \begin{equation*}
-    \frac{v^2}{R}=\frac{qvB^\prime}{m}\rightarrow R=\frac{mv}{qB^\prime}=\frac{\gamma_emv}{qB}
+    \frac{v^2}{R}=\frac{qvB'}{m}\rightarrow R=\frac{mv}{qB'}=\frac{\gamma_emv}{qB}
   \end{equation*}
 #+END_SRC
 
@@ -558,29 +558,29 @@ trajectoire circulaire de rayon $R$
 #+ATTR_LATEX: :width 0.7\linewidth
 [[file:./figures/referentiel_relat_3.pdf]]
 #+END_CENTER
-À $t=t^\prime=0$, $R=R_0$, $\dot{R}=\dot{R}^\prime=0$ et $\dot{\theta}=0$
+À $t=t'=0$, $R=R_0$, $\dot{R}=\dot{R}'=0$ et $\dot{\theta}=0$
 
-1) dans $\mathcal{R}^\prime$, $\rho_0=$ constante
-   1) Champ électrique $\vv{E}^\prime(M)$
+1) dans $\mathcal{R}'$, $\rho_0=$ constante
+   1) Champ électrique $\vv{E}'(M)$
 
-      Les plans $(\vv{u}_r,\vv{u}_\theta)$ et $(\vv{u}_r,\vv{u}_{x^\prime})$
+      Les plans $(\vv{u}_r,\vv{u}_\theta)$ et $(\vv{u}_r,\vv{u}_{x'})$
       sont des plans de symétrie de la distribution de charge \rightarrow le
       champ électrique appartient donc à chacun des plans :
-      $\vv{E}^\prime(M)=E(M)\vv{u}_r$. De plus, il y a invariance par
-      translation selon l'axe $x^\prime$ et par rotation d'angle \theta :
-      $\vv{E}^\prime(M)=E(r)\vv{u}_r$.
+      $\vv{E}'(M)=E(M)\vv{u}_r$. De plus, il y a invariance par
+      translation selon l'axe $x'$ et par rotation d'angle \theta :
+      $\vv{E}'(M)=E(r)\vv{u}_r$.
 
       Théorème de Gauss :
       #+BEGIN_SRC latex
         \begin{equation*}
-          \oiint_\mathcal{S}\vv{E}^\prime(M)\cdot\text{d}\vv{S}=\frac{Q_\text{int.}}{\epsilon_0}
+          \oiint_\mathcal{S}\vv{E}'(M)\cdot\text{d}\vv{S}=\frac{Q_\text{int.}}{\epsilon_0}
         \end{equation*}
       #+END_SRC
       où la surface de Gauss est un cylindre de rayon $r<R$ et de hauteur $h$.
       #+BEGIN_SRC latex
         \begin{align*}
-          E^\prime(r)\times2\pi r\times h&=\frac{\rho_0}{\epsilon_0}\times h\times\pi r^2\\
-          \vv{E}^\prime(M)&=\frac{\rho_0r}{2\epsilon_0}\vv{u}_r=\frac{\rho_0}{2\epsilon_0}\vv{r}
+          E'(r)\times2\pi r\times h&=\frac{\rho_0}{\epsilon_0}\times h\times\pi r^2\\
+          \vv{E}'(M)&=\frac{\rho_0r}{2\epsilon_0}\vv{u}_r=\frac{\rho_0}{2\epsilon_0}\vv{r}
         \end{align*}
       #+END_SRC
 
@@ -588,37 +588,37 @@ trajectoire circulaire de rayon $R$
       devient
       #+BEGIN_SRC latex
         \begin{equation*}
-          \vv{F}^\prime=q\vv{E}^\prime(R)=\frac{q\rho_0}{2\epsilon_0}\vv{R}
+          \vv{F}'=q\vv{E}'(R)=\frac{q\rho_0}{2\epsilon_0}\vv{R}
         \end{equation*}
       #+END_SRC
       soit une force répulsive.
    2) Mécanique classique ou Newtonienne $\Upsigma\vv{F}=m\vv{a}$ [fn:1]
       #+BEGIN_SRC latex
         \begin{align*}
-          \vv{F}^\prime&=m\vv{a}=m\ddot{R}\vv{u}_r=m\frac{\text{d}^2R}{\text{d}t^{\prime2}}\vv{u}_r\\
+          \vv{F}'&=m\vv{a}=m\ddot{R}\vv{u}_r=m\frac{\text{d}^2R}{\text{d}t^{\prime2}}\vv{u}_r\\
           \frac{q\rho_0}{2\epsilon_0}R\vv{u}_r&=m\ddot{R}\vv{u}_r\rightarrow\ddot{R}-\frac{q\rho_0}{2m\epsilon_0}R=0
         \end{align*}
       #+END_SRC
-      Solutions du type $R(t^\prime)=Ae^{\alpha t^\prime}+Be^{-\alpha t^\prime}$
-      où $\alpha^2=\tfrac{q\rho_0}{2m\epsilon_0}$. Or à $t^\prime=0$, $R=R_0$ et
+      Solutions du type $R(t')=Ae^{\alpha t'}+Be^{-\alpha t'}$
+      où $\alpha^2=\tfrac{q\rho_0}{2m\epsilon_0}$. Or à $t'=0$, $R=R_0$ et
       $\dot{R}=0$ d'où $A\alpha-B\alpha=0\rightarrow A=B$ et $A+B=R_0\rightarrow
       A=\tfrac{R_0}{2}$. La solution de l'équation différentielle est ainsi
       #+BEGIN_SRC latex
         \begin{equation*}
-          R(t^\prime)=\frac{R_0}{2}e^{\alpha t^\prime}+\frac{R_0}{2}e^{-\alpha t^\prime}=R_0\cosh\alpha t^\prime
+          R(t')=\frac{R_0}{2}e^{\alpha t'}+\frac{R_0}{2}e^{-\alpha t'}=R_0\cosh\alpha t'
         \end{equation*}
       #+END_SRC
-      On suppose que le mouvement transverse /i.e./ $R(t^\prime)$ est lent soit
-      $\alpha t^\prime\ll1$. Le cosinus hyperbolique se réduit ainsi à
-      $\cosh\alpha t^\prime\simeq1+\tfrac{(\alpha t^\prime)^2}{2}$. On déduit
+      On suppose que le mouvement transverse /i.e./ $R(t')$ est lent soit
+      $\alpha t'\ll1$. Le cosinus hyperbolique se réduit ainsi à
+      $\cosh\alpha t'\simeq1+\tfrac{(\alpha t')^2}{2}$. On déduit
       ainsi la variation relative de $R$
       #+BEGIN_SRC latex
         \begin{align*}
-          \frac{\Delta R}{R_0}=\frac{R-R_0}{R_0}=\frac{R}{R_0}-1\simeq1+\frac{(\alpha t^\prime)^2}{2}-1&=\frac{\alpha^2}{2}t^{\prime2}\\
+          \frac{\Delta R}{R_0}=\frac{R-R_0}{R_0}=\frac{R}{R_0}-1\simeq1+\frac{(\alpha t')^2}{2}-1&=\frac{\alpha^2}{2}t^{\prime2}\\
           &=\frac{q\rho_0}{4\epsilon_0m}t^{\prime2}
         \end{align*}
       #+END_SRC
-   3) Dilatation du temps /i.e./ $t=\gamma t^\prime$ et $x=ut$ soit
+   3) Dilatation du temps /i.e./ $t=\gamma t'$ et $x=ut$ soit
       #+BEGIN_SRC latex
         \begin{align*}
           \frac{\Delta R}{R_0}=\frac{q\rho_0}{4\epsilon_0m}\frac{t^2}{\gamma^2}&=\frac{q\rho_0}{4\epsilon_0m}\times\frac{x^2}{\gamma^2u^2}\times\frac{c^2}{c^2}\\
@@ -628,7 +628,7 @@ trajectoire circulaire de rayon $R$
       #+END_SRC
 2)
    1) Le champ électrique obéit aux mêmes règles d'invariance et de symétries
-      que dans le référentiel $\mathcal{R}^\prime$ soit
+      que dans le référentiel $\mathcal{R}'$ soit
       $\vv{E}(M)=E(r)\vv{u}_r$. Concernant le champ magnétique $\vv{B}(M)$, la
       densité de courant $\vv{j}=\rho\vv{u}$ est colinéaire à $\vv{u}_x$ et donc
       le plan $(\vv{u}_r,\vv{u}_x)$ est un plan de symétrie de la distribution
@@ -669,7 +669,7 @@ trajectoire circulaire de rayon $R$
            &=\frac{q\rho}{2\epsilon_0\gamma^2}\vv{R}
          \end{align*}
        #+END_SRC
-       La relation $\vv{F}^\prime=\gamma\vv{F}$ implique
+       La relation $\vv{F}'=\gamma\vv{F}$ implique
        #+BEGIN_SRC latex
          \begin{equation*}
            \frac{q\rho_0}{2\epsilon_0}\vv{R}=\frac{q\rho}{2\epsilon_0\gamma^2}\vv{R}
@@ -705,7 +705,7 @@ trajectoire circulaire de rayon $R$
         \begin{align*}
           \frac{\Delta R}{R_0}\simeq\frac{\zeta^2}{2}t^2&=\frac{q\rho}{4\epsilon_0m}\frac{1}{\gamma^3}t^2\\
           &=\frac{q\gamma\rho_0}{4\epsilon_0m}\frac{1}{\gamma^3}t^2=\frac{q\gamma\rho_0}{4\epsilon_0m}\frac{1}{\gamma^3}\frac{x^2}{u^2}\\
-          &=\frac{q\rho_0}{4\epsilon_0m}\frac{x^2}{\gamma^2-1}=\left.\frac{\Delta R}{R_0}\right|_{\mathcal{R}^\prime}
+          &=\frac{q\rho_0}{4\epsilon_0m}\frac{x^2}{\gamma^2-1}=\left.\frac{\Delta R}{R_0}\right|_{\mathcal{R}'}
         \end{align*}
       #+END_SRC
    5) L'énergie cinétique $T$ du faisceau d'électron est égale à
@@ -728,7 +728,7 @@ trajectoire circulaire de rayon $R$
 
       $V=\unit[10]{MV}$,$\gamma=21$ \rightarrow $\frac{\Delta R}{R_0}=1.5\,10^{-5}$
 
-* TD2 : Équations de Maxwell dans le vide et champ électromagnétique
+* TD2 : Équations de Maxwell dans le vide et champ électromagnétique :noexport:
 ** "Propriétés mécaniques" du champ électromagnétique
 :PROPERTIES:
 :CUSTOM_ID: sec::prop_champ
@@ -984,8 +984,8 @@ trajectoire circulaire de rayon $R$
           \sigma_z=-\frac{q}{\omega}\int_0^T\vv{OM}.\frac{d\vv{E}(O,t)}{dt}dt
         \end{align*}
       #+END_SRC
-      En intégrant par partie /i.e./ $(uv)^\prime=u^\prime v+v^\prime
-      u\rightarrow\int u^\prime v=[uv]-\int v^\prime u$
+      En intégrant par partie /i.e./ $(uv)'=u' v+v'
+      u\rightarrow\int u' v=[uv]-\int v' u$
       #+BEGIN_SRC latex
         \begin{align*}
           \sigma_z&=-\frac{q}{\omega}\left[\underbrace{\left[\vv{OM}.\vv{E}\right]_0^T}_{\vv{E}(O,0)=\vv{E}(O,T)}-\int_0^T\frac{d\vv{OM}}{dt}.\vv{E}(O,t)dt\right]\\
@@ -1078,7 +1078,7 @@ trajectoire circulaire de rayon $R$
   est un bruit important pour les interféromètres de hautes sensibilité tels que
   Virgo (/cf./ [[http://tel.archives-ouvertes.fr/tel-00175254/en/]]).
 
-* Électrostatique dans le vide
+* TD3 : Électrostatique dans le vide
 ** Condensateur cylindrique
 
 #+ATTR_LATEX: :float wrap :placement {l}{0.4\textwidth} :width 0.3\textwidth
@@ -1159,53 +1159,53 @@ $\vv{E}=-\vv{\text{grad}}V=-\tfrac{dV}{dr}\vv{u}_r$. Soit
           \vv{E}(M)=E_r(r,z)\vv{u}_r+E_z(r,z)\vv{u}_z
         \end{align*}
       #+END_SRC
-   2) En raison de la symétrie du problème, une charge fictive $q^\prime$ est
+   2) En raison de la symétrie du problème, une charge fictive $q'$ est
       nécessairement sur l'axe $Oz$. Le potentiel alors généré en tout point $M$
       de l'espace est la somme des potentiels induits par chaque particule soit
       #+BEGIN_SRC latex
         \begin{align*}
-          V(M)=\frac{1}{4\pi\epsilon_0}\left(\frac{q}{PM}+\frac{q^\prime}{P^\prime M}\right)
+          V(M)=\frac{1}{4\pi\epsilon_0}\left(\frac{q}{PM}+\frac{q'}{P' M}\right)
         \end{align*}
       #+END_SRC
-      où $P^\prime$ est la position de la charge $q^\prime$. Le potentiel pour
+      où $P'$ est la position de la charge $q'$. Le potentiel pour
       $r\to\infty$ est nul : $V(\infty)=0$. La condition selon laquelle le
       potentiel est nul en tout point $M$ de la surface de la sphère implique
       #+BEGIN_SRC latex
         \begin{align*}
-          \frac{q}{PM}=-\frac{q^\prime}{P^\prime M}
+          \frac{q}{PM}=-\frac{q'}{P' M}
         \end{align*}
       #+END_SRC
-      $q^\prime$ est donc de signe opposé à $q$. Par suite, on déduit que
+      $q'$ est donc de signe opposé à $q$. Par suite, on déduit que
       #+BEGIN_SRC latex
         \begin{align*}
-          q\,P^\prime M &= -q^\prime\,PM\\
-          q^2\,P^\prime M^2 &=q^{\prime2}\,PM^2\\
-          q^2\,\vv{P^\prime M}^2 &=q^{\prime2}\,\vv{PM}^2\\
-          q^2\,\left(\vv{P^\prime O}+\vv{OM}\right)^2 &=q^{\prime2}\,\left(\vv{PO}+\vv{OM}\right)^2\\
-          \underbrace{q^2P^\prime O^2-q^{\prime2}PO^2+q^2R^2-q^{\prime2}R^2}_{\text{\ding{192}}}&=\underbrace{q^{\prime2}2\vv{PO}.\vv{OM}-q^22\vv{P^\prime O}.\vv{OM}}_{\text{\ding{193}}}
+          q\,P' M &= -q'\,PM\\
+          q^2\,P' M^2 &=q^{\prime2}\,PM^2\\
+          q^2\,\vv{P' M}^2 &=q^{\prime2}\,\vv{PM}^2\\
+          q^2\,\left(\vv{P' O}+\vv{OM}\right)^2 &=q^{\prime2}\,\left(\vv{PO}+\vv{OM}\right)^2\\
+          \underbrace{q^2P' O^2-q^{\prime2}PO^2+q^2R^2-q^{\prime2}R^2}_{\text{\ding{192}}}&=\underbrace{q^{\prime2}2\vv{PO}.\vv{OM}-q^22\vv{P' O}.\vv{OM}}_{\text{\ding{193}}}
         \end{align*}
       #+END_SRC
       Le premier membre de l'équation est indépendant de $M$ et est donc
       constant. Le second membre dépend de $M$ mais doit demeurer constant pour
       tout $M$ appartenant à la surface de la sphère. Cette égalité est ainsi
       vérifiée pour $M(r,\theta,z=0)$ soit $\vv{OM}\perp\vv{u}_z$. On obtient
-      ainsi \ding{192}=\ding{193}=0 et on déduit
+      \ding{192}=\ding{193}=0 et on déduit
       #+BEGIN_SRC latex
         \begin{align*}
-          \text{\ding{193}}=0&=2\vv{OM}.\left(q^{\prime2}\vv{PO}-q^2\vv{P^\prime O}\right)\\
-          \vv{P^\prime O}&=\frac{q^{\prime2}}{q^2}\vv{PO}\parallel\vv{u}_z
+          \text{\ding{193}}=0&=2\vv{OM}.\left(q^{\prime2}\vv{PO}-q^2\vv{P' O}\right)\\
+          \vv{P' O}&=\frac{q^{\prime2}}{q^2}\vv{PO}\parallel\vv{u}_z
         \end{align*}
       #+END_SRC
       À partir du premier membre \ding{192}, on déduit
       #+BEGIN_SRC latex
         \begin{align*}
-          \text{\ding{192}}=0&=q^2P^\prime O^2-q^{\prime2}PO^2+q^2R^2-q^{\prime2}R^2\\
-          R^2\left(q^{\prime2}-q^2\right)&=q^2P^\prime O^2-q^{\prime2}PO^2\\
+          \text{\ding{192}}=0&=q^2P' O^2-q^{\prime2}PO^2+q^2R^2-q^{\prime2}R^2\\
+          R^2\left(q^{\prime2}-q^2\right)&=q^2P' O^2-q^{\prime2}PO^2\\
           &=q^2\times\frac{q^{\prime4}}{q^4}PO^2-q^{\prime2}PO^2\\
           &=q^{\prime2}PO^2\left(\frac{q^{\prime2}}{q^2}-1\right)\\
-          R^2&=PO^2\times\left(\frac{q^\prime}{q}\right)^2\\
-          q^\prime&=-\frac{qR}{PO}\\
-          P^\prime O&=\frac{R^2}{PO}\leq R
+          R^2&=PO^2\times\left(\frac{q'}{q}\right)^2\\
+          q'&=-\frac{qR}{PO}\\
+          P' O&=\frac{R^2}{PO}\leq R
         \end{align*}
       #+END_SRC
    3) À partir de l'équation locale $\div\vv{E}=\tfrac{\rho}{\epsilon_0}$ et de
@@ -1221,38 +1221,38 @@ $\vv{E}=-\vv{\text{grad}}V=-\tfrac{dV}{dr}\vv{u}_r$. Soit
       Les conditions aux limites imposées par la boule sont que le potentiel
       électrique en tout point de la surface soit nul $V(r=R)=0$. Pour tout
       point $r>R$, le problème "charge $q$ + boule conductrice" est équivalent à
-      la situation "charge $q$ + charge $q^\prime$" du fait que les deux
+      la situation "charge $q$ + charge $q'$" du fait que les deux
       situations obéissent à la même équation de Poisson et satisfont aux mêmes
       conditions aux limites $V(r=R)=0$. Le théorème d'unicité implique donc les
       mêmes solutions pour chacune des représentations. Cette équivalence n'est
       vrai que pour $r>R$ car à l'intérieur de la boule le champ électrostatique
       demeure nul ce qui n'est pas le cas dans la situation "charge $q$ + charge
-      $q^\prime$".
+      $q'$".
 
       #+ATTR_LATEX: :align p{0.35\textwidth}p{0.05\textwidth}p{0.35\textwidth}
       | [[./figures/boule_conductrice0.pdf]] | \vspace{-3.75cm}\LARGE{}$\bm{\equiv}$ | [[./figures/boule_conductrice1.pdf]] |
 
    4) Calcul du champ $\vv{E}(r\geq R)$ : combinaison des champs coulombiens de
-      chacune des charges $q$ et $q^\prime$
+      chacune des charges $q$ et $q'$
       #+BEGIN_SRC latex
         \begin{align*}
-          \vv{E}(M)&=\frac{1}{4\pi\epsilon_0}\left(\frac{q}{PM^3}\vv{PM}+\frac{q^\prime}{P^\prime M^3}\vv{P^\prime M}\right)\\
-          &=\frac{1}{4\pi\epsilon_0}\left[\left(\frac{q}{PM^3}+\frac{q^\prime}{P^\prime M^3}\right)\vv{OM}+\underbrace{\frac{q\vv{PO}}{PM^3}+\frac{q^\prime\vv{P^\prime O}}{P^\prime M^3}}_{\text{\ding{192}}}\right]
+          \vv{E}(M)&=\frac{1}{4\pi\epsilon_0}\left(\frac{q}{PM^3}\vv{PM}+\frac{q'}{P' M^3}\vv{P' M}\right)\\
+          &=\frac{1}{4\pi\epsilon_0}\left[\left(\frac{q}{PM^3}+\frac{q'}{P' M^3}\right)\vv{OM}+\underbrace{\frac{q\vv{PO}}{PM^3}+\frac{q'\vv{P' O}}{P' M^3}}_{\text{\ding{192}}}\right]
         \end{align*}
       #+END_SRC
-      Sachant que $\vv{P^\prime O}=\frac{q^{\prime2}}{q^2}\vv{PO}$ et $P^\prime
-      M=-\frac{q^\prime}{q}PM$, l'expression \ding{192} devient
+      Sachant que $\vv{P' O}=\frac{q^{\prime2}}{q^2}\vv{PO}$ et $P'
+      M=-\frac{q'}{q}PM$, l'expression \ding{192} devient
       #+BEGIN_SRC latex
         \begin{align*}
-          \text{\ding{192}}&=\frac{q\vv{PO}}{PM^3}+\frac{q^\prime\vv{P^\prime O}}{P^\prime M^3}\\
-          &=\frac{q\vv{PO}}{PM^3}+\frac{q^\prime\times q^{\prime2}}{q^2}\times\frac{\vv{PO}}{-q^{\prime3}}\times\frac{q^3}{PM^3}\\
+          \text{\ding{192}}&=\frac{q\vv{PO}}{PM^3}+\frac{q'\vv{P' O}}{P' M^3}\\
+          &=\frac{q\vv{PO}}{PM^3}+\frac{q'\times q^{\prime2}}{q^2}\times\frac{\vv{PO}}{-q^{\prime3}}\times\frac{q^3}{PM^3}\\
           &=0
         \end{align*}
       #+END_SRC
       soit pour $M\in$ sphère
       #+BEGIN_SRC latex
         \begin{align*}
-          \vv{E}(M)&=\frac{R\vv{u}_r}{4\pi\epsilon_0}\left(\frac{q}{PM^3}+\frac{q^\prime}{P^\prime M^3}\right)\\
+          \vv{E}(M)&=\frac{R\vv{u}_r}{4\pi\epsilon_0}\left(\frac{q}{PM^3}+\frac{q'}{P' M^3}\right)\\
           &=\frac{q\vv{R}}{4\pi\epsilon_0\,PM^3}\times\left(1-\frac{q^2}{q^{\prime2}}\right)\\
           &=\frac{q\vv{R}}{4\pi\epsilon_0\,PM^3}\times\left(1-\frac{PO^2}{R^2}\right)
         \end{align*}
@@ -1303,24 +1303,48 @@ $\vv{E}=-\vv{\text{grad}}V=-\tfrac{dV}{dr}\vv{u}_r$. Soit
       #+BEGIN_SRC latex
         \begin{align*}
           Q_\text{tot.}&=\frac{qR(R^2-PO^2)}{2}\times\frac{1}{R\,PO}\times\frac{2R}{PO^2-R^2}\\
-          &=-\frac{qR}{PO}=q^\prime
+          &=-\frac{qR}{PO}=q'
         \end{align*}
       #+END_SRC
       Le théorème de Gauss impose que $Q_\text{tot.}$ soit égal à la somme des
-      charges à l'intérieur de la sphère. La charge fictive $q^\prime$ est par
-      construction à l'intérieur de la sphère d'où $Q_\text{tot.}=q^\prime$.
-   5) Calcul de la force exercée par la charge $q$ sur $q^\prime$ \equiv à
+      charges à l'intérieur de la sphère. La charge fictive $q'$ est par
+      construction à l'intérieur de la sphère d'où $Q_\text{tot.}=q'$.
+   5) Calcul de la force exercée par la charge $q$ sur $q'$ \equiv à
       calculer la force exercée par la charge $q$ sur la boule conductrice.
       #+BEGIN_SRC latex
         \begin{align*}
-          \vv{F}_{q\to q^\prime}&=\vv{F}_{q\to\text{boule}}\\
-          &=q^\prime\vv{E}_{q\to q^\prime}\\
-          &=\frac{q^\prime q}{4\pi\epsilon_0}\times\frac{\vv{PP^\prime}}{PP^{\prime3}}=\frac{q^\prime q}{4\pi\epsilon_0}\times\frac{-\vv{u}_z}{PP^{\prime2}}\\
+          \vv{F}_{q\to q'}&=\vv{F}_{q\to\text{boule}}\\
+          &=q'\vv{E}_{q\to q'}\\
+          &=\frac{q' q}{4\pi\epsilon_0}\times\frac{\vv{PP'}}{PP^{\prime3}}=\frac{q' q}{4\pi\epsilon_0}\times\frac{-\vv{u}_z}{PP^{\prime2}}\\
           &\text{avec }PP^{\prime2}=PO^2+OP^{\prime2}=PO^2+\frac{R^4}{PO^2}=\frac{PO^4+R^4}{PO^2}\\
-          \vv{F}_{q\to\text{boule}}&=-\frac{qq^\prime}{4\pi\epsilon_0}\times\frac{PO^2}{PO^4+R^4}\vv{u}_z\\
+          \vv{F}_{q\to\text{boule}}&=-\frac{qq'}{4\pi\epsilon_0}\times\frac{PO^2}{PO^4+R^4}\vv{u}_z\\
           &=\frac{q^2}{4\pi\epsilon_0}\frac{R\,PO}{PO^4+R^4}\vv{u}_z
         \end{align*}
       #+END_SRC
+2) $V_0\neq0$
+   1) Le principe de superposition implique
+      #+BEGIN_SRC latex
+        \begin{align*}
+          V(M)=V_0=\frac{1}{4\pi\epsilon_0}\left(\underbrace{\frac{q}{PM}+\frac{q'}{P'M}}_{=0}+\frac{q''}{P''M}\right)
+        \end{align*}
+      #+END_SRC
+      soit
+      #+BEGIN_SRC latex
+        \begin{align*}
+          q''=4\pi\epsilon_0V_0\times P''M=\text{constante}
+        \end{align*}
+      #+END_SRC
+      impliquant que $P''\equiv O$ et donc $q''=4\pi\epsilon_0RV_0$
+   2) Les charges fictives/virtuelles $q'$ et $q''$ sont à l'intérieur de la
+      boule conductrice d'où $Q_\text{boule}=q'+q''=0$. La charge $q''$ est
+      ainsi égale à $-q'=\frac{qR}{PO}$ soit un potentiel $V_0$ égal à
+      #+BEGIN_SRC latex
+        \begin{align*}
+          4\pi\epsilon_0RV_0&=-q'=\frac{qR}{PO}\\
+          V_0&=\frac{1}{4\pi\epsilon_0}\times\frac{q}{PO}
+        \end{align*}
+      #+END_SRC
+      /i.e./ le potentiel généré en $O$ par la particule $q$.
 * Footnotes
 
 [fn:1] le vecteur accélération $\vv{a}$ s'écrit en toute rigueur
