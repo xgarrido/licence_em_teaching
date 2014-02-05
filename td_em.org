@@ -6,6 +6,7 @@
 #+LATEX_HEADER_EXTRA: \newcommand{\vv}[1]{\overrightarrow{#1}}
 #+LATEX_HEADER_EXTRA: \renewcommand{\div}{\ensuremath{\text{div}}}
 #+LATEX_HEADER_EXTRA: \newcommand{\rot}{\ensuremath{\vv{\text{rot}}}}
+#+LATEX_HEADER_EXTRA: \newcommand{\grad}{\ensuremath{\vv{\text{grad}}}}
 
 * TD1 : Électromagnétisme & relativité
 
@@ -371,9 +372,9 @@ ou
    #+END_SRC
    soit, au facteur $\gamma$ près, identique à l'équation du mouvement pour une
    particule non-relativiste. La pulsation $\omega=\tfrac{qB}{m\gamma}$ est
-   inférieure à la pulsation classique d'un cyclotron
-   $\omega_c=\tfrac{qB}{m}$. La trajectoire est alors circulaire autour du champ
-   magnétique $\vv{B}$ et de rayon $R=\gamma\tfrac{mv_0}{qB}$.
+   inférieure à la pulsation cyclotron classique $\omega_c=\tfrac{qB}{m}$. La
+   trajectoire est alors circulaire autour du champ magnétique $\vv{B}$ et de
+   rayon $R=\gamma\tfrac{mv_0}{qB}$.
 
 2) L'accélération dans le cas d'un mouvement uniforme circulaire est
    l'accélération centripète d'expression
@@ -415,16 +416,15 @@ ou
    totale $\mathcal{E}=\unit[6]{GeV}$
    #+BEGIN_SRC latex
      \begin{equation*}
-       \gamma=\frac{\mathcal{E}}{mc^2}=12\,000\text{ soit }\frac{v}{c}=0.999999996527\simeq1
+       \gamma=\frac{\mathcal{E}}{mc^2}=11\,742\text{ soit }\frac{v}{c}=0.99999999637\simeq1
      \end{equation*}
    #+END_SRC
    L'énergie rayonnée exprimée en eV est alors égale à
    #+BEGIN_SRC latex
      \begin{align*}
        \left.\mathcal{E}_r\right|_\text{eV}&=\frac{e^2}{3\epsilon_0R}\times\gamma^4\times\frac{1}{e}\\
-       &=\frac{1.6\,10^{-19}}{3\times8.85\,10^{-12}\times134}\times(12000)^4\\
-       &=\frac{1.6\times(1.2)^4}{3\times8.85\times1.34}\times\unit[10^{7}]{eV}\\
-       &=\unit[0.93]{MeV}=1.55\,10^{-4}\mathcal{E}
+       &=\frac{1.6\,10^{-19}}{3\times8.85\,10^{-12}\times134}\times(11742)^4\\
+       &=\unit[0.855]{MeV}=1.42\,10^{-4}\mathcal{E}
      \end{align*}
    #+END_SRC
 
@@ -730,6 +730,9 @@ trajectoire circulaire de rayon $R$
 
 * TD2 : Équations de Maxwell dans le vide et champ électromagnétique
 ** "Propriétés mécaniques" du champ électromagnétique
+:PROPERTIES:
+:CUSTOM_ID: sec::prop_champ
+:END:
 1) *Énergie*
    1) Force de Lorentz : $\vv{F}=q\vv{E}+q\vv{v}\times\vv{B}$
 
@@ -762,7 +765,7 @@ trajectoire circulaire de rayon $R$
           \end{align*}
         #+END_SRC
         Dans un conducteur, il n'y a donc pas de charge en volume : le courant et
-        donc les charges se déplaçant en surface.
+        donc les charges se déplaçent en surface.
 
    3) La puissance $\mathcal{P}$ s'écrit comme le produit de la force $\vv{F}$ par la
       vitesse de la particule\nbsp$\vv{v}$ :
@@ -1128,10 +1131,196 @@ $\vv{E}=-\vv{\text{grad}}V=-\tfrac{dV}{dr}\vv{u}_r$. Soit
   \end{align*}
 #+END_SRC
 
-** Méthode des images
-#+ATTR_LATEX: :float wrap :placement {l}{0.4\linewidth}
+** Boule conductrice en présence d'une charge ponctuelle : méthode des images
+#+BEGIN_CENTER
+#+ATTR_LATEX: :width 0.5\linewidth
 [[./boule_conductrice.pdf]]
+#+END_CENTER
 
+1) $V(r=R)=0$
+   1) L'absence de charges libres dans le volume d'un conducteur (les charges
+      sont surfaciques /cf./ Exercice [[#sec::prop_champ]]) implique que le champ
+      électrique $\vv{E}_\text{int.}$ soit nul (théorème de Gauss). Le potentiel
+      électrique $V_\text{int.}$ déduit de
+      $\vv{E}_\text{int.}=-\vv{\text{grad}}\,V_\text{int}$ est par conséquent
+      constant. $V_\text{int.}(r=R)$ étant par ailleurs nul
+      #+BEGIN_SRC latex
+        \begin{align*}
+          V_\text{int.}=V(r\leq R)=0
+        \end{align*}
+      #+END_SRC
+
+      Le problème est invariant par rotation autour de l'axe $Oz$ et le plan
+      $(\vv{u}_r,\vv{u}_z)$ est plan de symétrie de la distribution de
+      charge. Le champ électrostatique $\vv{E}$ exprimé dans le système de
+      coordonnées cylindriques $M=(r,\theta,z)$, a donc pour expression
+      #+BEGIN_SRC latex
+        \begin{align*}
+          \vv{E}(M)=E_r(r,z)\vv{u}_r+E_z(r,z)\vv{u}_z
+        \end{align*}
+      #+END_SRC
+   2) En raison de la symétrie du problème, une charge fictive $q^\prime$ est
+      nécessairement sur l'axe $Oz$. Le potentiel alors généré en tout point $M$
+      de l'espace est la somme des potentiels induits par chaque particule soit
+      #+BEGIN_SRC latex
+        \begin{align*}
+          V(M)=\frac{1}{4\pi\epsilon_0}\left(\frac{q}{PM}+\frac{q^\prime}{P^\prime M}\right)
+        \end{align*}
+      #+END_SRC
+      où $P^\prime$ est la position de la charge $q^\prime$. Le potentiel pour
+      $r\to\infty$ est nul : $V(\infty)=0$. La condition selon laquelle le
+      potentiel est nul en tout point $M$ de la surface de la sphère implique
+      #+BEGIN_SRC latex
+        \begin{align*}
+          \frac{q}{PM}=-\frac{q^\prime}{P^\prime M}
+        \end{align*}
+      #+END_SRC
+      $q^\prime$ est donc de signe opposé à $q$. Par suite, on déduit que
+      #+BEGIN_SRC latex
+        \begin{align*}
+          q\,P^\prime M &= -q^\prime\,PM\\
+          q^2\,P^\prime M^2 &=q^{\prime2}\,PM^2\\
+          q^2\,\vv{P^\prime M}^2 &=q^{\prime2}\,\vv{PM}^2\\
+          q^2\,\left(\vv{P^\prime O}+\vv{OM}\right)^2 &=q^{\prime2}\,\left(\vv{PO}+\vv{OM}\right)^2\\
+          \underbrace{q^2P^\prime O^2-q^{\prime2}PO^2+q^2R^2-q^{\prime2}R^2}_{\text{\ding{192}}}&=\underbrace{q^{\prime2}2\vv{PO}.\vv{OM}-q^22\vv{P^\prime O}.\vv{OM}}_{\text{\ding{193}}}
+        \end{align*}
+      #+END_SRC
+      Le premier membre de l'équation est indépendant de $M$ et est donc
+      constant. Le second membre dépend de $M$ mais doit demeurer constant pour
+      tout $M$ appartenant à la surface de la sphère. Cette égalité est ainsi
+      vérifiée pour $M(r,\theta,z=0)$ soit $\vv{OM}\perp\vv{u}_z$. On obtient
+      ainsi \ding{192}=\ding{193}=0 et on déduit
+      #+BEGIN_SRC latex
+        \begin{align*}
+          \text{\ding{193}}=0&=2\vv{OM}.\left(q^{\prime2}\vv{PO}-q^2\vv{P^\prime O}\right)\\
+          \vv{P^\prime O}&=\frac{q^{\prime2}}{q^2}\vv{PO}\parallel\vv{u}_z
+        \end{align*}
+      #+END_SRC
+      À partir du premier membre \ding{192}, on déduit
+      #+BEGIN_SRC latex
+        \begin{align*}
+          \text{\ding{192}}=0&=q^2P^\prime O^2-q^{\prime2}PO^2+q^2R^2-q^{\prime2}R^2\\
+          R^2\left(q^{\prime2}-q^2\right)&=q^2P^\prime O^2-q^{\prime2}PO^2\\
+          &=q^2\times\frac{q^{\prime4}}{q^4}PO^2-q^{\prime2}PO^2\\
+          &=q^{\prime2}PO^2\left(\frac{q^{\prime2}}{q^2}-1\right)\\
+          R^2&=PO^2\times\left(\frac{q^\prime}{q}\right)^2\\
+          q^\prime&=-\frac{qR}{PO}\\
+          P^\prime O&=\frac{R^2}{PO}\leq R
+        \end{align*}
+      #+END_SRC
+   3) À partir de l'équation locale $\div\vv{E}=\tfrac{\rho}{\epsilon_0}$ et de
+      l'expression du potentiel électrique $\vv{E}=-\grad V$, on obtient
+      l'équation de Poisson
+      #+BEGIN_SRC latex
+        \begin{align*}
+          -\div\left(\grad V\right)&=\frac{\rho}{\epsilon_0}\\
+          -\Delta V&=\frac{\rho}{\epsilon_0}\\
+          \Delta V+\frac{\rho}{\epsilon_0}&=0
+        \end{align*}
+      #+END_SRC
+      Les conditions aux limites imposées par la boule sont que le potentiel
+      électrique en tout point de la surface soit nul $V(r=R)=0$. Pour tout
+      point $r>R$, le problème "charge $q$ + boule conductrice" est équivalent à
+      la situation "charge $q$ + charge $q^\prime$" du fait que les deux
+      situations obéissent à la même équation de Poisson et satisfont aux mêmes
+      conditions aux limites $V(r=R)=0$. Le théorème d'unicité implique donc les
+      mêmes solutions pour chacune des représentations. Cette équivalence n'est
+      vrai que pour $r>R$ car à l'intérieur de la boule le champ électrostatique
+      demeure nul ce qui n'est pas le cas dans la situation "charge $q$ + charge
+      $q^\prime$".
+
+      #+ATTR_LATEX: :align p{0.35\textwidth}p{0.05\textwidth}p{0.35\textwidth}
+      | [[./figures/boule_conductrice0.pdf]] | \vspace{-3.75cm}\LARGE{}$\bm{\equiv}$ | [[./figures/boule_conductrice1.pdf]] |
+
+   4) Calcul du champ $\vv{E}(r\geq R)$ : combinaison des champs coulombiens de
+      chacune des charges $q$ et $q^\prime$
+      #+BEGIN_SRC latex
+        \begin{align*}
+          \vv{E}(M)&=\frac{1}{4\pi\epsilon_0}\left(\frac{q}{PM^3}\vv{PM}+\frac{q^\prime}{P^\prime M^3}\vv{P^\prime M}\right)\\
+          &=\frac{1}{4\pi\epsilon_0}\left[\left(\frac{q}{PM^3}+\frac{q^\prime}{P^\prime M^3}\right)\vv{OM}+\underbrace{\frac{q\vv{PO}}{PM^3}+\frac{q^\prime\vv{P^\prime O}}{P^\prime M^3}}_{\text{\ding{192}}}\right]
+        \end{align*}
+      #+END_SRC
+      Sachant que $\vv{P^\prime O}=\frac{q^{\prime2}}{q^2}\vv{PO}$ et $P^\prime
+      M=-\frac{q^\prime}{q}PM$, l'expression \ding{192} devient
+      #+BEGIN_SRC latex
+        \begin{align*}
+          \text{\ding{192}}&=\frac{q\vv{PO}}{PM^3}+\frac{q^\prime\vv{P^\prime O}}{P^\prime M^3}\\
+          &=\frac{q\vv{PO}}{PM^3}+\frac{q^\prime\times q^{\prime2}}{q^2}\times\frac{\vv{PO}}{-q^{\prime3}}\times\frac{q^3}{PM^3}\\
+          &=0
+        \end{align*}
+      #+END_SRC
+      soit pour $M\in$ sphère
+      #+BEGIN_SRC latex
+        \begin{align*}
+          \vv{E}(M)&=\frac{R\vv{u}_r}{4\pi\epsilon_0}\left(\frac{q}{PM^3}+\frac{q^\prime}{P^\prime M^3}\right)\\
+          &=\frac{q\vv{R}}{4\pi\epsilon_0\,PM^3}\times\left(1-\frac{q^2}{q^{\prime2}}\right)\\
+          &=\frac{q\vv{R}}{4\pi\epsilon_0\,PM^3}\times\left(1-\frac{PO^2}{R^2}\right)
+        \end{align*}
+      #+END_SRC
+
+      Conditions de continuité du champ électrique au passage d'une surface
+
+      #+BEGIN_CENTER
+      #+ATTR_LATEX: :width 0.4\textwidth
+      [[./field_continuity.pdf]]
+
+      #+BEGIN_SRC latex
+        \begin{align*}
+          \vv{n}_{\tiny1\to2}.\left(\vv{E}_2-\vv{E}_1\right)&=\frac{\sigma}{\epsilon_0}\rightarrow\text{discontinuité de la composante normale}\\
+          \vv{n}_{\tiny1\to2}\times\left(\vv{E}_2-\vv{E}_1\right)&=\vv{0}\rightarrow\text{continuité de la composante tangentielle}
+        \end{align*}
+      #+END_SRC
+      #+END_CENTER
+      Étant donné que $\vv{E}_\text{int.}=\vv{E}_1=\vv{0}$, la densité
+      surfacique de charge est égale à
+      #+BEGIN_SRC latex
+        \begin{align*}
+          \vv{E}(M\in\text{sphère})&=\frac{\sigma}{\epsilon_0}\vv{u}_r\\
+          \sigma&=\frac{qR}{4\pi}\left(1-\frac{PO^2}{R^2}\right)\times\frac{1}{PM^3}
+        \end{align*}
+      #+END_SRC
+      La charge totale $Q_\text{tot.}$ de la boule conductrice est donc
+      #+BEGIN_SRC latex
+        \begin{align*}
+          Q_\text{tot.}&=\int_0^{2\pi}d\phi\int_0^\pi d\theta\times R^2\sin\theta\times\sigma(\theta)\\
+          &=\frac{2\pi qR^3}{4\pi R^2}\left(R^2-PO^2\right)\times\int_0^\pi d\theta\frac{\sin\theta}{PM^3}\\
+          &\text{avec }PM^2=PO^2+OM^2+2\vv{PO}.\vv{OM}=PO^2+R^2-2R\,PO\cos\theta\\
+          Q_\text{tot.}&=\frac{qR(R^2-PO^2)}{2}\times\underbrace{\int_0^\pi\frac{\sin\theta d\theta}{\left(PO^2+R^2-2R\,PO\cos\theta\right)^{3/2}}}_{\text{\ding{192}}}
+        \end{align*}
+      #+END_SRC
+      Pour calculer \ding{192}, on pose $x=\cos\theta$ avec $x\in[1,-1]$ et
+      $dx=-\sin\theta d\theta$
+      #+BEGIN_SRC latex
+        \begin{align*}
+          \text{\ding{192}}&=\int_1^{-1}\frac{-dx}{\left(PO^2+R^2-2R\,POx\right)^{3/2}}\\
+          &\text{or }\int\frac{dx}{(b+ax)^{3/2}}=\frac{1}{(b+ax)^{1/2}}\times-\frac{2}{a}\\
+          \text{\ding{192}}&=\frac{1}{R\,PO}\left(\frac{1}{\surd PO^2+R^2-2R\,PO}-\frac{1}{\surd PO^2+R^2+2R\,PO}\right)\\
+          &=\frac{1}{R\,PO}\left(\frac{1}{PO-R}-\frac{1}{PO+R}\right)\\
+          &=\frac{1}{R\,PO}\left(\frac{2R}{PO^2-R^2}\right)
+        \end{align*}
+      #+END_SRC
+      Finalement $Q_\text{tot.}$ devient
+      #+BEGIN_SRC latex
+        \begin{align*}
+          Q_\text{tot.}&=\frac{qR(R^2-PO^2)}{2}\times\frac{1}{R\,PO}\times\frac{2R}{PO^2-R^2}\\
+          &=-\frac{qR}{PO}=q^\prime
+        \end{align*}
+      #+END_SRC
+      Le théorème de Gauss impose que $Q_\text{tot.}$ soit égal à la somme des
+      charges à l'intérieur de la sphère. La charge fictive $q^\prime$ est par
+      construction à l'intérieur de la sphère d'où $Q_\text{tot.}=q^\prime$.
+   5) Calcul de la force exercée par la charge $q$ sur $q^\prime$ \equiv à
+      calculer la force exercée par la charge $q$ sur la boule conductrice.
+      #+BEGIN_SRC latex
+        \begin{align*}
+          \vv{F}_{q\to q^\prime}&=\vv{F}_{q\to\text{boule}}\\
+          &=q^\prime\vv{E}_{q\to q^\prime}\\
+          &=\frac{q^\prime q}{4\pi\epsilon_0}\times\frac{\vv{PP^\prime}}{PP^{\prime3}}=\frac{q^\prime q}{4\pi\epsilon_0}\times\frac{-\vv{u}_z}{PP^{\prime2}}\\
+          &\text{avec }PP^{\prime2}=PO^2+OP^{\prime2}=PO^2+\frac{R^4}{PO^2}=\frac{PO^4+R^4}{PO^2}\\
+          \vv{F}_{q\to\text{boule}}&=-\frac{qq^\prime}{4\pi\epsilon_0}\times\frac{PO^2}{PO^4+R^4}\vv{u}_z\\
+          &=\frac{q^2}{4\pi\epsilon_0}\frac{R\,PO}{PO^4+R^4}\vv{u}_z
+        \end{align*}
+      #+END_SRC
 * Footnotes
 
 [fn:1] le vecteur accélération $\vv{a}$ s'écrit en toute rigueur

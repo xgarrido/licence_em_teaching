@@ -1,0 +1,18 @@
+\begin{tikzpicture}
+  \sf
+  \definecolor{red}{RGB}{221,42,43}
+  \definecolor{green}{RGB}{105,182,40}
+  \definecolor{blue}{RGB}{0,51,153}
+  \definecolor{orange}{RGB}{192,128,64}
+
+  \draw[blue, very thick] (0,0) -- (5,0) node[below] {1} node[above] {2};
+  \draw[blue, very thick,->] (2,0) -- (2,1) node[right,yshift=-1em] {$\overrightarrow{n}_{\text{\tiny 1}\to\text{\tiny 2}}$};
+
+
+
+\end{tikzpicture}%
+
+%% Configure (x)emacs for this file ...
+%% Local Variables:
+%% mode: latex
+%% End:

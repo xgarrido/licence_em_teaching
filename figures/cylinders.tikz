@@ -1,5 +1,5 @@
 \begin{tikzpicture}[
-  >=stealth, %
+  >=latex, %
   inner sep=0pt, outer sep=2pt,%
   axis/.style={thick,->},
   cylinder/.style={thick}

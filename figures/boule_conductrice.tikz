@@ -75,9 +75,11 @@
 
   \coordinate[mark coordinate] (O) at (0,0);
   \coordinate[mark coordinate] (P) at (0,1.3*\R);
+  \coordinate[mark coordinate] (Pprime) at (0,0.8*\R);
+
   \path[pzplane] (\angBeta:\R) coordinate[mark coordinate] (M);
   \path[pzplane] (0.707*\R,0) coordinate (ME);
-  \path[pzplane] (0.707*\R,0) coordinate (XE);
+  \path[pzplane] (0.707*\R,0) coordinate[mark coordinate,red] (XE);
 
   %% %% draw meridians and latitude circles
 
@@ -96,6 +98,8 @@
   \draw[dashed,red] (M) -- (XE);
   \draw (P) node[above left] {$\mathbf{P}$};
   \draw (P) node[below right] {$q$};
+  \draw (Pprime) node[above left] {$\mathbf{P^\prime}$};
+  \draw (Pprime) node[below right] {$q^\prime$};
   \draw[pzplane,->,thin] (36*\R:0.5*\R) to[bend left=30] node[pos=0.55,yshift=6pt] {$\theta$} (\angBeta:0.5*\R);
   \draw[equator,->,thin] (\angAz:0.4*\R) to[bend right=30] node[pos=0.4,below] {$\phi$} (\angPhi:0.4*\R);
 
