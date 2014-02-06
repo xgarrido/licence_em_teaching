@@ -1374,9 +1374,95 @@ $\vv{E}=-\vv{\text{grad}}V=-\tfrac{dV}{dr}\vv{u}_r$. Soit
           \frac{1}{NM^3}&\simeq\frac{1}{Z^3}\left(1-3\frac{r}{Z}\cos\theta\right)
         \end{align*}
       #+END_SRC
-
-
-
+      Le champ électrique au voisinage de la boule conductrice devient
+      #+BEGIN_SRC latex
+        \begin{eqnarray*}
+          \vv{E}(r\leq R)&=\frac{1}{4\pi\epsilon_0}\times\frac{q}{Z^3}\times&\left[\vv{OM}\left(\cancel{1}+3\frac{r}{Z}\cos\theta\right)-\vv{OM}\left(\cancel{1}-3\frac{r}{Z}\cos\theta\right)\right.\\
+            &&\left.+\vv{PO}\left(1+3\frac{r}{Z}\cos\theta\right)-\vv{NO}\left(1-3\frac{r}{Z}\cos\theta\right)\right]\\
+          &=\frac{1}{4\pi\epsilon_0}\times\frac{q}{Z^3}\times&\left[\cancel{6\frac{r^2}{Z}}(\propto\tfrac{r^2}{Z^2}\ll1)\cos\theta\vv{u}_r\right.\\
+            &&\left.+\vv{PO}\left(1+3\frac{r}{Z}\cos\theta\right)-\vv{NO}\left(1-3\frac{r}{Z}\cos\theta\right)\right]\\
+          &=\frac{1}{4\pi\epsilon_0}\times\frac{q}{Z^3}\times&\left[\vv{PO}\left(1+\cancel{3\frac{r}{Z}\cos\theta}\right)-\vv{NO}\left(1-\cancel{3\frac{r}{Z}\cos\theta}\right)\right]\\
+          &=\frac{1}{4\pi\epsilon_0}\times\frac{q}{Z^3}\vv{PN}\\
+          &=-\frac{1}{4\pi\epsilon_0}\times\frac{2q}{Z^2}\vv{u}_z&\rightarrow\text{champ électrique constant pour }r\leq R\\
+        \end{eqnarray*}
+      #+END_SRC
+      Le champ ainsi généré correspond au champ électrique généré par un dipôle
+      électrique $\vv{p}=q\vv{PN}$ (où la charge $q$ est en $P$ et la charge
+      $-q$ est en $N$, /cf./ Cours Chapitre 2, page 44).
+   2) Nous avons établi à la question 1.d) qu'en présence d'une charge
+      ponctuelle $q$, la densité surfacique de charge était
+      #+BEGIN_SRC latex
+        \begin{align*}
+          \sigma=\frac{q}{4\pi}\times\frac{R^2-PO^2}{R}\times\frac{1}{PM^3}
+        \end{align*}
+      #+END_SRC
+      où $P$ est la position de la charge $q$ et $M$ est un point situé à la
+      surface de la boule. On déduit ainsi que la charge $+q$ génère une densité
+      surfacique
+      #+BEGIN_SRC latex
+        \begin{align*}
+          \sigma_+=\frac{q}{4\pi}\times\frac{R^2-PO^2}{R}\times\frac{1}{PM^3}
+        \end{align*}
+      #+END_SRC
+      tandis que la charge $-q$ placée en $N$ implique une densité surfacique
+      #+BEGIN_SRC latex
+        \begin{align*}
+          \sigma_-=\frac{-q}{4\pi}\times\frac{R^2-NO^2}{R}\times\frac{1}{NM^3}
+        \end{align*}
+      #+END_SRC
+      En ne considérant toujours que le premier ordre en $\frac{R}{Z}$, on
+      obtient une densité surfacique totale
+      #+BEGIN_SRC latex
+        \begin{align*}
+          \sigma_\text{totale}&=\sigma_++\sigma_-\\
+          &=\frac{q\times(R^2-Z^2)}{4\pi R}\times\frac{1}{Z^3}\left(\cancel{1}+\frac{3R}{Z}\cos\theta-\cancel{1}+\frac{3R}{Z}\cos\theta\right)\\
+          &=-\frac{3q}{2\pi Z^2}\cos\theta
+        \end{align*}
+      #+END_SRC
+   3) Le champ dipolaire électrique s'écrit
+      #+BEGIN_SRC latex
+        \begin{align*}
+          \vv{E}_\text{dipôle}&=-\frac{q}{2\pi\epsilon_0Z^2}\vv{u}_z\\
+          &=\frac{\sigma_0}{3\epsilon_0}\vv{u}_z\\
+          &\text{où }\sigma_\text{totale}=-\frac{3q}{2\pi Z^2}\cos\theta=\sigma_0\cos\theta
+        \end{align*}
+      #+END_SRC
+      Le champ électrique à l'intérieur de la boule conductrice demeurant nul,
+      on déduit que le champ électrique $\vv{E}_\sigma$ crée par la densité
+      surfacique de charge $\sigma_\text{totale}$ s'écrit
+      #+BEGIN_SRC latex
+        \begin{align*}
+          \vv{E}_\text{int.}=\vv{0}&=\vv{E}_\text{dipôle}+\vv{E}_\sigma\\
+          \vv{E}_\sigma&=-\frac{\sigma_0}{3\epsilon_0}\vv{u}_z
+        \end{align*}
+      #+END_SRC
+   4) La pression électrostatique $P$ est égale à
+      $\frac{\sigma^2}{2\epsilon_0}$. C'est par ailleurs, la force
+      électrostatique par unité de surface $P=\frac{d\vv{F}}{d\vv{S}}$. La force
+      exercé sur l'hémisphère supérieur est ainsi
+      #+BEGIN_SRC latex
+        \begin{align*}
+          d\vv{F}_1&=\frac{\sigma^2}{2\epsilon_0}\,d\vv{S}\\
+          \vv{F}_1&=\int_0^{2\pi}d\phi\int_0^{\pi/2}d\theta\frac{\sigma_0^2}{2\epsilon_0}\cos^2\theta R^2\sin\theta\vv{u}_r
+        \end{align*}
+      #+END_SRC
+      Seule la composante suivant $\vv{u}_z$ de la force est non nulle soit en
+      remplaçant $\vv{u}_r=\vv{u}_z\cos\theta$, une force $\vv{F}_1$
+      #+BEGIN_SRC latex
+        \begin{align*}
+          \vv{F}_1&=\int_0^{2\pi}d\phi\int_0^{\pi/2}d\theta\frac{\sigma_0^2}{2\epsilon_0}\cos^3\theta R^2\sin\theta\vv{u}_z
+        \end{align*}
+      #+END_SRC
+      En procédant au changement de variable $x=\cos\theta$ avec $x\in[1,0]$ et
+      $dx=-\sin\theta d\theta$
+      #+BEGIN_SRC latex
+        \begin{align*}
+          \vv{F}_1&=2\pi\frac{\sigma_0^2}{2\epsilon_0}R^2\int_0^1x^3dx\vv{u}_z\\
+          &=\frac{\pi R^2\,\sigma_0^2}{\epsilon_0}\times\frac{1}{4}\vv{u}_z\\
+          &=\frac{\pi R^2\,\sigma_0^2}{4\epsilon_0}\vv{u}_z\\
+          \vv{F}_2&=-\vv{F}_1=-\frac{\pi R^2\,\sigma_0^2}{4\epsilon_0}\vv{u}_z
+        \end{align*}
+      #+END_SRC
 * Footnotes
 
 [fn:1] le vecteur accélération $\vv{a}$ s'écrit en toute rigueur
