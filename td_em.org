@@ -8,7 +8,7 @@
 #+LATEX_HEADER_EXTRA: \newcommand{\rot}{\ensuremath{\vv{\text{rot}}}}
 #+LATEX_HEADER_EXTRA: \newcommand{\grad}{\ensuremath{\vv{\text{grad}}}}
 
-* TD1 : Électromagnétisme & relativité                             :noexport:
+* TD1 : Électromagnétisme & relativité
 
 ** Introduction
 *Transformation de Lorentz :* $\beta=\tfrac{v}{c}$ et
@@ -728,7 +728,7 @@ trajectoire circulaire de rayon $R$
 
       $V=\unit[10]{MV}$,$\gamma=21$ \rightarrow $\frac{\Delta R}{R_0}=1.5\,10^{-5}$
 
-* TD2 : Équations de Maxwell dans le vide et champ électromagnétique :noexport:
+* TD2 : Équations de Maxwell dans le vide et champ électromagnétique
 ** "Propriétés mécaniques" du champ électromagnétique
 :PROPERTIES:
 :CUSTOM_ID: sec::prop_champ
