@@ -1415,10 +1415,13 @@ $\vv{E}=-\vv{\text{grad}}V=-\tfrac{dV}{dr}\vv{u}_r$. Soit
       #+BEGIN_SRC latex
         \begin{align*}
           \sigma_\text{totale}&=\sigma_++\sigma_-\\
-          &=\frac{q\times(R^2-Z^2)}{4\pi R}\times\frac{1}{Z^3}\left(\cancel{1}+\frac{3R}{Z}\cos\theta-\cancel{1}+\frac{3R}{Z}\cos\theta\right)\\
-          &=-\frac{3q}{2\pi Z^2}\cos\theta
+          &\simeq\frac{q\times(R^2-Z^2)}{4\pi R}\times\frac{1}{Z^3}\left(\cancel{1}+\frac{3R}{Z}\cos\theta-\cancel{1}+\frac{3R}{Z}\cos\theta\right)\\
+          &\text{avec } R^2-Z^2=Z^2(-1+\frac{R^2}{Z^2})\simeq-Z^2\\
+          &\simeq-\frac{3q}{2\pi Z^2}\cos\theta
         \end{align*}
       #+END_SRC
+      Le champ électrique au voisinage de la surface de la boule n'est plus
+      uniforme du fait de la présence de charge en surface de cette boule.
    3) Le champ dipolaire électrique s'écrit
       #+BEGIN_SRC latex
         \begin{align*}
@@ -1439,15 +1442,20 @@ $\vv{E}=-\vv{\text{grad}}V=-\tfrac{dV}{dr}\vv{u}_r$. Soit
    4) La pression électrostatique $P$ est égale à
       $\frac{\sigma^2}{2\epsilon_0}$. C'est par ailleurs, la force
       électrostatique par unité de surface $P=\frac{d\vv{F}}{d\vv{S}}$. La force
-      exercé sur l'hémisphère supérieur est ainsi
+      exercée sur l'hémisphère supérieur est ainsi
       #+BEGIN_SRC latex
         \begin{align*}
           d\vv{F}_1&=\frac{\sigma^2}{2\epsilon_0}\,d\vv{S}\\
           \vv{F}_1&=\int_0^{2\pi}d\phi\int_0^{\pi/2}d\theta\frac{\sigma_0^2}{2\epsilon_0}\cos^2\theta R^2\sin\theta\vv{u}_r
         \end{align*}
       #+END_SRC
+
+      #+BEGIN_CENTER
+      #+ATTR_LATEX: :width 0.5\textwidth
+      [[./boule_conductrice_force.pdf]]
+      #+END_CENTER
       Seule la composante suivant $\vv{u}_z$ de la force est non nulle soit en
-      remplaçant $\vv{u}_r=\vv{u}_z\cos\theta$, une force $\vv{F}_1$
+      remplaçant $\vv{u}_r=\vv{u}_z\cos\theta$, la force $\vv{F}_1$ devient
       #+BEGIN_SRC latex
         \begin{align*}
           \vv{F}_1&=\int_0^{2\pi}d\phi\int_0^{\pi/2}d\theta\frac{\sigma_0^2}{2\epsilon_0}\cos^3\theta R^2\sin\theta\vv{u}_z
@@ -1459,7 +1467,7 @@ $\vv{E}=-\vv{\text{grad}}V=-\tfrac{dV}{dr}\vv{u}_r$. Soit
         \begin{align*}
           \vv{F}_1&=2\pi\frac{\sigma_0^2}{2\epsilon_0}R^2\int_0^1x^3dx\vv{u}_z\\
           &=\frac{\pi R^2\,\sigma_0^2}{\epsilon_0}\times\frac{1}{4}\vv{u}_z\\
-          &=\frac{\pi R^2\,\sigma_0^2}{4\epsilon_0}\vv{u}_z\\
+          &=\frac{\pi R^2\,\sigma_0^2}{4\epsilon_0}\vv{u}_z=\frac{\pi R^2}{4\epsilon_0}\times\frac{9q^2}{4\pi^2Z^4}\vv{u}_z\\
           \vv{F}_2&=-\vv{F}_1=-\frac{\pi R^2\,\sigma_0^2}{4\epsilon_0}\vv{u}_z
         \end{align*}
       #+END_SRC

@@ -1,0 +1,43 @@
+%% document-wide tikz options and styles
+
+\tikzset{%
+  >=latex, % option for nice arrows
+  inner sep=0pt,%
+  outer sep=2pt,%
+  mark coordinate/.style={inner sep=0pt,outer sep=0pt,minimum size=3pt,
+    fill=black,circle}%
+}
+\begin{tikzpicture}
+  \sf
+  \definecolor{red}{RGB}{221,42,43}
+  \definecolor{green}{RGB}{105,182,40}
+  \definecolor{blue}{RGB}{0,51,153}
+  \definecolor{orange}{RGB}{192,128,64}
+  \definecolor{gray}{RGB}{107,108,110}
+
+  %% some definitions
+
+  \def\R{2.5} % sphere radius
+
+  \draw[blue, fill=blue!10] (0.8*\R,0) arc(0:180:0.8*\R) -- (-0.8*\R,0) -- (0.8*\R,0);
+
+  %% characteristic points
+  \coordinate[mark coordinate] (O) at (0,0);
+  \coordinate[mark coordinate] (M) at (0.565*\R,0.565*\R);
+  \coordinate[mark coordinate] (N) at (-0.565*\R,0.565*\R);
+
+  \draw[->] (0,0) -- (0,1.6*\R) node[above] {$z$};
+
+  %% draw lines and put labels
+  \draw (O) node[below left] {$\mathbf{O}$} -- (M) node[above right] {};
+  \draw[->] (M) -- (\R,\R) node[above right] {$\overrightarrow{F}$};
+  \draw[->] (M) -- (\R,0.565*\R) node[right] {$\overrightarrow{F}_{xy}$};
+  \draw[->] (M) -- (0.565*\R,\R) node[above] {$\overrightarrow{F}_z$};
+  \draw (O) -- (N) node[above right] {};
+  \draw[->] (N) -- (-\R,\R) node[above left] {$\overrightarrow{F}$};
+  \draw[->] (N) -- (-\R,0.565*\R) node[left] {$\overrightarrow{F}_{xy}$};
+  \draw[->] (N) -- (-0.565*\R,\R) node[above] {$\overrightarrow{F}_z$};
+
+  \draw[->,thin] (90:0.5*\R) to[bend left=30] node[pos=0.55,yshift=6pt] {$\theta$} (45:0.5*\R);
+
+\end{tikzpicture}
