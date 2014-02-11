@@ -1471,6 +1471,141 @@ $\vv{E}=-\vv{\text{grad}}V=-\tfrac{dV}{dr}\vv{u}_r$. Soit
           \vv{F}_2&=-\vv{F}_1=-\frac{\pi R^2\,\sigma_0^2}{4\epsilon_0}\vv{u}_z
         \end{align*}
       #+END_SRC
+* TD4 : Les milieux diélectriques
+** Introduction
+Historiquement, la découverte expérimentale des diélectriques est à mettre au
+profit de Michael Faraday qui nota que l'introduction d'un isolant entre les
+armatures d'un condensateur modifiait sa capacité.
+
+On exprime la polarisation $\vv{P}$ d'un matériau comme la densité volumique de
+moment dipolaire $\vv{p}$ soit $\vv{P}=\frac{d\vv{p}}{d\tau}$. On déduit de
+cette expression que la densité volumique de charge liées ou polarisées $\rho_P$
+est égale à la divergence du vecteur polarisation :
+$\rho_P=-\div\vv{P}$. L'équation de Maxwell-Gauss devient
+#+BEGIN_SRC latex
+  \begin{align*}
+    \div\vv{E}&=\frac{\rho_\text{libre}+\rho_\text{liée}}{\epsilon_0}=\frac{\rho_\text{libre}-\div\vv{P}}{\epsilon_0}
+  \end{align*}
+#+END_SRC
+
+En posant le vecteur $\vv{D}=\epsilon_0\vv{E}+\vv{P}$, on obtient l'équation locale
+suivante
+#+BEGIN_SRC latex
+  \begin{align*}
+    \div\vv{D}=\rho_\text{libre}\rightarrow\oiint_S\vv{D}.\,d\vv{S}=\Upsigma Q_\text{libre}
+  \end{align*}
+#+END_SRC
+
+Dans le cas particulier d'un milieu Linéaire, Homogène et Isotrope (LHI), la
+polarisation est égale à $\vv{P}=\epsilon_0\,\chi_e\vv{E}$ où $\chi_e$ est un
+nombre positif, sans dimension, appelé la susceptibilité diélectrique. Dans ce
+cas, le vecteur $\vv{D}$ devient
+#+BEGIN_SRC latex
+  \begin{align*}
+    \vv{D}=\epsilon_0\vv{E}\underbrace{(1+\chi_e)}_{\epsilon_r}=\epsilon\vv{E}
+  \end{align*}
+#+END_SRC
+où $\epsilon$ et $\epsilon_r$ sont appellés respectivement la permitivité
+absolue et la permitivité relative du diélectrique.
+** Sphère uniformément polarisée
+1) La polarisation est uniforme $\vv{P}=\vv{\text{cte}}=P\vv{u}_z$ [fn:5], il
+   n'y a donc pas de charge volumique liée $\rho_P=-\div\vv{P}=0$. Il n'y a pas
+   de charge libre d'où $\rho=\rho_P+\rho_L=0$. L'équation de Poisson
+   $\Delta V=-\frac{\rho}{\epsilon_0}=0$ devient une équation de Laplace.
+2) L'invariance du problème par rotation d'angle $\phi$ implique que le potentiel
+   $V$ ne dépende pas de cette coordonnée. En posant
+   $V(r,\theta)=f(r)\,\cos\theta$ avec
+   $f(r)=\Sigma_{-\infty}^{+\infty}a_nr^n$. Le lapacien en coordonnées
+   sphériques s'écrit
+   #+BEGIN_SRC latex
+     \begin{align*}
+       \Delta V(r,\theta)&=\frac{1}{r}\frac{\partial^2}{\partial r^2}\left(rV(r,\theta)\right)+\frac{1}{r^2\sin\theta}\frac{\partial}{\partial\theta}\left(\sin\theta\frac{\partial V}{\partial\theta}\right)
+     \end{align*}
+   #+END_SRC
+   soit
+   #+BEGIN_SRC latex
+     \begin{align*}
+       \frac{\partial^2}{\partial r^2}\left(rV(r,\theta)\right)&=\cos\theta\times\sum_{-\infty}^{+\infty}a_n\times n(n+1)r^{n-1}\\
+       \frac{\partial}{\partial\theta}\left(\sin\theta\frac{\partial V(r,\theta)}{\partial\theta}\right)&=\Sigma_{-\infty}^{+\infty}a_nr^n\times\left(\cos\theta\frac{\partial V}{\partial\theta}+\sin\theta\frac{\partial^2V}{\partial\theta^2}\right)\\
+       &=\Sigma_{-\infty}^{+\infty}a_nr^n\times\left(-\cos\theta\sin\theta-\sin\theta\cos\theta\right)\\
+       &=-2\cos\theta\sin\theta\times\Sigma_{-\infty}^{+\infty}a_nr^n
+     \end{align*}
+   #+END_SRC
+   L'équation de Laplace devient
+   #+BEGIN_SRC latex
+     \begin{align*}
+       \Delta V=0&=\cos\theta\times\Sigma_{-\infty}^{+\infty}a_n\times n(n+1)r^{n-2}-2\cos\theta\times\Sigma_{-\infty}^{+\infty}a_nr^{n-2}\\
+       0&=n(n+1)-2\\
+       0&=(n+2)(n-1)
+     \end{align*}
+   #+END_SRC
+   Les seuls coefficients non nuls sont donc $a_{-2}$ et $a_1$. Le potentiel $V$
+   en tout point de l'espace s'écrit
+   #+BEGIN_SRC latex
+     \begin{align*}
+       V(r,\theta)=\left(\frac{a_{-2}}{r^2}+a_1r\right)\cos\theta
+     \end{align*}
+   #+END_SRC
+3) Les potentiels $V_i$ et $V_e$ ne doivent pas diverger (équivalent à dire
+   qu'ils doivent rester finis) d'où lorsque $r\to0$, $V_i$ fini impose que
+   $a_{-2}$ soit nul. De même, lorsque $r\to\infty$, $V_e$ reste fini et donc
+   $a_1=0$
+   #+BEGIN_SRC latex
+     \begin{align*}
+       V_i(r,\theta)&=a_1r\cos\theta\\
+       V_e(r,\theta)&=\frac{a_{-2}\cos\theta}{r^2}
+     \end{align*}
+   #+END_SRC
+
+   Par ailleurs, la continuité du potentiel en $r=R$ conduit à
+   #+BEGIN_SRC latex
+     \begin{align*}
+       V_i(R,\theta)&=V_e(R,\theta)\\
+       a_1R\cancel{\cos\theta}&=\frac{a_{-2}\cancel{\cos\theta}}{R^2}\\
+       a_1&=\frac{a_{-2}}{R^3}
+     \end{align*}
+   #+END_SRC
+
+   On utilise finalement la discontinuité de la composante normale du vecteur
+   $\vv{D}$ à l'interface diélectrique-vide
+   #+BEGIN_SRC latex
+     \begin{align*}
+       \left(\vv{D}_ e(R,\theta)-\vv{D}_i(R,\theta)\right).\vv{u}_r&=\sigma_\text{libre}=0\\
+       &\text{avec }\vv{D}=\epsilon_0\vv{E}+\vv{P}\\
+       \left(\epsilon_0\vv{E}_e+\cancel{\vv{P}_e}-\epsilon_0\vv{E}_i-\vv{P}_i\right).\vv{u}_r&=0\\
+       \epsilon_0\left(\vv{E}_e-\vv{E}_i\right).\vv{u}_r&=\vv{P}.\vv{u}_r=P\cos\theta
+     \end{align*}
+   #+END_SRC
+   Les champs électriques $\vv{E}_e$ et $\vv{E}_i$ sont respectivement égaux à
+   #+BEGIN_SRC latex
+     \begin{align*}
+       \vv{E}_e&=-\grad V_e=-\grad\left(\frac{a_{-2}\cos\theta}{r^2}\right)\\
+       &=-\frac{\partial V_e}{\partial r}\vv{u}_r-\frac{1}{r}\frac{\partial V_e}{\partial\theta}\vv{u}_\theta\\
+       &=a_{-2}\cos\theta\times\frac{2}{r^3}\vv{u}_r+\frac{1}{r^3}a_{-2}\sin\theta\vv{u}_\theta\\
+       \vv{E}_i&=-\grad V_i=-\grad\left(a_1r\cos\theta\right)\\
+       &=-a_1\cos\theta\vv{u}_r+a_1r\sin\theta\vv{u}_\theta
+     \end{align*}
+   #+END_SRC
+   La relation de passage projeté selon $\vv{u}_r$ devient
+   #+BEGIN_SRC latex
+     \begin{align*}
+       \frac{2a_{-2}}{R^3}\cancel{\cos\theta}+a_1\cancel{\cos\theta}&=\frac{P\cancel{\cos\theta}}{\epsilon_0}\\
+       \frac{2a_{-2}}{R^3}+\frac{a_{-2}}{R^3}&=\frac{P}{\epsilon_0}\\
+       a_{-2}&=\frac{PR^3}{3\epsilon_0}\text{ et }a_1=\frac{P}{3\epsilon_0}
+     \end{align*}
+   #+END_SRC
+   d'où
+   #+BEGIN_SRC latex
+     \begin{align*}
+       V_i(r,\theta)&=\frac{P}{3\epsilon_0}\,r\cos\theta\\
+       V_e(r,\theta)&=\frac{PR^3}{3\epsilon_0}\frac{\cos\theta}{r^2}\\
+       \vv{E}_i(r,\theta)&=\frac{PR^3}{3\epsilon_0}\left(2\cos\theta\vv{u}_r+\sin\theta\vv{u}_\theta\right)\\
+       \vv{E}_e(r,\theta)&=-\frac{P}{3\epsilon_0}\left(\underbrace{\cos\theta\vv{u}_r-\sin\theta\vv{u}_\theta}_{\vv{u}_z}\right)\\
+       &=-\frac{\vv{P}}{3\epsilon_0}=\text{champ dépolarisant}
+     \end{align*}
+   #+END_SRC
+
+
 * Footnotes
 
 [fn:1] le vecteur accélération $\vv{a}$ s'écrit en toute rigueur
@@ -1489,3 +1624,7 @@ $\vv{B}=\frac{\vv{k}\times\vv{E}}{\omega}$
 [fn:4] il s'agit de la puissance sortant d'une surface *fermée* qui correspond
 /i.e./ au différentiel entre la puissance ayant pénétrée dans le volume et la
 puissance sortant de ce volume.
+
+[fn:5] l'invariance du problème permet de poser $\vv{P}=P\vv{u}_z$ car on pourra
+toujours pivoter/tourner le système de coordonnées sphériques de telle sorte à
+ce que $\vv{P}$ soit colinéaire à $Oz$.
