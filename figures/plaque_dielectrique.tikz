@@ -1,0 +1,29 @@
+
+\begin{tikzpicture}[>=latex, % option for nice arrows
+    mark coordinate/.style={inner sep=0pt,outer sep=0pt,minimum size=3pt,
+      fill=black,circle}]
+  \sf
+  \definecolor{red}{RGB}{221,42,43}
+  \definecolor{green}{RGB}{105,182,40}
+  \definecolor{blue}{RGB}{0,51,153}
+  \definecolor{orange}{RGB}{192,128,64}
+  \definecolor{gray}{RGB}{107,108,110}
+
+  \begin{scope}[yshift=1.2cm]
+    \draw[xslant=1.5,fill=blue!30,opacity=0.6] (0,-1) rectangle (6,1);
+    \coordinate[mark coordinate] (O) at (0,0) node[left] {$a$};
+  \end{scope}
+
+  \begin{scope}[yshift=-1cm]
+    \draw[xslant=1.5,fill=blue!30,opacity=0.6] (0,-1) rectangle (6,1);
+    \draw [->,xslant=1.5] (0,-1) -- (0,-1.5) node[below] {$x$};
+    \draw [<->,xslant=1.5] (6.5,-1) -- (6.5,1) node[midway,below right] {$\ell$};
+    \draw [<->,xslant=1.4] (0,-1.2) -- (6,-1.2) node[midway,below] {$L$};
+    \draw [->] (0,0) -- (8,0) node[above] {$y$};
+    \coordinate[mark coordinate] (O) at (0,0) node[left] {$O$};
+  \end{scope}
+
+  \draw [->] (0,-2) -- (0,3) node[above] {$z$};
+  \draw[->,yshift=10pt] (5.5,-1) -- (5.5,1.2) node[midway,right] {$V_0$};
+  \path (3,3) node {$\overrightarrow{E}_e=\overrightarrow{0}$};
+\end{tikzpicture}

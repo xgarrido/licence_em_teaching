@@ -1605,6 +1605,63 @@ absolue et la permitivité relative du diélectrique.
      \end{align*}
    #+END_SRC
 
+** Plaque diélectrique
+*** Le condensateur plan
+#+BEGIN_CENTER
+#+ATTR_LATEX: :width 0.75\linewidth
+[[./plaque_dielectrique.pdf]]
+#+END_CENTER
+
+*Symétries & invariances de la distribution de charges*
+- tout plan contenant l'axe $Oz$ est plan de symétrie d'où
+  $\vv{E}\parallel\vv{u}_z$
+- invariance par translation selon $Ox$ et $Oy$ d'où
+  $E=f(\cancel{x},\cancel{y},z)$
+
+L'orientation du champ électrique $\vv{E}=E(z)\vv{u}_z$ permet la définition
+d'une surface fermée de forme cylindrique à l'intérieur du condensateur. Le
+théorème de Gauss implique
+#+BEGIN_SRC latex
+  \begin{align*}
+    \oiint_S\vv{E}.\vv{dS}=\frac{\Upsigma Q_\text{int.}}{\epsilon_0}&=0\text{ (pas de charge à l'intérieur du condensateur)}\\
+    E(z_1)S - E(z_2)S&=0\rightarrow E(z_1)=E(z_2)=E_0\\
+    \vv{E}=E_0\vv{u}_z&=-\grad V=-\frac{dV}{dz}\vv{u}_z\\
+    \int_0^aE_0dz&=-\int_0^{V_0}dV\rightarrow E_0a=-V_0
+  \end{align*}
+#+END_SRC
+
+*Répartition des charges*
+
+- en $z=0$
+  #+BEGIN_SRC latex
+    \begin{align*}
+      \left(\vv{E}_e-\vv{E}_i\right).(-)\vv{u}_z&=\frac{\sigma_S}{\epsilon_0}\\
+      E_0&=\frac{\sigma_S}{\epsilon_0}\rightarrow Q_0=\sigma_S\times\ell\times L=-\frac{V_0\epsilon_0}{a}\ell\times L
+    \end{align*}
+  #+END_SRC
+- en $z=a$
+  #+BEGIN_SRC latex
+    \begin{align*}
+      \left(\vv{E}_e-\vv{E}_i\right).\vv{u}_z&=\frac{\sigma_S}{\epsilon_0}\\
+      -E_0&=\frac{\sigma_S}{\epsilon_0}\rightarrow Q_a=\sigma_S\times\ell\times L=\frac{V_0\epsilon_0}{a}\ell\times L=-Q_0
+    \end{align*}
+  #+END_SRC
+
+*Capacité du condensateur*
+#+BEGIN_SRC latex
+  \begin{align*}
+    Q_0=C_0V_0\rightarrow C_0=\frac{\epsilon_0\ell\times L}{a}>0
+  \end{align*}
+#+END_SRC
+
+*Énergie stockée dans le condensateur*
+#+BEGIN_SRC latex
+  \begin{align*}
+    U_0=\frac{1}{2}C_0V_0^2&\rightarrow U_0=\frac{\epsilon_0\ell\times L}{2a}V_0^2\\
+    u_\text{em}=\frac{\epsilon_0E^2}{2}&\rightarrow U=\int u_\text{em}\,d\tau=\frac{\epsilon_0\ell\times L}{2a}V_0^2=U_0
+  \end{align*}
+#+END_SRC
+L'énergie stockée dans le condensateur est bien d'origine électrostatique.
 
 * Footnotes
 
