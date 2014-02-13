@@ -1507,6 +1507,7 @@ cas, le vecteur $\vv{D}$ devient
 #+END_SRC
 où $\epsilon$ et $\epsilon_r$ sont appellés respectivement la permitivité
 absolue et la permitivité relative du diélectrique.
+
 ** Sphère uniformément polarisée
 1) La polarisation est uniforme $\vv{P}=\vv{\text{cte}}=P\vv{u}_z$ [fn:5], il
    n'y a donc pas de charge volumique liée $\rho_P=-\div\vv{P}=0$. Il n'y a pas
@@ -1583,7 +1584,7 @@ absolue et la permitivité relative du diélectrique.
        &=-\frac{\partial V_e}{\partial r}\vv{u}_r-\frac{1}{r}\frac{\partial V_e}{\partial\theta}\vv{u}_\theta\\
        &=a_{-2}\cos\theta\times\frac{2}{r^3}\vv{u}_r+\frac{1}{r^3}a_{-2}\sin\theta\vv{u}_\theta\\
        \vv{E}_i&=-\grad V_i=-\grad\left(a_1r\cos\theta\right)\\
-       &=-a_1\cos\theta\vv{u}_r+a_1r\sin\theta\vv{u}_\theta
+       &=-a_1\cos\theta\vv{u}_r+a_1\sin\theta\vv{u}_\theta
      \end{align*}
    #+END_SRC
    La relation de passage projeté selon $\vv{u}_r$ devient
@@ -1597,13 +1598,38 @@ absolue et la permitivité relative du diélectrique.
    d'où
    #+BEGIN_SRC latex
      \begin{align*}
-       V_i(r,\theta)&=\frac{P}{3\epsilon_0}\,r\cos\theta\\
        V_e(r,\theta)&=\frac{PR^3}{3\epsilon_0}\frac{\cos\theta}{r^2}\\
-       \vv{E}_i(r,\theta)&=\frac{PR^3}{3\epsilon_0}\left(2\cos\theta\vv{u}_r+\sin\theta\vv{u}_\theta\right)\\
-       \vv{E}_e(r,\theta)&=-\frac{P}{3\epsilon_0}\left(\underbrace{\cos\theta\vv{u}_r-\sin\theta\vv{u}_\theta}_{\vv{u}_z}\right)\\
+       V_i(r,\theta)&=\frac{P}{3\epsilon_0}\,r\cos\theta\\
+       \vv{E}_e(r,\theta)&=\frac{PR^3}{3\epsilon_0r^3}\left(2\cos\theta\vv{u}_r+\sin\theta\vv{u}_\theta\right)\\
+       \vv{E}_i(r,\theta)&=-\frac{P}{3\epsilon_0}\left(\underbrace{\cos\theta\vv{u}_r-\sin\theta\vv{u}_\theta}_{\vv{u}_z}\right)\\
        &=-\frac{\vv{P}}{3\epsilon_0}=\text{champ dépolarisant}
      \end{align*}
    #+END_SRC
+   #+BEGIN_REMARK
+   Le champ électrique extérieur s'apparente au champ électrique crée par un
+   dipôle ponctuel $\vv{p}$ placé à l'origine avec
+   $\vv{p}=\frac{4}{3}\pi R^3\vv{P}$. Pour rappel, le champ électrique crée par
+   un dipôle est
+   #+BEGIN_SRC latex
+     \begin{align*}
+       \vv{E}\simeq\frac{1}{4\pi\epsilon_0}\,\frac{3(\vv{p}.\vv{u}_r)\vv{u}_r-\vv{p}}{r^3}
+     \end{align*}
+   #+END_SRC
+   Or l'expression
+   #+BEGIN_SRC latex
+     \begin{align*}
+       2\cos\theta\vv{u}_r+\sin\theta\vv{u}_\theta=3\cos\theta\vv{u}_r-\vv{u}_z
+     \end{align*}
+   #+END_SRC
+   car $\vv{u}_z=\cos\theta\vv{u}_r-\sin\theta\vv{u}_\theta$. Sachant que
+   $\vv{P}.\vv{u}_r=P\cos\theta$ on obtient
+   #+BEGIN_SRC latex
+     \begin{align*}
+       \vv{E}_e=\frac{R^3}{3\epsilon_0}\,\frac{3\left(\vv{P}.\vv{u}_r\right).\vv{u}_r-\vv{P}}{r^3}
+     \end{align*}
+   #+END_SRC
+   d'où $\vv{p}=\frac{4}{3}\pi R^3$.
+   #+END_REMARK
 
 ** Plaque diélectrique
 *** Le condensateur plan
@@ -1662,6 +1688,103 @@ théorème de Gauss implique
   \end{align*}
 #+END_SRC
 L'énergie stockée dans le condensateur est bien d'origine électrostatique.
+
+*** Plaque diélectrique infinie
+#+BEGIN_CENTER
+#+ATTR_LATEX: :width 0.7\linewidth
+[[./solid_angle.pdf]]
+#+END_CENTER
+1) Potentiel crée par un dipôle $d\vv{p}$
+   #+BEGIN_SRC latex
+     \begin{align*}
+       dV(M)=\frac{1}{4\pi\epsilon_0}\,\frac{d\vv{p}.\vv{AM}}{AM^3}\text{ où $A$ est le barycentre du dipôle}
+     \end{align*}
+   #+END_SRC
+   La polarisation $\vv{P}$ représente la densité volumique de moment dipolaire
+   $\frac{d\vv{p}}{d\tau}$. La polarisation surfacique $\vv{P}_S$ est ainsi
+   égale à
+   #+BEGIN_SRC latex
+     \begin{align*}
+       \vv{P}_S&=\frac{d\vv{p}}{d\vv{S}}\\
+       d\vv{p}&=P_S\,d\vv{S}=P_S\,dS\vv{n}\\
+       dV(M)&=\frac{1}{4\pi\epsilon_0}\,\frac{P_SdS\vv{n}\vv{AM}}{AM^3}\\
+       &\text{avec }\vv{AM}=-r\vv{u}_r\\
+       dV(M)&=-\frac{P_S}{4\pi\epsilon_0}\,d\Omega
+     \end{align*}
+   #+END_SRC
+
+   En fonction de la position du point $M$ /i.e./ au dessus ou en dessous du
+   plan infini le potentiel électrique $V(M)$ change de signe du fait que
+   l'angle solide $\Omega=\pm2\pi$ sr.
+   #+BEGIN_CENTER
+   #+ATTR_LATEX: :width 0.7\linewidth
+   [[./plan_infini.pdf]]
+   #+END_CENTER
+   Ainsi, le potentiel vu en un point au dessus de la surface du diélectrique
+   est égal à
+   #+BEGIN_SRC latex
+     \begin{align*}
+       V(M_+)&=\int_\text{plan}-\frac{P_S}{4\pi\epsilon_0}\,d\Omega=\frac{P_S}{2\epsilon_0}\\
+       V(M_-)&=-\frac{P_S}{2\epsilon_0}
+     \end{align*}
+   #+END_SRC
+   Dans les deux cas, le potentiel électrique étant constant : $\vv{E}=-\grad
+   V=\vv{0}$.
+
+2) En décomposant la plaque en tranche d'épaisseur infinitésimale $dz'$, chacune
+   porte une densité surfacique $dP_S=P(z')dz'$
+   #+BEGIN_CENTER
+   #+ATTR_LATEX: :width 0.6\linewidth
+   [[./coupe_plaque_dielectrique.pdf]]
+   #+END_CENTER
+   En fonction de la position $z$ du point $M$, le potentiel électrique est
+   - si $z>z'$
+     #+BEGIN_SRC latex
+       \begin{align*}
+         dV(z)=\frac{dP_S}{2\epsilon_0}=\frac{P(z')dz'}{2\epsilon_0}
+       \end{align*}
+     #+END_SRC
+   - si $z<z'$
+     #+BEGIN_SRC latex
+       \begin{align*}
+         dV(z)=-\frac{dP_S}{2\epsilon_0}=-\frac{P(z')dz'}{2\epsilon_0}
+       \end{align*}
+     #+END_SRC
+
+   On distingue par suite 3 situations
+   - pour tout point M tel que $z<0$
+     #+BEGIN_SRC latex
+       \begin{align*}
+         V_d(M)=-\underbrace{\int_0^b\frac{P(z')dz'}{2\epsilon_0}}_{\text{indépendant de $z$}}=\text{constante}\to\vv{E}=\vv{0}
+       \end{align*}
+     #+END_SRC
+   - pour tout point M tel que $z>b$
+     #+BEGIN_SRC latex
+       \begin{align*}
+         V_d(M)=+\underbrace{\int_0^b\frac{P(z')dz'}{2\epsilon_0}}_{\text{indépendant de $z$}}=\text{constante}\to\vv{E}=\vv{0}
+       \end{align*}
+     #+END_SRC
+   - pour tout point M tel que $0<z<b$
+     #+BEGIN_SRC latex
+       \begin{align*}
+         V_d(M)&=\frac{1}{2\epsilon_0}\left(\int_0^zP(z')dz'-\int_z^bP(z')dz'\right)\\
+         &=\frac{1}{2\epsilon_0}\left(\int_0^zP(z')dz'+\int_b^zP(z')dz'\right)\\
+         &=\frac{1}{2\epsilon_0}\left(\int_0^zP(z')dz'+\int_b^0P(z')dz'+\int_0^zP(z')dz'\right)\\
+         &=\frac{1}{2\epsilon_0}\left(2\int_0^zP(z')dz'-\underbrace{\int_0^bP(z')dz'}_{\text{constante}}\right)\\
+         V_d(M)&=\text{constante} + \int_0^z\frac{P(z')}{\epsilon_0}dz'
+       \end{align*}
+     #+END_SRC
+     Le champ électrique $\vv{E}_d(M)$ s'écrit
+     #+BEGIN_SRC latex
+       \begin{align*}
+         \vv{E}_d(M)=-\grad V_d(M)&=-\frac{dV_d(M)}{dz}\vv{u}_z\\
+         &=-\frac{1}{\epsilon_0}\frac{d}{dz}\int_0^zP(z')dz'\vv{u}_z\\
+         &=-\frac{P(z)\vv{u}_z}{\epsilon_0}=-\frac{\vv{P}(M)}{\epsilon_0}=\text{champ dépolarisant}
+       \end{align*}
+     #+END_SRC
+
+
+
 
 * Footnotes
 

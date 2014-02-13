@@ -1,0 +1,27 @@
+
+\begin{tikzpicture}[>=latex, % option for nice arrows
+    mark coordinate/.style={inner sep=0pt,outer sep=0pt,minimum size=3pt,
+      fill=black,circle}]
+  \sf
+  \definecolor{red}{RGB}{221,42,43}
+  \definecolor{green}{RGB}{105,182,40}
+  \definecolor{blue}{RGB}{0,51,153}
+  \definecolor{orange}{RGB}{192,128,64}
+  \definecolor{gray}{RGB}{107,108,110}
+
+
+  \fill[blue!10] (0,-1) rectangle (6,1);
+  \draw[] (0,-1) -- (6,-1);
+  \draw[] (0,1) -- (6,1);
+  \coordinate[mark coordinate] (Z) at (0,0) node[left] {$z'$};
+  \draw[<->] (-0.7,-1) -- (-0.7,1) node[left, midway] {$b$};
+  \draw (3,0.5) node[mark coordinate] {} node[right] {$M(x,y,z)$};
+  \draw(6,0) node[right] {$dz'$};
+  \draw[] (0,0.1) -- (6,0.1);
+  \draw[] (0,-0.1) -- (6,-0.1);
+  \draw[->] (6,0.4) -- (6,0.1);
+  \draw[->] (6,-0.4) -- (6,-0.1);
+
+  \draw[->] (0,-2) -- (0,2) node[above] {$z$};
+
+\end{tikzpicture}

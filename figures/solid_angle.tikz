@@ -1,0 +1,27 @@
+\tikzset{%
+  >=latex, % option for nice arrows
+  inner sep=0pt,%
+  outer sep=2pt,%
+  mark coordinate/.style={inner sep=0pt,outer sep=0pt,minimum size=3pt,
+    fill=black,circle}%
+}
+\begin{tikzpicture}[rotate=180]
+  \sf
+  \definecolor{red}{RGB}{221,42,43}
+  \definecolor{green}{RGB}{105,182,40}
+  \definecolor{blue}{RGB}{0,51,153}
+  \definecolor{orange}{RGB}{192,128,64}
+  \definecolor{gray}{RGB}{107,108,110}
+  \begin{scope}[rotate=0]
+    \draw[semithick] (0,0.5) -- (4,1.5);
+    \draw[semithick] (-0.25,2.5) -- (4,1.5);
+    \draw[dashed,color=gray,xslant=-0.1,fill=blue!10] (0,0.5) arc (-90:90:0.5 and 1.0);% right half of the left ellipse
+    \draw[semithick,xslant=-0.1,fill=blue!10] (0,0.5) arc (270:90:0.5 and 1.0);% left half of the left ellipse
+    \draw (-0.25,2.2) node {$d\Omega$};
+    \draw[semithick, dashed, color=gray] (4,1.5) node[mark coordinate, gray] {} node[left] {$M$}
+    -- (-0.2,1.5) node[mark coordinate, gray] {} node[above] {$A$};
+    \draw[semithick,->] (-0.2,1.5) -- (-1,1.5) node[right] {$\overrightarrow{u}_r$};
+    \draw[semithick,->] (-0.2,1.5) -- (-1,1.2) node[above right] {$\overrightarrow{n}$};
+    \draw (-3,1.5) node {$d\Omega=\frac{dS}{r^2}\overrightarrow{n}.\overrightarrow{u}_r$};
+  \end{scope}
+\end{tikzpicture}
