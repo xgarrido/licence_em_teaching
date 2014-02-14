@@ -1847,6 +1847,27 @@ L'énergie stockée dans le condensateur est bien d'origine électrostatique.
      &=\frac{1}{2}\epsilon_0E_1^2\ell\times La\left(1-\frac{\chi_e}{1+\chi_e}\frac{b}{a}\right)<U_0
      \end{align*}
    #+END_SRC
+4) Le déplacement électrique $\vv{D}$ est égal à $\epsilon_0\vv{E}+\vv{P}$. Le
+   theorème de Gauss appliqué aux diélectriques implique que
+   $\div\vv{D}=\rho_\text{libre}\rightarrow\oiint\vv{D}.d\vv{S}=Q_\text{libre}^\text{int.}$. En
+   tout point situé entre les armatures du condensateur y compris à l'intérieur
+   du diélectrique, il n'y a pas de charges libres. Par ailleurs, le vecteur
+   déplacement $\vv{D}$ est égal dans le diélectrique à
+   $\epsilon_0\vv{E}+\vv{P}$ et à $\epsilon_0\vv{E}_1$ entre le diélectrique et
+   les armatures du condensateur. En choisissant une surface fermée cylindrique
+   dont les sections circulaires sont de part et d'autre de l'interface
+   diélectrique-vide, on a
+   #+BEGIN_SRC latex
+     \begin{align*}
+       \oiint\vv{D}.\,d\vv{S}&=0\\
+       D_\text{vide}S-D_\text{diélectrique}S&=0\\
+       \vv{D}_\text{vide}&=\vv{D}_\text{diélectrique}S\\
+       \epsilon_0\vv{E}_1&=\epsilon_0\vv{E}+\vv{P}\\
+       \epsilon_0\vv{E}_1&=\epsilon_0\vv{E}+\epsilon_0\chi_e\vv{E}\\
+       \vv{E}&=\frac{\vv{E}_1}{1+\chi_e}
+     \end{align*}
+   #+END_SRC
+
 * Footnotes
 
 [fn:1] le vecteur accélération $\vv{a}$ s'écrit en toute rigueur
