@@ -1889,8 +1889,38 @@ L}{a-\frac{b\chi_e}{1+\chi_e}}=C_1$. Finalement, l'énergie stockée $U_2$ est
   \end{align*}
 #+END_SRC
 *** Force électrostatique sur la plaque diélectrique
+#+BEGIN_CENTER
+#+ATTR_LATEX: :width 0.5\linewidth
+[[./coupe_condensateur_dielectrique_force.pdf]]
+#+END_CENTER
 On supposera la situation identique à celle de la question [[Condensateur
-diélectrique à potentiel constant]] soit à potentiel constant $V=V_1=E_1\left(a-\frac{b\chi_e}{1+\chi_e}\right)$.
+diélectrique à potentiel constant]] soit à potentiel constant
+$V=V_1=E_1\left(a-\frac{b\chi_e}{1+\chi_e}\right)$. Dans la région \ding{192},
+le champ électrique est égal à $\vv{E}'_1=-\frac{V_1}{a}\vv{u}_z$.
+
+Les densités surfaciques de charge sont respectivement
+- région \ding{192} :
+  #+BEGIN_SRC latex
+    \begin{align*}
+      \sigma_S^1=\epsilon_0|E'_1|=\epsilon_0\frac{E_1}{a}\left(a-\frac{b\chi_e}{1+\chi_e}\right)
+    \end{align*}
+  #+END_SRC
+- région \ding{193} :
+  #+BEGIN_SRC latex
+    \begin{align*}
+      \sigma_S^2=\epsilon_0E_1
+    \end{align*}
+  #+END_SRC
+La charge $Q$ du condensateur est égale à
+#+BEGIN_SRC latex
+  \begin{align*}
+    Q&=\int_0^x\sigma_S^1\,\ell dx+\int_x^L\sigma_S^2\,\ell dx\\
+    &=\epsilon_0E_1\ell\left(\frac{x}{a}\left(a-\frac{b\chi_e}{1+\chi_e}\right)+L-x\right)\\
+    &=\epsilon_0E_1\ell\left(L-\frac{\chi_e}{1+\chi_e}\frac{bx}{a}\right)
+  \end{align*}
+#+END_SRC
+
+
 * Footnotes
 
 [fn:1] le vecteur accélération $\vv{a}$ s'écrit en toute rigueur

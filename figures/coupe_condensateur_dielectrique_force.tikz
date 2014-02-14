@@ -30,5 +30,7 @@
   \draw[<-] (3,0.2) -- (3,0.8) node[midway, right] {$\overrightarrow{E}_1$};
   \draw[<-] (1,-0.5) -- (1,0.5) node[midway, left] {$\overrightarrow{E}'_1$};
   \draw[->] (4,0.0) -- (4,0.4) node[right] {$\overrightarrow{E}_d$};
+  \draw(0,1) node[below right] {\ding{192}};
+  \draw(2,1) node[below right] {\ding{193}};
 
 \end{tikzpicture}
