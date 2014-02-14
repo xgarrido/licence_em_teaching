@@ -1,0 +1,34 @@
+\begin{tikzpicture}[>=latex, % option for nice arrows
+    mark coordinate/.style={inner sep=0pt,outer sep=0pt,minimum size=3pt,
+      fill=black,circle}]
+  \sf
+  \definecolor{red}{RGB}{221,42,43}
+  \definecolor{green}{RGB}{105,182,40}
+  \definecolor{blue}{RGB}{0,51,153}
+  \definecolor{orange}{RGB}{192,128,64}
+  \definecolor{gray}{RGB}{107,108,110}
+
+
+  \fill[blue!10] (0,-0.1) rectangle (6,0.1);
+  \draw[] (0,-1) -- (6,-1);
+  \draw[] (0,1) -- (6,1);
+  \draw[] (0,-0.1) node[left] {$c$};
+  \draw[] (0,-0.1) -- (-0.05,-0.1);
+  \draw[] (0,+0.1) -- (-0.05,+0.1);
+
+  \draw[<->] (-0.7,-1) -- (-0.7,1) node[left, midway] {$a$};
+  \draw (3,0.5) node[mark coordinate] {} node[right] {$M(x,y,z)$};
+  \draw(6,0) node[right] {$b$};
+  \draw[] (0,0.1) -- (6,0.1);
+  \draw[] (0,-0.1) -- (6,-0.1);
+  \draw[->] (6,0.4) -- (6,0.1);
+  \draw[->] (6,-0.4) -- (6,-0.1);
+
+  \draw[->] (0,-2) -- (0,2) node[above] {$z$};
+  \path (3,1.5) node {$\overrightarrow{E}_e=\overrightarrow{0}$};
+  \draw[->,yshift=-28pt](7,2.3)node[right]{$V_1$ = constant} to[out=180,in=90] (6,2.0);
+  \draw[<-] (2,-0.8) -- (2,-0.2) node[midway, right] {$\overrightarrow{E}_1$};
+  \draw[<-] (2,0.2) -- (2,0.8) node[midway, right] {$\overrightarrow{E}_1$};
+  \draw[->] (1,0.0) -- (1,0.4) node[right] {$\overrightarrow{E}_d$};
+
+\end{tikzpicture}

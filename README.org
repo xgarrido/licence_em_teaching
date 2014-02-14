@@ -103,6 +103,7 @@ environment into figure
   (defun em-export-classes ()
     (progn
       (setq org-latex-default-class "em-class")
+      ;;(setq org-export-select-tags '("DM"))
       (org-latex-export-to-pdf)
       ))
 #+END_SRC

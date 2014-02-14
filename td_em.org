@@ -1,7 +1,7 @@
 #+TITLE: Correction TD Électromagnétisme
 #+AUTHOR: Xavier Garrido
 #+DATE: 21/01/14
-#+OPTIONS: ^:{} toc:2
+#+OPTIONS: ^:{} toc:2 tags:nil
 #+LATEX_HEADER: \usepackage{wasysym}
 #+LATEX_HEADER_EXTRA: \newcommand{\vv}[1]{\overrightarrow{#1}}
 #+LATEX_HEADER_EXTRA: \renewcommand{\div}{\ensuremath{\text{div}}}
@@ -9,7 +9,6 @@
 #+LATEX_HEADER_EXTRA: \newcommand{\grad}{\ensuremath{\vv{\text{grad}}}}
 
 * TD1 : Électromagnétisme & relativité
-
 ** Introduction
 *Transformation de Lorentz :* $\beta=\tfrac{v}{c}$ et
  $\gamma=\tfrac{1}{\surd{1-\beta^2}}$. Si $\mathcal{R}'$ est en mouvement
@@ -343,7 +342,7 @@ ou
           &=E^{\prime2}-B^{\prime2}c^2\text{ puisque }B'=0
         \end{align*}
       #+END_SRC
-** Particule chargée dans un champ magnétique uniforme
+** Particule chargée dans un champ magnétique uniforme                  :DM:
 1) L'impulsion relativiste s'écrit $\vv{p}=\gamma m\vv{v}$, l'énergie totale
    étant égale à $\mathcal{E}=\gamma mc^2$. Le principe fondamental de la
    dynamique devient
@@ -750,7 +749,7 @@ trajectoire circulaire de rayon $R$
           \div\vv{j}+\frac{\partial\rho}{\partial t}=0
         \end{align*}
       #+END_SRC
-      *Remarques*
+      *Remarques :*
 
       - En régime stationnaire, $\div\vv{j}=0$ /i.e./ champ à flux conservatif,
         on retrouve la loi des n\oe uds de Kirchhoff à savoir que l'intensité du
@@ -766,7 +765,6 @@ trajectoire circulaire de rayon $R$
         #+END_SRC
         Dans un conducteur, il n'y a donc pas de charge en volume : le courant et
         donc les charges se déplaçent en surface.
-
    3) La puissance $\mathcal{P}$ s'écrit comme le produit de la force $\vv{F}$ par la
       vitesse de la particule\nbsp$\vv{v}$ :
       #+BEGIN_SRC latex
@@ -1478,10 +1476,12 @@ profit de Michael Faraday qui nota que l'introduction d'un isolant entre les
 armatures d'un condensateur modifiait sa capacité.
 
 On exprime la polarisation $\vv{P}$ d'un matériau comme la densité volumique de
-moment dipolaire $\vv{p}$ soit $\vv{P}=\frac{d\vv{p}}{d\tau}$. On déduit de
-cette expression que la densité volumique de charge liées ou polarisées $\rho_P$
-est égale à la divergence du vecteur polarisation :
-$\rho_P=-\div\vv{P}$. L'équation de Maxwell-Gauss devient
+moment dipolaire $\vv{p}$ soit $\vv{P}=\frac{d\vv{p}}{d\tau}$. En calculant le
+potentiel électrique à partir d'une distribution de moment dipolaire, on déduit
+que la densité volumique de charge liées ou polarisées $\rho_P$ est égale à la
+divergence du vecteur polarisation : $\rho_P=-\div\vv{P}$. De même, la densité
+surfacique de charges liées est égale à $\sigma_P=\vv{P}.\vv{n}$. L'équation de
+Maxwell-Gauss devient
 #+BEGIN_SRC latex
   \begin{align*}
     \div\vv{E}&=\frac{\rho_\text{libre}+\rho_\text{liée}}{\epsilon_0}=\frac{\rho_\text{libre}-\div\vv{P}}{\epsilon_0}
@@ -1508,7 +1508,7 @@ cas, le vecteur $\vv{D}$ devient
 où $\epsilon$ et $\epsilon_r$ sont appellés respectivement la permitivité
 absolue et la permitivité relative du diélectrique.
 
-** Sphère uniformément polarisée
+** Boule uniformément polarisée
 1) La polarisation est uniforme $\vv{P}=\vv{\text{cte}}=P\vv{u}_z$ [fn:5], il
    n'y a donc pas de charge volumique liée $\rho_P=-\div\vv{P}=0$. Il n'y a pas
    de charge libre d'où $\rho=\rho_P+\rho_L=0$. L'équation de Poisson
@@ -1605,7 +1605,7 @@ absolue et la permitivité relative du diélectrique.
        &=-\frac{\vv{P}}{3\epsilon_0}=\text{champ dépolarisant}
      \end{align*}
    #+END_SRC
-   #+BEGIN_REMARK
+
    Le champ électrique extérieur s'apparente au champ électrique crée par un
    dipôle ponctuel $\vv{p}$ placé à l'origine avec
    $\vv{p}=\frac{4}{3}\pi R^3\vv{P}$. Pour rappel, le champ électrique crée par
@@ -1628,8 +1628,7 @@ absolue et la permitivité relative du diélectrique.
        \vv{E}_e=\frac{R^3}{3\epsilon_0}\,\frac{3\left(\vv{P}.\vv{u}_r\right).\vv{u}_r-\vv{P}}{r^3}
      \end{align*}
    #+END_SRC
-   d'où $\vv{p}=\frac{4}{3}\pi R^3$.
-   #+END_REMARK
+   d'où $\vv{p}=\frac{4}{3}\pi R^3\vv{P}$, on retrouve donc bien $\vv{P}=\frac{d\vv{p}}{d\tau}$.
 
 ** Plaque diélectrique
 *** Le condensateur plan
@@ -1669,7 +1668,7 @@ théorème de Gauss implique
   #+BEGIN_SRC latex
     \begin{align*}
       \left(\vv{E}_e-\vv{E}_i\right).\vv{u}_z&=\frac{\sigma_S}{\epsilon_0}\\
-      -E_0&=\frac{\sigma_S}{\epsilon_0}\rightarrow Q_a=\sigma_S\times\ell\times L=\frac{V_0\epsilon_0}{a}\ell\times L=-Q_0
+      -E_0&=\frac{\sigma_S}{\epsilon_0}\rightarrow Q_a=-\sigma_S\times\ell\times L=\frac{V_0\epsilon_0}{a}\ell\times L=-Q_0
     \end{align*}
   #+END_SRC
 
@@ -1783,9 +1782,71 @@ L'énergie stockée dans le condensateur est bien d'origine électrostatique.
        \end{align*}
      #+END_SRC
 
+*** Condensateur diélectrique à potentiel constant
+#+BEGIN_CENTER
+#+ATTR_LATEX: :width 0.6\linewidth
+[[./coupe_condensateur_dielectrique.pdf]]
+#+END_CENTER
+1) Les symétries restent les mêmes à savoir que tout plan contenant l'axe $Oz$
+   est plan de symétrie de la distribution de charge. Les invariances du
+   problèmes restent également les mêmes d'où $\vv{E}(M)=E(z)\vv{u}_z$.
+2)
+   - *à l'extérieur de la plaque diélectrique*
+     #+BEGIN_SRC latex
+       \begin{align*}
+         \vv{E}=\vv{E}_1+\vv{0}\rightarrow\text{ uniforme}
+       \end{align*}
+     #+END_SRC
+   - *à l'intérieur de la plaque diélectrique*
+     #+BEGIN_SRC latex
+       \begin{align*}
+         \vv{E}&=\vv{E}_1-\frac{\vv{P}}{\epsilon_0}\\
+         &=\vv{E}_1-\frac{\chi_e\epsilon_0\vv{E}}{\epsilon_0}\\
+         &=\frac{\vv{E}_1}{1+\chi_e}\rightarrow\text{ uniforme}
+       \end{align*}
+     #+END_SRC
 
+  On a vu que la densité surfacique de charge $\sigma_S=\pm\epsilon_0E_0$ sur
+  les armatures du condensateur est à l'origine d'un champ électrique
+  constant. Pour créer un champ uniforme d'expression
+  $-\frac{\vv{P}}{\epsilon_0}$, cela reviendrait à placer deux plaques /i.e./
+  deux armatures chargées en surface par des densités $\sigma_S=\pm P$. Leurs
+  charges $Q_P=\pm P\times\ell\times L$.
 
+3) Le potentiel électrique $V_1$ est égal à
+   #+BEGIN_SRC latex
+     \begin{align*}
+       \vv{E}&=-\grad V_1\rightarrow V_1=-\int_0^aE(z)dz\\
+       V_1&=-\int_0^c-E_1dz-\int_c^{b+c}-\frac{E_1}{1+\chi_e}dz-\int_{b+c}^a-E_1dz\\
+       &=\cancel{E_1\times c}+\frac{E_1}{1+\chi_e}\times b+E_1\times a-E_1\times(b+\cancel{c})\\
+       &=E_1\left(a+\frac{b}{1+\chi_e}-b\right)=E_1\left(a-\frac{b\chi_e}{1+\chi_e}\right)<V_0
+     \end{align*}
+   #+END_SRC
+   La charge des armatures est égale
+   #+BEGIN_SRC latex
+     \begin{align*}
+       Q_1(z=0)=\sigma_Z\times\ell\times L=-E_1\epsilon_0\,\ell\times L\\
+       Q_1(z=a)=-\sigma_Z\times\ell\times L=E_1\epsilon_0\,\ell\times L
+     \end{align*}
+   #+END_SRC
 
+   La capacité $C_1$ du condensateur diélectrique est égale à
+   $\frac{|Q_1|}{V_1}$
+   #+BEGIN_SRC latex
+     \begin{align*}
+       C_1&=\frac{|Q_1|}{V_1}=\frac{\epsilon_0\cancel{E_1}\ell\times L}{\cancel{E_1}\left(a-\frac{b\chi_e}{1+\chi_e}\right)}\\
+       &=\frac{\epsilon_0\ell\times L}{a-\frac{b\chi_e}{1+\chi_e}}>C_0
+     \end{align*}
+   #+END_SRC
+   L'ajout du diélectrique a contribué à l'augmentation de la capacité du
+   condensateur. Cependant, l'énergie stockée dans le condensateur faisant
+   intervenir le carré du potentiel $V_1$ est globalement moindre
+   #+BEGIN_SRC latex
+     \begin{align*}
+     U_1&=\frac{1}{2}C_1V_1^2\\
+     &=\frac{1}{2}\epsilon_0E_1^2\ell\times La\left(1-\frac{\chi_e}{1+\chi_e}\frac{b}{a}\right)<U_0
+     \end{align*}
+   #+END_SRC
 * Footnotes
 
 [fn:1] le vecteur accélération $\vv{a}$ s'écrit en toute rigueur
