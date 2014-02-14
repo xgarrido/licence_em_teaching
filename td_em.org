@@ -1819,7 +1819,7 @@ L'énergie stockée dans le condensateur est bien d'origine électrostatique.
        \vv{E}&=-\grad V_1\rightarrow V_1=-\int_0^aE(z)dz\\
        V_1&=-\int_0^c-E_1dz-\int_c^{b+c}-\frac{E_1}{1+\chi_e}dz-\int_{b+c}^a-E_1dz\\
        &=\cancel{E_1\times c}+\frac{E_1}{1+\chi_e}\times b+E_1\times a-E_1\times(b+\cancel{c})\\
-       &=E_1\left(a+\frac{b}{1+\chi_e}-b\right)=E_1\left(a-\frac{b\chi_e}{1+\chi_e}\right)<V_0
+       &=E_1\left(a+\frac{b}{1+\chi_e}-b\right)=E_1\left(a-\frac{b\chi_e}{1+\chi_e}\right)
      \end{align*}
    #+END_SRC
    La charge des armatures est égale
@@ -1839,12 +1839,11 @@ L'énergie stockée dans le condensateur est bien d'origine électrostatique.
      \end{align*}
    #+END_SRC
    L'ajout du diélectrique a contribué à l'augmentation de la capacité du
-   condensateur. Cependant, l'énergie stockée dans le condensateur faisant
-   intervenir le carré du potentiel $V_1$ est globalement moindre
+   condensateur. L'énergie stockée dans le condensateur est
    #+BEGIN_SRC latex
      \begin{align*}
      U_1&=\frac{1}{2}C_1V_1^2\\
-     &=\frac{1}{2}\epsilon_0E_1^2\ell\times La\left(1-\frac{\chi_e}{1+\chi_e}\frac{b}{a}\right)<U_0
+     &=\frac{1}{2}\epsilon_0E_1^2\ell\times La\left(1-\frac{\chi_e}{1+\chi_e}\frac{b}{a}\right)
      \end{align*}
    #+END_SRC
 4) Le déplacement électrique $\vv{D}$ est égal à $\epsilon_0\vv{E}+\vv{P}$. Le
@@ -1868,6 +1867,30 @@ L'énergie stockée dans le condensateur est bien d'origine électrostatique.
      \end{align*}
    #+END_SRC
 
+#+BEGIN_CENTER
+#+CAPTION: *Distribution des charges de polarisation et du condensateur après ajout du diélectrique*
+#+ATTR_LATEX: :width 0.6\linewidth
+[[./coupe_condensateur_dielectrique_charge.pdf]]
+#+END_CENTER
+
+*** Condensateur diélectrique à charges constantes
+Les charges des armatures restent à $Q_2=\pm\epsilon_0\frac{\ell L}{a}V_0=Q_0$
+lorsque l'on débranche le générateur. Le champ électrique à l'extérieur de la
+plaque est $\vv{E}_0$ et $\frac{\vv{E}_0}{1+\chi_e}$ à l'intérieur du
+diélectrique. Le potentiel est alors égal à
+$V_2=E_0\left(a-\frac{b\chi_e}{1+\chi_e}\right)$ d'où
+$C_2=\frac{|Q_2|}{V_2}=\epsilon_0\frac{\ell\times
+L}{a-\frac{b\chi_e}{1+\chi_e}}=C_1$. Finalement, l'énergie stockée $U_2$ est
+#+BEGIN_SRC latex
+  \begin{align*}
+    U_2=\frac{1}{2}C_2V_2^2&=\frac{1}{2}\epsilon_0\ell LaE_0^2\left(1-\frac{\chi_e}{1+\chi_e}\frac{b}{a}\right)\\
+    &=\frac{1}{2}\epsilon_0\ell La\frac{V_0^2}{a}\left(1-\frac{\chi_e}{1+\chi_e}\frac{b}{a}\right)\\
+    &=U_0\left(1-\frac{\chi_e}{1+\chi_e}\frac{b}{a}\right)<U_0
+  \end{align*}
+#+END_SRC
+*** Force électrostatique sur la plaque diélectrique
+On supposera la situation identique à celle de la question [[Condensateur
+diélectrique à potentiel constant]] soit à potentiel constant $V=V_1=E_1\left(a-\frac{b\chi_e}{1+\chi_e}\right)$.
 * Footnotes
 
 [fn:1] le vecteur accélération $\vv{a}$ s'écrit en toute rigueur
