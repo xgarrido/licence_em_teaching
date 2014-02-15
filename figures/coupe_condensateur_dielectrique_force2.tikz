@@ -1,0 +1,41 @@
+\begin{tikzpicture}[>=latex, % option for nice arrows
+  mark coordinate/.style={inner sep=0pt,outer sep=0pt,minimum size=3pt,
+    fill=black,circle}]
+  \sf
+  \definecolor{red}{RGB}{221,42,43}
+  \definecolor{green}{RGB}{105,182,40}
+  \definecolor{blue}{RGB}{0,51,153}
+  \definecolor{orange}{RGB}{192,128,64}
+  \definecolor{gray}{RGB}{107,108,110}
+
+
+  \fill[blue!10] (2,-0.1) rectangle (6,0.1);
+  \draw[->] (0,-1) -- (8,-1) node[right] {$x$};
+  \draw[] (0,1) -- (6,1);
+  \draw[] (6,-0.95) -- (6,-1.05) node [below] {$L$};
+  \draw[] (0,-0.95) -- (0,-1.05) node [below] {$0$};
+  \draw[dashed] (2,1) -- (2,-1);
+  \draw[] (2,-0.95) -- (2,-1.05) node [below] {$x$};
+
+  \draw[<->] (-0.7,-1) -- (-0.7,1) node[left, midway] {$a$};
+  \draw[] (2,-0.1) -- (2,0.1) -- (6,0.1);
+  \draw[] (2,-0.1) -- (6,-0.1);
+  \draw[->] (6,0.4) -- (6,0.1);
+  \draw[->] (6,-0.4) -- (6,-0.1);
+
+  \draw[->,yshift=-28pt](7,2.3)node[right]{$V_1$ = constant} to[out=180,in=90] (6,2.0);
+
+  \draw[gray,->] (6,0) -- (7,0) node[right] {$\overrightarrow{F}_\text{op.}$};
+  \draw[gray,->] (2,0) -- (1,0) node[left] {$\overrightarrow{F}$};
+  \def \n {29}
+  \foreach \s in {1,...,\n} {
+    \draw (0.2*\s,1) node[yshift=3pt] {\tiny +};
+    \draw (0.2*\s,-1) node[yshift=-3pt] {\tiny --};
+  }
+  \def \m {9}
+  \foreach \s in {1,...,\m} {
+    \draw (2.0+0.4*\s,-0.1) node[yshift=-2.5pt] {\tiny +};
+    \draw (2.0+0.4*\s,+0.1) node[yshift=1.5pt] {\tiny --};
+  }
+
+\end{tikzpicture}

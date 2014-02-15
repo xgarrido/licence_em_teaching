@@ -1890,7 +1890,7 @@ L}{a-\frac{b\chi_e}{1+\chi_e}}=C_1$. Finalement, l'énergie stockée $U_2$ est
 #+END_SRC
 *** Force électrostatique sur la plaque diélectrique
 #+BEGIN_CENTER
-#+ATTR_LATEX: :width 0.5\linewidth
+#+ATTR_LATEX: :width 0.7\linewidth
 [[./coupe_condensateur_dielectrique_force.pdf]]
 #+END_CENTER
 On supposera la situation identique à celle de la question [[Condensateur
@@ -1898,28 +1898,71 @@ diélectrique à potentiel constant]] soit à potentiel constant
 $V=V_1=E_1\left(a-\frac{b\chi_e}{1+\chi_e}\right)$. Dans la région \ding{192},
 le champ électrique est égal à $\vv{E}'_1=-\frac{V_1}{a}\vv{u}_z$.
 
-Les densités surfaciques de charge sont respectivement
-- région \ding{192} :
-  #+BEGIN_SRC latex
-    \begin{align*}
-      \sigma_S^1=\epsilon_0|E'_1|=\epsilon_0\frac{E_1}{a}\left(a-\frac{b\chi_e}{1+\chi_e}\right)
-    \end{align*}
-  #+END_SRC
-- région \ding{193} :
-  #+BEGIN_SRC latex
-    \begin{align*}
-      \sigma_S^2=\epsilon_0E_1
-    \end{align*}
-  #+END_SRC
-La charge $Q$ du condensateur est égale à
-#+BEGIN_SRC latex
-  \begin{align*}
-    Q&=\int_0^x\sigma_S^1\,\ell dx+\int_x^L\sigma_S^2\,\ell dx\\
-    &=\epsilon_0E_1\ell\left(\frac{x}{a}\left(a-\frac{b\chi_e}{1+\chi_e}\right)+L-x\right)\\
-    &=\epsilon_0E_1\ell\left(L-\frac{\chi_e}{1+\chi_e}\frac{bx}{a}\right)
-  \end{align*}
-#+END_SRC
+1) Les densités surfaciques de charge sont respectivement
+   - région \ding{192} :
+     #+BEGIN_SRC latex
+       \begin{align*}
+         \sigma_S^1=\epsilon_0|E'_1|=\epsilon_0\frac{E_1}{a}\left(a-\frac{b\chi_e}{1+\chi_e}\right)
+       \end{align*}
+     #+END_SRC
+   - région \ding{193} :
+     #+BEGIN_SRC latex
+       \begin{align*}
+         \sigma_S^2=\epsilon_0E_1
+       \end{align*}
+     #+END_SRC
+   La charge $Q$ du condensateur est égale à
+   #+BEGIN_SRC latex
+     \begin{align*}
+       Q&=\int_0^x\sigma_S^1\,\ell dx+\int_x^L\sigma_S^2\,\ell dx\\
+       &=\epsilon_0E_1\ell\left(\frac{x}{a}\left(a-\frac{b\chi_e}{1+\chi_e}\right)+L-x\right)\\
+       &=\epsilon_0E_1\ell\left(L-\frac{\chi_e}{1+\chi_e}\frac{bx}{a}\right)
+     \end{align*}
+   #+END_SRC
+   La capacité $C$ est égale à $\frac{Q}{V_1}$, l'énergie stockée
+   $U=\frac{1}{2}CV_1^2=\frac{1}{2}QV_1$.
 
+2) Lorsque la plaque diélectrique est introduite $x\nearrow$, la charge du
+   condensateur diminue de même que la capacité $C$. L'énergie stockée diminue
+   donc de pair avec l'introduction de la plaque.
+   #+BEGIN_SRC latex
+     \begin{align*}
+       dU=\frac{1}{2}V_1^2dC=\frac{1}{2}V_1dQ&=\frac{1}{2}V_1\frac{dQ}{dx}dx\\
+       &=\frac{1}{2}V_1\epsilon_0E_1\ell(-)\frac{\chi_e}{1+\chi_e}\frac{b}{a}dx
+     \end{align*}
+   #+END_SRC
+
+   Le travail $dW_\text{op.}$ fourni par l'opérateur correspond au produit
+   scalaire de la force $\vv{F}_\text{op.}$ par le déplacement infinitésimal
+   $d\vv{x}$
+   #+BEGIN_SRC latex
+     \begin{align*}
+       dW_\text{op.}=\vv{F}_\text{op.}.d\vv{x}=F_\text{op.}dx=-Fdx
+     \end{align*}
+   #+END_SRC
+
+   La puissance du générateur $P=V_1\times I$ d'où le travail $dW_\text{g}$
+   #+BEGIN_SRC latex
+     \begin{align*}
+       dW_\text{g}=Pdt=V_1Idt&=V_1dQ\\
+       &=-V_1\epsilon_0E_1\ell(-)\frac{\chi_e}{1+\chi_e}\frac{b}{a}dx=2dU
+     \end{align*}
+   #+END_SRC
+
+   Ainsi la variation d'énergie stockée correspond à
+   #+BEGIN_SRC latex
+     \begin{align*}
+       dU&=dW_\text{g}+dW_\text{op.}\\
+       dU&=2dU+dW_\text{op.}\\
+       F_\text{op.}dx&=-dU=\frac{1}{2}V_1\epsilon_0E_1\ell\frac{\chi_e}{1+\chi_e}\frac{b}{a}dx\\
+       F_\text{op.}&=\frac{1}{2}V_1\epsilon_0E_1\ell\frac{\chi_e}{1+\chi_e}\frac{b}{a}>0
+     \end{align*}
+   #+END_SRC
+
+   #+BEGIN_CENTER
+   #+ATTR_LATEX: :width 0.7\linewidth
+   [[./coupe_condensateur_dielectrique_force2.pdf]]
+   #+END_CENTER
 
 * Footnotes
 
