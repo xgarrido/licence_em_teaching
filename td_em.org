@@ -1902,19 +1902,19 @@ le champ électrique est égal à $\vv{E}'_1=-\frac{V_1}{a}\vv{u}_z$.
    - région \ding{192} :
      #+BEGIN_SRC latex
        \begin{align*}
-         \sigma_S^1=\epsilon_0|E'_1|=\epsilon_0\frac{E_1}{a}\left(a-\frac{b\chi_e}{1+\chi_e}\right)
+         \sigma_S^\text{\ding{192}}=\epsilon_0|E'_1|=\epsilon_0\frac{E_1}{a}\left(a-\frac{b\chi_e}{1+\chi_e}\right)
        \end{align*}
      #+END_SRC
    - région \ding{193} :
      #+BEGIN_SRC latex
        \begin{align*}
-         \sigma_S^2=\epsilon_0E_1
+         \sigma_S^\text{\ding{193}}=\epsilon_0E_1
        \end{align*}
      #+END_SRC
    La charge $Q$ du condensateur est égale à
    #+BEGIN_SRC latex
      \begin{align*}
-       Q&=\int_0^x\sigma_S^1\,\ell dx+\int_x^L\sigma_S^2\,\ell dx\\
+       Q&=\int_0^x\sigma_S^\text{\ding{193}}\,\ell dx+\int_x^L\sigma_S^\text{\ding{192}}\,\ell dx\\
        &=\epsilon_0E_1\ell\left(\frac{x}{a}\left(a-\frac{b\chi_e}{1+\chi_e}\right)+L-x\right)\\
        &=\epsilon_0E_1\ell\left(L-\frac{\chi_e}{1+\chi_e}\frac{bx}{a}\right)
      \end{align*}
@@ -1963,6 +1963,51 @@ le champ électrique est égal à $\vv{E}'_1=-\frac{V_1}{a}\vv{u}_z$.
    #+ATTR_LATEX: :width 0.7\linewidth
    [[./coupe_condensateur_dielectrique_force2.pdf]]
    #+END_CENTER
+** Boule chargée flottant sur un diélectrique
+1) Le potentiel $V(\vv{r})$ vérifie l'équation de Poisson dans chacun des
+   milieux $\Delta V(\vv{r})=-\frac{\rho_\text{tot.}}{\epsilon_0}$. Toutefois,
+   le milieu \ding{192} étant le vide et un conducteur n'ayant pas de densité
+   volumique de charge libre, le potentiel $V_1(\vv{r})$ vérifie l'équation de
+   Laplace[fn:6] $\Delta V_1=0$. Les conditions aux limites sont les suivantes
+   - continuité du potentiel à la surface de la boule $V_1(R)=V_2(R)=V_S$,
+   - à l'infini $r\to\infty$, $V_1(r\to\infty)=V_2(r\to\infty)=0$.
+
+2) $V(\vv{r})=V(r)$
+   1) L'équation de Laplace dans le milieu \ding{192} s'écrit en coordonnées
+      sphériques
+      #+BEGIN_SRC latex
+        \begin{align*}
+          \Delta V_1=\frac{1}{r^2}\frac{\partial}{\partial r}\left(r^2\frac{\partial V_1(r)}{\partial r}\right)&=0\\
+          r^2\frac{\partial V_1(r)}{\partial r}&=\text{constante}\\
+          V_1(r)&=\frac{A}{r}+B
+        \end{align*}
+      #+END_SRC
+      En utilisant les conditions aux limites, on a $V_1(r\to\infty)=B=0$ et
+      $V_1(R)=V_S\rightarrow A=RV_S$
+      #+BEGIN_SRC latex
+        \begin{align*}
+          V_1(r)&=\frac{V_SR}{r}
+        \end{align*}
+      #+END_SRC
+   2) Le champ électrique se déduit de la relation
+      #+BEGIN_SRC latex
+         \begin{align*}
+          \vv{E}_1&=-\grad V_1\\
+          &=-\frac{\partial V_1(r)}{\partial r}\vv{u}_r\\
+          &=\frac{V_SR}{r^2}\vv{u}_r
+        \end{align*}
+      #+END_SRC
+   3) À la traversée de la surface conducteur-vide/diélectrique, le composante
+      normale à la surface (ici $\parallel\vv{u}_r$) est discontinue et égale à
+      la densité surfacique de charge libre. Le champ électrique étant par
+      ailleurs nul à l'intérieur d'un conducteur, nous avons en $r=R$
+      #+BEGIN_SRC latex
+        \begin{align*}
+          \vv{D}_1(R).\vv{u}_r&=\sigma_{\ell1}\\
+          \epsilon_0E_1(R)&=\sigma_{\ell1}\\
+          \text{d'où }\sigma_{\ell1}&=\epsilon_0\frac{V_S}{R}
+        \end{align*}
+      #+END_SRC
 
 * Footnotes
 
@@ -1986,3 +2031,17 @@ puissance sortant de ce volume.
 [fn:5] l'invariance du problème permet de poser $\vv{P}=P\vv{u}_z$ car on pourra
 toujours pivoter/tourner le système de coordonnées sphériques de telle sorte à
 ce que $\vv{P}$ soit colinéaire à $Oz$.
+
+[fn:6] dans le cas d'un diélectrique Linéaire, Homogène et Isotrope, la densité
+volumique de charges liées $\rho_P=-\div\vv{P}=-\epsilon_0\chi_e\div\vv{E}$. Or
+$\div\vv{E}=\frac{\rho_\text{tot.}}{\epsilon_0}$ d'où
+#+BEGIN_SRC latex
+  \begin{align*}
+    -\rho_P&=\epsilon_0\chi_e\div\vv{E}\\
+    &=\chi_e\rho_\text{tot.}\\
+    &=\chi_e(\rho_P+\rho_\ell)\\
+    \rho_P&=\rho_\ell\frac{\chi_e}{\chi_e-1}
+  \end{align*}
+#+END_SRC
+S'il n'y a donc pas de densité volumique de charge libre $\rho_\ell$, la densité
+volumique de charge liée est donc également nulle.
