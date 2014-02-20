@@ -1997,10 +1997,11 @@ le champ électrique est égal à $\vv{E}'_1=-\frac{V_1}{a}\vv{u}_z$.
           &=\frac{V_SR}{r^2}\vv{u}_r
         \end{align*}
       #+END_SRC
-   3) À la traversée de la surface conducteur-vide/diélectrique, le composante
-      normale à la surface (ici $\parallel\vv{u}_r$) est discontinue et égale à
-      la densité surfacique de charge libre. Le champ électrique étant par
-      ailleurs nul à l'intérieur d'un conducteur, nous avons en $r=R$
+   3) À la traversée de la surface conducteur-vide/diélectrique, la composante
+      normale à la surface (ici $\parallel\vv{u}_r$) du vecteur déplacement
+      $\vv{D}$ est discontinue et égale à la densité surfacique de charge
+      libre. Le champ électrique étant par ailleurs nul à l'intérieur d'un
+      conducteur, nous avons en $r=R$
       #+BEGIN_SRC latex
         \begin{align*}
           \vv{D}_1(R).\vv{u}_r&=\sigma_{\ell1}\\
@@ -2008,6 +2009,94 @@ le champ électrique est égal à $\vv{E}'_1=-\frac{V_1}{a}\vv{u}_z$.
           \text{d'où }\sigma_{\ell1}&=\epsilon_0\frac{V_S}{R}
         \end{align*}
       #+END_SRC
+      Pour déterminer, la densité surfacique de charge libre dans le milieu
+      \ding{193}, on utilise la même relation soit
+      #+BEGIN_SRC latex
+        \begin{align*}
+          \vv{D}_2(R).\vv{u}_r&=\sigma_{\ell1}\\
+          \epsilon_r\epsilon_0E_2(R)&=\sigma_{\ell2}
+        \end{align*}
+      #+END_SRC
+      Pour calculer $\vv{E}_2.\vv{u}_r$, on utilise la relation de continuité de
+      la composante tangentielle du champ électrique à l'interface milieu
+      \ding{192} - milieu \ding{193} et en surface du conducteur soit en
+      $r=R$. On a ainsi
+      #+BEGIN_SRC latex
+        \begin{align*}
+          \vv{E}_2(r=R).\vv{u}_r&=\vv{E}_1(r=R).\vv{u}_r\\
+          E_2(R)&=E_1(R)=\frac{V_S}{R}
+        \end{align*}
+      #+END_SRC
+      d'où
+      #+BEGIN_SRC latex
+        \begin{align*}
+          \sigma_{\ell2}&=\epsilon_r\epsilon_0\frac{V_S}{R}=\epsilon_r\sigma_{\ell1}
+        \end{align*}
+      #+END_SRC
+
+      Les densités surfaciques de charge de polarisation se déduisent de la
+      disontinuité du vecteur polarisation
+      $\vv{P}=\epsilon_0\chi_e\vv{E}_2$. L'absence de polarisation dans le
+      milieu \ding{192} fait que $\sigma_{P1}=0$ et
+      #+BEGIN_SRC latex
+        \begin{align*}
+          \sigma_{P2}&=-\vv{P}.\vv{u}_r\\
+          &=-\epsilon_0\chi_e\frac{V_S}{R}
+        \end{align*}
+      #+END_SRC
+   4) Les conditions aux limites sont vérifiées et $V(r)$ est solution de
+      l'équation de Poisson \to théorème d'unicité, $V(r)$ est l'unique solution
+
+3) En l'absence de potentiel $V=0$ /i.e./ $\sigma_{\ell1}=\sigma_{\ell2}=0$, seul
+   le quart de la boule est immergé. Le système étant à l'équilibre on déduit
+   ainsi la poussé d'Archimède s'exerçant sur la boule
+   #+BEGIN_SRC latex
+     \begin{align*}
+       \Upsigma\vv{F}&=\vv{0}\\
+       m\vv{g}-\frac{1}{4}\times\frac{4}{3}\pi R^3\rho_\text{diél.}\vv{g}&=\vv{0}\\
+       \rho_\text{diél.}&=\frac{3m}{\pi R^3}
+     \end{align*}
+   #+END_SRC
+
+   Lorsque la boule est au potentiel $V_S$, le volume immergé correspond à la
+   moitié du volume de la boule en raison de la pression électrostatique qui
+   s'exerce à présent sur les parois du conducteur :
+   #+BEGIN_SRC latex
+     \begin{align*}
+       \Upsigma\vv{F}&=\vv{0}\\
+       m\vv{g}-\frac{1}{2}\times\frac{4}{3}\pi R^3\rho_\text{diél.}\vv{g}+\vv{F}_1+\vv{F}_2&=\vv{0}
+     \end{align*}
+   #+END_SRC
+   où $\vv{F}_1$ et $\vv{F}_2$ correspondent aux forces de pression s'exerçant
+   sur chacune des demi-sphères. Soit
+   #+BEGIN_SRC latex
+     \begin{align*}
+       \vv{F}_{1,2}&=\iint P_{1,2}d\vv{S}\\
+       F_{1,2z}&=\vv{F}_{1,2}.\vv{u}_z=\int_0^{2\pi}d\phi\int_0^{\pi/2}P_{1,2}\cos\theta R^2\sin\theta d\theta\\
+       &\text{(seule la composante selon $\vv{u}_z$ reste non nulle)}\\
+       &=2\pi R^2P_{1,2}\int_0^{\pi/2}\sin\theta d(\sin\theta)=2\pi R^2P_{1,2}\left[\frac{\sin^2\theta}{2}\right]_0^{\pi/2}\\
+       &=\pi R^2P_{1,2}
+     \end{align*}
+   #+END_SRC
+   Les pressions électrostatiques $P_{1,2}$ sont égales à
+   #+BEGIN_SRC latex
+     \begin{align*}
+       P_1&=\frac{\sigma^2_{\ell1}}{2\epsilon_0}\\
+       P_2&=\frac{d\vv{F}_2}{d\vv{S}}=\frac{\vv{E}_2dq}{d\vv{S}}\\
+       &=\frac{\sigma_{\text{tot.}2}/\epsilon_0\times\sigma_{\ell2}dS}{dS}\text{ et }\sigma_{\text{tot.}2}=\sigma_{\ell2}+\sigma_{P2}=\frac{\sigma_{\ell2}}{\epsilon_r}\\
+       &=\frac{\sigma^2_{\ell2}}{2\epsilon_0\epsilon_r}=\frac{\epsilon_r\sigma^2_{\ell1}}{2\epsilon_0}
+     \end{align*}
+   #+END_SRC
+   En projetant, le PFD selon $\vv{u}_z$, on obtient finalement l'équation suivante
+   #+BEGIN_SRC latex
+     \begin{align*}
+       -mg+\frac{3m}{\pi R^3}\times\frac{1}{2}\times\frac{4}{3}\pi R^3g+\frac{\sigma^2_{\ell1}}{2\epsilon_0}\pi R^2-\frac{\epsilon_r\sigma^2_{\ell1}}{2\epsilon_0}\pi R^2&=0\\
+       -mg+2mg+\frac{\epsilon^{\cancel{2}}_0V_S^2}{2\cancel{\epsilon_0}\cancel{R^2}}\pi \cancel{R^2}\left(1-\epsilon_r\right)&=0\\
+       mg+\frac{\epsilon_0V_S^2\pi}{2}\left(1-\epsilon_r\right)&=0\\
+       V_S&=\sqrt{\frac{2mg}{\epsilon_0\pi\left(\epsilon_r-1\right)}}\\
+       &=\sqrt{\frac{2\times10\times10^{-2}}{\pi\,8.85\,10^{-12}\times79}}=\unit[9.5]{kV}
+     \end{align*}
+   #+END_SRC
 
 * Footnotes
 
