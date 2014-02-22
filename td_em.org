@@ -2,6 +2,7 @@
 #+AUTHOR: Xavier Garrido
 #+DATE: 21/01/14
 #+OPTIONS: ^:{} toc:2 tags:nil
+#+LATEX_CLASS: teaching-class
 #+LATEX_HEADER: \usepackage{wasysym}
 #+LATEX_HEADER_EXTRA: \newcommand{\vv}[1]{\overrightarrow{#1}}
 #+LATEX_HEADER_EXTRA: \renewcommand{\div}{\ensuremath{\text{div}}}
