@@ -1,5 +1,6 @@
 #+TITLE: Electromagnetism classes of Licence 3 - README
 #+AUTHOR: Xavier Garrido
+#+OPTIONS: toc:nil
 
 * Introduction
 
@@ -20,3 +21,7 @@ dependency but it eases the unification of org export for several file sources.
 There is no need to detangle this file since emacs will do it when you
 will use the Makefile in the corresponding directories. So, next step will be to
 do =make= within the different directories.
+
+#+BEGIN_CENTER
+See [[./td_em.org][electromagnetism classes]] (in french)
+#+END_CENTER
