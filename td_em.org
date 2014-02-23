@@ -828,7 +828,7 @@ trajectoire circulaire de rayon $R$
 
    #+BEGIN_CENTER
    #+ATTR_LATEX: :width 0.6\linewidth
-   [[file:onde_plane.pdf]]
+   [[file:./figures/onde_plane.pdf]]
    #+END_CENTER
 
    Onde plane progressive $\vv{B}=\tfrac{\vv{u}_z\times\vv{E}}{c}$
