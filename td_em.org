@@ -721,7 +721,75 @@ trajectoire circulaire de rayon $R$
 
       $V=\unit[10]{MV}$,$\gamma=21$ \rightarrow $\frac{\Delta R}{R_0}=1.5\,10^{-5}$
 
-* TD2 : Équations de Maxwell dans le vide et champ électromagnétique
+** Variations relatives de vitesse, de quantité de mouvement et d'énergie :DM:
+On considère une particule de masse $m$, de quantité de mouvement $p$, d'énergie
+totale $\mathcal{E}$ et d'énergie cinétique $\mathcal{E}_c$.
+
+1) Exprimer $dv/v$ et $dp/p$ en fonction de $d\mathcal{E}/\mathcal{E}$.
+
+   Soit l'énergie totale $\mathcal{E}=\gamma\,mc^2$ et
+   $\gamma=\frac{1}{\surd1-v^2/c^2}$. On a
+   #+BEGIN_SRC latex
+     \begin{align*}
+       \frac{d\mathcal{E}}{\mathcal{E}}&=\frac{d\gamma}{\gamma}\\
+       \text{avec }&d\gamma=-\frac{1}{2}\times\frac{1}{\left(1-v^2/c^2\right)^{3/2}}\times(-)2\frac{v}{c}dv\\
+       &d\gamma=\gamma^3\frac{v}{c}dv\\
+       \frac{d\mathcal{E}}{\mathcal{E}}&=\gamma^2\,\frac{v^2}{c^2}\times\frac{dv}{v}\\
+       &=\left(\gamma^2-1\right)\frac{dv}{v}
+     \end{align*}
+   #+END_SRC
+   soit
+   #+BEGIN_SRC latex
+     \begin{align*}
+       \frac{dv}{v}=\frac{1}{\gamma^2-1}\,\frac{d\mathcal{E}}{\mathcal{E}}
+     \end{align*}
+   #+END_SRC
+
+   La quantité de mouvement $p=\gamma\,mv$ est liée à l'énergie totale à travers
+   l'expression $\mathcal{E}^2=p^2c^2+m^2c^4$ soit en différentiant
+   #+BEGIN_SRC latex
+     \begin{align*}
+       2\mathcal{E}d\mathcal{E}&=2p\,dpc^2\\
+       \frac{dp}{p}&=\frac{\mathcal{E}d\mathcal{E}}{p^2c^2}\\
+       &=\frac{\mathcal{E}d\mathcal{E}}{\mathcal{E}^2-m^2c^4}\\
+       &=\frac{\gamma^2\,\cancel{m^2c^4}}{\gamma^2\,\cancel{m^2c^4}-\cancel{m^2c^4}}\,\frac{d\mathcal{E}}{\mathcal{E}}\\
+       &=\frac{\gamma^2}{\gamma^2-1}\,\frac{d\mathcal{E}}{\mathcal{E}}
+     \end{align*}
+   #+END_SRC
+
+2) Que se passe-t-il à la limite ultrarelativiste ?
+
+   $v\to c$ et $\gamma\gg1$ d'où
+   #+BEGIN_SRC latex
+     \begin{align*}
+       \frac{dv}{v}&\simeq\frac{1}{\gamma^2}\,\frac{d\mathcal{E}}{\mathcal{E}}\\
+       \frac{dp}{p}&\simeq\frac{d\mathcal{E}}{\mathcal{E}}
+     \end{align*}
+   #+END_SRC
+
+3) On définit le facteur $\alpha$ par
+   #+BEGIN_SRC latex
+     \begin{align*}
+       \frac{d\mathcal{E}_c}{\mathcal{E}_c}=\alpha\,\frac{dp}{p}
+     \end{align*}
+   #+END_SRC
+   Quelle est l'expression de $\alpha$ en fonction de $\beta$ ? Faire une
+   représentation graphique.
+
+   L'énergie totale $\mathcal{E}$ est égale à $\mathcal{E}_c+mc^2$ d'où
+   $d\mathcal{E}=d\mathcal{E}_c$. On a ainsi
+   #+BEGIN_SRC latex
+     \begin{align*}
+       \frac{dp}{p}&=\frac{\gamma^2}{\gamma^2-1}\times\frac{d\mathcal{E}_c}{\mathcal{E}}\times\frac{\mathcal{E}_c}{\mathcal{E}_c}\\
+       \frac{d\mathcal{E}_c}{\mathcal{E}_c}&=\underbrace{\frac{\gamma^2-1}{\gamma^2}\times\frac{\mathcal{E}}{\mathcal{E}_c}}_{\alpha}\times\frac{dp}{p}\\
+       \alpha&=\frac{\gamma^2-1}{\gamma^2}\times\frac{\gamma\,\cancel{mc^2}}{\gamma\,\cancel{mc^2}-\cancel{mc^2}}\\
+       &=\frac{\cancel{(\gamma-1)}(\gamma+1)}{\gamma^{\cancel{2}}}\times\frac{\cancel{\gamma}}{\cancel{\gamma-1}}\\
+       &=\frac{\gamma+1}{\gamma}=1+\frac{1}{\gamma}=1+\sqrt{1-\beta^2}
+     \end{align*}
+   #+END_SRC
+
+
+* TD2 : Équations de Maxwell dans le vide et champ électromagnétique :noexport:
 ** "Propriétés mécaniques" du champ électromagnétique
 :PROPERTIES:
 :CUSTOM_ID: sec::prop_champ
@@ -1067,10 +1135,10 @@ trajectoire circulaire de rayon $R$
    #+END_SRC
 
   *Application expérimentale:* La pression de radiation aussi faible soit elle,
-  est un bruit important pour les interféromètres de hautes sensibilité tels que
+  est un bruit important pour les interféromètres de haute sensibilité tels que
   Virgo (/cf./ [[http://tel.archives-ouvertes.fr/tel-00175254/en/]]).
 
-* TD3 : Électrostatique dans le vide
+* TD3 : Électrostatique dans le vide :noexport:
 ** Condensateur cylindrique
 
 #+ATTR_HTML: :class hidden
@@ -1465,7 +1533,7 @@ $\vv{E}=-\grad\,V=-\tfrac{dV}{dr}\vv{u}_r$. Soit
           \vv{F}_2&=-\vv{F}_1=-\frac{\pi R^2\,\sigma_0^2}{4\epsilon_0}\vv{u}_z
         \end{align*}
       #+END_SRC
-* TD4 : Les milieux diélectriques
+* TD4 : Les milieux diélectriques :noexport:
 ** Introduction
 Historiquement, la découverte expérimentale des diélectriques est à mettre au
 profit de Michael Faraday qui nota que l'introduction d'un isolant entre les
