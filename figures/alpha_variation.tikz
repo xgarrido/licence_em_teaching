@@ -1,0 +1,17 @@
+\begin{tikzpicture}
+  \sf
+  % Colors
+  \definecolor{red}{RGB}{221,42,43}
+  \definecolor{green}{RGB}{132,184,24}
+  \definecolor{blue}{RGB}{0,51,153}
+  \definecolor{orange}{RGB}{192,128,64}
+  \definecolor{gray}{RGB}{107,108,110}
+
+  \begin{axis}[
+      xlabel=$\beta^2$,
+      ylabel={$\alpha = 1+\sqrt{1-\beta^2}$}
+    ]
+    % use TeX as calculator:
+    \addplot[domain=0:1, samples=100,blue,thick] {1+sqrt(1-x^2)};
+  \end{axis}
+\end{tikzpicture}

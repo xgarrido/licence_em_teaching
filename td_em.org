@@ -788,6 +788,12 @@ totale $\mathcal{E}$ et d'énergie cinétique $\mathcal{E}_c$.
      \end{align*}
    #+END_SRC
 
+   #+BEGIN_CENTER
+   #+ATTR_LATEX: :width 0.7\linewidth
+   #+CAPTION: *Variation du paramètre $\alpha$ en fonction de la vitesse $\beta$*
+   [[./figures/alpha_variation.pdf]]
+   #+END_CENTER
+
 
 * TD2 : Équations de Maxwell dans le vide et champ électromagnétique :noexport:
 ** "Propriétés mécaniques" du champ électromagnétique
