@@ -195,7 +195,7 @@ ou
    Le théorème de Gauss
    #+BEGIN_SRC latex
      \begin{equation*}
-       \varoiint_{\mathcal{S}}\vv{E}\cdot\text{d}\vv{S}=\frac{Q_\text{int.}}{\epsilon_0}
+       \varoiint_{\mathcal{S}}\vv{E}\cdot d\vv{S}=\frac{Q_\text{int.}}{\epsilon_0}
      \end{equation*}
    #+END_SRC
    où la surface de Gauss $\mathcal{S}$ est un cylindre de rayon $D'$ et
@@ -293,7 +293,7 @@ ou
         \end{equation*}
       #+END_SRC
 
-      Le courant dans le fil est $\text{d}I=\vv{j}.\text{d}\vv{S}$ soit
+      Le courant dans le fil est $dI=\vv{j}.d\vv{S}$ soit
       $I=j\times S$ et le champ magnétique $\vv{B}(M)$ s'écrit (/cf./ polycopié
       page 88, Chapitre Magnétostatique)
       #+BEGIN_SRC latex
@@ -566,7 +566,7 @@ trajectoire circulaire de rayon $R$
       Théorème de Gauss :
       #+BEGIN_SRC latex
         \begin{equation*}
-          \varoiint_\mathcal{S}\vv{E}'(M)\cdot\text{d}\vv{S}=\frac{Q_\text{int.}}{\epsilon_0}
+          \varoiint_\mathcal{S}\vv{E}'(M)\cdot d\vv{S}=\frac{Q_\text{int.}}{\epsilon_0}
         \end{equation*}
       #+END_SRC
       où la surface de Gauss est un cylindre de rayon $r<R$ et de hauteur $h$.
@@ -588,7 +588,7 @@ trajectoire circulaire de rayon $R$
    2) Mécanique classique ou Newtonienne $\Upsigma\vv{F}=m\vv{a}$ [fn:1]
       #+BEGIN_SRC latex
         \begin{align*}
-          \vv{F}'&=m\vv{a}=m\ddot{R}\vv{u}_r=m\frac{\text{d}^2R}{\text{d}t^{\prime2}}\vv{u}_r\\
+          \vv{F}'&=m\vv{a}=m\ddot{R}\vv{u}_r=m\frac{d^2R}{dt^{\prime2}}\vv{u}_r\\
           \frac{q\rho_0}{2\epsilon_0}R\vv{u}_r&=m\ddot{R}\vv{u}_r\rightarrow\ddot{R}-\frac{q\rho_0}{2m\epsilon_0}R=0
         \end{align*}
       #+END_SRC
@@ -640,7 +640,7 @@ trajectoire circulaire de rayon $R$
       Le théorème d'Ampère :
       #+BEGIN_SRC latex
         \begin{equation*}
-          \oint_{\mathcal{C}}\vv{B}.\text{d}\vv{\ell}=\iint_\mathcal{S}\mu_0\vv{j}.\text{d}\vv{S}\text{ avec} \vv{j}=\rho u\vv{u}_x
+          \oint_{\mathcal{C}}\vv{B}.d\vv{\ell}=\iint_\mathcal{S}\mu_0\vv{j}.d\vv{S}\text{ avec} \vv{j}=\rho u\vv{u}_x
         \end{equation*}
       #+END_SRC
       Le contour $\mathcal{C}$ est donc une boucle de rayon $r$ orientée suivant
@@ -677,15 +677,15 @@ trajectoire circulaire de rayon $R$
    4) Le principe fondamental de la dynamique en relativité
       #+BEGIN_SRC latex
         \begin{align*}
-          \frac{\text{d}}{\text{d}t}\left(\gamma m\vv{u}\right)&=\Upsigma\vv{F}\\
-          \gamma m\frac{\text{d}\vv{u}}{\text{d}t}+m\vv{u}\frac{\text{d}\gamma}{\text{d}t}&=\vv{F}
+          \frac{d}{dt}\left(\gamma m\vv{u}\right)&=\Upsigma\vv{F}\\
+          \gamma m\frac{d\vv{u}}{dt}+m\vv{u}\frac{d\gamma}{dt}&=\vv{F}
         \end{align*}
       #+END_SRC
       or $\vv{F}\parallel\vv{u}_r$ impliquant que le second terme
-      $m\vv{u}\tfrac{\text{d}\gamma}{\text{d}t}$ soit nul. Soit
+      $m\vv{u}\tfrac{d\gamma}{dt}$ soit nul. Soit
       #+BEGIN_SRC latex
         \begin{align*}
-          \gamma m\frac{\text{d}\vv{u}}{\text{d}t}&=\vv{F}\\
+          \gamma m\frac{d\vv{u}}{dt}&=\vv{F}\\
           \gamma m\ddot{R}&=\frac{q\rho}{2\epsilon_0\gamma^2}R\\
           \ddot{R}-\frac{q\rho}{2\epsilon_0m}\frac{R}{\gamma^3}&=0
         \end{align*}
@@ -1959,7 +1959,7 @@ L}{a-\frac{b\chi_e}{1+\chi_e}}=C_1$. Finalement, l'énergie stockée $U_2$ est
   \begin{align*}
     U_2=\frac{1}{2}C_2V_2^2&=\frac{1}{2}\epsilon_0\ell LaE_0^2\left(1-\frac{\chi_e}{1+\chi_e}\frac{b}{a}\right)\\
     &=\frac{1}{2}\epsilon_0\ell La\frac{V_0^2}{a}\left(1-\frac{\chi_e}{1+\chi_e}\frac{b}{a}\right)\\
-    &=U_0\left(1-\frac{\chi_e}{1+\chi_e}\frac{b}{a}\right)<U_0
+    &=U_0\left(1-\frac{\chi_e}{1+\chi_e}\frac{b}{a}\right)\leq U_0
   \end{align*}
 #+END_SRC
 *** Force électrostatique sur la plaque diélectrique
