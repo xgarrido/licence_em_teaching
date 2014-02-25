@@ -56,35 +56,38 @@ for the JavaScript code in this tag.
 /*]]>*///-->
 </script>
 <script type="text/x-mathjax-config">
-MathJax.Hub.Config({
-    TeX: {
-        extensions: ["cancel.js"],
-        Macros: {
-            vv: ["{\\vec #1}",1],
-            Upsigma: "{\\Sigma}",
-            Updelta: "{\\Delta}",
-            varoiint: "{\\iint}",
-            varoint: "{\\int}",
-            grad: "{\\vec{\\nabla}}",
-            div: "{\\vec{\\nabla}.}",
-            rot: "{\\vec{\\nabla}\\times\\,}",
-            ding: ["{\\dang #1}",1]
-        }
-    }
-});
-MathJax.Hub.Register.StartupHook("TeX Jax Ready",function () {
-    var TEX = MathJax.InputJax.TeX;
-    TEX.Definitions.macros.unit = "jaxunit";
-    TEX.Parse.Augment({
-        jaxunit: function (name) {
-            var n = this.GetBrackets(name),
-            unit = this.GetArgument(name)
-            if (n == null) {n = ""}
-            var tex = n + '\\,\\text{'+unit+'}';
-            this.string = tex + this.string.slice(this.i); this.i = 0;
-        }
-    });
-});
+  MathJax.Hub.Config({
+      TeX: {
+          extensions: ["cancel.js"],
+          Macros: {
+              vv: ["{\\vec #1}",1],
+              Upsigma: "{\\Sigma}",
+              Updelta: "{\\Delta}",
+              varoiint: "{\\iint}",
+              varoint: "{\\int}",
+              grad: "{\\vec{\\nabla}}",
+              div: "{\\vec{\\nabla}.}",
+              rot: "{\\vec{\\nabla}\\times\\,}",
+              ket: ["{|#1 \\rangle}",1],
+              bra: ["{\\langle#1|}",1],
+              psh: ["{\\langle#1|#2 \\rangle}",2],
+              bm: ["{\\boldsymbol #1}",1]
+          }
+      }
+  });
+  MathJax.Hub.Register.StartupHook("TeX Jax Ready",function () {
+      var TEX = MathJax.InputJax.TeX;
+      TEX.Definitions.macros.unit = "jaxunit";
+      TEX.Parse.Augment({
+          jaxunit: function (name) {
+              var n = this.GetBrackets(name),
+              unit = this.GetArgument(name)
+              if (n == null) {n = ""}
+              var tex = n + '\\,\\text{'+unit+'}';
+              this.string = tex + this.string.slice(this.i); this.i = 0;
+          }
+      });
+  });
   </script>
   <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 </head>
@@ -104,6 +107,26 @@ MathJax.Hub.Register.StartupHook("TeX Jax Ready",function () {
 <li><a href="#sec-1-5">1.5. Particule chargée dans des champs électrique et magnétique perpendiculaires</a></li>
 <li><a href="#sec-1-6">1.6. Étude de la charge d'espace</a></li>
 <li><a href="#sec-1-7">1.7. Variations relatives de vitesse, de quantité de mouvement et d'énergie</a></li>
+</ul>
+</li>
+<li><a href="#sec-2">2. TD2 : Équations de Maxwell dans le vide et champ électromagnétique</a>
+<ul>
+<li><a href="#sec::prop_champ">2.1. "Propriétés mécaniques" du champ électromagnétique</a></li>
+<li><a href="#sec-2-2">2.2. Interprétation corpusculaire de la pression de radiation</a></li>
+</ul>
+</li>
+<li><a href="#sec-3">3. TD3 : Électrostatique dans le vide</a>
+<ul>
+<li><a href="#sec-3-1">3.1. Condensateur cylindrique</a></li>
+<li><a href="#sec-3-2">3.2. Boule conductrice en présence d'une charge ponctuelle : méthode des images</a></li>
+</ul>
+</li>
+<li><a href="#sec-4">4. TD4 : Les milieux diélectriques</a>
+<ul>
+<li><a href="#sec-4-1">4.1. Introduction</a></li>
+<li><a href="#sec-4-2">4.2. Boule uniformément polarisée</a></li>
+<li><a href="#sec-4-3">4.3. Plaque diélectrique</a></li>
+<li><a href="#sec-4-4">4.4. Boule chargée flottant sur un diélectrique</a></li>
 </ul>
 </li>
 </ul>
@@ -1025,8 +1048,1640 @@ L'énergie totale \(\mathcal{E}\) est égale à \(\mathcal{E}_c+mc^2\) d'où
 <div class="figure">
 <p><img src="./figures/alpha_variation.png" alt="alpha_variation.png" />
 </p>
-<p><span class="figure-number">Figure 1:</span> <b>Variation du paramètre \(\alpha\) en fonction de la vitesse \(\beta\)</b></p>
 </div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-2" class="outline-2">
+<h2 id="sec-2"><span class="section-number-2">2</span> TD2 : Équations de Maxwell dans le vide et champ électromagnétique</h2>
+<div class="outline-text-2" id="text-2">
+</div><div id="outline-container-sec::prop_champ" class="outline-3">
+<h3 id="sec::prop_champ"><a id="sec-2-1"></a><span class="section-number-3">2.1</span> "Propriétés mécaniques" du champ électromagnétique</h3>
+<div class="outline-text-3" id="text-sec::prop_champ">
+<ol class="org-ol">
+<li><b>Énergie</b>
+<ol class="org-ol">
+<li>Force de Lorentz : \(\vv{F}=q\vv{E}+q\vv{v}\times\vv{B}\)
+
+<p>
+Équations de Maxwell :
+</p>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="void">
+
+
+<colgroup>
+<col  class="left" />
+
+<col  class="left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="left">Maxwell-Gauss</td>
+<td class="left">\(\div\vv{E}=\vv{\nabla}.\vv{E}=\tfrac{\rho}{\epsilon_0}\)</td>
+</tr>
+
+<tr>
+<td class="left">Conservation du flux magnétique</td>
+<td class="left">\(\div\vv{B}=\vv{\nabla}.\vv{B}=0\)</td>
+</tr>
+
+<tr>
+<td class="left">Maxwell-Faraday</td>
+<td class="left">\(\rot\vv{E}=-\tfrac{\partial\vv{B}}{\partial t}\)</td>
+</tr>
+
+<tr>
+<td class="left">Maxwell-Ampère</td>
+<td class="left">\(\rot\vv{B}=\mu_0\vv{j}+\mu_0\epsilon_0\tfrac{\partial\vv{E}}{\partial t}\)</td>
+</tr>
+</tbody>
+</table>
+</li>
+
+<li>Équation locale de conservation de la charge
+\begin{align*}
+  \div\left(\rot\vv{B}\right)=\vv{\nabla}.\left(\vv{\nabla}\times\vv{B}\right)&=0\\
+  \mu_0\div\vv{j}+\mu_0\epsilon_0\frac{\partial}{\partial t}\div\vv{E}&=0\\
+  \div\vv{j}+\frac{\partial\rho}{\partial t}=0
+\end{align*}
+
+<p>
+<b>Remarques :</b>
+</p>
+
+<ul class="org-ul">
+<li>En régime stationnaire, \(\div\vv{j}=0\) <i>i.e.</i> champ à flux conservatif,
+on retrouve la loi des n\oe uds de Kirchhoff à savoir que l'intensité du
+courant \(i_1=i_2+i_3\)
+</li>
+
+<li>Dans le conducteur, la densité de courant \(\vv{j}\) s'exprime en fonction
+du champ \(\vv{E}\) et de la conductivité \(\gamma\) (exprimée en Siemens
+par mètre) : \(\vv{j}=\gamma\vv{E}\) d'où
+\begin{align*}
+  \frac{\partial\rho}{\partial t}+\frac{\gamma}{\epsilon_0}\rho=0\text{ et }\rho(t)=\rho_0\,e^{-t/\tau}\text{ où }\tau=\frac{\epsilon_0}{\gamma}\sim\frac{10^{-11}}{10^7}\sim\unit[10^{-18}]{s}
+\end{align*}
+
+<p>
+Dans un conducteur, il n'y a donc pas de charge en volume : le courant et
+donc les charges se déplaçent en surface.
+</p>
+</li>
+</ul>
+</li>
+<li>La puissance \(\mathcal{P}\) s'écrit comme le produit de la force \(\vv{F}\) par la
+vitesse de la particule&nbsp;\(\vv{v}\) :
+\begin{equation*}
+  \mathcal{P}=\vv{F}.\vv{v}=q\vv{E}.\vv{v}+q(\vv{v}\times\vv{B}).\vv{v}=q\vv{E}.\vv{v}
+\end{equation*}
+
+<p>
+La puissance par unité de volume
+\(\tfrac{d\mathcal{P}}{d\tau}=nq\vv{E}.\vv{v}\) or \(\vv{j}=nq\vv{v}\) d'où
+\(\tfrac{d\mathcal{P}}{d\tau}=\vv{j}.\vv{E}\)
+</p>
+</li>
+
+<li>\(\vv{R}=\tfrac{\vv{E}\times\vv{B}}{\mu_0}\) et
+\(u=\tfrac{\epsilon_0E^2}{2}+\tfrac{B^2}{2\mu_0}\)
+\begin{align*}
+  \div\vv{R}&=\frac{1}{\mu_0}\div\left(\vv{E}\times\vv{B}\right)\text{ avec }\div\left(\vv{a}\times\vv{b}\right)=\vv{b}.\rot\vv{a}-\vv{a}.\rot\vv{b}\\
+  &=\frac{1}{\mu_0}\left(\vv{B}.\rot\vv{E}-\vv{E}.\rot\vv{B}\right)\\
+  &=\frac{1}{\mu_0}\left(-\vv{B}.\frac{\partial\vv{B}}{\partial t}-\vv{E}.\left(\mu_0\vv{j}+\mu_0\epsilon_0\frac{\partial\vv{E}}{\partial t}\right)\right)\\
+  &=\frac{1}{\mu_0}\left(-\frac{1}{2}\frac{\partial B^2}{\partial t}-\frac{\mu_0\epsilon_0}{2}\frac{\partial E^2}{\partial t}-\mu_0\vv{j}.\vv{E}\right)\\
+  &=-\frac{\partial u}{\partial t}-\vv{j}.\vv{E}
+\end{align*}
+\begin{align*}
+  \div\vv{R}+\frac{\partial u}{\partial t}+\vv{j}.\vv{E}=0
+\end{align*}
+</li>
+
+<li>\(\vv{E}=\vv{E}_0\cos\omega t\), \(\vv{B}=\vv{B_0}\sin\omega t\)
+\begin{align*}
+  \iiint_V\div\vv{R}d\tau+\iiint_V\frac{\partial u}{\partial t}d\tau+\iiint_V\vv{j}.\vv{E}d\tau=0\\
+  \iiint_V\div\vv{R}d\tau+\iiint_V\frac{\partial u}{\partial t}d\tau+\underbrace{\iiint_V\frac{d\mathcal{P}}{d\tau}d\tau}_{\mathcal{P}_{\text{EM}\rightarrow\,q}}=0\\
+\end{align*}
+
+<p>
+En appliquant le théorème d'Ostrogradsky
+\(\varoiint_S\vv{a}.d\vv{S}=\iiint_V\div\vv{a}d\tau\), on obtient
+</p>
+\begin{align*}
+  \varoiint_S\vv{R}.d\vv{S}+\iiint_V\frac{\partial u}{\partial t}d\tau+\mathcal{P}_{\text{EM}\rightarrow\,q}=0
+\end{align*}
+
+<p>
+La puissance moyenne sortant de la surface fermée<sup><a id="fnr.2" class="footref" href="#fn.2">2</a></sup> devient
+</p>
+\begin{align*}
+  \left\langle\varoiint_S\vv{R}.d\vv{S}\right\rangle_T+\left\langle\iiint_V\frac{\partial u}{\partial t}d\tau\right\rangle_T+\left\langle\mathcal{P}_{\text{EM}\rightarrow\,q}\right\rangle_T=0\\
+  \left\langle\mathcal{P}_\text{sortant}\right\rangle_T+\iiint_V\left\langle\frac{\partial u}{\partial t}d\tau\right\rangle_T+\left\langle\mathcal{P}_{\text{EM}\rightarrow\,q}\right\rangle_T=0
+\end{align*}
+
+<p>
+Or
+</p>
+\begin{align*}
+  \frac{\partial u}{\partial t}&=\frac{\epsilon_0E_0^2}{2}\times2\cos\omega t\sin\omega t+\frac{B_0^2}{2\mu_0}\times2\cos\omega t\sin\omega t\\
+  \left\langle\frac{\partial u}{\partial t}\right\rangle_T&=\epsilon_0E_0^2\left\langle\sin2\omega t\right\rangle_T+\frac{1}{\mu_0}B_0^2\left\langle\sin2\omega t\right\rangle_T\\
+  \left\langle\frac{\partial u}{\partial t}\right\rangle_T&=0
+\end{align*}
+
+<p>
+soit
+</p>
+\begin{align*}
+  \left\langle\mathcal{P}_\text{sortant}\right\rangle_T+\left\langle\mathcal{P}_{\text{EM}\rightarrow\,q}\right\rangle_T=0\\
+  \left\langle\mathcal{P}_\text{entrant}\right\rangle_T=\left\langle\mathcal{P}_{\text{EM}\rightarrow\,q}\right\rangle_T
+\end{align*}
+</li>
+</ol>
+</li>
+
+<li><b>Impulsion</b>
+
+
+<div class="figure">
+<p><img src="./figures/onde_plane.png" alt="onde_plane.png" />
+</p>
+</div>
+
+<p>
+Onde plane progressive \(\vv{B}=\tfrac{\vv{u}_z\times\vv{E}}{c}\)
+</p>
+
+<ol class="org-ol">
+<li>Calcul de la puissance \(\mathcal{P}\)
+\begin{align*}
+  \mathcal{P}&=\frac{dW}{dt}\text{ avec }\mathcal{P}=q\vv{E}.\vv{v}\\
+  W&=\int_0^Tq\vv{E}.\vv{v}dt
+\end{align*}
+</li>
+
+<li>La variation d'impulsion \(\vv{p}\) par unité de temps induite par le
+passage de l'onde EM est égale à la force de Lorentz \(\vv{F}\)
+\begin{align*}
+  \frac{d\vv{p}}{dt}=\vv{F}
+\end{align*}
+
+<p>
+d'où
+</p>
+\begin{align*}
+  \vv{p}&=\int_0^T\vv{F}dt=\int_0^Tq\left(\vv{E}+\vv{v}\times\vv{B}\right)dt\\
+  &=\int_0^Tq\vv{E}dt+\int_0^Tq\vv{v}\times\left(\frac{\vv{u}_z\times\vv{E}}{c}\right)dt
+\end{align*}
+
+<p>
+La première intégrale est nulle car \(\vv{E}=\vv{E}_0\cos\omega t\). Pour
+déterminer l'expression de la seconde intégrale, on utilise la formule
+ci-dessous
+</p>
+\begin{align*}
+  \vv{a}\times\left(\vv{b}\times\vv{c}\right)=\left(\vv{a}.\vv{c}\right)\vv{b}-\left(\vv{a}.\vv{b}\right)\vv{c}
+\end{align*}
+
+<p>
+L'impulsion \(\vv{p}\) devient
+</p>
+\begin{align*}
+  \vv{p}&=\int_0^T\frac{q}{c}\left(\vv{v}.\vv{E}\right)\vv{u}_z\,dt-\int_0^T\frac{q}{c}\left(\vv{v}.\vv{u}_z\right)\vv{E}dt
+\end{align*}
+
+<p>
+or \(\vv{v}.\vv{u}_z=0\) car la particule est maintenue dans le plan
+\(z=0\). L'expression de l'impulsion se réduit donc
+</p>
+\begin{align*}
+  \vv{p}=\int_0^T\frac{q}{c}\left(\vv{v}.\vv{E}\right)\vv{u}_z\,dt=\frac{W}{c}\vv{u}_z
+\end{align*}
+</li>
+
+<li>L'énergie d'un photon \(E=h\nu=\tfrac{hc}{\lambda}\) est égale à \(pc\) <i>via</i>
+      la relation de de Broglie reliant onde et matière \(\lambda=\tfrac{h}{p}\)
+</li>
+</ol>
+</li>
+
+<li><b>Moment cinétique</b> \(\vv{\sigma}_O=\vv{r}\times\vv{p}=\vv{OM}\times\vv{p}\) et
+\(\sigma_z=\vv{\sigma}_O.\vv{u}_z\)
+<ol class="org-ol">
+<li>\([\sigma_z]=[L]\times[M][L][T^{-1}]=[M]\times[L^2]\times[T^{-1}]\) et
+\([W]=[M][L^2][T^{-2}]\) d'où
+\begin{align*}
+  [W]&=\frac{[\sigma_z]}{[T]}\\
+  W&=k\frac{\sigma_z}{T}
+\end{align*}
+</li>
+
+<li>\(\vv{p}=\tfrac{W}{c}\vv{u}_z\)
+\begin{align*}
+  \vv{\sigma}_O&=\vv{OM}\times\vv{p}=\vv{OM}\times\frac{W}{c}\vv{u}_z\\
+  \vv{\sigma}_A&=\vv{AM}\times\vv{p}=\underbrace{\vv{AO}}_{\parallel\vv{u}_z}\times\frac{W}{c}\vv{u}_z+\vv{OM}\times\frac{W}{c}\vv{u}_z\\
+  &=\vv{\sigma}_O=\vv{\sigma}
+\end{align*}
+</li>
+
+<li>Expression de \(\sigma_z\) <sup><a id="fnr.3" class="footref" href="#fn.3">3</a></sup>
+\begin{align*}
+  \vv{\sigma}&=\vv{OM}\times\vv{p}\text{ or }\frac{d\vv{p}}{dt}=\vv{F}_\text{Lorentz}=q\vv{E}+q\vv{v}\times\vv{B}\\
+  d\vv{\sigma}&=\vv{OM}\times d\vv{p}\\
+  d\sigma_z&=d\vv{\sigma}.\vv{u}_z\\
+  \sigma_z&=\left[\underbrace{\int_0^T\vv{OM}\times q\vv{E}dt}_{\text{\(\unicode{x2460}\)}}+\underbrace{\int_0^T\vv{OM}\times q(\vv{v}\times\vv{B})dt}_{\text{\(\unicode{x2461}\)}}\right].\vv{u}_z
+\end{align*}
+
+<p>
+Calcul de \(\unicode{x2460}\)
+</p>
+\begin{align*}
+  \text{\(\unicode{x2460}\)}&=q\int_0^T\left(\vv{OM}\times\vv{E}\right).\vv{u}_z\,dt\\
+  &=q\int_0^T\left(\vv{E}\times\vv{u}_z\right).\vv{OM}\,dt\\
+  &=-q\int_0^T\vv{OM}.\left(\vv{u}_z\times\vv{E}(M,t)\right)\,dt
+\end{align*}
+
+<p>
+or \(\vv{E}(M,t)=\vv{E}(O,t)\) car l'onde EM est plane et le calcul se fait
+en \(z=0\)
+</p>
+
+<p>
+Calcul de \(\unicode{x2461}\)
+</p>
+\begin{align*}
+  \text{\(\unicode{x2461}\)}&=q\int_0^T\vv{OM}\times\left(\vv{v}\times\vv{B}\right).\vv{u}_zdt
+\end{align*}
+
+<p>
+or
+</p>
+\begin{align*}
+  \vv{a}\times\left(\vv{b}\times\vv{c}\right)=\left(\vv{a}.\vv{c}\right).\vv{b}-\left(\vv{a}.\vv{b}\right).\vv{c}
+\end{align*}
+\begin{align*}
+  \text{\(\unicode{x2461}\)}&=q\left[\int_0^T\left(\vv{OM}.\vv{B}\right).\underbrace{\vv{v}.\vv{u}_z}_{\vv{v}\perp\vv{u}_z=0}dt-\int_0^T\left(\vv{OM}.\vv{v}\right).\underbrace{\vv{B}.\vv{u}_z}_{\vv{B}\perp\vv{u}_z=0}dt\right]
+\end{align*}
+
+<p>
+Seul le champ électrique \(\vv{E}\) de l'onde EM contribue au moment
+cinétique cédé à la particule \(q\)
+</p>
+\begin{align*}
+  \sigma_z=-q\int_0^T\vv{OM}.\left(\vv{u}_z\times\vv{E}(O,t)\right)dt
+\end{align*}
+</li>
+
+<li>Polarisation circulaire gauche
+\begin{align*}
+  \vv{E}(O,t)=
+  \begin{pmatrix}
+    E_0\cos\omega t\\E_0\sin\omega t\\0
+  \end{pmatrix}
+\end{align*}
+\begin{align*}
+  \frac{d\vv{E}(O,t)}{dt}=
+  \begin{pmatrix}
+    -E_0\omega\sin\omega t\\E_0\omega\cos\omega t\\0
+  \end{pmatrix}
+\end{align*}
+\begin{align*}
+  \vv{u}_z\times\vv{E}(O,t)=
+  \begin{pmatrix}
+    0\\0\\1
+  \end{pmatrix}
+  \times
+  \begin{pmatrix}
+    E_0\cos\omega t\\E_0\sin\omega t\\0
+  \end{pmatrix}
+  =
+  \begin{pmatrix}
+    -E_0\sin\omega t\\E_0\cos\omega t\\0
+  \end{pmatrix}
+  =\frac{1}{\omega}\,\frac{d\vv{E}(O,t)}{dt}
+\end{align*}
+
+<p>
+d'où
+</p>
+\begin{align*}
+  \sigma_z=-\frac{q}{\omega}\int_0^T\vv{OM}.\frac{d\vv{E}(O,t)}{dt}dt
+\end{align*}
+
+<p>
+En intégrant par partie <i>i.e.</i> \((uv)'=u' v+v'
+      u\rightarrow\int u' v=[uv]-\int v' u\)
+</p>
+\begin{align*}
+  \sigma_z&=-\frac{q}{\omega}\left[\underbrace{\left[\vv{OM}.\vv{E}\right]_0^T}_{\vv{E}(O,0)=\vv{E}(O,T)}-\int_0^T\frac{d\vv{OM}}{dt}.\vv{E}(O,t)dt\right]\\
+  &=\frac{q}{\omega}\int_0^T\vv{v}.\vv{E}(O,t)\,dt=\frac{W}{\omega}
+\end{align*}
+
+<p>
+\(\omega=\tfrac{2\pi}{T}\) d'où \(W=2\pi\frac{\sigma_z}{T}=\hbar\omega\) soit
+\(\sigma_z=+\hbar\). Sur une période \(T\), le champ EM cède à la particule
+\(q\), un moment cinétique égal à \(+\hbar\)
+</p>
+</li>
+<li>Le moment cinétique de photons polarisé circulairement droite est alors
+\(-\hbar\), et \(\sigma_z=0\) pour une polarisation rectiligne (rectiligne
+&equiv; circulaire droite + circulaire gauche)
+</li>
+</ol>
+</li>
+</ol>
+</div>
+</div>
+<div id="outline-container-sec-2-2" class="outline-3">
+<h3 id="sec-2-2"><span class="section-number-3">2.2</span> Interprétation corpusculaire de la pression de radiation</h3>
+<div class="outline-text-3" id="text-2-2">
+
+<div class="figure">
+<p><img src="./figures/pression_radiation.png" alt="pression_radiation.png" />
+</p>
+</div>
+
+\begin{align*}
+  \vv{F}=\frac{d\vv{p}}{dt}, P=\frac{F}{S}=\frac{d\vv{p}/dt}{S}
+\end{align*}
+
+<ol class="org-ol">
+<li>Onde plane monochromatique :
+\(\vv{B}=\frac{\vv{k}\times\vv{E}}{\omega}=\frac{\vv{u_k}\times\vv{E}}{c}=\frac{E}{c}\vv{u}_B\). La
+densité volumique d'énergie électromagnétique \(u\) est égale à
+\begin{align*}
+  u&=\frac{\epsilon_0E^2}{2}+\frac{B^2}{2\mu_0}\\
+  u&=\frac{\epsilon_0E^2}{2}+\frac{E^2}{2\mu_0c^2}\\
+  u&=\epsilon_0E^2\\
+  \left\langle u\right\rangle_T&=\left\langle\epsilon_0E_0^2\cos^2\left(\vv{k}.\vv{r}-\omega t\right)\right\rangle_T\\
+  \left\langle u\right\rangle_T&=\frac{\epsilon_0E_0^2}{2}
+\end{align*}
+
+<p>
+L'intensité \(I\) est par définition la puissance moyenne par unité de surface
+\(S\) <sup><a id="fnr.4" class="footref" href="#fn.4">4</a></sup>
+</p>
+\begin{align*}
+  I&=\frac{P_W}{S}=\frac{dE}{Sdt}\text{ où }\\
+  dE&=\langle u\rangle\times S\times c\times dt\\
+  I&=\frac{\langle u\rangle\times Scdt}{Sdt}=\langle u\rangle\times c
+\end{align*}
+</li>
+
+<li>Calcul de la densité \(N\) de photons dans le faisceau
+\begin{align*}
+  \langle u\rangle&=N\times E=N\times \frac{hc}{\lambda}\\
+  \frac{I}{c}&=N\times \frac{hc}{\lambda}\\
+  N&=\frac{I\lambda}{hc^2}=\frac{9\,10^4\times5.15\,10^{-7}}{6.62\,10^{-34}\times(3\,10^8)^2}=\unit[7.8\,10^{14}]{photons/m^3}
+\end{align*}
+</li>
+
+<li>Choc élastique \(E_1=E_2\) d'où \(p_1c=p_2c\rightarrow p_1=p_2=p\). La
+conservation de l'impulsion
+\begin{align*}
+  \vv{p}_1&=\vv{p}_2+\Updelta\vv{p}_0\\
+  \Updelta\vv{p_0}&=\vv{p}_1 - \vv{p}_2=2p\cos\theta\vv{u}_z\\
+  \|\Updelta\vv{p}_0\|&=\frac{2h}{\lambda}\cos\theta=\frac{2\times6.62\,10^{-34}}{5.15\,10^{-7}}\frac{\sqrt3}{2}=\unit[2.08\,10^{-27}]{kg.m.s^{-1}}
+\end{align*}
+</li>
+
+<li>\begin{align*}
+  x&=\frac{N\times V_\text{cylindre}}{S_\text{projetée}\times dt}\text{ où }S_\text{projetée}=S_\text{cylindre}/\cos\theta\\
+  &=\frac{N\times S_\text{cylindre}\times\cos\theta cdt}{S_\text{cylindre}\times dt}\\
+  &=Nc\cos\theta=\frac{I\lambda}{hc}\cos\theta\\
+  &=\frac{9\,10^4\times5.15\,10^{-7}}{6.62\,10^{-34}\times3\,10^8}\cos 30=\unit[2\,10^{23}]{photon.m^{-2}.s^{-1}}
+\end{align*}
+</li>
+
+<li>\begin{align*}
+  P&=\frac{d\vv{p}}{Sdt}=x\cdot\Updelta p_0\\
+  &=\frac{I\lambda}{hc}\cos\theta\times\frac{2h}{\lambda}\cos\theta\\
+  &=\frac{2I\cos^2\theta}{c}=\frac{2\times9\,10^4\times\cos^230}{3\,10^8}=\unit[4.5\,10^{-4}]{N/m^2}\\
+  &\text{ avec }I=\frac{\epsilon_0E_0^2c}{2}, P=\epsilon_0E_0^2\cos^2\theta
+\end{align*}
+
+<p>
+<b>Application expérimentale:</b> La pression de radiation aussi faible soit elle,
+est un bruit important pour les interféromètres de haute sensibilité tels que
+Virgo (<i>cf.</i> <a href="http://tel.archives-ouvertes.fr/tel-00175254/en/">http://tel.archives-ouvertes.fr/tel-00175254/en/</a>).
+</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div id="outline-container-sec-3" class="outline-2">
+<h2 id="sec-3"><span class="section-number-2">3</span> TD3 : Électrostatique dans le vide</h2>
+<div class="outline-text-2" id="text-3">
+</div><div id="outline-container-sec-3-1" class="outline-3">
+<h3 id="sec-3-1"><span class="section-number-3">3.1</span> Condensateur cylindrique</h3>
+<div class="outline-text-3" id="text-3-1">
+<p>
+<img src="./figures/cylinders.png" alt="cylinders.png" class="hidden" />
+En considérant \(h\gg a,b\), le problème est invariant par translation le long de
+l'axe des cylindres. Par ailleurs, le problème est invariant par rotation soit
+\(E(M)=E(r)\). En coordonnées cylindriques, les plans \((\vv{u}_r,\vv{u}_\theta)\)
+et \((\vv{u}_r,\vv{u}_z)\) sont des plans de symétrie de la distribution de
+charge. On déduit que le champ électrique s'écrit
+</p>
+\begin{align*}
+  \vv{E}(M)=E(r)\vv{u}_r
+\end{align*}
+
+<p>
+Le choix de la surface de Gauss est alors un cylindre de rayon \(r\) et de hauteur
+\(h\)
+</p>
+\begin{align*}
+  \varoiint_S\vv{E}.\,d\vv{S}&=\iiint_V\frac{\rho}{\epsilon_0}d\tau=\frac{\Upsigma Q_\text{int.}}{\epsilon_0}\\
+  E(r)\times2\pi rh&=\frac{\Upsigma Q_\text{int.}}{\epsilon_0}\\
+  \vv{E}(M)&=\frac{\Upsigma Q_\text{int.}}{2\pi\epsilon_0}\times\frac{1}{rh}\vv{u}_r
+\end{align*}
+
+<ul class="org-ul">
+<li>pour \(r<a\), \(Q_\text{int.}=0\) d'où \(\vv{E}(r<a)=\vv{0}\)
+</li>
+<li>pour \(a<r<b\), \(Q_\text{int.}=Q_a\) d'où
+\(\vv{E}(a<r<b)=\frac{Q_a}{2\pi\epsilon_0rh}\vv{u}_r\)
+</li>
+<li>pour \(r>b\), \(Q_\text{int.}=Q_a+Q_b=0\) d'où \(\vv{E}(r>b)=\vv{0}\)
+</li>
+</ul>
+
+<p>
+La capacité d'un condensateur \(C\) est égale au rapport de la charge dans le
+condensateur sur le potentiel électrique appliqué aux bornes du condensateur
+soit \(C=\tfrac{Q}{V}\). Par ailleurs, le champ électrique \(\vv{E}\) est égal au
+gradient du potentiel électrique
+\(\vv{E}=-\grad\,V=-\tfrac{dV}{dr}\vv{u}_r\). Soit
+</p>
+\begin{align*}
+  -\frac{dV}{dr}&=\frac{Q_a}{2\pi\epsilon_0rh}\\
+  -\int_{V_a}^{V_b}dV&=\int_a^b\frac{Q_a}{2\pi\epsilon_0h}\frac{dr}{r}\\
+  -V_b+V_a&=\frac{Q_a}{2\pi\epsilon_0h}\ln\frac{b}{a}\\
+  V_a&=\frac{Q_a}{2\pi\epsilon_0h}\ln\frac{b}{a}=\frac{Q_a}{C}\\
+  C&=\frac{2\pi\epsilon_0h}{\ln\frac{b}{a}}
+\end{align*}
+
+<p>
+<b>Application numérique</b>
+</p>
+\begin{align*}
+  \frac{C}{h}=\frac{2\pi\epsilon_0}{\ln\frac{b}{a}}=\frac{2\pi\times8.85\,10^{-12}}{\ln8}=\unit[2.7\,10^{-11}]{F/m}
+\end{align*}
+</div>
+</div>
+<div id="outline-container-sec-3-2" class="outline-3">
+<h3 id="sec-3-2"><span class="section-number-3">3.2</span> Boule conductrice en présence d'une charge ponctuelle : méthode des images</h3>
+<div class="outline-text-3" id="text-3-2">
+
+<div class="figure">
+<p><img src="./figures/boule_conductrice.png" alt="boule_conductrice.png" />
+</p>
+</div>
+
+<ol class="org-ol">
+<li>\(V(r=R)=0\)
+<ol class="org-ol">
+<li>L'absence de charges libres dans le volume d'un conducteur (les charges
+sont surfaciques <i>cf.</i> Exercice <a href="#sec::prop_champ">2.1</a>) implique que le champ
+électrique \(\vv{E}_\text{int.}\) soit nul (théorème de Gauss). Le potentiel
+électrique \(V_\text{int.}\) déduit de
+\(\vv{E}_\text{int.}=-\grad\,V_\text{int}\) est par conséquent
+constant. \(V_\text{int.}(r=R)\) étant par ailleurs nul
+\begin{align*}
+  V_\text{int.}=V(r\leq R)=0
+\end{align*}
+
+<p>
+Le problème est invariant par rotation autour de l'axe \(Oz\) et le plan
+\((\vv{u}_r,\vv{u}_z)\) est plan de symétrie de la distribution de
+charge. Le champ électrostatique \(\vv{E}\) exprimé dans le système de
+coordonnées cylindriques \(M=(r,\theta,z)\), a donc pour expression
+</p>
+\begin{align*}
+  \vv{E}(M)=E_r(r,z)\vv{u}_r+E_z(r,z)\vv{u}_z
+\end{align*}
+</li>
+
+<li>En raison de la symétrie du problème, une charge fictive \(q'\) est
+nécessairement sur l'axe \(Oz\). Le potentiel alors généré en tout point \(M\)
+de l'espace est la somme des potentiels induits par chaque particule soit
+\begin{align*}
+  V(M)=\frac{1}{4\pi\epsilon_0}\left(\frac{q}{PM}+\frac{q'}{P' M}\right)
+\end{align*}
+
+<p>
+où \(P'\) est la position de la charge \(q'\). Le potentiel pour
+\(r\to\infty\) est nul : \(V(\infty)=0\). La condition selon laquelle le
+potentiel est nul en tout point \(M\) de la surface de la sphère implique
+</p>
+\begin{align*}
+  \frac{q}{PM}=-\frac{q'}{P' M}
+\end{align*}
+
+<p>
+\(q'\) est donc de signe opposé à \(q\). Par suite, on déduit que
+</p>
+\begin{align*}
+  q\,P' M &= -q'\,PM\\
+  q^2\,P' M^2 &=q^{\prime2}\,PM^2\\
+  q^2\,\vv{P' M}^2 &=q^{\prime2}\,\vv{PM}^2\\
+  q^2\,\left(\vv{P' O}+\vv{OM}\right)^2 &=q^{\prime2}\,\left(\vv{PO}+\vv{OM}\right)^2\\
+  \underbrace{q^2P' O^2-q^{\prime2}PO^2+q^2R^2-q^{\prime2}R^2}_{\text{\(\unicode{x2460}\)}}&=\underbrace{q^{\prime2}2\vv{PO}.\vv{OM}-q^22\vv{P' O}.\vv{OM}}_{\text{\(\unicode{x2461}\)}}
+\end{align*}
+
+<p>
+Le premier membre de l'équation est indépendant de \(M\) et est donc
+constant. Le second membre dépend de \(M\) mais doit demeurer constant pour
+tout \(M\) appartenant à la surface de la sphère. Cette égalité est ainsi
+vérifiée pour \(M(r,\theta,z=0)\) soit \(\vv{OM}\perp\vv{u}_z\). On obtient
+\(\unicode{x2460}\)=\(\unicode{x2461}\)=0 et on déduit
+</p>
+\begin{align*}
+  \text{\(\unicode{x2461}\)}=0&=2\vv{OM}.\left(q^{\prime2}\vv{PO}-q^2\vv{P' O}\right)\\
+  \vv{P' O}&=\frac{q^{\prime2}}{q^2}\vv{PO}\parallel\vv{u}_z
+\end{align*}
+
+<p>
+À partir du premier membre \(\unicode{x2460}\), on déduit
+</p>
+\begin{align*}
+  \text{\(\unicode{x2460}\)}=0&=q^2P' O^2-q^{\prime2}PO^2+q^2R^2-q^{\prime2}R^2\\
+  R^2\left(q^{\prime2}-q^2\right)&=q^2P' O^2-q^{\prime2}PO^2\\
+  &=q^2\times\frac{q^{\prime4}}{q^4}PO^2-q^{\prime2}PO^2\\
+  &=q^{\prime2}PO^2\left(\frac{q^{\prime2}}{q^2}-1\right)\\
+  R^2&=PO^2\times\left(\frac{q'}{q}\right)^2\\
+  q'&=-\frac{qR}{PO}\\
+  P' O&=\frac{R^2}{PO}\leq R
+\end{align*}
+</li>
+
+<li>À partir de l'équation locale \(\div\vv{E}=\tfrac{\rho}{\epsilon_0}\) et de
+l'expression du potentiel électrique \(\vv{E}=-\grad V\), on obtient
+l'équation de Poisson
+\begin{align*}
+  -\div\left(\grad V\right)&=\frac{\rho}{\epsilon_0}\\
+  -\Delta V&=\frac{\rho}{\epsilon_0}\\
+  \Delta V+\frac{\rho}{\epsilon_0}&=0
+\end{align*}
+
+<p>
+Les conditions aux limites imposées par la boule sont que le potentiel
+électrique en tout point de la surface soit nul \(V(r=R)=0\). Pour tout
+point \(r>R\), le problème "charge \(q\) + boule conductrice" est équivalent à
+la situation "charge \(q\) + charge \(q'\)" du fait que les deux
+situations obéissent à la même équation de Poisson et satisfont aux mêmes
+conditions aux limites \(V(r=R)=0\). Le théorème d'unicité implique donc les
+mêmes solutions pour chacune des représentations. Cette équivalence n'est
+vrai que pour \(r>R\) car à l'intérieur de la boule le champ électrostatique
+demeure nul ce qui n'est pas le cas dans la situation "charge \(q\) + charge
+\(q'\)".
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="void">
+
+
+<colgroup>
+<col  class="left" />
+
+<col  class="left" />
+
+<col  class="left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="left"><img src="./figures/boule_conductrice0.png" alt="boule_conductrice0.png" /></td>
+<td class="left">&#xa0;</td>
+<td class="left"><img src="./figures/boule_conductrice1.png" alt="boule_conductrice1.png" /></td>
+</tr>
+</tbody>
+</table>
+</li>
+
+<li>Calcul du champ \(\vv{E}(r\geq R)\) : combinaison des champs coulombiens de
+chacune des charges \(q\) et \(q'\)
+\begin{align*}
+  \vv{E}(M)&=\frac{1}{4\pi\epsilon_0}\left(\frac{q}{PM^3}\vv{PM}+\frac{q'}{P' M^3}\vv{P' M}\right)\\
+  &=\frac{1}{4\pi\epsilon_0}\left[\left(\frac{q}{PM^3}+\frac{q'}{P' M^3}\right)\vv{OM}+\underbrace{\frac{q\vv{PO}}{PM^3}+\frac{q'\vv{P' O}}{P' M^3}}_{\text{\(\unicode{x2460}\)}}\right]
+\end{align*}
+
+<p>
+Sachant que \(\vv{P' O}=\frac{q^{\prime2}}{q^2}\vv{PO}\) et \(P'
+      M=-\frac{q'}{q}PM\), l'expression \(\unicode{x2460}\) devient
+</p>
+\begin{align*}
+  \text{\(\unicode{x2460}\)}&=\frac{q\vv{PO}}{PM^3}+\frac{q'\vv{P' O}}{P' M^3}\\
+  &=\frac{q\vv{PO}}{PM^3}+\frac{q'\times q^{\prime2}}{q^2}\times\frac{\vv{PO}}{-q^{\prime3}}\times\frac{q^3}{PM^3}\\
+  &=0
+\end{align*}
+
+<p>
+soit pour \(M\in\) sphère
+</p>
+\begin{align*}
+  \vv{E}(M)&=\frac{R\vv{u}_r}{4\pi\epsilon_0}\left(\frac{q}{PM^3}+\frac{q'}{P' M^3}\right)\\
+  &=\frac{q\vv{R}}{4\pi\epsilon_0\,PM^3}\times\left(1-\frac{q^2}{q^{\prime2}}\right)\\
+  &=\frac{q\vv{R}}{4\pi\epsilon_0\,PM^3}\times\left(1-\frac{PO^2}{R^2}\right)
+\end{align*}
+
+<p>
+Conditions de continuité du champ électrique au passage d'une surface
+</p>
+
+
+<div class="figure">
+<p><img src="./figures/field_continuity.png" alt="field_continuity.png" />
+</p>
+</div>
+
+\begin{align*}
+  \vv{n}_{\tiny1\to2}.\left(\vv{E}_2-\vv{E}_1\right)&=\frac{\sigma}{\epsilon_0}\rightarrow\text{discontinuité de la composante normale}\\
+  \vv{n}_{\tiny1\to2}\times\left(\vv{E}_2-\vv{E}_1\right)&=\vv{0}\rightarrow\text{continuité de la composante tangentielle}
+\end{align*}
+
+<p>
+Étant donné que \(\vv{E}_\text{int.}=\vv{E}_1=\vv{0}\), la densité
+surfacique de charge est égale à
+</p>
+\begin{align*}
+  \vv{E}(M\in\text{sphère})&=\frac{\sigma}{\epsilon_0}\vv{u}_r\\
+  \sigma&=\frac{qR}{4\pi}\left(1-\frac{PO^2}{R^2}\right)\times\frac{1}{PM^3}
+\end{align*}
+
+<p>
+La charge totale \(Q_\text{tot.}\) de la boule conductrice est donc
+</p>
+\begin{align*}
+  Q_\text{tot.}&=\int_0^{2\pi}d\phi\int_0^\pi d\theta\times R^2\sin\theta\times\sigma(\theta)\\
+  &=\frac{2\pi qR^3}{4\pi R^2}\left(R^2-PO^2\right)\times\int_0^\pi d\theta\frac{\sin\theta}{PM^3}\\
+  &\text{avec }PM^2=PO^2+OM^2+2\vv{PO}.\vv{OM}=PO^2+R^2-2R\,PO\cos\theta\\
+  Q_\text{tot.}&=\frac{qR(R^2-PO^2)}{2}\times\underbrace{\int_0^\pi\frac{\sin\theta d\theta}{\left(PO^2+R^2-2R\,PO\cos\theta\right)^{3/2}}}_{\text{\(\unicode{x2460}\)}}
+\end{align*}
+
+<p>
+Pour calculer \(\unicode{x2460}\), on pose \(x=\cos\theta\) avec \(x\in[1,-1]\) et
+\(dx=-\sin\theta d\theta\)
+</p>
+\begin{align*}
+  \text{\(\unicode{x2460}\)}&=\int_1^{-1}\frac{-dx}{\left(PO^2+R^2-2R\,POx\right)^{3/2}}\\
+  &\text{or }\int\frac{dx}{(b+ax)^{3/2}}=\frac{1}{(b+ax)^{1/2}}\times-\frac{2}{a}\\
+  \text{\(\unicode{x2460}\)}&=\frac{1}{R\,PO}\left(\frac{1}{\surd PO^2+R^2-2R\,PO}-\frac{1}{\surd PO^2+R^2+2R\,PO}\right)\\
+  &=\frac{1}{R\,PO}\left(\frac{1}{PO-R}-\frac{1}{PO+R}\right)\\
+  &=\frac{1}{R\,PO}\left(\frac{2R}{PO^2-R^2}\right)
+\end{align*}
+
+<p>
+Finalement \(Q_\text{tot.}\) devient
+</p>
+\begin{align*}
+  Q_\text{tot.}&=\frac{qR(R^2-PO^2)}{2}\times\frac{1}{R\,PO}\times\frac{2R}{PO^2-R^2}\\
+  &=-\frac{qR}{PO}=q'
+\end{align*}
+
+<p>
+Le théorème de Gauss impose que \(Q_\text{tot.}\) soit égal à la somme des
+charges à l'intérieur de la sphère. La charge fictive \(q'\) est par
+construction à l'intérieur de la sphère d'où \(Q_\text{tot.}=q'\).
+</p>
+</li>
+<li>Calcul de la force exercée par la charge \(q\) sur \(q'\) &equiv; à
+calculer la force exercée par la charge \(q\) sur la boule conductrice.
+\begin{align*}
+  \vv{F}_{q\to q'}&=\vv{F}_{q\to\text{boule}}\\
+  &=q'\vv{E}_{q\to q'}\\
+  &=\frac{q' q}{4\pi\epsilon_0}\times\frac{\vv{PP'}}{PP^{\prime3}}=\frac{q' q}{4\pi\epsilon_0}\times\frac{-\vv{u}_z}{PP^{\prime2}}\\
+  &\text{avec }PP^{\prime2}=PO^2+OP^{\prime2}=PO^2+\frac{R^4}{PO^2}=\frac{PO^4+R^4}{PO^2}\\
+  \vv{F}_{q\to\text{boule}}&=-\frac{qq'}{4\pi\epsilon_0}\times\frac{PO^2}{PO^4+R^4}\vv{u}_z\\
+  &=\frac{q^2}{4\pi\epsilon_0}\frac{R\,PO}{PO^4+R^4}\vv{u}_z
+\end{align*}
+</li>
+</ol>
+</li>
+
+<li>\(V_0\neq0\)
+<ol class="org-ol">
+<li>Le principe de superposition implique
+\begin{align*}
+  V(M)=V_0=\frac{1}{4\pi\epsilon_0}\left(\underbrace{\frac{q}{PM}+\frac{q'}{P'M}}_{=0}+\frac{q''}{P''M}\right)
+\end{align*}
+
+<p>
+soit
+</p>
+\begin{align*}
+  q''=4\pi\epsilon_0V_0\times P''M=\text{constante}
+\end{align*}
+
+<p>
+impliquant que \(P''\equiv O\) et donc \(q''=4\pi\epsilon_0RV_0\)
+</p>
+</li>
+<li>Les charges fictives/virtuelles \(q'\) et \(q''\) sont à l'intérieur de la
+boule conductrice d'où \(Q_\text{boule}=q'+q''=0\). La charge \(q''\) est
+ainsi égale à \(-q'=\frac{qR}{PO}\) soit un potentiel \(V_0\) égal à
+\begin{align*}
+  4\pi\epsilon_0RV_0&=-q'=\frac{qR}{PO}\\
+  V_0&=\frac{1}{4\pi\epsilon_0}\times\frac{q}{PO}
+\end{align*}
+
+<p>
+<i>i.e.</i> le potentiel généré en \(O\) par la particule \(q\).
+</p>
+</li>
+</ol>
+</li>
+<li>Boule conductrice dans un champ électrostatique uniforme
+
+<div class="figure">
+<p><img src="./figures/boule_conductrice_field.png" alt="boule_conductrice_field.png" />
+</p>
+</div>
+
+<ol class="org-ol">
+<li>Les champs électrostatiques créés par chaque charge se superposent en \(M\)
+\begin{align*}
+  \vv{E}(M)&=\frac{1}{4\pi\epsilon_0}\left(\frac{q}{PM^3}\vv{PM}-\frac{q}{NM^3}\vv{NM}\right)\\
+  \text{avec }\vv{PM}&=\vv{PO}+\vv{OM}\\
+  PM^3&=\left(Z^2+r^2+2\vv{PO}.\vv{OM}\right)^{3/2}\\
+  PM^3&=Z^3\left(1-2\frac{r}{Z}\cos\theta+\frac{r^2}{Z^2}\right)^{3/2}
+\end{align*}
+
+<p>
+Pour \(r\leq R\), l'expression de la longueur \(PM\) devient au premier ordre
+en \(\frac{r}{Z}\) (\(Z\gg R\))
+</p>
+\begin{align*}
+  PM^3&\simeq Z^3\left(1-2\frac{r}{Z}\cos\theta\right)^{3/2}\\
+  \frac{1}{PM^3}&\simeq\frac{1}{Z^3}\left(1+3\frac{r}{Z}\cos\theta\right)
+\end{align*}
+
+<p>
+De même
+</p>
+\begin{align*}
+  \frac{1}{NM^3}&\simeq\frac{1}{Z^3}\left(1-3\frac{r}{Z}\cos\theta\right)
+\end{align*}
+
+<p>
+Le champ électrique au voisinage de la boule conductrice devient
+</p>
+\begin{eqnarray*}
+  \vv{E}(r\leq R)&=\frac{1}{4\pi\epsilon_0}\times\frac{q}{Z^3}\times&\left[\vv{OM}\left(\cancel{1}+3\frac{r}{Z}\cos\theta\right)-\vv{OM}\left(\cancel{1}-3\frac{r}{Z}\cos\theta\right)\right.\\
+    &&\left.+\vv{PO}\left(1+3\frac{r}{Z}\cos\theta\right)-\vv{NO}\left(1-3\frac{r}{Z}\cos\theta\right)\right]\\
+  &=\frac{1}{4\pi\epsilon_0}\times\frac{q}{Z^3}\times&\left[\cancel{6\frac{r^2}{Z}}(\propto\tfrac{r^2}{Z^2}\ll1)\cos\theta\vv{u}_r\right.\\
+    &&\left.+\vv{PO}\left(1+3\frac{r}{Z}\cos\theta\right)-\vv{NO}\left(1-3\frac{r}{Z}\cos\theta\right)\right]\\
+  &=\frac{1}{4\pi\epsilon_0}\times\frac{q}{Z^3}\times&\left[\vv{PO}\left(1+\cancel{3\frac{r}{Z}\cos\theta}\right)-\vv{NO}\left(1-\cancel{3\frac{r}{Z}\cos\theta}\right)\right]\\
+  &=\frac{1}{4\pi\epsilon_0}\times\frac{q}{Z^3}\vv{PN}\\
+  &=-\frac{1}{4\pi\epsilon_0}\times\frac{2q}{Z^2}\vv{u}_z&\rightarrow\text{champ électrique constant pour }r\leq R\\
+\end{eqnarray*}
+
+<p>
+Le champ ainsi généré correspond au champ électrique généré par un dipôle
+électrique \(\vv{p}=q\vv{PN}\) (où la charge \(q\) est en \(P\) et la charge
+\(-q\) est en \(N\), <i>cf.</i> Cours Chapitre 2, page 44).
+</p>
+</li>
+<li>Nous avons établi à la question 1.d) qu'en présence d'une charge
+ponctuelle \(q\), la densité surfacique de charge était
+\begin{align*}
+  \sigma=\frac{q}{4\pi}\times\frac{R^2-PO^2}{R}\times\frac{1}{PM^3}
+\end{align*}
+
+<p>
+où \(P\) est la position de la charge \(q\) et \(M\) est un point situé à la
+surface de la boule. On déduit ainsi que la charge \(+q\) génère une densité
+surfacique
+</p>
+\begin{align*}
+  \sigma_+=\frac{q}{4\pi}\times\frac{R^2-PO^2}{R}\times\frac{1}{PM^3}
+\end{align*}
+
+<p>
+tandis que la charge \(-q\) placée en \(N\) implique une densité surfacique
+</p>
+\begin{align*}
+  \sigma_-=\frac{-q}{4\pi}\times\frac{R^2-NO^2}{R}\times\frac{1}{NM^3}
+\end{align*}
+
+<p>
+En ne considérant toujours que le premier ordre en \(\frac{R}{Z}\), on
+obtient une densité surfacique totale
+</p>
+\begin{align*}
+  \sigma_\text{totale}&=\sigma_++\sigma_-\\
+  &\simeq\frac{q\times(R^2-Z^2)}{4\pi R}\times\frac{1}{Z^3}\left(\cancel{1}+\frac{3R}{Z}\cos\theta-\cancel{1}+\frac{3R}{Z}\cos\theta\right)\\
+  &\text{avec } R^2-Z^2=Z^2(-1+\frac{R^2}{Z^2})\simeq-Z^2\\
+  &\simeq-\frac{3q}{2\pi Z^2}\cos\theta
+\end{align*}
+
+<p>
+Le champ électrique au voisinage de la surface de la boule n'est plus
+uniforme du fait de la présence de charge en surface de cette boule.
+</p>
+</li>
+<li>Le champ dipolaire électrique s'écrit
+\begin{align*}
+  \vv{E}_\text{dipôle}&=-\frac{q}{2\pi\epsilon_0Z^2}\vv{u}_z\\
+  &=\frac{\sigma_0}{3\epsilon_0}\vv{u}_z\\
+  &\text{où }\sigma_\text{totale}=-\frac{3q}{2\pi Z^2}\cos\theta=\sigma_0\cos\theta
+\end{align*}
+
+<p>
+Le champ électrique à l'intérieur de la boule conductrice demeurant nul,
+on déduit que le champ électrique \(\vv{E}_\sigma\) crée par la densité
+surfacique de charge \(\sigma_\text{totale}\) s'écrit
+</p>
+\begin{align*}
+  \vv{E}_\text{int.}=\vv{0}&=\vv{E}_\text{dipôle}+\vv{E}_\sigma\\
+  \vv{E}_\sigma&=-\frac{\sigma_0}{3\epsilon_0}\vv{u}_z
+\end{align*}
+</li>
+
+<li>La pression électrostatique \(P\) est égale à
+\(\frac{\sigma^2}{2\epsilon_0}\). C'est par ailleurs, la force
+électrostatique par unité de surface \(P=\frac{d\vv{F}}{d\vv{S}}\). La force
+exercée sur l'hémisphère supérieur est ainsi
+\begin{align*}
+  d\vv{F}_1&=\frac{\sigma^2}{2\epsilon_0}\,d\vv{S}\\
+  \vv{F}_1&=\int_0^{2\pi}d\phi\int_0^{\pi/2}d\theta\frac{\sigma_0^2}{2\epsilon_0}\cos^2\theta R^2\sin\theta\vv{u}_r
+\end{align*}
+
+
+<div class="figure">
+<p><img src="./figures/boule_conductrice_force.png" alt="boule_conductrice_force.png" />
+</p>
+</div>
+
+<p>
+Seule la composante suivant \(\vv{u}_z\) de la force est non nulle soit en
+remplaçant \(\vv{u}_r=\vv{u}_z\cos\theta\), la force \(\vv{F}_1\) devient
+</p>
+\begin{align*}
+  \vv{F}_1&=\int_0^{2\pi}d\phi\int_0^{\pi/2}d\theta\frac{\sigma_0^2}{2\epsilon_0}\cos^3\theta R^2\sin\theta\vv{u}_z
+\end{align*}
+
+<p>
+En procédant au changement de variable \(x=\cos\theta\) avec \(x\in[1,0]\) et
+\(dx=-\sin\theta d\theta\)
+</p>
+\begin{align*}
+  \vv{F}_1&=2\pi\frac{\sigma_0^2}{2\epsilon_0}R^2\int_0^1x^3dx\vv{u}_z\\
+  &=\frac{\pi R^2\,\sigma_0^2}{\epsilon_0}\times\frac{1}{4}\vv{u}_z\\
+  &=\frac{\pi R^2\,\sigma_0^2}{4\epsilon_0}\vv{u}_z=\frac{\pi R^2}{4\epsilon_0}\times\frac{9q^2}{4\pi^2Z^4}\vv{u}_z\\
+  \vv{F}_2&=-\vv{F}_1=-\frac{\pi R^2\,\sigma_0^2}{4\epsilon_0}\vv{u}_z
+\end{align*}
+</li>
+</ol>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div id="outline-container-sec-4" class="outline-2">
+<h2 id="sec-4"><span class="section-number-2">4</span> TD4 : Les milieux diélectriques</h2>
+<div class="outline-text-2" id="text-4">
+</div><div id="outline-container-sec-4-1" class="outline-3">
+<h3 id="sec-4-1"><span class="section-number-3">4.1</span> Introduction</h3>
+<div class="outline-text-3" id="text-4-1">
+<p>
+Historiquement, la découverte expérimentale des diélectriques est à mettre au
+profit de Michael Faraday qui nota que l'introduction d'un isolant entre les
+armatures d'un condensateur modifiait sa capacité.
+</p>
+
+<p>
+On exprime la polarisation \(\vv{P}\) d'un matériau comme la densité volumique de
+moment dipolaire \(\vv{p}\) soit \(\vv{P}=\frac{d\vv{p}}{d\tau}\). En calculant le
+potentiel électrique à partir d'une distribution de moment dipolaire, on déduit
+que la densité volumique de charge liées ou polarisées \(\rho_P\) est égale à la
+divergence du vecteur polarisation : \(\rho_P=-\div\vv{P}\). De même, la densité
+surfacique de charges liées est égale à \(\sigma_P=\vv{P}.\vv{n}\). L'équation de
+Maxwell-Gauss devient
+</p>
+\begin{align*}
+  \div\vv{E}&=\frac{\rho_\text{libre}+\rho_\text{liée}}{\epsilon_0}=\frac{\rho_\text{libre}-\div\vv{P}}{\epsilon_0}
+\end{align*}
+
+<p>
+En posant le vecteur \(\vv{D}=\epsilon_0\vv{E}+\vv{P}\), on obtient l'équation locale
+suivante
+</p>
+\begin{align*}
+  \div\vv{D}=\rho_\text{libre}\rightarrow\varoiint_S\vv{D}.\,d\vv{S}=\Upsigma Q_\text{libre}
+\end{align*}
+
+<p>
+Dans le cas particulier d'un milieu Linéaire, Homogène et Isotrope (LHI), la
+polarisation est égale à \(\vv{P}=\epsilon_0\,\chi_e\vv{E}\) où \(\chi_e\) est un
+nombre positif, sans dimension, appelé la susceptibilité diélectrique. Dans ce
+cas, le vecteur \(\vv{D}\) devient
+</p>
+\begin{align*}
+  \vv{D}=\epsilon_0\vv{E}\underbrace{(1+\chi_e)}_{\epsilon_r}=\epsilon\vv{E}
+\end{align*}
+
+<p>
+où \(\epsilon\) et \(\epsilon_r\) sont appellés respectivement la permitivité
+absolue et la permitivité relative du diélectrique.
+</p>
+</div>
+</div>
+<div id="outline-container-sec-4-2" class="outline-3">
+<h3 id="sec-4-2"><span class="section-number-3">4.2</span> Boule uniformément polarisée</h3>
+<div class="outline-text-3" id="text-4-2">
+<ol class="org-ol">
+<li>La polarisation est uniforme \(\vv{P}=P\vv{u}_z\) <sup><a id="fnr.5" class="footref" href="#fn.5">5</a></sup>, il n'y a donc pas de
+charge volumique liée \(\rho_P=-\div\vv{P}=0\). Il n'y a pas de charge libre
+d'où \(\rho=\rho_P+\rho_L=0\). L'équation de Poisson \(\Delta
+   V=-\frac{\rho}{\epsilon_0}=0\) devient une équation de Laplace.
+</li>
+<li>L'invariance du problème par rotation d'angle \(\phi\) implique que le potentiel
+\(V\) ne dépende pas de cette coordonnée. En posant
+\(V(r,\theta)=f(r)\,\cos\theta\) avec
+\(f(r)=\Sigma_{-\infty}^{+\infty}a_nr^n\). Le lapacien en coordonnées
+sphériques s'écrit
+\begin{align*}
+  \Delta V(r,\theta)&=\frac{1}{r}\frac{\partial^2}{\partial r^2}\left(rV(r,\theta)\right)+\frac{1}{r^2\sin\theta}\frac{\partial}{\partial\theta}\left(\sin\theta\frac{\partial V}{\partial\theta}\right)
+\end{align*}
+
+<p>
+soit
+</p>
+\begin{align*}
+  \frac{\partial^2}{\partial r^2}\left(rV(r,\theta)\right)&=\cos\theta\times\sum_{-\infty}^{+\infty}a_n\times n(n+1)r^{n-1}\\
+  \frac{\partial}{\partial\theta}\left(\sin\theta\frac{\partial V(r,\theta)}{\partial\theta}\right)&=\Sigma_{-\infty}^{+\infty}a_nr^n\times\left(\cos\theta\frac{\partial V}{\partial\theta}+\sin\theta\frac{\partial^2V}{\partial\theta^2}\right)\\
+  &=\Sigma_{-\infty}^{+\infty}a_nr^n\times\left(-\cos\theta\sin\theta-\sin\theta\cos\theta\right)\\
+  &=-2\cos\theta\sin\theta\times\Sigma_{-\infty}^{+\infty}a_nr^n
+\end{align*}
+
+<p>
+L'équation de Laplace devient
+</p>
+\begin{align*}
+  \Delta V=0&=\cos\theta\times\Sigma_{-\infty}^{+\infty}a_n\times n(n+1)r^{n-2}-2\cos\theta\times\Sigma_{-\infty}^{+\infty}a_nr^{n-2}\\
+  0&=n(n+1)-2\\
+  0&=(n+2)(n-1)
+\end{align*}
+
+<p>
+Les seuls coefficients non nuls sont donc \(a_{-2}\) et \(a_1\). Le potentiel \(V\)
+en tout point de l'espace s'écrit
+</p>
+\begin{align*}
+  V(r,\theta)=\left(\frac{a_{-2}}{r^2}+a_1r\right)\cos\theta
+\end{align*}
+</li>
+
+<li>Les potentiels \(V_i\) et \(V_e\) ne doivent pas diverger (équivalent à dire
+qu'ils doivent rester finis) d'où lorsque \(r\to0\), \(V_i\) fini impose que
+\(a_{-2}\) soit nul. De même, lorsque \(r\to\infty\), \(V_e\) reste fini et donc
+\(a_1=0\)
+\begin{align*}
+  V_i(r,\theta)&=a_1r\cos\theta\\
+  V_e(r,\theta)&=\frac{a_{-2}\cos\theta}{r^2}
+\end{align*}
+
+<p>
+Par ailleurs, la continuité du potentiel en \(r=R\) conduit à
+</p>
+\begin{align*}
+  V_i(R,\theta)&=V_e(R,\theta)\\
+  a_1R\cancel{\cos\theta}&=\frac{a_{-2}\cancel{\cos\theta}}{R^2}\\
+  a_1&=\frac{a_{-2}}{R^3}
+\end{align*}
+
+<p>
+On utilise finalement la discontinuité de la composante normale du vecteur
+\(\vv{D}\) à l'interface diélectrique-vide
+</p>
+\begin{align*}
+  \left(\vv{D}_ e(R,\theta)-\vv{D}_i(R,\theta)\right).\vv{u}_r&=\sigma_\text{libre}=0\\
+  &\text{avec }\vv{D}=\epsilon_0\vv{E}+\vv{P}\\
+  \left(\epsilon_0\vv{E}_e+\cancel{\vv{P}_e}-\epsilon_0\vv{E}_i-\vv{P}_i\right).\vv{u}_r&=0\\
+  \epsilon_0\left(\vv{E}_e-\vv{E}_i\right).\vv{u}_r&=\vv{P}.\vv{u}_r=P\cos\theta
+\end{align*}
+
+<p>
+Les champs électriques \(\vv{E}_e\) et \(\vv{E}_i\) sont respectivement égaux à
+</p>
+\begin{align*}
+  \vv{E}_e&=-\grad V_e=-\grad\left(\frac{a_{-2}\cos\theta}{r^2}\right)\\
+  &=-\frac{\partial V_e}{\partial r}\vv{u}_r-\frac{1}{r}\frac{\partial V_e}{\partial\theta}\vv{u}_\theta\\
+  &=a_{-2}\cos\theta\times\frac{2}{r^3}\vv{u}_r+\frac{1}{r^3}a_{-2}\sin\theta\vv{u}_\theta\\
+  \vv{E}_i&=-\grad V_i=-\grad\left(a_1r\cos\theta\right)\\
+  &=-a_1\cos\theta\vv{u}_r+a_1\sin\theta\vv{u}_\theta
+\end{align*}
+
+<p>
+La relation de passage projeté selon \(\vv{u}_r\) devient
+</p>
+\begin{align*}
+  \frac{2a_{-2}}{R^3}\cancel{\cos\theta}+a_1\cancel{\cos\theta}&=\frac{P\cancel{\cos\theta}}{\epsilon_0}\\
+  \frac{2a_{-2}}{R^3}+\frac{a_{-2}}{R^3}&=\frac{P}{\epsilon_0}\\
+  a_{-2}&=\frac{PR^3}{3\epsilon_0}\text{ et }a_1=\frac{P}{3\epsilon_0}
+\end{align*}
+
+<p>
+d'où
+</p>
+\begin{align*}
+  V_e(r,\theta)&=\frac{PR^3}{3\epsilon_0}\frac{\cos\theta}{r^2}\\
+  V_i(r,\theta)&=\frac{P}{3\epsilon_0}\,r\cos\theta\\
+  \vv{E}_e(r,\theta)&=\frac{PR^3}{3\epsilon_0r^3}\left(2\cos\theta\vv{u}_r+\sin\theta\vv{u}_\theta\right)\\
+  \vv{E}_i(r,\theta)&=-\frac{P}{3\epsilon_0}\left(\underbrace{\cos\theta\vv{u}_r-\sin\theta\vv{u}_\theta}_{\vv{u}_z}\right)\\
+  &=-\frac{\vv{P}}{3\epsilon_0}=\text{champ dépolarisant}
+\end{align*}
+
+<p>
+Le champ électrique extérieur s'apparente au champ électrique crée par un
+dipôle ponctuel \(\vv{p}\) placé à l'origine avec
+\(\vv{p}=\frac{4}{3}\pi R^3\vv{P}\). Pour rappel, le champ électrique crée par
+un dipôle est
+</p>
+\begin{align*}
+  \vv{E}\simeq\frac{1}{4\pi\epsilon_0}\,\frac{3(\vv{p}.\vv{u}_r)\vv{u}_r-\vv{p}}{r^3}
+\end{align*}
+
+<p>
+Or l'expression
+</p>
+\begin{align*}
+  2\cos\theta\vv{u}_r+\sin\theta\vv{u}_\theta=3\cos\theta\vv{u}_r-\vv{u}_z
+\end{align*}
+
+<p>
+car \(\vv{u}_z=\cos\theta\vv{u}_r-\sin\theta\vv{u}_\theta\). Sachant que
+\(\vv{P}.\vv{u}_r=P\cos\theta\) on obtient
+</p>
+\begin{align*}
+  \vv{E}_e=\frac{R^3}{3\epsilon_0}\,\frac{3\left(\vv{P}.\vv{u}_r\right).\vv{u}_r-\vv{P}}{r^3}
+\end{align*}
+
+<p>
+d'où \(\vv{p}=\frac{4}{3}\pi R^3\vv{P}\), on retrouve donc bien \(\vv{P}=\frac{d\vv{p}}{d\tau}\).
+</p>
+</li>
+</ol>
+</div>
+</div>
+<div id="outline-container-sec-4-3" class="outline-3">
+<h3 id="sec-4-3"><span class="section-number-3">4.3</span> Plaque diélectrique</h3>
+<div class="outline-text-3" id="text-4-3">
+</div><div id="outline-container-sec-4-3-1" class="outline-4">
+<h4 id="sec-4-3-1"><span class="section-number-4">4.3.1</span> Le condensateur plan</h4>
+<div class="outline-text-4" id="text-4-3-1">
+
+<div class="figure">
+<p><img src="./figures/plaque_dielectrique.png" alt="plaque_dielectrique.png" />
+</p>
+</div>
+
+<p>
+<b>Symétries &amp; invariances de la distribution de charges</b>
+</p>
+<ul class="org-ul">
+<li>tout plan contenant l'axe \(Oz\) est plan de symétrie d'où
+\(\vv{E}\parallel\vv{u}_z\)
+</li>
+<li>invariance par translation selon \(Ox\) et \(Oy\) d'où
+\(E=f(\cancel{x},\cancel{y},z)\)
+</li>
+</ul>
+
+<p>
+L'orientation du champ électrique \(\vv{E}=E(z)\vv{u}_z\) permet la définition
+d'une surface fermée de forme cylindrique à l'intérieur du condensateur. Le
+théorème de Gauss implique
+</p>
+\begin{align*}
+  \varoiint_S\vv{E}.\vv{dS}=\frac{\Upsigma Q_\text{int.}}{\epsilon_0}&=0\text{ (pas de charge à l'intérieur du condensateur)}\\
+  E(z_1)S - E(z_2)S&=0\rightarrow E(z_1)=E(z_2)=E_0\\
+  \vv{E}=E_0\vv{u}_z&=-\grad V=-\frac{dV}{dz}\vv{u}_z\\
+  \int_0^aE_0dz&=-\int_0^{V_0}dV\rightarrow E_0a=-V_0
+\end{align*}
+
+<p>
+<b>Répartition des charges</b>
+</p>
+
+<ul class="org-ul">
+<li>en \(z=0\)
+\begin{align*}
+  \left(\vv{E}_e-\vv{E}_i\right).(-)\vv{u}_z&=\frac{\sigma_S}{\epsilon_0}\\
+  E_0&=\frac{\sigma_S}{\epsilon_0}\rightarrow Q_0=\sigma_S\times\ell\times L=-\frac{V_0\epsilon_0}{a}\ell\times L
+\end{align*}
+</li>
+
+<li>en \(z=a\)
+\begin{align*}
+  \left(\vv{E}_e-\vv{E}_i\right).\vv{u}_z&=\frac{\sigma_S}{\epsilon_0}\\
+  -E_0&=\frac{\sigma_S}{\epsilon_0}\rightarrow Q_a=-\sigma_S\times\ell\times L=\frac{V_0\epsilon_0}{a}\ell\times L=-Q_0
+\end{align*}
+</li>
+</ul>
+
+<p>
+<b>Capacité du condensateur</b>
+</p>
+\begin{align*}
+  Q_0=C_0V_0\rightarrow C_0=\frac{\epsilon_0\ell\times L}{a}>0
+\end{align*}
+
+<p>
+<b>Énergie stockée dans le condensateur</b>
+</p>
+\begin{align*}
+  U_0=\frac{1}{2}C_0V_0^2&\rightarrow U_0=\frac{\epsilon_0\ell\times L}{2a}V_0^2\\
+  u_\text{em}=\frac{\epsilon_0E^2}{2}&\rightarrow U=\int u_\text{em}\,d\tau=\frac{\epsilon_0\ell\times L}{2a}V_0^2=U_0
+\end{align*}
+
+<p>
+L'énergie stockée dans le condensateur est bien d'origine électrostatique.
+</p>
+</div>
+</div>
+<div id="outline-container-sec-4-3-2" class="outline-4">
+<h4 id="sec-4-3-2"><span class="section-number-4">4.3.2</span> Plaque diélectrique infinie</h4>
+<div class="outline-text-4" id="text-4-3-2">
+
+<div class="figure">
+<p><img src="./figures/solid_angle.png" alt="solid_angle.png" />
+</p>
+</div>
+<ol class="org-ol">
+<li>Potentiel crée par un dipôle \(d\vv{p}\)
+\begin{align*}
+  dV(M)=\frac{1}{4\pi\epsilon_0}\,\frac{d\vv{p}.\vv{AM}}{AM^3}\text{ où \(A\) est le barycentre du dipôle}
+\end{align*}
+
+<p>
+La polarisation \(\vv{P}\) représente la densité volumique de moment dipolaire
+\(\frac{d\vv{p}}{d\tau}\). La polarisation surfacique \(\vv{P}_S\) est ainsi
+égale à
+</p>
+\begin{align*}
+  \vv{P}_S&=\frac{d\vv{p}}{d\vv{S}}\\
+  d\vv{p}&=P_S\,d\vv{S}=P_S\,dS\vv{n}\\
+  dV(M)&=\frac{1}{4\pi\epsilon_0}\,\frac{P_SdS\vv{n}\vv{AM}}{AM^3}\\
+  &\text{avec }\vv{AM}=-r\vv{u}_r\\
+  dV(M)&=-\frac{P_S}{4\pi\epsilon_0}\,d\Omega
+\end{align*}
+
+<p>
+En fonction de la position du point \(M\) <i>i.e.</i> au dessus ou en dessous du
+plan infini le potentiel électrique \(V(M)\) change de signe du fait que
+l'angle solide \(\Omega=\pm2\pi\) sr.
+</p>
+
+
+<div class="figure">
+<p><img src="./figures/plan_infini.png" alt="plan_infini.png" />
+</p>
+</div>
+
+<p>
+Ainsi, le potentiel vu en un point au dessus de la surface du diélectrique
+est égal à
+</p>
+\begin{align*}
+  V(M_+)&=\int_\text{plan}-\frac{P_S}{4\pi\epsilon_0}\,d\Omega=\frac{P_S}{2\epsilon_0}\\
+  V(M_-)&=-\frac{P_S}{2\epsilon_0}
+\end{align*}
+
+<p>
+Dans les deux cas, le potentiel électrique étant constant : \(\vv{E}=-\grad
+   V=\vv{0}\).
+</p>
+</li>
+
+<li>En décomposant la plaque en tranche d'épaisseur infinitésimale \(dz'\), chacune
+porte une densité surfacique \(dP_S=P(z')dz'\)
+
+
+<div class="figure">
+<p><img src="./figures/coupe_plaque_dielectrique.png" alt="coupe_plaque_dielectrique.png" />
+</p>
+</div>
+
+<p>
+En fonction de la position \(z\) du point \(M\), le potentiel électrique est
+</p>
+<ul class="org-ul">
+<li>si \(z>z'\)
+\begin{align*}
+  dV(z)=\frac{dP_S}{2\epsilon_0}=\frac{P(z')dz'}{2\epsilon_0}
+\end{align*}
+</li>
+
+<li>si \(z<z'\)
+\begin{align*}
+  dV(z)=-\frac{dP_S}{2\epsilon_0}=-\frac{P(z')dz'}{2\epsilon_0}
+\end{align*}
+</li>
+</ul>
+<p>
+On distingue par suite 3 situations
+</p>
+<ul class="org-ul">
+<li>pour tout point M tel que \(z<0\)
+\begin{align*}
+  V_d(M)=-\underbrace{\int_0^b\frac{P(z')dz'}{2\epsilon_0}}_{\text{indépendant de $z$}}=\text{constante}\to\vv{E}=\vv{0}
+\end{align*}
+</li>
+
+<li>pour tout point M tel que \(z>b\)
+\begin{align*}
+  V_d(M)=+\underbrace{\int_0^b\frac{P(z')dz'}{2\epsilon_0}}_{\text{indépendant de $z$}}=\text{constante}\to\vv{E}=\vv{0}
+\end{align*}
+</li>
+
+<li>pour tout point M tel que \(0<z<b\)
+\begin{align*}
+  V_d(M)&=\frac{1}{2\epsilon_0}\left(\int_0^zP(z')dz'-\int_z^bP(z')dz'\right)\\
+  &=\frac{1}{2\epsilon_0}\left(\int_0^zP(z')dz'+\int_b^zP(z')dz'\right)\\
+  &=\frac{1}{2\epsilon_0}\left(\int_0^zP(z')dz'+\int_b^0P(z')dz'+\int_0^zP(z')dz'\right)\\
+  &=\frac{1}{2\epsilon_0}\left(2\int_0^zP(z')dz'-\underbrace{\int_0^bP(z')dz'}_{\text{constante}}\right)\\
+  V_d(M)&=\text{constante} + \int_0^z\frac{P(z')}{\epsilon_0}dz'
+\end{align*}
+
+<p>
+Le champ électrique \(\vv{E}_d(M)\) s'écrit
+</p>
+\begin{align*}
+  \vv{E}_d(M)=-\grad V_d(M)&=-\frac{dV_d(M)}{dz}\vv{u}_z\\
+  &=-\frac{1}{\epsilon_0}\frac{d}{dz}\int_0^zP(z')dz'\vv{u}_z\\
+  &=-\frac{P(z)\vv{u}_z}{\epsilon_0}=-\frac{\vv{P}(M)}{\epsilon_0}=\text{champ dépolarisant}
+\end{align*}
+</li>
+</ul>
+</li>
+</ol>
+</div>
+</div>
+<div id="outline-container-sec-4-3-3" class="outline-4">
+<h4 id="sec-4-3-3"><span class="section-number-4">4.3.3</span> Condensateur diélectrique à potentiel constant</h4>
+<div class="outline-text-4" id="text-4-3-3">
+
+<div class="figure">
+<p><img src="./figures/coupe_condensateur_dielectrique.png" alt="coupe_condensateur_dielectrique.png" />
+</p>
+</div>
+<ol class="org-ol">
+<li>Les symétries restent les mêmes à savoir que tout plan contenant l'axe \(Oz\)
+est plan de symétrie de la distribution de charge. Les invariances du
+problèmes restent également les mêmes d'où \(\vv{E}(M)=E(z)\vv{u}_z\).
+</li>
+<li><ul class="org-ul">
+<li><b>à l'extérieur de la plaque diélectrique</b>
+\begin{align*}
+  \vv{E}=\vv{E}_1+\vv{0}\rightarrow\text{ uniforme}
+\end{align*}
+</li>
+
+<li><b>à l'intérieur de la plaque diélectrique</b>
+\begin{align*}
+  \vv{E}&=\vv{E}_1-\frac{\vv{P}}{\epsilon_0}\\
+  &=\vv{E}_1-\frac{\chi_e\epsilon_0\vv{E}}{\epsilon_0}\\
+  &=\frac{\vv{E}_1}{1+\chi_e}\rightarrow\text{ uniforme}
+\end{align*}
+</li>
+</ul>
+<p>
+On a vu que la densité surfacique de charge \(\sigma_S=\pm\epsilon_0E_0\) sur
+les armatures du condensateur est à l'origine d'un champ électrique
+constant. Pour créer un champ uniforme d'expression
+\(-\frac{\vv{P}}{\epsilon_0}\), cela reviendrait à placer deux plaques <i>i.e.</i>
+deux armatures chargées en surface par des densités \(\sigma_S=\pm P\). Leurs
+charges \(Q_P=\pm P\times\ell\times L\).
+</p>
+</li>
+
+<li>Le potentiel électrique \(V_1\) est égal à
+\begin{align*}
+  \vv{E}&=-\grad V_1\rightarrow V_1=-\int_0^aE(z)dz\\
+  V_1&=-\int_0^c-E_1dz-\int_c^{b+c}-\frac{E_1}{1+\chi_e}dz-\int_{b+c}^a-E_1dz\\
+  &=\cancel{E_1\times c}+\frac{E_1}{1+\chi_e}\times b+E_1\times a-E_1\times(b+\cancel{c})\\
+  &=E_1\left(a+\frac{b}{1+\chi_e}-b\right)=E_1\left(a-\frac{b\chi_e}{1+\chi_e}\right)
+\end{align*}
+
+<p>
+La charge des armatures est égale
+</p>
+\begin{align*}
+  Q_1(z=0)=\sigma_Z\times\ell\times L=-E_1\epsilon_0\,\ell\times L\\
+  Q_1(z=a)=-\sigma_Z\times\ell\times L=E_1\epsilon_0\,\ell\times L
+\end{align*}
+
+<p>
+La capacité \(C_1\) du condensateur diélectrique est égale à
+\(\frac{|Q_1|}{V_1}\)
+</p>
+\begin{align*}
+  C_1&=\frac{|Q_1|}{V_1}=\frac{\epsilon_0\cancel{E_1}\ell\times L}{\cancel{E_1}\left(a-\frac{b\chi_e}{1+\chi_e}\right)}\\
+  &=\frac{\epsilon_0\ell\times L}{a-\frac{b\chi_e}{1+\chi_e}}>C_0
+\end{align*}
+
+<p>
+L'ajout du diélectrique a contribué à l'augmentation de la capacité du
+condensateur. L'énergie stockée dans le condensateur est
+</p>
+\begin{align*}
+U_1&=\frac{1}{2}C_1V_1^2\\
+&=\frac{1}{2}\epsilon_0E_1^2\ell\times La\left(1-\frac{\chi_e}{1+\chi_e}\frac{b}{a}\right)
+\end{align*}
+</li>
+
+<li>Le déplacement électrique \(\vv{D}\) est égal à \(\epsilon_0\vv{E}+\vv{P}\). Le
+theorème de Gauss appliqué aux diélectriques implique que
+\(\div\vv{D}=\rho_\text{libre}\rightarrow\varoiint\vv{D}.d\vv{S}=Q_\text{libre}^\text{int.}\). En
+tout point situé entre les armatures du condensateur y compris à l'intérieur
+du diélectrique, il n'y a pas de charges libres. Par ailleurs, le vecteur
+déplacement \(\vv{D}\) est égal dans le diélectrique à
+\(\epsilon_0\vv{E}+\vv{P}\) et à \(\epsilon_0\vv{E}_1\) entre le diélectrique et
+les armatures du condensateur. En choisissant une surface fermée cylindrique
+dont les sections circulaires sont de part et d'autre de l'interface
+diélectrique-vide, on a
+\begin{align*}
+  \varoiint\vv{D}.\,d\vv{S}&=0\\
+  D_\text{vide}S-D_\text{diélectrique}S&=0\\
+  \vv{D}_\text{vide}&=\vv{D}_\text{diélectrique}\\
+  \epsilon_0\vv{E}_1&=\epsilon_0\vv{E}+\vv{P}\\
+  \epsilon_0\vv{E}_1&=\epsilon_0\vv{E}+\epsilon_0\chi_e\vv{E}\\
+  \vv{E}&=\frac{\vv{E}_1}{1+\chi_e}
+\end{align*}
+</li>
+</ol>
+
+
+<div class="figure">
+<p><img src="./figures/coupe_condensateur_dielectrique_charge.png" alt="coupe_condensateur_dielectrique_charge.png" />
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-sec-4-3-4" class="outline-4">
+<h4 id="sec-4-3-4"><span class="section-number-4">4.3.4</span> Condensateur diélectrique à charges constantes</h4>
+<div class="outline-text-4" id="text-4-3-4">
+<p>
+Les charges des armatures restent à \(Q_2=\pm\epsilon_0\frac{\ell L}{a}V_0=Q_0\)
+lorsque l'on débranche le générateur. Le champ électrique à l'extérieur de la
+plaque est \(\vv{E}_0\) et \(\frac{\vv{E}_0}{1+\chi_e}\) à l'intérieur du
+diélectrique. Le potentiel est alors égal à
+\(V_2=E_0\left(a-\frac{b\chi_e}{1+\chi_e}\right)\) d'où
+\(C_2=\frac{|Q_2|}{V_2}=\epsilon_0\frac{\ell\times
+L}{a-\frac{b\chi_e}{1+\chi_e}}=C_1\). Finalement, l'énergie stockée \(U_2\) est
+</p>
+\begin{align*}
+  U_2=\frac{1}{2}C_2V_2^2&=\frac{1}{2}\epsilon_0\ell LaE_0^2\left(1-\frac{\chi_e}{1+\chi_e}\frac{b}{a}\right)\\
+  &=\frac{1}{2}\epsilon_0\ell La\frac{V_0^2}{a}\left(1-\frac{\chi_e}{1+\chi_e}\frac{b}{a}\right)\\
+  &=U_0\left(1-\frac{\chi_e}{1+\chi_e}\frac{b}{a}\right)<U_0
+\end{align*}
+</div>
+</div>
+<div id="outline-container-sec-4-3-5" class="outline-4">
+<h4 id="sec-4-3-5"><span class="section-number-4">4.3.5</span> Force électrostatique sur la plaque diélectrique</h4>
+<div class="outline-text-4" id="text-4-3-5">
+
+<div class="figure">
+<p><img src="./figures/coupe_condensateur_dielectrique_force.png" alt="coupe_condensateur_dielectrique_force.png" />
+</p>
+</div>
+
+<p>
+On supposera la situation identique à celle de la question <a href="#sec-4-3-3">4.3.3</a> soit à potentiel constant
+\(V=V_1=E_1\left(a-\frac{b\chi_e}{1+\chi_e}\right)\). Dans la région \(\unicode{x2460}\),
+le champ électrique est égal à \(\vv{E}'_1=-\frac{V_1}{a}\vv{u}_z\).
+</p>
+
+<ol class="org-ol">
+<li>Les densités surfaciques de charge sont respectivement
+<ul class="org-ul">
+<li>région \(\unicode{x2460}\) :
+\begin{align*}
+  \sigma_S^\text{\(\unicode{x2460}\)}=\epsilon_0|E'_1|=\epsilon_0\frac{E_1}{a}\left(a-\frac{b\chi_e}{1+\chi_e}\right)
+\end{align*}
+</li>
+
+<li>région \(\unicode{x2461}\) :
+\begin{align*}
+  \sigma_S^\text{\(\unicode{x2461}\)}=\epsilon_0E_1
+\end{align*}
+</li>
+</ul>
+<p>
+La charge \(Q\) du condensateur est égale à
+</p>
+\begin{align*}
+  Q&=\int_0^x\sigma_S^\text{\(\unicode{x2461}\)}\,\ell dx+\int_x^L\sigma_S^\text{\(\unicode{x2460}\)}\,\ell dx\\
+  &=\epsilon_0E_1\ell\left(\frac{x}{a}\left(a-\frac{b\chi_e}{1+\chi_e}\right)+L-x\right)\\
+  &=\epsilon_0E_1\ell\left(L-\frac{\chi_e}{1+\chi_e}\frac{bx}{a}\right)
+\end{align*}
+
+<p>
+La capacité \(C\) est égale à \(\frac{Q}{V_1}\), l'énergie stockée
+\(U=\frac{1}{2}CV_1^2=\frac{1}{2}QV_1\).
+</p>
+</li>
+
+<li>Lorsque la plaque diélectrique est introduite \(x\nearrow\), la charge du
+condensateur diminue de même que la capacité \(C\). L'énergie stockée diminue
+donc de pair avec l'introduction de la plaque.
+\begin{align*}
+  dU=\frac{1}{2}V_1^2dC=\frac{1}{2}V_1dQ&=\frac{1}{2}V_1\frac{dQ}{dx}dx\\
+  &=\frac{1}{2}V_1\epsilon_0E_1\ell(-)\frac{\chi_e}{1+\chi_e}\frac{b}{a}dx
+\end{align*}
+
+<p>
+Le travail \(dW_\text{op.}\) fourni par l'opérateur correspond au produit
+scalaire de la force \(\vv{F}_\text{op.}\) par le déplacement infinitésimal
+\(d\vv{x}\)
+</p>
+\begin{align*}
+  dW_\text{op.}=\vv{F}_\text{op.}.d\vv{x}=F_\text{op.}dx=-Fdx
+\end{align*}
+
+<p>
+La puissance du générateur \(P=V_1\times I\) d'où le travail \(dW_\text{g}\)
+</p>
+\begin{align*}
+  dW_\text{g}=Pdt=V_1Idt&=V_1dQ\\
+  &=-V_1\epsilon_0E_1\ell(-)\frac{\chi_e}{1+\chi_e}\frac{b}{a}dx=2dU
+\end{align*}
+
+<p>
+Ainsi la variation d'énergie stockée correspond à
+</p>
+\begin{align*}
+  dU&=dW_\text{g}+dW_\text{op.}\\
+  dU&=2dU+dW_\text{op.}\\
+  F_\text{op.}dx&=-dU=\frac{1}{2}V_1\epsilon_0E_1\ell\frac{\chi_e}{1+\chi_e}\frac{b}{a}dx\\
+  F_\text{op.}&=\frac{1}{2}V_1\epsilon_0E_1\ell\frac{\chi_e}{1+\chi_e}\frac{b}{a}>0
+\end{align*}
+
+
+<div class="figure">
+<p><img src="./figures/coupe_condensateur_dielectrique_force2.png" alt="coupe_condensateur_dielectrique_force2.png" />
+</p>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+
+<div id="outline-container-sec-4-4" class="outline-3">
+<h3 id="sec-4-4"><span class="section-number-3">4.4</span> Boule chargée flottant sur un diélectrique</h3>
+<div class="outline-text-3" id="text-4-4">
+<ol class="org-ol">
+<li>Le potentiel \(V(\vv{r})\) vérifie l'équation de Poisson dans chacun des
+milieux \(\Delta V(\vv{r})=-\frac{\rho_\text{tot.}}{\epsilon_0}\). Toutefois,
+le milieu \(\unicode{x2460}\) étant le vide et un conducteur n'ayant pas de densité
+volumique de charge libre, le potentiel \(V_1(\vv{r})\) vérifie l'équation de
+Laplace<sup><a id="fnr.6" class="footref" href="#fn.6">6</a></sup> \(\Delta V_1=0\). Les conditions aux limites sont les suivantes
+<ul class="org-ul">
+<li>continuité du potentiel à la surface de la boule \(V_1(R)=V_2(R)=V_S\),
+</li>
+<li>à l'infini \(r\to\infty\), \(V_1(r\to\infty)=V_2(r\to\infty)=0\).
+</li>
+</ul>
+</li>
+
+<li>\(V(\vv{r})=V(r)\)
+<ol class="org-ol">
+<li>L'équation de Laplace dans le milieu \(\unicode{x2460}\) s'écrit en coordonnées
+sphériques
+\begin{align*}
+  \Delta V_1=\frac{1}{r^2}\frac{\partial}{\partial r}\left(r^2\frac{\partial V_1(r)}{\partial r}\right)&=0\\
+  r^2\frac{\partial V_1(r)}{\partial r}&=\text{constante}\\
+  V_1(r)&=\frac{A}{r}+B
+\end{align*}
+
+<p>
+En utilisant les conditions aux limites, on a \(V_1(r\to\infty)=B=0\) et
+\(V_1(R)=V_S\rightarrow A=RV_S\)
+</p>
+\begin{align*}
+  V_1(r)&=\frac{V_SR}{r}
+\end{align*}
+</li>
+
+<li>Le champ électrique se déduit de la relation
+\begin{align*}
+  \vv{E}_1&=-\grad V_1\\
+  &=-\frac{\partial V_1(r)}{\partial r}\vv{u}_r\\
+  &=\frac{V_SR}{r^2}\vv{u}_r
+\end{align*}
+</li>
+
+<li>À la traversée de la surface conducteur-vide/diélectrique, la composante
+normale à la surface (ici \(\parallel\vv{u}_r\)) du vecteur déplacement
+\(\vv{D}\) est discontinue et égale à la densité surfacique de charge
+libre. Le champ électrique étant par ailleurs nul à l'intérieur d'un
+conducteur, nous avons en \(r=R\)
+\begin{align*}
+  \vv{D}_1(R).\vv{u}_r&=\sigma_{\ell1}\\
+  \epsilon_0E_1(R)&=\sigma_{\ell1}\\
+  \text{d'où }\sigma_{\ell1}&=\epsilon_0\frac{V_S}{R}
+\end{align*}
+
+<p>
+Pour déterminer, la densité surfacique de charge libre dans le milieu
+\(\unicode{x2461}\), on utilise la même relation soit
+</p>
+\begin{align*}
+  \vv{D}_2(R).\vv{u}_r&=\sigma_{\ell1}\\
+  \epsilon_r\epsilon_0E_2(R)&=\sigma_{\ell2}
+\end{align*}
+
+<p>
+Pour calculer \(\vv{E}_2.\vv{u}_r\), on utilise la relation de continuité de
+la composante tangentielle du champ électrique à l'interface milieu
+\(\unicode{x2460}\) - milieu \(\unicode{x2461}\) et en surface du conducteur soit en
+\(r=R\). On a ainsi
+</p>
+\begin{align*}
+  \vv{E}_2(r=R).\vv{u}_r&=\vv{E}_1(r=R).\vv{u}_r\\
+  E_2(R)&=E_1(R)=\frac{V_S}{R}
+\end{align*}
+
+<p>
+d'où
+</p>
+\begin{align*}
+  \sigma_{\ell2}&=\epsilon_r\epsilon_0\frac{V_S}{R}=\epsilon_r\sigma_{\ell1}
+\end{align*}
+
+<p>
+Les densités surfaciques de charge de polarisation se déduisent de la
+disontinuité du vecteur polarisation
+\(\vv{P}=\epsilon_0\chi_e\vv{E}_2\). L'absence de polarisation dans le
+milieu \(\unicode{x2460}\) fait que \(\sigma_{P1}=0\) et
+</p>
+\begin{align*}
+  \sigma_{P2}&=-\vv{P}.\vv{u}_r\\
+  &=-\epsilon_0\chi_e\frac{V_S}{R}
+\end{align*}
+</li>
+
+<li>Les conditions aux limites sont vérifiées et \(V(r)\) est solution de
+l'équation de Poisson &rarr; théorème d'unicité, \(V(r)\) est l'unique solution
+</li>
+</ol>
+</li>
+
+<li>En l'absence de potentiel \(V=0\) <i>i.e.</i> \(\sigma_{\ell1}=\sigma_{\ell2}=0\), seul
+le quart de la boule est immergé. Le système étant à l'équilibre on déduit
+ainsi la poussé d'Archimède s'exerçant sur la boule
+\begin{align*}
+  \Upsigma\vv{F}&=\vv{0}\\
+  m\vv{g}-\frac{1}{4}\times\frac{4}{3}\pi R^3\rho_\text{diél.}\vv{g}&=\vv{0}\\
+  \rho_\text{diél.}&=\frac{3m}{\pi R^3}
+\end{align*}
+
+<p>
+Lorsque la boule est au potentiel \(V_S\), le volume immergé correspond à la
+moitié du volume de la boule en raison de la pression électrostatique qui
+s'exerce à présent sur les parois du conducteur :
+</p>
+\begin{align*}
+  \Upsigma\vv{F}&=\vv{0}\\
+  m\vv{g}-\frac{1}{2}\times\frac{4}{3}\pi R^3\rho_\text{diél.}\vv{g}+\vv{F}_1+\vv{F}_2&=\vv{0}
+\end{align*}
+
+<p>
+où \(\vv{F}_1\) et \(\vv{F}_2\) correspondent aux forces de pression s'exerçant
+sur chacune des demi-sphères. Soit
+</p>
+\begin{align*}
+  \vv{F}_{1,2}&=\iint P_{1,2}d\vv{S}\\
+  F_{1,2z}&=\vv{F}_{1,2}.\vv{u}_z=\int_0^{2\pi}d\phi\int_0^{\pi/2}P_{1,2}\cos\theta R^2\sin\theta d\theta\\
+  &\text{(seule la composante selon \(\vv{u}_z\) reste non nulle)}\\
+  &=2\pi R^2P_{1,2}\int_0^{\pi/2}\sin\theta d(\sin\theta)=2\pi R^2P_{1,2}\left[\frac{\sin^2\theta}{2}\right]_0^{\pi/2}\\
+  &=\pi R^2P_{1,2}
+\end{align*}
+
+<p>
+Les pressions électrostatiques \(P_{1,2}\) sont égales à
+</p>
+\begin{align*}
+  P_1&=\frac{\sigma^2_{\ell1}}{2\epsilon_0}\\
+  P_2&=\frac{d\vv{F}_2}{d\vv{S}}=\frac{\vv{E}_2dq}{d\vv{S}}\\
+  &=\frac{\sigma_{\text{tot.}2}/\epsilon_0\times\sigma_{\ell2}dS}{dS}\text{ et }\sigma_{\text{tot.}2}=\sigma_{\ell2}+\sigma_{P2}=\frac{\sigma_{\ell2}}{\epsilon_r}\\
+  &=\frac{\sigma^2_{\ell2}}{2\epsilon_0\epsilon_r}=\frac{\epsilon_r\sigma^2_{\ell1}}{2\epsilon_0}
+\end{align*}
+
+<p>
+En projetant, le PFD selon \(\vv{u}_z\), on obtient finalement l'équation suivante
+</p>
+\begin{align*}
+  -mg+\frac{3m}{\pi R^3}\times\frac{1}{2}\times\frac{4}{3}\pi R^3g+\frac{\sigma^2_{\ell1}}{2\epsilon_0}\pi R^2-\frac{\epsilon_r\sigma^2_{\ell1}}{2\epsilon_0}\pi R^2&=0\\
+  -mg+2mg+\frac{\epsilon^{\cancel{2}}_0V_S^2}{2\cancel{\epsilon_0}\cancel{R^2}}\pi \cancel{R^2}\left(1-\epsilon_r\right)&=0\\
+  mg+\frac{\epsilon_0V_S^2\pi}{2}\left(1-\epsilon_r\right)&=0\\
+  V_S&=\sqrt{\frac{2mg}{\epsilon_0\pi\left(\epsilon_r-1\right)}}\\
+  &=\sqrt{\frac{2\times10\times10^{-2}}{\pi\,8.85\,10^{-12}\times79}}=\unit[9.5]{kV}
+\end{align*}
 </li>
 </ol>
 </div>
@@ -1042,11 +2697,53 @@ le vecteur accélération \(\vv{a}\) s'écrit en toute rigueur
 défaut de vitesse angulaire \(\dot{\theta}\) initiale, on supposera donc que \(\dot{\theta}=0\).
 </p></div>
 
+<div class="footdef"><sup><a id="fn.2" class="footnum" href="#fnr.2">2</a></sup> <p class="footpara">
+il s'agit de la puissance sortant d'une surface <b>fermée</b> qui correspond
+au différentiel entre la puissance ayant pénétrée dans le volume et la puissance
+sortant de ce volume.
+</p></div>
+
+<div class="footdef"><sup><a id="fn.3" class="footnum" href="#fnr.3">3</a></sup> <p class="footpara">
+les forces extérieures \(\vv{F}_\text{ext.}\) ont pour objectif de
+maintenir la particule dans le plan \(z=0\). Elles sont donc soit comprises dans
+le plan \((xOy)\) soit opposées vectoriellement \(\Upsigma\vv{F}=\vv{0}\). Le moment
+cinétique induit par ces forces est donc nul du fait de \(\vv{OM}\times\vv{F}_\text{ext.}=\vv{0}\)
+</p></div>
+
+<div class="footdef"><sup><a id="fn.4" class="footnum" href="#fnr.4">4</a></sup> <p class="footpara">
+l'intensité \(I\) est également égale au vecteur de Poynting moyen
+\(I=\|\langle\vv{R}\rangle\|\) avec \(\vv{R}=\frac{\vv{E}\times\vv{B}}{\mu_0}\) et
+\(\vv{B}=\frac{\vv{k}\times\vv{E}}{\omega}\)
+</p></div>
+
+<div class="footdef"><sup><a id="fn.5" class="footnum" href="#fnr.5">5</a></sup> <p class="footpara">
+l'invariance du problème permet de poser \(\vv{P}=P\vv{u}_z\) car on pourra
+toujours pivoter/tourner le système de coordonnées sphériques de telle sorte à
+ce que \(\vv{P}\) soit colinéaire à \(Oz\).
+</p></div>
+
+<div class="footdef"><sup><a id="fn.6" class="footnum" href="#fnr.6">6</a></sup> <p class="footpara">
+dans le cas d'un diélectrique Linéaire, Homogène et Isotrope, la densité
+volumique de charges liées \(\rho_P=-\div\vv{P}=-\epsilon_0\chi_e\div\vv{E}\). Or
+\(\div\vv{E}=\frac{\rho_\text{tot.}}{\epsilon_0}\) d'où
+</p>
+\begin{align*}
+  -\rho_P&=\epsilon_0\chi_e\div\vv{E}\\
+  &=\chi_e\rho_\text{tot.}\\
+  &=\chi_e(\rho_P+\rho_\ell)\\
+  \rho_P&=\rho_\ell\frac{\chi_e}{\chi_e-1}
+\end{align*}
+
+<p class="footpara">
+S'il n'y a donc pas de densité volumique de charge libre \(\rho_\ell\), la densité
+volumique de charge liée est donc également nulle.
+</p></div>
+
 
 </div>
 </div></div>
 <div id="postamble" class="status">
-File under git version control - commit 18def1c - 2014-02-23
+File under git version control - commit 660ab3d - 2014-02-25
 </div>
 </body>
 </html>
