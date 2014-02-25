@@ -795,7 +795,7 @@ totale $\mathcal{E}$ et d'énergie cinétique $\mathcal{E}_c$.
    #+END_CENTER
 
 
-* TD2 : Équations de Maxwell dans le vide et champ électromagnétique :noexport:
+* TD2 : Équations de Maxwell dans le vide et champ électromagnétique
 ** "Propriétés mécaniques" du champ électromagnétique
 :PROPERTIES:
 :CUSTOM_ID: sec::prop_champ
@@ -1144,7 +1144,7 @@ totale $\mathcal{E}$ et d'énergie cinétique $\mathcal{E}_c$.
   est un bruit important pour les interféromètres de haute sensibilité tels que
   Virgo (/cf./ [[http://tel.archives-ouvertes.fr/tel-00175254/en/]]).
 
-* TD3 : Électrostatique dans le vide :noexport:
+* TD3 : Électrostatique dans le vide
 ** Condensateur cylindrique
 
 #+ATTR_HTML: :class hidden
@@ -1539,7 +1539,7 @@ $\vv{E}=-\grad\,V=-\tfrac{dV}{dr}\vv{u}_r$. Soit
           \vv{F}_2&=-\vv{F}_1=-\frac{\pi R^2\,\sigma_0^2}{4\epsilon_0}\vv{u}_z
         \end{align*}
       #+END_SRC
-* TD4 : Les milieux diélectriques :noexport:
+* TD4 : Les milieux diélectriques
 ** Introduction
 Historiquement, la découverte expérimentale des diélectriques est à mettre au
 profit de Michael Faraday qui nota que l'introduction d'un isolant entre les

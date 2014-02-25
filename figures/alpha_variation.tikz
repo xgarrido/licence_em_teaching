@@ -8,7 +8,7 @@
   \definecolor{gray}{RGB}{107,108,110}
 
   \begin{axis}[
-      enlargelimits=false,
+      enlargelimits=0.15,
       xlabel=$\beta^2$,
       ylabel={$\alpha = 1+\sqrt{1-\beta^2}$}
     ]
