@@ -4,7 +4,7 @@
 #+OPTIONS: ^:{} toc:2 tags:nil
 #+LATEX_CLASS: teaching-class
 
-* TD1 : Électromagnétisme & relativité
+* TD1 : Électromagnétisme & relativité                             :noexport:
 ** Introduction
 *Transformation de Lorentz :* $\beta=\tfrac{v}{c}$ et
  $\gamma=\tfrac{1}{\surd{1-\beta^2}}$. Si $\mathcal{R}'$ est en mouvement
@@ -794,8 +794,7 @@ totale $\mathcal{E}$ et d'énergie cinétique $\mathcal{E}_c$.
    [[./figures/alpha_variation.pdf]]
    #+END_CENTER
 
-
-* TD2 : Équations de Maxwell dans le vide et champ électromagnétique
+* TD2 : Équations de Maxwell dans le vide et champ électromagnétique :noexport:
 ** "Propriétés mécaniques" du champ électromagnétique
 :PROPERTIES:
 :CUSTOM_ID: sec::prop_champ
@@ -1144,7 +1143,7 @@ totale $\mathcal{E}$ et d'énergie cinétique $\mathcal{E}_c$.
   est un bruit important pour les interféromètres de haute sensibilité tels que
   Virgo (/cf./ [[http://tel.archives-ouvertes.fr/tel-00175254/en/]]).
 
-* TD3 : Électrostatique dans le vide
+* TD3 : Électrostatique dans le vide                               :noexport:
 ** Condensateur cylindrique
 
 #+ATTR_HTML: :class hidden
@@ -2138,8 +2137,8 @@ le champ électrique est égal à $\vv{E}'_1=-\frac{V_1}{a}\vv{u}_z$.
    s'exerce à présent sur les parois du conducteur :
    #+BEGIN_SRC latex
      \begin{align*}
-       \Upsigma\vv{F}&=\vv{0}\\
-       m\vv{g}-\frac{1}{2}\times\frac{4}{3}\pi R^3\rho_\text{diél.}\vv{g}+\vv{F}_1+\vv{F}_2&=\vv{0}
+       &\Upsigma\vv{F}=\vv{0}\\
+       &m\vv{g}-\frac{1}{2}\times\frac{4}{3}\pi R^3\rho_\text{diél.}\vv{g}+\vv{F}_1+\vv{F}_2=\vv{0}
      \end{align*}
    #+END_SRC
    où $\vv{F}_1$ et $\vv{F}_2$ correspondent aux forces de pression s'exerçant
@@ -2172,6 +2171,109 @@ le champ électrique est égal à $\vv{E}'_1=-\frac{V_1}{a}\vv{u}_z$.
        &=\sqrt{\frac{2\times10\times10^{-2}}{\pi\,8.85\,10^{-12}\times79}}=\unit[9.5]{kV}
      \end{align*}
    #+END_SRC
+
+** Lame piézoélectrique
+On suppose que les champs $\vv{P},\vv{E}$ et $\vv{D}$ sont parallèles à $Oz$ et
+ne dépendent que de $z$.
+
+1) À l'intérieur du diélectrique soit entre les armatures, il n'y a pas de
+   charges libres. On applique donc le théorème de Gauss au vecteur déplacement
+   $\vv{D}$ en choisissant pour surface fermée un cylindre. Seuls les disques
+   de surface $S$ en $z_1$ et en $z_2$ donnent un produit $\vv{D}.d\vv{S}$ non
+   nul. On obtient ainsi
+   #+BEGIN_SRC latex
+     \begin{align*}
+       D(z=z_1)S-D(z=z_2)=\Upsigma Q_\text{libre}&=0\\
+       D(z=z_1)&=D(z=z_2)=D
+     \end{align*}
+   #+END_SRC
+
+   L'expression du vecteur déplacement ne dépend donc pas de la position à
+   l'intérieur du diélectrique. Pour déterminer la valeur du champ $\vv{D}$, on
+   se place à l'interface armature-diélectrique et on applique la relation de
+   discontinuité de la composante normale du vecteur déplacement soit
+   #+BEGIN_SRC latex
+     \begin{align*}
+       \left.\left(\vv{D}_\text{int.}-\cancel{\vv{D}_\text{ext.}}\right)\right|_{z=0}.\vv{u}_z&=\sigma_\ell=\frac{+q}{S}\\
+       \vv{D}&=\frac{q}{S}\,\vv{u}_z
+     \end{align*}
+   #+END_SRC
+
+   En raison de la présence du diélectrique, le champ entre les armatures est
+   donc $\vv{E}=\frac{\vv{D}}{\epsilon}$.
+2) La polarisation d'une lame piézoélectrique se décompose de la façon suivante
+   #+BEGIN_SRC latex
+     \begin{align*}
+       \vv{P}=\underbrace{\epsilon_0\chi\vv{E}}_{\vv{P}_\text{LHI}}+\underbrace{\frac{\epsilon\alpha\delta}{d}\vv{u}_z}_{\vv{P}_\text{piézo.}}
+     \end{align*}
+   #+END_SRC
+   où le premier terme induit un champ $\vv{E}=\frac{\vv{D}}{\epsilon}$, le
+   second terme générant un champ dépolarisant
+   $-\frac{\vv{P}_\text{piézo.}}{\epsilon_0}$. Le champ électrique à l'intérieur
+   de la lame piézoélectrique s'écrit donc
+   #+BEGIN_SRC latex
+     \begin{align*}
+       \vv{E}_\text{total}&=\vv{E}-\frac{\vv{P}_\text{piézo.}}{\epsilon_0}\\
+       &=\frac{\vv{D}}{\epsilon}-\frac{\epsilon_r\alpha\delta}{d}\vv{u}_z\\
+       &=\left(\frac{q}{\epsilon S}-\frac{\epsilon_r\alpha\delta}{d}\right)\vv{u}_z
+     \end{align*}
+   #+END_SRC
+
+   1) La tension $V(\delta,q)$ s'exprime ainsi
+      #+BEGIN_SRC latex
+        \begin{align*}
+          \vv{E}_\text{total}&=-\grad V=-\frac{dV}{dz}\vv{u}_z\\
+          V(\delta,q)=-\int_{V(0)}^{V(d)}dV&=\int_0^d\left(\frac{q}{\epsilon S}-\frac{\epsilon_r\alpha\delta}{d}\right)dz\\
+          V(\delta,q)&=\frac{qd}{\epsilon S}-\epsilon_r\alpha\delta
+        \end{align*}
+      #+END_SRC
+
+   2) À $q=0$, le travail de l'opérateur s'écrit
+      #+BEGIN_SRC latex
+        \begin{align*}
+          dW_\text{op.}&=\vv{F}_\text{op.}.\vv{dz}\\
+          W_\text{op.}&=\int_0^\delta K\delta'd\delta'=K\frac{\delta^2}{2}+\text{constante}
+        \end{align*}
+      #+END_SRC
+
+      À $\delta$ constant, le travail du générateur est le suivant
+      #+BEGIN_SRC latex
+        \begin{align*}
+          dW_\text{G}&=Pdt=V\times Idt=Vdq\\
+          W_\text{G}&=\int_0^qV(\delta,q')dq'\\
+          &=\int_0^q\left(\frac{q'd}{\epsilon S}-\epsilon_r\alpha\delta\right)dq'\\
+          &=\frac{q^2d}{2\epsilon S}-\epsilon_r\alpha\delta q+\text{constante}
+        \end{align*}
+      #+END_SRC
+
+      L'énergie potentielle du système devient
+      #+BEGIN_SRC latex
+        \begin{align*}
+          W(\delta,q)&=W_\text{op}(\delta)+W_\text{G}(\delta,q)+\text{constante}\\
+          W(0,0)&=0\to\text{constante}=0\\
+          W(\delta,q)&=\frac{K\delta^2}{2}+\frac{q^2d}{2\epsilon S}-\epsilon_r\alpha\delta q
+        \end{align*}
+      #+END_SRC
+
+   3) Sachant que
+      #+BEGIN_SRC latex
+        \begin{align*}
+          dW(\delta,q)&=\frac{\partial W}{\partial\delta}d\delta+\frac{\partial W}{\partial q}dq\\
+          &=Fd\delta+Vdq
+        \end{align*}
+      #+END_SRC
+      on déduit que
+      #+BEGIN_SRC latex
+        \begin{align*}
+          F(\delta,q)&=\frac{\partial W}{\partial\delta}=K\delta-\epsilon_r\alpha q
+        \end{align*}
+      #+END_SRC
+      et on vérifie que
+      #+BEGIN_SRC latex
+        \begin{align*}
+         V(\delta,q)&=\frac{\partial W}{\partial q}=\frac{qd}{\epsilon S}-\epsilon_r\alpha\delta
+        \end{align*}
+      #+END_SRC
 
 * Footnotes
 
