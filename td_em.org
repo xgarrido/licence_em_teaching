@@ -2275,6 +2275,16 @@ ne dépendent que de $z$.
         \end{align*}
       #+END_SRC
 
+* TD5 : Magnétostatique
+** Solénoïde fini
+1) Les plans $(xMz)$ et $(yMz)$ sont tous deux plans d'antisymétrie de la
+   distribution de courant : le champ magnétique pour tout point $M$ appartenant
+   à l'axe $Oz$ est compris dans chacun de ces plans soit $\vv{B}(M\in
+   Oz)\parallel\vv{u}_z$.
+2) En raison des symétries du problème, le système de coordonnées cylindriques
+   est le mieux adapté à la description du problème. En particulier, le système
+   est invariant par rotation d'angle \theta et le plan $(\vv{u}_r,\vv{u}_z)$
+   est plan d'antisymétrie : $\vv{B}(M)=B_r(r,z)\vv{u}_r+B_z(r,z)\vv{u}_z$
 * Footnotes
 
 [fn:1] le vecteur accélération $\vv{a}$ s'écrit en toute rigueur
