@@ -2397,7 +2397,7 @@ ne dépendent que de $z$.
    #+BEGIN_SRC latex
      \begin{align*}
        &\begin{array}{llll}
-         B_z(r,z)&\simeq B_z(0,0)&+\left.\frac{\partial B_z}{\partial r}\right|_{r=0,z=0}r&+\left.\frac{\partial B_z}{\partial z}\right|_{r=0,z=0}z\\
+         B_z(r\to0,z\to0)&\simeq B_z(0,0)&+\left.\frac{\partial B_z}{\partial r}\right|_{r=0,z=0}r&+\left.\frac{\partial B_z}{\partial z}\right|_{r=0,z=0}z\\
          &&+\left.\frac{\partial^2 B_z}{\partial r^2}\right|_{r=0,z=0}\frac{r^2}{2!}&+\left.\frac{\partial^2 B_z}{\partial z^2}\right|_{r=0,z=0}\frac{z^2}{2!}\\
          &&+\left.\frac{\partial^2 B_z}{\partial r\partial z}\right|_{r=0,z=0}rz&+\mathcal{O}(r^2,z^2)
        \end{array}\\
@@ -2405,6 +2405,140 @@ ne dépendent que de $z$.
        &B_r(r,z)\simeq B_r(0,0) + \alpha'_r\,r + \beta'_r\,r^2 + \gamma'_z\,z + \delta'_z\,z^2 + \eta'_{rz}\,rz+\mathcal{O}(r^2,z^2)
      \end{align*}
    #+END_SRC
+
+   - Calcul de $B_r$ :
+
+     $B_r(0,0)=0$ et $B_r(r,z)=-B_r(r,-z)$ /i.e./ une fonction impaire en $z$
+     implique nécessairement que $\delta'_z=0$. Par ailleurs, la parité de la
+     fonction conduit à l'équation suivante
+     #+BEGIN_SRC latex
+       \begin{align*}
+         \alpha'_r\,r+\beta'_r\,r^2+\cancel{\gamma'_z\,z}+\cancel{\eta'_{rz}\,rz}&=-\alpha'_r\,r-\beta'_r\,r^2+\cancel{\gamma'_z\,z}+\cancel{\eta'_{rz}\,rz}\\
+         \alpha'_r&=\beta'_r=0
+       \end{align*}
+     #+END_SRC
+     L'expression de $B_r$ se réduit à $\gamma'_z\,z+\eta'_{rz}\,rz$ or
+     $B_r(0,z)=0$ implique que $\gamma'_z=0$ d'où
+     #+BEGIN_SRC latex
+       \begin{align*}
+         B_r(r,z)=\eta'_{rz}\,rz=drz
+       \end{align*}
+     #+END_SRC
+
+   - Calcul de $B_z$ :
+
+     La parité de $B_z$ /i.e./ $B_z(r,z)=B_z(r,-z)$ implique que les termes
+     "impairs" en $z$, $\gamma_z$ et $\eta_{rz}$, soient nuls. L'expression de
+     $B_z$ se limite à
+     #+BEGIN_SRC latex
+       \begin{align*}
+         B_z(r,z)&=B_z(0,0)+\alpha_r\,r+\beta_r\,r^2+\delta_z\,z^2\\
+         &=B_z(0,0)+ar+br^2+cz^2
+       \end{align*}
+     #+END_SRC
+
+   - Calcul de $a,b,d$ en fonction de $c$ :
+
+     On utilise les équations de Maxwell faisant intervenir le champ magnétique
+     à savoir $\div\vv{B}=0$ et $\rot\vv{B}=\vv{0}$ (au voisinage de $O$, il
+     n'y a pas de courant ni de variation temporelle d'un champ électrique)
+
+     #+BEGIN_SRC latex
+       \begin{align*}
+         \div\vv{B}&=0\\
+         \frac{1}{r}\,\frac{\partial}{\partial r}\left(rB_r\right)+\frac{\partial B_z}{\partial z}&=0\\
+         \frac{1}{r}\times2dzr+2cz&=0\\
+         d&=-c
+       \end{align*}
+     #+END_SRC
+
+     #+BEGIN_SRC latex
+       \begin{align*}
+         \rot\vv{B}&=\vv{0}\\
+         \frac{\partial B_r}{\partial z}-\frac{\partial B_z}{\partial r}&=0\\
+         dr-a-2br&=0\\
+         a=0&\text{ et }b=\frac{d}{2}=-\frac{c}{2}
+       \end{align*}
+     #+END_SRC
+
+   - Calcul de $c$ :
+
+     Pour calculer la constante $c$, on évalue sa valeur pour $r=0$ /i.e./ sur
+     l'axe du solénoïde où nous avons établi que
+     $B_z=\frac{\mu_0nI}{2}\left(f(z)+f(-z)\right)$ avec
+     $f(z)=\frac{L/2+z}{\surd R^2+\left(L/2+z\right)^2}$. On a donc
+     #+BEGIN_SRC latex
+       \begin{align*}
+         B_z(0,z)=B_z(0,0)+cz^2=\frac{\mu_0nI}{2}\left(f(z)+f(-z)\right)
+       \end{align*}
+     #+END_SRC
+
+     Sachant que $L\gg z$ et $R\gg r$, il s'agit dès lors de développer
+     l'expression de $f(z)$ au voisinage de zéro. On calcule ainsi
+     #+BEGIN_SRC latex
+       \begin{align*}
+         \left(R^2+\left(L/2+z\right)^2\right)^{-1/2}&=\left(R^2+L^2/4+Lz+z^2\right)^{-1/2}\\
+         &=\left(R^2+L^2/4\right)^{-1/2}\left[1+\underbrace{\frac{z^2}{R^2+L^2/4}+\frac{Lz}{R^2+L^2/4}}_{\epsilon}\right]^{-1/2}
+       \end{align*}
+     #+END_SRC
+     or
+     #+BEGIN_SRC latex
+       \begin{align*}
+         \left(1+\epsilon\right)^n=1+n\epsilon+\frac{n(n-1)}{2!}\,\epsilon^2+\mathcal{O}(\epsilon^2)
+       \end{align*}
+     #+END_SRC
+     on obtient finalement
+     #+BEGIN_SRC latex
+       \begin{align*}
+         \left(R^2+\left(L/2+z\right)^2\right)^{-1/2}&=\left(R^2+L^2/4\right)^{-1/2}\,\left[1-\frac{1}{2}\frac{Lz+z^2}{R^2+L^2/4}+\frac{3}{8}\left(\frac{Lz+z^2}{R^2+L^2/4}\right)^2\right]
+       \end{align*}
+     #+END_SRC
+
+     La fonction $f(z)$ devient au deuxième ordre en $z$
+     #+BEGIN_SRC latex
+       \begin{align*}
+         f(z)&\simeq\frac{L/2\left(1+\frac{2z}{L}\right)}{\surd R^2+L^2/4}\left[1-\frac{1}{2}\,\frac{Lz}{R^2+L^2/4}-\frac{1}{2}\frac{z^2}{R^2+L^2/4}+\frac{3}{8}\frac{L^2z^2}{\left(R^2+L^2/4\right)^2}\right]
+         +\mathcal{O}(z^2)
+       \end{align*}
+       \begin{align*}
+         \begin{split}
+           f(z)\simeq\frac{L}{2}\,\frac{1}{\surd R^2+L^2/4}\left[1-\frac{1}{2}\,\frac{Lz}{R^2+L^2/4}\right.&-\frac{1}{2}\,\frac{z^2}{R^2+L^2/4}+\frac{3}{8}\,\frac{L^2z^2}{\left(R^2+L^2/4\right)^2}\\
+             +\frac{2z}{L}&\left.-\frac{z^2}{R^2+L^2/4}\right]+\mathcal{O}(z^2)
+         \end{split}
+       \end{align*}
+       \begin{align*}
+         f(z)&\simeq\frac{L}{2}\,\frac{1}{\surd R^2+L^2/4}\left[1+\frac{2z}{L}-\frac{1}{2}\,\frac{Lz}{R^2+L^2/4}-\frac{3}{2}\,\frac{z^2}{R^2+L^2/4}+\frac{3}{8}\,\frac{L^2z^2}{\left(R^2+L^2/4\right)^2}\right]+\mathcal{O}(z^2)\\
+         f(-z)&\simeq\frac{L}{2}\,\frac{1}{\surd R^2+L^2/4}\left[1-\frac{2z}{L}+\frac{1}{2}\,\frac{Lz}{R^2+L^2/4}-\frac{3}{2}\,\frac{z^2}{R^2+L^2/4}+\frac{3}{8}\,\frac{L^2z^2}{\left(R^2+L^2/4\right)^2}\right]+\mathcal{O}(z^2)
+       \end{align*}
+       \begin{align*}
+         f(z)+f(-z)&\simeq\frac{L}{2}\,\frac{1}{\surd R^2+L^2/4}\left[2-3\,\frac{z^2}{R^2+L^2/4}+\frac{3}{4}\,\frac{L^2z^2}{\left(R^2+L^2/4\right)^2}\right]+\mathcal{O}(z^2)
+       \end{align*}
+     #+END_SRC
+
+     Le champ magnétique $B_z$ se réduit à l'expression
+     #+BEGIN_SRC latex
+       \begin{align*}
+         B_z(0,z)&\simeq\frac{\mu_0nI}{2}\times\frac{L}{2}\times\frac{1}{\surd R^2+L^2/4}\left[2-\left(\frac{3}{R^2+L^2/4}-\frac{3}{4}\,\frac{L^2}{\left(R^2+L^2/4\right)^2}\right)\,z^2\right]\\
+         &\simeq B_z(0,0)+cz^2
+       \end{align*}
+     #+END_SRC
+     d'où
+     #+BEGIN_SRC latex
+       \begin{align*}
+         B_z(0,0)&=\frac{\mu_0nI}{2}\times\frac{L}{\surd R^2+L^2/4}\\
+         c&=\frac{\mu_0nI}{4}\times\frac{L}{\surd R^2+L^2/4}\left(-\frac{3}{R^2+L^2/4}+\frac{3}{4}\,\frac{L^2}{\left(R^2+L^2/4\right)^2}\right)\\
+         &=\frac{\mu_0nI}{4}\times\frac{L}{\surd R^2+L^2/4}\left(\frac{\cancel{3L^2}-3\times4\left(R^2+L^2/4\right)}{4\,\left(R^2+\cancel{L^2/4}\right)^2}\right)\\
+         &=-B_z(0,0)\times\frac{3R^2}{2\left(R^2+L^2/4\right)^2}
+       \end{align*}
+     #+END_SRC
+
+     soit finalement
+     #+BEGIN_SRC latex
+       \begin{align*}
+         B_z(r\to0,z\to0)&=B_z(0,0)\times\left(1+\frac{3R^2}{4\left(R^2+L^2/4\right)^2}\,r^2-\frac{3R^2}{2\left(R^2+L^2/4\right)^2}\,z^2\right)\\
+         B_r(r\to0,z\to0)&=B_z(0,0)\times\frac{3R^2}{2\left(R^2+L^2/4\right)^2}\,rz
+       \end{align*}
+     #+END_SRC
 
 
 * Footnotes
