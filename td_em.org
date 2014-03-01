@@ -2285,6 +2285,115 @@ ne dépendent que de $z$.
    est le mieux adapté à la description du problème. En particulier, le système
    est invariant par rotation d'angle \theta et le plan $(\vv{u}_r,\vv{u}_z)$
    est plan d'antisymétrie : $\vv{B}(M)=B_r(r,z)\vv{u}_r+B_z(r,z)\vv{u}_z$
+3) Symétrie du champ magnétique
+   #+BEGIN_CENTER
+   #+ATTR_LATEX: :width 0.5\linewidth
+   [[./figures/plan_symetrie_B.pdf]]
+   #+END_CENTER
+
+   Le plan $(xOy)$ est plan de symétrie de la distribution de courant impliquant
+   #+BEGIN_SRC latex
+     \begin{align*}
+       B_z(r,z)&=B_z(r,-z)\\
+       B_r(r,z)&=-B_r(r,-z)
+     \end{align*}
+   #+END_SRC
+4) Calcul du champ magnétique généré par une boucle de courant
+   #+BEGIN_CENTER
+   #+ATTR_LATEX: :width 0.25\linewidth
+   [[./figures/spire_circulaire.pdf]]
+   #+END_CENTER
+
+   Loi de Biot & Savart
+   #+BEGIN_SRC latex
+     \begin{align*}
+       \vv{dB}(M)&=\frac{\mu_0I}{4\pi}\,\frac{\vv{d\ell}\times\vv{PM}}{PM^3}\\
+       \vv{B}(M)&=\frac{\mu_0I}{4\pi}\oint_\mathcal{C}\frac{\vv{d\ell}\times\vv{PM}}{PM^3}\\
+       &\text{où }\left\{
+       \begin{array}{rl}
+         \vv{d\ell} &=Rd\theta\,\vv{u}_\theta\\
+         \vv{PM} &=\vv{PO} + \vv{OM} = -R\vv{u}_r + z\vv{u}_z \\
+       \end{array}
+       \right.\\
+       &\text{soit }\vv{d\ell}\times\vv{PM}=\left|
+       \begin{array}{l}
+         0\\Rd\theta\\0
+       \end{array}
+       \right.\times\left|
+       \begin{array}{l}
+         -R\\0\\z
+       \end{array}
+       \right.=Rd\theta z\vv{u}_z+R^2d\theta\vv{u}_z
+     \end{align*}
+   #+END_SRC
+
+   En raison des symétries invoquées à la question 1), le champ magnétique est
+   colinéaire au vecteur $\vv{u}_z$ d'où
+   #+BEGIN_SRC latex
+     \begin{align*}
+       \vv{B}(M)&=\frac{\mu_0I}{4\pi}\,\frac{R^2}{PM^3}\int_0^{2\pi}d\theta\vv{u}_z\\
+       &=\frac{\mu_0I}{2}\,\frac{R^2}{PM^3}\vv{u}_z\text{ avec } PM=\frac{R}{\sin\alpha}\\
+       &=\frac{\mu_0I}{2}\,\frac{\cancel{R^2}}{R^{\cancel{3}}}\,\sin^3\alpha\,\vv{u}_z
+     \end{align*}
+   #+END_SRC
+
+   Pour calculer le champ magnétique généré par un solénoïde fini, on superpose
+   les champs magnétiques générés par les $N$ spires. En considérant une
+   épaisseur $dz$ contenant donc $n\times dz=\frac{N}{L}\times dz$ spires, le
+   champ magnétique ainsi généré a pour expression
+   #+BEGIN_SRC latex
+     \begin{align*}
+       \vv{dB}_\text{solénoïde}(M)&=\vv{B}_\text{spire}(M)\times n\times dz\\
+       \vv{B}_\text{solénoïde}(M)&=\int\frac{\mu_0nI}{2R}\,\sin^3\alpha dz\vv{u}_z
+     \end{align*}
+   #+END_SRC
+
+   La coordonnée $z$ est reliée à l'angle \alpha par l'expression
+   $\tan\alpha=\frac{R}{|z_P-z|}$ d'où
+   $\frac{dz}{d\alpha}=\frac{R}{\sin^2\alpha}$ [fn:7].
+   #+BEGIN_SRC latex
+     \begin{align*}
+       \vv{B}_\text{solénoïde}(M)&=\int_{\alpha_1}^{\alpha_2}\frac{\mu_0nI}{2\cancel{R}}\,\sin^{\cancel{3}}\alpha\frac{\cancel{R}}{\cancel{\sin^2\alpha}}\,d\alpha\vv{u}_z\\
+       &=\frac{\mu_0nI}{2}\left[-\cos\alpha\right]_{\alpha_1}^{\alpha_2}\,\vv{u}_z\\
+       &=\frac{\mu_0nI}{2}\left(\cos\alpha_1-\cos\alpha_2\right)\,\vv{u}_z
+     \end{align*}
+   #+END_SRC
+
+   Sachant que
+   #+BEGIN_SRC latex
+     \begin{align*}
+       \cos\alpha_1&=\frac{z+L/2}{\surd R^2+\left(z+L/2\right)^2}=f(z)\\
+       \cos\alpha_2&=\frac{z-L/2}{\surd R^2+\left(z-L/2\right)^2}=-f(-z)
+     \end{align*}
+   #+END_SRC
+   le champ magnétique sur l'axe du solénoïde devient
+   #+BEGIN_SRC latex
+     \begin{align*}
+       \vv{B}_\text{solénoïde}(M)&=\frac{\mu_0nI}{2}\left(f(z)+f(-z)\right)\,\vv{u}_z
+     \end{align*}
+   #+END_SRC
+   confirmant la parité de $B_z$ avec $\vv{B}(z)=\vv{B}(-z)$.
+
+   - en $z=0$,
+     #+BEGIN_SRC latex
+       \begin{align*}
+         \vv{B}(O)&=\frac{\mu_0nI}{2}\left(\frac{L/2}{\surd R^2+L^2/4}+\frac{L/2}{\surd R^2+L^2/4}\right)\,\vv{u}_z\\
+         &=\frac{\mu_0nI}{2}\left(\frac{1}{\surd R^2+L^2/4}\right)\,\vv{u}_z\text{ avec }L\gg R\\
+         &=\frac{\mu_0nIL}{2}\left(\frac{1}{L/2\times\left(1+4R^2/L^2\right)^{1/2}}\right)\,\vv{u}_z\\
+         &\simeq\frac{\mu_0nI\cancel{L}}{\cancel{2}}\times\frac{\cancel{2}}{\cancel{L}}+\mathcal{O}\left(\frac{R^2}{L^2}\right)\,\vv{u}_z\\
+         &\simeq\mu_0nI\,\vv{u}_z
+       \end{align*}
+     #+END_SRC
+   - en $z=L/2$,
+     #+BEGIN_SRC latex
+       \begin{align*}
+         \vv{B}(z=L/2)&=\frac{\mu_0nI}{2}\times\frac{L/2}{\surd R^2+L^2/4}\,\vv{u}_z\\
+         &\simeq\frac{\mu_0nI}{2}\times\frac{\cancel{L/2}}{\cancel{L/2}}\,\vv{u}_z=\frac{\vv{B}(O)}{2}
+       \end{align*}
+     #+END_SRC
+
+
+
 * Footnotes
 
 [fn:1] le vecteur accélération $\vv{a}$ s'écrit en toute rigueur
@@ -2321,3 +2430,12 @@ $\div\vv{E}=\frac{\rho_\text{tot.}}{\epsilon_0}$ d'où
 #+END_SRC
 S'il n'y a donc pas de densité volumique de charge libre $\rho_\ell$, la densité
 volumique de charge liée est donc également nulle.
+
+[fn:7] la dérivée de $\frac{1}{\tan\alpha}$ est égale à
+#+BEGIN_SRC latex
+  \begin{align*}
+    \left(\frac{1}{\tan\alpha}\right)'&=\left(\frac{\cos\alpha}{\sin\alpha}\right)'\\
+    &=-\frac{\sin\alpha}{\sin\alpha}-\frac{\cos^2\alpha}{\sin^2\alpha}\\
+    &=-\left(1+\frac{\cos^2\alpha}{\sin^2\alpha}\right)=-\frac{1}{\sin^2\alpha}
+  \end{align*}
+#+END_SRC

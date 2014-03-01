@@ -1,0 +1,31 @@
+\begin{tikzpicture}[
+  >=latex, %
+  mark coordinate/.style={inner sep=0pt,outer sep=0pt,minimum size=3pt,
+    fill=black,circle}]
+  \sf
+  % Colors
+  \definecolor{red}{RGB}{221,42,43}
+  \definecolor{green}{RGB}{132,184,24}
+  \definecolor{blue}{RGB}{0,51,153}
+  \definecolor{orange}{RGB}{192,128,64}
+  \definecolor{gray}{RGB}{107,108,110}
+
+  \begin{scope}[rotate=90]
+  \draw[->] (-1.5,0) -- (3,0) node[right]{$z$};
+  \draw (0,0) node[mark coordinate] {} node[left]{$O$};
+
+  \begin{scope}[xscale=.3]
+    \draw (0,0) circle (1.25cm);
+    \draw[->, xshift=-0.35cm] (-0.707,0.707) -- node[above] {$I$}(-0.708,0.706);
+  \end{scope}
+
+  \draw (2.0,0) node[mark coordinate] {} node[above right]{$M$};
+  \draw (0,-1.25) node[mark coordinate] {} node[right]{$P$} -- (2,0);
+  \draw (1.4,0) node[below right]{$\alpha$} arc (180:240:0.3);
+  \end{scope}
+\end{tikzpicture}
+
+%% Configure (x)emacs for this file ...
+%% Local Variables:
+%% mode: latex
+%% End:
