@@ -1143,7 +1143,7 @@ totale $\mathcal{E}$ et d'énergie cinétique $\mathcal{E}_c$.
   est un bruit important pour les interféromètres de haute sensibilité tels que
   Virgo (/cf./ [[http://tel.archives-ouvertes.fr/tel-00175254/en/]]).
 
-* TD3 : Électrostatique dans le vide                               :noexport:
+* TD3 : Électrostatique dans le vide
 ** Condensateur cylindrique
 
 #+ATTR_HTML: :class hidden
@@ -1538,7 +1538,23 @@ $\vv{E}=-\grad\,V=-\tfrac{dV}{dr}\vv{u}_r$. Soit
           \vv{F}_2&=-\vv{F}_1=-\frac{\pi R^2\,\sigma_0^2}{4\epsilon_0}\vv{u}_z
         \end{align*}
       #+END_SRC
-* TD4 : Les milieux diélectriques
+** Forces de Van der Waals
+*** Modèle de l'électron élastiquement lié : moment dipolaire induit d'un atome
+
+#+BEGIN_CENTER
+#+ATTR_LATEX: :width 0.3\textwidth
+[[./figures/van_der_waals.pdf]]
+#+END_CENTER
+
+1) La densité volumique de charge $\rho$ du nuage électronique est égale à
+   #+BEGIN_SRC latex
+     \begin{align*}
+       \frac{4}{3}\pi\,a^3\times\rho&=-q\\
+       \rho=-\frac{3q}{4\pi\,a^3}
+     \end{align*}
+   #+END_SRC
+2)
+* TD4 : Les milieux diélectriques :noexport:
 ** Introduction
 Historiquement, la découverte expérimentale des diélectriques est à mettre au
 profit de Michael Faraday qui nota que l'introduction d'un isolant entre les
@@ -2275,7 +2291,7 @@ ne dépendent que de $z$.
         \end{align*}
       #+END_SRC
 
-* TD5 : Magnétostatique
+* TD5 : Magnétostatique :noexport:
 ** Solénoïde fini
 1) Les plans $(xMz)$ et $(yMz)$ sont tous deux plans d'antisymétrie de la
    distribution de courant : le champ magnétique pour tout point $M$ appartenant
@@ -2539,7 +2555,6 @@ ne dépendent que de $z$.
          B_r(r\to0,z\to0)&=B_z(0,0)\times\frac{3R^2}{2\left(R^2+L^2/4\right)^2}\,rz
        \end{align*}
      #+END_SRC
-
 
 * Footnotes
 
