@@ -2380,7 +2380,7 @@ ne dépendent que de $z$.
          \vv{B}(O)&=\frac{\mu_0nI}{2}\left(\frac{L/2}{\surd R^2+L^2/4}+\frac{L/2}{\surd R^2+L^2/4}\right)\,\vv{u}_z\\
          &=\frac{\mu_0nI}{2}\left(\frac{1}{\surd R^2+L^2/4}\right)\,\vv{u}_z\text{ avec }L\gg R\\
          &=\frac{\mu_0nIL}{2}\left(\frac{1}{L/2\times\left(1+4R^2/L^2\right)^{1/2}}\right)\,\vv{u}_z\\
-         &\simeq\frac{\mu_0nI\cancel{L}}{\cancel{2}}\times\frac{\cancel{2}}{\cancel{L}}+\mathcal{O}\left(\frac{R^2}{L^2}\right)\,\vv{u}_z\\
+         &\simeq\frac{\mu_0nI\cancel{L}}{\cancel{2}}\times\frac{\cancel{2}}{\cancel{L}}\,\vv{u}_z+\mathcal{O}\left(\frac{R^2}{L^2}\right)\\
          &\simeq\mu_0nI\,\vv{u}_z
        \end{align*}
      #+END_SRC
@@ -2392,6 +2392,19 @@ ne dépendent que de $z$.
        \end{align*}
      #+END_SRC
 
+5) Champ magnétique au voisinage de $O$. On réalise un dévelopement limité à
+   l'ordre 2 de $B_z$ et $B_r$ soit
+   #+BEGIN_SRC latex
+     \begin{align*}
+       &\begin{array}{llll}
+         B_z(r,z)&\simeq B_z(0,0)&+\left.\frac{\partial B_z}{\partial r}\right|_{r=0,z=0}r&+\left.\frac{\partial B_z}{\partial z}\right|_{r=0,z=0}z\\
+         &&+\left.\frac{\partial^2 B_z}{\partial r^2}\right|_{r=0,z=0}\frac{r^2}{2!}&+\left.\frac{\partial^2 B_z}{\partial z^2}\right|_{r=0,z=0}\frac{z^2}{2!}\\
+         &&+\left.\frac{\partial^2 B_z}{\partial r\partial z}\right|_{r=0,z=0}rz&+\mathcal{O}(r^2,z^2)
+       \end{array}\\
+       &B_z(r,z)\simeq B_z(0,0) + \alpha_r\,r + \beta_r\,r^2 + \gamma_z\,z + \delta_z\,z^2 + \eta_{rz}\,rz+\mathcal{O}(r^2,z^2)\\
+       &B_r(r,z)\simeq B_r(0,0) + \alpha'_r\,r + \beta'_r\,r^2 + \gamma'_z\,z + \delta'_z\,z^2 + \eta'_{rz}\,rz+\mathcal{O}(r^2,z^2)
+     \end{align*}
+   #+END_SRC
 
 
 * Footnotes
