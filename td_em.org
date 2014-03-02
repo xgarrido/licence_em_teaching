@@ -1538,7 +1538,7 @@ $\vv{E}=-\grad\,V=-\tfrac{dV}{dr}\vv{u}_r$. Soit
           \vv{F}_2&=-\vv{F}_1=-\frac{\pi R^2\,\sigma_0^2}{4\epsilon_0}\vv{u}_z
         \end{align*}
       #+END_SRC
-** Forces de Van der Waals
+** Forces de Van der Waals                                              :DM:
 *** Modèle de l'électron élastiquement lié : moment dipolaire induit d'un atome
 
 #+BEGIN_CENTER
@@ -1553,7 +1553,205 @@ $\vv{E}=-\grad\,V=-\tfrac{dV}{dr}\vv{u}_r$. Soit
        \rho=-\frac{3q}{4\pi\,a^3}
      \end{align*}
    #+END_SRC
-2)
+2) Tout plan contenant le vecteur radial $\vv{u}_r$ est plan de symétrie de la
+   distribution de charge au sein du nuage électronique : le champ électrique
+   $\vv{E}_\text{int.}$ est donc colinéaire à $\vv{u}_r$. Par ailleurs, le
+   problème est invariant par rotation d'angle \theta et \phi, le champ
+   électrique ne dépendant que de la distance au centre du nuage.
+
+   En choisissant comme surface de Gauss, une sphère centrée sur le centre du
+   nuage et de rayon $r$, on a
+   #+BEGIN_SRC latex
+     \begin{align*}
+       \varoiint_\text{sphère}\vv{E}_\text{int.}.\vv{dS}&=\iiint_\text{volume int.}\frac{\rho}{\epsilon_0}\,d\tau\\
+       4\pi\,r^2\,\vv{E}_\text{int.}(r)&=\iiint_\text{volume int.}\frac{\rho}{\epsilon_0}\,d\tau
+     \end{align*}
+   #+END_SRC
+
+   - pour $r>a$,
+     #+BEGIN_SRC latex
+       \begin{align*}
+         \vv{E}_\text{int.}=-\frac{q}{4\pi\,r^2}\vv{u}_r
+       \end{align*}
+     #+END_SRC
+   - pour $r<a$,
+     #+BEGIN_SRC latex
+       \begin{align*}
+         \vv{E}_\text{int.}&=\frac{\rho}{4\pi\epsilon_0\,r^2}\times\frac{4}{3}\pi\,r^3\vv{u}_r\\
+         &=-\frac{qr}{4\pi\epsilon_0\,a^3}\vv{u}_r
+       \end{align*}
+     #+END_SRC
+
+     La force exercée sur le noyau de charge $+q$ par le nuage électronique
+     s'écrit
+     #+BEGIN_SRC latex
+       \begin{align*}
+         \vv{F}&=+q\,\vv{E}_\text{int.}(r)=-\frac{q^2r}{4\pi\epsilon_0\,a^3}\vv{u}_r\text{ où }\vv{r}=\vv{AB}
+       \end{align*}
+     #+END_SRC
+
+     En l'absence de champ externe, la force exercée par le nuage sur le noyau
+     tend à ramener ce dernier au centre du nuage /i.e./ en $r=0$.
+
+3) En présence du champ externe, la force totale s'exerçant sur le noyau est
+   $\vv{F}=+q\left(\vv{E}_\text{int.}+\vv{E}_\text{ext.}\right)$. L'équilibre
+   est atteint pour $\vv{F}=\vv{0}$ soit
+   #+BEGIN_SRC latex
+     \begin{align*}
+       \frac{q\vv{r}}{4\pi\epsilon_0\,a^3}&=\vv{E}_\text{ext.}\\
+       \vv{r}&=\frac{4\pi\epsilon_0\,a^3}{q}\vv{E}_\text{ext.}<\vv{a}\\
+       &\text{ soit }E_\text{ext.}<\frac{q}{4\pi\epsilon_0\,a^2}
+     \end{align*}
+   #+END_SRC
+
+   Si $E_\text{ext.}>\frac{q}{4\pi\epsilon_0\,a^2}$, le champ électrique du
+   nuage électronique ne peut contrebalancer le champ externe qui "dissocie"
+   électriquement le nuage du noyau : noyau et nuage ne sont plus liés.
+
+4) Le moment dipolaire $\vv{p}$ est égal à $q\,\vv{r}$ soit en fonction du champ
+   externe
+   #+BEGIN_SRC latex
+     \begin{align*}
+       \vv{p}=4\pi\epsilon_0\,a^3\vv{E}_\text{ext.}
+     \end{align*}
+   #+END_SRC
+
+   En l'absence de champ externe, le moment dipolaire induit est nul. Par
+   ailleurs, le moment dipolaire étant égal à
+   $\alpha\epsilon_0\vv{E}_\text{ext.}$, on déduit que $\alpha = 4\pi\,a^3$ et
+   qu'en conséquence la dimension de $\alpha$ est celle d'un volume.
+
+5) Application numérique à l'atome d'Hélium :
+   #+BEGIN_SRC latex
+     \begin{align*}
+       \alpha&=4\pi\,\left(7\,10^{-10}\right)^3=\unit[4.31\,10^{-27}]{m}^3\\
+       E_\text{ext.}^\text{max}&=\frac{q}{4\pi\epsilon_0\,a^2}\\
+       &=\frac{3.2\,10^{-19}}{4\pi\times8.85\,10^{-12}\times\left(7\,10^{-10}\right)^2}
+     \end{align*}
+   #+END_SRC
+
+*** Forces de Van der Waals
+1) L'expression du moment dipolaire $\vv{p}_1$ est $q_1 2a\,\vv{u}_z$. En raison des
+   symétries du problème à savoir que l'axe $Oz$ porte les deux charges $\pm
+   q_1$, les plans $(\vv{u}_x,\vv{u}_z)$ et $(\vv{u}_y,\vv{u}_z)$ sont plans de
+   symétrie de la distribution de charge et $\vv{E}$ est donc colinéaire à
+   $\vv{u}_z$.
+
+   #+BEGIN_CENTER
+   #+ATTR_LATEX: :width 0.5\linewidth
+   [[./figures/van_der_waals_dipole1.pdf]]
+   #+END_CENTER
+
+   Pour déterminer le champ électrique sur l'axe $Oz$, on superpose
+   les champs coulombiens générés par chacune des charges $\pm q_1$ soit
+   #+BEGIN_SRC latex
+     \begin{align*}
+       \vv{E}&=\frac{q_1}{4\pi\epsilon_0\,\left(z-a\right)^2}\,\vv{u}_z-\frac{q_1}{4\pi\epsilon_0\,\left(z+a\right)^2}\,\vv{u}_z\\
+       &=\frac{q_1}{4\pi\epsilon_0}\,\left(\frac{1}{\left(z-a\right)^2}-\frac{1}{\left(z+a\right)^2}\right)\,\vv{u}_z\\
+       \text{avec }z\gg a\quad\vv{E}&\simeq\frac{q_1}{4\pi\epsilon_0\,z^2}\left(\cancel{1}+\frac{2a}{z}-\cancel{1}+\frac{2a}{z}\right)\,\vv{u}_z\\
+       &\simeq\frac{2\vv{p}_1}{4\pi\epsilon_0\,z^3}
+     \end{align*}
+   #+END_SRC
+
+2) Supposons que les charges $\pm q_2$ soient positionnées de la façon suivante
+
+   #+BEGIN_CENTER
+   #+ATTR_LATEX: :width 0.7\linewidth
+   [[./figures/van_der_waals_dipole2.pdf]]
+   #+END_CENTER
+
+   la force qu'exerce le premier dipôle sur le second est égale à
+   #+BEGIN_SRC latex
+     \begin{align*}
+       \vv{F}&=q_2\vv{E}(z+b)-q_2\vv{E}(z-b)\\
+       &=\frac{2\vv{p}_1q_2}{4\pi\epsilon_0}\left(\frac{1}{\left(z+b\right)^3}-\frac{1}{\left(z-b\right)^3}\right)\\
+       \text{avec }z\gg b\quad\vv{F}&=\frac{2\vv{p}_1q_2}{4\pi\epsilon_0\,z^3}\left(\cancel{1}-\frac{3b}{z}-\cancel{1}-\frac{3b}{z}\right)\\
+       &\simeq-\frac{2\vv{p}_1q_2\,2b\times3}{4\pi\epsilon_0\,z^4}=-\frac{6p_1p_2}{4\pi\epsilon_0\,z^4}\vv{u}_z\text{ où }p_2=q_2\,2b
+     \end{align*}
+   #+END_SRC
+
+   Dans cette orientation, la force exercée par le dipôle 1 sur le dipôle 2 est
+   donc attractive. En revanche, si la polarité du dipôle 2 est inversée, la
+   force est alors répulsive.
+
+3) *Force de Keesom : interaction entre deux molécules présentant chacune un
+   moment dipolaire permanent*
+
+   Le temps passé dans la configuration où $\vv{p}_1$ et $\vv{p}_2$ sont alignés
+   est égal à
+   #+BEGIN_SRC latex
+     \begin{align*}
+       \frac{t_1}{t_1+t_2}&=A\exp\left(\frac{\vv{p}_2.\vv{E}_{1\to2}}{k_BT}\right)\\
+       &\simeq A\left(1+\frac{\vv{p}_2.\vv{E}_{1\to2}}{k_BT}\right)
+     \end{align*}
+   #+END_SRC
+   De même, le temps $t_2$ pendant lequel les dipôles sont inversés s'écrit
+   #+BEGIN_SRC latex
+     \begin{align*}
+       \frac{t_2}{t_1+t_2}&=A\exp\left(-\frac{\vv{p}_2.\vv{E}_{1\to2}}{k_BT}\right)\\
+       &\simeq A\left(1-\frac{\vv{p}_2.\vv{E}_{1\to2}}{k_BT}\right)
+     \end{align*}
+   #+END_SRC
+   On déduit des deux approximations précédentes que $A=\frac{1}{2}$.
+
+   Ainsi, la force moyenne entre les deux dipôles devient
+   #+BEGIN_SRC latex
+     \begin{align*}
+       \langle\vv{F}\rangle&=\vv{F}\times\frac{t_1}{t_1+t_2}-\vv{F}\times\frac{t_2}{t_1+t_2}\text{ où }\vv{F}=-\frac{6p_1p_2}{4\pi\epsilon_0\,z^4}\vv{u}_z\\
+       &=\frac{\vv{F}}{2}\times\frac{2\vv{p}_2.\vv{E}_{1\to2}}{k_BT}=-\frac{6p_1p_2^2\,\vv{E}_{1\to2}}{4\pi\epsilon_0k_BT\,z^4}\\
+       &=-\frac{12p_1^2p_2^2}{16\pi^2\epsilon_0^2k_BT\,z^7}\,\vv{u}_z\text{ car }\vv{E}_{1\to2}=\frac{2\vv{p}_1}{4\pi\epsilon_0\,z^3}\\
+       &=-\frac{3p_1^2p_2^2}{4\pi^2\epsilon_0^2k_BT\,z^7}\,\vv{u}_z
+     \end{align*}
+   #+END_SRC
+
+4) *Force de Debye : interaction entre une molécule présentant un moment
+   dipolaire permanent et une molécule présentant un moment dipolaire induit*
+
+   Le moment dipolaire induit par le champ électrique du premier dipôle est
+   #+BEGIN_SRC latex
+     \begin{align*}
+       \vv{p}_2&=\alpha\epsilon_0\,\vv{E}_\text{ext.}\text{ où }\vv{E}_\text{ext.}=\frac{2\vv{p}_1}{4\pi\epsilon_0\,z^3}\\
+       &=\frac{2\alpha\vv{p}_1}{4\pi\,z^3}\,\vv{u}_z
+     \end{align*}
+   #+END_SRC
+
+   La force exercée par la première moléculé est la même que précédemment à
+   savoir $\vv{F}=-\frac{6p_1p_2}{4\pi\epsilon_0\,z^4}\,\vv{u}_z$ avec
+   $\vv{p}_2=\frac{2\alpha\vv{p}_1}{4\pi\,z^3}$ soit
+   #+BEGIN_SRC latex
+     \begin{align*}
+       \vv{F}&=-\frac{6p_1p_2}{4\pi\epsilon_0\,z^4}\,\vv{u}_z=-\frac{6p_1^2\times2\alpha}{16\pi^2\epsilon_0\,z^7}\,\vv{u}_z\\
+       &=-\frac{3p_1^2\alpha}{4\pi^2\epsilon_0\,z^7}\,\vv{u}_z
+     \end{align*}
+   #+END_SRC
+
+5) *Force de London : interaction entre deux atomes ou molécules ne présentant
+   pas de moment dipolaire permanent*
+
+   Supposons qu'à un instant donné, le moment dipolaire du premier
+   atome/molécule vaille $\vv{p}_1$. En moyenne, le moment dipolaire du second
+   atome/molécule est nul et il n'y a pas d'interaction
+   dipôle-dipôle. Cependant, du fait de la valeur non nulle de $\vv{p}_1$ à
+   l'instant considéré, il se superpose au moment dipolaire naturel du second
+   atome/molécule, un moment dipolaire induit. Il découle de la présence de ce
+   moment dipolaire induit, une force induite égale à $-\frac{3\alpha
+   p_1^2}{4\pi^2\epsilon_0\,z^7}$. En moyenne, la force induite est ainsi égale
+   à
+   #+BEGIN_SRC latex
+     \begin{align*}
+       \langle\vv{F}_{1\to2}^\text{induit}\rangle&=-\frac{3\alpha\,\langle p_1^2\rangle}{4\pi^2\epsilon_0\,z^7}\,\vv{u}_z
+     \end{align*}
+   #+END_SRC
+   En tenant compte du même effet mais générée par le second atome/molécule sur
+   le premier et en considérant les deux atomes/molécules identiques /i.e./
+   $\vv{p}_1=\vv{p}_2=\vv{p}$, on obtient une force moyenne
+   #+BEGIN_SRC latex
+     \begin{align*}
+       \langle\vv{F}\rangle&=-2\times\frac{3\alpha\,\langle p^2\rangle}{4\pi^2\epsilon_0\,z^7}\,\vv{u}_z\\
+       &=-\frac{6\alpha\,\langle p^2\rangle}{4\pi^2\epsilon_0\,z^7}\,\vv{u}_z
+     \end{align*}
+   #+END_SRC
+
 * TD4 : Les milieux diélectriques :noexport:
 ** Introduction
 Historiquement, la découverte expérimentale des diélectriques est à mettre au

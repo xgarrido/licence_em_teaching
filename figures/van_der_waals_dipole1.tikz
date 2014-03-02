@@ -1,0 +1,29 @@
+%% document-wide tikz options and styles
+\begin{tikzpicture}[>=latex, % option for nice arrows
+    inner sep=0pt,%
+    outer sep=2pt,%
+    mark coordinate/.style={inner sep=0pt,outer sep=0pt,minimum size=3pt,
+      fill=black,circle}]
+  \sf
+  \definecolor{red}{RGB}{221,42,43}
+  \definecolor{green}{RGB}{105,182,40}
+  \definecolor{blue}{RGB}{0,51,153}
+  \definecolor{orange}{RGB}{192,128,64}
+  \definecolor{gray}{RGB}{107,108,110}
+
+  \clip (-2,-1) rectangle (3,1);
+
+  \coordinate[mark coordinate] (O) at (0,0);
+  \coordinate[mark coordinate] (P) at (1,0);
+  \coordinate[mark coordinate] (N) at (-1,0);
+  \coordinate[mark coordinate] (M) at (2,0);
+
+  \draw[->] (-1.6,0) -- (2.6,0) node[right] {$z$};
+  \draw[<->] (1,-0.3) -- (-1,-0.3) node[midway, below] {$2a$};
+
+  \draw (P) node[above] {$+q_1$};
+  \draw (N) node[above] {$-q_1$};
+  \draw (M) node[above] {$\mathbf{M}$};
+  \draw (O) node[above] {$\mathbf{O}$};
+
+\end{tikzpicture}
