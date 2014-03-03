@@ -4,7 +4,7 @@
 #+OPTIONS: ^:{} toc:2 tags:nil
 #+LATEX_CLASS: teaching-class
 
-* TD1 : Électromagnétisme & relativité                             :noexport:
+* TD1 : Électromagnétisme & relativité
 ** Introduction
 *Transformation de Lorentz :* $\beta=\tfrac{v}{c}$ et
  $\gamma=\tfrac{1}{\surd{1-\beta^2}}$. Si $\mathcal{R}'$ est en mouvement
@@ -1571,7 +1571,7 @@ $\vv{E}=-\grad\,V=-\tfrac{dV}{dr}\vv{u}_r$. Soit
    - pour $r>a$,
      #+BEGIN_SRC latex
        \begin{align*}
-         \vv{E}_\text{int.}=-\frac{q}{4\pi\,r^2}\vv{u}_r
+         \vv{E}_\text{int.}=-\frac{q}{4\pi\epsilon_0\,r^2}\vv{u}_r
        \end{align*}
      #+END_SRC
    - pour $r<a$,
@@ -1624,9 +1624,10 @@ $\vv{E}=-\grad\,V=-\tfrac{dV}{dr}\vv{u}_r$. Soit
 5) Application numérique à l'atome d'Hélium :
    #+BEGIN_SRC latex
      \begin{align*}
-       \alpha&=4\pi\,\left(7\,10^{-10}\right)^3=\unit[4.31\,10^{-27}]{m}^3\\
+       \alpha&=4\pi\,\left(7\,10^{-10}\right)^3=\unit[4.3\,10^{-27}]{m}^3\\
        E_\text{ext.}^\text{max}&=\frac{q}{4\pi\epsilon_0\,a^2}\\
-       &=\frac{3.2\,10^{-19}}{4\pi\times8.85\,10^{-12}\times\left(7\,10^{-10}\right)^2}
+       &=\frac{3.2\,10^{-19}}{4\pi\times8.85\,10^{-12}\times\left(7\,10^{-10}\right)^2}\\
+       &=\unit[5.9\,10^9]{V/m}
      \end{align*}
    #+END_SRC
 
@@ -1649,7 +1650,7 @@ $\vv{E}=-\grad\,V=-\tfrac{dV}{dr}\vv{u}_r$. Soit
        \vv{E}&=\frac{q_1}{4\pi\epsilon_0\,\left(z-a\right)^2}\,\vv{u}_z-\frac{q_1}{4\pi\epsilon_0\,\left(z+a\right)^2}\,\vv{u}_z\\
        &=\frac{q_1}{4\pi\epsilon_0}\,\left(\frac{1}{\left(z-a\right)^2}-\frac{1}{\left(z+a\right)^2}\right)\,\vv{u}_z\\
        \text{avec }z\gg a\quad\vv{E}&\simeq\frac{q_1}{4\pi\epsilon_0\,z^2}\left(\cancel{1}+\frac{2a}{z}-\cancel{1}+\frac{2a}{z}\right)\,\vv{u}_z\\
-       &\simeq\frac{2\vv{p}_1}{4\pi\epsilon_0\,z^3}
+       &\simeq\frac{\vv{p}_1}{2\pi\epsilon_0\,z^3}
      \end{align*}
    #+END_SRC
 
@@ -1664,9 +1665,9 @@ $\vv{E}=-\grad\,V=-\tfrac{dV}{dr}\vv{u}_r$. Soit
    #+BEGIN_SRC latex
      \begin{align*}
        \vv{F}&=q_2\vv{E}(z+b)-q_2\vv{E}(z-b)\\
-       &=\frac{2\vv{p}_1q_2}{4\pi\epsilon_0}\left(\frac{1}{\left(z+b\right)^3}-\frac{1}{\left(z-b\right)^3}\right)\\
-       \text{avec }z\gg b\quad\vv{F}&=\frac{2\vv{p}_1q_2}{4\pi\epsilon_0\,z^3}\left(\cancel{1}-\frac{3b}{z}-\cancel{1}-\frac{3b}{z}\right)\\
-       &\simeq-\frac{2\vv{p}_1q_2\,2b\times3}{4\pi\epsilon_0\,z^4}=-\frac{6p_1p_2}{4\pi\epsilon_0\,z^4}\vv{u}_z\text{ où }p_2=q_2\,2b
+       &=\frac{\vv{p}_1\,q_2}{2\pi\epsilon_0}\left(\frac{1}{\left(z+b\right)^3}-\frac{1}{\left(z-b\right)^3}\right)\\
+       \text{avec }z\gg b\quad\vv{F}&\simeq\frac{\vv{p}_1\,q_2}{2\pi\epsilon_0\,z^3}\left(\cancel{1}-\frac{3b}{z}-\cancel{1}-\frac{3b}{z}\right)\\
+       &\simeq-\frac{\vv{p}_1\,q_2\,2b\times3}{2\pi\epsilon_0\,z^4}=-\frac{3p_1p_2}{2\pi\epsilon_0\,z^4}\vv{u}_z\text{ où }p_2=q_2\,2b
      \end{align*}
    #+END_SRC
 
@@ -1697,10 +1698,9 @@ $\vv{E}=-\grad\,V=-\tfrac{dV}{dr}\vv{u}_r$. Soit
    Ainsi, la force moyenne entre les deux dipôles devient
    #+BEGIN_SRC latex
      \begin{align*}
-       \langle\vv{F}\rangle&=\vv{F}\times\frac{t_1}{t_1+t_2}-\vv{F}\times\frac{t_2}{t_1+t_2}\text{ où }\vv{F}=-\frac{6p_1p_2}{4\pi\epsilon_0\,z^4}\vv{u}_z\\
-       &=\frac{\vv{F}}{2}\times\frac{2\vv{p}_2.\vv{E}_{1\to2}}{k_BT}=-\frac{6p_1p_2^2\,\vv{E}_{1\to2}}{4\pi\epsilon_0k_BT\,z^4}\\
-       &=-\frac{12p_1^2p_2^2}{16\pi^2\epsilon_0^2k_BT\,z^7}\,\vv{u}_z\text{ car }\vv{E}_{1\to2}=\frac{2\vv{p}_1}{4\pi\epsilon_0\,z^3}\\
-       &=-\frac{3p_1^2p_2^2}{4\pi^2\epsilon_0^2k_BT\,z^7}\,\vv{u}_z
+       \langle\vv{F}\rangle&=\vv{F}\times\frac{t_1}{t_1+t_2}-\vv{F}\times\frac{t_2}{t_1+t_2}\text{ où }\vv{F}=-\frac{3p_1p_2}{2\pi\epsilon_0\,z^4}\vv{u}_z\\
+       &=\frac{\vv{F}}{2}\times\frac{2\vv{p}_2.\vv{E}_{1\to2}}{k_BT}=-\frac{3p_1p_2^2\,\vv{E}_{1\to2}}{2\pi\epsilon_0k_BT\,z^4}\\
+       &=-\frac{3p_1^2p_2^2}{4\pi^2\epsilon_0^2k_BT\,z^7}\,\vv{u}_z\text{ car }\vv{E}_{1\to2}=\frac{\vv{p}_1}{2\pi\epsilon_0\,z^3}
      \end{align*}
    #+END_SRC
 
@@ -1710,18 +1710,18 @@ $\vv{E}=-\grad\,V=-\tfrac{dV}{dr}\vv{u}_r$. Soit
    Le moment dipolaire induit par le champ électrique du premier dipôle est
    #+BEGIN_SRC latex
      \begin{align*}
-       \vv{p}_2&=\alpha\epsilon_0\,\vv{E}_\text{ext.}\text{ où }\vv{E}_\text{ext.}=\frac{2\vv{p}_1}{4\pi\epsilon_0\,z^3}\\
-       &=\frac{2\alpha\vv{p}_1}{4\pi\,z^3}\,\vv{u}_z
+       \vv{p}_2&=\alpha\epsilon_0\,\vv{E}_\text{ext.}\text{ où }\vv{E}_\text{ext.}=\frac{\vv{p}_1}{2\pi\epsilon_0\,z^3}\\
+       &=\frac{\alpha\vv{p}_1}{2\pi\,z^3}\,\vv{u}_z
      \end{align*}
    #+END_SRC
 
    La force exercée par la première moléculé est la même que précédemment à
-   savoir $\vv{F}=-\frac{6p_1p_2}{4\pi\epsilon_0\,z^4}\,\vv{u}_z$ avec
-   $\vv{p}_2=\frac{2\alpha\vv{p}_1}{4\pi\,z^3}$ soit
+   savoir $\vv{F}=-\frac{3p_1p_2}{2\pi\epsilon_0\,z^4}\,\vv{u}_z$ avec
+   $\vv{p}_2=\frac{\alpha\vv{p}_1}{2\pi\,z^3}$ soit
    #+BEGIN_SRC latex
      \begin{align*}
-       \vv{F}&=-\frac{6p_1p_2}{4\pi\epsilon_0\,z^4}\,\vv{u}_z=-\frac{6p_1^2\times2\alpha}{16\pi^2\epsilon_0\,z^7}\,\vv{u}_z\\
-       &=-\frac{3p_1^2\alpha}{4\pi^2\epsilon_0\,z^7}\,\vv{u}_z
+       \vv{F}&=-\frac{3p_1p_2}{2\pi\epsilon_0\,z^4}\,\vv{u}_z\\
+       &=-\frac{3\alpha\,p_1^2}{4\pi^2\epsilon_0\,z^7}\,\vv{u}_z\\
      \end{align*}
    #+END_SRC
 
@@ -1748,7 +1748,7 @@ $\vv{E}=-\grad\,V=-\tfrac{dV}{dr}\vv{u}_r$. Soit
    #+BEGIN_SRC latex
      \begin{align*}
        \langle\vv{F}\rangle&=-2\times\frac{3\alpha\,\langle p^2\rangle}{4\pi^2\epsilon_0\,z^7}\,\vv{u}_z\\
-       &=-\frac{6\alpha\,\langle p^2\rangle}{4\pi^2\epsilon_0\,z^7}\,\vv{u}_z
+       &=-\frac{3\alpha\,\langle p^2\rangle}{2\pi^2\epsilon_0\,z^7}\,\vv{u}_z
      \end{align*}
    #+END_SRC
 
