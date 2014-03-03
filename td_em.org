@@ -2397,7 +2397,7 @@ ne dépendent que de $z$.
    nul. On obtient ainsi
    #+BEGIN_SRC latex
      \begin{align*}
-       D(z=z_1)S-D(z=z_2)=\Upsigma Q_\text{libre}&=0\\
+       D(z=z_1)S-D(z=z_2)S=\Upsigma Q_\text{libre}&=0\\
        D(z=z_1)&=D(z=z_2)=D
      \end{align*}
    #+END_SRC
@@ -2413,21 +2413,19 @@ ne dépendent que de $z$.
      \end{align*}
    #+END_SRC
 
-   En raison de la présence du diélectrique, le champ entre les armatures est
-   donc $\vv{E}=\frac{\vv{D}}{\epsilon}$.
 2) La polarisation d'une lame piézoélectrique se décompose de la façon suivante
    #+BEGIN_SRC latex
      \begin{align*}
        \vv{P}=\underbrace{\epsilon_0\chi\vv{E}}_{\vv{P}_\text{LHI}}+\underbrace{\frac{\epsilon\alpha\delta}{d}\vv{u}_z}_{\vv{P}_\text{piézo.}}
      \end{align*}
    #+END_SRC
-   où le premier terme induit un champ $\vv{E}=\frac{\vv{D}}{\epsilon}$, le
-   second terme générant un champ dépolarisant
-   $-\frac{\vv{P}_\text{piézo.}}{\epsilon_0}$. Le champ électrique à l'intérieur
-   de la lame piézoélectrique s'écrit donc
+   où le premier terme induit un champ
+   $\vv{E}_\text{LHI}=\frac{\vv{D}}{\epsilon}$, le second terme générant un
+   champ dépolarisant $-\frac{\vv{P}_\text{piézo.}}{\epsilon_0}$. Le champ
+   électrique à l'intérieur de la lame piézoélectrique s'écrit donc
    #+BEGIN_SRC latex
      \begin{align*}
-       \vv{E}_\text{total}&=\vv{E}-\frac{\vv{P}_\text{piézo.}}{\epsilon_0}\\
+       \vv{E}_\text{total}&=\vv{E}_\text{LHI}-\frac{\vv{P}_\text{piézo.}}{\epsilon_0}\\
        &=\frac{\vv{D}}{\epsilon}-\frac{\epsilon_r\alpha\delta}{d}\vv{u}_z\\
        &=\left(\frac{q}{\epsilon S}-\frac{\epsilon_r\alpha\delta}{d}\right)\vv{u}_z
      \end{align*}
