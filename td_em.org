@@ -4,7 +4,7 @@
 #+OPTIONS: ^:{} toc:2 tags:nil
 #+LATEX_CLASS: teaching-class
 
-* TD1 : Électromagnétisme & relativité
+* TD1 : Électromagnétisme & relativité :noexport:
 ** Introduction
 *Transformation de Lorentz :* $\beta=\tfrac{v}{c}$ et
  $\gamma=\tfrac{1}{\surd{1-\beta^2}}$. Si $\mathcal{R}'$ est en mouvement
@@ -1143,7 +1143,7 @@ totale $\mathcal{E}$ et d'énergie cinétique $\mathcal{E}_c$.
   est un bruit important pour les interféromètres de haute sensibilité tels que
   Virgo (/cf./ [[http://tel.archives-ouvertes.fr/tel-00175254/en/]]).
 
-* TD3 : Électrostatique dans le vide
+* TD3 : Électrostatique dans le vide :noexport:
 ** Condensateur cylindrique
 
 #+ATTR_HTML: :class hidden
@@ -2487,7 +2487,35 @@ ne dépendent que de $z$.
         \end{align*}
       #+END_SRC
 
-* TD5 : Magnétostatique :noexport:
+* TD5 : Magnétostatique
+** Introduction
+En magnétostatique, les équations locales deviennent
+#+BEGIN_SRC latex
+  \begin{align*}
+    \div\vv{B} &= 0\\
+    \rot\vv{B} &= \mu_0\vv{j}
+  \end{align*}
+#+END_SRC
+soit, dans leurs versions intégrales
+#+BEGIN_SRC latex
+  \begin{align*}
+    \iint_\mathcal{S}\vv{B}.\vv{dS} &= 0\\
+    \oint_\mathcal{C}\vv{B}.\vv{d\ell} &= \mu_0I_\mathcal{C}(\text{courant enlacé})
+  \end{align*}
+#+END_SRC
+
+Le potentiel vecteur $\vv{A}$ est lié au champ magnétique par la relation
+$\vv{B}=\rot\vv{A}$, le vecteur potentiel étant, par ailleurs, à flux conservatif
+$\div\vv{A}=0$ (jauge de Coulomb). On déduit ainsi l'équation vectorielle de
+Poisson $\vv{\Delta}\vv{A}=-\mu_0\vv{j}$ soit
+#+BEGIN_SRC latex
+  \begin{align*}
+    \vv{A}(M)&=\frac{\mu_0}{4\pi}\iiint\frac{\vv{j}(P)}{PM}\,d\tau\\
+    \vv{B}(M)&=\frac{\mu_0}{4\pi}\iiint\frac{\vv{j}(P)\times\vv{PM}}{PM^3}\,d\tau
+  \end{align*}
+#+END_SRC
+
+
 ** Solénoïde fini
 1) Les plans $(xMz)$ et $(yMz)$ sont tous deux plans d'antisymétrie de la
    distribution de courant : le champ magnétique pour tout point $M$ appartenant
