@@ -9,6 +9,7 @@
 <meta  name="author" content="Xavier Garrido" />
 <link rel="stylesheet" href="css/styles.css">
                <link rel="stylesheet" href="css/org-pygments.css">
+               <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
 <script type="text/javascript">
 /*
 @licstart  The following is the entire license notice for the
@@ -54,9 +55,20 @@ for the JavaScript code in this tag.
      target.className = elem.cacheClassTarget;
  }
 /*]]>*///-->
+</script><script type="text/javascript">
+function displayTOC() {
+    var first = document.getElementById("text-table-of-contents").innerHTML;
+    if (first != "") {
+        var maincontent = '<a class="button"><i class="fa fa-list"></i></a>'
+        maincontent += "<div>" + first + "</div>";
+        document.getElementById("toc").innerHTML = maincontent;
+    } else {
+        document.getElementById("toc").style.display = "none";
+    }
+   }
 </script>
 </head>
-<body>
+<body onload="displayTOC()"><div id="toc"></div>
 <div id="content">
 <h1 class="title">Electromagnetism classes of Licence 3 - README</h1>
 
@@ -91,14 +103,16 @@ will use the Makefile in the corresponding directories. So, next step will be to
 do <code>make</code> within the different directories.
 </p>
 
+<div class="center">
 <p>
 See <a href="./td_em.html">Electromagnetism classes</a> (in french)
 </p>
 </div>
 </div>
 </div>
+</div>
 <div id="postamble" class="status">
-File under git version control - commit 660ab3d - 2014-02-25
+File under git version control - commit e03bccf - 2014-03-04
 </div>
 </body>
 </html>
