@@ -1,0 +1,51 @@
+%% document-wide tikz options and styles
+\begin{tikzpicture}[  >=latex, % option for nice arrows
+    inner sep=0pt,%
+    outer sep=2pt,%
+    mark coordinate/.style={inner sep=0pt,outer sep=0pt,minimum size=3pt,
+      fill=black,circle}%
+]
+  \sf
+  \definecolor{red}{RGB}{221,42,43}
+  \definecolor{green}{RGB}{105,182,40}
+  \definecolor{blue}{RGB}{0,51,153}
+  \definecolor{orange}{RGB}{192,128,64}
+  \definecolor{gray}{RGB}{107,108,110}
+
+  %% some definitions
+
+  \def\R{2.5} % sphere radius
+
+  \fill[ball color=white] (0,0) circle (0.8*\R); % 3D lighting effect
+  %% \draw[dashed] (0,0) circle (0.8*\R);
+
+  %% characteristic points
+
+  \coordinate[mark coordinate] (A) at (-0.8*\R,0);
+  \coordinate[mark coordinate] (C) at (0,0.8*\R);
+  \coordinate[mark coordinate] (B) at (0.8*\R,0);
+  \coordinate[mark coordinate] (D) at (0,-0.8*\R);
+  \draw (A) node[above left] {$\mathbf{A}$};
+  \draw (C) node[below, yshift=-2pt] {$\mathbf{C}$};
+  \draw (B) node[above right] {$\mathbf{B}$};
+  \draw (D) node[above, yshift=2pt] {$\mathbf{D}$};
+
+  \def\start{-6}
+  \def\stop{+6}
+  \foreach \i in {0,1,2,3,4}{%
+    \draw [] (\start, 0.05 + 0.10*\i) -- (\start+2,0.05 + 0.10*\i) to[out=0, in=180] (0, 0.82*\R+0.02*\i) to[out=0, in=180] (\stop-2, 0.05 + 0.10*\i) -- (\stop, 0.05 + 0.10*\i);
+    \begin{scope}[y=-1cm]
+      \draw [] (\start, 0.05 + 0.10*\i) -- (\start+2,0.05 + 0.10*\i) to[out=0, in=180] (0, 0.82*\R+0.02*\i) to[out=0, in=180] (\stop-2, 0.05 + 0.10*\i) -- (\stop, 0.05 + 0.10*\i);
+    \end{scope}
+  }
+
+  \draw (\start, 0) node[left] {\large$\overrightarrow{B}_\infty$};
+  \draw (\stop, 0) node[right] {\large$\overrightarrow{B}_\infty$};
+  %%\draw (O) node[above left] {$\mathbf{O}$};%% -- (M) node[above right] {$\mathbf{M}$};
+  %% \draw[->,thin] (90:0.5*\R) to[bend left=30] node[pos=0.55,yshift=6pt] {$\theta$} (52:0.5*\R);
+  %% \draw (P) node[left] {$\mathbf{P}$};
+  %% \draw (P) node[right] {$+q$};
+  %% \draw (N) node[left] {$\mathbf{N}$};
+  %% \draw (N) node[right] {$-q$};
+
+\end{tikzpicture}

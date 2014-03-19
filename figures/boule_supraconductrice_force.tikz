@@ -1,0 +1,45 @@
+%% document-wide tikz options and styles
+
+\tikzset{%
+  >=latex, % option for nice arrows
+  inner sep=0pt,%
+  outer sep=2pt,%
+  mark coordinate/.style={inner sep=0pt,outer sep=0pt,minimum size=3pt,
+    fill=black,circle}%
+}
+\begin{tikzpicture}
+  \sf
+  \definecolor{red}{RGB}{221,42,43}
+  \definecolor{green}{RGB}{105,182,40}
+  \definecolor{blue}{RGB}{0,51,153}
+  \definecolor{orange}{RGB}{192,128,64}
+  \definecolor{gray}{RGB}{107,108,110}
+
+  %% some definitions
+
+  \def\R{2.5} % sphere radius
+
+  \draw[black, fill=gray!20] (0.8*\R,0) arc(0:360:0.8*\R);
+
+  %% characteristic points
+  \coordinate[mark coordinate] (O) at (0,0);
+  \coordinate[mark coordinate] (M) at (0.565*\R,0.565*\R);
+  \coordinate[mark coordinate] (N) at (-0.565*\R,0.565*\R);
+  \coordinate[mark coordinate] (P) at (0.565*\R,-0.565*\R);
+  \coordinate[mark coordinate] (Q) at (-0.565*\R,-0.565*\R);
+
+  \draw[dashed] (0,-\R) -- (0,\R);
+
+  %% draw lines and put labels
+  \draw[dashed] (O) -- (0.2*\R,0.2*\R);
+  \draw[->] (M) -- (0.2*\R,0.2*\R) node[midway, right, xshift=0pt,yshift=-5pt] {$\overrightarrow{F}$};
+  \draw[dashed] (O) -- (-0.2*\R,0.2*\R);
+  \draw[->] (N) -- (-0.2*\R,0.2*\R) node[midway, left, xshift=0pt,yshift=-5pt] {$\overrightarrow{F}$};
+  \draw[dashed] (O) -- (0.2*\R,-0.2*\R);
+  \draw[->] (P) -- (0.2*\R,-0.2*\R) node[midway, right, xshift=0pt,yshift=5pt] {$\overrightarrow{F}$};
+  \draw[dashed] (O) -- (-0.2*\R,-0.2*\R);
+  \draw[->] (Q) -- (-0.2*\R,-0.2*\R) node[midway, left, xshift=0pt,yshift=5pt] {$\overrightarrow{F}$};
+
+  \draw[->,thin] (90:0.5*\R) to[bend left=30] node[pos=0.55,yshift=6pt] {$\theta$} (45:0.5*\R);
+
+\end{tikzpicture}

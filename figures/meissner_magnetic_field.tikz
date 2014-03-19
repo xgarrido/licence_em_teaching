@@ -1,0 +1,22 @@
+\begin{tikzpicture}
+  % Colors
+  \definecolor{red}{RGB}{221,42,43}
+  \definecolor{green}{RGB}{132,184,24}
+  \definecolor{blue}{RGB}{0,51,153}
+  \definecolor{orange}{RGB}{192,128,64}
+  \definecolor{gray}{RGB}{107,108,110}
+  \begin{axis}[
+      yticklabels={,,},xticklabels={,,},
+      xlabel={position $x$},ylabel={Champ magnétique $\overrightarrow{B}$},
+      clip=false
+    ]
+    \addplot[thick,blue,domain=0:100] {10*exp(-0.04*(x))};
+    \node at (axis cs:0,-1) [below] {$0$};
+    \node at (axis cs:60,-1) [below] {$\lambda\equiv$ épaisseur de peau};
+    \node at (axis cs:-10,10) [left,red] {$B_\infty$};
+    \node at (axis cs:-10,0) [left] {$0$};
+    \draw[red, dashed] (axis cs:-10,10) -- (axis cs:0,10);
+    \draw[dashed] (axis cs:0,10) -- (axis cs:30,-0.7);
+
+  \end{axis}
+\end{tikzpicture}
