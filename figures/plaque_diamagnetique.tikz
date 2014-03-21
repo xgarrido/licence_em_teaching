@@ -1,0 +1,27 @@
+\begin{tikzpicture}[>=latex, % option for nice arrows
+    mark coordinate/.style={inner sep=0pt,outer sep=0pt,minimum size=3pt,
+      fill=black,circle}]
+  \usetikzlibrary{decorations.markings}
+  \sf
+  \definecolor{red}{RGB}{221,42,43}
+  \definecolor{green}{RGB}{105,182,40}
+  \definecolor{blue}{RGB}{0,51,153}
+  \definecolor{orange}{RGB}{192,128,64}
+  \definecolor{gray}{RGB}{107,108,110}
+
+  \clip (-0.5,-2) rectangle (7,2);
+
+  \draw[fill=blue!10, blue!10] (0,-1) rectangle (6,1);
+  \draw[<->] (0.1,-1) -- (0.1,1) node[midway, left] {$e$};
+  \begin{scope}[decoration={
+        markings,
+        mark=at position 0.5 with {\arrow{>}}}]
+    \foreach \x in {0,...,2}{
+      \draw[postaction={decorate},xshift=50pt*\x] (0.5,-2) -- (1,-1) node[midway, right] {\footnotesize$\overrightarrow{B}_0$};
+      \draw[xshift=50pt*\x, dashed, gray] (1,-1) -- (2,1);
+      \draw[postaction={decorate},xshift=50pt*\x] (1,-1) -- (1.5,1);
+      \draw[postaction={decorate},yshift=3cm,xshift=50pt*\x] (1.5,-2) -- (2,-1) node[midway, right] {\footnotesize$\overrightarrow{B}_0$};;
+    }
+  \end{scope}
+
+\end{tikzpicture}

@@ -1,4 +1,4 @@
-#+TITLE:  Travaux Dirigés d'Électromagnétisme -- Licence 3
+#+TITLE:  Travaux Dirigés d'Électromagné\-tisme -- Licence 3
 #+AUTHOR: Xavier Garrido
 #+DATE:   21/01/14
 #+OPTIONS: ^:{} toc:2 tags:nil author:nil
@@ -1146,9 +1146,6 @@ totale $\mathcal{E}$ et d'énergie cinétique $\mathcal{E}_c$.
 * TD3 : Électrostatique dans le vide
 ** Condensateur cylindrique
 
-#+ATTR_HTML: :class hidden
-#+ATTR_LATEX: :float wrap :placement {l}{0.4\textwidth} :width 0.3\textwidth
-[[./figures/cylinders.pdf]]
 En considérant $h\gg a,b$, le problème est invariant par translation le long de
 l'axe des cylindres. Par ailleurs, le problème est invariant par rotation soit
 $E(M)=E(r)$. En coordonnées cylindriques, les plans $(\vv{u}_r,\vv{u}_\theta)$
@@ -2958,7 +2955,7 @@ stationnaire.
       par rapport au plan $x=0$ et ce en raison des courants en "surface" de ce
       même supraconducteur.
    4) $\delta\sim0.1\,\mu\text{m}$ : dans l'hypothèse où $\delta\ll R$ seuls les
-      premiers micromètres du supraconducteuront une influence. La symétrie
+      premiers micromètres du supraconducteur ont une influence. La symétrie
       sphérique du supraconducteur n'est plus effective et le problème peut se
       résumer à un problème plan.
       Par ailleurs, si $\delta\ll1$, le champ magnétique à l'intérieur du
@@ -2988,9 +2985,9 @@ stationnaire.
       #+END_SRC
 3) Les champs $\vv{B}_\text{int.}$, $\vv{j}$ et $\vv{A}$ sont nuls à l'intérieur
    de la boule supraconductrice du fait qu'on considère à présent $\delta=0$.
-   1) Dans le vide, $\vv{j}=\vv{0}$ d'où $\rot\vv{B}=\vv{0}$ et
-      $\div\vv{B}=0$. La répartition des lignes de champ magnétique est alors
-      identique aux lignes du champ de vitesse d'un fluide incompressible
+   1) Dans le vide, $\vv{j}=\vv{0}$ d'où $\rot\vv{B}=\vv{0}$ et $\div\vv{B}=0$
+      ($\Delta\vv{B}=\vv{0}$). La répartition des lignes de champ magnétique est
+      alors identique aux lignes du champ de vitesse d'un fluide incompressible
       s'écoulant sur la boule[fn:8]
 
       #+BEGIN_CENTER
@@ -3100,7 +3097,7 @@ stationnaire.
       champ magnétique externe /i.e./ celui généré par le solénoïde, réagit en
       faisant circuler des courants superficiels de telle sorte que
       $|B_\text{supra}|=B_\text{solénoïde}$.
-   4) Le moment magnétique $\mathcal{M}$ d'un cricuit fermé $\mathcal{C}$
+   4) Le moment magnétique $\mathcal{M}$ d'un circuit fermé $\mathcal{C}$
       correspond au produit de l'intensité du courant $I$ parcourant cette
       boucle par la surface orientée délimité par cette même boucle
       #+BEGIN_SRC latex
@@ -3152,11 +3149,226 @@ stationnaire.
       #+END_SRC
 
       #+BEGIN_CENTER
-      #+ATTR_LATEX: :width 0.5\linewidth
+      #+ATTR_LATEX: :width 0.4\linewidth
       [[./figures/boule_supraconductrice_force.pdf]]
       #+END_CENTER
 
+*** Lévitation supraconducteur-supraconducteur
+1) Les supraconducteurs de même que l'espace vide sont localement neutres d'où
+   $\rho=0$ impliquant que le potentiel électrique $V$ soit solution de
+   l'équation de Laplace $\Delta V=0$. Sacahnt que le potentiel électrique est
+   nul à l'infini $V(\infty)=0$, le potentiel est donc nul en tout point $M$ de
+   l'espace. Par ailleurs, le vecteur-potentiel $\vv{A}$ étant nul dans le
+   supraconducteur, le champ électrique $\vv{E}_\text{supra.}=-\grad
+   V-\frac{\partial \vv{A}}{\partial t}=\vv{0}$.
 
+   La loi de Faraday lie la variation temporelle du flux magnétique $\Phi_B$ à
+   la circulation du champ électrique autour d'un contour $\mathcal{C}$. En
+   prenant pour contour $\mathcal{C}$ un cercle de même axe que l'anneau
+   supra. et de rayon légèrement supérieur à $a$, on obtient
+   #+BEGIN_SRC latex
+     \begin{align*}
+       -\frac{d\Phi_B}{dt}&=\oint_\mathcal{C}\vv{E}.\vv{d\ell}=0
+     \end{align*}
+   #+END_SRC
+   Le flux magnétique au travers de l'anneau supra. est donc constant.
+
+2) En supposant $\vv{B}=B(r)\vv{u_r}$, le flux du champ magnétique au travers
+   d'une surface fermée est nul soit
+   #+BEGIN_SRC latex
+     \begin{align*}
+       \div\vv{B}=0\Longleftrightarrow\varoiint_\mathcal{S}\vv{B}.\vv{dS}&=0\\
+       \iint_\text{\ding{192}}B(r)\times dS+\underbrace{\iint_\text{\ding{193}}\vv{B}.\vv{dS}}_{\Phi_B}&=0\\
+       B(r)\times2\pi rh+\Phi_B=0&\to B(r)=-\frac{\Phi_B}{2\pi rh}
+     \end{align*}
+   #+END_SRC
+   où \ding{192} correspond à la surface cylindrique de rayon $r$ entre les deux
+   supraconducteurs. La surface \ding{193} correspond au flux magnétique au
+   travers de l'anneau supra.
+
+   Le problème étant invariant par rotation \theta, le champ magnétique $\vv{B}$
+   s'écrit $B_r(r,z)\vv{u_r}+B_z(r,z)\vv{u_z}$ (le plan $(\vv{u_r},\vv{u_z})$ est
+   plan d'antisymétrie de la distribution de courant). Si $h\ll a,b$, on peut
+   considérer le problème comme invariant par translation selon $z$. Le champ
+   magnétique se limite à l'expression $B_r(r)\vv{u_r}+B_z(r)\vv{u_z}$ et, en
+   $z=0$, le champ magnétique est colinéaire à la surface du plan /i.e./
+   $\vv{B}\parallel\vv{u_r}$ d'où $B_z(r)=0$ pour tout valeur de $r$. Ainsi,
+   dans la mesure où $h\ll b$, le champ magnétique entre les supraconducteurs
+   peut s'approximer par $B(r)\vv{u_r}$.
+
+3) L'anneau subit une pression magnétique
+   #+BEGIN_SRC latex
+     \begin{align*}
+       \frac{d\vv{F}}{dS}=\frac{B^2}{2\mu_0}\vv{u_z}&\to\vv{F}=\frac{\Phi_B^2}{4\pi^2h^2\times2\mu_0}\int_a^b\int_0^{2\pi}\frac{\cancel{r}drd\theta}{r^{\cancel{2}}}\vv{u_z}\\\\
+       &\vv{F}=\frac{\Phi_B^2}{8\pi^2h^2\mu_0}\times\ln\frac{b}{a}\,\vv{u_z}=\frac{\Phi_B^2}{4\pi\mu_0 h^2}\ln\frac{b}{a}\,\vv{u_z}
+     \end{align*}
+   #+END_SRC
+   L'équilibre de l'anneau est atteint lorsque la résultante des forces de
+   Laplace $\vv{F}$ compense le poids $m\vv{g}$ de l'anneau soit
+   #+BEGIN_SRC latex
+     \begin{align*}
+       \frac{\Phi_B^2}{4\pi\mu_0 h_0^2}\ln\frac{b}{a}&=mg\\
+       h_0&=\Phi_B\sqrt{\frac{1}{4\pi\mu_0 mg}\ln\frac{b}{a}}
+     \end{align*}
+   #+END_SRC
+
+4) Hors équilibre, le principe fondamental de la dynamique s'écrit
+   #+BEGIN_SRC latex
+     \begin{align*}
+       \vv{F}+m\vv{g}&=m\ddot{h}\vv{u_z}\text{ avec }F=F_0=mg\text{ pour }h=h_0\\
+       F-F_0&=m\ddot{h}
+     \end{align*}
+   #+END_SRC
+   Pour $h$ au voisinage de $h_0$, la force $F$ peut se développer sous la forme
+   #+BEGIN_SRC latex
+     \begin{align*}
+       F\simeq F_0+(h-h_0)\left.\frac{\partial F}{\partial h}\right|_{h_0}
+     \end{align*}
+   #+END_SRC
+   Sachant que $F$ est de la forme $\frac{\alpha}{h^2}$ où
+   $\alpha=\frac{\Phi_B^2}{4\pi\mu_0}\ln\frac{b}{a}$, la dérivée $\frac{\partial
+   F}{\partial h}=-\frac{2\alpha}{h^3}$. Le mouvement de l'anneau autour de sa
+   position d'équilibre $h_0$ devient
+   #+BEGIN_SRC latex
+     \begin{align*}
+       F-F_0\simeq -(h-h_0)\frac{2\alpha}{h_0^3}&=m\ddot{h}\\
+       \ddot{h}+\frac{2\alpha}{mh_0^3}(h-h_0)&=0
+     \end{align*}
+   #+END_SRC
+   L'anneau oscille autour de sa position d'équilibre $h_0$ à une pulsation
+   $\omega^2=\frac{2\alpha}{mh_0^3}$ soit
+   #+BEGIN_SRC latex
+     \begin{align*}
+       \omega^2&=\frac{4\pi^2}{T^2}=\frac{2\Phi_B^2}{4\pi\mu_0mh_0^3}\ln\frac{b}{a}\\
+       T&=2\pi\sqrt{\frac{2\pi\mu_0h_0^3}{\Phi_B^2\ln\frac{b}{a}}}
+     \end{align*}
+   #+END_SRC
+
+5) Application numérique :
+   #+BEGIN_SRC latex
+     \begin{align*}
+       h_0&=\unit[10^{-6}]{Weber}\sqrt{\frac{1}{4\pi\times4\pi\,10^{-7}\times0.1\times10}\times\ln5}=\unit[0.32]{mm}\ll b\\
+       T&=\unit[0.02]{s}
+     \end{align*}
+   #+END_SRC
+
+* TD6 : Milieux magnétiques
+** Introduction
+Dans la plupart des matériaux soumis à un champ magnétique, les charges liées se
+déplacent à l'échelle atomique faisant apparaître des boucles de courant /i.e./
+*des dipôles magnétiques* : la milieu s'aimante. Ainsi, l'aimantation $\vv{M}$
+d'un matériau correspond à la densité volumique de moment magnétique $\vv{m}$
+soit
+#+BEGIN_SRC latex
+  \begin{align*}
+    \vv{M}=\frac{d\vv{m}}{d\tau}
+  \end{align*}
+#+END_SRC
+Pour rappel, le moment dipolaire magnétique $\vv{m}$ d'une boucle de courant est
+égale à $\vv{m}=I\times\vv{S}$.
+
+On peut alors introduire une densité de courant liés (ou d'aimantation)
+$\vv{j}_\text{liés}$ correspondant au rotationnel de l'aimantation
+#+BEGIN_SRC latex
+  \begin{align*}
+    \rot\vv{M}=\vv{j}_\text{liés}
+  \end{align*}
+#+END_SRC
+
+L'équation de Maxwell-Faraday devient
+#+BEGIN_SRC latex
+  \begin{align*}
+    \rot\vv{B}&=\mu_0\left(\vv{j}_\text{libres}+\vv{j}_\text{liés}\right)\\
+    \rot\vv{B}&=\mu_0\left(\vv{j}_\text{libres}+\rot\vv{M}\right)\\
+    \rot\left(\frac{\vv{B}}{\mu_0}-\vv{M}\right)&=\vv{j}_\text{libres}\\
+    \rot\vv{H}&=\vv{j}_\text{libres}
+  \end{align*}
+#+END_SRC
+où $\vv{H}=\frac{\vv{B}}{\mu_0}-\vv{M}$ est le vecteur d'excitation magnétique
+dont l'unité est l'Ampère par mètre.
+
+Le théorème d'Apère généralisé s'écrit
+#+BEGIN_SRC latex
+  \begin{align*}
+    \oint_\mathcal{C}\vv{H}.\vv{d\ell}&=\iint_{\mathcal{S}}\vv{j}_\text{libres}.\vv{dS}=\Upsigma I_\text{libres}^\text{enlacés}
+  \end{align*}
+#+END_SRC
+
+Les relations de passage demeurent inchangés pour ce qui concerne la composante
+normale du champ magnétique
+$\vv{n}_{1\to2}.\left(\vv{B}_2-\vv{B}_1\right)=0$. La composante tangentielle
+devient
+$\vv{n}_{1\to2}\times\left(\vv{H}_2-\vv{H}_1\right)=\vv{j}_{S,\text{libres}}$.
+
+Il existe plusieurs types de milieux magnétiques en fonction de la relation
+liant l'aimantation au vecteur excitation. Les milieux diamagnétiques et
+paramagnétiques ont une aimantation $\vv{M}$ directement proportionnelle à
+$\vv{H}$ par la relation $\vv{M}=\chi_m\vv{H}$ où $\chi_m$ est la susceptibilité
+magnétique. Le champ magnétique dans ces matériaux se réduit à
+$\vv{B}=\mu\vv{H}$ où $\mu$ est la perméabilité magnétique du matériau /i.e./
+$\mu=\mu_r\mu_0$ ($1+\chi_m=\mu_r$). Les valeurs caractéristiques de $\mu_r$
+sont voisines de 1 pour les milieux dia et paramagnétiques, $\chi_m$ étant
+négatif et de l'ordre de 10^{-9} pour les milieux dia. et voisin de 10^{-4} pour
+les milieux para.
+
+Dans le cas de matériaux ferromagnétiques, $\chi_m\gg1$, l'aimantation n'est
+plus proportionnelle à l'excitation magnétique $\vv{M}\neq\chi_m\vv{H}$.
+
+** Plaque magnétique
+1) On considère une plaque magnétique linéaire, homogène et isotrope soit
+   $\vv{M}=\chi_m\vv{H}=\chi_m\frac{\vv{B}}{\mu}$. Le vecteur aimantation est
+   donc un pseudo-vecteur comme le champ magnétique et appartient donc aux plans
+   d'antisymétrie de la distribution de courant. On déduit que $\vv{M}$ est
+   contenu dans le même plan que $\vv{B}$.
+2) À l'extérieur de la plaque, $\vv{B}=\vv{B}_0$,
+   $\vv{H}=\frac{\vv{B}_0}{\mu_0}$ et $\vv{M}=\vv{0}$. À l'intérieur de la
+   plaque, l'aimantation étant uniforme, le champ magnétique est donc
+   constant. On utilise les relations de passage pour calculer les composantes
+   normale $\vv{B}_{i\perp}$ et tangentielle $\vv{B}_{i\parallel}$ du champ
+   magnétique. Ainsi, à l'interface plaque-vide, nous avons
+   #+BEGIN_SRC latex
+     \begin{align*}
+       \vv{B}_{\text{ext.}\perp}-\vv{B}_{\text{int.}\perp}&=\vv{0}\\
+       \vv{H}_{\text{ext.}\parallel}-\vv{H}_{\text{int.}\parallel}&=\vv{j}_{S,\text{libres}}\times\vv{n}=\vv{0}\text{ (pas de courants libres)}\\
+       \frac{\vv{B}_{0\parallel}}{\cancel{\mu_0}}-\frac{\vv{B}_{i\parallel}}{\mu_r\cancel{\mu_0}}&=\vv{0}
+     \end{align*}
+   #+END_SRC
+   Les champs à l'intérieur de la plaque est ainsi
+   #+BEGIN_SRC latex
+     \begin{align*}
+       \vv{B}_i&=\vv{B}_{0\perp}+\mu_r\vv{B}_{0\parallel}\\
+       \vv{H}_i&=\frac{\vv{B}_i}{\mu_r\mu_0}\\
+       \vv{M}_i&=\chi_m\vv{H}_i=\chi_m\frac{\vv{B}_i}{\mu_r\mu_0}
+     \end{align*}
+   #+END_SRC
+3)
+   - milieu diamagnétique :: $\mu_r\lesssim1\to|\chi_m|\ll1$ et
+        $\chi_m<0$. Typiquement, $\chi_m\sim10^{-9}$ pour des gaz et
+        $\chi_m\sim10^{-6}$ pour des solides (Bismuth). La composante
+        tangentielle de $\vv{B}_i$ sera donc sensiblement plus faible que celle
+        du cham extérieur $B_{i\parallel}\lesssim B_{0\parallel}$.
+
+        #+BEGIN_CENTER
+        #+ATTR_LATEX: :width 0.5\linewidth
+        [[./figures/plaque_diamagnetique.pdf]]
+        #+END_CENTER
+   - milieu paramagnétique :: $\chi_m\ll1$ avec $\chi_m>0$ ($\chi_m\sim10^{-4}$
+        oxygène, platine, aluminium), $\mu_r\gtrsim1\to B_{i\parallel}\gtrsim
+        B_{0\parallel}$
+
+        #+BEGIN_CENTER
+        #+ATTR_LATEX: :width 0.5\linewidth
+        [[./figures/plaque_paramagnetique.pdf]]
+        #+END_CENTER
+
+   - milieu ferromagnétique :: $\chi_m\gg1$ et $\mu_r\gg1$ (Fer, Nickel,
+        mu-métal) \to $\vv{B}_i\simeq\mu_r\vv{B}_{0\parallel}$
+
+        #+BEGIN_CENTER
+        #+ATTR_LATEX: :width 0.5\linewidth
+        [[./figures/plaque_ferromagnetique.pdf]]
+        #+END_CENTER
+        Les lignes de champ magnétique sont canalisées\to blindages magnétiques
 * Footnotes
 
 [fn:1] le vecteur accélération $\vv{a}$ s'écrit en toute rigueur
