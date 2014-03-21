@@ -3361,7 +3361,8 @@ plus proportionnelle à l'excitation magnétique $\vv{M}\neq\chi_m\vv{H}$.
         [[./figures/plaque_paramagnetique.pdf]]
         #+END_CENTER
 
-   - milieu ferromagnétique :: $\chi_m\gg1$ et $\mu_r\gg1$ (Fer, Nickel,
+   - milieu ferromagnétique :: le milieu demeure linéaire donc
+        $\vv{M}=\chi_m\vv{H}$ avec $\chi_m\gg1$ et $\mu_r\gg1$ (Fer, Nickel,
         mu-métal) \to $\vv{B}_i\simeq\mu_r\vv{B}_{0\parallel}$
 
         #+BEGIN_CENTER
@@ -3369,6 +3370,76 @@ plus proportionnelle à l'excitation magnétique $\vv{M}\neq\chi_m\vv{H}$.
         [[./figures/plaque_ferromagnetique.pdf]]
         #+END_CENTER
         Les lignes de champ magnétique sont canalisées\to blindages magnétiques
+
+** L'électro-aimant
+1) La conservation du flux magnétique, toujours vérifiée y compris au sein de
+   milieux magnétiques, impose que $\varoiint_\mathcal{S}\vv{B}.\vv{dS}=0$. Le
+   champ magnétique dans le fer étant perpendiculaire à la section, on obtient
+   #+BEGIN_SRC latex
+     \begin{align*}
+       B_1(x_1)S_\text{barreau}&=B_1(x_2)S_\text{barreau}\\
+       B_1(x_1)&=B_1(x_2)=B_1
+     \end{align*}
+   #+END_SRC
+
+   En régime linéaire, l'excitation magnétique $\vv{H}$ est proportionnelle au
+   champ magnétique $\vv{B}$. Ainsi,
+   #+BEGIN_SRC latex
+     \begin{align*}
+       \|\vv{H}\|=H_1=\frac{B_1}{\mu_r\mu_0}
+     \end{align*}
+   #+END_SRC
+2) Le champ magnétique dnas l'entrefer $\vv{B}_2$ est une fonction de la
+   position $x,y,z$, son orientation restant perpendiculaire à la section du
+   barreau soit $\vv{B}_2=B_2(x,y,z)\vv{u_z}$. La conservation du flux
+   magnétique impose que
+   #+BEGIN_SRC latex
+     \begin{align*}
+       \div\vv{B}_2&=\frac{\partial B_2}{\partial z}=0\to \vv{B}_2=B_2(x,y,\cancel{z})\vv{u_z}
+     \end{align*}
+   #+END_SRC
+   Par ailleurs, la continuité de la composante normale du champ magnétique à
+   l'interface barreau/entrefer impose
+   #+BEGIN_SRC latex
+     \begin{align*}
+       B_{1\perp}&=B_{2\perp}=\text{constante est vrai pour }\forall x,y\\
+       \vv{B}_2&=B_1\vv{u_z}
+     \end{align*}
+   #+END_SRC
+   L'excitation magnétique $H_2$ dans l'entrefer est alors égale à
+   $H_2=\frac{B_2}{\mu_0}=\frac{B_1}{\mu_0}$.
+3) Le théorème d'Ampère généralisé s'écrit
+   #+BEGIN_SRC latex
+     \begin{align*}
+       \oint_\mathcal{C}\vv{H}.\vv{d\ell}&=\Upsigma I_\text{enlacé}^\text{libres}=N\times I\\
+       H_1\times\ell+H_2\times d&=NI\\
+       \frac{B_1}{\mu_r\mu_0}\ell+\frac{B_1}{\mu_0}d&=NI\\
+       B_1&=\frac{\mu_0NI}{\ell/\mu_r+d}=\frac{\mu_r\mu_0NI}{\ell+\mu_rd}\\
+       H_1&=\frac{NI}{\ell+\mu_rd}\\
+       B_2&=B_1\\
+       H_2&=\frac{\mu_rNI}{\ell+\mu_rd}
+     \end{align*}
+   #+END_SRC
+   *Application numérique :*
+   #+BEGIN_SRC latex
+     \begin{align*}
+       N&=\frac{B_2(\ell+\mu_rd)}{\mu_r\mu_0I}\\
+       &=\frac{1\times(1.5+4000\times0.05)}{4000\times4\pi\,10^{-7}\times100}\\
+       &=\frac{1\times(1.5+200)}{4000\times4\pi\,10^{-7}\times100}=\frac{10^4}{8\pi}=\unit[400]{spires}
+     \end{align*}
+   #+END_SRC
+4) Le barreau de fer est à présent saturé impliquant que
+   $B_1=\mu_0(H_1+M_S)\neq\mu H_1$. Le champ magnétique dans l'entrefer est
+   toujours égal à $B_1$ soit $B_2=B_1=\mu_0(H_1+M_S)$. En appliquant le
+   théorème d'Ampère on obtient
+   #+BEGIN_SRC latex
+     \begin{align*}
+       H_1\times\ell+H_2\times d&=NI\\
+       H_1\times\ell+(H_1+M_S)\times d&=NI\\
+       H_1&=\frac{NI-M_S\times d}{l+d}\\
+       B_2&=\mu_0H_2=\mu_0\left(\frac{NI+\ell M_S}{\ell+d}\right)=\unit[1.56]{T}
+     \end{align*}
+   #+END_SRC
 * Footnotes
 
 [fn:1] le vecteur accélération $\vv{a}$ s'écrit en toute rigueur
