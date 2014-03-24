@@ -3287,7 +3287,7 @@ L'équation de Maxwell-Faraday devient
 où $\vv{H}=\frac{\vv{B}}{\mu_0}-\vv{M}$ est le vecteur d'excitation magnétique
 dont l'unité est l'Ampère par mètre.
 
-Le théorème d'Apère généralisé s'écrit
+Le théorème d'Ampère généralisé s'écrit
 #+BEGIN_SRC latex
   \begin{align*}
     \oint_\mathcal{C}\vv{H}.\vv{d\ell}&=\iint_{\mathcal{S}}\vv{j}_\text{libres}.\vv{dS}=\Upsigma I_\text{libres}^\text{enlacés}
@@ -3333,7 +3333,7 @@ plus proportionnelle à l'excitation magnétique $\vv{M}\neq\chi_m\vv{H}$.
        \frac{\vv{B}_{0\parallel}}{\cancel{\mu_0}}-\frac{\vv{B}_{i\parallel}}{\mu_r\cancel{\mu_0}}&=\vv{0}
      \end{align*}
    #+END_SRC
-   Les champs à l'intérieur de la plaque est ainsi
+   Les champs à l'intérieur de la plaque sont ainsi
    #+BEGIN_SRC latex
      \begin{align*}
        \vv{B}_i&=\vv{B}_{0\perp}+\mu_r\vv{B}_{0\parallel}\\
@@ -3389,7 +3389,7 @@ plus proportionnelle à l'excitation magnétique $\vv{M}\neq\chi_m\vv{H}$.
        \|\vv{H}\|=H_1=\frac{B_1}{\mu_r\mu_0}
      \end{align*}
    #+END_SRC
-2) Le champ magnétique dnas l'entrefer $\vv{B}_2$ est une fonction de la
+2) Le champ magnétique dans l'entrefer $\vv{B}_2$ est une fonction de la
    position $x,y,z$, son orientation restant perpendiculaire à la section du
    barreau soit $\vv{B}_2=B_2(x,y,z)\vv{u_z}$. La conservation du flux
    magnétique impose que
@@ -3440,6 +3440,7 @@ plus proportionnelle à l'excitation magnétique $\vv{M}\neq\chi_m\vv{H}$.
        B_2&=\mu_0H_2=\mu_0\left(\frac{NI+\ell M_S}{\ell+d}\right)=\unit[1.56]{T}
      \end{align*}
    #+END_SRC
+
 * Footnotes
 
 [fn:1] le vecteur accélération $\vv{a}$ s'écrit en toute rigueur
