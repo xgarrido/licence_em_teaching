@@ -1,0 +1,36 @@
+%% document-wide tikz options and styles
+
+\tikzset{%
+  >=latex, % option for nice arrows
+  inner sep=0pt,%
+  outer sep=2pt,%
+  mark coordinate/.style={inner sep=0pt,outer sep=0pt,minimum size=3pt,
+    fill=black,circle}%
+}
+\begin{tikzpicture}
+  \sf
+  \definecolor{red}{RGB}{221,42,43}
+  \definecolor{green}{RGB}{105,182,40}
+  \definecolor{blue}{RGB}{0,51,153}
+  \definecolor{orange}{RGB}{192,128,64}
+  \definecolor{gray}{RGB}{107,108,110}
+
+  %% some definitions
+
+  \def\R{2.5} % sphere radius
+
+  \draw[blue] (0.8*\R,0) node[below] {$a$} arc(0:90:0.8*\R);
+  \draw[blue] (1.2*\R,0) node[below] {$b$} arc(0:90:1.2*\R);
+
+  %% characteristic points
+  \coordinate[mark coordinate] (O) at (0,0);
+  \coordinate[mark coordinate] (M) at (0.565*\R,0.565*\R);
+  \coordinate[mark coordinate] (N) at (0.848*\R,0.848*\R);
+
+
+  %% draw lines and put labels
+  \draw (O) -- (M) node [above,midway] {$r$};
+  \draw[dashed] (M) -- (N);
+  \draw[->] (N) -- (1.1*\R,1.1*\R) node[above right] {$\overrightarrow{u_r}$};
+
+\end{tikzpicture}

@@ -1,0 +1,34 @@
+\begin{tikzpicture}[
+  >=latex, %
+  mark coordinate/.style={inner sep=0pt,outer sep=0pt,minimum size=3pt,
+    fill=black,circle}]
+  \clip (-3,3) rectangle (4,-3.5);
+  \sf
+  % Colors
+  \definecolor{red}{RGB}{221,42,43}
+  \definecolor{green}{RGB}{132,184,24}
+  \definecolor{blue}{RGB}{0,51,153}
+  \definecolor{orange}{RGB}{192,128,64}
+  \definecolor{gray}{RGB}{107,108,110}
+
+  \draw[fill=blue!30,opacity=0.6] (0,2) -- (1,2.5) -- (1,-2) node[above left] {$\pi$} -- (0,-2.5) -- cycle;
+  \draw[] (0.5,-2.5) node[below, text width=3cm, align=center]{plan de symétrie ($\overrightarrow{u_y},\overrightarrow{u_z}$)};
+
+  \begin{scope}[yshift=0.5cm]
+    \draw[black,->] (3,-0.5) node[mark coordinate] {} node[right] {$M$} -- (2,-0.5) node[midway, above] {$\overrightarrow{B}_\perp$};
+    \draw[black,->] (3,-0.5) -- (3,-2.0) node[midway, right] {$\overrightarrow{B}_\parallel$};
+    \draw[gray,->] (3,-0.5) -- (2,-2.0) node[right] {$\overrightarrow{B}$};
+  \end{scope}
+
+  \begin{scope}[yshift=0.5cm, xshift=-4.5cm]
+    \draw[black,->] (3,-0.5) node[mark coordinate] {} node[right] {$M'$} -- (2,-0.5) node[midway, above] {$\overrightarrow{B}_\perp$};
+    \draw[black,->] (3,-0.5) -- (3,1.0) node[midway, right] {$\overrightarrow{B}_\parallel$};
+    \draw[gray,->] (3,-0.5) -- (2,1.0) node[right] {$\overrightarrow{B}$};
+  \end{scope}
+
+\end{tikzpicture}%
+
+%% Configure (x)emacs for this file ...
+%% Local Variables:
+%% mode: latex
+%% End:

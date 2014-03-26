@@ -3440,7 +3440,189 @@ plus proportionnelle à l'excitation magnétique $\vv{M}\neq\chi_m\vv{H}$.
        B_2&=\mu_0H_2=\mu_0\left(\frac{NI+\ell M_S}{\ell+d}\right)=\unit[1.56]{T}
      \end{align*}
    #+END_SRC
+** Aimant permanent
+On considère un matériau ferromagnétique dur ayant une aimantation $\vv{M}$
+#+BEGIN_SRC latex
+  \begin{align*}
+    \vv{M}=M_0\left(\cos\theta\,\vv{u_r}+\sin\theta\,\vv{u_\theta}\right)
+  \end{align*}
+#+END_SRC
+*** Étude de l'aimant permanent
+1) Il n'existe pas de source de courant d'où $\vv{j_\ell}=\vv{0}$. Par ailleurs,
+   d'éventuelles charges de polarisation induites par un diélectrique ne sont en
+   tout état de cause pas mise en mouvement d'où $\vv{j_P}=\vv{0}$. Il n'existe
+   donc que des courants d'aimantation :
+   - en volume, $\vv{j_M}=\rot\,\vv{M}$,
+   - en surface, aux interfaces $r=a$ et $r=b$ où
+     $\vv{j_{SM}}=\vv{n}_{1\to2}\times\left(\vv{M}_2-\vv{M}_1\right)$
 
+   *Calcul de $\vv{j_M}$*
+
+   #+BEGIN_SRC latex
+     \begin{align*}
+       \vv{j_M}=\rot\,\vv{M}&=\cancel{\left(\frac{1}{r}\frac{\partial M_z}{\partial\theta}-\frac{\partial M_\theta}{\partial z}\right)\vv{u_r}}\\
+       &+\cancel{\left(\frac{\partial M_r}{\partial z}-\frac{\partial M_z}{\partial r}\right)\vv{u_\theta}}\\
+       &+\frac{1}{r}\left(\frac{\partial}{\partial r}(rM_\theta)-\frac{\partial M_r}{\partial \theta}\right)\vv{u_z}\\
+       &=\frac{1}{r}\,M_0\left(\sin\theta + \sin\theta\right)\vv{u_z}=\frac{2M_0}{r}\sin\theta\vv{u_z}
+     \end{align*}
+   #+END_SRC
+
+   *Calcul de $\vv{j_{SM}}$*
+   #+BEGIN_CENTER
+   #+ATTR_LATEX: :width 0.4\linewidth
+   [[./figures/aimant_permanent.pdf]]
+   #+END_CENTER
+
+   #+BEGIN_SRC latex
+     \begin{align*}
+       \vv{j_{SM}}(r=a)&=-\vv{u_r}\times-\vv{M}=M_0\sin\theta\,\vv{u_z}\\
+       \vv{j_{SM}}(r=b)&=+\vv{u_r}\times-\vv{M}=-M_0\sin\theta\,\vv{u_z}\\
+     \end{align*}
+   #+END_SRC
+2) À l'intérieur du cylindre, on superpose les champs magnétiques induits par
+   les densités surfaciques de courant d'aimantation /i.e./ $\vv{j_{SM}}(r=a,b)$
+   toutes deux générant un champ magnétique $\vv{B}=\frac{\mu_0j_S}{2}\vv{u_x}$,
+   auquel s'ajoute le champ magnétique crée par la densité volumique de courant
+   $\vv{j_M}$. Le champ magnétique à l'intérieur du matériau ferromagnétique est
+   donc
+   #+BEGIN_SRC latex
+     \begin{align*}
+       \vv{B}_\text{int.}&=\vv{B}(j_{SM}(r=a))+\vv{B}(j_{SM}(r=b))+\vv{B}(j_M(a<r<b))\\
+       &=\cancel{\frac{\mu_0M_0}{2}\vv{u_x}}-\cancel{\frac{\mu_0M_0}{2}\vv{u_x}}+\int_a^b\frac{2\mu_0M_0}{2r}dr\,\vv{u_x}\\
+       &=\mu_0M_0\ln\frac{b}{a}\vv{u_x}\equiv\text{uniforme}
+     \end{align*}
+   #+END_SRC
+
+*** Étude de l'homogénéité du champ crée par l'aimant permanent
+1) Le développement limité de la composante $B_x$ du champ magnétique au
+   voisinage du centre $O$ du cylindre s'écrit
+   #+BEGIN_SRC latex
+     \begin{align*}
+       B_x(x,y,z)=B_x(0,0,0)&+\alpha_xx+\alpha_yy+\alpha_zz\\
+       &+\alpha_{xx}x^2+\alpha_{yy}y^2+\alpha_{zz}z^2\\
+       &+\alpha_{xy}xy+\alpha_{xz}xz+\alpha_{yz}yz+\mathcal{O}(x^2,y^2,z^2)
+     \end{align*}
+   #+END_SRC
+
+   Dans le cas du cylindre infini, le champ magnétique pour $r<a$ est orienté
+   selon $\vv{u_x}$. On déduit donc que les plans $(\vv{u_x},\vv{u_y})$ et
+   $(\vv{u_x},\vv{u_z})$ sont des plans d'antisymétrie de la distribution de
+   courant. Par ailleurs, le plan $(\vv{u_y},\vv{u_z})$ est alors un plan de
+   symétrie de la distribution de courant.
+
+   #+ATTR_LATEX: :align C{0.45\textwidth}C{0.45\textwidth}
+   | [[./figures/plan_symetrie_aimant_permanent.pdf]] | [[./figures/plan_antisymetrie_aimant_permanent.pdf]] |
+
+   - plan $(\vv{u_x},\vv{u_y})$ : plan d'antisymétrie
+     #+BEGIN_SRC latex
+       \begin{align*}
+         B_x(x,y,z)=B_x(x,y,-z)&\to\text{fonction paire en $z$}\\
+         &\to\alpha_z=\alpha_{xz}=\alpha_{yz}=0
+       \end{align*}
+     #+END_SRC
+
+   - plan $(\vv{u_x},\vv{u_z})$ : plan d'antisymétrie
+     #+BEGIN_SRC latex
+       \begin{align*}
+         B_x(x,y,z)=B_x(x,-y,z)&\to\text{fonction paire en $y$}\\
+         &\to\alpha_y=\alpha_{xy}=0
+       \end{align*}
+     #+END_SRC
+
+   - plan $(\vv{u_y},\vv{u_z})$ : plan de symétrie
+     #+BEGIN_SRC latex
+       \begin{align*}
+         B_x(x,y,z)=B_x(-x,y,z)&\to\text{fonction paire en $x$}\\
+         &\to\alpha_x=0
+       \end{align*}
+     #+END_SRC
+
+     L'expression de $B_x$ au voisinage de $O$ se limite ainsi à
+     #+BEGIN_SRC latex
+       \begin{align*}
+         B_x(x,y,z)=B_x(0,0,0)+\alpha_{xx}x^2+\alpha_{yy}y^2+\alpha_{zz}z^2+\mathcal{O}(x^2,y^2,z^2)
+       \end{align*}
+     #+END_SRC
+
+2) $B_y=\beta xy$ et $B_z=\gamma xz$. Au voisinage de $O$, les équations de la
+   magnétostatique sont $\div\vv{B}=0$ et $\rot\,\vv{B}=\vv{0}$ d'où
+   #+BEGIN_SRC latex
+     \begin{align*}
+       \div\vv{B}&=0\\
+       \frac{\partial B_x}{\partial x}+\frac{\partial B_y}{\partial y}+\frac{\partial B_z}{\partial z}&=0\\
+       2\alpha_{xx}x+\beta x+\gamma x&=0\\
+       \alpha_{xx}&=\frac{-\beta-\gamma}{2}
+     \end{align*}
+   #+END_SRC
+
+   #+BEGIN_SRC latex
+     \begin{align*}
+       \rot\,\vv{B}&=\vv{0}\\
+       \left|
+       \begin{array}{l}
+         \frac{\partial}{\partial x}\\\frac{\partial}{\partial y}\\\frac{\partial}{\partial z}
+       \end{array}
+       \right.\times\left|
+       \begin{array}{l}
+         B_x\\B_y\\B_z
+       \end{array}
+       \right.&=\vv{0}\Longleftrightarrow
+       \left\{
+         \begin{array}{l}
+           \cancel{\frac{\partial B_z}{\partial y}}-\cancel{\frac{\partial B_y}{\partial z}}=0\\
+           \frac{\partial B_x}{\partial z}-\frac{\partial B_z}{\partial x}=0\\
+           \frac{\partial B_y}{\partial x}-\frac{\partial B_x}{\partial y}=0
+         \end{array}
+         \right.\\
+         2\alpha_{zz}z-\gamma z&=0\to\alpha_{zz}=\frac{\gamma}{2}\\
+         \beta y-2\alpha_{yy}y&=0\to\alpha_{yy}=\frac{\beta}{2}
+     \end{align*}
+   #+END_SRC
+
+   En fonction de \beta et \gamma, l'expression de $B_x(x,y,z)$ devient
+   #+BEGIN_SRC latex
+     \begin{align*}
+       B_x(x,y,z)&=B_x(0,0,0)+\frac{-\beta-\gamma}{2}\,x^2+\frac{\beta}{2}\,y^2+\frac{\gamma}{2}\,z^2
+     \end{align*}
+   #+END_SRC
+
+   La valeur de $B_x(0,0,0)\simeq\mu_0M_0\ln\frac{b}{a}$ et
+   $B_x(0,0,h/2)=\frac{B_x(0,0,0)}{2}$ d'où
+   #+BEGIN_SRC latex
+     \begin{align*}
+       B_x(0,0,h/2)=\frac{B_x(0,0,0)}{2}&=B_x(0,0,0)+\frac{\gamma}{2}\times\frac{h^2}{4}\\
+       \gamma&=-\frac{4\mu_0M_0}{h^2}\ln\frac{b}{a}
+     \end{align*}
+   #+END_SRC
+
+3) Application numérique :
+
+   Pour remplir les contraintes inhérentes à la réalisation d'un spectromètre
+   RMN, le champ magnétique maximum doit être supérieur à 1.2 Tesla et
+   l'homogénéité du champ magnétique doit être inférieure à $\frac{\delta
+   B}{B}\leq10^{-4}$. Le champ magnétique maximum pouvant être généré correspond
+   au maximum d'aimantation que peut acquérir l'aimant soit $M_0=M_S$ et
+   #+BEGIN_SRC latex
+     \begin{align*}
+       B_x(0,0,0)&=\mu_0M_S\ln\frac{b}{a}\\
+       &=4\pi\,10^{-7}\times8\,10^{5}\times\ln\frac{200}{50}=\unit[1.38]{T}>\unit[1.2]{T}
+     \end{align*}
+   #+END_SRC
+   Le champ maximal est donc suffisant pour générer un champ central de 1.2
+   Tesla. L'homogénéité du champ implique
+   #+BEGIN_SRC latex
+     \begin{align*}
+       \frac{\delta B}{B}&=\left|\frac{\Delta B_x}{B_x}\right|\leq10^{-4}\\
+       &=\left|\frac{B_x(0,0,z=\unit[5]{mm})-B_x(0,0,0)}{B_x(0,0,0)}\right|
+       &=\left|\frac{\cancel{B_x(0,0,0)}-2\frac{\cancel{B_x(0,0,0)}}{h^2}z^2-\cancel{B_x(0,0,0)}}{\cancel{B_x(0,0,0)}}\right|\\
+       &=\frac{2z^2}{h^2}=\frac{2\times5^2}{105^2}=5\,10^{-3}>10^{-4}
+     \end{align*}
+   #+END_SRC
+
+   L'homogénéité du champ magnétique au centre du cylindre n'est pas suffisante
+   vis-à-vis des contraintes expérimentales imposées par ce spectromètre. Il
+   faudrait augmenter la hauteur $h$ de l'aimant jusqu'à une valeur de l'ordre
+   de 700 mm.
 * Footnotes
 
 [fn:1] le vecteur accélération $\vv{a}$ s'écrit en toute rigueur
