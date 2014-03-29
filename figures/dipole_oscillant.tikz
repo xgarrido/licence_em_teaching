@@ -1,0 +1,35 @@
+%% document-wide tikz options and styles
+\begin{tikzpicture}[  >=latex, % option for nice arrows
+    inner sep=0pt,%
+    outer sep=2pt,%
+    mark coordinate/.style={inner sep=0pt,outer sep=0pt,minimum size=3pt,
+      fill=black,circle}%
+  ]
+  \sf
+  \definecolor{red}{RGB}{221,42,43}
+  \definecolor{green}{RGB}{105,182,40}
+  \definecolor{blue}{RGB}{0,51,153}
+  \definecolor{orange}{RGB}{192,128,64}
+  \definecolor{gray}{RGB}{107,108,110}
+
+  \draw[->] (-3,0) -- (3,0) node[right] {$z$};
+  \coordinate[mark coordinate] (M) at (-2,0);
+  \draw (M) node[below] {$\mathbf{M}$} node[above] {$-\ell/2$};
+  \coordinate[mark coordinate] (N) at (+2,0);
+  \draw (N) node[below] {$\mathbf{N}$} node[above] {$+\ell/2$};
+  \draw[thick,blue] (0,0) node [above] {$I_0\cos\omega t$} -- (2,0);
+  \draw[thick,blue,->] (-2,0) -- (0.2,0);
+
+  \draw (0,-0.75) node {Antenne};
+
+  \draw (4.25,0) node {\LARGE{}$\equiv$};
+
+  \begin{scope}[xshift=8cm]
+    \draw[->] (-3,0) -- (3,0) node[right] {$z$};
+    \coordinate[mark coordinate,blue] (M) at (-2,0);
+    \draw (M) node[above] {$-\ell/2$} node[below, blue] {$-q\sin\omega t$};
+    \coordinate[mark coordinate,blue] (N) at (+2,0);
+    \draw (N) node[below, blue] {$+q\sin\omega t$} node[above] {$+\ell/2$};
+    \draw (0,-0.75) node {Dipôle oscillant};
+  \end{scope}
+\end{tikzpicture}

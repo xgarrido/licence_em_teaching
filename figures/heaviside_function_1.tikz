@@ -1,0 +1,20 @@
+%% document-wide tikz options and styles
+\begin{tikzpicture}[  >=latex, % option for nice arrows
+    inner sep=0pt,%
+    outer sep=2pt,%
+    mark coordinate/.style={inner sep=0pt,outer sep=0pt,minimum size=3pt,
+      fill=black,circle}%
+  ]
+  \sf
+  \definecolor{red}{RGB}{221,42,43}
+  \definecolor{green}{RGB}{105,182,40}
+  \definecolor{blue}{RGB}{0,51,153}
+  \definecolor{orange}{RGB}{192,128,64}
+  \definecolor{gray}{RGB}{107,108,110}
+
+  \draw[->] (-3,0) -- (3,0) node[right] {$z$};
+  \draw[->] (0,-0.1) node[below] {$-\ell/2$} -- (0,3) node[right] {$\Theta$};
+  \draw[thick,blue] (-3,0) -- (0,0) -- (0,2.5) node[left] {1} -- (2.5,2.5);
+
+  \draw (0,-1) node {Fonction $\Theta(z+\ell/2)$};
+\end{tikzpicture}

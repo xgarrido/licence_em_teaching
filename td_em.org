@@ -4,7 +4,7 @@
 #+OPTIONS: ^:{} toc:2 tags:nil author:nil
 #+LATEX_CLASS: teaching-class
 
-* TD1 : Électromagnétisme & relativité
+* COMMENT TD1 : Électromagnétisme & relativité
 ** Introduction
 *Transformation de Lorentz :* $\beta=\tfrac{v}{c}$ et
  $\gamma=\tfrac{1}{\surd{1-\beta^2}}$. Si $\mathcal{R}'$ est en mouvement
@@ -794,7 +794,7 @@ totale $\mathcal{E}$ et d'énergie cinétique $\mathcal{E}_c$.
    [[./figures/alpha_variation.pdf]]
    #+END_CENTER
 
-* TD2 : Équations de Maxwell dans le vide et champ électromagnétique
+* COMMENT TD2 : Équations de Maxwell dans le vide et champ électromagnétique
 ** "Propriétés mécaniques" du champ électromagnétique
 :PROPERTIES:
 :CUSTOM_ID: sec::prop_champ
@@ -1143,7 +1143,7 @@ totale $\mathcal{E}$ et d'énergie cinétique $\mathcal{E}_c$.
   est un bruit important pour les interféromètres de haute sensibilité tels que
   Virgo (/cf./ [[http://tel.archives-ouvertes.fr/tel-00175254/en/]]).
 
-* TD3 : Électrostatique dans le vide
+* COMMENT TD3 : Électrostatique dans le vide
 ** Condensateur cylindrique
 
 En considérant $h\gg a,b$, le problème est invariant par translation le long de
@@ -1749,7 +1749,7 @@ $\vv{E}=-\grad\,V=-\tfrac{dV}{dr}\vv{u}_r$. Soit
      \end{align*}
    #+END_SRC
 
-* TD4 : Les milieux diélectriques
+* COMMENT TD4 : Les milieux diélectriques
 ** Introduction
 Historiquement, la découverte expérimentale des diélectriques est à mettre au
 profit de Michael Faraday qui nota que l'introduction d'un isolant entre les
@@ -2484,7 +2484,7 @@ ne dépendent que de $z$.
         \end{align*}
       #+END_SRC
 
-* TD5 : Magnétostatique
+* COMMENT TD5 : Magnétostatique
 ** Introduction
 En magnétostatique, les équations locales deviennent
 #+BEGIN_SRC latex
@@ -3623,6 +3623,92 @@ On considère un matériau ferromagnétique dur ayant une aimantation $\vv{M}$
    vis-à-vis des contraintes expérimentales imposées par ce spectromètre. Il
    faudrait augmenter la hauteur $h$ de l'aimant jusqu'à une valeur de l'ordre
    de 700 mm.
+
+* TD7 : Rayonnement
+** Rayonnement d'une antenne
+Soit un conducteur de longueur \ell parcouru par un courant périodique
+$I=I_0\cos\omega t$. La fonction d'Heaviside a pour représentation
+
+#+BEGIN_CENTER
+#+ATTR_LATEX: :width 0.5\linewidth
+[[./figures/heaviside_function.pdf]]
+#+END_CENTER
+
+1) En supposant que $\vv{j}$ est nul à l'extérieur du fil, seul le courant
+   traversant le fil contribue à la densité volumique de courant
+   $j(x,y,z,t)$. Par définition, le courant $I$ est égal au flux de $\vv{j}$ au
+   travers du surface $S$ : $I=\iint\vv{j}.\vv{dS}$. Le fil étant de section
+   infinitésimale et le courant étant non nul pour $z\in[-\ell/2,\ell/2]$, la
+   densité de courant s'écrit
+   #+BEGIN_SRC latex
+     \begin{align*}
+       \vv{j}(x,y,z,t)&=I(t)\times\delta(x)\times\delta(y)\times\Theta(z+\ell/2)\times\Theta(-z+\ell/2)\,\vv{u_z}\\
+       &=I_0\cos\omega t\delta(x)\delta(y)\,\Theta(z+\ell/2)\,\Theta(-z+\ell/2)\,\vv{u_z}
+     \end{align*}
+   #+END_SRC
+
+   où
+   #+ATTR_LATEX: :align C{0.45\textwidth}C{0.45\textwidth}
+   | [[./figures/heaviside_function_1.pdf]] | [[./figures/heaviside_function_2.pdf]] |
+
+   On note, par ailleurs, que la dimension de $j$ est bien celle d'une intensité
+   par unité de surface car $\delta=\frac{d\Theta}{dx}\to[\delta]=[L^{-1}]$.
+
+2) L'équation de conservation de la charge s'écrit
+   #+BEGIN_SRC latex
+     \begin{align*}
+       \div\vv{j}+\frac{\partial\rho}{\partial t}&=0\\
+       -\frac{\partial\rho}{\partial t}&=\frac{\partial j_z}{\partial z}\\
+       &=I_0\cos\omega t\delta(x)\delta(y)\left[\frac{d\Theta(z+\ell/2)}{dz}\Theta(-z+\ell/2)+\Theta(z+\ell/2)\frac{d\Theta(-z+\ell/2)}{dz}\right]\\
+       &=I_0\cos\omega t\delta(x)\delta(y)\left[\delta(z+\ell/2)\Theta(-z+\ell/2)-\Theta(z+\ell/2)\delta(-z+\ell/2)\right]
+     \end{align*}
+   #+END_SRC
+
+   Or $\delta(z+\ell/2)$ est nul pour toute valeur de $z$ différente de
+   $-\ell/2$. De même, $\delta(-z+\ell/2)$ est nul pour toute valeur de $z$
+   différente de $+\ell/2$. On déduit donc que le produit
+   $\delta(z+\ell/2)\Theta(-z+\ell/2)$, respectivement
+   $\delta(-z+\ell/2)\Theta(z+\ell/2)$, est non nul uniquement en $z=-\ell/2$,
+   respectivement en $z=+\ell/2$. L'expression de la dérivée temporelle de
+   $\rho(x,y,z,t)$ devient
+   #+BEGIN_SRC latex
+     \begin{align*}
+       -\frac{\partial\rho}{\partial t}&=I_0\cos\omega t\delta(x)\delta(y)\left[\delta(z+\ell/2)-\delta(-z+\ell/2)\right]\\
+       \rho(x,y,z,t)&=-\frac{I_0}{\omega}\sin\omega t\delta(x)\delta(y)\left[\delta(z+\ell/2)-\delta(-z+\ell/2)\right]
+     \end{align*}
+   #+END_SRC
+
+   On déduit donc que les seuls points où la charge est non nulle sont
+   #+BEGIN_SRC latex
+          \begin{align*}
+            \rho\neq0\text{ pour }\left\{
+     \begin{array}{l}
+       x=0,y=0,z=-\ell/2\to\rho_M=-\frac{I_0}{\omega}\sin\omega t\\
+       x=0,y=0,z=+\ell/2\to\rho_N=+\frac{I_0}{\omega}\sin\omega t\\
+     \end{array}
+     \right.
+          \end{align*}
+   #+END_SRC
+
+   L'antenne est ainsi équivalente à un dipôle oscillant avec
+   $q=\frac{I_0}{\omega}$
+
+   #+BEGIN_CENTER
+   #+ATTR_LATEX: :width 0.8\linewidth
+   [[./figures/dipole_oscillant.pdf]]
+   #+END_CENTER
+
+3) En notation complexe, les expressions de $\vv{j}$ et $\rho$ s'écrivent
+   #+BEGIN_SRC latex
+     \begin{align*}
+       \vv{j}(\vv{r},t)&=I_0\,e^{-i\omega t}\delta(x)\delta(y)\Theta(z+\ell/2)\Theta(-z+\ell/2)\vv{u_z}\\
+       \rho(\vv{r},t)&=-i\frac{I_0}{\omega}\,e^{-i\omega t}\underbrace{\delta(x)\delta(y)\left[\delta(z+\ell/2)-\delta(-z+\ell/2)\right]}_{\delta(\vv{r}+\ell/2\vv{u_z})-\delta(-\vv{r}+\ell/2)\vv{u_z}}
+     \end{align*}
+   #+END_SRC
+
+   L'utilisation de la notation complexe a pour unique but de faciliter les
+   calculs : *seule la composante réelle a un sens physique*.
+
 * Footnotes
 
 [fn:1] le vecteur accélération $\vv{a}$ s'écrit en toute rigueur
