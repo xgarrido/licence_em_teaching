@@ -3813,6 +3813,88 @@ $I=I_0\cos\omega t$. La fonction d'Heaviside a pour représentation
           &\simeq-\frac{i\mu_0}{4\pi\,r}\omega p\vv{u_z}
         \end{align*}
       #+END_SRC
+5) Calcul du champ électromagnétique $\vv{B}=\rot\vv{A}$ et $\vv{E}=-\grad
+   V-\frac{\partial\vv{A}}{\partial t}$
+
+   #+BEGIN_SRC latex
+     \begin{align*}
+       \vv{B}=\rot\vv{A}&=\left|
+       \begin{array}{l}
+         \frac{\partial}{\partial x}\\
+         \frac{\partial}{\partial y}\\
+         \frac{\partial}{\partial z}
+       \end{array}
+       \right.\times\left|
+       \begin{array}{l}
+         0\\0\\A_z
+       \end{array}
+       \right.\text{ et }r^2=x^2+y^2+z^2\\
+       &=\frac{\partial A_z}{\partial y}\vv{u_x}-\frac{\partial A_z}{\partial x}\vv{u_y}\\
+       &=\frac{\partial A_z}{\partial r}\times\frac{\partial r}{\partial y}\vv{u_x}-\frac{\partial A_z}{\partial r}\times\frac{\partial r}{\partial x}\vv{u_y}\\
+       &=\frac{\partial A_z}{\partial r}\left(\frac{y}{r}\vv{u_x}-\frac{x}{r}\vv{u_y}\right)\text{ et }\left|
+       \begin{array}{ll}
+         x&=r\sin\theta\cos\phi\\
+         y&=r\sin\theta\sin\phi\\
+         z&=r\cos\theta
+       \end{array}
+       \right.\\
+       &=\sin\theta\frac{\partial A_z}{\partial r}\underbrace{\left(\cos\phi\vv{u_x}-\cos\phi\vv{u_y}\right)}_{-\vv{u_\phi}}
+     \end{align*}
+   #+END_SRC
+   Il reste à calculer la dérivée partielle du $A_z$
+   #+BEGIN_SRC latex
+     \begin{align*}
+       \frac{\partial A_z}{\partial r}&=-\frac{i\mu_0}{4\pi}\omega\frac{\partial}{\partial r}\left(\frac{p}{r}\right)\\
+       &=-\frac{i\mu_0}{4\pi}\omega\left(\frac{1}{r}\frac{\partial p}{\partial r}-\frac{1}{r^2}p\right)\\
+       &=-\frac{i\mu_0}{4\pi}\omega\left(\frac{1}{r}\frac{i\omega}{c}p-\frac{1}{r^2}p\right)\\
+       &=-\frac{i\mu_0}{4\pi}\frac{p}{r}\underbrace{\left(\frac{i2\pi}{\lambda}-\frac{1}{r}\right)}_{r\gg\lambda\to\frac{1}{r}\ll\frac{1}{\lambda}}\simeq\frac{\mu_0}{4\pi}\frac{\omega^2p}{rc}
+     \end{align*}
+   #+END_SRC
+
+   Finalement, le champ magnétique s'écrit
+   #+BEGIN_SRC latex
+     \begin{align*}
+       \vv{B}&=-\frac{\mu_0}{4\pi}\frac{\omega^2p}{rc}\sin\theta\,\vv{u_\phi}
+     \end{align*}
+   #+END_SRC
+
+   Calcul du champ électrique $\vv{E}=-\grad V-\frac{\partial\vv{A}}{\partial
+   t}$
+   #+BEGIN_SRC latex
+     \begin{align*}
+       \grad V&=\frac{\partial V}{\partial r}\vv{u_r}+\frac{1}{r}\frac{\partial V}{\partial\theta}\vv{u_\theta}+\cancel{\frac{1}{r\sin\theta}\frac{\partial V}{\partial\phi}\vv{u_\phi}}\\
+       \frac{\partial V}{\partial r}&=-\frac{i\omega\cos\theta}{4\pi\epsilon_0c}\frac{\partial}{\partial r}\left(\frac{p}{r}\right)\\
+       &=\frac{\mu_0\omega^2p\cos\theta}{4\pi\,r}+\frac{i\omega p\cos\theta}{4\pi\epsilon_0c\,r^2}\\
+       \frac{1}{r}\frac{\partial V}{\partial\theta}&=-\frac{1}{r}\frac{i\omega p}{4\pi\epsilon_0 rc}(-)\sin\theta=\frac{i\omega p}{4\pi\epsilon_0r^2c}\sin\theta\\
+       \frac{\partial\vv{A}}{\partial t}&=-\frac{i\mu_0}{4\pi r}\omega\frac{\partial p}{\partial t}\vv{u_z}\text{ avec }\frac{\partial p}{\partial t}=-i\omega p\\
+       &=-\frac{\mu_0\omega^2}{4\pi r}p\vv{u_z}\text{ et }\vv{u_z}=\cos\theta\vv{u_r}-\sin\theta\vv{u_\theta}\\
+       &=-\frac{\mu_0\omega^2}{4\pi r}p\left(\cos\theta\vv{u_r}-\sin\theta\vv{u_\theta}\right)\\
+       \vv{E}&=\left|
+       \begin{array}{l}
+         -\frac{\mu_0\omega^2p}{4\pi r}\cos\theta + \frac{\mu_0\omega^2p}{4\pi r}\cos\theta -\frac{i\omega p}{4\pi\epsilon_0c}\frac{1}{r^2}\cos\theta\\
+         -\frac{\mu_0\omega^2p}{4\pi}\frac{1}{r}\sin\theta+\frac{i\omega p}{4\pi\epsilon_0 c}\frac{1}{r^2}\sin\theta\\
+         0
+       \end{array}
+       \right.
+     \end{align*}
+   #+END_SRC
+
+   Le terme en $\frac{1}{r}$ domine les deux termes en $\frac{1}{r^2}$ d'où
+   $E_r\ll E_\theta$ impliquant que le champ électrique soit
+   #+BEGIN_SRC latex
+     \begin{align*}
+       \vv{E}\simeq-\frac{\mu_0\omega^2p}{4\pi}\frac{1}{r}\sin\theta\,\vv{u_\theta}
+     \end{align*}
+   #+END_SRC
+
+   Le rapport des normes de $\vv{E}$ et $\vv{B}$ est égal à
+   #+BEGIN_SRC latex
+     \begin{align*}
+       \frac{\|\vv{E}\|}{\|\vv{B}\|}=\frac{\mu_0\omega^2p\sin\theta}{4\pi\,r}\times\frac{4\pi\,r}{\mu_0\omega^2p\sin\theta}\times c=c
+     \end{align*}
+   #+END_SRC
+
+
 * Footnotes
 
 [fn:1] le vecteur accélération $\vv{a}$ s'écrit en toute rigueur
