@@ -3709,6 +3709,57 @@ $I=I_0\cos\omega t$. La fonction d'Heaviside a pour représentation
    L'utilisation de la notation complexe a pour unique but de faciliter les
    calculs : *seule la composante réelle a un sens physique*.
 
+4) Calcul des potentiels en un point $P(r,\theta,\phi)$ à l'instant $t$
+
+   #+BEGIN_CENTER
+   #+ATTR_LATEX: :width 0.6\linewidth
+   [[./figures/potentiel_retarde.pdf]]
+   #+END_CENTER
+
+   1) Expression du potentiel scalaire retardé
+
+      #+BEGIN_SRC latex
+        \begin{align*}
+          V_\text{retardé}&=\frac{1}{4\pi\epsilon_0}\iiint\frac{\rho(r',t')}{\|\vv{r}-\vv{r'}\|}d\vv{r'}\\
+          &\text{où }t'=t-\frac{\|\vv{r}-\vv{r'}\|}{c}\text{ et }\|\vv{r}-\vv{r'}\|=QP
+        \end{align*}
+      #+END_SRC
+
+      Soit
+      #+BEGIN_SRC latex
+        \begin{align*}
+          V_\text{retardé}&=-\frac{iq}{4\pi\epsilon_0}\iiint\frac{e^{-i\omega\left(t-\frac{\|\vv{r}-\vv{r'}\|}{c}\right)}}{\|\vv{r}-\vv{r'}\|}\left[\delta(\vv{r'}+\ell/2\vv{u_z})-\delta(-\vv{r'}+\ell/2\vv{u_z})\right]d\vv{r'}
+        \end{align*}
+      #+END_SRC
+
+      Les seules positions de $Q$ où cette intégrale est non nulle sont les
+      points $M$ et $N$ pour lesquels $\|\vv{r}-\vv{r'}\|=NP=r_1$ et
+      $\|\vv{r}-\vv{r'}\|=MP=r_2$ d'où
+      #+BEGIN_SRC latex
+        \begin{align*}
+          V_\text{retardé}&=-\frac{iq}{4\pi\epsilon_0}\left[\frac{e^{-i\omega\left(t-\frac{r_1}{c}\right)}}{r_1}-\frac{e^{-i\omega\left(t-\frac{r_2}{c}\right)}}{r_2}\right]\\
+          &=\frac{iq}{4\pi\epsilon_0}\,e^{-i\omega t}\left[\frac{e^{i\omega\frac{r_2}{c}}}{r_2}-\frac{e^{i\omega\frac{r_1}{c}}}{r_1}\right]
+        \end{align*}
+      #+END_SRC
+
+   2) $\lambda=\frac{2\pi c}{\omega}$ et $r\gg\lambda\gg\ell$
+      - $r\gg\ell$ : approximation dipolaire
+      - $r\gg\lambda$ : approximation champ lointain
+      - $\lambda\gg\ell$ : approximation non-relativiste
+
+      Sous ces approximations, les distances $r_1$ et $r_2$ deviennent
+      #+BEGIN_SRC latex
+        \begin{align*}
+          r_1^2=\left(\vv{MO}+\vv{OP}\right)^2&=MO^2+OP^2+2\vv{MO}.\vv{OP}\\
+          &=\frac{\ell^2}{4}+r^2+2\frac{\ell}{2}r\cos\theta.\vv{OP}\\
+          &\simeq r^2\left(1+\frac{\ell}{r}\cos\theta+\cancel{\frac{\ell^2}{4r^2}}\right)\\
+          r_1&\simeq r\left(1+\frac{\ell}{2r}\cos\theta\right)\\
+          r_2^2=\left(\vv{NO}+\vv{OP}\right)^2&\simeq r^2\left(1-\frac{\ell}{r}\cos\theta\right)\\
+          r_2&\simeq r\left(1-\frac{\ell}{2r}\cos\theta\right)
+        \end{align*}
+      #+END_SRC
+
+
 * Footnotes
 
 [fn:1] le vecteur accélération $\vv{a}$ s'écrit en toute rigueur
