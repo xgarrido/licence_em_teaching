@@ -3720,7 +3720,7 @@ $I=I_0\cos\omega t$. La fonction d'Heaviside a pour représentation
 
       #+BEGIN_SRC latex
         \begin{align*}
-          V_\text{retardé}&=\frac{1}{4\pi\epsilon_0}\iiint\frac{\rho(r',t')}{\|\vv{r}-\vv{r'}\|}d\vv{r'}\\
+          V_\text{retardé}&=\frac{1}{4\pi\epsilon_0}\iiint\frac{\rho(r',t')}{\|\vv{r}-\vv{r'}\|}\vv{dr'}\\
           &\text{où }t'=t-\frac{\|\vv{r}-\vv{r'}\|}{c}\text{ et }\|\vv{r}-\vv{r'}\|=QP
         \end{align*}
       #+END_SRC
@@ -3749,17 +3749,70 @@ $I=I_0\cos\omega t$. La fonction d'Heaviside a pour représentation
 
       Sous ces approximations, les distances $r_1$ et $r_2$ deviennent
       #+BEGIN_SRC latex
-        \begin{align*}
-          r_1^2=\left(\vv{MO}+\vv{OP}\right)^2&=MO^2+OP^2+2\vv{MO}.\vv{OP}\\
-          &=\frac{\ell^2}{4}+r^2+2\frac{\ell}{2}r\cos\theta.\vv{OP}\\
-          &\simeq r^2\left(1+\frac{\ell}{r}\cos\theta+\cancel{\frac{\ell^2}{4r^2}}\right)\\
-          r_1&\simeq r\left(1+\frac{\ell}{2r}\cos\theta\right)\\
-          r_2^2=\left(\vv{NO}+\vv{OP}\right)^2&\simeq r^2\left(1-\frac{\ell}{r}\cos\theta\right)\\
-          r_2&\simeq r\left(1-\frac{\ell}{2r}\cos\theta\right)
-        \end{align*}
+      \begin{align*}
+      r_1^2=\left(\vv{MO}+\vv{OP}\right)^2&=MO^2+OP^2+2\vv{MO}.\vv{OP}\\
+      &=\frac{\ell^2}{4}+r^2+2\frac{\ell}{2}r\cos\theta\\
+      &\simeq r^2\left(1+\frac{\ell}{r}\cos\theta+\cancel{\frac{\ell^2}{4r^2}}\right)\\
+      r_1&\simeq r\left(1+\frac{\ell}{2r}\cos\theta\right)\\
+      r_2^2=\left(\vv{NO}+\vv{OP}\right)^2&\simeq r^2\left(1-\frac{\ell}{r}\cos\theta\right)\\
+      r_2&\simeq r\left(1-\frac{\ell}{2r}\cos\theta\right)
+      \end{align*}
+      #+END_SRC
+      Le potentiel retardé s'écrit
+      #+BEGIN_SRC latex
+      \begin{align*}
+      V_\text{retardé}&\simeq\frac{iq}{4\pi\epsilon_0}e^{-i\omega t}\left[
+      \begin{array}{ll}
+      &\frac{1}{r}\left(1+\frac{\ell}{2r}\cos\theta\right)\,e^{i\omega\frac{r}{c}}\,e^{-i\omega\frac{\ell}{2c}\cos\theta}\\
+      -&\frac{1}{r}\left(1-\frac{\ell}{2r}\cos\theta\right)\,e^{i\omega\frac{r}{c}}\,e^{+i\omega\frac{\ell}{2c}\cos\theta}\\
+      \end{array}
+      \right]\\
+      &\simeq\frac{iq}{4\pi\epsilon_0\,r}e^{-i\omega\left(t-\frac{r}{c}\right)}\left[\left(1+\frac{\ell}{2r}\cos\theta\right)e^{-i\omega\frac{\ell}{2c}\cos\theta}-\left(1-\frac{\ell}{2r}\cos\theta\right)e^{+i\omega\frac{\ell}{2c}\cos\theta}\right]\\
+      &\simeq\frac{iq}{4\pi\epsilon_0\,r}e^{-i\omega\left(t-\frac{r}{c}\right)}\left[e^{-i\omega\frac{\ell}{2c}\cos\theta}-e^{+i\omega\frac{\ell}{2c}\cos\theta}+\frac{\ell}{2r}\cos\theta\left(e^{-i\omega\frac{\ell}{2c}\cos\theta}+e^{+i\omega\frac{\ell}{2c}\cos\theta}\right)\right]\\
+      &\text{or }e^{+i\phi}+e^{-i\phi}=2\cos\phi\text{ et }e^{-i\phi}-e^{+i\phi}=-2i\sin\phi\\
+      V_\text{retardé}&\simeq\frac{iq}{4\pi\epsilon_0\,r}e^{-i\omega\left(t-\frac{r}{c}\right)}\left[-2i\sin\left(\omega\frac{\ell}{2c}\cos\theta\right)+\frac{2\ell}{2r}\cos\theta\cos\left(\omega\frac{\ell}{2c}\cos\theta\right)\right]
+      \end{align*}
+      #+END_SRC
+      Sachant que $\omega=\frac{2\pi c}{\lambda}$,
+      $\frac{\omega}{c}\ell=\frac{2\pi\ell}{\lambda}$ et $\lambda\gg\ell$ d'où
+      $\frac{\omega\ell}{2c}\ll1$. Le développement limité de la fonction sinus
+      et de la fonction cosinus est, au voisinage de 0,
+      $\sin\epsilon\simeq\epsilon$ et $\cos\epsilon\simeq1+\epsilon^2$ soit
+      #+BEGIN_SRC latex
+      \begin{align*}
+      V_\text{retardé}&\simeq\frac{iq}{4\pi\epsilon_0\,r}e^{-i\omega\left(t-\frac{r}{c}\right)}\left[-2i\omega\frac{\ell}{2c}\cos\theta+\frac{\ell}{r}\cos\theta\right]\\
+      &\text{ or }\frac{\ell}{r}\ll\frac{\omega\ell}{c}=\frac{2\pi\ell}{\lambda}\\
+      V_\text{retardé}&\simeq-\frac{iq}{4\pi\epsilon_0\,r}e^{-i\omega\left(t-\frac{r}{c}\right)}i\omega\frac{\ell}{c}\cos\theta\\
+      &\simeq-\frac{1}{4\pi\epsilon_0}\times\frac{i\omega}{cr}\times iq\ell e^{-i\omega\left(t-\frac{r}{c}\right)}\cos\theta\\
+      &\simeq-\frac{1}{4\pi\epsilon_0}\times\frac{i\omega}{cr}\times p\cos\theta
+      \end{align*}
       #+END_SRC
 
-
+   3) L'expression du potentiel-vecteur $\vv{A}$ s'écrit
+      #+BEGIN_SRC latex
+        \begin{align*}
+          \vv{A}&=\frac{\mu_0}{4\pi}\iiint\frac{\vv{j}(\vv{r'},t')}{\|\vv{r}-\vv{r'}\|}\vv{dr'}\\
+          &=\frac{\mu_0I_0}{4\pi}\underbrace{\int\delta(x')dx'}_{=1}\underbrace{\int\delta(y')dy'}_{=1}\int_{-\ell/2}^{+\ell/2}\frac{e^{-i\omega\left(t-\frac{\|\vv{r}-\vv{r'}\|}{c}\right)}}{\|\vv{r}-\vv{r'}}dz'\vv{u_z}\\
+          &=\frac{\mu_0I_0}{4\pi}e^{-i\omega t}\vv{u_z}\times\int_{-\ell/2}^{+\ell/2}\frac{e^{i\omega\frac{\|\vv{r}-\vv{r'}\|}{c}}}{\|\vv{r}-\vv{r'}}dz'
+        \end{align*}
+      #+END_SRC
+      Dans la mesure où $\|\vv{r}-\vv{r'}\|\sim r$, l'expression du
+      potentiel-vecteur se réduit à
+      #+BEGIN_SRC latex
+        \begin{align*}
+          \vv{A}&\simeq\frac{\mu_0I_0}{4\pi}e^{-i\omega t}\vv{u_z}\times\frac{e^{i\omega\frac{r}{c}}}{r}\int_{-\ell/2}^{+\ell/2}dz'\\
+          &\simeq\frac{\mu_0I_0}{4\pi}\times\frac{\ell}{r}e^{-i\omega\left(t-\frac{r}{c}\right)}\vv{u_z}
+        \end{align*}
+      #+END_SRC
+      En utilisant le moment dipolaire complexe retardé
+      $p=iql\,e^{-i\omega\left(t-\frac{r}{c}\right)}$ et sachant que
+      $q=\frac{I_0}{\omega}$, on obtient
+      #+BEGIN_SRC latex
+        \begin{align*}
+          \vv{A}&\simeq\frac{\mu_0}{4\pi\,r}\omega q\ell e^{-i\omega\left(t-\frac{r}{c}\right)}\vv{u_z}\\
+          &\simeq-\frac{i\mu_0}{4\pi\,r}\omega p\vv{u_z}
+        \end{align*}
+      #+END_SRC
 * Footnotes
 
 [fn:1] le vecteur accélération $\vv{a}$ s'écrit en toute rigueur
