@@ -3716,7 +3716,7 @@ $I=I_0\cos\omega t$. La fonction d'Heaviside a pour représentation
    [[./figures/potentiel_retarde.pdf]]
    #+END_CENTER
 
-   1) Expression du potentiel scalaire retardé
+   1) Expression du potentiel scalaire retardé (potentiel de Liénard-Wiechert)
 
       #+BEGIN_SRC latex
         \begin{align*}
@@ -3894,7 +3894,39 @@ $I=I_0\cos\omega t$. La fonction d'Heaviside a pour représentation
      \end{align*}
    #+END_SRC
 
+   #+BEGIN_CENTER
+   #+CAPTION: *Onde plane progressive*
+   #+ATTR_LATEX: :width 0.4\linewidth
+   [[./figures/antenne_onde.pdf]]
+   #+END_CENTER
 
+6) Pour calculer la puissance rayonnée par le dipôle, il faut intégrer le flux
+   du vecteur de Poynting $\vv{R}$ sur une sphère de rayon $r\gg\lambda$
+
+   #+BEGIN_SRC latex
+     \begin{align*}
+       \vv{R}&=\frac{1}{\mu_0}\text{Re}({\vv{E}})\times\text{Re}(\vv{B})\\
+       &\text{où }\vv{E}=E\,\vv{u_\theta}\text{ et }\vv{B}=\frac{E}{c}\vv{u_\phi}\\
+       &=\frac{1}{\mu_0c}\text{Re}(E)^2\,\vv{u_\theta}\times\vv{u_\phi}\\
+       &=\frac{1}{\cancel{\mu_0}c}\frac{\mu_0^{\cancel{2}}\omega^4}{16\pi^2}\frac{\sin^2\theta}{r^2}\text{Re}(p)^2\,\vv{u_r}\\
+       &=\frac{\mu_0\omega^4}{16\pi^2c}\frac{\sin^2\theta}{r^2}\left(q\ell\sin\left(t-\frac{r}{c}\right)\right)^2\,\vv{u_r}\\
+       \langle\vv{R}\rangle&=\frac{\mu_0q^2\ell^2}{16\pi^2c}\frac{\sin^2\theta}{r^2}\omega^4\times\frac{1}{2}\vv{u_r}>0\to\text{rayonné vers l'extérieur}
+     \end{align*}
+   #+END_SRC
+
+   La puissance rayonnée correspond au flux du vecteur de Poynting soit
+   #+BEGIN_SRC latex
+     \begin{align*}
+       P_r&=\iint\langle\vv{R}\rangle.\vv{dS}=\iint\langle\vv{R}\rangle\times r^2\sin\theta d\theta d\phi\\
+       &=\frac{\mu_0q^2\ell^2}{32\pi^2c}\omega^4\underbrace{\int_0^\pi\sin^3\theta d\theta}_{4/3}\int_0^{2\pi}d\phi\\
+       &=\frac{\mu_0q^2\ell^2}{12\pi c}\omega^4\text{ avec }q=I_0\omega\\
+       &=\frac{\mu_0}{12\pi c}\omega^2\ell^2I_0^2\text{ d'où } R_r=\frac{\mu_0}{6\pi c}\omega^2\ell^2\\
+       &\text{avec }\frac{\omega}{c}=\frac{2\pi}{\lambda}\to R_r=\frac{2\pi\mu_0c}{3}\frac{\ell^2}{\lambda^2}=\frac{2\pi}{3}\left(\frac{\ell}{\lambda}\right)^2\underbrace{\sqrt{\frac{\mu_0}{\epsilon_0}}}_{R_\text{vide}}
+     \end{align*}
+   #+END_SRC
+   On note que la puissance est indépendante de $r$ autrement dit l'énergie se
+   propage sans perte : en toute rigueur, il faut donc tenir compte de
+   l'absorption pour décrire correctement la propagation de l'onde.
 * Footnotes
 
 [fn:1] le vecteur accélération $\vv{a}$ s'écrit en toute rigueur

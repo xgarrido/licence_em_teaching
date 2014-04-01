@@ -1,0 +1,29 @@
+%% document-wide tikz options and styles
+\begin{tikzpicture}[  >=latex, % option for nice arrows
+    inner sep=0pt,%
+    outer sep=2pt,%
+    mark coordinate/.style={inner sep=0pt,outer sep=0pt,minimum size=3pt,
+      fill=black,circle}%
+  ]
+  \sf
+  \definecolor{red}{RGB}{221,42,43}
+  \definecolor{green}{RGB}{105,182,40}
+  \definecolor{blue}{RGB}{0,51,153}
+  \definecolor{orange}{RGB}{192,128,64}
+  \definecolor{gray}{RGB}{107,108,110}
+
+
+  \coordinate[mark coordinate] (0) at (0,0) node[below] {$\mathbf{O}$};
+  \coordinate[mark coordinate] (P) at (2.12,2.12);
+  \draw (0) -- (P) node[midway, left] {$\overrightarrow{r}$};
+
+  \draw[dashed, gray] (0.2,0) arc(0:75:0.2);
+  \draw[dashed, gray] (1,0) arc(0:90:1);
+  \draw[dashed, gray] (2,0) arc(0:90:2);
+  \draw[dashed, gray] (3,0) arc(0:90:3);
+
+  \draw[->,rotate around={90:(P)}] (P) -- (3,3) node[right] {\scriptsize$\overrightarrow{E}\parallel\overrightarrow{u_\theta}$};
+  \draw[->] (P) -- (3,3) node[right] {\scriptsize$\overrightarrow{k}=\frac{\omega}{c}\overrightarrow{u_r}$};
+  \draw[->] (P) node[left] {$\mathbf{P}$} node[right, yshift=2pt, xshift=2pt] {\scriptsize$\bigodot\overrightarrow{B}\parallel\overrightarrow{u_\phi}$};
+
+\end{tikzpicture}
