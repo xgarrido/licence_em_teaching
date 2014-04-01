@@ -1,0 +1,25 @@
+%% document-wide tikz options and styles
+\begin{tikzpicture}[  >=latex, % option for nice arrows
+    inner sep=0pt,%
+    outer sep=2pt,%
+    mark coordinate/.style={inner sep=0pt,outer sep=0pt,minimum size=3pt,
+      fill=black,circle}%
+  ]
+  \sf
+  \definecolor{red}{RGB}{221,42,43}
+  \definecolor{green}{RGB}{105,182,40}
+  \definecolor{blue}{RGB}{0,51,153}
+  \definecolor{orange}{RGB}{192,128,64}
+  \definecolor{gray}{RGB}{107,108,110}
+
+
+  \draw[->] (-1,0) -- (3,0) node[right] {$x$};
+
+  \coordinate[mark coordinate] (O) at (0,0) node[below] {$\mathbf{O}$};
+  \coordinate[mark coordinate] (M) at (2.12,2.12);
+  \coordinate[mark coordinate] (N) at (2,0);
+  \draw (N) node[above] {$e^-$} node[below] {\scriptsize$x(t)$};
+  \draw (O) -- (M) node[midway, left] {$\overrightarrow{\rho}$} node[right] {$\mathbf{M}$};
+  \draw[->] (0.5,0) arc(0:45:0.5) node[midway, above right] {$\theta$};
+
+\end{tikzpicture}
