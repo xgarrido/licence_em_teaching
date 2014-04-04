@@ -24,7 +24,8 @@
   \draw (N) -- (P) node[midway, right] {$r_2$};
   \draw (0) -- (P) node[midway, left] {$\overrightarrow{r}$};
   \coordinate[mark coordinate] (Q) at (1,0);
-  \draw[dashed] (Q) node[below] {$\mathbf{Q}$} -- (P) node[midway, right] {$\overrightarrow{r'}$};
+  \draw[dashed] (Q) node[below] {$\mathbf{Q}$} -- (P);
+  \draw[->] (0) -- (Q) node[midway, below] {$\overrightarrow{r'}$};
 
   \draw[->] (0.5,0) arc(0:75:0.5) node[midway, above right] {$\theta$};
 

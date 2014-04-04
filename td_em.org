@@ -3733,8 +3733,8 @@ $I=I_0\cos\omega t$. La fonction d'Heaviside a pour représentation
       #+END_SRC
 
       Les seules positions de $Q$ où cette intégrale est non nulle sont les
-      points $M$ et $N$ pour lesquels $\|\vv{r}-\vv{r'}\|=NP=r_1$ et
-      $\|\vv{r}-\vv{r'}\|=MP=r_2$ d'où
+      points $M$ et $N$ pour lesquels $\|\vv{r}-\vv{r'}\|=MP=r_1$ et
+      $\|\vv{r}-\vv{r'}\|=NP=r_2$ d'où
       #+BEGIN_SRC latex
         \begin{align*}
           V_\text{retardé}&=-\frac{iq}{4\pi\epsilon_0}\left[\frac{e^{-i\omega\left(t-\frac{r_1}{c}\right)}}{r_1}-\frac{e^{-i\omega\left(t-\frac{r_2}{c}\right)}}{r_2}\right]\\
@@ -3749,29 +3749,29 @@ $I=I_0\cos\omega t$. La fonction d'Heaviside a pour représentation
 
       Sous ces approximations, les distances $r_1$ et $r_2$ deviennent
       #+BEGIN_SRC latex
-      \begin{align*}
-      r_1^2=\left(\vv{MO}+\vv{OP}\right)^2&=MO^2+OP^2+2\vv{MO}.\vv{OP}\\
-      &=\frac{\ell^2}{4}+r^2+2\frac{\ell}{2}r\cos\theta\\
-      &\simeq r^2\left(1+\frac{\ell}{r}\cos\theta+\cancel{\frac{\ell^2}{4r^2}}\right)\\
-      r_1&\simeq r\left(1+\frac{\ell}{2r}\cos\theta\right)\\
-      r_2^2=\left(\vv{NO}+\vv{OP}\right)^2&\simeq r^2\left(1-\frac{\ell}{r}\cos\theta\right)\\
-      r_2&\simeq r\left(1-\frac{\ell}{2r}\cos\theta\right)
-      \end{align*}
+        \begin{align*}
+          r_1^2=\left(\vv{MO}+\vv{OP}\right)^2&=MO^2+OP^2+2\vv{MO}.\vv{OP}\\
+          &=\frac{\ell^2}{4}+r^2+2\frac{\ell}{2}r\cos\theta\\
+          &\simeq r^2\left(1+\frac{\ell}{r}\cos\theta+\cancel{\frac{\ell^2}{4r^2}}\right)\\
+          r_1&\simeq r\left(1+\frac{\ell}{2r}\cos\theta\right)\\
+          r_2^2=\left(\vv{NO}+\vv{OP}\right)^2&\simeq r^2\left(1-\frac{\ell}{r}\cos\theta\right)\\
+          r_2&\simeq r\left(1-\frac{\ell}{2r}\cos\theta\right)
+        \end{align*}
       #+END_SRC
       Le potentiel retardé s'écrit
       #+BEGIN_SRC latex
-      \begin{align*}
-      V_\text{retardé}&\simeq\frac{iq}{4\pi\epsilon_0}e^{-i\omega t}\left[
-      \begin{array}{ll}
-      &\frac{1}{r}\left(1+\frac{\ell}{2r}\cos\theta\right)\,e^{i\omega\frac{r}{c}}\,e^{-i\omega\frac{\ell}{2c}\cos\theta}\\
-      -&\frac{1}{r}\left(1-\frac{\ell}{2r}\cos\theta\right)\,e^{i\omega\frac{r}{c}}\,e^{+i\omega\frac{\ell}{2c}\cos\theta}\\
-      \end{array}
-      \right]\\
-      &\simeq\frac{iq}{4\pi\epsilon_0\,r}e^{-i\omega\left(t-\frac{r}{c}\right)}\left[\left(1+\frac{\ell}{2r}\cos\theta\right)e^{-i\omega\frac{\ell}{2c}\cos\theta}-\left(1-\frac{\ell}{2r}\cos\theta\right)e^{+i\omega\frac{\ell}{2c}\cos\theta}\right]\\
-      &\simeq\frac{iq}{4\pi\epsilon_0\,r}e^{-i\omega\left(t-\frac{r}{c}\right)}\left[e^{-i\omega\frac{\ell}{2c}\cos\theta}-e^{+i\omega\frac{\ell}{2c}\cos\theta}+\frac{\ell}{2r}\cos\theta\left(e^{-i\omega\frac{\ell}{2c}\cos\theta}+e^{+i\omega\frac{\ell}{2c}\cos\theta}\right)\right]\\
-      &\text{or }e^{+i\phi}+e^{-i\phi}=2\cos\phi\text{ et }e^{-i\phi}-e^{+i\phi}=-2i\sin\phi\\
-      V_\text{retardé}&\simeq\frac{iq}{4\pi\epsilon_0\,r}e^{-i\omega\left(t-\frac{r}{c}\right)}\left[-2i\sin\left(\omega\frac{\ell}{2c}\cos\theta\right)+\frac{2\ell}{2r}\cos\theta\cos\left(\omega\frac{\ell}{2c}\cos\theta\right)\right]
-      \end{align*}
+        \begin{align*}
+          V_\text{retardé}&\simeq\frac{iq}{4\pi\epsilon_0}e^{-i\omega t}\left[
+            \begin{array}{ll}
+              &\frac{1}{r}\left(1+\frac{\ell}{2r}\cos\theta\right)\,e^{i\omega\frac{r}{c}}\,e^{-i\omega\frac{\ell}{2c}\cos\theta}\\
+              -&\frac{1}{r}\left(1-\frac{\ell}{2r}\cos\theta\right)\,e^{i\omega\frac{r}{c}}\,e^{+i\omega\frac{\ell}{2c}\cos\theta}\\
+            \end{array}
+            \right]\\
+          &\simeq\frac{iq}{4\pi\epsilon_0\,r}e^{-i\omega\left(t-\frac{r}{c}\right)}\left[\left(1+\frac{\ell}{2r}\cos\theta\right)e^{-i\omega\frac{\ell}{2c}\cos\theta}-\left(1-\frac{\ell}{2r}\cos\theta\right)e^{+i\omega\frac{\ell}{2c}\cos\theta}\right]\\
+          &\simeq\frac{iq}{4\pi\epsilon_0\,r}e^{-i\omega\left(t-\frac{r}{c}\right)}\left[e^{-i\omega\frac{\ell}{2c}\cos\theta}-e^{+i\omega\frac{\ell}{2c}\cos\theta}+\frac{\ell}{2r}\cos\theta\left(e^{-i\omega\frac{\ell}{2c}\cos\theta}+e^{+i\omega\frac{\ell}{2c}\cos\theta}\right)\right]\\
+          &\text{or }e^{+i\phi}+e^{-i\phi}=2\cos\phi\text{ et }e^{-i\phi}-e^{+i\phi}=-2i\sin\phi\\
+          V_\text{retardé}&\simeq\frac{iq}{4\pi\epsilon_0\,r}e^{-i\omega\left(t-\frac{r}{c}\right)}\left[-2i\sin\left(\omega\frac{\ell}{2c}\cos\theta\right)+\frac{2\ell}{2r}\cos\theta\cos\left(\omega\frac{\ell}{2c}\cos\theta\right)\right]
+        \end{align*}
       #+END_SRC
       Sachant que $\omega=\frac{2\pi c}{\lambda}$,
       $\frac{\omega}{c}\ell=\frac{2\pi\ell}{\lambda}$ et $\lambda\gg\ell$ d'où
@@ -3779,13 +3779,13 @@ $I=I_0\cos\omega t$. La fonction d'Heaviside a pour représentation
       et de la fonction cosinus est, au voisinage de 0,
       $\sin\epsilon\simeq\epsilon$ et $\cos\epsilon\simeq1+\epsilon^2$ soit
       #+BEGIN_SRC latex
-      \begin{align*}
-      V_\text{retardé}&\simeq\frac{iq}{4\pi\epsilon_0\,r}e^{-i\omega\left(t-\frac{r}{c}\right)}\left[-2i\omega\frac{\ell}{2c}\cos\theta+\frac{\ell}{r}\cos\theta\right]\\
-      &\text{ or }\frac{\ell}{r}\ll\frac{\omega\ell}{c}=\frac{2\pi\ell}{\lambda}\\
-      V_\text{retardé}&\simeq-\frac{iq}{4\pi\epsilon_0\,r}e^{-i\omega\left(t-\frac{r}{c}\right)}i\omega\frac{\ell}{c}\cos\theta\\
-      &\simeq-\frac{1}{4\pi\epsilon_0}\times\frac{i\omega}{cr}\times iq\ell e^{-i\omega\left(t-\frac{r}{c}\right)}\cos\theta\\
-      &\simeq-\frac{1}{4\pi\epsilon_0}\times\frac{i\omega}{cr}\times p\cos\theta
-      \end{align*}
+        \begin{align*}
+          V_\text{retardé}&\simeq\frac{iq}{4\pi\epsilon_0\,r}e^{-i\omega\left(t-\frac{r}{c}\right)}\left[-2i\omega\frac{\ell}{2c}\cos\theta+\frac{\ell}{r}\cos\theta\right]\\
+          &\text{ or }\frac{\ell}{r}\ll\frac{\omega\ell}{c}=\frac{2\pi\ell}{\lambda}\\
+          V_\text{retardé}&\simeq-\frac{iq}{4\pi\epsilon_0\,r}e^{-i\omega\left(t-\frac{r}{c}\right)}i\omega\frac{\ell}{c}\cos\theta\\
+          &\simeq-\frac{1}{4\pi\epsilon_0}\times\frac{i\omega}{cr}\times iq\ell e^{-i\omega\left(t-\frac{r}{c}\right)}\cos\theta\\
+          &\simeq-\frac{1}{4\pi\epsilon_0}\times\frac{i\omega}{cr}\times p\cos\theta
+        \end{align*}
       #+END_SRC
 
    3) L'expression du potentiel-vecteur $\vv{A}$ s'écrit
@@ -3838,10 +3838,10 @@ $I=I_0\cos\omega t$. La fonction d'Heaviside a pour représentation
          z&=r\cos\theta
        \end{array}
        \right.\\
-       &=\sin\theta\frac{\partial A_z}{\partial r}\underbrace{\left(\cos\phi\vv{u_x}-\cos\phi\vv{u_y}\right)}_{-\vv{u_\phi}}
+       &=\sin\theta\frac{\partial A_z}{\partial r}\underbrace{\left(\sin\phi\,\vv{u_x}-\cos\phi\,\vv{u_y}\right)}_{-\vv{u_\phi}}
      \end{align*}
    #+END_SRC
-   Il reste à calculer la dérivée partielle du $A_z$
+   Il reste à calculer la dérivée partielle de $A_z$
    #+BEGIN_SRC latex
      \begin{align*}
        \frac{\partial A_z}{\partial r}&=-\frac{i\mu_0}{4\pi}\omega\frac{\partial}{\partial r}\left(\frac{p}{r}\right)\\
@@ -3934,7 +3934,7 @@ $I=I_0\cos\omega t$. La fonction d'Heaviside a pour représentation
    #+BEGIN_SRC latex
      \begin{align*}
        m\frac{d\vv{v}}{dt}&=-m\omega_0^2\vv{r}+\vv{F}_\text{Lorentz}\\
-       m\frac{d\vv{v}}{dt}&=-m\omega_0^2\vv{r}-e\vv{\mathcal{E}}-e\vv{V}\times\vv{\mathcal{B}}
+       m\frac{d\vv{v}}{dt}&=-m\omega_0^2\vv{r}-e\vv{\mathcal{E}}-e\vv{v}\times\vv{\mathcal{B}}
      \end{align*}
    #+END_SRC
    Le champ électromagnétique $(\vv{E},\vv{B})$ d'une onde plane est lié au
