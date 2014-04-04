@@ -13,7 +13,7 @@
   \definecolor{gray}{RGB}{107,108,110}
 
   \draw[->] (-3,0) -- (3,0) node[right] {$z$};
-  \draw[->] (0,-0.1) node[below] {$-\ell/2$} -- (0,3) node[right] {$\Theta$};
+  \draw[->] (0,-0.1) node[below] {$+\ell/2$} -- (0,3) node[right] {$\Theta$};
   \draw[thick,blue] (2.9,0) -- (0,0) -- (0,2.5) node[right] {1} -- (-2.5,2.5);
 
   \draw (0,-1) node {Fonction $\Theta(-z+\ell/2)$};
