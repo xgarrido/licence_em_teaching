@@ -3252,7 +3252,7 @@ stationnaire.
      \end{align*}
    #+END_SRC
 
-* TD6 : Milieux magnétiques
+* COMMENT TD6 : Milieux magnétiques
 ** Introduction
 Dans la plupart des matériaux soumis à un champ magnétique, les charges liées se
 déplacent à l'échelle atomique faisant apparaître des boucles de courant /i.e./
@@ -3624,7 +3624,7 @@ On considère un matériau ferromagnétique dur ayant une aimantation $\vv{M}$
    faudrait augmenter la hauteur $h$ de l'aimant jusqu'à une valeur de l'ordre
    de 700 mm.
 
-* TD7 : Rayonnement
+* COMMENT TD7 : Rayonnement
 ** Rayonnement d'une antenne
 Soit un conducteur de longueur \ell parcouru par un courant périodique
 $I=I_0\cos\omega t$. La fonction d'Heaviside a pour représentation
@@ -3919,11 +3919,13 @@ $I=I_0\cos\omega t$. La fonction d'Heaviside a pour représentation
      \begin{align*}
        P_r&=\iint\langle\vv{R}\rangle.\vv{dS}=\iint\langle\vv{R}\rangle\times r^2\sin\theta d\theta d\phi\\
        &=\frac{\mu_0q^2\ell^2}{32\pi^2c}\omega^4\underbrace{\int_0^\pi\sin^3\theta d\theta}_{4/3}\int_0^{2\pi}d\phi\\
-       &=\frac{\mu_0q^2\ell^2}{12\pi c}\omega^4\text{ avec }q=I_0\omega\\
+       &=\frac{\mu_0q^2\ell^2}{12\pi c}\omega^4\text{ avec }q=\frac{I_0}{\omega}\\
        &=\frac{\mu_0}{12\pi c}\omega^2\ell^2I_0^2\text{ d'où } R_r=\frac{\mu_0}{6\pi c}\omega^2\ell^2\\
-       &\text{avec }\frac{\omega}{c}=\frac{2\pi}{\lambda}\to R_r=\frac{2\pi\mu_0c}{3}\frac{\ell^2}{\lambda^2}=\frac{2\pi}{3}\left(\frac{\ell}{\lambda}\right)^2\underbrace{\sqrt{\frac{\mu_0}{\epsilon_0}}}_{R_\text{vide}}
+       &\text{avec }\frac{\omega}{c}=\frac{2\pi}{\lambda}\to R_r=\frac{2\pi\mu_0c}{3}\frac{\ell^2}{\lambda^2}=\frac{2\pi}{3}\left(\frac{\ell}{\lambda}\right)^2\underbrace{\sqrt{\frac{\mu_0}{\epsilon_0}}}_{Z_0}
      \end{align*}
    #+END_SRC
+   où $Z_0$ correspond à l'impédance du vide et est égale à 377 ohms.
+
    On note que la puissance est indépendante de $r$ autrement dit l'énergie se
    propage sans perte : en toute rigueur, il faut donc tenir compte de
    l'absorption pour décrire correctement la propagation de l'onde.
@@ -3959,28 +3961,32 @@ $I=I_0\cos\omega t$. La fonction d'Heaviside a pour représentation
        \frac{d\vv{v}}{dt}\simeq-m\omega_0^2\vv{r}-e\vv{E}
      \end{align*}
    #+END_SRC
-2)
-       #+BEGIN_SRC latex
-         \begin{align*}
-           \underbrace{\frac{d\vv{v}}{dt}}_{\text{dérivée particulaire}}&=\underbrace{\frac{\partial\vv{v}}{\partial t}}_{\text{dérivée locale}}+\underbrace{\left(\vv{v}.\grad\right).\vv{v}}_{\text{dérivée convective}}
-         \end{align*}
-       #+END_SRC
-      En posant $\vv{v}=\vv{v_0}\,e^{i(\omega t-\vv{k}.\vv{r})}$, la dérivée locale
-      $\frac{\partial\vv{v}}{\partial t}$ est égale à $i\omega\vv{v}$, la dérivée
-      convective prenant la forme
-      #+BEGIN_SRC latex
-        \begin{align*}
-          \left(\vv{v}.\grad\right).\vv{v}=\vv{v}.(-)i\vv{k}.\vv{v}
-        \end{align*}
-      #+END_SRC
-      On déduit que
-      #+BEGIN_SRC latex
-        \begin{align*}
-          \frac{\partial\vv{v}}{\partial t}+\left(\vv{v}.\grad\right).\vv{v}&=i\omega\vv{v}-i\vv{v}.\vv{k}.\vv{v}\\
-          &=i\omega\vv{v}\left(1-\frac{\vv{k}.\vv{v}}{\omega}\right)=i\omega\vv{v}\left(1-\frac{v}{v_\phi}\right)\\
-          \frac{d\vv{v}}{dt}&\simeq\frac{\partial v}{\partial t}\to\frac{v}{v_\phi}=\frac{v}{c}\ll1
-        \end{align*}
-      #+END_SRC
+2) En différentialisant le champ de vitesse où  $\vv{v}$ est une fonction de
+   l'espace et du temps /i.e./ $f(\vv{r},t)$, on obtient
+   #+BEGIN_SRC latex
+     \begin{align*}
+       d\vv{v}&=\frac{\partial\vv{v}}{\partial t}dt+\frac{\partial\vv{v}}{\partial x}dx+\frac{\partial\vv{v}}{\partial y}dy+\frac{\partial\vv{v}}{\partial z}dz\\
+       \frac{d\vv{v}}{dt}&=\frac{\partial\vv{v}}{\partial t}+\frac{\partial\vv{v}}{\partial x}\frac{dx}{dt}+\frac{\partial\vv{v}}{\partial y}\frac{dy}{dt}+\frac{\partial\vv{v}}{\partial z}\frac{dz}{dt}\\
+       \frac{d\vv{v}}{dt}&=\frac{\partial\vv{v}}{\partial t}+\frac{\partial\vv{v}}{\partial x}v_x+\frac{\partial\vv{v}}{\partial y}v_y+\frac{\partial\vv{v}}{\partial z}v_z\\
+       \underbrace{\frac{d\vv{v}}{dt}}_{\text{dérivée particulaire}}&=\underbrace{\frac{\partial\vv{v}}{\partial t}}_{\text{dérivée locale}}+\underbrace{\left(\vv{v}.\grad\right).\vv{v}}_{\text{dérivée convective}}
+     \end{align*}
+   #+END_SRC
+   En posant $\vv{v}=\vv{v_0}\,e^{i(\omega t-\vv{k}.\vv{r})}$, la dérivée locale
+   $\frac{\partial\vv{v}}{\partial t}$ est égale à $i\omega\vv{v}$, la dérivée
+   convective prenant la forme
+   #+BEGIN_SRC latex
+     \begin{align*}
+       \left(\vv{v}.\grad\right).\vv{v}=\vv{v}.(-)i\vv{k}.\vv{v}
+     \end{align*}
+   #+END_SRC
+   On déduit que
+   #+BEGIN_SRC latex
+     \begin{align*}
+       \frac{\partial\vv{v}}{\partial t}+\left(\vv{v}.\grad\right).\vv{v}&=i\omega\vv{v}-i\vv{v}.\vv{k}.\vv{v}\\
+       &=i\omega\vv{v}\left(1-\frac{\vv{k}.\vv{v}}{\omega}\right)=i\omega\vv{v}\left(1-\frac{v}{v_\phi}\right)\\
+       \frac{d\vv{v}}{dt}&\simeq\frac{\partial v}{\partial t}\to\frac{v}{v_\phi}=\frac{v}{c}\ll1
+     \end{align*}
+   #+END_SRC
 3) En projetant l'équation gouvernant la dynamique de l'électron selon $Ox$, on obtient
    #+BEGIN_SRC latex
      \begin{align*}
@@ -4067,6 +4073,7 @@ $I=I_0\cos\omega t$. La fonction d'Heaviside a pour représentation
       #+END_SRC
       Ce comportement en $\left(\frac{\omega}{\omega_0}\right)^4$ correspond à
       la diffusion de Rayleigh.
+
 *** Généralisations
 1) Le spectre visible s'étend de 400 nm (bleu) à 800 nm (rouge) et la diffusion
    sur les molécules de l'atmosphère \equiv à celle sur des atomes d'hydrogène
@@ -4116,6 +4123,78 @@ $I=I_0\cos\omega t$. La fonction d'Heaviside a pour représentation
       de Higgs au LHC (pour une énergie de faisceau de 14 TeV et une masse du
       Higgs voisine de 125 GeV) est voisine de 50 picobarns soit 50 10^{-12} barn
       soit 50 10^{-40} m^{2}.
+* TD8 : Propagation dans le vide et les milieux diélectriques
+** Effet Faraday dans un diélectrique
+
+#+BEGIN_CENTER
+#+ATTR_LATEX: :width 0.4\linewidth
+[[./figures/effet_faraday.pdf]]
+#+END_CENTER
+
+*** Équation de propagation des ondes
+1)
+  #+BEGIN_SRC latex
+    \begin{align*}
+      \div\vv{E}&=\frac{\rho}{\epsilon_0}\\
+      \rot\vv{E}&=-\frac{\partial\vv{B}}{\partial t}\\
+      \div\vv{B}&=0\\
+      \rot\vv{B}&=\mu_0\vv{j}+\epsilon_0\mu_0\frac{\partial\vv{E}}{\partial t}
+    \end{align*}
+  #+END_SRC
+
+  L'équation de propagation du champ électrique s'écrit
+  #+BEGIN_SRC latex
+    \begin{align*}
+      \rot\left(\rot\vv{E}\right)&=\grad\left(\div\vv{E}\right)-\Delta\vv{E}=-\frac{\partial\rot\vv{B}}{\partial t}\\
+      -\Delta\vv{E}+\grad\left(\frac{\rho}{\epsilon_0}\right)&=-\mu_0\frac{\partial\vv{j}}{\partial t}+\frac{1}{c^2}\frac{\partial^2\vv{E}}{\partial t^2}\\
+      \underbrace{\Delta\vv{E}-\frac{1}{c^2}\frac{\partial^2\vv{E}}{\partial t^2}}_{\square\vv{E}}&=\mu_0\frac{\partial\vv{j}}{\partial t}+\grad\left(\frac{\rho}{\epsilon_0}\right)
+    \end{align*}
+  #+END_SRC
+
+  Pour le champ magnétique, on a
+  #+BEGIN_SRC latex
+    \begin{align*}
+      \rot\left(\rot\vv{B}\right)&=\mu_0\rot\vv{j}+\epsilon_0\mu_0\frac{\partial\rot\vv{E}}{\partial t}\\
+      -\Delta\vv{B}+\cancel{\grad\left(\div\vv{B}\right)}&=\mu_0\rot\vv{j}-\frac{1}{c^2}\frac{\partial^2\vv{B}}{\partial t^2}\\
+      \square\vv{B}&=-\mu_0\rot\vv{j}
+    \end{align*}
+  #+END_SRC
+
+2) Le champ électrique associée à l'onde est de la forme
+   $\vv{E}=\vv{E_0}\,e^{i\left(\vv{k}.\vv{r}-\omega t\right)}$. L'expression de
+   la divergence de $\vv{E}$ s'écrit
+   #+BEGIN_SRC latex
+     \begin{align*}
+       \div\vv{E}&=\frac{\partial E_x}{\partial x}+\frac{\partial E_y}{\partial y}+\frac{\partial E_z}{\partial z}\\
+       &=E_{0x}ik_x\,e^{i\left(\vv{k}.\vv{r}-\omega t\right)}+E_{0y}ik_y\,e^{i\left(\vv{k}.\vv{r}-\omega t\right)}+E_{0z}ik_z\,e^{i\left(\vv{k}.\vv{r}-\omega t\right)}\\
+       &=i\vv{k}.\vv{E}
+     \end{align*}
+   #+END_SRC
+   Dans le cas d'une onde transverse plane, la base des vecteurs
+   $(\vv{k},\vv{E},\vv{B})$ forme une base orthogonale d'où $\vv{E}\perp\vv{k}$
+   et $\div\vv{E}=0$. L'équation de propagation de $\vv{E}$ devient
+   #+BEGIN_SRC latex
+     \begin{align*}
+       \Delta\vv{E}-\frac{1}{c^2}\frac{\partial^2\vv{E}}{\partial t^2}&=\mu_0\frac{\partial\vv{j}}{\partial t}\text{ avec }\vv{E}=\vv{E_0}\,e^{i\left(\vv{k}.\vv{r}-\omega t\right)}\\
+       \text{or }&\Delta\vv{E}=\left(\Delta E_x\right)\vv{u_x}+\left(\Delta E_y\right)\vv{u_y}+\left(\Delta E_z\right)\vv{u_z}\\
+       &\Delta\vv{E}=\left(\frac{\partial^2E_x}{\partial x^2}+\frac{\partial^2E_x}{\partial y^2}+\frac{\partial^2E_x}{\partial z^2}\right)\vv{u_x}+...\\
+       &\Delta\vv{E}=\left(-k_x^2E_x-k_y^2E_x-k_z^2E_x\right)\vv{u_x}-k^2E_y\vv{u_y}-k^2E_z\vv{u_z}\\
+       &\Delta\vv{E}=-k^2\vv{E}\\
+       \text{et }&\frac{\partial^2\vv{E}}{\partial t^2}=-\omega^2\vv{E},\frac{\partial\vv{j}}{\partial t}=-i\omega\vv{j}\\
+       \text{d'où }&-k^2\vv{E}+\frac{\omega^2}{c^2}\vv{E}=-i\mu_0\omega\vv{j}=\vv{E}\left(\frac{\omega^2}{c^2}-k^2\right)=i\mu_0\omega\vv{j}
+     \end{align*}
+   #+END_SRC
+   Dans le vide $\vv{j}=\vv{0}$, on retrouve la relation de dispersion à savoir
+   $k=\frac{\omega}{c}$.
+
+*** Détermination des caractéristiques du milieu
+1)
+   1) Principe fondamental de la dynamique appliqué à un électron du milieu
+      #+BEGIN_SRC latex
+        \begin{align*}
+          m\frac{d\vv{v}}{dt}=-m\omega_0^2\vv{R}-e\vv{E}-e\vv{v}\times\left(\vv{B}+\vv{B_S}\right)
+        \end{align*}
+      #+END_SRC
 * Footnotes
 
 [fn:1] le vecteur accélération $\vv{a}$ s'écrit en toute rigueur
