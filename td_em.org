@@ -3624,7 +3624,7 @@ On considère un matériau ferromagnétique dur ayant une aimantation $\vv{M}$
    faudrait augmenter la hauteur $h$ de l'aimant jusqu'à une valeur de l'ordre
    de 700 mm.
 
-* COMMENT TD7 : Rayonnement
+* TD7 : Rayonnement
 ** Rayonnement d'une antenne
 Soit un conducteur de longueur \ell parcouru par un courant périodique
 $I=I_0\cos\omega t$. La fonction d'Heaviside a pour représentation
@@ -4022,7 +4022,7 @@ $I=I_0\cos\omega t$. La fonction d'Heaviside a pour représentation
    [[./figures/onde_electron.pdf]]
    #+END_CENTER
 
-   1) Le moment dipolaire s'écrit
+   1) Le moment dipolaire est égal à $e\times\vv{NO}$ et s'écrit donc
       #+BEGIN_SRC latex
         \begin{align*}
           \vv{p}=-e\,x(t)\vv{u_x}
@@ -4031,7 +4031,7 @@ $I=I_0\cos\omega t$. La fonction d'Heaviside a pour représentation
 
       L'amplitude $p_0$ est alors égale à $eX_0$.
    2) L'accélération \gamma de l'électron est égale à
-      $\frac{\partial^2x}{\partial t}$ d'où $\gamma=-\omega^2x$. L'amplitude de
+      $\frac{\partial^2x}{\partial t^2}$ d'où $\gamma=-\omega^2x$. L'amplitude de
       l'accélération \gamma_{0} est ainsi égale à $\omega^2X_0$. Les champs
       électrique et magnétique induit par ce dipôle sont
       #+BEGIN_SRC latex
@@ -4146,7 +4146,7 @@ $I=I_0\cos\omega t$. La fonction d'Heaviside a pour représentation
   #+BEGIN_SRC latex
     \begin{align*}
       \rot\left(\rot\vv{E}\right)&=\grad\left(\div\vv{E}\right)-\Delta\vv{E}=-\frac{\partial\rot\vv{B}}{\partial t}\\
-      -\Delta\vv{E}+\grad\left(\frac{\rho}{\epsilon_0}\right)&=-\mu_0\frac{\partial\vv{j}}{\partial t}+\frac{1}{c^2}\frac{\partial^2\vv{E}}{\partial t^2}\\
+      -\Delta\vv{E}+\grad\left(\frac{\rho}{\epsilon_0}\right)&=-\mu_0\frac{\partial\vv{j}}{\partial t}-\frac{1}{c^2}\frac{\partial^2\vv{E}}{\partial t^2}\\
       \underbrace{\Delta\vv{E}-\frac{1}{c^2}\frac{\partial^2\vv{E}}{\partial t^2}}_{\square\vv{E}}&=\mu_0\frac{\partial\vv{j}}{\partial t}+\grad\left(\frac{\rho}{\epsilon_0}\right)
     \end{align*}
   #+END_SRC
@@ -4195,6 +4195,77 @@ $I=I_0\cos\omega t$. La fonction d'Heaviside a pour représentation
           m\frac{d\vv{v}}{dt}=-m\omega_0^2\vv{R}-e\vv{E}-e\vv{v}\times\left(\vv{B}+\vv{B_S}\right)
         \end{align*}
       #+END_SRC
+   2) Pour une onde plane transverse, la norme du champ magnétique associé à
+      l'onde est de l'ordre de
+      $\|\vv{B}\|=\frac{\|\vv{k}\times\vv{E}\|}{\omega}$ avec
+      $k=\frac{\omega}{c}$ d'où $\|\vv{B}\|=\frac{\|\vv{E}\|}{c}$. Le rapport
+      de la force magnétique exercée par le champ électrique de l'onde sur
+      la force coulombienne devient
+      #+BEGIN_SRC latex
+        \begin{align*}
+          \frac{\|e\vv{v}\times\vv{B}\|}{\|e\vv{E}\|}=\frac{v/c\times E}{E}&=\frac{v}{c}\ll1\to\text{ électron non relativiste}\\
+          \|e\vv{v}\times\vv{B}\|&\ll\|e\vv{E}\|
+        \end{align*}
+      #+END_SRC
+   3) En différentialisant le champ de vitesse où  $\vv{v}$ est une fonction de
+      l'espace et du temps /i.e./ $f(\vv{r},t)$, on obtient
+      #+BEGIN_SRC latex
+        \begin{align*}
+          d\vv{v}&=\frac{\partial\vv{v}}{\partial t}dt+\frac{\partial\vv{v}}{\partial x}dx+\frac{\partial\vv{v}}{\partial y}dy+\frac{\partial\vv{v}}{\partial z}dz\\
+          \frac{d\vv{v}}{dt}&=\frac{\partial\vv{v}}{\partial t}+\frac{\partial\vv{v}}{\partial x}\frac{dx}{dt}+\frac{\partial\vv{v}}{\partial y}\frac{dy}{dt}+\frac{\partial\vv{v}}{\partial z}\frac{dz}{dt}\\
+          \frac{d\vv{v}}{dt}&=\frac{\partial\vv{v}}{\partial t}+\frac{\partial\vv{v}}{\partial x}v_x+\frac{\partial\vv{v}}{\partial y}v_y+\frac{\partial\vv{v}}{\partial z}v_z\\
+          \underbrace{\frac{d\vv{v}}{dt}}_{\text{dérivée particulaire}}&=\underbrace{\frac{\partial\vv{v}}{\partial t}}_{\text{dérivée locale}}+\underbrace{\left(\vv{v}.\grad\right).\vv{v}}_{\text{dérivée convective}}
+        \end{align*}
+      #+END_SRC
+      En posant $\vv{v}=\vv{v_0}\,e^{i(\omega t-\vv{k}.\vv{r})}$, la dérivée locale
+      $\frac{\partial\vv{v}}{\partial t}$ est égale à $i\omega\vv{v}$, la dérivée
+      convective prenant la forme
+      #+BEGIN_SRC latex
+        \begin{align*}
+          \left(\vv{v}.\grad\right).\vv{v}=\vv{v}.(-)i\vv{k}.\vv{v}
+        \end{align*}
+      #+END_SRC
+      On déduit que
+      #+BEGIN_SRC latex
+        \begin{align*}
+          \frac{\partial\vv{v}}{\partial t}+\left(\vv{v}.\grad\right).\vv{v}&=i\omega\vv{v}-i\vv{v}.\vv{k}.\vv{v}\\
+          &=i\omega\vv{v}\left(1-\frac{\vv{k}.\vv{v}}{\omega}\right)=i\omega\vv{v}\left(1-\frac{v}{v_\phi}\right)\\
+          \frac{d\vv{v}}{dt}&\simeq\frac{\partial v}{\partial t}\to\frac{v}{v_\phi}=\frac{v}{c}\ll1
+        \end{align*}
+      #+END_SRC
+2) Cas où le champ magnétique statique est nul $\vv{B_S}=\vv{0}$. La
+   polarisation $\vv{P}$ correspond, par définition, à la densité volumique de
+   moment dipolaire électrique $\vv{p}$ où $\vv{p}=-e\vv{R}$. Sachant qu'il y a
+   $n$ dipôles ion-électron par unité de volume, la polarisation est donc égale
+   à $\vv{P}=n\times\vv{p}=-ne\vv{R}$. Par ailleurs, en l'absence de champ
+   magnétique statique, l'équation du mouvement de l'électron se réduit à
+   #+BEGIN_SRC latex
+     \begin{align*}
+       m\frac{\partial\vv{v}}{\partial t}&=-e\vv{E}-m\omega_0\vv{R}\\
+       m\frac{\partial^2\vv{R}}{\partial t^2}&=-e\vv{E}-m\omega_0\vv{R}\\
+       m\times(-i\omega)^2\vv{R}&=-e\vv{E}-m\omega_0\vv{R}\\
+       \vv{R}&=\frac{-e\vv{E}}{m(\omega_0^2-\omega^2)}\\
+       \vv{P}&=-ne\vv{R}=\frac{ne^2\vv{E}}{m(\omega_0^2-\omega^2)}
+     \end{align*}
+   #+END_SRC
+   Si le milieu est linéaire, homogène et isotrope, la polarisation est égale à
+   $\epsilon_0\chi_e\vv{E}$ et $\epsilon_r=1+\chi_e$ d'où
+   #+BEGIN_SRC latex
+     \begin{align*}
+       \chi_e=\frac{ne^2}{m\epsilon_0(\omega_0^2-\omega^2)}=\frac{\omega_p^2}{\omega_0^2-\omega^2}
+     \end{align*}
+   #+END_SRC
+
+   Dans le cas statique /i.e./ $\omega=0$, la susceptibilité électrique est
+   alors égale à $\chi_e=\frac{\omega_p^2}{\omega_0^2}$ et la permitivité
+   relative $\epsilon_r=1+\chi_e=1+\frac{\omega_p^2}{\omega_0^2}$.
+
+   Les propriétés diélectriques du milieu dépendent donc de la densité
+   d'ion-électron de même que de l'intensité de la liaison ion-électron
+   caractérisée par la pulsation $\omega_0$ : en statique, la permitivité sera
+   d'autant plus grande que le milieu sera dense et qu'il sera hautement ionisé
+   /i.e./ $\omega_0\to0$.
+
 * Footnotes
 
 [fn:1] le vecteur accélération $\vv{a}$ s'écrit en toute rigueur
