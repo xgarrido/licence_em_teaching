@@ -1,0 +1,43 @@
+%% document-wide tikz options and styles
+\begin{tikzpicture}[  >=latex, % option for nice arrows
+    inner sep=0pt,%
+    outer sep=2pt,%
+    wave/.style={thick,color=#1,smooth},
+    mark coordinate/.style={inner sep=0pt,outer sep=0pt,minimum size=3pt,
+      fill=black,circle}%
+  ]
+  \sf
+  \definecolor{red}{RGB}{221,42,43}
+  \definecolor{green}{RGB}{105,182,40}
+  \definecolor{blue}{RGB}{0,51,153}
+  \definecolor{orange}{RGB}{192,128,64}
+  \definecolor{gray}{RGB}{107,108,110}
+
+  \draw[fill=gray!10, gray!10] (0,-2) rectangle (2,3);
+
+  \draw[->] (-2,0) -- (5,0) node[right] {$z$};
+  \draw[->] (0,-2) -- (0,3) node[above] {$x$};
+  \draw (2,-2) -- (2,3);
+  \draw[->] (0,0) -- (-2,-2) node[left] {$y$};
+  \draw[<->] (0,-2) -- (2,-2) node[midway,below] {$L$};
+
+  \coordinate (O) at (0,0) node[above left] {$\mathbf{O}$};
+  %% \coordinate[mark coordinate] (M) at (2.12,2.12);
+  %% \draw (M) node[above] {$e^-$};
+  %% \draw[<->] (O) -- (M) node[midway, above left] {$\overrightarrow{R}$};
+
+  % Electric field vectors
+  \begin{scope}[scale=0.5, xshift=-6cm, yshift=+3cm]
+    \draw[->] (0,0) -- (0,2) node[right] {$\overrightarrow{E}$};
+    \draw[->] (0,0) -- (2,0) node[right] {$\overrightarrow{k}$};
+    \draw[->] (0,0) -- (-1,-1) node[right] {$\overrightarrow{B}$};
+    \draw[wave=blue, variable=\x,samples at={0,0.1,...,6}]
+    plot (\x,{sin(3*\x r)},0);
+  \end{scope}
+
+  \draw[->] (0.5,-1) -- (1.5,-1) node[midway, above] {$\overrightarrow{B_S}$};
+  \draw[->] (0.5,0.5) -- (1.5,0.5);
+  \draw[->] (0.5,1.5) -- (1.5,1.5);
+  \draw[->] (0.5,2.5) -- (1.5,2.5);
+
+\end{tikzpicture}

@@ -4484,17 +4484,18 @@ $I=I_0\cos\omega t$. La fonction d'Heaviside a pour représentation
        (\gamma-\lambda)^2-\beta^2&=0
      \end{align*}
    #+END_SRC
-   d'où $\gamma-\lambda=\pm\beta$ soit $\lambda_1=\gamma+\beta$ et
-   $\lambda_2=\gamma-\beta$.
+   d'où $\gamma-\lambda=\pm\beta$ soit $\lambda_1=\gamma-\beta$ et
+   $\lambda_2=\gamma+\beta$.
 
    L'onde se propage selon $\vv{u_z}$ du fait que
    $\vv{E}\in(\vv{u_x},\vv{u_y})$. Par ailleurs, les modes propres de
    propagation sont tels que
    #+BEGIN_SRC latex
      \begin{align*}
-       \frac{k_1^2c^2}{\omega^2}-1=\lambda_1&\quad\frac{k_2^2c^2}{\omega^2}-1=\lambda_2\\
-       k_1=\frac{\omega}{c}\sqrt{\lambda_1+1}=\frac{\omega}{c}\sqrt{\gamma+\beta+1}\\
-       k_2=\frac{\omega}{c}\sqrt{\lambda_2+1}=\frac{\omega}{c}\sqrt{\gamma-\beta+1}
+       \frac{k_1^2c^2}{\omega^2}-1&=\lambda_1\\
+       \frac{k_2^2c^2}{\omega^2}-1&=\lambda_2\\
+       k_1&=\frac{\omega}{c}\sqrt{\lambda_1+1}=\frac{\omega}{c}\sqrt{\gamma-\beta+1}\\
+       k_2&=\frac{\omega}{c}\sqrt{\lambda_2+1}=\frac{\omega}{c}\sqrt{\gamma+\beta+1}
      \end{align*}
    #+END_SRC
 
@@ -4515,28 +4516,170 @@ $I=I_0\cos\omega t$. La fonction d'Heaviside a pour représentation
      \end{align*}
    #+END_SRC
 
-   - $\lambda_1=\gamma+\beta$
+   - $\lambda_1=\gamma-\beta$
      #+BEGIN_SRC latex
        \begin{align*}
-         E_{1y}&=\frac{-i\beta}{\beta}E_{1x}=e^{-i\pi/2}E_{1x}=E_{0x}e^{\vv{k_1}.\vv{r}-\omega t-\frac{\pi}{2}}\\
+         E_{1y}&=\frac{i\beta}{\beta}E_{1x}=e^{i\pi/2}E_{1x}=E_{0x}e^{\vv{k_1}.\vv{r}-\omega t+\frac{\pi}{2}}\\
          \vv{E}&=E_{0x}\left|
          \begin{array}{l}
            \cos\left(\vv{k_1}.\vv{r}-\omega t\right)\\
-           \sin\left(\vv{k_1}.\vv{r}-\omega t\right)\\
+           -\sin\left(\vv{k_1}.\vv{r}-\omega t\right)\\
            0
          \end{array}
          \right.
        \end{align*}
      #+END_SRC
-     La polarisation de l'onde pour ce mode propre est donc *circulaire droite*
+     La polarisation de l'onde pour ce mode propre est donc *circulaire gauche*
      (l'expression des fonctions trigonométriques cosinus et sinus dépend de
      $-t$ d'où le résultat obtenu où $\cos(-\theta)=\cos(\theta)$ et
      $\sin(-\theta)=-\sin(\theta)$).
 
-   - $\lambda_2=\gamma-\beta$ : la polarisation de l'onde pour ce mode propre
-     est donc *circulaire gauche*.
+   - $\lambda_2=\gamma+\beta$ : la polarisation de l'onde pour ce mode propre
+     est donc *circulaire droite*.
 
+*** Effet Faraday
 
+#+BEGIN_CENTER
+#+ATTR_LATEX: :width 0.5\linewidth
+[[./figures/effet_faraday_2.pdf]]
+#+END_CENTER
+
+$\omega_c,\omega_p\ll\omega\sim\sqrt{|\omega_0^2-\omega^2|}$
+
+1)
+   #+BEGIN_SRC latex
+     \begin{align*}
+       \alpha&=\frac{\omega_p^2}{\omega_0^2-\omega^2}\simeq\frac{\omega_p^2}{\omega^2}\ll1\\
+       \beta&=\frac{\omega_p^2\omega\omega_c}{(\omega_0^2-\omega^2)^2-\omega^2\omega_c^2}\\
+       &\simeq\frac{\omega_p^2\omega\omega_c}{\omega^4-\omega^2\omega_c^2}\simeq\frac{\omega^2_p\omega\omega_c}{\omega^4}=\frac{\omega_p^2\omega_c}{\omega^3}\ll1\\
+       \gamma&=\frac{\omega_p^2(\omega_0^2-\omega^2)}{(\omega_0^2-\omega^2)^2-\omega^2\omega_c^2}\\
+       &\simeq\frac{\omega_p^2\omega^2}{\omega^4}\ll1
+     \end{align*}
+   #+END_SRC
+2) $0<z<L$, $\vv{E}=E_0\cos\left(kz-\omega t\right)\vv{u_x}$. La relation de
+   dispersion impose toujours
+   #+BEGIN_SRC latex
+      \begin{align*}
+       \left(\frac{k^2c^2}{\omega^2}-1\right)\vv{E}=\bar{\bar{\chi}}\vv{E}
+      \end{align*}
+   #+END_SRC
+   d'où selon $Ox$
+   #+BEGIN_SRC latex
+     \begin{align*}
+       \left(\frac{k^2c^2}{\omega^2}-1\right)E_x=\gamma E_x+i\beta E_y
+     \end{align*}
+   #+END_SRC
+   imposant que $\beta$ soit nul /i.e./ que $B_S=0$. L'onde ne peut être
+   polarisée selon $\vv{u_x}$ qu'à la condition que $B_S$ soit nul.
+3)
+   #+BEGIN_SRC latex
+     \begin{align*}
+       \vv{E_i}(0,t)=\left|
+       \begin{array}{l}
+         E_0\cos\omega t\\0\\0
+       \end{array}
+       \right.&=\frac{1}{2}\left|
+       \begin{array}{l}
+         E_0\cos\omega t\\E_0\sin\omega t\\0
+       \end{array}
+       \right.+\frac{1}{2}\left|
+       \begin{array}{l}
+         E_0\cos\omega t\\-E_0\sin\omega t\\0
+       \end{array}
+       \right.\\
+       \text{polarisée rectiligne}&=\text{polarisée gauche}+\text{polarisée droite}
+     \end{align*}
+   #+END_SRC
+4)
+   #+BEGIN_SRC latex
+     \begin{align*}
+       \vv{E}(0<z<L,t)&=\vv{E_1}(z,t)+\vv{E_2}(z,t)\\
+       &=\frac{E_0}{2}\left|
+       \begin{array}{l}
+         \cos\left(k_1z-\omega t\right)\\
+         -\sin\left(k_1z-\omega t\right)\\
+         0
+       \end{array}
+       \right.+\left|
+       \begin{array}{l}
+         \cos\left(k_2z-\omega t\right)\\
+         \sin\left(k_2z-\omega t\right)\\
+         0
+       \end{array}
+       \right.\\
+       &=\frac{E_0}{2}\left|
+       \begin{array}{l}
+         \cos\left(k_1z-\omega t\right)+\cos\left(k_2z-\omega t\right)\\
+         -\sin\left(k_1z-\omega t\right)+\sin\left(k_2z-\omega t\right)\\
+         0
+       \end{array}
+       \right.
+     \end{align*}
+   #+END_SRC
+
+  En utilisant la formule d'Euler, on a
+  #+BEGIN_SRC latex
+    \begin{align*}
+      \cos p+\cos q&=2\cos\left(\frac{p+q}{2}\right)\cos\left(\frac{p-q}{2}\right)\\
+      \sin p-\sin q&=2\cos\left(\frac{p+q}{2}\right)\sin\left(\frac{p-q}{2}\right)
+    \end{align*}
+  #+END_SRC
+  d'où
+  #+BEGIN_SRC latex
+    \begin{align*}
+      \vv{E}(0<z<L,t)&=E_0\left|
+      \begin{array}{l}
+        \cos\left(\frac{k_1+k_2}{2}z-\omega t\right)\cos\left(\frac{k_1-k_2}{2}z\right)\\
+        \cos\left(\frac{k_1+k_2}{2}z-\omega t\right)\sin\left(\frac{k_2-k_1}{2}z\right)\\
+        0
+      \end{array}
+      \right.
+    \end{align*}
+  #+END_SRC
+
+5) La polarisation en sortie du milieu ionisé /i.e./ en $z=L$ est telle que le
+   rapport $\frac{E_y}{E_x}$ est égal à
+   #+BEGIN_SRC latex
+     \begin{align*}
+       \frac{E_y(L,t)}{E_x(L,t)}&=\frac{\sin\left(\frac{k_2-k_1}{2}L\right)}{\cos\left(\frac{k_1-k_2}{2}L\right)}\\
+       &=\tan\left(\frac{k_2-k_1}{2}L\right)=\text{constante}
+     \end{align*}
+   #+END_SRC
+   L'onde est donc polarisée rectilignement avec $\theta=\frac{k_2-k_1}{2}L$
+   étant l'angle entre le champ $\vv{E}$ et l'axe $Ox$.
+
+   Sachant que $\gamma,\beta\ll1$ et
+   $k_1=\frac{\omega}{c}\sqrt{\gamma-\beta+1}$,
+   $k_2=\frac{\omega}{c}\sqrt{\gamma+\beta+1}$, on peut approximer leurs
+   expressions par
+   #+BEGIN_SRC latex
+     \begin{align*}
+       k_1&=\frac{\omega}{c}\left(1+\gamma-\beta\right)^{1/2}\simeq\frac{\omega}{c}\left(1+\frac{1}{2}(\gamma-\beta)\right)\\
+       k_2&=\frac{\omega}{c}\left(1+\gamma+\beta\right)^{1/2}\simeq\frac{\omega}{c}\left(1+\frac{1}{2}(\gamma+\beta)\right)\\
+       k_2-k_1&=\frac{\omega}{c}\left(1+\frac{\gamma+\beta}{2}-1-\frac{\gamma-\beta}{2}\right)=\frac{\omega}{c}\beta\\
+       \theta&\simeq\frac{\omega}{c}\,\frac{\beta L}{2}\\
+       &\simeq\frac{\omega}{c}\times\frac{\omega_p^2\omega_c}{\omega^3}\times\frac{L}{2}\\
+       &\simeq\frac{\omega_p^2}{\omega^2}\frac{L}{2c}\times\frac{eB_S}{m}\propto B_S\to\text{ rotateur de Faraday}
+     \end{align*}
+   #+END_SRC
+
+   Ainsi, l'angle de rotation Faraday sera d'autant plus grand que le champ
+   magnétique statique sera élevé et l'épaisseur $L$ sera importante. On
+   introduit ainsi la constante de Verdet $\nu$ telle que $\theta=\nu\,\ell
+   B$. Une des applications de la rotation Faraday est la mesure du champ
+   magnétique galactique en utilisant une source lumineuse polarisée (pulsar) et
+   en intégrant la densité d'électron $n$ le long de la visée
+   #+BEGIN_SRC latex
+     \begin{align*}
+       \theta&=\int_0^d\frac{\omega_p^2}{\omega^2}\frac{e}{2mc}B_S(\ell)d\ell\\
+       &=\frac{e^3}{2m^2c\epsilon_0}\times\frac{\lambda^2}{4\pi^2c^2}\int_0^dn(\ell)B_S(\ell)d\ell\\
+       &=\frac{e^3}{8\pi^2\epsilon_0m^2c^3}\lambda^2\int_0^dn(\ell)B_S(\ell)d\ell
+     \end{align*}
+   #+END_SRC
+
+   Par ailleurs, le matériau qui induit la plus grande déflexion angulaire étant
+   donnée une épaisseur est le graphène dont une seule couche atomique
+   occasionne des déviations de l'ordre de quelques degrés (/cf./ [[http://www.nature.com/nphys/journal/v7/n1/full/nphys1816.html][cet article]]).
 * Footnotes
 
 [fn:1] le vecteur accélération $\vv{a}$ s'écrit en toute rigueur
