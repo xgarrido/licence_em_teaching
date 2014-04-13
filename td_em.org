@@ -4181,7 +4181,8 @@ $I=I_0\cos\omega t$. La fonction d'Heaviside a pour représentation
        &\Delta\vv{E}=\left(-k_x^2E_x-k_y^2E_x-k_z^2E_x\right)\vv{u_x}-k^2E_y\vv{u_y}-k^2E_z\vv{u_z}\\
        &\Delta\vv{E}=-k^2\vv{E}\\
        \text{et }&\frac{\partial^2\vv{E}}{\partial t^2}=-\omega^2\vv{E},\frac{\partial\vv{j}}{\partial t}=-i\omega\vv{j}\\
-       \text{d'où }&-k^2\vv{E}+\frac{\omega^2}{c^2}\vv{E}=-i\mu_0\omega\vv{j}=\vv{E}\left(\frac{\omega^2}{c^2}-k^2\right)=i\mu_0\omega\vv{j}
+       \text{d'où }&-k^2\vv{E}+\frac{\omega^2}{c^2}\vv{E}=-i\mu_0\omega\vv{j}\\
+       &\vv{E}\left(k^2-\frac{\omega^2}{c^2}\right)=i\mu_0\omega\vv{j}
      \end{align*}
    #+END_SRC
    Dans le vide $\vv{j}=\vv{0}$, on retrouve la relation de dispersion à savoir
@@ -4266,6 +4267,276 @@ $I=I_0\cos\omega t$. La fonction d'Heaviside a pour représentation
    d'autant plus grande que le milieu sera dense et qu'il sera hautement ionisé
    /i.e./ $\omega_0\to0$.
 
+3) Cas où le champ magnétique $B_S$ est non nul. Le principe fondamental de la
+   dynamique s'écrit
+   #+BEGIN_SRC latex
+     \begin{align*}
+       m\frac{\partial^2\vv{R}}{\partial t^2}&=-e\vv{E}-e\frac{\partial\vv{R}}{\partial t}\times\vv{B_S}-m\omega_0^2\vv{R}\\
+       m\omega_0^2\vv{R}-m\omega^2\vv{R}&=-e\vv{E}+i\omega e\vv{R}\times\vv{B_S}\\
+       m\left(\omega_0^2-\omega^2\right)\left|
+       \begin{array}{l}
+         x\\y\\z
+       \end{array}
+       \right.
+       &=-e\left|
+       \begin{array}{l}
+         E_x\\E_y\\E_z
+       \end{array}
+       \right.+i\omega e\left|
+       \begin{array}{l}
+         x\\y\\z
+       \end{array}
+       \right.\times\left|
+       \begin{array}{l}
+         0\\0\\B_S
+       \end{array}
+       \right.\\
+       m\left(\omega_0^2-\omega^2\right)\left|
+       \begin{array}{l}
+         x\\y\\z
+       \end{array}
+       \right.
+       &=-e\left|
+       \begin{array}{l}
+         E_x\\E_y\\E_z
+       \end{array}
+       \right.+i\omega eB_S\left|
+       \begin{array}{l}
+         y\\-x\\0
+       \end{array}
+       \right.
+     \end{align*}
+   #+END_SRC
+   duquel on déduit l'expression de la coordonnée $z$
+   #+BEGIN_SRC latex
+     \begin{align*}
+       z=\frac{eE_z}{m\left(\omega^2-\omega_0^2\right)}
+     \end{align*}
+   #+END_SRC
+   ainsi que les deux équations suivantes
+   #+BEGIN_SRC latex
+     \begin{align*}
+       m\left(\omega_0^2-\omega^2\right)x&=-eE_x+i\omega eB_Sy\\
+       m\left(\omega_0^2-\omega^2\right)y&=-eE_y-i\omega eB_Sx
+     \end{align*}
+   #+END_SRC
+   qui deviennent
+   #+BEGIN_SRC latex
+     \begin{align*}
+       \begin{array}{rrl}
+         m\left(\omega^2-\omega_0^2\right)x+&im\omega\omega_cy&=eE_x\\
+         -im\omega\omega_cx+&m\left(\omega^2-\omega_0^2\right)y&=eE_y
+       \end{array}
+       \\
+       \begin{bmatrix}
+         m\left(\omega^2-\omega_0^2\right)&im\omega\omega_c\\
+         -im\omega\omega_c&m\left(\omega^2-\omega_0^2\right)
+       \end{bmatrix}
+       \begin{pmatrix}
+         x\\y
+       \end{pmatrix}
+       =\begin{pmatrix}
+       eE_x\\eE_y
+       \end{pmatrix}
+     \end{align*}
+   #+END_SRC
+
+   En posant
+   #+BEGIN_SRC latex
+     \begin{align*}
+       \mathcal{A}=
+       \begin{bmatrix}
+         m\left(\omega^2-\omega_0^2\right)&im\omega\omega_c\\
+         -im\omega\omega_c&m\left(\omega^2-\omega_0^2\right)
+       \end{bmatrix}
+     \end{align*}
+   #+END_SRC
+   les composantes $x$ et $y$ s'expriment en fonction de $E_x$ et $E_y$ par[fn:10]
+   #+BEGIN_SRC latex
+     \begin{align*}
+       \begin{pmatrix}
+         x\\y
+       \end{pmatrix}
+       =\mathcal{A}^{-1}
+       \begin{pmatrix}
+         eE_x\\eE_y
+       \end{pmatrix}
+     \end{align*}
+   #+END_SRC
+   où
+   #+BEGIN_SRC latex
+     \begin{align*}
+       \mathcal{A}^{-1}&=\frac{1}{\text{det}\mathcal{A}}
+       \begin{bmatrix}
+         m\left(\omega^2-\omega_0^2\right)&-im\omega\omega_c\\
+         im\omega\omega_c&m\left(\omega^2-\omega_0^2\right)
+       \end{bmatrix}\\
+       \text{det}\mathcal{A}&=m^2\left(\omega^2-\omega_0^2\right)^2-m^2\omega^2\omega_c^2
+     \end{align*}
+   #+END_SRC
+   Finalement, les composantes $x$ et $y$ deviennent
+   #+BEGIN_SRC latex
+     \begin{align*}
+       x&=\frac{e}{m}\,\frac{\left(\omega^2-\omega_0^2\right)E_x-i\omega\omega_cE_y}{\left(\omega^2-\omega_0^2\right)^2-\omega^2\omega_c^2}\\
+       y&=\frac{e}{m}\,\frac{\left(\omega^2-\omega_0^2\right)E_y+i\omega\omega_cE_x}{\left(\omega^2-\omega_0^2\right)^2-\omega^2\omega_c^2}
+     \end{align*}
+   #+END_SRC
+4) La vitesse de l'électron $\vv{v}$, la densité de courant $\vv{j}$ et la
+   variation temporelle de courant $\frac{\partial\vv{j}}{\partial t}$
+   s'expriment en fonction du vecteur position de l'électron $\vv{R}$
+   #+BEGIN_SRC latex
+     \begin{align*}
+       \vv{v}&=\frac{\partial\vv{R}}{\partial t}=-i\omega\vv{R}\\
+       \vv{j}&=\cancel{ne\vv{v}_\text{ion}}-ne\vv{v}\simeq-ne\vv{v}=ine\omega\vv{R}\\
+       \frac{\partial\vv{j}}{\partial t}&=-i\omega\vv{j}=ne\omega^2\vv{R}
+     \end{align*}
+   #+END_SRC
+   avec
+   #+BEGIN_SRC latex
+     \begin{align*}
+       \vv{R}&=\frac{e}{m}\left|
+       \begin{array}{l}
+         \frac{\omega^2-\omega_0^2}{\left(\omega^2-\omega_0^2\right)^2-\omega^2\omega_c^2}E_x-\frac{i\omega\omega_c}{\left(\omega^2-\omega_0^2\right)^2-\omega^2\omega_c^2}E_y\\
+         \frac{i\omega\omega_c}{\left(\omega^2-\omega_0^2\right)^2-\omega^2\omega_c^2}E_x+\frac{\omega^2-\omega_0^2}{\left(\omega^2-\omega_0^2\right)^2-\omega^2\omega_c^2}E_y\\
+         \frac{1}{\omega^2-\omega_0^2}E_z
+       \end{array}
+       \right.\\
+       &=\frac{e}{m}\left|
+       \begin{array}{l}
+         -\frac{\gamma}{\omega_p^2}E_x-i\frac{\beta}{\omega_p^2}E_y\\
+         i\frac{\beta}{\omega_p^2}E_x-\frac{\gamma}{\omega_p^2}E_y\\
+         -\frac{\alpha}{\omega_p^2}E_z
+       \end{array}
+       \right.\\
+       &=-\frac{e}{m\omega_p^2}\underbrace{\begin{bmatrix}
+         \gamma&i\beta&0\\
+         -i\beta&\gamma&0\\
+         0&0&\alpha
+       \end{bmatrix}}_{\bar{\bar{\chi}}}
+       \,\vv{E}
+     \end{align*}
+   #+END_SRC
+   Soit
+   #+BEGIN_SRC latex
+     \begin{align*}
+       \vv{v}&=\frac{ie\omega}{m\omega_p^2}\bar{\bar{\chi}}\vv{E}\\
+       \vv{j}&=-\frac{ine^2\omega}{m\omega_p^2}\bar{\bar{\chi}}\vv{E}=-i\omega\epsilon_0\bar{\bar{\chi}}\vv{E}\\
+       \frac{\partial\vv{j}}{\partial t}&=-\frac{ne^2}{m}\frac{\omega^2}{\omega_p^2}\bar{\bar{\chi}}\vv{E}=-\omega^2\epsilon_0\bar{\bar{\chi}}\vv{E}
+     \end{align*}
+   #+END_SRC
+
+5) L'équation de propagation pour une onde transverse plane est
+   #+BEGIN_SRC latex
+     \begin{align*}
+       \left(k^2-\frac{\omega^2}{c^2}\right)\vv{E}&=i\mu_0\omega\vv{j}\\
+       &=\mu_0\epsilon_0\omega^2\bar{\bar{\chi}}\vv{E}\\
+       &=\frac{\omega^2}{c^2}\bar{\bar{\chi}}\vv{E}\\
+       \underbrace{\left(\frac{k^2c^2}{\omega^2}-1\right)}_{\text{scalaire}}\vv{E}&=\bar{\bar{\chi}}\vv{E}\to\lambda\vv{E}=\bar{\bar{\chi}}\vv{E}
+     \end{align*}
+   #+END_SRC
+   L'équation aux valeurs propres $\lambda\vv{E}=\bar{\bar{\chi}}\vv{E}$
+   implique que le champ électrique $\vv{E}$ est vecteur propre de
+   $\bar{\bar{\chi}}$ avec pour valeur propre $\frac{k^2c^2}{\omega^2}-1$.
+
+*** Détermination des modes propres de propagation
+
+1) $\vv{E}$ est vecteur propre de $\bar{\bar{\chi}}$ avec comme valeur propre
+   $\alpha$. Or, la valeur propre $\alpha$ est associée au sous espace vectoriel
+   défini par $\vv{u_z}$ : le champ électrique appartient donc à ce sous espace
+   vectoriel \to $\vv{E}\parallel\vv{u_z}$. L'onde étant par ailleurs plane
+   transverse $\vv{k}.\vv{E}=0$ d'où $\vv{k}\perp\vv{E}$ : le vecteur d'onde
+   $\vv{k}$ appartient au plan $(\vv{u_x},\vv{u_y})$.
+
+   La valeur propre $\alpha$ ne dépendant pas de $\omega_c$ /i.e./ de $B_S$, le
+   champ magnétique statique $B_S$ ne doit pas avoir d'influence sur le
+   mouvement des électrons et donc sur la propagation de l'onde. En effet, la
+   force de Lorentz exercée par le champ magnétique statique s'écrit
+   $\vv{F_L}=-e\vv{v}\times\vv{B_S}=-\frac{i\omega
+   e^2}{m\omega_p^2}\bar{\bar{\chi}}\vv{E}\times\vv{B_S}$. $\vv{E}\parallel\vv{u_z}$
+   et $\vv{B_S}\parallel\vv{u_z}$ \to $\vv{F_L}=\vv{0}$.
+
+   La vitesse de phase se déduit de la relation de dispersion
+   #+BEGIN_SRC latex
+     \begin{align*}
+       \left(\frac{k^2c^2}{\omega^2}-1\right)\vv{E}&=\bar{\bar{\chi}}\vv{E}=\alpha\vv{E}\\
+       \frac{k^2c^2}{\omega^2}-1&=\alpha\text{ soit }v_\phi=\frac{\omega}{k}=\frac{c}{\sqrt{1+\alpha}}=f(\omega)
+     \end{align*}
+   #+END_SRC
+
+2) On se restreint à présent au sous espace vectoriel $(\vv{u_x},\vv{u_y})$ et à
+   la détermination des valeurs propres de la matrice réduite
+   #+BEGIN_SRC latex
+     \begin{align*}
+       \bar{\bar{\chi'}}&=\begin{bmatrix}
+       \gamma&i\beta\\
+       -i\beta&\gamma
+       \end{bmatrix}
+     \end{align*}
+   #+END_SRC
+   Les valeurs propres de ce sous espace vectoriel sont telles que
+   #+BEGIN_SRC latex
+     \begin{align*}
+       \text{det}\left(\bar{\bar{\chi'}}-\lambda\mathcal{I}\right)&=0\\
+       \text{det}\begin{bmatrix}
+       \gamma-\lambda&i\beta\\
+       -i\beta&\gamma-\lambda
+       \end{bmatrix}&=0\\
+       (\gamma-\lambda)^2-\beta^2&=0
+     \end{align*}
+   #+END_SRC
+   d'où $\gamma-\lambda=\pm\beta$ soit $\lambda_1=\gamma+\beta$ et
+   $\lambda_2=\gamma-\beta$.
+
+   L'onde se propage selon $\vv{u_z}$ du fait que
+   $\vv{E}\in(\vv{u_x},\vv{u_y})$. Par ailleurs, les modes propres de
+   propagation sont tels que
+   #+BEGIN_SRC latex
+     \begin{align*}
+       \frac{k_1^2c^2}{\omega^2}-1=\lambda_1&\quad\frac{k_2^2c^2}{\omega^2}-1=\lambda_2\\
+       k_1=\frac{\omega}{c}\sqrt{\lambda_1+1}=\frac{\omega}{c}\sqrt{\gamma+\beta+1}\\
+       k_2=\frac{\omega}{c}\sqrt{\lambda_2+1}=\frac{\omega}{c}\sqrt{\gamma-\beta+1}
+     \end{align*}
+   #+END_SRC
+
+   *Étude de la polarisation de l'onde*
+
+   Les valeurs propres $\lambda_{1,2}$ sont telles que
+   $\bar{\bar{\chi'}}\vv{E}=\lambda\vv{E}$.
+   #+BEGIN_SRC latex
+     \begin{align*}
+       \left(\bar{\bar{\chi'}}-\lambda_i\mathcal{I}\right)\vv{E_i}&=\vv{0}\\
+       \begin{bmatrix}
+         \gamma-\lambda_i&i\beta\\
+         -i\beta&\gamma-\lambda_i
+       \end{bmatrix}\vv{E_i}&=\vv{0}\\
+       \left(\gamma-\lambda_i\right)E_{ix}+i\beta E_{iy}&=0\\
+       E_{iy}&=-\frac{1}{i\beta}\left(\gamma-\lambda_i\right)E_{ix}\\
+       E_{iy}&=\frac{i\left(\gamma-\lambda_i\right)}{\beta}E_{ix}
+     \end{align*}
+   #+END_SRC
+
+   - $\lambda_1=\gamma+\beta$
+     #+BEGIN_SRC latex
+       \begin{align*}
+         E_{1y}&=\frac{-i\beta}{\beta}E_{1x}=e^{-i\pi/2}E_{1x}=E_{0x}e^{\vv{k_1}.\vv{r}-\omega t-\frac{\pi}{2}}\\
+         \vv{E}&=E_{0x}\left|
+         \begin{array}{l}
+           \cos\left(\vv{k_1}.\vv{r}-\omega t\right)\\
+           \sin\left(\vv{k_1}.\vv{r}-\omega t\right)\\
+           0
+         \end{array}
+         \right.
+       \end{align*}
+     #+END_SRC
+     La polarisation de l'onde pour ce mode propre est donc *circulaire droite*
+     (l'expression des fonctions trigonométriques cosinus et sinus dépend de
+     $-t$ d'où le résultat obtenu où $\cos(-\theta)=\cos(\theta)$ et
+     $\sin(-\theta)=-\sin(\theta)$).
+
+   - $\lambda_2=\gamma-\beta$ : la polarisation de l'onde pour ce mode propre
+     est donc *circulaire gauche*.
+
+
 * Footnotes
 
 [fn:1] le vecteur accélération $\vv{a}$ s'écrit en toute rigueur
@@ -4310,6 +4581,7 @@ volumique de charge liée est donc également nulle.
     &=-\frac{\sin\alpha}{\sin\alpha}-\frac{\cos^2\alpha}{\sin^2\alpha}\\
     &=-\left(1+\frac{\cos^2\alpha}{\sin^2\alpha}\right)=-\frac{1}{\sin^2\alpha}
   \end{align*}
+#+END_SRC
 
 [fn:8] un fluide dont le champ vitesse $\vv{v}$ est à rotationnel nul /i.e./
 $\rot\vv{v}=\vv{0}$ est dit irrotationnel. Cette propriété traduit le fait que
@@ -4321,5 +4593,24 @@ incidence sur la trajectoire des lignes de champ.
 la forme $\beta\cos\theta/r^2$, est également solution de l'équation de
 Laplace. Par ailleurs, le potentiel crée par un plan infini s'écrit
 $r\cos\theta$ et est lui aussi solution de l'équation de Laplace. La somme des
-deux solutions jsutifie ainsi de la forme de la solution utilisée dans cet
+deux solutions justifie ainsi de la forme de la solution utilisée dans cet
 exercice.
+
+[fn:10] soit une matrice $\mathcal{A}$ égale à
+#+BEGIN_SRC latex
+  \begin{align*}
+    \mathcal{A}=\begin{bmatrix}
+    a&b\\
+    c&d
+    \end{bmatrix}
+  \end{align*}
+#+END_SRC
+l'expression de la matrice inverse $\mathcal{A}^{-1}$ est
+#+BEGIN_SRC latex
+  \begin{align*}
+    \mathcal{A}^{-1}=\frac{1}{\text{det}\mathcal{A}}\begin{bmatrix}
+      d&-b\\
+      -c&a
+    \end{bmatrix}\text{ avec }\text{det}\mathcal{A}=ad-bc
+  \end{align*}
+#+END_SRC
