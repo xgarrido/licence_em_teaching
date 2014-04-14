@@ -4677,9 +4677,101 @@ $\omega_c,\omega_p\ll\omega\sim\sqrt{|\omega_0^2-\omega^2|}$
      \end{align*}
    #+END_SRC
 
+   #+BEGIN_CENTER
+   #+ATTR_LATEX: :align p{0.45\textwidth}p{0.45\textwidth}
+   | [[./figures/graphene_faraday.pdf]] | [[./figures/graphene_faraday_meas.pdf]] |
+   #+END_CENTER
+
    Par ailleurs, le matériau qui induit la plus grande déflexion angulaire étant
    donnée une épaisseur est le graphène dont une seule couche atomique
-   occasionne des déviations de l'ordre de quelques degrés (/cf./ [[http://www.nature.com/nphys/journal/v7/n1/full/nphys1816.html][cet article]]).
+   occasionne des déviations de l'ordre de quelques degrés (/cf./ [[http://arxiv.org/abs/1007.5286]["Giant Faraday
+   rotation in single- and multilayer graphene"]], 2011). Les déflexions
+   occasionnées par la traversée d'une couche de graphène pour une température
+   de 5K sont, au maximum, de l'ordre de 6 degrés pour une radiation infrarouge
+   $-$ $\lambda\sim30\,\mu\text{m}, \nu=\unit[1.5]{THz}$ $-$ et un champ
+   magnétique de 8 Tesla.
+
+** Réflexion totale et onde évanescente
+
+1) La loi de Snell & Descartes impose qu'à la traversée du dioptre, l'angle
+   transmis $\theta_t$ est relié à l'angle d'incidence $\theta_i$ par
+   #+BEGIN_SRC latex
+     \begin{align*}
+       n_1\sin\theta_i=n_2\sin\theta_t
+     \end{align*}
+   #+END_SRC
+   Il y a réflexion totale dès lors que $\sin\theta_t\geq1$ soit pour un angle
+   d'incidence tel que
+   #+BEGIN_SRC latex
+     \begin{align*}
+       \sin\theta_t&\geq1\\
+       \sin\theta_i&\geq\frac{n_2}{n_1}\\
+       \theta_l&=\arcsin\left(\frac{n_2}{n_1}\right)\text{ avec }n_2<n_1\\
+       \theta_i&\geq\theta_l\to\text{réflexion totale}
+     \end{align*}
+   #+END_SRC
+
+2) Les champs électriques associées aux différentes ondes s'écrivent
+   #+BEGIN_SRC latex
+     \begin{align*}
+       \vv{E_i}&=\vv{E_{i0}}\,e^{i\left(\vv{k_i}.\vv{r}-\omega_it\right)}\\
+       \vv{E_t}&=\vv{E_{t0}}\,e^{i\left(\vv{k_t}.\vv{r}-\omega_tt\right)}\\
+       \vv{E_r}&=\vv{E_{r0}}\,e^{i\left(\vv{k_r}.\vv{r}-\omega_rt\right)}
+     \end{align*}
+   #+END_SRC
+
+   À l'interface entre les deux milieux $n_1/n_2$ soit pour $\vv{r_0}$ appartenant
+   au plan $(\vv{u_x},\vv{u_z})$, la composante tangentielle du champ
+   électrique est conservée soit
+   #+BEGIN_SRC latex
+     \begin{align*}
+       \vv{E_i}^\parallel(\vv{r_0},t)+\vv{E_r}^\parallel(\vv{r_0},t)&=\vv{E_t}^\parallel(\vv{r_0},t)\\
+       \vv{E_{i0}}^\parallel\,e^{i\left(\vv{k_i}.\vv{r_0}-\omega_it\right)}+\vv{E_{r0}}^\parallel\,e^{i\left(\vv{k_r}.\vv{r_0}-\omega_rt\right)}&=\vv{E_{t0}}^\parallel\,e^{i\left(\vv{k_t}.\vv{r_0}-\omega_tt\right)}
+     \end{align*}
+   #+END_SRC
+   Cette égalité devant demeurer vrai pour tout $t$, on déduit que les
+   pulsations sont nécessairement toutes égales
+   $\omega_i=\omega_r=\omega_t=\omega$. Les longueurs d'ondes restent donc
+   inchangées à la traversée/réflexion du dioptre. L'égalité précédente devient
+   ainsi
+   #+BEGIN_SRC latex
+     \begin{align*}
+       \vv{E_{i0}}^\parallel\,e^{i\vv{k_i}.\vv{r_0}}+\vv{E_{r0}}^\parallel\,e^{i\vv{k_r}.\vv{r_0}}&=\vv{E_{t0}}^\parallel\,e^{i\vv{k_t}.\vv{r_0}}\\
+       \vv{E_{i0}}^\parallel+\vv{E_{r0}}^\parallel\,e^{i\left(\vv{k_r}-\vv{k_i}\right).\vv{r_0}}&=\vv{E_{t0}}^\parallel\,e^{i\left(\vv{k_t}-\vv{k_i}\right).\vv{r_0}}
+     \end{align*}
+   #+END_SRC
+   et doit également demeurer vrai pour tout $\vv{r_0}$ appartenant au plan
+   $(\vv{u_x},\vv{u_z})$. Cette contrainte implique nécessairement que
+   #+BEGIN_SRC latex
+     \begin{align*}
+       \left(\vv{k_r}-\vv{k_i}\right).\vv{r_0}&=\left(\vv{k_t}-\vv{k_i}\right).\vv{r_0}=0\\
+       \text{d'où }&\vv{k_r}-\vv{k_i}\parallel\vv{u_y}\text{ et }\vv{k_t}-\vv{k_i}\parallel\vv{u_y}\\
+       \vv{k_r}=\vv{k_i}+\alpha\vv{u_y}&\text{ et }\vv{k_t}=\vv{k_i}+\beta\vv{u_y}
+     \end{align*}
+   #+END_SRC
+   On déduit ainsi que $k_{rx}=k_{tx}=k_{ix}=0$ et $k_{rz}=k_{tz}=k_{iz}$.
+
+3) Les expressions des normes des vecteurs d'onde sont les suivantes
+   #+BEGIN_SRC latex
+     \begin{align*}
+       k_i&=\frac{\omega_i}{v_1}=\frac{\omega}{c}\times n_1\\
+       k_r&=\frac{\omega}{c}\times n_1\\
+       k_t&=\frac{\omega}{c}\times n_2
+     \end{align*}
+   #+END_SRC
+   Sachant que $k_{tz}=k_{iz}$ et que $k_{iz}=k_i\sin\theta_i$, on déduit que
+   $k_{tz}=\frac{\omega}{c}\,n_1\sin\theta_i$. Par ailleurs, la norme au carré
+   de $k_t$ s'écrit
+   #+BEGIN_SRC latex
+     \begin{align*}
+       k_t^2&=\left(\frac{\omega}{c}\right)^2n_2^2=k_{tz}^2+k_{ty}^2\\
+       k_{ty}^2&=\left(\frac{\omega}{c}\right)^2n_2^2-\left(\frac{\omega}{c}\right)^2n_1^2\sin^2\theta_i\\
+       &=\left(\frac{\omega}{c}\right)^2\underbrace{\left(n_2^2-n_1^2\sin^2\theta_i\right)}_{<0\text{ car }\sin\theta_i>\frac{n_2}{n_1}}\\
+       k_{ty}&=\pm i\frac{\omega}{c}\sqrt{n_1^2\sin^2\theta_i-n_2^2}
+     \end{align*}
+   #+END_SRC
+
+
 * Footnotes
 
 [fn:1] le vecteur accélération $\vv{a}$ s'écrit en toute rigueur
@@ -4693,7 +4785,8 @@ sortant de ce volume.
 [fn:3] les forces extérieures $\vv{F}_\text{ext.}$ ont pour objectif de
 maintenir la particule dans le plan $z=0$. Elles sont donc soit comprises dans
 le plan $(xOy)$ soit opposées vectoriellement $\Upsigma\vv{F}=\vv{0}$. Le moment
-cinétique induit par ces forces est donc nul du fait de $\vv{OM}\times\vv{F}_\text{ext.}=\vv{0}$
+cinétique induit par ces forces est donc nul du fait de
+$\vv{OM}\times\vv{F}_\text{ext.}=\vv{0}$
 
 [fn:4] l'intensité $I$ est également égale au vecteur de Poynting moyen
 $I=\|\langle\vv{R}\rangle\|$ avec $\vv{R}=\frac{\vv{E}\times\vv{B}}{\mu_0}$ et
