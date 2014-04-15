@@ -3624,7 +3624,7 @@ On considère un matériau ferromagnétique dur ayant une aimantation $\vv{M}$
    faudrait augmenter la hauteur $h$ de l'aimant jusqu'à une valeur de l'ordre
    de 700 mm.
 
-* TD7 : Rayonnement
+* COMMENT TD7 : Rayonnement
 ** Rayonnement d'une antenne
 Soit un conducteur de longueur \ell parcouru par un courant périodique
 $I=I_0\cos\omega t$. La fonction d'Heaviside a pour représentation
@@ -4771,7 +4771,94 @@ $\omega_c,\omega_p\ll\omega\sim\sqrt{|\omega_0^2-\omega^2|}$
      \end{align*}
    #+END_SRC
 
+   On retrouve ainsi les trois lois de Snell-Descartes qui sont
+   - *1^{ère} loi de Descartes :* les vecteurs d'onde $\vv{k_t}$, $\vv{k_r}$
+     appartiennent au plan défini par les vecteurs $\vv{k_i}$ et la normale au
+     dioptre /i.e./ $\vv{u_y}$.
+   - *2^{ème} loi de Descartes :*
+     #+BEGIN_SRC latex
+       \begin{align*}
+         k_{iz}&=k_{rz}\\
+         \frac{\omega}{c}n_1\sin\theta_i&=\frac{\omega}{c}n_1\sin\theta_r\\
+         \theta_i&=\theta_r
+       \end{align*}
+     #+END_SRC
+   - *3^{ème} loi de Descartes :*
+     #+BEGIN_SRC latex
+       \begin{align*}
+         k_{iz}&=k_{tz}\\
+         \frac{\omega}{c}n_1\sin\theta_i&=\frac{\omega}{c}n_2\sin\theta_t\\
+         n_1\sin\theta_i&=n_2\sin\theta_t
+       \end{align*}
+     #+END_SRC
 
+4) $k_{ty}=\pm im$ où $m=\frac{\omega}{c}\sqrt{n_1^2\sin^2\theta_i-n_2^2}>0$
+   1)
+      #+BEGIN_SRC latex
+        \begin{align*}
+          \vv{E_t}&=\vv{E_{t0}}\,e^{i\left(\vv{k_{t}}.\vv{r}-\omega t\right)}\\
+          &=\vv{E_{t0}}\,e^{i\left(k_{ty}y+k_{tz}z-\omega t\right)}\\
+          &=\vv{E_{t0}}\,e^{\pm my}\,e^{i\frac{\omega}{c}n_1\sin\theta_iz}\,e^{-i\omega t}\\
+        \end{align*}
+      #+END_SRC
+
+   2) Lorsque $y\to\infty$, le champ électrique transmis doit rester borné :
+      seule l'expression $e^{-my}$ est donc envisageable.
+      #+BEGIN_SRC latex
+        \begin{align*}
+          \vv{E_t}&=\vv{E_{t0}}\,\underbrace{e^{-my}}_{\text{onde evanescente}}\times\underbrace{e^{i\frac{\omega}{c}n_1\sin\theta_iz}}_{\text{onde progressive}}\times e^{-i\omega t}
+        \end{align*}
+      #+END_SRC
+
+   3) L'épaisseur \delta est l'inverse de $m$ soit
+      #+BEGIN_SRC latex
+        \begin{align*}
+          \delta=\frac{1}{m}=\frac{c}{w}\times\frac{1}{\sqrt{n_1^2\sin^2\theta_i-n_2^2}}
+        \end{align*}
+      #+END_SRC
+   4) La phase l'onde transmise est égale à
+      #+BEGIN_SRC latex
+        \begin{align*}
+          \phi&=\frac{\omega}{c}n_1\sin\theta_iz-\omega t\\
+          &=k_i\sin\theta_iz-\omega t
+        \end{align*}
+      #+END_SRC
+      cette dernière se propageant selon $Oz$.
+   5) Vitesse de phase
+      #+BEGIN_SRC latex
+        \begin{align*}
+          v_\phi&=\frac{\omega}{k}=\frac{\omega}{k_i\sin\theta_i}\\
+          &=\frac{\cancel{\omega} c}{\cancel{\omega}n_1\sin\theta_i}<c
+        \end{align*}
+      #+END_SRC
+5) Onde MPPH polarisée suivant $\vv{u_x}\to\vv{E_t}\parallel\vv{u_x}$ et
+   $\vv{B_t}=\frac{\vv{k_t}\times\vv{E_t}}{\omega}$
+   #+BEGIN_SRC latex
+     \begin{align*}
+       \vv{B_t}&=\frac{1}{\omega}\left|
+       \begin{array}{l}
+         0\\-im\\\frac{\omega}{c}n_1\sin\theta_i
+       \end{array}
+       \right.\times\left|
+       \begin{array}{l}
+         E_t\\0\\0
+       \end{array}
+       \right.\\
+       &=\frac{1}{\omega}\left|
+       \begin{array}{l}
+         0\\\frac{\omega}{c}n_1\sin\theta_iE_t\\imE_t
+       \end{array}
+       \right.\\
+       &=\frac{E_{t0}}{c}\,e^{-i\omega t}\,e^{ik_i\sin\theta_iz}\,e^{-y/\delta}\left(n_1\sin\theta_i\vv{u_y}+i\sqrt{n_1^2\sin^2\theta_i-n_2^2}\vv{u_z}\right)
+     \end{align*}
+   #+END_SRC
+6)
+   #+BEGIN_SRC latex
+     \begin{align*}
+       \langle\vv{\pi_t}\rangle&=\frac{1}{2\mu_0}\text{Re}\left(\vv{E_t}\times\vv{B_t}^*\right)\\
+       &=\frac{1}{2\mu_0}\frac{E_{t0}^2}{c}\,e^{-2y/\delta}\,n_1\sin\theta_i\vv{u_z}
+     \end{align*}
+   #+END_SRC
 * Footnotes
 
 [fn:1] le vecteur accélération $\vv{a}$ s'écrit en toute rigueur
