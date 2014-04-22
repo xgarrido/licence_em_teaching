@@ -7,10 +7,9 @@ body {
     width: 800px;
     margin: 0 auto;
     padding: 50px;
-    color: #777777;
+    color: #555555;
     font-family: 'Open Sans';
     font-size: 10pt;
-    font-weight: 400;
     /*font: 14px/1.5 Lato, sans-serif;
     font-weight: 300;*/
 }
@@ -47,14 +46,12 @@ h4, h5, h6 {
 }
 
 a {
-    /*color: #67ad00;*/
     color: #3399cc;
     font-weight:400;
     text-decoration:none;
 }
 
 a:hover {
-    /*color: #7fd600;*/
     color: #006699;
 }
 
@@ -70,7 +67,7 @@ a:hover small {
 }
 
 p, ul, ol, table, pre, dl {
-    margin:0 0 20px;
+    /*margin:0 0 20px;*/
 }
 
 blockquote {
@@ -410,4 +407,10 @@ footer {
         font-size:12pt;
         color:#444;
     }
+}
+.footdef{
+font-size: 10px;
+right: 0;
+position: absolute;
+width:180px;
 }
