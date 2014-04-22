@@ -1,0 +1,594 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<title>TD6 : Milieux magnétiques</title>
+<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta  name="generator" content="Org-mode" />
+<link rel="stylesheet" href="css/styles.css">
+                 <link rel="stylesheet" href="css/org-pygments.css">
+                 <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2013 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script><script type="text/javascript">
+function displayTOC() {
+    var first = document.getElementById("text-table-of-contents").innerHTML;
+    if (first != "") {
+        var maincontent = '<a class="button"><i class="fa fa-list"></i></a>'
+        maincontent += "<div>" + first + "</div>";
+        document.getElementById("toc").innerHTML = maincontent;
+    } else {
+        document.getElementById("toc").style.display = "none";
+    }
+   }
+</script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+      TeX: {
+          extensions: ["cancel.js"],
+          Macros: {
+              vv: ["{\\vec #1}",1],
+              Upsigma: "{\\Sigma}",
+              Updelta: "{\\Delta}",
+              varoiint: "{\\iint}",
+              varoint: "{\\int}",
+              grad: "{\\vec{\\nabla}}",
+              div: "{\\vec{\\nabla}.}",
+              rot: "{\\vec{\\nabla}\\times\\,}",
+              ket: ["{|#1 \\rangle}",1],
+              bra: ["{\\langle#1|}",1],
+              psh: ["{\\langle#1|#2 \\rangle}",2],
+              bm: ["{\\boldsymbol #1}",1]
+          }
+      }
+  });
+  MathJax.Hub.Register.StartupHook("TeX Jax Ready",function () {
+      var TEX = MathJax.InputJax.TeX;
+      TEX.Definitions.macros.unit = "jaxunit";
+      TEX.Parse.Augment({
+          jaxunit: function (name) {
+              var n = this.GetBrackets(name),
+              unit = this.GetArgument(name)
+              if (n == null) {n = ""}
+              var tex = n + '\\,\\text{'+unit+'}';
+              this.string = tex + this.string.slice(this.i); this.i = 0;
+          }
+      });
+  });
+  </script>
+  <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</head>
+<body onload="displayTOC()"><div id="toc"></div>
+<div id="content">
+<h1 class="title">TD6 : Milieux magnétiques</h1>
+<div style="display:none;">
+<div id="text-table-of-contents">
+<ul class="org-ul">
+<li><a href="././td_em_0.html">TD1 : Électromagnétisme &amp; relativité</a>
+</li>
+<li><a href="././td_em_1.html">TD2 : Équations de Maxwell dans le vide et champ électromagnétique</a>
+</li>
+<li><a href="././td_em_2.html">TD3 : Électrostatique dans le vide</a>
+</li>
+<li><a href="././td_em_3.html">TD4 : Les milieux diélectriques</a>
+</li>
+<li><a href="././td_em_4.html">TD5 : Magnétostatique</a>
+</li>
+<li><a href="././td_em_5.html">TD6 : Milieux magnétiques</a>
+</li>
+<li><a href="././td_em_6.html">TD7 : Rayonnement</a>
+</li>
+<li><a href="././td_em_7.html">TD8 : Propagation dans le vide et les milieux diélectriques</a>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-1" class="outline-2">
+<h2 id="sec-1"><span class="section-number-2">1</span> Introduction</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+Dans la plupart des matériaux soumis à un champ magnétique, les charges liées se
+déplacent à l'échelle atomique faisant apparaître des boucles de courant <i>i.e.</i>
+<b>des dipôles magnétiques</b> : la milieu s'aimante. Ainsi, l'aimantation \(\vv{M}\)
+d'un matériau correspond à la densité volumique de moment magnétique \(\vv{m}\)
+soit
+</p>
+\begin{align*}
+  \vv{M}=\frac{d\vv{m}}{d\tau}
+\end{align*}
+
+<p>
+Pour rappel, le moment dipolaire magnétique \(\vv{m}\) d'une boucle de courant est
+égale à \(\vv{m}=I\times\vv{S}\).
+</p>
+
+<p>
+On peut alors introduire une densité de courant liés (ou d'aimantation)
+\(\vv{j}_\text{liés}\) correspondant au rotationnel de l'aimantation
+</p>
+\begin{align*}
+  \rot\vv{M}=\vv{j}_\text{liés}
+\end{align*}
+
+<p>
+L'équation de Maxwell-Faraday devient
+</p>
+\begin{align*}
+  \rot\vv{B}&=\mu_0\left(\vv{j}_\text{libres}+\vv{j}_\text{liés}\right)\\
+  \rot\vv{B}&=\mu_0\left(\vv{j}_\text{libres}+\rot\vv{M}\right)\\
+  \rot\left(\frac{\vv{B}}{\mu_0}-\vv{M}\right)&=\vv{j}_\text{libres}\\
+  \rot\vv{H}&=\vv{j}_\text{libres}
+\end{align*}
+
+<p>
+où \(\vv{H}=\frac{\vv{B}}{\mu_0}-\vv{M}\) est le vecteur d'excitation magnétique
+dont l'unité est l'Ampère par mètre.
+</p>
+
+<p>
+Le théorème d'Ampère généralisé s'écrit
+</p>
+\begin{align*}
+  \oint_\mathcal{C}\vv{H}.\vv{d\ell}&=\iint_{\mathcal{S}}\vv{j}_\text{libres}.\vv{dS}=\Upsigma I_\text{libres}^\text{enlacés}
+\end{align*}
+
+<p>
+Les relations de passage demeurent inchangés pour ce qui concerne la composante
+normale du champ magnétique
+\(\vv{n}_{1\to2}.\left(\vv{B}_2-\vv{B}_1\right)=0\). La composante tangentielle
+devient
+\(\vv{n}_{1\to2}\times\left(\vv{H}_2-\vv{H}_1\right)=\vv{j}_{S,\text{libres}}\).
+</p>
+
+<p>
+Il existe plusieurs types de milieux magnétiques en fonction de la relation
+liant l'aimantation au vecteur excitation. Les milieux diamagnétiques et
+paramagnétiques ont une aimantation \(\vv{M}\) directement proportionnelle à
+\(\vv{H}\) par la relation \(\vv{M}=\chi_m\vv{H}\) où \(\chi_m\) est la susceptibilité
+magnétique. Le champ magnétique dans ces matériaux se réduit à
+\(\vv{B}=\mu\vv{H}\) où \(\mu\) est la perméabilité magnétique du matériau <i>i.e.</i>
+\(\mu=\mu_r\mu_0\) (\(1+\chi_m=\mu_r\)). Les valeurs caractéristiques de \(\mu_r\)
+sont voisines de 1 pour les milieux dia et paramagnétiques, \(\chi_m\) étant
+négatif et de l'ordre de 10<sup>-9</sup> pour les milieux dia. et voisin de 10<sup>-4</sup> pour
+les milieux para.
+</p>
+
+<p>
+Dans le cas de matériaux ferromagnétiques, \(\chi_m\gg1\), l'aimantation n'est
+plus proportionnelle à l'excitation magnétique \(\vv{M}\neq\chi_m\vv{H}\).
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-2" class="outline-2">
+<h2 id="sec-2"><span class="section-number-2">2</span> Plaque magnétique</h2>
+<div class="outline-text-2" id="text-2">
+<ol class="org-ol">
+<li>On considère une plaque magnétique linéaire, homogène et isotrope soit
+\(\vv{M}=\chi_m\vv{H}=\chi_m\frac{\vv{B}}{\mu}\). Le vecteur aimantation est
+donc un pseudo-vecteur comme le champ magnétique et appartient donc aux plans
+d'antisymétrie de la distribution de courant. On déduit que \(\vv{M}\) est
+contenu dans le même plan que \(\vv{B}\).
+</li>
+<li>À l'extérieur de la plaque, \(\vv{B}=\vv{B}_0\),
+\(\vv{H}=\frac{\vv{B}_0}{\mu_0}\) et \(\vv{M}=\vv{0}\). À l'intérieur de la
+plaque, l'aimantation étant uniforme, le champ magnétique est donc
+constant. On utilise les relations de passage pour calculer les composantes
+normale \(\vv{B}_{i\perp}\) et tangentielle \(\vv{B}_{i\parallel}\) du champ
+magnétique. Ainsi, à l'interface plaque-vide, nous avons
+\begin{align*}
+  \vv{B}_{\text{ext.}\perp}-\vv{B}_{\text{int.}\perp}&=\vv{0}\\
+  \vv{H}_{\text{ext.}\parallel}-\vv{H}_{\text{int.}\parallel}&=\vv{j}_{S,\text{libres}}\times\vv{n}=\vv{0}\text{ (pas de courants libres)}\\
+  \frac{\vv{B}_{0\parallel}}{\cancel{\mu_0}}-\frac{\vv{B}_{i\parallel}}{\mu_r\cancel{\mu_0}}&=\vv{0}
+\end{align*}
+
+<p>
+Les champs à l'intérieur de la plaque sont ainsi
+</p>
+\begin{align*}
+  \vv{B}_i&=\vv{B}_{0\perp}+\mu_r\vv{B}_{0\parallel}\\
+  \vv{H}_i&=\frac{\vv{B}_i}{\mu_r\mu_0}\\
+  \vv{M}_i&=\chi_m\vv{H}_i=\chi_m\frac{\vv{B}_i}{\mu_r\mu_0}
+\end{align*}
+</li>
+
+<li><dl class="org-dl">
+<dt>milieu diamagnétique</dt><dd>\(\mu_r\lesssim1\to|\chi_m|\ll1\) et
+\(\chi_m<0\). Typiquement, \(\chi_m\sim10^{-9}\) pour des gaz et
+\(\chi_m\sim10^{-6}\) pour des solides (Bismuth). La composante
+tangentielle de \(\vv{B}_i\) sera donc sensiblement plus faible que celle
+du cham extérieur \(B_{i\parallel}\lesssim B_{0\parallel}\).
+
+<div class="center">
+
+<div class="figure">
+<p><img src="./figures/plaque_diamagnetique.png" alt="plaque_diamagnetique.png" />
+</p>
+</div>
+</div>
+</dd>
+<dt>milieu paramagnétique</dt><dd>\(\chi_m\ll1\) avec \(\chi_m>0\) (\(\chi_m\sim10^{-4}\)
+        oxygène, platine, aluminium), \(\mu_r\gtrsim1\to B_{i\parallel}\gtrsim
+        B_{0\parallel}\)
+
+<div class="center">
+
+<div class="figure">
+<p><img src="./figures/plaque_paramagnetique.png" alt="plaque_paramagnetique.png" />
+</p>
+</div>
+</div>
+</dd>
+
+<dt>milieu ferromagnétique</dt><dd>le milieu demeure linéaire donc
+\(\vv{M}=\chi_m\vv{H}\) avec \(\chi_m\gg1\) et \(\mu_r\gg1\) (Fer, Nickel,
+mu-métal) &rarr; \(\vv{B}_i\simeq\mu_r\vv{B}_{0\parallel}\)
+
+<div class="center">
+
+<div class="figure">
+<p><img src="./figures/plaque_ferromagnetique.png" alt="plaque_ferromagnetique.png" />
+</p>
+</div>
+</div>
+<p>
+Les lignes de champ magnétique sont canalisées&rarr; blindages magnétiques
+</p>
+</dd>
+</dl>
+</li>
+</ol>
+</div>
+</div>
+
+<div id="outline-container-sec-3" class="outline-2">
+<h2 id="sec-3"><span class="section-number-2">3</span> L'électro-aimant</h2>
+<div class="outline-text-2" id="text-3">
+<ol class="org-ol">
+<li>La conservation du flux magnétique, toujours vérifiée y compris au sein de
+milieux magnétiques, impose que \(\varoiint_\mathcal{S}\vv{B}.\vv{dS}=0\). Le
+champ magnétique dans le fer étant perpendiculaire à la section, on obtient
+\begin{align*}
+  B_1(x_1)S_\text{barreau}&=B_1(x_2)S_\text{barreau}\\
+  B_1(x_1)&=B_1(x_2)=B_1
+\end{align*}
+
+<p>
+En régime linéaire, l'excitation magnétique \(\vv{H}\) est proportionnelle au
+champ magnétique \(\vv{B}\). Ainsi,
+</p>
+\begin{align*}
+  \|\vv{H}\|=H_1=\frac{B_1}{\mu_r\mu_0}
+\end{align*}
+</li>
+
+<li>Le champ magnétique dans l'entrefer \(\vv{B}_2\) est une fonction de la
+position \(x,y,z\), son orientation restant perpendiculaire à la section du
+barreau soit \(\vv{B}_2=B_2(x,y,z)\vv{u_z}\). La conservation du flux
+magnétique impose que
+\begin{align*}
+  \div\vv{B}_2&=\frac{\partial B_2}{\partial z}=0\to \vv{B}_2=B_2(x,y,\cancel{z})\vv{u_z}
+\end{align*}
+
+<p>
+Par ailleurs, la continuité de la composante normale du champ magnétique à
+l'interface barreau/entrefer impose
+</p>
+\begin{align*}
+  B_{1\perp}&=B_{2\perp}=\text{constante est vrai pour }\forall x,y\\
+  \vv{B}_2&=B_1\vv{u_z}
+\end{align*}
+
+<p>
+L'excitation magnétique \(H_2\) dans l'entrefer est alors égale à
+\(H_2=\frac{B_2}{\mu_0}=\frac{B_1}{\mu_0}\).
+</p>
+</li>
+<li>Le théorème d'Ampère généralisé s'écrit
+\begin{align*}
+  \oint_\mathcal{C}\vv{H}.\vv{d\ell}&=\Upsigma I_\text{enlacé}^\text{libres}=N\times I\\
+  H_1\times\ell+H_2\times d&=NI\\
+  \frac{B_1}{\mu_r\mu_0}\ell+\frac{B_1}{\mu_0}d&=NI\\
+  B_1&=\frac{\mu_0NI}{\ell/\mu_r+d}=\frac{\mu_r\mu_0NI}{\ell+\mu_rd}\\
+  H_1&=\frac{NI}{\ell+\mu_rd}\\
+  B_2&=B_1\\
+  H_2&=\frac{\mu_rNI}{\ell+\mu_rd}
+\end{align*}
+
+<p>
+<b>Application numérique :</b>
+</p>
+\begin{align*}
+  N&=\frac{B_2(\ell+\mu_rd)}{\mu_r\mu_0I}\\
+  &=\frac{1\times(1.5+4000\times0.05)}{4000\times4\pi\,10^{-7}\times100}\\
+  &=\frac{1\times(1.5+200)}{4000\times4\pi\,10^{-7}\times100}=\frac{10^4}{8\pi}=\unit[400]{spires}
+\end{align*}
+</li>
+
+<li>Le barreau de fer est à présent saturé impliquant que
+\(B_1=\mu_0(H_1+M_S)\neq\mu H_1\). Le champ magnétique dans l'entrefer est
+toujours égal à \(B_1\) soit \(B_2=B_1=\mu_0(H_1+M_S)\). En appliquant le
+théorème d'Ampère on obtient
+\begin{align*}
+  H_1\times\ell+H_2\times d&=NI\\
+  H_1\times\ell+(H_1+M_S)\times d&=NI\\
+  H_1&=\frac{NI-M_S\times d}{l+d}\\
+  B_2&=\mu_0H_2=\mu_0\left(\frac{NI+\ell M_S}{\ell+d}\right)=\unit[1.56]{T}
+\end{align*}
+</li>
+</ol>
+</div>
+</div>
+
+<div id="outline-container-sec-4" class="outline-2">
+<h2 id="sec-4"><span class="section-number-2">4</span> Aimant permanent</h2>
+<div class="outline-text-2" id="text-4">
+<p>
+On considère un matériau ferromagnétique dur ayant une aimantation \(\vv{M}\)
+</p>
+\begin{align*}
+  \vv{M}=M_0\left(\cos\theta\,\vv{u_r}+\sin\theta\,\vv{u_\theta}\right)
+\end{align*}
+</div>
+
+<div id="outline-container-sec-4-1" class="outline-3">
+<h3 id="sec-4-1"><span class="section-number-3">4.1</span> Étude de l'aimant permanent</h3>
+<div class="outline-text-3" id="text-4-1">
+<ol class="org-ol">
+<li>Il n'existe pas de source de courant d'où \(\vv{j_\ell}=\vv{0}\). Par ailleurs,
+d'éventuelles charges de polarisation induites par un diélectrique ne sont en
+tout état de cause pas mise en mouvement d'où \(\vv{j_P}=\vv{0}\). Il n'existe
+donc que des courants d'aimantation :
+<ul class="org-ul">
+<li>en volume, \(\vv{j_M}=\rot\,\vv{M}\),
+</li>
+<li>en surface, aux interfaces \(r=a\) et \(r=b\) où
+\(\vv{j_{SM}}=\vv{n}_{1\to2}\times\left(\vv{M}_2-\vv{M}_1\right)\)
+</li>
+</ul>
+<p>
+<b>Calcul de \(\vv{j_M}\)</b>
+</p>
+
+\begin{align*}
+  \vv{j_M}=\rot\,\vv{M}&=\cancel{\left(\frac{1}{r}\frac{\partial M_z}{\partial\theta}-\frac{\partial M_\theta}{\partial z}\right)\vv{u_r}}\\
+  &+\cancel{\left(\frac{\partial M_r}{\partial z}-\frac{\partial M_z}{\partial r}\right)\vv{u_\theta}}\\
+  &+\frac{1}{r}\left(\frac{\partial}{\partial r}(rM_\theta)-\frac{\partial M_r}{\partial \theta}\right)\vv{u_z}\\
+  &=\frac{1}{r}\,M_0\left(\sin\theta + \sin\theta\right)\vv{u_z}=\frac{2M_0}{r}\sin\theta\vv{u_z}
+\end{align*}
+
+<p>
+<b>Calcul de \(\vv{j_{SM}}\)</b>
+</p>
+<div class="center">
+
+<div class="figure">
+<p><img src="./figures/aimant_permanent.png" alt="aimant_permanent.png" />
+</p>
+</div>
+</div>
+
+\begin{align*}
+  \vv{j_{SM}}(r=a)&=-\vv{u_r}\times-\vv{M}=M_0\sin\theta\,\vv{u_z}\\
+  \vv{j_{SM}}(r=b)&=+\vv{u_r}\times-\vv{M}=-M_0\sin\theta\,\vv{u_z}\\
+\end{align*}
+</li>
+
+<li>À l'intérieur du cylindre, on superpose les champs magnétiques induits par
+les densités surfaciques de courant d'aimantation <i>i.e.</i> \(\vv{j_{SM}}(r=a,b)\)
+toutes deux générant un champ magnétique \(\vv{B}=\frac{\mu_0j_S}{2}\vv{u_x}\),
+auquel s'ajoute le champ magnétique crée par la densité volumique de courant
+\(\vv{j_M}\). Le champ magnétique à l'intérieur du matériau ferromagnétique est
+donc
+\begin{align*}
+  \vv{B}_\text{int.}&=\vv{B}(j_{SM}(r=a))+\vv{B}(j_{SM}(r=b))+\vv{B}(j_M(a<r<b))\\
+  &=\cancel{\frac{\mu_0M_0}{2}\vv{u_x}}-\cancel{\frac{\mu_0M_0}{2}\vv{u_x}}+\int_a^b\frac{2\mu_0M_0}{2r}dr\,\vv{u_x}\\
+  &=\mu_0M_0\ln\frac{b}{a}\vv{u_x}\equiv\text{uniforme}
+\end{align*}
+</li>
+</ol>
+</div>
+</div>
+
+<div id="outline-container-sec-4-2" class="outline-3">
+<h3 id="sec-4-2"><span class="section-number-3">4.2</span> Étude de l'homogénéité du champ crée par l'aimant permanent</h3>
+<div class="outline-text-3" id="text-4-2">
+<ol class="org-ol">
+<li>Le développement limité de la composante \(B_x\) du champ magnétique au
+voisinage du centre \(O\) du cylindre s'écrit
+\begin{align*}
+  B_x(x,y,z)=B_x(0,0,0)&+\alpha_xx+\alpha_yy+\alpha_zz\\
+  &+\alpha_{xx}x^2+\alpha_{yy}y^2+\alpha_{zz}z^2\\
+  &+\alpha_{xy}xy+\alpha_{xz}xz+\alpha_{yz}yz+\mathcal{O}(x^2,y^2,z^2)
+\end{align*}
+
+<p>
+Dans le cas du cylindre infini, le champ magnétique pour \(r<a\) est orienté
+selon \(\vv{u_x}\). On déduit donc que les plans \((\vv{u_x},\vv{u_y})\) et
+\((\vv{u_x},\vv{u_z})\) sont des plans d'antisymétrie de la distribution de
+courant. Par ailleurs, le plan \((\vv{u_y},\vv{u_z})\) est alors un plan de
+symétrie de la distribution de courant.
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="void">
+
+
+<colgroup>
+<col  class="left" />
+
+<col  class="left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="left"><img src="./figures/plan_symetrie_aimant_permanent.png" alt="plan_symetrie_aimant_permanent.png" /></td>
+<td class="left"><img src="./figures/plan_antisymetrie_aimant_permanent.png" alt="plan_antisymetrie_aimant_permanent.png" /></td>
+</tr>
+</tbody>
+</table>
+
+<ul class="org-ul">
+<li>plan \((\vv{u_x},\vv{u_y})\) : plan d'antisymétrie
+\begin{align*}
+  B_x(x,y,z)=B_x(x,y,-z)&\to\text{fonction paire en $z$}\\
+  &\to\alpha_z=\alpha_{xz}=\alpha_{yz}=0
+\end{align*}
+</li>
+
+<li>plan \((\vv{u_x},\vv{u_z})\) : plan d'antisymétrie
+\begin{align*}
+  B_x(x,y,z)=B_x(x,-y,z)&\to\text{fonction paire en $y$}\\
+  &\to\alpha_y=\alpha_{xy}=0
+\end{align*}
+</li>
+
+<li>plan \((\vv{u_y},\vv{u_z})\) : plan de symétrie
+\begin{align*}
+  B_x(x,y,z)=B_x(-x,y,z)&\to\text{fonction paire en $x$}\\
+  &\to\alpha_x=0
+\end{align*}
+
+<p>
+L'expression de \(B_x\) au voisinage de \(O\) se limite ainsi à
+</p>
+\begin{align*}
+  B_x(x,y,z)=B_x(0,0,0)+\alpha_{xx}x^2+\alpha_{yy}y^2+\alpha_{zz}z^2+\mathcal{O}(x^2,y^2,z^2)
+\end{align*}
+</li>
+</ul>
+</li>
+
+<li>\(B_y=\beta xy\) et \(B_z=\gamma xz\). Au voisinage de \(O\), les équations de la
+magnétostatique sont \(\div\vv{B}=0\) et \(\rot\,\vv{B}=\vv{0}\) d'où
+\begin{align*}
+  \div\vv{B}&=0\\
+  \frac{\partial B_x}{\partial x}+\frac{\partial B_y}{\partial y}+\frac{\partial B_z}{\partial z}&=0\\
+  2\alpha_{xx}x+\beta x+\gamma x&=0\\
+  \alpha_{xx}&=\frac{-\beta-\gamma}{2}
+\end{align*}
+
+\begin{align*}
+  \rot\,\vv{B}&=\vv{0}\\
+  \left|
+  \begin{array}{l}
+    \frac{\partial}{\partial x}\\\frac{\partial}{\partial y}\\\frac{\partial}{\partial z}
+  \end{array}
+  \right.\times\left|
+  \begin{array}{l}
+    B_x\\B_y\\B_z
+  \end{array}
+  \right.&=\vv{0}\Longleftrightarrow
+  \left\{
+    \begin{array}{l}
+      \cancel{\frac{\partial B_z}{\partial y}}-\cancel{\frac{\partial B_y}{\partial z}}=0\\
+      \frac{\partial B_x}{\partial z}-\frac{\partial B_z}{\partial x}=0\\
+      \frac{\partial B_y}{\partial x}-\frac{\partial B_x}{\partial y}=0
+    \end{array}
+    \right.\\
+    2\alpha_{zz}z-\gamma z&=0\to\alpha_{zz}=\frac{\gamma}{2}\\
+    \beta y-2\alpha_{yy}y&=0\to\alpha_{yy}=\frac{\beta}{2}
+\end{align*}
+
+<p>
+En fonction de &beta; et &gamma;, l'expression de \(B_x(x,y,z)\) devient
+</p>
+\begin{align*}
+  B_x(x,y,z)&=B_x(0,0,0)+\frac{-\beta-\gamma}{2}\,x^2+\frac{\beta}{2}\,y^2+\frac{\gamma}{2}\,z^2
+\end{align*}
+
+<p>
+La valeur de \(B_x(0,0,0)\simeq\mu_0M_0\ln\frac{b}{a}\) et
+\(B_x(0,0,h/2)=\frac{B_x(0,0,0)}{2}\) d'où
+</p>
+\begin{align*}
+  B_x(0,0,h/2)=\frac{B_x(0,0,0)}{2}&=B_x(0,0,0)+\frac{\gamma}{2}\times\frac{h^2}{4}\\
+  \gamma&=-\frac{4\mu_0M_0}{h^2}\ln\frac{b}{a}
+\end{align*}
+</li>
+
+<li>Application numérique :
+
+<p>
+Pour remplir les contraintes inhérentes à la réalisation d'un spectromètre
+RMN, le champ magnétique maximum doit être supérieur à 1.2 Tesla et
+l'homogénéité du champ magnétique doit être inférieure à \(\frac{\delta
+   B}{B}\leq10^{-4}\). Le champ magnétique maximum pouvant être généré correspond
+au maximum d'aimantation que peut acquérir l'aimant soit \(M_0=M_S\) et
+</p>
+\begin{align*}
+  B_x(0,0,0)&=\mu_0M_S\ln\frac{b}{a}\\
+  &=4\pi\,10^{-7}\times8\,10^{5}\times\ln\frac{200}{50}=\unit[1.38]{T}>\unit[1.2]{T}
+\end{align*}
+
+<p>
+Le champ maximal est donc suffisant pour générer un champ central de 1.2
+Tesla. L'homogénéité du champ implique
+</p>
+\begin{align*}
+  \frac{\delta B}{B}&=\left|\frac{\Delta B_x}{B_x}\right|\leq10^{-4}\\
+  &=\left|\frac{B_x(0,0,z=\unit[5]{mm})-B_x(0,0,0)}{B_x(0,0,0)}\right|
+  &=\left|\frac{\cancel{B_x(0,0,0)}-2\frac{\cancel{B_x(0,0,0)}}{h^2}z^2-\cancel{B_x(0,0,0)}}{\cancel{B_x(0,0,0)}}\right|\\
+  &=\frac{2z^2}{h^2}=\frac{2\times5^2}{105^2}=5\,10^{-3}>10^{-4}
+\end{align*}
+
+<p>
+L'homogénéité du champ magnétique au centre du cylindre n'est pas suffisante
+vis-à-vis des contraintes expérimentales imposées par ce spectromètre. Il
+faudrait augmenter la hauteur \(h\) de l'aimant jusqu'à une valeur de l'ordre
+de 700 mm.
+</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+File under git version control - commit <a href="https://github.com/xgarrido/master_npp_teaching/commit/de670a2534c568f9a55c9e4c13c66212a371a2f0">de670a2</a> - 2014-03-18
+</div>
+</body>
+</html>

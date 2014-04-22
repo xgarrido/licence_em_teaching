@@ -1,0 +1,861 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<title>TD3 : Électrostatique dans le vide</title>
+<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta  name="generator" content="Org-mode" />
+<link rel="stylesheet" href="css/styles.css">
+                 <link rel="stylesheet" href="css/org-pygments.css">
+                 <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2013 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script><script type="text/javascript">
+function displayTOC() {
+    var first = document.getElementById("text-table-of-contents").innerHTML;
+    if (first != "") {
+        var maincontent = '<a class="button"><i class="fa fa-list"></i></a>'
+        maincontent += "<div>" + first + "</div>";
+        document.getElementById("toc").innerHTML = maincontent;
+    } else {
+        document.getElementById("toc").style.display = "none";
+    }
+   }
+</script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+      TeX: {
+          extensions: ["cancel.js"],
+          Macros: {
+              vv: ["{\\vec #1}",1],
+              Upsigma: "{\\Sigma}",
+              Updelta: "{\\Delta}",
+              varoiint: "{\\iint}",
+              varoint: "{\\int}",
+              grad: "{\\vec{\\nabla}}",
+              div: "{\\vec{\\nabla}.}",
+              rot: "{\\vec{\\nabla}\\times\\,}",
+              ket: ["{|#1 \\rangle}",1],
+              bra: ["{\\langle#1|}",1],
+              psh: ["{\\langle#1|#2 \\rangle}",2],
+              bm: ["{\\boldsymbol #1}",1]
+          }
+      }
+  });
+  MathJax.Hub.Register.StartupHook("TeX Jax Ready",function () {
+      var TEX = MathJax.InputJax.TeX;
+      TEX.Definitions.macros.unit = "jaxunit";
+      TEX.Parse.Augment({
+          jaxunit: function (name) {
+              var n = this.GetBrackets(name),
+              unit = this.GetArgument(name)
+              if (n == null) {n = ""}
+              var tex = n + '\\,\\text{'+unit+'}';
+              this.string = tex + this.string.slice(this.i); this.i = 0;
+          }
+      });
+  });
+  </script>
+  <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+</head>
+<body onload="displayTOC()"><div id="toc"></div>
+<div id="content">
+<h1 class="title">TD3 : Électrostatique dans le vide</h1>
+<div style="display:none;">
+<div id="text-table-of-contents">
+<ul class="org-ul">
+<li><a href="././td_em_0.html">TD1 : Électromagnétisme &amp; relativité</a>
+</li>
+<li><a href="././td_em_1.html">TD2 : Équations de Maxwell dans le vide et champ électromagnétique</a>
+</li>
+<li><a href="././td_em_2.html">TD3 : Électrostatique dans le vide</a>
+</li>
+<li><a href="././td_em_3.html">TD4 : Les milieux diélectriques</a>
+</li>
+<li><a href="././td_em_4.html">TD5 : Magnétostatique</a>
+</li>
+<li><a href="././td_em_5.html">TD6 : Milieux magnétiques</a>
+</li>
+<li><a href="././td_em_6.html">TD7 : Rayonnement</a>
+</li>
+<li><a href="././td_em_7.html">TD8 : Propagation dans le vide et les milieux diélectriques</a>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-1" class="outline-2">
+<h2 id="sec-1"><span class="section-number-2">1</span> Condensateur cylindrique</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+En considérant \(h\gg a,b\), le problème est invariant par translation le long de
+l'axe des cylindres. Par ailleurs, le problème est invariant par rotation soit
+\(E(M)=E(r)\). En coordonnées cylindriques, les plans \((\vv{u}_r,\vv{u}_\theta)\)
+et \((\vv{u}_r,\vv{u}_z)\) sont des plans de symétrie de la distribution de
+charge. On déduit que le champ électrique s'écrit
+</p>
+\begin{align*}
+  \vv{E}(M)=E(r)\vv{u}_r
+\end{align*}
+
+<p>
+Le choix de la surface de Gauss est alors un cylindre de rayon \(r\) et de hauteur
+\(h\)
+</p>
+\begin{align*}
+  \varoiint_S\vv{E}.\,d\vv{S}&=\iiint_V\frac{\rho}{\epsilon_0}d\tau=\frac{\Upsigma Q_\text{int.}}{\epsilon_0}\\
+  E(r)\times2\pi rh&=\frac{\Upsigma Q_\text{int.}}{\epsilon_0}\\
+  \vv{E}(M)&=\frac{\Upsigma Q_\text{int.}}{2\pi\epsilon_0}\times\frac{1}{rh}\vv{u}_r
+\end{align*}
+
+<ul class="org-ul">
+<li>pour \(r<a\), \(Q_\text{int.}=0\) d'où \(\vv{E}(r<a)=\vv{0}\)
+</li>
+<li>pour \(a<r<b\), \(Q_\text{int.}=Q_a\) d'où
+\(\vv{E}(a<r<b)=\frac{Q_a}{2\pi\epsilon_0rh}\vv{u}_r\)
+</li>
+<li>pour \(r>b\), \(Q_\text{int.}=Q_a+Q_b=0\) d'où \(\vv{E}(r>b)=\vv{0}\)
+</li>
+</ul>
+
+<p>
+La capacité d'un condensateur \(C\) est égale au rapport de la charge dans le
+condensateur sur le potentiel électrique appliqué aux bornes du condensateur
+soit \(C=\tfrac{Q}{V}\). Par ailleurs, le champ électrique \(\vv{E}\) est égal au
+gradient du potentiel électrique
+\(\vv{E}=-\grad\,V=-\tfrac{dV}{dr}\vv{u}_r\). Soit
+</p>
+\begin{align*}
+  -\frac{dV}{dr}&=\frac{Q_a}{2\pi\epsilon_0rh}\\
+  -\int_{V_a}^{V_b}dV&=\int_a^b\frac{Q_a}{2\pi\epsilon_0h}\frac{dr}{r}\\
+  -V_b+V_a&=\frac{Q_a}{2\pi\epsilon_0h}\ln\frac{b}{a}\\
+  V_a&=\frac{Q_a}{2\pi\epsilon_0h}\ln\frac{b}{a}=\frac{Q_a}{C}\\
+  C&=\frac{2\pi\epsilon_0h}{\ln\frac{b}{a}}
+\end{align*}
+
+<p>
+<b>Application numérique</b>
+</p>
+\begin{align*}
+  \frac{C}{h}=\frac{2\pi\epsilon_0}{\ln\frac{b}{a}}=\frac{2\pi\times8.85\,10^{-12}}{\ln8}=\unit[2.7\,10^{-11}]{F/m}
+\end{align*}
+</div>
+</div>
+
+<div id="outline-container-sec-2" class="outline-2">
+<h2 id="sec-2"><span class="section-number-2">2</span> Boule conductrice en présence d'une charge ponctuelle : méthode des images</h2>
+<div class="outline-text-2" id="text-2">
+<div class="center">
+
+<div class="figure">
+<p><img src="./figures/boule_conductrice.png" alt="boule_conductrice.png" />
+</p>
+</div>
+</div>
+
+<ol class="org-ol">
+<li>\(V(r=R)=0\)
+<ol class="org-ol">
+<li>L'absence de charges libres dans le volume d'un conducteur (les charges
+sont surfaciques <i>cf.</i> Exercice <i>#sec::prop_champ</i>) implique que le champ
+électrique \(\vv{E}_\text{int.}\) soit nul (théorème de Gauss). Le potentiel
+électrique \(V_\text{int.}\) déduit de
+\(\vv{E}_\text{int.}=-\grad\,V_\text{int}\) est par conséquent
+constant. \(V_\text{int.}(r=R)\) étant par ailleurs nul
+\begin{align*}
+  V_\text{int.}=V(r\leq R)=0
+\end{align*}
+
+<p>
+Le problème est invariant par rotation autour de l'axe \(Oz\) et le plan
+\((\vv{u}_r,\vv{u}_z)\) est plan de symétrie de la distribution de
+charge. Le champ électrostatique \(\vv{E}\) exprimé dans le système de
+coordonnées cylindriques \(M=(r,\theta,z)\), a donc pour expression
+</p>
+\begin{align*}
+  \vv{E}(M)=E_r(r,z)\vv{u}_r+E_z(r,z)\vv{u}_z
+\end{align*}
+</li>
+
+<li>En raison de la symétrie du problème, une charge fictive \(q'\) est
+nécessairement sur l'axe \(Oz\). Le potentiel alors généré en tout point \(M\)
+de l'espace est la somme des potentiels induits par chaque particule soit
+\begin{align*}
+  V(M)=\frac{1}{4\pi\epsilon_0}\left(\frac{q}{PM}+\frac{q'}{P' M}\right)
+\end{align*}
+
+<p>
+où \(P'\) est la position de la charge \(q'\). Le potentiel pour
+\(r\to\infty\) est nul : \(V(\infty)=0\). La condition selon laquelle le
+potentiel est nul en tout point \(M\) de la surface de la sphère implique
+</p>
+\begin{align*}
+  \frac{q}{PM}=-\frac{q'}{P' M}
+\end{align*}
+
+<p>
+\(q'\) est donc de signe opposé à \(q\). Par suite, on déduit que
+</p>
+\begin{align*}
+  q\,P' M &= -q'\,PM\\
+  q^2\,P' M^2 &=q^{\prime2}\,PM^2\\
+  q^2\,\vv{P' M}^2 &=q^{\prime2}\,\vv{PM}^2\\
+  q^2\,\left(\vv{P' O}+\vv{OM}\right)^2 &=q^{\prime2}\,\left(\vv{PO}+\vv{OM}\right)^2\\
+  \underbrace{q^2P' O^2-q^{\prime2}PO^2+q^2R^2-q^{\prime2}R^2}_{\text{\(\unicode{x2460}\)}}&=\underbrace{q^{\prime2}2\vv{PO}.\vv{OM}-q^22\vv{P' O}.\vv{OM}}_{\text{\(\unicode{x2461}\)}}
+\end{align*}
+
+<p>
+Le premier membre de l'équation est indépendant de \(M\) et est donc
+constant. Le second membre dépend de \(M\) mais doit demeurer constant pour
+tout \(M\) appartenant à la surface de la sphère. Cette égalité est ainsi
+vérifiée pour \(M(r,\theta,z=0)\) soit \(\vv{OM}\perp\vv{u}_z\). On obtient
+\(\unicode{x2460}\)=\(\unicode{x2461}\)=0 et on déduit
+</p>
+\begin{align*}
+  \text{\(\unicode{x2461}\)}=0&=2\vv{OM}.\left(q^{\prime2}\vv{PO}-q^2\vv{P' O}\right)\\
+  \vv{P' O}&=\frac{q^{\prime2}}{q^2}\vv{PO}\parallel\vv{u}_z
+\end{align*}
+
+<p>
+À partir du premier membre \(\unicode{x2460}\), on déduit
+</p>
+\begin{align*}
+  \text{\(\unicode{x2460}\)}=0&=q^2P' O^2-q^{\prime2}PO^2+q^2R^2-q^{\prime2}R^2\\
+  R^2\left(q^{\prime2}-q^2\right)&=q^2P' O^2-q^{\prime2}PO^2\\
+  &=q^2\times\frac{q^{\prime4}}{q^4}PO^2-q^{\prime2}PO^2\\
+  &=q^{\prime2}PO^2\left(\frac{q^{\prime2}}{q^2}-1\right)\\
+  R^2&=PO^2\times\left(\frac{q'}{q}\right)^2\\
+  q'&=-\frac{qR}{PO}\\
+  P' O&=\frac{R^2}{PO}\leq R
+\end{align*}
+</li>
+
+<li>À partir de l'équation locale \(\div\vv{E}=\tfrac{\rho}{\epsilon_0}\) et de
+l'expression du potentiel électrique \(\vv{E}=-\grad V\), on obtient
+l'équation de Poisson
+\begin{align*}
+  -\div\left(\grad V\right)&=\frac{\rho}{\epsilon_0}\\
+  -\Delta V&=\frac{\rho}{\epsilon_0}\\
+  \Delta V+\frac{\rho}{\epsilon_0}&=0
+\end{align*}
+
+<p>
+Les conditions aux limites imposées par la boule sont que le potentiel
+électrique en tout point de la surface soit nul \(V(r=R)=0\). Pour tout
+point \(r>R\), le problème "charge \(q\) + boule conductrice" est équivalent à
+la situation "charge \(q\) + charge \(q'\)" du fait que les deux
+situations obéissent à la même équation de Poisson et satisfont aux mêmes
+conditions aux limites \(V(r=R)=0\). Le théorème d'unicité implique donc les
+mêmes solutions pour chacune des représentations. Cette équivalence n'est
+vrai que pour \(r>R\) car à l'intérieur de la boule le champ électrostatique
+demeure nul ce qui n'est pas le cas dans la situation "charge \(q\) + charge
+\(q'\)".
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="void">
+
+
+<colgroup>
+<col  class="left" />
+
+<col  class="left" />
+
+<col  class="left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="left"><img src="./figures/boule_conductrice0.png" alt="boule_conductrice0.png" /></td>
+<td class="left">&#xa0;</td>
+<td class="left"><img src="./figures/boule_conductrice1.png" alt="boule_conductrice1.png" /></td>
+</tr>
+</tbody>
+</table>
+</li>
+
+<li>Calcul du champ \(\vv{E}(r\geq R)\) : combinaison des champs coulombiens de
+chacune des charges \(q\) et \(q'\)
+\begin{align*}
+  \vv{E}(M)&=\frac{1}{4\pi\epsilon_0}\left(\frac{q}{PM^3}\vv{PM}+\frac{q'}{P' M^3}\vv{P' M}\right)\\
+  &=\frac{1}{4\pi\epsilon_0}\left[\left(\frac{q}{PM^3}+\frac{q'}{P' M^3}\right)\vv{OM}+\underbrace{\frac{q\vv{PO}}{PM^3}+\frac{q'\vv{P' O}}{P' M^3}}_{\text{\(\unicode{x2460}\)}}\right]
+\end{align*}
+
+<p>
+Sachant que \(\vv{P' O}=\frac{q^{\prime2}}{q^2}\vv{PO}\) et \(P'
+      M=-\frac{q'}{q}PM\), l'expression \(\unicode{x2460}\) devient
+</p>
+\begin{align*}
+  \text{\(\unicode{x2460}\)}&=\frac{q\vv{PO}}{PM^3}+\frac{q'\vv{P' O}}{P' M^3}\\
+  &=\frac{q\vv{PO}}{PM^3}+\frac{q'\times q^{\prime2}}{q^2}\times\frac{\vv{PO}}{-q^{\prime3}}\times\frac{q^3}{PM^3}\\
+  &=0
+\end{align*}
+
+<p>
+soit pour \(M\in\) sphère
+</p>
+\begin{align*}
+  \vv{E}(M)&=\frac{R\vv{u}_r}{4\pi\epsilon_0}\left(\frac{q}{PM^3}+\frac{q'}{P' M^3}\right)\\
+  &=\frac{q\vv{R}}{4\pi\epsilon_0\,PM^3}\times\left(1-\frac{q^2}{q^{\prime2}}\right)\\
+  &=\frac{q\vv{R}}{4\pi\epsilon_0\,PM^3}\times\left(1-\frac{PO^2}{R^2}\right)
+\end{align*}
+
+<p>
+Conditions de continuité du champ électrique au passage d'une surface
+</p>
+
+<div class="center">
+
+<div class="figure">
+<p><img src="./figures/field_continuity.png" alt="field_continuity.png" />
+</p>
+</div>
+
+\begin{align*}
+  \vv{n}_{\tiny1\to2}.\left(\vv{E}_2-\vv{E}_1\right)&=\frac{\sigma}{\epsilon_0}\rightarrow\text{discontinuité de la composante normale}\\
+  \vv{n}_{\tiny1\to2}\times\left(\vv{E}_2-\vv{E}_1\right)&=\vv{0}\rightarrow\text{continuité de la composante tangentielle}
+\end{align*}
+</div>
+<p>
+Étant donné que \(\vv{E}_\text{int.}=\vv{E}_1=\vv{0}\), la densité
+surfacique de charge est égale à
+</p>
+\begin{align*}
+  \vv{E}(M\in\text{sphère})&=\frac{\sigma}{\epsilon_0}\vv{u}_r\\
+  \sigma&=\frac{qR}{4\pi}\left(1-\frac{PO^2}{R^2}\right)\times\frac{1}{PM^3}
+\end{align*}
+
+<p>
+La charge totale \(Q_\text{tot.}\) de la boule conductrice est donc
+</p>
+\begin{align*}
+  Q_\text{tot.}&=\int_0^{2\pi}d\phi\int_0^\pi d\theta\times R^2\sin\theta\times\sigma(\theta)\\
+  &=\frac{2\pi qR^3}{4\pi R^2}\left(R^2-PO^2\right)\times\int_0^\pi d\theta\frac{\sin\theta}{PM^3}\\
+  &\text{avec }PM^2=PO^2+OM^2+2\vv{PO}.\vv{OM}=PO^2+R^2-2R\,PO\cos\theta\\
+  Q_\text{tot.}&=\frac{qR(R^2-PO^2)}{2}\times\underbrace{\int_0^\pi\frac{\sin\theta d\theta}{\left(PO^2+R^2-2R\,PO\cos\theta\right)^{3/2}}}_{\text{\(\unicode{x2460}\)}}
+\end{align*}
+
+<p>
+Pour calculer \(\unicode{x2460}\), on pose \(x=\cos\theta\) avec \(x\in[1,-1]\) et
+\(dx=-\sin\theta d\theta\)
+</p>
+\begin{align*}
+  \text{\(\unicode{x2460}\)}&=\int_1^{-1}\frac{-dx}{\left(PO^2+R^2-2R\,POx\right)^{3/2}}\\
+  &\text{or }\int\frac{dx}{(b+ax)^{3/2}}=\frac{1}{(b+ax)^{1/2}}\times-\frac{2}{a}\\
+  \text{\(\unicode{x2460}\)}&=\frac{1}{R\,PO}\left(\frac{1}{\surd PO^2+R^2-2R\,PO}-\frac{1}{\surd PO^2+R^2+2R\,PO}\right)\\
+  &=\frac{1}{R\,PO}\left(\frac{1}{PO-R}-\frac{1}{PO+R}\right)\\
+  &=\frac{1}{R\,PO}\left(\frac{2R}{PO^2-R^2}\right)
+\end{align*}
+
+<p>
+Finalement \(Q_\text{tot.}\) devient
+</p>
+\begin{align*}
+  Q_\text{tot.}&=\frac{qR(R^2-PO^2)}{2}\times\frac{1}{R\,PO}\times\frac{2R}{PO^2-R^2}\\
+  &=-\frac{qR}{PO}=q'
+\end{align*}
+
+<p>
+Le théorème de Gauss impose que \(Q_\text{tot.}\) soit égal à la somme des
+charges à l'intérieur de la sphère. La charge fictive \(q'\) est par
+construction à l'intérieur de la sphère d'où \(Q_\text{tot.}=q'\).
+</p>
+</li>
+<li>Calcul de la force exercée par la charge \(q\) sur \(q'\) &equiv; à
+calculer la force exercée par la charge \(q\) sur la boule conductrice.
+\begin{align*}
+  \vv{F}_{q\to q'}&=\vv{F}_{q\to\text{boule}}\\
+  &=q'\vv{E}_{q\to q'}\\
+  &=\frac{q' q}{4\pi\epsilon_0}\times\frac{\vv{PP'}}{PP^{\prime3}}=\frac{q' q}{4\pi\epsilon_0}\times\frac{-\vv{u}_z}{PP^{\prime2}}\\
+  &\text{avec }PP^{\prime2}=PO^2+OP^{\prime2}=PO^2+\frac{R^4}{PO^2}=\frac{PO^4+R^4}{PO^2}\\
+  \vv{F}_{q\to\text{boule}}&=-\frac{qq'}{4\pi\epsilon_0}\times\frac{PO^2}{PO^4+R^4}\vv{u}_z\\
+  &=\frac{q^2}{4\pi\epsilon_0}\frac{R\,PO}{PO^4+R^4}\vv{u}_z
+\end{align*}
+</li>
+</ol>
+</li>
+
+<li>\(V_0\neq0\)
+<ol class="org-ol">
+<li>Le principe de superposition implique
+\begin{align*}
+  V(M)=V_0=\frac{1}{4\pi\epsilon_0}\left(\underbrace{\frac{q}{PM}+\frac{q'}{P'M}}_{=0}+\frac{q''}{P''M}\right)
+\end{align*}
+
+<p>
+soit
+</p>
+\begin{align*}
+  q''=4\pi\epsilon_0V_0\times P''M=\text{constante}
+\end{align*}
+
+<p>
+impliquant que \(P''\equiv O\) et donc \(q''=4\pi\epsilon_0RV_0\)
+</p>
+</li>
+<li>Les charges fictives/virtuelles \(q'\) et \(q''\) sont à l'intérieur de la
+boule conductrice d'où \(Q_\text{boule}=q'+q''=0\). La charge \(q''\) est
+ainsi égale à \(-q'=\frac{qR}{PO}\) soit un potentiel \(V_0\) égal à
+\begin{align*}
+  4\pi\epsilon_0RV_0&=-q'=\frac{qR}{PO}\\
+  V_0&=\frac{1}{4\pi\epsilon_0}\times\frac{q}{PO}
+\end{align*}
+
+<p>
+<i>i.e.</i> le potentiel généré en \(O\) par la particule \(q\).
+</p>
+</li>
+</ol>
+</li>
+<li>Boule conductrice dans un champ électrostatique uniforme
+<div class="center">
+
+<div class="figure">
+<p><img src="./figures/boule_conductrice_field.png" alt="boule_conductrice_field.png" />
+</p>
+</div>
+</div>
+
+<ol class="org-ol">
+<li>Les champs électrostatiques créés par chaque charge se superposent en \(M\)
+\begin{align*}
+  \vv{E}(M)&=\frac{1}{4\pi\epsilon_0}\left(\frac{q}{PM^3}\vv{PM}-\frac{q}{NM^3}\vv{NM}\right)\\
+  \text{avec }\vv{PM}&=\vv{PO}+\vv{OM}\\
+  PM^3&=\left(Z^2+r^2+2\vv{PO}.\vv{OM}\right)^{3/2}\\
+  PM^3&=Z^3\left(1-2\frac{r}{Z}\cos\theta+\frac{r^2}{Z^2}\right)^{3/2}
+\end{align*}
+
+<p>
+Pour \(r\leq R\), l'expression de la longueur \(PM\) devient au premier ordre
+en \(\frac{r}{Z}\) (\(Z\gg R\))
+</p>
+\begin{align*}
+  PM^3&\simeq Z^3\left(1-2\frac{r}{Z}\cos\theta\right)^{3/2}\\
+  \frac{1}{PM^3}&\simeq\frac{1}{Z^3}\left(1+3\frac{r}{Z}\cos\theta\right)
+\end{align*}
+
+<p>
+De même
+</p>
+\begin{align*}
+  \frac{1}{NM^3}&\simeq\frac{1}{Z^3}\left(1-3\frac{r}{Z}\cos\theta\right)
+\end{align*}
+
+<p>
+Le champ électrique au voisinage de la boule conductrice devient
+</p>
+\begin{eqnarray*}
+  \vv{E}(r\leq R)&=\frac{1}{4\pi\epsilon_0}\times\frac{q}{Z^3}\times&\left[\vv{OM}\left(\cancel{1}+3\frac{r}{Z}\cos\theta\right)-\vv{OM}\left(\cancel{1}-3\frac{r}{Z}\cos\theta\right)\right.\\
+    &&\left.+\vv{PO}\left(1+3\frac{r}{Z}\cos\theta\right)-\vv{NO}\left(1-3\frac{r}{Z}\cos\theta\right)\right]\\
+  &=\frac{1}{4\pi\epsilon_0}\times\frac{q}{Z^3}\times&\left[\cancel{6\frac{r^2}{Z}}(\propto\tfrac{r^2}{Z^2}\ll1)\cos\theta\vv{u}_r\right.\\
+    &&\left.+\vv{PO}\left(1+3\frac{r}{Z}\cos\theta\right)-\vv{NO}\left(1-3\frac{r}{Z}\cos\theta\right)\right]\\
+  &=\frac{1}{4\pi\epsilon_0}\times\frac{q}{Z^3}\times&\left[\vv{PO}\left(1+\cancel{3\frac{r}{Z}\cos\theta}\right)-\vv{NO}\left(1-\cancel{3\frac{r}{Z}\cos\theta}\right)\right]\\
+  &=\frac{1}{4\pi\epsilon_0}\times\frac{q}{Z^3}\vv{PN}\\
+  &=-\frac{1}{4\pi\epsilon_0}\times\frac{2q}{Z^2}\vv{u}_z&\rightarrow\text{champ électrique constant pour }r\leq R\\
+\end{eqnarray*}
+
+<p>
+Le champ ainsi généré correspond au champ électrique généré par un dipôle
+électrique \(\vv{p}=q\vv{PN}\) (où la charge \(q\) est en \(P\) et la charge
+\(-q\) est en \(N\), <i>cf.</i> Cours Chapitre 2, page 44).
+</p>
+</li>
+<li>Nous avons établi à la question 1.d) qu'en présence d'une charge
+ponctuelle \(q\), la densité surfacique de charge était
+\begin{align*}
+  \sigma=\frac{q}{4\pi}\times\frac{R^2-PO^2}{R}\times\frac{1}{PM^3}
+\end{align*}
+
+<p>
+où \(P\) est la position de la charge \(q\) et \(M\) est un point situé à la
+surface de la boule. On déduit ainsi que la charge \(+q\) génère une densité
+surfacique
+</p>
+\begin{align*}
+  \sigma_+=\frac{q}{4\pi}\times\frac{R^2-PO^2}{R}\times\frac{1}{PM^3}
+\end{align*}
+
+<p>
+tandis que la charge \(-q\) placée en \(N\) implique une densité surfacique
+</p>
+\begin{align*}
+  \sigma_-=\frac{-q}{4\pi}\times\frac{R^2-NO^2}{R}\times\frac{1}{NM^3}
+\end{align*}
+
+<p>
+En ne considérant toujours que le premier ordre en \(\frac{R}{Z}\), on
+obtient une densité surfacique totale
+</p>
+\begin{align*}
+  \sigma_\text{totale}&=\sigma_++\sigma_-\\
+  &\simeq\frac{q\times(R^2-Z^2)}{4\pi R}\times\frac{1}{Z^3}\left(\cancel{1}+\frac{3R}{Z}\cos\theta-\cancel{1}+\frac{3R}{Z}\cos\theta\right)\\
+  &\text{avec } R^2-Z^2=Z^2(-1+\frac{R^2}{Z^2})\simeq-Z^2\\
+  &\simeq-\frac{3q}{2\pi Z^2}\cos\theta
+\end{align*}
+
+<p>
+Le champ électrique au voisinage de la surface de la boule n'est plus
+uniforme du fait de la présence de charge en surface de cette boule.
+</p>
+</li>
+<li>Le champ dipolaire électrique s'écrit
+\begin{align*}
+  \vv{E}_\text{dipôle}&=-\frac{q}{2\pi\epsilon_0Z^2}\vv{u}_z\\
+  &=\frac{\sigma_0}{3\epsilon_0}\vv{u}_z\\
+  &\text{où }\sigma_\text{totale}=-\frac{3q}{2\pi Z^2}\cos\theta=\sigma_0\cos\theta
+\end{align*}
+
+<p>
+Le champ électrique à l'intérieur de la boule conductrice demeurant nul,
+on déduit que le champ électrique \(\vv{E}_\sigma\) crée par la densité
+surfacique de charge \(\sigma_\text{totale}\) s'écrit
+</p>
+\begin{align*}
+  \vv{E}_\text{int.}=\vv{0}&=\vv{E}_\text{dipôle}+\vv{E}_\sigma\\
+  \vv{E}_\sigma&=-\frac{\sigma_0}{3\epsilon_0}\vv{u}_z
+\end{align*}
+</li>
+
+<li>La pression électrostatique \(P\) est égale à
+\(\frac{\sigma^2}{2\epsilon_0}\). C'est par ailleurs, la force
+électrostatique par unité de surface \(P=\frac{d\vv{F}}{d\vv{S}}\). La force
+exercée sur l'hémisphère supérieur est ainsi
+\begin{align*}
+  d\vv{F}_1&=\frac{\sigma^2}{2\epsilon_0}\,d\vv{S}\\
+  \vv{F}_1&=\int_0^{2\pi}d\phi\int_0^{\pi/2}d\theta\frac{\sigma_0^2}{2\epsilon_0}\cos^2\theta R^2\sin\theta\vv{u}_r
+\end{align*}
+
+<div class="center">
+
+<div class="figure">
+<p><img src="./figures/boule_conductrice_force.png" alt="boule_conductrice_force.png" />
+</p>
+</div>
+</div>
+
+<p>
+Seule la composante suivant \(\vv{u}_z\) de la force est non nulle soit en
+remplaçant \(\vv{u}_r=\vv{u}_z\cos\theta\), la force \(\vv{F}_1\) devient
+</p>
+\begin{align*}
+  \vv{F}_1&=\int_0^{2\pi}d\phi\int_0^{\pi/2}d\theta\frac{\sigma_0^2}{2\epsilon_0}\cos^3\theta R^2\sin\theta\vv{u}_z
+\end{align*}
+
+<p>
+En procédant au changement de variable \(x=\cos\theta\) avec \(x\in[1,0]\) et
+\(dx=-\sin\theta d\theta\)
+</p>
+\begin{align*}
+  \vv{F}_1&=2\pi\frac{\sigma_0^2}{2\epsilon_0}R^2\int_0^1x^3dx\vv{u}_z\\
+  &=\frac{\pi R^2\,\sigma_0^2}{\epsilon_0}\times\frac{1}{4}\vv{u}_z\\
+  &=\frac{\pi R^2\,\sigma_0^2}{4\epsilon_0}\vv{u}_z=\frac{\pi R^2}{4\epsilon_0}\times\frac{9q^2}{4\pi^2Z^4}\vv{u}_z\\
+  \vv{F}_2&=-\vv{F}_1=-\frac{\pi R^2\,\sigma_0^2}{4\epsilon_0}\vv{u}_z
+\end{align*}
+</li>
+</ol>
+</li>
+</ol>
+</div>
+</div>
+
+<div id="outline-container-sec-3" class="outline-2">
+<h2 id="sec-3"><span class="section-number-2">3</span> Forces de Van der Waals&#xa0;&#xa0;&#xa0;<span class="tag"><span class="DM">DM</span></span></h2>
+<div class="outline-text-2" id="text-3">
+</div><div id="outline-container-sec-3-1" class="outline-3">
+<h3 id="sec-3-1"><span class="section-number-3">3.1</span> Modèle de l'électron élastiquement lié : moment dipolaire induit d'un atome</h3>
+<div class="outline-text-3" id="text-3-1">
+<div class="center">
+
+<div class="figure">
+<p><img src="./figures/van_der_waals.png" alt="van_der_waals.png" />
+</p>
+</div>
+</div>
+
+<ol class="org-ol">
+<li>La densité volumique de charge \(\rho\) du nuage électronique est égale à
+\begin{align*}
+  \frac{4}{3}\pi\,a^3\times\rho&=-q\\
+  \rho=-\frac{3q}{4\pi\,a^3}
+\end{align*}
+</li>
+
+<li>Tout plan contenant le vecteur radial \(\vv{u}_r\) est plan de symétrie de la
+distribution de charge au sein du nuage électronique : le champ électrique
+\(\vv{E}_\text{int.}\) est donc colinéaire à \(\vv{u}_r\). Par ailleurs, le
+problème est invariant par rotation d'angle &theta; et &phi;, le champ
+électrique ne dépendant que de la distance au centre du nuage.
+
+<p>
+En choisissant comme surface de Gauss, une sphère centrée sur le centre du
+nuage et de rayon \(r\), on a
+</p>
+\begin{align*}
+  \varoiint_\text{sphère}\vv{E}_\text{int.}.\vv{dS}&=\iiint_\text{volume int.}\frac{\rho}{\epsilon_0}\,d\tau\\
+  4\pi\,r^2\,\vv{E}_\text{int.}(r)&=\iiint_\text{volume int.}\frac{\rho}{\epsilon_0}\,d\tau
+\end{align*}
+
+<ul class="org-ul">
+<li>pour \(r>a\),
+\begin{align*}
+  \vv{E}_\text{int.}=-\frac{q}{4\pi\epsilon_0\,r^2}\vv{u}_r
+\end{align*}
+</li>
+
+<li>pour \(r<a\),
+\begin{align*}
+  \vv{E}_\text{int.}&=\frac{\rho}{4\pi\epsilon_0\,r^2}\times\frac{4}{3}\pi\,r^3\vv{u}_r\\
+  &=-\frac{qr}{4\pi\epsilon_0\,a^3}\vv{u}_r
+\end{align*}
+
+<p>
+La force exercée sur le noyau de charge \(+q\) par le nuage électronique
+s'écrit
+</p>
+\begin{align*}
+  \vv{F}&=+q\,\vv{E}_\text{int.}(r)=-\frac{q^2r}{4\pi\epsilon_0\,a^3}\vv{u}_r\text{ où }\vv{r}=\vv{AB}
+\end{align*}
+
+<p>
+En l'absence de champ externe, la force exercée par le nuage sur le noyau
+tend à ramener ce dernier au centre du nuage <i>i.e.</i> en \(r=0\).
+</p>
+</li>
+</ul>
+</li>
+
+<li>En présence du champ externe, la force totale s'exerçant sur le noyau est
+\(\vv{F}=+q\left(\vv{E}_\text{int.}+\vv{E}_\text{ext.}\right)\). L'équilibre
+est atteint pour \(\vv{F}=\vv{0}\) soit
+\begin{align*}
+  \frac{q\vv{r}}{4\pi\epsilon_0\,a^3}&=\vv{E}_\text{ext.}\\
+  \vv{r}&=\frac{4\pi\epsilon_0\,a^3}{q}\vv{E}_\text{ext.}<\vv{a}\\
+  &\text{ soit }E_\text{ext.}<\frac{q}{4\pi\epsilon_0\,a^2}
+\end{align*}
+
+<p>
+Si \(E_\text{ext.}>\frac{q}{4\pi\epsilon_0\,a^2}\), le champ électrique du
+nuage électronique ne peut contrebalancer le champ externe qui "dissocie"
+électriquement le nuage du noyau : noyau et nuage ne sont plus liés.
+</p>
+</li>
+
+<li>Le moment dipolaire \(\vv{p}\) est égal à \(q\,\vv{r}\) soit en fonction du champ
+externe
+\begin{align*}
+  \vv{p}=4\pi\epsilon_0\,a^3\vv{E}_\text{ext.}
+\end{align*}
+
+<p>
+En l'absence de champ externe, le moment dipolaire induit est nul. Par
+ailleurs, le moment dipolaire étant égal à
+\(\alpha\epsilon_0\vv{E}_\text{ext.}\), on déduit que \(\alpha = 4\pi\,a^3\) et
+qu'en conséquence la dimension de \(\alpha\) est celle d'un volume.
+</p>
+</li>
+
+<li>Application numérique à l'atome d'Hélium :
+\begin{align*}
+  \alpha&=4\pi\,\left(7\,10^{-10}\right)^3=\unit[4.3\,10^{-27}]{m}^3\\
+  E_\text{ext.}^\text{max}&=\frac{q}{4\pi\epsilon_0\,a^2}\\
+  &=\frac{3.2\,10^{-19}}{4\pi\times8.85\,10^{-12}\times\left(7\,10^{-10}\right)^2}\\
+  &=\unit[5.9\,10^9]{V/m}
+\end{align*}
+</li>
+</ol>
+</div>
+</div>
+
+<div id="outline-container-sec-3-2" class="outline-3">
+<h3 id="sec-3-2"><span class="section-number-3">3.2</span> Forces de Van der Waals</h3>
+<div class="outline-text-3" id="text-3-2">
+<ol class="org-ol">
+<li>L'expression du moment dipolaire \(\vv{p}_1\) est \(q_1 2a\,\vv{u}_z\). En raison des
+symétries du problème à savoir que l'axe \(Oz\) porte les deux charges \(\pm
+   q_1\), les plans \((\vv{u}_x,\vv{u}_z)\) et \((\vv{u}_y,\vv{u}_z)\) sont plans de
+symétrie de la distribution de charge et \(\vv{E}\) est donc colinéaire à
+\(\vv{u}_z\).
+
+<div class="center">
+
+<div class="figure">
+<p><img src="./figures/van_der_waals_dipole1.png" alt="van_der_waals_dipole1.png" />
+</p>
+</div>
+</div>
+
+<p>
+Pour déterminer le champ électrique sur l'axe \(Oz\), on superpose
+les champs coulombiens générés par chacune des charges \(\pm q_1\) soit
+</p>
+\begin{align*}
+  \vv{E}&=\frac{q_1}{4\pi\epsilon_0\,\left(z-a\right)^2}\,\vv{u}_z-\frac{q_1}{4\pi\epsilon_0\,\left(z+a\right)^2}\,\vv{u}_z\\
+  &=\frac{q_1}{4\pi\epsilon_0}\,\left(\frac{1}{\left(z-a\right)^2}-\frac{1}{\left(z+a\right)^2}\right)\,\vv{u}_z\\
+  \text{avec }z\gg a\quad\vv{E}&\simeq\frac{q_1}{4\pi\epsilon_0\,z^2}\left(\cancel{1}+\frac{2a}{z}-\cancel{1}+\frac{2a}{z}\right)\,\vv{u}_z\\
+  &\simeq\frac{\vv{p}_1}{2\pi\epsilon_0\,z^3}
+\end{align*}
+</li>
+
+<li>Supposons que les charges \(\pm q_2\) soient positionnées de la façon suivante
+
+<div class="center">
+
+<div class="figure">
+<p><img src="./figures/van_der_waals_dipole2.png" alt="van_der_waals_dipole2.png" />
+</p>
+</div>
+</div>
+
+<p>
+la force qu'exerce le premier dipôle sur le second est égale à
+</p>
+\begin{align*}
+  \vv{F}&=q_2\vv{E}(z+b)-q_2\vv{E}(z-b)\\
+  &=\frac{\vv{p}_1\,q_2}{2\pi\epsilon_0}\left(\frac{1}{\left(z+b\right)^3}-\frac{1}{\left(z-b\right)^3}\right)\\
+  \text{avec }z\gg b\quad\vv{F}&\simeq\frac{\vv{p}_1\,q_2}{2\pi\epsilon_0\,z^3}\left(\cancel{1}-\frac{3b}{z}-\cancel{1}-\frac{3b}{z}\right)\\
+  &\simeq-\frac{\vv{p}_1\,q_2\,2b\times3}{2\pi\epsilon_0\,z^4}=-\frac{3p_1p_2}{2\pi\epsilon_0\,z^4}\vv{u}_z\text{ où }p_2=q_2\,2b
+\end{align*}
+
+<p>
+Dans cette orientation, la force exercée par le dipôle 1 sur le dipôle 2 est
+donc attractive. En revanche, si la polarité du dipôle 2 est inversée, la
+force est alors répulsive.
+</p>
+</li>
+
+<li><b>Force de Keesom : interaction entre deux molécules présentant chacune un
+moment dipolaire permanent</b>
+
+<p>
+Le temps passé dans la configuration où \(\vv{p}_1\) et \(\vv{p}_2\) sont alignés
+est égal à
+</p>
+\begin{align*}
+  \frac{t_1}{t_1+t_2}&=A\exp\left(\frac{\vv{p}_2.\vv{E}_{1\to2}}{k_BT}\right)\\
+  &\simeq A\left(1+\frac{\vv{p}_2.\vv{E}_{1\to2}}{k_BT}\right)
+\end{align*}
+
+<p>
+De même, le temps \(t_2\) pendant lequel les dipôles sont inversés s'écrit
+</p>
+\begin{align*}
+  \frac{t_2}{t_1+t_2}&=A\exp\left(-\frac{\vv{p}_2.\vv{E}_{1\to2}}{k_BT}\right)\\
+  &\simeq A\left(1-\frac{\vv{p}_2.\vv{E}_{1\to2}}{k_BT}\right)
+\end{align*}
+
+<p>
+On déduit des deux approximations précédentes que \(A=\frac{1}{2}\).
+</p>
+
+<p>
+Ainsi, la force moyenne entre les deux dipôles devient
+</p>
+\begin{align*}
+  \langle\vv{F}\rangle&=\vv{F}\times\frac{t_1}{t_1+t_2}-\vv{F}\times\frac{t_2}{t_1+t_2}\text{ où }\vv{F}=-\frac{3p_1p_2}{2\pi\epsilon_0\,z^4}\vv{u}_z\\
+  &=\frac{\vv{F}}{2}\times\frac{2\vv{p}_2.\vv{E}_{1\to2}}{k_BT}=-\frac{3p_1p_2^2\,\vv{E}_{1\to2}}{2\pi\epsilon_0k_BT\,z^4}\\
+  &=-\frac{3p_1^2p_2^2}{4\pi^2\epsilon_0^2k_BT\,z^7}\,\vv{u}_z\text{ car }\vv{E}_{1\to2}=\frac{\vv{p}_1}{2\pi\epsilon_0\,z^3}
+\end{align*}
+</li>
+
+<li><b>Force de Debye : interaction entre une molécule présentant un moment
+dipolaire permanent et une molécule présentant un moment dipolaire induit</b>
+
+<p>
+Le moment dipolaire induit par le champ électrique du premier dipôle est
+</p>
+\begin{align*}
+  \vv{p}_2&=\alpha\epsilon_0\,\vv{E}_\text{ext.}\text{ où }\vv{E}_\text{ext.}=\frac{\vv{p}_1}{2\pi\epsilon_0\,z^3}\\
+  &=\frac{\alpha\vv{p}_1}{2\pi\,z^3}\,\vv{u}_z
+\end{align*}
+
+<p>
+La force exercée par la première moléculé est la même que précédemment à
+savoir \(\vv{F}=-\frac{3p_1p_2}{2\pi\epsilon_0\,z^4}\,\vv{u}_z\) avec
+\(\vv{p}_2=\frac{\alpha\vv{p}_1}{2\pi\,z^3}\) soit
+</p>
+\begin{align*}
+  \vv{F}&=-\frac{3p_1p_2}{2\pi\epsilon_0\,z^4}\,\vv{u}_z\\
+  &=-\frac{3\alpha\,p_1^2}{4\pi^2\epsilon_0\,z^7}\,\vv{u}_z\\
+\end{align*}
+</li>
+
+<li><b>Force de London : interaction entre deux atomes ou molécules ne présentant
+pas de moment dipolaire permanent</b>
+
+<p>
+Supposons qu'à un instant donné, le moment dipolaire du premier
+atome/molécule vaille \(\vv{p}_1\). En moyenne, le moment dipolaire du second
+atome/molécule est nul et il n'y a pas d'interaction
+dipôle-dipôle. Cependant, du fait de la valeur non nulle de \(\vv{p}_1\) à
+l'instant considéré, il se superpose au moment dipolaire naturel du second
+atome/molécule, un moment dipolaire induit. Il découle de la présence de ce
+moment dipolaire induit, une force induite égale à \(-\frac{3\alpha
+   p_1^2}{4\pi^2\epsilon_0\,z^7}\). En moyenne, la force induite est ainsi égale
+à
+</p>
+\begin{align*}
+  \langle\vv{F}_{1\to2}^\text{induit}\rangle&=-\frac{3\alpha\,\langle p_1^2\rangle}{4\pi^2\epsilon_0\,z^7}\,\vv{u}_z
+\end{align*}
+
+<p>
+En tenant compte du même effet mais générée par le second atome/molécule sur
+le premier et en considérant les deux atomes/molécules identiques <i>i.e.</i>
+\(\vv{p}_1=\vv{p}_2=\vv{p}\), on obtient une force moyenne
+</p>
+\begin{align*}
+  \langle\vv{F}\rangle&=-2\times\frac{3\alpha\,\langle p^2\rangle}{4\pi^2\epsilon_0\,z^7}\,\vv{u}_z\\
+  &=-\frac{3\alpha\,\langle p^2\rangle}{2\pi^2\epsilon_0\,z^7}\,\vv{u}_z
+\end{align*}
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+File under git version control - commit <a href="https://github.com/xgarrido/master_npp_teaching/commit/de670a2534c568f9a55c9e4c13c66212a371a2f0">de670a2</a> - 2014-03-18
+</div>
+</body>
+</html>
