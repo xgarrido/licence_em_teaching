@@ -4,7 +4,7 @@
 #+OPTIONS: ^:{} toc:2 tags:nil author:nil split:t
 #+LATEX_CLASS: teaching-class
 
-* COMMENT TD1 : Électromagnétisme & relativité
+* TD1 : Électromagnétisme & relativité
 ** Introduction
 *Transformation de Lorentz :* $\beta=\tfrac{v}{c}$ et
  $\gamma=\tfrac{1}{\surd{1-\beta^2}}$. Si $\mathcal{R}'$ est en mouvement
@@ -800,7 +800,7 @@ totale $\mathcal{E}$ et d'énergie cinétique $\mathcal{E}_c$.
 $(\ddot{r}-r\dot{\theta}^2)\vv{u}_r+(2\dot{r}\dot{\theta}+r\ddot{\theta})\vv{u}_\theta$. À
 défaut de vitesse angulaire $\dot{\theta}$ initiale, on supposera donc que $\dot{\theta}=0$.
 
-* COMMENT TD2 : Équations de Maxwell dans le vide et champ électromagnétique
+* TD2 : Équations de Maxwell dans le vide et champ électromagnétique
 ** "Propriétés mécaniques" du champ électromagnétique
 :PROPERTIES:
 :CUSTOM_ID: sec::prop_champ
@@ -1165,7 +1165,7 @@ $\vv{OM}\times\vv{F}_\text{ext.}=\vv{0}$
 $I=\|\langle\vv{R}\rangle\|$ avec $\vv{R}=\frac{\vv{E}\times\vv{B}}{\mu_0}$ et
 $\vv{B}=\frac{\vv{k}\times\vv{E}}{\omega}$
 
-* COMMENT TD3 : Électrostatique dans le vide
+* TD3 : Électrostatique dans le vide
 ** Condensateur cylindrique
 
 En considérant $h\gg a,b$, le problème est invariant par translation le long de
@@ -1771,7 +1771,7 @@ $\vv{E}=-\grad\,V=-\tfrac{dV}{dr}\vv{u}_r$. Soit
      \end{align*}
    #+END_SRC
 
-* COMMENT TD4 : Les milieux diélectriques
+* TD4 : Les milieux diélectriques
 ** Introduction
 Historiquement, la découverte expérimentale des diélectriques est à mettre au
 profit de Michael Faraday qui nota que l'introduction d'un isolant entre les
@@ -2526,7 +2526,7 @@ $\div\vv{E}=\frac{\rho_\text{tot.}}{\epsilon_0}$ d'où
 S'il n'y a donc pas de densité volumique de charge libre $\rho_\ell$, la densité
 volumique de charge liée est donc également nulle.
 
-* COMMENT TD5 : Magnétostatique
+* TD5 : Magnétostatique
 ** Introduction
 En magnétostatique, les équations locales deviennent
 #+BEGIN_SRC latex
@@ -3319,7 +3319,7 @@ deux solutions justifie ainsi de la forme de la solution utilisée dans cet
 exercice.
 
 
-* COMMENT TD6 : Milieux magnétiques
+* TD6 : Milieux magnétiques
 ** Introduction
 Dans la plupart des matériaux soumis à un champ magnétique, les charges liées se
 déplacent à l'échelle atomique faisant apparaître des boucles de courant /i.e./
@@ -3691,7 +3691,7 @@ On considère un matériau ferromagnétique dur ayant une aimantation $\vv{M}$
    faudrait augmenter la hauteur $h$ de l'aimant jusqu'à une valeur de l'ordre
    de 700 mm.
 
-* COMMENT TD7 : Rayonnement
+* TD7 : Rayonnement
 ** Rayonnement d'une antenne
 Soit un conducteur de longueur \ell parcouru par un courant périodique
 $I=I_0\cos\omega t$. La fonction d'Heaviside a pour représentation
