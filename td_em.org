@@ -2863,7 +2863,7 @@ stationnaire.
      \begin{align*}
        \rot\left(\rot\vv{B}\right)&=\mu_0\rot\vv{j}\\
        \cancel{\grad\left(\div\vv{B}\right)}-\Delta\vv{B}&=\cancel{\mu_0}\times-\frac{1}{\cancel{\mu_0}\delta^2}\rot\vv{A}\\
-       \Delta\vv{B}=\frac{\vv{B}}{\delta^2}
+       \Delta\vv{B}&=\frac{\vv{B}}{\delta^2}
      \end{align*}
    #+END_SRC
    Le Laplacien faisant intervenir la dérivée seconde par rapport aux
@@ -3037,7 +3037,7 @@ stationnaire.
       #+END_CENTER
 
       Le champ de vitesse/magnétique est ainsi plus faible à "l'équateur" /i.e./ en
-      $A$ et $B$ où $B_{A,B}<B_\infty$ et plus élevé aux pôles /i.e./ en $C$ et
+      $A$ et $B$ où $B_{A,B} < B_\infty$ et plus élevé aux pôles /i.e./ en $C$ et
       $D$ où $B_{C,D}>B_\infty$.
    2) Soit $\vv{B}=\grad\,\psi$ et
       $\div\vv{B}=0=-\div(\grad\,\psi)=-\Delta\psi$. Le potentiel scalaire
