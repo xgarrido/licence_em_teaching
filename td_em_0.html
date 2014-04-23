@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<title>TD1 : Électromagnétisme &amp; relativité</title>
+<title>TD5 : Magnétostatique</title>
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="generator" content="Org-mode" />
 <link rel="stylesheet" href="css/styles.css">
@@ -104,25 +104,13 @@ function displayTOC() {
 </head>
 <body onload="displayTOC()"><div id="toc"></div>
 <div id="content">
-<h1 class="title">TD1 : Électromagnétisme &amp; relativité</h1>
+<h1 class="title">TD5 : Magnétostatique</h1>
 <div style="display:none;">
 <div id="text-table-of-contents">
 <ul class="org-ul">
-<li><a href="././td_em_0.html">TD1 : Électromagnétisme &amp; relativité</a>
+<li><a href="././td_em_0.html">TD5 : Magnétostatique</a>
 </li>
-<li><a href="././td_em_1.html">TD2 : Équations de Maxwell dans le vide et champ électromagnétique</a>
-</li>
-<li><a href="././td_em_2.html">TD3 : Électrostatique dans le vide</a>
-</li>
-<li><a href="././td_em_3.html">TD4 : Les milieux diélectriques</a>
-</li>
-<li><a href="././td_em_4.html">TD5 : Magnétostatique</a>
-</li>
-<li><a href="././td_em_5.html">TD6 : Milieux magnétiques</a>
-</li>
-<li><a href="././td_em_6.html">TD7 : Rayonnement</a>
-</li>
-<li><a href="././td_em_7.html">TD8 : Propagation dans le vide et les milieux diélectriques</a>
+<li><a href="././td_em_1.html">TD8 : Propagation dans le vide et les milieux diélectriques</a>
 </li>
 </ul>
 </div>
@@ -132,939 +120,881 @@ function displayTOC() {
 <h2 id="sec-1"><span class="section-number-2">1</span> Introduction</h2>
 <div class="outline-text-2" id="text-1">
 <p>
-<b>Transformation de Lorentz :</b> \(\beta=\tfrac{v}{c}\) et
- \(\gamma=\tfrac{1}{\surd{1-\beta^2}}\). Si \(\mathcal{R}'\) est en mouvement
- rectiligne uniforme selon l'axe \(x\) par rapport à \(\mathcal{R}\) alors
-</p>
-\begin{equation*}
-  \begin{bmatrix}
-    ct'\\x'\\y'\\z'
-  \end{bmatrix}
-  =
-  \begin{bmatrix}
-    \gamma&-\beta\gamma&0&0\\
-    -\beta\gamma&\gamma&0&0\\
-    0&0&1&0\\
-    0&0&0&1
-  \end{bmatrix}
-  \cdot
-  \begin{bmatrix}
-    ct\\x\\y\\z
-  \end{bmatrix}
-\end{equation*}
-
-<p>
-et la transformation inverse
-</p>
-\begin{equation*}
-  \begin{bmatrix}
-    ct\\x\\y\\z
-  \end{bmatrix}
-  =
-  \begin{bmatrix}
-    \gamma&+\beta\gamma&0&0\\
-    +\beta\gamma&\gamma&0&0\\
-    0&0&1&0\\
-    0&0&0&1
-  \end{bmatrix}
-  \cdot
-  \begin{bmatrix}
-    ct'\\x'\\y'\\z'
-  \end{bmatrix}
-\end{equation*}
-
-<p>
-<b>Transformation du champ EM :</b>
-</p>
-
-<p>
-Composantes tangentielles au déplacement
-\(\vv{E}'_\parallel=\vv{E}_\parallel\) et
-\(\vv{B}'_\parallel=\vv{B}_\parallel\).
-</p>
-
-<p>
-Composantes normales au déplacement
+En magnétostatique, les équations locales deviennent
 </p>
 \begin{align*}
-  \vv{E}'_\perp&= \gamma\,\left(\vv{E}_\perp+\vv{v}\times\vv{B}_\perp\right)\\
-  \vv{B}'_\perp&= \gamma\,\left(\vv{B}_\perp-\vv{v}\times\frac{\vv{E}_\perp}{c^2}\right)
+  \div\vv{B} &= 0\\
+  \rot\vv{B} &= \mu_0\vv{j}
 \end{align*}
 
 <p>
-ou
+soit, dans leurs versions intégrales
 </p>
 \begin{align*}
-  \vv{E}_\perp&= \gamma\,\left(\vv{E}'_\perp-\vv{v}\times\vv{B}'_\perp\right)\\
-  \vv{B}_\perp&= \gamma\,\left(\vv{B}'_\perp+\vv{v}\times\frac{\vv{E}'_\perp}{c^2}\right)
+  \iint_\mathcal{S}\vv{B}.\vv{dS} &= 0\\
+  \oint_\mathcal{C}\vv{B}.\vv{d\ell} &= \mu_0I_\mathcal{C}(\text{courant enlacé})
 \end{align*}
 
 <p>
-<b>Remarques :</b>
+Le potentiel vecteur \(\vv{A}\) est lié au champ magnétique par la relation
+\(\vv{B}=\rot\vv{A}\), le vecteur potentiel étant, par ailleurs, à flux conservatif
+\(\div\vv{A}=0\) (jauge de Coulomb). On déduit ainsi l'équation vectorielle de
+Poisson \(\vv{\Delta}\vv{A}=-\mu_0\vv{j}\) soit
 </p>
-<ul class="org-ul">
-<li>les "quantités" perpendiculaires au déplacement telles les longueurs (\(y\) et
-\(z\) dans notre cas), ne subissent pas les effets de la relativité. Autrement
-dit une longueur \(y\) restera inchangée sous la transformation
-\(\mathcal{R}\rightarrow\mathcal{R}'\) : \(y=y\prime\)
-</li>
-</ul>
+\begin{align*}
+  \vv{A}(M)&=\frac{\mu_0}{4\pi}\iiint\frac{\vv{j}(P)}{PM}\,d\tau\\
+  \vv{B}(M)&=\frac{\mu_0}{4\pi}\iiint\frac{\vv{j}(P)\times\vv{PM}}{PM^3}\,d\tau=\frac{\mu_0}{4\pi}\oint_\mathcal{C}\frac{I\vv{d\ell}\times\vv{PM}}{PM^3}
+\end{align*}
 </div>
 </div>
 
 <div id="outline-container-sec-2" class="outline-2">
-<h2 id="sec-2"><span class="section-number-2">2</span> Force entre des électrons qui se déplacent côte à côte</h2>
+<h2 id="sec-2"><span class="section-number-2">2</span> Solénoïde fini</h2>
 <div class="outline-text-2" id="text-2">
+<ol class="org-ol">
+<li>Les plans \((xMz)\) et \((yMz)\) sont tous deux plans d'antisymétrie de la
+distribution de courant : le champ magnétique pour tout point \(M\) appartenant
+à l'axe \(Oz\) est compris dans chacun de ces plans soit \(\vv{B}(M\in
+   Oz)\parallel\vv{u}_z\).
+</li>
+<li>En raison des symétries du problème, le système de coordonnées cylindriques
+est le mieux adapté à la description du problème. En particulier, le système
+est invariant par rotation d'angle &theta; et le plan \((\vv{u}_r,\vv{u}_z)\)
+est plan d'antisymétrie : \(\vv{B}(M)=B_r(r,z)\vv{u}_r+B_z(r,z)\vv{u}_z\)
+</li>
+<li>Symétrie du champ magnétique
 <div class="center">
 
 <div class="figure">
-<p><img src="./figures/referentiel_relat_1.png" alt="referentiel_relat_1.png" />
+<p><img src="./figures/plan_symetrie_B.png" alt="plan_symetrie_B.png" />
 </p>
 </div>
 </div>
 
-<ol class="org-ol">
-<li>Soit \(\mathcal{R}'\) le référentiel où les particules sont au repos. Le
-champ électrique exercé sur \(M_2\) par \(M_1\) s'écrit
-\begin{equation*}
-  \vv{E}'(M_2) = \frac{q_1}{4\pi\epsilon_0}\times\frac{\vv{M_1M_2}}{M_1M_2^3}=-\frac{e}{4\pi\epsilon_0\,d^2}\vv{u_{z'}}
-\end{equation*}
-
 <p>
-<i>i.e.</i> le champ électrique coulombien. Les particules étant au repos, il n'y
-a pas de déplacement de charge donc \(\vv{B}'(M_2)=\vv{0}\). La force
-(coulombienne) qui s'exerce sur l'électron en \(M_2\) est
-</p>
-\begin{equation*}
-  \vv{F}'(M_2)=-e\vv{E}'(M_2)-e\vv{v}\times\vv{B}'(M_2)=\frac{e^2}{4\pi\epsilon_0\,d^2}\vv{u_{z'}}=-\vv{F}'(M_1)
-\end{equation*}
-
-<p>
-soit une force répulsive.
-</p>
-</li>
-
-<li>Dans \(\mathcal{R}\), on applique les règles de transformation du champ EM soit
-\(\vv{E}'_\parallel=\vv{E}_\parallel=\vv{0}\) et
-\(\vv{B}'_\parallel=\vv{B}_\parallel=\vv{0}\). Les composantes normales
-deviennent
-\begin{align*}
-  \vv{E}_\perp&= \gamma\,\left(\vv{E}'_\perp-\vv{v}\times\vv{B}'_\perp\right)\\
-  \vv{B}_\perp&= \gamma\,\left(\vv{B}'_\perp+\vv{v}\times\frac{\vv{E}'_\perp}{c^2}\right)
-\end{align*}
-
-<p>
-On déduit que
-</p>
-\begin{equation*}
-  \vv{E}_\perp=\gamma\left(\vv{E}'_\perp-\vv{v}\times\vv{B}'_\perp\right)=\gamma\vv{E}'_\perp=-\frac{\gamma e}{4\pi\epsilon_0\,d^2}\vv{u_z}
-\end{equation*}
-
-<p>
-sachant que \(\vv{u_z}=\vv{u_{z'}}\).
-</p>
-
-<p>
-Le champ magnétique \(\vv{B}_\perp\) est égal à
-\(\gamma\vv{v}\times\frac{\vv{E}'_\perp}{c^2}\) soit
+Le plan \((xOy)\) est plan de symétrie de la distribution de courant impliquant
 </p>
 \begin{align*}
-  \vv{B}_\perp&=\frac{\gamma\,vE'_\perp}{c^2}\,\vv{u_x}\times\vv{u_z}=-\frac{\gamma\,vE'_\perp}{c^2}\,\vv{u_y}\\
-  &=\frac{\gamma v}{c^2}\times\frac{e}{4\pi\epsilon_0\,d^2}\,\vv{u_y}\text{ avec } \mu_0\epsilon_0c^2=1\\
-  &=\frac{\mu_0\gamma ve}{4\pi d^2}\vv{u_y}
-\end{align*}
-
-<p>
-La force résultante est égale à
-</p>
-\begin{align*}
-  \vv{F}(M_2)&=-e\vv{E}(M_2)-e\vv{v}\times\vv{B}(M_2)\\
-  &=-e\gamma\vv{E}'(M_2)+e\gamma v^2\vv{u_x}\times\vv{u_y}\frac{E'(M_2)}{c^2}\\
-  &=-e\gamma\vv{E}'(M_2)\left[1-\frac{v^2}{c^2}\right]\text{ avec }\gamma=\frac{1}{\surd{1-v^2/c^2}}\\
-  &=-e\gamma\vv{E}'(M_2)\times\frac{1}{\gamma^2}=\frac{\vv{F}'(M_2)}{\gamma}
-\end{align*}
-
-<p>
-Globalement, \(F'(M_2)>F(M_2)\). La force d'origine magnétique induite
-par le déplacement des particules compense l'augmentation de la force
-électrique de répulsion.
-</p>
-
-<p>
-<b>AN:</b>
-</p>
-
-<p>
-\(\mathcal{E}=\gamma mc^2 - mc^2=(\gamma-1)mc^2\) donc
-\(\gamma=1+\frac{\mathcal{E}}{mc^2}\). La masse de l'électron est 0.511 MeV.
-</p>
-
-<p>
-Pour \(\mathcal{E}=\unit[1]{eV}\), \(\gamma\sim1\)
-</p>
-\begin{align*}
-  F&=F'=\frac{e^2}{4\pi\epsilon_0\,d^2}=\frac{e^2\mu_0c^2}{4\pi d^2}\\
-  &=\frac{e^2c^2\times4\pi\,10^{-7}}{4\pi d^2}=\frac{(1.6\,10^{-19})^2\times(3\,10^8)^2\times10^{-7}}{(10^{-3})^2}\\
-  &=\unit[2.3\,10^{-22}]{N}
-\end{align*}
-
-<p>
-Pour \(\mathcal{E}=\unit[1]{MeV}\), \(\gamma\simeq3\)
-</p>
-\begin{align*}
-  F&=\frac{F'}{3}=\unit[7.7\,10^{-23}]{N}
+  B_z(r,z)&=B_z(r,-z)\\
+  B_r(r,z)&=-B_r(r,-z)
 \end{align*}
 </li>
 
-<li>\(v\rightarrow0\), \(\beta\ll1\) et donc \(\gamma\simeq1+\tfrac{\beta^2}{2}\)
+<li>Calcul du champ magnétique généré par une boucle de courant
+<div class="center">
+
+<div class="figure">
+<p><img src="./figures/spire_circulaire.png" alt="spire_circulaire.png" />
+</p>
+</div>
+</div>
+
+<p>
+Loi de Biot &amp; Savart
+</p>
 \begin{align*}
-  \vv{F}&=\frac{\vv{F}'}{\gamma}\\
-  &=\vv{F}'\times\left(1-\beta^2\right)^{1/2}\\
-  &\simeq\left(1-\tfrac{\beta^2}{2}\right)\vv{F}'
+  \vv{B}(M)&=\frac{\mu_0I}{4\pi}\oint_\mathcal{C}\frac{\vv{d\ell}\times\vv{PM}}{PM^3}\\
+  &\text{où }\left\{
+  \begin{array}{rl}
+    \vv{d\ell} &=Rd\theta\,\vv{u}_\theta\\
+    \vv{PM} &=\vv{PO} + \vv{OM} = -R\vv{u}_r + z\vv{u}_z \\
+  \end{array}
+  \right.\\
+  &\text{soit }\vv{d\ell}\times\vv{PM}=\left|
+  \begin{array}{l}
+    0\\Rd\theta\\0
+  \end{array}
+  \right.\times\left|
+  \begin{array}{l}
+    -R\\0\\z
+  \end{array}
+  \right.=Rd\theta z\vv{u}_r+R^2d\theta\vv{u}_z
 \end{align*}
+
+<p>
+En raison des symétries invoquées à la question 1), le champ magnétique est
+colinéaire au vecteur \(\vv{u}_z\) d'où
+</p>
+\begin{align*}
+  \vv{B}(M)&=\frac{\mu_0I}{4\pi}\,\frac{R^2}{PM^3}\int_0^{2\pi}d\theta\vv{u}_z\\
+  &=\frac{\mu_0I}{2}\,\frac{R^2}{PM^3}\vv{u}_z\text{ avec } PM=\frac{R}{\sin\alpha}\\
+  &=\frac{\mu_0I}{2}\,\frac{\cancel{R^2}}{R^{\cancel{3}}}\,\sin^3\alpha\,\vv{u}_z=\frac{\mu_0I}{2R}\,\sin^3\alpha\,\vv{u}_z
+\end{align*}
+
+<p>
+Pour calculer le champ magnétique généré par un solénoïde fini, on superpose
+les champs magnétiques générés par les \(N\) spires. En considérant une
+épaisseur \(dz'\) contenant donc \(n\times dz=\frac{N}{L}\times dz'\) spires, le
+champ magnétique ainsi généré a pour expression
+</p>
+\begin{align*}
+  \vv{dB}_\text{solénoïde}(M)&=\vv{B}_\text{spire}(M)\times n\times dz'\\
+  \vv{B}_\text{solénoïde}(M)&=\int_{-L/2}^{L/2}\frac{\mu_0nI}{2R}\,\sin^3\alpha dz'\vv{u}_z
+\end{align*}
+
+<p>
+La coordonnée \(z\) est reliée à l'angle &alpha; par l'expression
+\(\tan\alpha=\frac{R}{z-z'}\) d'où
+\(\frac{dz'}{d\alpha}=\frac{R}{\sin^2\alpha}\) <sup><a id="fnr.1" class="footref" href="#fn.1">1</a></sup>.
+ <div class="footdef"><sup><a id="fn.1" class="footnum" href="#fnr.1">1</a></sup> <p class="footpara"> la dérivée de \(\frac{1}{\tan\alpha}\) est égale à </p> \begin{align*} \left(\frac{1}{\tan\alpha}\right)'&=\left(\frac{\cos\alpha}{\sin\alpha}\right)'\\ &=-\frac{\sin\alpha}{\sin\alpha}-\frac{\cos^2\alpha}{\sin^2\alpha}\\ &=-\left(1+\frac{\cos^2\alpha}{\sin^2\alpha}\right)=-\frac{1}{\sin^2\alpha} \end{align*}</div>
+\begin{align*}
+  \vv{B}_\text{solénoïde}(M)&=\int_{\alpha_1}^{\alpha_2}\frac{\mu_0nI}{2\cancel{R}}\,\sin^{\cancel{3}}\alpha\frac{\cancel{R}}{\cancel{\sin^2\alpha}}\,d\alpha\vv{u}_z\\
+  &=\frac{\mu_0nI}{2}\left[-\cos\alpha\right]_{\alpha_1}^{\alpha_2}\,\vv{u}_z\\
+  &=\frac{\mu_0nI}{2}\left(\cos\alpha_1-\cos\alpha_2\right)\,\vv{u}_z
+\end{align*}
+
+<p>
+Sachant que
+</p>
+\begin{align*}
+  \cos\alpha_1&=\frac{z+L/2}{\surd R^2+\left(z+L/2\right)^2}=f(z)\\
+  \cos\alpha_2&=\frac{z-L/2}{\surd R^2+\left(z-L/2\right)^2}=-f(-z)
+\end{align*}
+
+<p>
+le champ magnétique sur l'axe du solénoïde devient
+</p>
+\begin{align*}
+  \vv{B}_\text{solénoïde}(M)&=\frac{\mu_0nI}{2}\left(f(z)+f(-z)\right)\,\vv{u}_z
+\end{align*}
+
+<p>
+confirmant la parité de \(B_z\) avec \(\vv{B}(z)=\vv{B}(-z)\).
+</p>
+
+<ul class="org-ul">
+<li>en \(z=0\),
+\begin{align*}
+  \vv{B}(O)&=\frac{\mu_0nI}{2}\left(\frac{L/2}{\surd R^2+L^2/4}+\frac{L/2}{\surd R^2+L^2/4}\right)\,\vv{u}_z\\
+  &=\frac{\mu_0nI}{2}\left(\frac{1}{\surd R^2+L^2/4}\right)\,\vv{u}_z\text{ avec }L\gg R\\
+  &=\frac{\mu_0nIL}{2}\left(\frac{1}{L/2\times\left(1+4R^2/L^2\right)^{1/2}}\right)\,\vv{u}_z\\
+  &\simeq\frac{\mu_0nI\cancel{L}}{\cancel{2}}\times\frac{\cancel{2}}{\cancel{L}}\,\vv{u}_z+\mathcal{O}\left(\frac{R^2}{L^2}\right)\\
+  &\simeq\mu_0nI\,\vv{u}_z
+\end{align*}
+</li>
+
+<li>en \(z=L/2\),
+\begin{align*}
+  \vv{B}(z=L/2)&=\frac{\mu_0nI}{2}\times\frac{L/2}{\surd R^2+L^2/4}\,\vv{u}_z\\
+  &\simeq\frac{\mu_0nI}{2}\times\frac{\cancel{L/2}}{\cancel{L/2}}\,\vv{u}_z=\frac{\vv{B}(O)}{2}
+\end{align*}
+</li>
+</ul>
+</li>
+
+<li>Champ magnétique au voisinage de \(O\). On réalise un dévelopement limité à
+l'ordre 2 de \(B_z\) et \(B_r\) soit
+\begin{align*}
+  &\begin{array}{llll}
+    B_z(r\to0,z\to0)&\simeq B_z(0,0)&+\left.\frac{\partial B_z}{\partial r}\right|_{r=0,z=0}r&+\left.\frac{\partial B_z}{\partial z}\right|_{r=0,z=0}z\\
+    &&+\left.\frac{\partial^2 B_z}{\partial r^2}\right|_{r=0,z=0}\frac{r^2}{2!}&+\left.\frac{\partial^2 B_z}{\partial z^2}\right|_{r=0,z=0}\frac{z^2}{2!}\\
+    &&+\left.\frac{\partial^2 B_z}{\partial r\partial z}\right|_{r=0,z=0}rz&+\mathcal{O}(r^2,z^2)
+  \end{array}\\
+  &B_z(r,z)\simeq B_z(0,0) + \alpha_r\,r + \beta_r\,r^2 + \gamma_z\,z + \delta_z\,z^2 + \eta_{rz}\,rz+\mathcal{O}(r^2,z^2)\\
+  &B_r(r,z)\simeq B_r(0,0) + \alpha'_r\,r + \beta'_r\,r^2 + \gamma'_z\,z + \delta'_z\,z^2 + \eta'_{rz}\,rz+\mathcal{O}(r^2,z^2)
+\end{align*}
+
+<ul class="org-ul">
+<li>Calcul de \(B_r\) :
+
+<p>
+\(B_r(0,0)=0\) et \(B_r(r,z)=-B_r(r,-z)\) <i>i.e.</i> une fonction impaire en \(z\)
+implique nécessairement que \(\delta'_z=0\). Par ailleurs, la parité de la
+fonction conduit à l'équation suivante
+</p>
+\begin{align*}
+  \alpha'_r\,r+\beta'_r\,r^2+\cancel{\gamma'_z\,z}+\cancel{\eta'_{rz}\,rz}&=-\alpha'_r\,r-\beta'_r\,r^2+\cancel{\gamma'_z\,z}+\cancel{\eta'_{rz}\,rz}\\
+  \alpha'_r&=\beta'_r=0
+\end{align*}
+
+<p>
+L'expression de \(B_r\) se réduit à \(\gamma'_z\,z+\eta'_{rz}\,rz\) or
+\(B_r(0,z)=0\) implique que \(\gamma'_z=0\) d'où
+</p>
+\begin{align*}
+  B_r(r,z)=\eta'_{rz}\,rz=drz
+\end{align*}
+</li>
+
+<li>Calcul de \(B_z\) :
+
+<p>
+La parité de \(B_z\) <i>i.e.</i> \(B_z(r,z)=B_z(r,-z)\) implique que les termes
+"impairs" en \(z\), \(\gamma_z\) et \(\eta_{rz}\), soient nuls. L'expression de
+\(B_z\) se limite à
+</p>
+\begin{align*}
+  B_z(r,z)&=B_z(0,0)+\alpha_r\,r+\beta_r\,r^2+\delta_z\,z^2\\
+  &=B_z(0,0)+ar+br^2+cz^2
+\end{align*}
+</li>
+
+<li>Calcul de \(a,b,d\) en fonction de \(c\) :
+
+<p>
+On utilise les équations de Maxwell faisant intervenir le champ magnétique
+à savoir \(\div\vv{B}=0\) et \(\rot\vv{B}=\vv{0}\) (au voisinage de \(O\), il
+n'y a pas de courant ni de variation temporelle d'un champ électrique)
+</p>
+
+\begin{align*}
+  \div\vv{B}&=0\\
+  \frac{1}{r}\,\frac{\partial}{\partial r}\left(rB_r\right)+\frac{\partial B_z}{\partial z}&=0\\
+  \frac{1}{r}\times2dzr+2cz&=0\\
+  d&=-c
+\end{align*}
+
+\begin{align*}
+  \rot\vv{B}&=\vv{0}\\
+  \frac{\partial B_r}{\partial z}-\frac{\partial B_z}{\partial r}&=0\\
+  dr-a-2br&=0\\
+  a=0&\text{ et }b=\frac{d}{2}=-\frac{c}{2}
+\end{align*}
+</li>
+
+<li>Calcul de \(c\) :
+
+<p>
+Pour calculer la constante \(c\), on évalue sa valeur pour \(r=0\) <i>i.e.</i> sur
+l'axe du solénoïde où nous avons établi que
+\(B_z=\frac{\mu_0nI}{2}\left(f(z)+f(-z)\right)\) avec
+\(f(z)=\frac{L/2+z}{\surd R^2+\left(L/2+z\right)^2}\). On a donc
+</p>
+\begin{align*}
+  B_z(0,z)=B_z(0,0)+cz^2=\frac{\mu_0nI}{2}\left(f(z)+f(-z)\right)
+\end{align*}
+
+<p>
+Sachant que \(L\gg z\) et \(R\gg r\), il s'agit dès lors de développer
+l'expression de \(f(z)\) au voisinage de zéro. On calcule ainsi
+</p>
+\begin{align*}
+  \left(R^2+\left(L/2+z\right)^2\right)^{-1/2}&=\left(R^2+L^2/4+Lz+z^2\right)^{-1/2}\\
+  &=\left(R^2+L^2/4\right)^{-1/2}\left[1+\underbrace{\frac{z^2}{R^2+L^2/4}+\frac{Lz}{R^2+L^2/4}}_{\epsilon}\right]^{-1/2}
+\end{align*}
+
+<p>
+or
+</p>
+\begin{align*}
+  \left(1+\epsilon\right)^n=1+n\epsilon+\frac{n(n-1)}{2!}\,\epsilon^2+\mathcal{O}(\epsilon^2)
+\end{align*}
+
+<p>
+on obtient finalement
+</p>
+\begin{align*}
+  \left(R^2+\left(L/2+z\right)^2\right)^{-1/2}&=\left(R^2+L^2/4\right)^{-1/2}\,\left[1-\frac{1}{2}\frac{Lz+z^2}{R^2+L^2/4}+\frac{3}{8}\left(\frac{Lz+z^2}{R^2+L^2/4}\right)^2\right]
+\end{align*}
+
+<p>
+La fonction \(f(z)\) devient au deuxième ordre en \(z\)
+</p>
+\begin{align*}
+  f(z)&\simeq\frac{L/2\left(1+\frac{2z}{L}\right)}{\surd R^2+L^2/4}\left[1-\frac{1}{2}\,\frac{Lz}{R^2+L^2/4}-\frac{1}{2}\frac{z^2}{R^2+L^2/4}+\frac{3}{8}\frac{L^2z^2}{\left(R^2+L^2/4\right)^2}\right]
+  +\mathcal{O}(z^2)
+\end{align*}
+\begin{align*}
+  \begin{split}
+    f(z)\simeq\frac{L}{2}\,\frac{1}{\surd R^2+L^2/4}\left[1-\frac{1}{2}\,\frac{Lz}{R^2+L^2/4}\right.&-\frac{1}{2}\,\frac{z^2}{R^2+L^2/4}+\frac{3}{8}\,\frac{L^2z^2}{\left(R^2+L^2/4\right)^2}\\
+      +\frac{2z}{L}&\left.-\frac{z^2}{R^2+L^2/4}\right]+\mathcal{O}(z^2)
+  \end{split}
+\end{align*}
+\begin{align*}
+  f(z)&\simeq\frac{L}{2}\,\frac{1}{\surd R^2+L^2/4}\left[1+\frac{2z}{L}-\frac{1}{2}\,\frac{Lz}{R^2+L^2/4}-\frac{3}{2}\,\frac{z^2}{R^2+L^2/4}+\frac{3}{8}\,\frac{L^2z^2}{\left(R^2+L^2/4\right)^2}\right]+\mathcal{O}(z^2)\\
+  f(-z)&\simeq\frac{L}{2}\,\frac{1}{\surd R^2+L^2/4}\left[1-\frac{2z}{L}+\frac{1}{2}\,\frac{Lz}{R^2+L^2/4}-\frac{3}{2}\,\frac{z^2}{R^2+L^2/4}+\frac{3}{8}\,\frac{L^2z^2}{\left(R^2+L^2/4\right)^2}\right]+\mathcal{O}(z^2)
+\end{align*}
+\begin{align*}
+  f(z)+f(-z)&\simeq\frac{L}{2}\,\frac{1}{\surd R^2+L^2/4}\left[2-3\,\frac{z^2}{R^2+L^2/4}+\frac{3}{4}\,\frac{L^2z^2}{\left(R^2+L^2/4\right)^2}\right]+\mathcal{O}(z^2)
+\end{align*}
+
+<p>
+Le champ magnétique \(B_z\) se réduit à l'expression
+</p>
+\begin{align*}
+  B_z(0,z)&\simeq\frac{\mu_0nI}{2}\times\frac{L}{2}\times\frac{1}{\surd R^2+L^2/4}\left[2-\left(\frac{3}{R^2+L^2/4}-\frac{3}{4}\,\frac{L^2}{\left(R^2+L^2/4\right)^2}\right)\,z^2\right]\\
+  &\simeq B_z(0,0)+cz^2
+\end{align*}
+
+<p>
+d'où
+</p>
+\begin{align*}
+  B_z(0,0)&=\frac{\mu_0nI}{2}\times\frac{L}{\surd R^2+L^2/4}\\
+  c&=\frac{\mu_0nI}{4}\times\frac{L}{\surd R^2+L^2/4}\left(-\frac{3}{R^2+L^2/4}+\frac{3}{4}\,\frac{L^2}{\left(R^2+L^2/4\right)^2}\right)\\
+  &=\frac{\mu_0nI}{4}\times\frac{L}{\surd R^2+L^2/4}\left(\frac{\cancel{3L^2}-3\times4\left(R^2+L^2/4\right)}{4\,\left(R^2+\cancel{L^2/4}\right)^2}\right)\\
+  &=-B_z(0,0)\times\frac{3R^2}{2\left(R^2+L^2/4\right)^2}
+\end{align*}
+
+<p>
+soit finalement
+</p>
+\begin{align*}
+  B_z(r\to0,z\to0)&=B_z(0,0)\times\left(1+\frac{3R^2}{4\left(R^2+L^2/4\right)^2}\,r^2-\frac{3R^2}{2\left(R^2+L^2/4\right)^2}\,z^2\right)\\
+  B_r(r\to0,z\to0)&=B_z(0,0)\times\frac{3R^2}{2\left(R^2+L^2/4\right)^2}\,rz
+\end{align*}
+</li>
+</ul>
 </li>
 </ol>
 </div>
 </div>
 
 <div id="outline-container-sec-3" class="outline-2">
-<h2 id="sec-3"><span class="section-number-2">3</span> Fil chargé</h2>
+<h2 id="sec-3"><span class="section-number-2">3</span> Supraconducteurs</h2>
 <div class="outline-text-2" id="text-3">
-<ol class="org-ol">
-<li>Dans \(\mathcal{R}'\), les charges électriques sont immobiles &equiv;
-électrostatique. La charge électrique \(Q'\) se déduit de la densité
-linéique de charge \(\lambda_0'\)
-\begin{equation*}
-  Q'=\lambda_0'\times\ell'=\rho'\times S'\times\ell'
-\end{equation*}
-
+</div><div id="outline-container-sec-3-1" class="outline-3">
+<h3 id="sec-3-1"><span class="section-number-3">3.1</span> Effet Meissner dans un supraconducteur</h3>
+<div class="outline-text-3" id="text-3-1">
 <p>
-d'où \(\rho'=\tfrac{\lambda_0'}{S'}=\tfrac{\lambda_0'}{S}\) car la
-surface \(S\) est une quantité perpendiculaire au déplacement donc
-\(S=S'\).
+Soit une boule supraconductrice de rayon \(R\) placée dans un solénoïde de section
+circulaire \(a\) telle que \(a\gg R\). Le champ magnétique généré par ce solénoïde
+est \(B_\infty=\mu_0nI\).
 </p>
 
 <p>
-Les charges étant immobiles, il n'y a pas de courant d'où
-\(\vv{j}'=\vv{0}\) et donc pas de champ magnétique
-\(\vv{B}'=\vv{0}\). Le champ électrique \(\vv{E}'\) se déduit du
-théorème de Gauss, en évaluant au préalable, les symétries et les invariances
-de la distribution de charge. Ainsi, en coordonnées cylindriques où
-\(\vv{u_x}=\vv{u_z}\), les plans \((\vv{u}_r,\vv{u}_\theta)\) et
-\((\vv{u_r},\vv{u_z})\) sont plans de symétrie de la distribution de charge. Le
-champ électrique résultant est donc contenu dans chacun de ces plans soit
-\(\vv{E}(M) = E(M)\vv{u_r}\). Par ailleurs, la distribution de charge est
-invariante par rotation \(\theta\) et par translation \(x\equiv z\) donc
-\(E(M)=E(r,\theta,z)=E(r)\).
-</p>
-
-<p>
-Le théorème de Gauss
-</p>
-\begin{equation*}
-  \varoiint_{\mathcal{S}}\vv{E}\cdot d\vv{S}=\frac{Q_\text{int.}}{\epsilon_0}
-\end{equation*}
-
-<p>
-où la surface de Gauss \(\mathcal{S}\) est un cylindre de rayon \(D'\) et
-de hauteur \(h\). En tenant compte des invariances et symétries de la
-distribution de charge, on obtient le champ \(\vv{E}'(M)\)
-</p>
-\begin{equation*}
-  E'(M)\times2\pi D'\times h = \frac{\lambda_0'\times h}{\epsilon_0}
-\end{equation*}
-
-<p>
-soit
-</p>
-\begin{equation*}
-  \vv{E}'(M)=\frac{\lambda_0'}{2\pi\epsilon_0D'}\vv{u_r}
-\end{equation*}
-</li>
-
-<li>Calculs dans \(\mathcal{R}\)
-<ol class="org-ol">
-<li>Contraction des longeurs car \(L\) est colinéaire au déplacement du
-cylindre.
-\begin{equation*}
-  L=\frac{L'}{\gamma}\text{ mais } S = S'\text{ car } S,S'\perp\vv{u}
-\end{equation*}
-
-<p>
-Invariance de la charge électrique \(Q=Q'\) (ce postulat n'a jamais
-été mis en défaut).
-</p>
-\begin{equation*}
-  Q=Q'=\rho'\times S'\times L'=\rho\times S\times L
-\end{equation*}
-
-<p>
-d'où
-</p>
-\begin{equation*}
-  \rho=\rho'\times\frac{L'}{L}=\gamma\rho'
-\end{equation*}
-
-<p>
-Densité de courant \(\vv{j}\)
-</p>
-\begin{equation*}
-  \vv{j}=\rho\cdot\vv{u}=\rho u\vv{u_x}
-\end{equation*}
-
-<p>
-Le 4-vecteur \(\vv{J}=(\rho c,\vv{j})\) est un 4-vecteur de Lorentz si
-l'égalité
-</p>
-\begin{equation*}
-  \begin{bmatrix}
-    \rho' c\\j'_x\\j'_y\\j'_z
-  \end{bmatrix}
-  =
-  \begin{bmatrix}
-    \gamma&-\beta\gamma&0&0\\
-    -\beta\gamma&\gamma&0&0\\
-    0&0&1&0\\
-    0&0&0&1
-  \end{bmatrix}
-  \cdot
-  \begin{bmatrix}
-    \rho c\\j_x\\j_y\\j_z
-  \end{bmatrix}
-\end{equation*}
-
-<p>
-La distribution de courant est nulle dans \(\mathcal{R}'\) donc
-\(j'_x=j'_y=j'_z=0\) \(j_y=j_z=0\) et
-</p>
-\begin{align*}
-  \gamma\rho c - \beta\gamma j_x&= \gamma\rho c-\beta\gamma\rho u\\
-  &=\gamma\rho c-\beta\gamma\rho u\times\frac{c}{c}\\
-  &=\gamma\rho c\left(1-\beta^2\right)\\
-  &=\gamma\rho c\times\frac{1}{\gamma^2}=\frac{\rho c}{\gamma}\\
-  &=\rho' c
-\end{align*}
-
-<p>
-De même,
-</p>
-\begin{align*}
-  -\beta\gamma\rho c+\gamma j_x&=-\beta\gamma\rho c+\gamma\rho u\\
-  &=-\gamma\rho u+\gamma\rho u\\
-  &=0=j'_x
-\end{align*}
-</li>
-
-<li>Calcul du champ électrique \(\vv{E}(M)\)
-
-<p>
-Densité volumique et linéique de charge
-\(\rho=\gamma\rho'\rightarrow\lambda_0=\gamma\lambda_0'\) d'où
-</p>
-\begin{equation*}
-  \vv{E}(M)=\frac{\gamma\lambda_0'}{2\pi\epsilon_0\,D}\vv{u_r}
-\end{equation*}
-
-<p>
-Le courant dans le fil est \(dI=\vv{j}.d\vv{S}\) soit
-\(I=j\times S\) et le champ magnétique \(\vv{B}(M)\) s'écrit (<i>cf.</i> polycopié
-page 88, Chapitre Magnétostatique)
-</p>
-\begin{align*}
-  \vv{B}(M)&=\frac{\mu_0I}{2\pi\,D}\vv{u_\theta}\\
-  &=\frac{\mu_0jS}{2\pi\,D}\vv{u_\theta}
-\end{align*}
-
-<p>
-or \(j=\rho u=\gamma\rho' u=\frac{\gamma\lambda_0' u}{S}\) d'où
-</p>
-\begin{align*}
-  \vv{B}(M)&=\frac{\gamma\mu_0\lambda_0' u}{2\pi\,D}\vv{u_\theta}\text{ avec } \mu_0\epsilon_0c^2=1\\
-  \vv{B}(M)&=\frac{\gamma u}{c^2}E'(M)\vv{u_\theta}
-\end{align*}
-</li>
-</ol>
-</li>
-
-<li>Transformation des champs
-<ol class="org-ol">
-<li>Transformation du champ électrique avec \(\vv{B}'=\vv{0}\)
-\begin{align*}
-  \vv{E}_\perp&= \gamma\,\left(\vv{E}'_\perp-\vv{u}\times\vv{B}'_\perp\right)\\
-  \vv{E}(M)&= \gamma\,\vv{E}'(M)\text{ vrai } \vv{E}(M)=\frac{\gamma\lambda_0'}{2\pi\epsilon_0\,D}\vv{u_r}
-\end{align*}
-
-<p>
-Transformation du champ magnétique
-</p>
-\begin{align*}
-  \vv{B}_\perp&= \gamma\,\left(\vv{B}'_\perp+\vv{u}\times\frac{\vv{E}'_\perp}{c^2}\right)\\
-  \vv{B}(M)&=\gamma u\frac{E'(M)}{c^2}\vv{u_x}\times\vv{u_r}\\
-  &=\frac{\gamma u}{c^2}E'(M)\vv{u_\theta}
-\end{align*}
-</li>
-
-<li>\(\vv{E}'.\vv{B}'=0\) et
-\(\vv{E}.\vv{B}=\frac{\gamma^2u}{c^2}E^{\prime2}\,\vv{u_\theta}.\vv{u_r}=0\)
-</li>
-<li>\begin{align*}
-  E^2-B^2c^2 &= (\gamma E')^2 - \left(\frac{\gamma u}{c^2}\right)^2E^{\prime2}c^2\\
-  &=(\gamma E')^2\left(1-\frac{u^2}{c^2}\right)=E^{\prime2}\\
-  &=E^{\prime2}-B^{\prime2}c^2\text{ puisque }B'=0
-\end{align*}
-</li>
-</ol>
-</li>
-</ol>
-</div>
-</div>
-
-<div id="outline-container-sec-4" class="outline-2">
-<h2 id="sec-4"><span class="section-number-2">4</span> Particule chargée dans un champ magnétique uniforme&#xa0;&#xa0;&#xa0;<span class="tag"><span class="DM">DM</span></span></h2>
-<div class="outline-text-2" id="text-4">
-<ol class="org-ol">
-<li>L'impulsion relativiste s'écrit \(\vv{p}=\gamma m\vv{v}\), l'énergie totale
-étant égale à \(\mathcal{E}=\gamma mc^2\). Le principe fondamental de la
-dynamique devient
-\begin{align*}
-  \frac{d\vv{p}}{dt}&=\Upsigma\vv{F}\\
-  \frac{d}{dt}(\gamma m\vv{v})&=q\vv{v}\times\vv{B}
-\end{align*}
-
-<p>
-L'énergie totale \(\mathcal{E}\) est égale à la variation temporelle de
-puissance \(\tfrac{d\mathcal{P}}{dt}\). Or
-</p>
-\begin{align*}
-  \mathcal{P}&=\vv{F}_\text{magnétique}.\vv{v}\\
-  &=(q\vv{v}\times\vv{B}).\vv{v}\\
-  &=0
-\end{align*}
-
-<p>
-L'énergie \(\mathcal{E}\) est donc constante &rarr; \(v=v_0\) et
-\(\gamma=\tfrac{1}{\surd{1-v_0^2/c^2}}\). L'équation du mouvement devient
-</p>
-\begin{align*}
-  \gamma m\frac{d\vv{v}}{dt}&=q\vv{v}\times\vv{B}
-\end{align*}
-
-<p>
-soit, au facteur \(\gamma\) près, identique à l'équation du mouvement pour une
-particule non-relativiste. La pulsation \(\omega=\tfrac{qB}{m\gamma}\) est
-inférieure à la pulsation cyclotron classique \(\omega_c=\tfrac{qB}{m}\). La
-trajectoire est alors circulaire autour du champ magnétique \(\vv{B}\) et de
-rayon \(R=\gamma\tfrac{mv_0}{qB}\).
-</p>
-</li>
-
-<li>L'accélération dans le cas d'un mouvement uniforme circulaire est
-l'accélération centripète d'expression
-\begin{align*}
-  \vv{a}=\frac{d\vv{v}}{dt}=-\frac{v_0^2}{R}\vv{u_r}
-\end{align*}
-
-<p>
-Le produit vectoriel \(\vv{v}\times\vv{a}\) devient
-</p>
-\begin{align*}
-  \vv{v}\times\vv{a}=v_0\vv{u_\theta}\times-\frac{v_0^2}{R}\vv{u_r}=\frac{v_0^3}{R}\vv{u_z}
-\end{align*}
-
-<p>
-La puissance rayonnée \(\mathcal{P}_r\) se réduit à
-</p>
-\begin{align*}
-  \mathcal{P}_r&=\frac{q^2\gamma^6}{6\pi\epsilon_0c^3}\left[\vv{a}^2-\left(\frac{1}{c}\vv{v}\times\vv{a}\right)^2\right]\\
-  &=\frac{q^2\gamma^6}{6\pi\epsilon_0c^3}\left[\frac{v_0^4}{R^2}-\frac{v_0^6}{R^2c^2}\right]\\
-  &=\frac{q^2\gamma^6}{6\pi\epsilon_0c^3}\times\frac{v_0^4}{R^2}\left[1-\frac{v_0^2}{c^2}\right]\text{ avec } \frac{1}{\gamma^2}=1-\frac{v_0^2}{c^2}\\
-  &=\frac{q^2\gamma^4}{6\pi\epsilon_0c^3}\times\frac{v_0^4}{R^2}=\text{constante}
-\end{align*}
-
-<p>
-et l'énergie rayonnée par tour \(\mathcal{E}_r=\mathcal{P}_r\times T\) avec
-\(T=\tfrac{2\pi R}{v_0}\) devient
-</p>
-\begin{align*}
-  \mathcal{E}_r&=\frac{q^2\gamma^4}{6\pi\epsilon_0c^3}\times\frac{v_0^4}{R^2}\times\frac{2\pi R}{v_0}\\
-  &=\frac{q^2\gamma^4}{3\epsilon_0R}\times\frac{v_0^3}{c^3}
-\end{align*}
-
-<p>
-Dans la limite ultra-relativiste, \(v\rightarrow c\), l'énergie rayonnée est égale à
-\(\mathcal{E}_r=\frac{q^2\gamma^4}{3\epsilon_0R}\).
-</p>
-
-<p>
-<b>Application numérique :</b>
-</p>
-
-<p>
-Le faisceau de particules est constitué d'électrons de masse
-\(mc^2=\unit[0.511]{MeV}\). Le facteur de Lorentz \(\gamma\) se déduit de l'énergie
-totale \(\mathcal{E}=\unit[6]{GeV}\)
-</p>
-\begin{equation*}
-  \gamma=\frac{\mathcal{E}}{mc^2}=11\,742\text{ soit }\frac{v}{c}=0.99999999637\simeq1
-\end{equation*}
-
-<p>
-L'énergie rayonnée exprimée en eV est alors égale à
-</p>
-\begin{align*}
-  \left.\mathcal{E}_r\right|_\text{eV}&=\frac{e^2}{3\epsilon_0R}\times\gamma^4\times\frac{1}{e}\\
-  &=\frac{1.6\,10^{-19}}{3\times8.85\,10^{-12}\times134}\times(11742)^4\\
-  &=\unit[0.855]{MeV}=1.42\,10^{-4}\mathcal{E}
-\end{align*}
-</li>
-
-<li>Les pertes d'énergie induites par le rayonnement ont pour conséquence une
-diminution de l'énergie totale \(\mathcal{E}=\gamma mc^2\) : les particules
-perdent de la vitesse. La variation d'énergie \(d\mathcal{E}\) est égale à
-\(-\mathcal{P}_r\,dt\) soit une variation du facteur de Lorentz \(\gamma\)
-\begin{align*}
-  mc^2d\gamma&=-\mathcal{P}_rdt\\
-  \frac{d\gamma}{dt}&=-\mathcal{P}_r\times\frac{1}{mc^2}\\
-  &=-\frac{q^2\gamma^4}{6\pi\epsilon_0c^3}\times\frac{v^4}{R^2}\times\frac{1}{mc^2}
-\end{align*}
-
-<p>
-En supposant la trajectoire toujours circulaire de rayon
-\(R=\gamma\tfrac{mv}{qB}=\tfrac{\gamma v}{\omega_c}\)
-</p>
-\begin{align*}
-  \frac{d\gamma}{dt}&=-\frac{q^2\gamma^4}{6\pi\epsilon_0c^3}\times\frac{v^4}{R^2}\times\frac{1}{mc^2}\\
-  &=-\frac{q^2\gamma^4}{6\pi\epsilon_0c^3}\times\frac{v^4\omega_c^2}{\gamma^2v^2}\times\frac{1}{mc^2}\\
-  &=-\frac{q^2\omega_c^2}{6\pi\epsilon_0c^3}\times\frac{1}{mc^2}\times\gamma^2v^2\\
-\end{align*}
-
-<p>
-or \(\gamma^2v^2=c^2(\gamma^2-1)\) d'où
-</p>
-\begin{align*}
-  \frac{d\gamma}{dt}&=-\frac{q^2\omega_c^2}{6\pi\epsilon_0mc^3}\times\left(\gamma^2-1\right)\\
-  \frac{d\gamma}{\gamma^2-1}&=-\frac{dt}{\tau}\text{ avec }\tau=\frac{6\pi\epsilon_0mc^3}{q^2\omega_c^2}
-\end{align*}
-
-<p>
-En intégrant l'équation précédente, on obtient
-</p>
-\begin{align*}
-  \frac{d\gamma}{\gamma^2-1}&=-\frac{dt}{\tau}\\
-  \frac{d\gamma}{1-\gamma^2}&=\frac{dt}{\tau}\\
-  \frac{d\gamma}{1+\gamma}+\frac{d\gamma}{1-\gamma}&=2\frac{dt}{\tau}\\
-  \ln(\gamma+1)-\ln(\gamma-1)&=\frac{2t}{\tau}+\text{constante}\\
-  \ln\frac{\gamma+1}{\gamma-1}&=\frac{2t}{\tau}+\text{constante}\\
-  \frac{\gamma+1}{\gamma-1}&=Ke^{\tfrac{2t}{\tau}}
-\end{align*}
-
-<p>
-où, à \(t=0,\gamma=\gamma_0=\tfrac{1}{\surd{1-v_0^2/c^2}}\),
-\(K=\frac{\gamma_0+1}{\gamma_0-1}\). On obtient ainsi
-</p>
-\begin{align*}
-  \gamma&=\frac{Ke^{\tfrac{2t}{\tau}}+1}{Ke^{\tfrac{2t}{\tau}}-1}\\
-  &=\frac{K+e^{-\tfrac{2t}{\tau}}}{K-e^{-\tfrac{2t}{\tau}}}
-\end{align*}
-
-<p>
-et
-</p>
-\begin{align*}
-  \mathcal{E}=\gamma mc^2=\frac{Ke^{\tfrac{2t}{\tau}}+1}{Ke^{\tfrac{2t}{\tau}}-1}\times mc^2
-\end{align*}
-
-<div class="center">
-
-<div class="figure">
-<p><img src="./figures/spiral_relativite.png" alt="spiral_relativite.png" />
-</p>
-</div>
-</div>
-
-<p>
-Lorsque \(t\rightarrow\infty\), \(\gamma\simeq\frac{K}{K}=1\) et l'énergie totale
-\(\mathcal{E}\) est alors uniquement l'énergie de masse de la particule, la
-vitesse et donc l'énergie cinétique sont nulles.
-</p>
-
-<p>
-Le rayon \(R\), proportionnel à \(\gamma v\), diminue en fonction du
-temps. Ainsi, la trajectoire demeure circulaire à chaque instant \(t\) mais
-avec un rayon de courbure chaque fois plus faible en raison des pertes
-d'énergie par rayonnement. Les particules décrivent une spirale.
-</p>
-</li>
-</ol>
-</div>
-</div>
-
-<div id="outline-container-sec-5" class="outline-2">
-<h2 id="sec-5"><span class="section-number-2">5</span> Particule chargée dans des champs électrique et magnétique perpendiculaires</h2>
-<div class="outline-text-2" id="text-5">
-<div class="center">
-
-<div class="figure">
-<p><img src="./figures/referentiel_relat_4.png" alt="referentiel_relat_4.png" />
-</p>
-</div>
-</div>
-
-<p>
-Soit \(\vv{E}=E\vv{u_y}\) et \(\vv{B}=B\vv{u_z}\) avec \(Bc>E\). Le référentiel
-\(\mathcal{R}'\) doit être tel que \(\vv{E}'=\vv{0}\) soit
-</p>
-\begin{align*}
-  \vv{E}'_\parallel&=\vv{E}_\parallel=\vv{0}\\
-  \vv{E}'_\perp&=\gamma\left(\vv{E}_\perp+\vv{u}\times\vv{B}_\perp\right)=\vv{0}
-\end{align*}
-
-<p>
-La première condition est vérifiée du fait que \(\vv{E}\) est orthogonal au
-vecteur déplacement \(\vv{u}\). La seconde condition est vérifiée si
-</p>
-\begin{align*}
-  \vv{E}+\vv{u}\times\vv{B}&=\vv{0}\\
-  E\vv{u_y} + uB\,\vv{u_x}\times\vv{u_z}&=\vv{0}\\
-  E-Bu&=0\\
-  u&=\frac{E}{B}
-\end{align*}
-
-<p>
-Pour obtenir un champ électrique nul dans le référentiel \(\mathcal{R}'\),
-il faut donc que la vitesse de déplacement \(u\) du référentiel \(\mathcal{R}'\)
-par rapport au référentiel \(\mathcal{R}\) soit égale au rapport du champ
-électrique \(E\) sur le champ magnétique \(B\). La vitesse ainsi obtenue est, par
-ailleurs, inférieure à \(c\) du fait que \(Bc>E\).
-</p>
-
-<p>
-Calcul du champ magnétique \(\vv{B}'\) :
-</p>
-\begin{align*}
-  \vv{B}'_\parallel&=\vv{B}_\parallel=\vv{0}\\
-  \vv{B}'_\perp&=\gamma_e\left(\vv{B}_\perp-\vv{u}\times\frac{\vv{E}_\perp}{c^2}\right)\\
-  &=\gamma_e\left(B\vv{u_z}-\frac{uE}{c^2}\vv{u_x}\times\vv{u_y}\right)\\
-  &=\gamma_e\left(B\vv{u_z}-\frac{u^2}{c^2}B\vv{u_z}\right)\\
-  &=\frac{\vv{B}}{\gamma_e}
-\end{align*}
-
-<p>
-La force de Lorentz \(\vv{F}'\) qui s'applique à la particule de charge \(q\)
-est purement magnétique \(q\vv{v}\times\vv{B}'\). Le principe fondamental de
-la dynamique \(\vv{F}'=q\vv{v}\times\vv{B}=m\vv{a}\) se traduit par un
-trajectoire circulaire de rayon \(R\)
-</p>
-\begin{equation*}
-  \frac{v^2}{R}=\frac{qvB'}{m}\rightarrow R=\frac{mv}{qB'}=\frac{\gamma_emv}{qB}
-\end{equation*}
-</div>
-</div>
-
-<div id="outline-container-sec-6" class="outline-2">
-<h2 id="sec-6"><span class="section-number-2">6</span> Étude de la charge d'espace</h2>
-<div class="outline-text-2" id="text-6">
-<div class="center">
-
-<div class="figure">
-<p><img src="./figures/referentiel_relat_3.png" alt="referentiel_relat_3.png" />
-</p>
-</div>
-</div>
-
-<p>
-À \(t=t'=0\), \(R=R_0\), \(\dot{R}=\dot{R}'=0\) et \(\dot{\theta}=0\)
+On constate expérimentalement que la boule supraconductrice tend à expulser le
+champ magnétique en créant des courants localisés au voisinage de la surface :
+c'est l'effet Meissner. Pour rendre compte de cet effet, on utilisera la
+relation phénoménologique de London qui lie la densité de courant \(\vv{j}\) au
+potentiel-vecteur \(\vv{A}\) où \(\vv{B}=\rot\vv{A}\) <i>via</i> l'expression
+\(\vv{j}=-\frac{1}{\mu_0\delta^2}\vv{A}\). \(\delta\) est un paramètre
+caractéritique du matériau supraconducteur et on se placera en régime
+stationnaire.
 </p>
 
 <ol class="org-ol">
-<li>dans \(\mathcal{R}'\), \(\rho_0=\) constante
-<ol class="org-ol">
-<li>Champ électrique \(\vv{E}'(M)\)
-
-<p>
-Les plans \((\vv{u}_r,\vv{u}_\theta)\) et \((\vv{u}_r,\vv{u}_{x'})\)
-sont des plans de symétrie de la distribution de charge &rarr; le
-champ électrique appartient donc à chacun des plans :
-\(\vv{E}'(M)=E(M)\vv{u}_r\). De plus, il y a invariance par
-translation selon l'axe \(x'\) et par rotation d'angle &theta; :
-\(\vv{E}'(M)=E(r)\vv{u}_r\).
-</p>
-
-<p>
-Théorème de Gauss :
-</p>
-\begin{equation*}
-  \varoiint_\mathcal{S}\vv{E}'(M)\cdot d\vv{S}=\frac{Q_\text{int.}}{\epsilon_0}
-\end{equation*}
-
-<p>
-où la surface de Gauss est un cylindre de rayon \(r<R\) et de hauteur \(h\).
-</p>
+<li>L'équation de conservation de la charge se déduit de la divergence du
+rotationnel de \(\vv{B}\) à savoir
 \begin{align*}
-  E'(r)\times2\pi r\times h&=\frac{\rho_0}{\epsilon_0}\times h\times\pi r^2\\
-  \vv{E}'(M)&=\frac{\rho_0r}{2\epsilon_0}\vv{u}_r=\frac{\rho_0}{2\epsilon_0}\vv{r}
+  \div\left(\rot\vv{B}\right)=\vv{\nabla}.\left(\vv{\nabla}\times\vv{B}\right)&=0\\
+  \mu_0\div\vv{j}+\mu_0\epsilon_0\frac{\partial}{\partial t}\div\vv{E}&=0\\
+  \div\vv{j}+\frac{\partial\rho}{\partial t}=0
 \end{align*}
 
 <p>
-Au voisinage de \(r\sim R\), la force subie par une particule de charge \(q\)
-devient
+En régime stationnaire, la densité volumique de charge &rho; ne dépend pas du
+temps d'où \(\frac{\partial\rho}{\partial t}=0\). On déduit ainsi que le
+potentiel vecteur est à flux conservatif car
 </p>
-\begin{equation*}
-  \vv{F}'=q\vv{E}'(R)=\frac{q\rho_0}{2\epsilon_0}\vv{R}
-\end{equation*}
-
-<p>
-soit une force répulsive.
-</p>
-</li>
-<li>Mécanique classique ou Newtonienne \(\Upsigma\vv{F}=m\vv{a}\) <sup><a id="fnr.1" class="footref" href="#fn.1">1</a></sup>
 \begin{align*}
-  \vv{F}'&=m\vv{a}=m\ddot{R}\vv{u}_r=m\frac{d^2R}{dt^{\prime2}}\vv{u}_r\\
-  \frac{q\rho_0}{2\epsilon_0}R\vv{u}_r&=m\ddot{R}\vv{u}_r\rightarrow\ddot{R}-\frac{q\rho_0}{2m\epsilon_0}R=0
+  \div\vv{j}=-\frac{1}{\mu_0\delta^2}\,\div\vv{A}=0\Longleftrightarrow\div\vv{A}=0
 \end{align*}
 
 <p>
-Solutions du type \(R(t')=Ae^{\alpha t'}+Be^{-\alpha t'}\)
-où \(\alpha^2=\tfrac{q\rho_0}{2m\epsilon_0}\). Or à \(t'=0\), \(R=R_0\) et
-\(\dot{R}=0\) d'où \(A\alpha-B\alpha=0\rightarrow A=B\) et \(A+B=R_0\rightarrow
-      A=\tfrac{R_0}{2}\). La solution de l'équation différentielle est ainsi
- <div class="footdef"><sup><a id="fn.1" class="footnum" href="#fnr.1">1</a></sup> <p class="footpara"> le vecteur accélération \(\vv{a}\) s'écrit en toute rigueur \((\ddot{r}-r\dot{\theta}^2)\vv{u}_r+(2\dot{r}\dot{\theta}+r\ddot{\theta})\vv{u}_\theta\). À défaut de vitesse angulaire \(\dot{\theta}\) initiale, on supposera donc que \(\dot{\theta}=0\). </p></div>
-\begin{equation*}
-  R(t')=\frac{R_0}{2}e^{\alpha t'}+\frac{R_0}{2}e^{-\alpha t'}=R_0\cosh\alpha t'
-\end{equation*}
-
-<p>
-On suppose que le mouvement transverse <i>i.e.</i> \(R(t')\) est lent soit
-\(\alpha t'\ll1\). Le cosinus hyperbolique se réduit ainsi à
-\(\cosh\alpha t'\simeq1+\tfrac{(\alpha t')^2}{2}\). On déduit
-ainsi la variation relative de \(R\)
+Les équations de la magnétostatique sont
 </p>
 \begin{align*}
-  \frac{\Delta R}{R_0}=\frac{R-R_0}{R_0}=\frac{R}{R_0}-1\simeq1+\frac{(\alpha t')^2}{2}-1&=\frac{\alpha^2}{2}t^{\prime2}\\
-  &=\frac{q\rho_0}{4\epsilon_0m}t^{\prime2}
+  \div\vv{B}&=0\\
+  \rot\vv{B}&=\mu_0\vv{j}
 \end{align*}
-</li>
 
-<li>Dilatation du temps <i>i.e.</i> \(t=\gamma t'\) et \(x=ut\) soit
+<p>
+En appliquant de nouveau l'opérateur rotationnel à la second expression, on
+obtient
+</p>
 \begin{align*}
-  \frac{\Delta R}{R_0}=\frac{q\rho_0}{4\epsilon_0m}\frac{t^2}{\gamma^2}&=\frac{q\rho_0}{4\epsilon_0m}\times\frac{x^2}{\gamma^2u^2}\times\frac{c^2}{c^2}\\
-  &=\frac{q\rho_0}{4\epsilon_0mc^2}\times\frac{x^2}{\gamma^2\beta^2}\text{ or }\gamma^2=\tfrac{1}{1-\beta^2},\gamma^2\beta^2=\gamma^2-1\\
-  &=\frac{q\rho_0}{4\epsilon_0mc^2}\times\frac{x^2}{\gamma^2-1}
+  \rot\left(\rot\vv{B}\right)&=\mu_0\rot\vv{j}\\
+  \cancel{\grad\left(\div\vv{B}\right)}-\Delta\vv{B}&=\cancel{\mu_0}\times-\frac{1}{\cancel{\mu_0}\delta^2}\rot\vv{A}\\
+  \Delta\vv{B}=\frac{\vv{B}}{\delta^2}
 \end{align*}
-</li>
-</ol>
+
+<p>
+Le Laplacien faisant intervenir la dérivée seconde par rapport aux
+coordonnées spatiales, on déduit que la dimension de &delta; est celle d'une
+longueur.
+</p>
 </li>
 
 <li><ol class="org-ol">
-<li>Le champ électrique obéit aux mêmes règles d'invariance et de symétries
-que dans le référentiel \(\mathcal{R}'\) soit
-\(\vv{E}(M)=E(r)\vv{u}_r\). Concernant le champ magnétique \(\vv{B}(M)\), la
-densité de courant \(\vv{j}=\rho\vv{u}\) est colinéaire à \(\vv{u}_x\) et donc
-le plan \((\vv{u}_r,\vv{u}_x)\) est un plan de symétrie de la distribution
-de courant &rarr; le champ magnétique est donc normal à ce plan soit
-\(\vv{B}(M)=B(M)\vv{u}_\theta\). Par ailleurs, les mêmes règles d'invariance
-s'appliquent au champ magnétique : \(\vv{B}(M)=B(r)\vv{u}_\theta\).
-</li>
-<li>Le calcul des champs électrique et magnétique se fait <i>via</i> respectivement
-le théorème de Gauss et le théorème d'Ampère. Le champ électrique est
-ainsi
-\begin{equation*}
-  \vv{E}(M)=\frac{\rho}{2\epsilon_0}\vv{r}
-\end{equation*}
-
-<p>
-Le théorème d'Ampère :
-</p>
-\begin{equation*}
-  \oint_{\mathcal{C}}\vv{B}.d\vv{\ell}=\iint_\mathcal{S}\mu_0\vv{j}.d\vv{S}\text{ avec} \vv{j}=\rho u\vv{u}_x
-\end{equation*}
-
-<p>
-Le contour \(\mathcal{C}\) est donc une boucle de rayon \(r\) orientée suivant
-\(\vv{u}_\theta\), la surface \(\mathcal{S}\) reposant sur ce contour étant
-égale à \(\pi r^2\). Soit un champ magnétique \(\vv{B}(M)\)
-</p>
+<li>Pour \(x<0\), la densité volumique de courant \(\vv{j}\) est nul de même pour
+\(\vv{A}\). On obtient ainsi \(\Delta\vv{B}=\vv{0}\). Par ailleurs, le
+problème est invariant par translation \(y,z\), les composantes du champ
+magnétique ne dépendant donc que de \(x\). On déduit ainsi que
 \begin{align*}
-  B(r)\times2\pi r&=\mu_0\rho u\times\pi r^2\\
-  \vv{B}(M)&=\frac{\mu_0}{2}\rho ur\vv{u}_\theta
-\end{align*}
-</li>
-
-<li>\begin{align*}
-  \vv{F}(r=R)&=q\vv{E}(R)+q\vv{u}\times\vv{B}(R)\\
-  &=\frac{q\rho}{2\epsilon_0}\vv{R}+\frac{q\mu_0\rho u^2R}{2}\vv{u_x}\times\vv{u}_\theta\\
-  &=\frac{q\rho}{2\epsilon_0}R\vv{u}_r-\frac{q\mu_0\rho u^2R}{2}R\vv{u}_r\text{ soit avec } \mu_0\epsilon_0c^2=1\\
-  &=\frac{q\rho}{2\epsilon_0}\vv{R}\left(1-\frac{u^2}{c^2}\right)\\
-  &=\frac{q\rho}{2\epsilon_0\gamma^2}\vv{R}
+  \Delta B_x&=\frac{\partial^2B_x}{\partial x^2}=0\\
+  \Delta B_y&=\frac{\partial^2B_y}{\partial x^2}=0\\
+  \Delta B_z&=\frac{\partial^2B_z}{\partial x^2}=0
 \end{align*}
 
 <p>
-La relation \(\vv{F}'=\gamma\vv{F}\) implique
-</p>
-\begin{equation*}
-  \frac{q\rho_0}{2\epsilon_0}\vv{R}=\frac{q\rho}{2\epsilon_0\gamma^2}\vv{R}
-\end{equation*}
-
-<p>
-soit
-</p>
-\begin{equation*}
-  \rho=\gamma\rho_0
-\end{equation*}
-</li>
-
-<li>Le principe fondamental de la dynamique en relativité
-\begin{align*}
-  \frac{d}{dt}\left(\gamma m\vv{u}\right)&=\Upsigma\vv{F}\\
-  \gamma m\frac{d\vv{u}}{dt}+m\vv{u}\frac{d\gamma}{dt}&=\vv{F}
-\end{align*}
-
-<p>
-or \(\vv{F}\parallel\vv{u}_r\) impliquant que le second terme
-\(m\vv{u}\tfrac{d\gamma}{dt}\) soit nul. Soit
-</p>
-\begin{align*}
-  \gamma m\frac{d\vv{u}}{dt}&=\vv{F}\\
-  \gamma m\ddot{R}&=\frac{q\rho}{2\epsilon_0\gamma^2}R\\
-  \ddot{R}-\frac{q\rho}{2\epsilon_0m}\frac{R}{\gamma^3}&=0
-\end{align*}
-
-<p>
-La solution de cette équation différentielle s'écrit \(R(t)=R_0\cosh\zeta t\)
-où \(\zeta^2=\frac{q\rho}{2\epsilon_0m\gamma^3}\).
-</p>
-
-<p>
-La variation relative de rayon \(\Delta R/R_0\) devient
-</p>
-\begin{align*}
-  \frac{\Delta R}{R_0}\simeq\frac{\zeta^2}{2}t^2&=\frac{q\rho}{4\epsilon_0m}\frac{1}{\gamma^3}t^2\\
-  &=\frac{q\gamma\rho_0}{4\epsilon_0m}\frac{1}{\gamma^3}t^2=\frac{q\gamma\rho_0}{4\epsilon_0m}\frac{1}{\gamma^3}\frac{x^2}{u^2}\\
-  &=\frac{q\rho_0}{4\epsilon_0m}\frac{x^2}{\gamma^2-1}=\left.\frac{\Delta R}{R_0}\right|_{\mathcal{R}'}
-\end{align*}
-</li>
-
-<li>L'énergie cinétique \(T\) du faisceau d'électron est égale à
-\(T=F.d=eE.d=eV/d.d=eV\) soit la tension accélératrice. Ainsi, une tension
-accélératrice de \(V=\unit[0.1]{MV}\) fournit une énergie cinétique de
-\(T=\unit[0.1]{MeV}\). Le facteur de Lorentz \(\gamma\) est égale à
-\(1+\tfrac{T}{mc^2}\) où \(mc^2=\unit[0.511]{MeV}\). Finalement, l'intensité
-électrique du faisceau \(I\) est égale au flux de la densité de courant \(j\)
-soit \(I=j.S=\rho u.S\simeq\rho u\pi R_0^2\). La variation de la dimension
-transerve devient
-\begin{equation*}
-  \frac{\Delta R}{R_0}=\frac{e}{4\pi\epsilon_0mc^2}\times\frac{I}{c}\times\frac{L^2}{R_0^2}\times\frac{1}{(\gamma^2-1)^{3/2}}
-\end{equation*}
-
-<p>
-<b>Applications numériques :</b>
-</p>
-
-<p>
-\(V=\unit[0.1]{MV}\), \(\gamma=1.2\) &rarr; \(\frac{\Delta R}{R_0}=0.5=50\%\)
-</p>
-
-<p>
-\(V=\unit[10]{MV}\),\(\gamma=21\) &rarr; \(\frac{\Delta R}{R_0}=1.5\,10^{-5}\)
-</p>
-</li>
-</ol>
-</li>
-</ol>
-</div>
-</div>
-
-<div id="outline-container-sec-7" class="outline-2">
-<h2 id="sec-7"><span class="section-number-2">7</span> Variations relatives de vitesse, de quantité de mouvement et d'énergie&#xa0;&#xa0;&#xa0;<span class="tag"><span class="DM">DM</span></span></h2>
-<div class="outline-text-2" id="text-7">
-<p>
-On considère une particule de masse \(m\), de quantité de mouvement \(p\), d'énergie
-totale \(\mathcal{E}\) et d'énergie cinétique \(\mathcal{E}_c\).
-</p>
-
-<ol class="org-ol">
-<li>Exprimer \(dv/v\) et \(dp/p\) en fonction de \(d\mathcal{E}/\mathcal{E}\).
-
-<p>
-Soit l'énergie totale \(\mathcal{E}=\gamma\,mc^2\) et
-\(\gamma=\frac{1}{\surd1-v^2/c^2}\). On a
-</p>
-\begin{align*}
-  \frac{d\mathcal{E}}{\mathcal{E}}&=\frac{d\gamma}{\gamma}\\
-  \text{avec }&d\gamma=-\frac{1}{2}\times\frac{1}{\left(1-v^2/c^2\right)^{3/2}}\times(-)2\frac{v}{c}dv\\
-  &d\gamma=\gamma^3\frac{v}{c}dv\\
-  \frac{d\mathcal{E}}{\mathcal{E}}&=\gamma^2\,\frac{v^2}{c^2}\times\frac{dv}{v}\\
-  &=\left(\gamma^2-1\right)\frac{dv}{v}
-\end{align*}
-
-<p>
+Les composantes du champ magnétique sont donc des fonctions affines de \(x\)
 soit
 </p>
 \begin{align*}
-  \frac{dv}{v}=\frac{1}{\gamma^2-1}\,\frac{d\mathcal{E}}{\mathcal{E}}
+  B_x&=a_xx+b_x\\
+  B_y&=a_yx+b_y\\
+  B_z&=a_zx+b_z
 \end{align*}
 
 <p>
-La quantité de mouvement \(p=\gamma\,mv\) est liée à l'énergie totale à travers
-l'expression \(\mathcal{E}^2=p^2c^2+m^2c^4\) soit en différentiant
-</p>
-\begin{align*}
-  2\mathcal{E}d\mathcal{E}&=2p\,dpc^2\\
-  \frac{dp}{p}&=\frac{\mathcal{E}d\mathcal{E}}{p^2c^2}\\
-  &=\frac{\mathcal{E}d\mathcal{E}}{\mathcal{E}^2-m^2c^4}\\
-  &=\frac{\gamma^2\,\cancel{m^2c^4}}{\gamma^2\,\cancel{m^2c^4}-\cancel{m^2c^4}}\,\frac{d\mathcal{E}}{\mathcal{E}}\\
-  &=\frac{\gamma^2}{\gamma^2-1}\,\frac{d\mathcal{E}}{\mathcal{E}}
-\end{align*}
-</li>
-
-<li>Que se passe-t-il à la limite ultrarelativiste ?
-
-<p>
-\(v\to c\) et \(\gamma\gg1\) d'où
-</p>
-\begin{align*}
-  \frac{dv}{v}&\simeq\frac{1}{\gamma^2}\,\frac{d\mathcal{E}}{\mathcal{E}}\\
-  \frac{dp}{p}&\simeq\frac{d\mathcal{E}}{\mathcal{E}}
-\end{align*}
-</li>
-
-<li>On définit le facteur \(\alpha\) par
-\begin{align*}
-  \frac{d\mathcal{E}_c}{\mathcal{E}_c}=\alpha\,\frac{dp}{p}
-\end{align*}
-
-<p>
-Quelle est l'expression de \(\alpha\) en fonction de \(\beta\) ? Faire une
-représentation graphique.
+On utilise à présent la condition aux limites
+\(\vv{B}(x\to-\infty)=B_\infty\vv{u}_z\) qui implique
+\(B_x(x\to-\infty)=B_y(x\to-\infty)=0\). Les coefficients \(a_{x,z}\) et
+\(b_{x,y}\) sont donc nuls. De plus, \(B_z(x\to-\infty)=B_\infty\) implique
+quant à lui que \(a_z=0\) et \(b_z=B_\infty\). Le champ magnétique dans le
+demi-espace vide \(x<0\) est donc uniforme et égale à \(B_\infty\vv{u}_z\).
 </p>
 
 <p>
-L'énergie totale \(\mathcal{E}\) est égale à \(\mathcal{E}_c+mc^2\) d'où
-\(d\mathcal{E}=d\mathcal{E}_c\). On a ainsi
+Dans le supraconducteur \(x>0\), les invariances restent les mêmes soit les
+équations suivantes pour chaque composante du champ magnétique
 </p>
 \begin{align*}
-  \frac{dp}{p}&=\frac{\gamma^2}{\gamma^2-1}\times\frac{d\mathcal{E}_c}{\mathcal{E}}\times\frac{\mathcal{E}_c}{\mathcal{E}_c}\\
-  \frac{d\mathcal{E}_c}{\mathcal{E}_c}&=\underbrace{\frac{\gamma^2-1}{\gamma^2}\times\frac{\mathcal{E}}{\mathcal{E}_c}}_{\alpha}\times\frac{dp}{p}\\
-  \alpha&=\frac{\gamma^2-1}{\gamma^2}\times\frac{\gamma\,\cancel{mc^2}}{\gamma\,\cancel{mc^2}-\cancel{mc^2}}\\
-  &=\frac{\cancel{(\gamma-1)}(\gamma+1)}{\gamma^{\cancel{2}}}\times\frac{\cancel{\gamma}}{\cancel{\gamma-1}}\\
-  &=\frac{\gamma+1}{\gamma}=1+\frac{1}{\gamma}=1+\sqrt{1-\beta^2}
+  \frac{\partial^2B_x}{\partial x^2}&=\frac{B_x}{\delta^2}\\
+  \frac{\partial^2B_y}{\partial x^2}&=\frac{B_y}{\delta^2}\\
+  \frac{\partial^2B_z}{\partial x^2}&=\frac{B_z}{\delta^2}
+\end{align*}
+
+<p>
+Les solutions de ces équations sont de la forme
+</p>
+\begin{align*}
+  B_\alpha=a_\alpha\exp\left(\frac{x}{\delta}\right)+b_\alpha\exp\left(-\frac{x}{\delta}\right)\text{ où }\alpha=x,y,z
+\end{align*}
+
+<p>
+Pour déterminer les coefficients \(a_\alpha\) et \(b_\alpha\), on utilise le
+fait que \(B\) doit rester fini quand \(x\to+\infty\) impliquant que
+\(a_\alpha\) soit nul. On utilise, par ailleurs, la continuité de la
+composante normale du champ magnétique à l'interface vide-supraconducteur
+<i>i.e.</i> en \(x=0\) de même que celle de la composante tangentielle en
+l'absence de courant de surface (du moins à ce stade de la modélisation)
+soit
+</p>
+\begin{align*}
+  \vv{B}(x=0^-)=B_\infty\vv{u}_z\Longleftrightarrow&B_x(x=0^+)=0\to b_x=0\\
+  &B_y(x=0^+)=0\to b_y=0\\
+  &B_z(x=0^+)=0\to b_z=B_\infty
+\end{align*}
+
+<p>
+Le champ magnétique à l'intérieur du supraconducteur est donc
+</p>
+\begin{align*}
+  \vv{B}(x>0)=B_\infty\exp\left(-\frac{x}{\delta}\right)\vv{u}_z
 \end{align*}
 
 <div class="center">
 
 <div class="figure">
-<p><img src="./figures/alpha_variation.png" alt="alpha_variation.png" />
+<p><img src="./figures/meissner_magnetic_field.png" alt="meissner_magnetic_field.png" />
 </p>
-<p><span class="figure-number">Figure 1:</span> <b>Variation du paramètre \(\alpha\) en fonction de la vitesse \(\beta\)</b></p>
+</div>
+</div>
+
+<p>
+&delta; représente l'épaisseur au delà de laquelle le champ magnétique
+extérieur (ici celui généré par le solénoïde) s'annule : le champ
+magnétique pénètre ainsi de quelques &delta; dans le supraconducteur &rarr;
+effet Meissner.
+</p>
+</li>
+<li>La densité volumique de courant demeure nulle dans le vide <i>i.e.</i>
+      \(\vv{j}(x<0)=0\). Dans le supraconducteur, \(\vv{j}\) s'écrit
+\begin{align*}
+  \vv{j}(x>0)&=\frac{1}{\mu_0}\,\rot\vv{B}(x>0)\\
+  &=\frac{1}{\mu_0}\left|
+  \begin{array}{l}
+    \frac{\partial}{\partial x}\\
+    \frac{\partial}{\partial y}\\
+    \frac{\partial}{\partial z}
+  \end{array}
+  \right.\times\left|
+  \begin{array}{l}
+    0\\
+    0\\
+    B_\infty e^{-x/\delta}
+  \end{array}
+  \right.\\
+  &=-\frac{B_\infty}{\mu_0}\frac{\partial}{\partial x}e^{-x/\delta}\vv{u}_y\\
+  &=\frac{B_\infty}{\mu_0\delta}\,e^{-x/\delta}\vv{u}_y
+\end{align*}
+</li>
+
+<li>La force de Laplace \(d\vv{F}\) est égale à \(I\vv{d\ell}\times\vv{B}\). En
+fonction de la densité volumique de courant \(\vv{j}\), son expression
+devient \(d^3\vv{F}=\vv{j}\times\vv{B}d\tau\) avec \(d\tau=dxdydz\). Ainsi,
+\begin{align*}
+  \frac{d^3\vv{F}}{dydz}&=\vv{j}\times\vv{B}dx\\
+  \frac{d^2\vv{F}}{dydz}&=\int_0^\infty\vv{j}\times\vv{B}dx\\
+  &=\int_0^\infty\left|
+  \begin{array}{l}
+    0\\
+    \frac{B_\infty}{\mu_0\delta}\,e^{-x/\delta}\\
+    0\\
+  \end{array}
+  \right.\times\left|
+  \begin{array}{l}
+    0\\
+    0\\
+    B_\infty\,e^{-x/\delta}\\
+  \end{array}
+  \right.dx\\
+  &=\int_0^\infty\frac{B^2_\infty}{\mu_0\delta}\,e^{-2x/\delta}\vv{u}_xdx\\
+  &=\frac{B^2_\infty}{\mu_0\cancel{\delta}}\times(-)\frac{\cancel{\delta}}{2}\left[e^{-2x/\delta}\right]_0^\infty\vv{u}_x\\
+  &=\frac{B^2_\infty}{2\mu_0}\vv{u}_x=\frac{B^2(x=0^-)}{2\mu_0}\vv{u}_x
+\end{align*}
+
+<p>
+La force par unité de surface tend à surélever le cylindre supraconducteur
+par rapport au plan \(x=0\) et ce en raison des courants en "surface" de ce
+même supraconducteur.
+</p>
+</li>
+<li>\(\delta\sim0.1\,\mu\text{m}\) : dans l'hypothèse où \(\delta\ll R\) seuls les
+premiers micromètres du supraconducteur ont une influence. La symétrie
+sphérique du supraconducteur n'est plus effective et le problème peut se
+résumer à un problème plan.
+Par ailleurs, si \(\delta\ll1\), le champ magnétique à l'intérieur du
+supraconducteur devient nul notamment en \(x=0^+\). La disontinuité de la
+composante tangentielle du champ magnétique étant égale à
+\begin{align*}
+  \left[\vv{B}(x=0^-)-\cancel{\vv{B}(x=0^+)}\right]\times\vv{u}_x&=\mu_0\vv{j_S}\\
+  B_\infty\vv{u}_z\times\vv{u}_x&=\mu_0\vv{j_S}\\
+  \vv{j_S}&=\frac{B_\infty}{\mu_0}\vv{u}_y=\frac{B(x=0^-)}{\mu_0}\vv{u}_y
+\end{align*}
+
+<p>
+Le calcul de l'intégrale de la densité de courant dans le supraconducteur
+s'écrit
+</p>
+\begin{align*}
+  \int_0^\infty\vv{j}(x)dx&=\frac{B_\infty}{\mu_0\delta}\int_0^\infty e^{-x/\delta}dx\vv{u}_y\\
+  &=\frac{B_\infty}{\mu_0\cancel{\delta}}\times(-)\cancel{\delta}\left[e^{-x/\delta}\right]_0^\infty\\
+  &=\frac{B_\infty}{\mu_0}\vv{u}_z=\vv{j_S}
+\end{align*}
+
+<p>
+La force de Laplace devient
+</p>
+\begin{align*}
+  \frac{d^2\vv{F}}{dydz}&=\frac{B^2_\infty}{2\mu_0}\vv{u}_x=\frac{\vv{j_S}\times\vv{B}(x=0^-)}{2}
+\end{align*}
+</li>
+</ol>
+</li>
+
+<li>Les champs \(\vv{B}_\text{int.}\), \(\vv{j}\) et \(\vv{A}\) sont nuls à l'intérieur
+de la boule supraconductrice du fait qu'on considère à présent \(\delta=0\).
+<ol class="org-ol">
+<li>Dans le vide, \(\vv{j}=\vv{0}\) d'où \(\rot\vv{B}=\vv{0}\) et \(\div\vv{B}=0\)
+(\(\Delta\vv{B}=\vv{0}\)). La répartition des lignes de champ magnétique est
+alors identique aux lignes du champ de vitesse d'un fluide incompressible
+s'écoulant sur la boule<sup><a id="fnr.2" class="footref" href="#fn.2">2</a></sup>
+
+<div class="center">
+
+<div class="figure">
+<p><img src="./figures/boule_supraconductrice.png" alt="boule_supraconductrice.png" />
+ <div class="footdef"><sup><a id="fn.2" class="footnum" href="#fnr.2">2</a></sup> <p class="footpara"> un fluide dont le champ vitesse \(\vv{v}\) est à rotationnel nul <i>i.e.</i> \(\rot\vv{v}=\vv{0}\) est dit irrotationnel. Cette propriété traduit le fait que chaque particule fluide ne tourne nullement sur elle-même et n'a donc aucune incidence sur la trajectoire des lignes de champ. </p></div>
+</div>
+</div>
+
+<p>
+Le champ de vitesse/magnétique est ainsi plus faible à "l'équateur" <i>i.e.</i> en
+\(A\) et \(B\) où \(B_{A,B}<B_\infty\) et plus élevé aux pôles <i>i.e.</i> en \(C\) et
+\(D\) où \(B_{C,D}>B_\infty\).
+</p>
+</li>
+<li>Soit \(\vv{B}=\grad\,\psi\) et
+\(\div\vv{B}=0=-\div(\grad\,\psi)=-\Delta\psi\). Le potentiel scalaire
+\(\psi\) est donc solution de l'équation de Laplace. La forme du potentiel
+\(\psi(r,\theta)=\alpha r\cos\theta+\beta\cos\theta/r^2\) est identique à la
+solution trouvée à l'exercice <i>Boule uniformément polarisée</i> également
+solution de l'équation de Laplace \(\Delta V=0\) <sup><a id="fnr.3" class="footref" href="#fn.3">3</a></sup>.
+\begin{align*}
+  \vv{B}&=\grad\,\psi\\
+  &=\frac{\partial\psi}{\partial r}\vv{u_r}+\frac{1}{r}\,\frac{\partial\psi}{\partial\theta}\vv{u_\theta}+\cancel{\frac{1}{r\sin\theta}\,\frac{\partial\psi}{\partial\phi}\vv{u_\phi}}\\
+  &=\left(\alpha\cos\theta-2\beta\frac{\cos\theta}{r^3}\right)\vv{u_r}+\frac{1}{r}\left(-\alpha r\sin\theta-\beta\frac{\sin\theta}{r^2}\right)\vv{u_\theta}\\
+  &=\left(\alpha\cos\theta-\frac{2\beta\cos\theta}{r^3}\right)\vv{u_r}-\left(\alpha\sin\theta+\frac{\beta\sin\theta}{r^3}\right)\vv{u_\theta}
+\end{align*}
+
+<p>
+Pour déterminer les constantes &alpha; et &beta;, on utilise la continuïté
+de la composante normale du champ magnétique à l'interface boule
+supra./vide soit en \(r=R\) où
+ <div class="footdef"><sup><a id="fn.3" class="footnum" href="#fnr.3">3</a></sup> <p class="footpara"> une autre façon de voir les choses est de considérer le potentiel électrostatique crée par un dipôle placé au centre de la boule. Le potentiel de la forme \(\beta\cos\theta/r^2\), est également solution de l'équation de Laplace. Par ailleurs, le potentiel crée par un plan infini s'écrit \(r\cos\theta\) et est lui aussi solution de l'équation de Laplace. La somme des deux solutions justifie ainsi de la forme de la solution utilisée dans cet exercice. </p></div>
+\begin{align*}
+  \vv{u_r}.\left(\vv{B}_\text{ext.}(r=R)-\cancel{\vv{B}_\text{int.}(r=R)}\right)&=0\\
+  \alpha\cancel{\cos\theta}-2\beta\frac{\cancel{\cos\theta}}{R^3}&=0\\
+  \alpha&=\frac{2\beta}{R^3}
+\end{align*}
+
+<p>
+Par ailleurs, loin de la boule supra. <i>i.e.</i> \(r\to\infty\), le champ
+magnétique est celui induit par la solénoïde soit
+\(\vv{B}(r\to\infty)=B_\infty\,\vv{u_z}\) d'où
+</p>
+\begin{align*}
+  \alpha\cos\theta\,\vv{u_r}-\alpha\sin\theta\,\vv{u_\theta}&=B_\infty\vv{u_z}\\
+  \alpha\vv{u_z}&=B_\infty\vv{u_z}\to\alpha=B_\infty
+\end{align*}
+
+<p>
+Le champ magnétique prend ainsi la forme suivante
+</p>
+\begin{align*}
+  \vv{B}=B_\infty\cos\theta\left(1-\frac{R^3}{r^3}\right)\,\vv{u_r}-B_\infty\sin\theta\left(1+\frac{R^3}{2r^3}\right)\,\vv{u_\theta}
+\end{align*}
+</li>
+
+<li>La densité surfacique de courant se déduit de la discontinuïté de la
+composante tangentielle du champ magnétique soit
+\begin{align*}
+  \vv{u_r}\times\left(\vv{B}_\text{ext.}(r=R)-\cancel{\vv{B}_\text{int.}(r=R)}\right)&=\mu_0\,\vv{j_S}\\
+  \underbrace{\vv{u_r}\times\vv{u_\theta}}_{\vv{u_\phi}}\,\left(-B_\infty\sin\theta\left(1+\frac{1}{2}\right)\right)&=\mu_0\,\vv{j_S}\\
+  \vv{j_S}&=-\frac{3}{2\mu_0}B_\infty\sin\theta\,\vv{u_\phi}
+\end{align*}
+
+<div class="center">
+
+<div class="figure">
+<p><img src="./figures/boule_supraconductrice_courant.png" alt="boule_supraconductrice_courant.png" />
+</p>
+<p><span class="figure-number">Figure 1:</span> <b>Distribution du courant à la surface de la boule supraconductrice</b></p>
+</div>
+</div>
+
+<p>
+Les courants surfaciques "tournent" autour de la sphère et sont
+proportionnel au sinus de l'angle &theta; : la densité de courant est ainsi
+nulle aux pôles et maximale à l'équateur.
+</p>
+
+<p>
+En raison des symétries de la distribution de courant, tout plan contenant
+l'axe \(z\) est plan d'antisymétrie : le champ \(\vv{B_S}\) induit par la
+distribution de courant de surface est donc colinéaire à \(\vv{u_z}\).
+</p>
+
+<p>
+Pour rappel, la densité volumique de courant \(\vv{j}\) est proportionnel à
+un courant \(I\) <b>par unité de surface</b>. Aussi, une densité surfacique de
+courant \(\vv{j_S}\) est proportionnel à un courant par unité de longueur :
+\(dI=j_S\,d\ell\) où \(d\ell\) est égal à \(Rd\theta\). Le courant est ainsi
+égal au "flux" de la densité de courant surfacique au travers d'un élément
+de longueur longitudinal \(Rd\theta\). En partant du champ magnétique induit
+par une spire de courant
+</p>
+\begin{align*}
+  d\vv{B}_\text{spire}=\frac{\mu_0\,dI}{2R_\text{spire}}\sin^3\theta\vv{u_z}
+\end{align*}
+
+<p>
+Dans notre cas, le rayon de la spire est une fonction de l'angle zénithal
+&theta; <i>i.e.</i> \(R_\text{spire}=R\sin\theta\). Le champ magnétique crée par
+la spire est
+</p>
+\begin{align*}
+  d\vv{B_S}&=\frac{\mu_0 j_S\,d\theta}{2R\sin\theta}\sin^3\theta\,\vv{u_z}\\
+  \vv{B_S}&=-\frac{3}{4}B_\infty\int_0^\pi\sin^3\theta d\theta\,\vv{u_z}
+\end{align*}
+
+<p>
+En posant \(x=\cos\theta\), \(dx=-\sin\theta\,d\theta\) avec \(x\in[1,-1]\) d'où
+</p>
+\begin{align*}
+  \vv{B_S}&=-\frac{3}{4}B_\infty\,\vv{u_z}\int_0^\pi\sin^2\theta\sin\theta\,d\theta\\
+  &=-\frac{3}{4}B_\infty\,\vv{u_z}\int_0^\pi(1-\cos^2\theta)\sin\theta\,d\theta\\
+  &=-\frac{3}{4}B_\infty\,\vv{u_z}\int_1^{-1}(1-x^2)(-)dx\\
+  &=-\frac{3}{4}B_\infty\,\vv{u_z}\left[x-\frac{x^3}{3}\right]_{-1}^1\\
+  &=-\frac{3}{4}B_\infty\,\vv{u_z}\left(2-\frac{2}{3}\right)=-B_\infty\,\vv{u_z}
+\end{align*}
+
+<p>
+L'effet Meissner traduit le fait que le supraconducteur "excité" par le
+champ magnétique externe <i>i.e.</i> celui généré par le solénoïde, réagit en
+faisant circuler des courants superficiels de telle sorte que
+\(|B_\text{supra}|=B_\text{solénoïde}\).
+</p>
+</li>
+<li>Le moment magnétique \(\mathcal{M}\) d'un circuit fermé \(\mathcal{C}\)
+correspond au produit de l'intensité du courant \(I\) parcourant cette
+boucle par la surface orientée délimité par cette même boucle
+\begin{align*}
+  d\vv{\mathcal{M}}=I\vv{dS}
+\end{align*}
+
+<p>
+Dans notre problème, une spire parcourue par un courant \(dI=j_SRd\theta\)
+et de rayon \(R\sin\theta\) aura un moment magnétique
+\(d\vv{\mathcal{M}}_\text{spire}=dI\,\pi(R\sin\theta)^2\,\vv{u_z}\). Le
+moment magnétique total de la boule est alors
+</p>
+\begin{align*}
+  \vv{\mathcal{M}}_\text{boule}&=\int_0^\pi\pi R^2j_S\,Rd\theta\sin^2\theta\,\vv{u_z}\\
+  &=-\frac{3\pi R^3}{2\mu_0}\,B_\infty\,\vv{u_z}\int_0^\pi\sin^3\theta\,d\theta\\
+  &=-\frac{3\pi R^3}{2\mu_0}\,B_\infty\vv{u_z}\times\frac{4}{3}\\
+  &=-\frac{2\pi R^3}{\mu_0}\,B_\infty\,\vv{u_z}\\
+  &=-\frac{4\pi R^3}{3}\times\frac{3}{2\mu_0}\vv{B_\infty}
+\end{align*}
+
+<p>
+soit une susceptibilité magnétique égale à \(\chi_m=-\frac{3}{2}\). Un
+supraconducteur est donc un matériau diamagnétique c'est-à-dire un
+matériau qui soumis à un champ magnétique externe, génére un autre champ
+magnétique <b>opposé</b> (dans notre cas, également de même intensité).
+</p>
+</li>
+<li>Dans la première partie de l'exercice, nous avons montré que la force de
+Laplace induite par une densité surfacique de courant est égale à
+\(\frac{d\vv{F}}{dS}=\frac{1}{2}\vv{j_S}\times\vv{B}\). Nous avons donc
+\begin{align*}
+  \frac{d\vv{F}}{dS}&=\frac{1}{2}\left|
+  \begin{array}{l}
+    0\\0\\j_S
+  \end{array}
+  \right.\times\left|
+  \begin{array}{l}
+    B_r\\B_\theta\\0
+  \end{array}
+  \right.=\frac{j_S}{2}\left(-B_\theta\,\vv{u_r}+B_r\,\vv{u_\theta}\right)
+\end{align*}
+
+<p>
+En surface de la sphère <i>i.e.</i> \(r=R\), la composante radiale du champ est
+nulle \(B_r=0\) d'où
+</p>
+\begin{align*}
+  \frac{d\vv{F}}{dS}&=-\frac{j_S}{2}B_\theta\,\vv{u_r}\\
+  &=-\frac{1}{2}\times(-)\frac{3}{2\mu_0}B_\infty\sin\theta\times(-)B_\infty\sin\theta\times\frac{3}{2}\,\vv{u_r}\\
+  &=-\frac{9}{8\mu_0}B^2_\infty\sin^2\theta\,\vv{u_r}
+\end{align*}
+
+<div class="center">
+
+<div class="figure">
+<p><img src="./figures/boule_supraconductrice_force.png" alt="boule_supraconductrice_force.png" />
+</p>
 </div>
 </div>
 </li>
 </ol>
+</li>
+</ol>
+</div>
+</div>
+
+<div id="outline-container-sec-3-2" class="outline-3">
+<h3 id="sec-3-2"><span class="section-number-3">3.2</span> Lévitation supraconducteur-supraconducteur</h3>
+<div class="outline-text-3" id="text-3-2">
+<ol class="org-ol">
+<li>Les supraconducteurs de même que l'espace vide sont localement neutres d'où
+\(\rho=0\) impliquant que le potentiel électrique \(V\) soit solution de
+l'équation de Laplace \(\Delta V=0\). Sacahnt que le potentiel électrique est
+nul à l'infini \(V(\infty)=0\), le potentiel est donc nul en tout point \(M\) de
+l'espace. Par ailleurs, le vecteur-potentiel \(\vv{A}\) étant nul dans le
+supraconducteur, le champ électrique \(\vv{E}_\text{supra.}=-\grad
+   V-\frac{\partial \vv{A}}{\partial t}=\vv{0}\).
+
+<p>
+La loi de Faraday lie la variation temporelle du flux magnétique \(\Phi_B\) à
+la circulation du champ électrique autour d'un contour \(\mathcal{C}\). En
+prenant pour contour \(\mathcal{C}\) un cercle de même axe que l'anneau
+supra. et de rayon légèrement supérieur à \(a\), on obtient
+</p>
+\begin{align*}
+  -\frac{d\Phi_B}{dt}&=\oint_\mathcal{C}\vv{E}.\vv{d\ell}=0
+\end{align*}
+
+<p>
+Le flux magnétique au travers de l'anneau supra. est donc constant.
+</p>
+</li>
+
+<li>En supposant \(\vv{B}=B(r)\vv{u_r}\), le flux du champ magnétique au travers
+d'une surface fermée est nul soit
+\begin{align*}
+  \div\vv{B}=0\Longleftrightarrow\varoiint_\mathcal{S}\vv{B}.\vv{dS}&=0\\
+  \iint_\text{\(\unicode{x2460}\)}B(r)\times dS+\underbrace{\iint_\text{\(\unicode{x2461}\)}\vv{B}.\vv{dS}}_{\Phi_B}&=0\\
+  B(r)\times2\pi rh+\Phi_B=0&\to B(r)=-\frac{\Phi_B}{2\pi rh}
+\end{align*}
+
+<p>
+où \(\unicode{x2460}\) correspond à la surface cylindrique de rayon \(r\) entre les deux
+supraconducteurs. La surface \(\unicode{x2461}\) correspond au flux magnétique au
+travers de l'anneau supra.
+</p>
+
+<p>
+Le problème étant invariant par rotation &theta;, le champ magnétique \(\vv{B}\)
+s'écrit \(B_r(r,z)\vv{u_r}+B_z(r,z)\vv{u_z}\) (le plan \((\vv{u_r},\vv{u_z})\) est
+plan d'antisymétrie de la distribution de courant). Si \(h\ll a,b\), on peut
+considérer le problème comme invariant par translation selon \(z\). Le champ
+magnétique se limite à l'expression \(B_r(r)\vv{u_r}+B_z(r)\vv{u_z}\) et, en
+\(z=0\), le champ magnétique est colinéaire à la surface du plan <i>i.e.</i>
+\(\vv{B}\parallel\vv{u_r}\) d'où \(B_z(r)=0\) pour tout valeur de \(r\). Ainsi,
+dans la mesure où \(h\ll b\), le champ magnétique entre les supraconducteurs
+peut s'approximer par \(B(r)\vv{u_r}\).
+</p>
+</li>
+
+<li>L'anneau subit une pression magnétique
+\begin{align*}
+  \frac{d\vv{F}}{dS}=\frac{B^2}{2\mu_0}\vv{u_z}&\to\vv{F}=\frac{\Phi_B^2}{4\pi^2h^2\times2\mu_0}\int_a^b\int_0^{2\pi}\frac{\cancel{r}drd\theta}{r^{\cancel{2}}}\vv{u_z}\\\\
+  &\vv{F}=\frac{\Phi_B^2}{8\pi^2h^2\mu_0}\times\ln\frac{b}{a}\,\vv{u_z}=\frac{\Phi_B^2}{4\pi\mu_0 h^2}\ln\frac{b}{a}\,\vv{u_z}
+\end{align*}
+
+<p>
+L'équilibre de l'anneau est atteint lorsque la résultante des forces de
+Laplace \(\vv{F}\) compense le poids \(m\vv{g}\) de l'anneau soit
+</p>
+\begin{align*}
+  \frac{\Phi_B^2}{4\pi\mu_0 h_0^2}\ln\frac{b}{a}&=mg\\
+  h_0&=\Phi_B\sqrt{\frac{1}{4\pi\mu_0 mg}\ln\frac{b}{a}}
+\end{align*}
+</li>
+
+<li>Hors équilibre, le principe fondamental de la dynamique s'écrit
+\begin{align*}
+  \vv{F}+m\vv{g}&=m\ddot{h}\vv{u_z}\text{ avec }F=F_0=mg\text{ pour }h=h_0\\
+  F-F_0&=m\ddot{h}
+\end{align*}
+
+<p>
+Pour \(h\) au voisinage de \(h_0\), la force \(F\) peut se développer sous la forme
+</p>
+\begin{align*}
+  F\simeq F_0+(h-h_0)\left.\frac{\partial F}{\partial h}\right|_{h_0}
+\end{align*}
+
+<p>
+Sachant que \(F\) est de la forme \(\frac{\alpha}{h^2}\) où
+\(\alpha=\frac{\Phi_B^2}{4\pi\mu_0}\ln\frac{b}{a}\), la dérivée \(\frac{\partial
+   F}{\partial h}=-\frac{2\alpha}{h^3}\). Le mouvement de l'anneau autour de sa
+position d'équilibre \(h_0\) devient
+</p>
+\begin{align*}
+  F-F_0\simeq -(h-h_0)\frac{2\alpha}{h_0^3}&=m\ddot{h}\\
+  \ddot{h}+\frac{2\alpha}{mh_0^3}(h-h_0)&=0
+\end{align*}
+
+<p>
+L'anneau oscille autour de sa position d'équilibre \(h_0\) à une pulsation
+\(\omega^2=\frac{2\alpha}{mh_0^3}\) soit
+</p>
+\begin{align*}
+  \omega^2&=\frac{4\pi^2}{T^2}=\frac{2\Phi_B^2}{4\pi\mu_0mh_0^3}\ln\frac{b}{a}\\
+  T&=2\pi\sqrt{\frac{2\pi\mu_0h_0^3}{\Phi_B^2\ln\frac{b}{a}}}
+\end{align*}
+</li>
+
+<li>Application numérique :
+\begin{align*}
+  h_0&=\unit[10^{-6}]{Weber}\sqrt{\frac{1}{4\pi\times4\pi\,10^{-7}\times0.1\times10}\times\ln5}=\unit[0.32]{mm}\ll b\\
+  T&=\unit[0.02]{s}
+\end{align*}
+</li>
+</ol>
+</div>
 </div>
 </div>
 <div id="footnotes">
 <h2 class="footnotes"> </h2>
 <div id="text-footnotes">
+
+
 
 
 
