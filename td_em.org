@@ -2526,7 +2526,7 @@ $\div\vv{E}=\frac{\rho_\text{tot.}}{\epsilon_0}$ d'où
 S'il n'y a donc pas de densité volumique de charge libre $\rho_\ell$, la densité
 volumique de charge liée est donc également nulle.
 
-* COMMENT TD5 : Magnétostatique
+* TD5 : Magnétostatique
 ** Introduction
 En magnétostatique, les équations locales deviennent
 #+BEGIN_SRC latex
@@ -2585,7 +2585,6 @@ Poisson $\vv{\Delta}\vv{A}=-\mu_0\vv{j}$ soit
    Loi de Biot & Savart
    #+BEGIN_SRC latex
      \begin{align*}
-       %%\vv{dB}(M)&=\frac{\mu_0I}{4\pi}\,\frac{\vv{d\ell}\times\vv{PM}}{PM^3}\\
        \vv{B}(M)&=\frac{\mu_0I}{4\pi}\oint_\mathcal{C}\frac{\vv{d\ell}\times\vv{PM}}{PM^3}\\
        &\text{où }\left\{
        \begin{array}{rl}
@@ -3317,7 +3316,6 @@ Laplace. Par ailleurs, le potentiel crée par un plan infini s'écrit
 $r\cos\theta$ et est lui aussi solution de l'équation de Laplace. La somme des
 deux solutions justifie ainsi de la forme de la solution utilisée dans cet
 exercice.
-
 
 * COMMENT TD6 : Milieux magnétiques
 ** Introduction
