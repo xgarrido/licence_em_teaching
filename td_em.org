@@ -2526,7 +2526,7 @@ $\div\vv{E}=\frac{\rho_\text{tot.}}{\epsilon_0}$ d'où
 S'il n'y a donc pas de densité volumique de charge libre $\rho_\ell$, la densité
 volumique de charge liée est donc également nulle.
 
-* TD5 : Magnétostatique
+* COMMENT TD5 : Magnétostatique
 ** Introduction
 En magnétostatique, les équations locales deviennent
 #+BEGIN_SRC latex
@@ -4188,7 +4188,7 @@ $I=I_0\cos\omega t$. La fonction d'Heaviside a pour représentation
       de Higgs au LHC (pour une énergie de faisceau de 14 TeV et une masse du
       Higgs voisine de 125 GeV) est voisine de 50 picobarns soit 50 10^{-12} barn
       soit 50 10^{-40} m^{2}.
-* TD8 : Propagation dans le vide et les milieux diélectriques
+* COMMENT TD8 : Propagation dans le vide et les milieux diélectriques
 ** Effet Faraday dans un diélectrique
 
 #+BEGIN_CENTER
@@ -4944,3 +4944,68 @@ l'expression de la matrice inverse $\mathcal{A}^{-1}$ est
     \end{bmatrix}\text{ avec }\text{det}\mathcal{A}=ad-bc
   \end{align*}
 #+END_SRC
+
+* TD9 : Guides d'onde
+** Cavité cylindrique résonante
+*** Détermination des fréquences de résonance
+1) Les équations de Maxwell sont
+   #+BEGIN_SRC latex
+     \begin{align*}
+       \rot\vv{E}=-\frac{\partial\vv{B}}{\partial t}&\quad\rot\vv{B}=\mu_0\epsilon_0\frac{\partial\vv{E}}{\partial t}\\
+       \rot\left(\rot\vv{E}\right)&=\underbrace{\cancel{\grad\left(\div\vv{E}\right)}}_{\rho=0\text{ pas de charge dans le vide}}-\Delta\vv{E}\\
+       \Delta\vv{E}-\mu_0\epsilon_0\frac{\partial^2\vv{E}}{\partial t^2}&=\square\vv{E}=\vv{0}
+     \end{align*}
+   #+END_SRC
+2) Soit $E_z$ la composante du champ électrique colinéaire à l'axe du
+   cylindre. En coordonnées cylindriques, l'expression de $E_z(r,\theta,z,t)$
+   s'écrit
+   #+BEGIN_SRC latex
+     \begin{align*}
+       E_z(r,\theta,z,t)=F(\theta)G(r)H(z)\exp\left(-i\omega t\right)
+     \end{align*}
+   #+END_SRC
+   En projetant l'équation de propagation selon $\vv{u_z}$, on obtient
+   #+BEGIN_SRC latex
+     \begin{align*}
+       \Delta E_z-\mu_0\epsilon_0\frac{\partial^2E_z}{\partial t^2}&=0
+     \end{align*}
+   #+END_SRC
+   avec
+   #+BEGIN_SRC latex
+     \begin{align*}
+       \Delta E_z&=\frac{1}{r}\frac{\partial}{\partial r}\left(r\frac{\partial E_z}{\partial r}\right)+\frac{1}{r^2}\frac{\partial^2E_z}{\partial\theta^2}+\frac{\partial^2E_z}{\partial r^2}\\
+       &=\frac{\partial^2E_z}{\partial r^2}+\frac{1}{r}\frac{\partial E_z}{\partial r}+\frac{1}{r^2}\frac{\partial^2E_z}{\partial\theta^2}+\frac{\partial^2E_z}{\partial z}\\
+       \frac{\partial^2E_z}{\partial t^2}&=-\omega^2E_z
+     \end{align*}
+   #+END_SRC
+   soit
+   #+BEGIN_SRC latex
+     \begin{align*}
+       FH\frac{\partial^2G}{\partial r^2}+\frac{1}{r}FH\frac{\partial G}{\partial r}+\frac{1}{r^2}GH\frac{\partial^2F}{\partial t^2}+FG\frac{\partial^2H}{\partial z^2}+\mu_0\epsilon_0\omega^2FGH&=0\\
+       \underbrace{\frac{1}{G}\frac{\partial^2G}{\partial r^2}+\frac{1}{rG}\frac{\partial G}{\partial r}+\frac{1}{r^2F}\frac{\partial^2F}{\partial\theta^2}}_{f(r,\theta)}+\underbrace{\frac{1}{H}\frac{\partial^2H}{\partial z^2}}_{g(z)}+\underbrace{\mu_0\epsilon_0\omega^2}_{\text{constante}}&=0
+     \end{align*}
+   #+END_SRC
+   Les deux fonctions $f(r,\theta)$ et $g(z)$ sont donc nécessairement des
+   constantes d'où
+   #+BEGIN_SRC latex
+     \begin{align*}
+       \frac{H''(z)}{H(z)}=\beta^2\to H(z)=H_0e^{\beta z}+H_1e^{-\beta z}
+     \end{align*}
+   #+END_SRC
+   On a donc
+   #+BEGIN_SRC latex
+     \begin{align*}
+       \frac{G''(r)}{G(r)}+\frac{1}{r}\frac{G'(r)}{G(r)}+\frac{1}{r^2}\frac{F''(\theta)}{F(\theta)}+\mu_0\epsilon_0\omega^2+\beta^2&=0\\
+       \underbrace{r^2\frac{G''(r)}{G(r)}+r\frac{G'(r)}{G(r)}+r^2\left(\mu_0\epsilon_0\omega^2+\beta^2\right)}_{f(r)}+\underbrace{\frac{F''(\theta)}{F(\theta)}}_{g(\theta)}&=0
+     \end{align*}
+   #+END_SRC
+   Pour les mêmes raisons, le rapport $\frac{F''(\theta)}{F(\theta)}$ est donc
+   constant et égal à $\alpha^2$. On déduit que l'expression de $F(\theta)$ est
+   de la forme
+   #+BEGIN_SRC latex
+     \begin{align*}
+       \frac{F''(\theta)}{F(\theta)}=\alpha^2\to F(\theta)=F_0e^{\alpha\theta}+F_1e^{-\alpha\theta}
+     \end{align*}
+   #+END_SRC
+   *Remarques :* \alpha^{2} et \beta^{2} étant réels, \alpha et \beta sont donc
+   soit réels soit imaginaires purs.
