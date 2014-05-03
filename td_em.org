@@ -5009,3 +5009,164 @@ l'expression de la matrice inverse $\mathcal{A}^{-1}$ est
    #+END_SRC
    *Remarques :* \alpha^{2} et \beta^{2} étant réels, \alpha et \beta sont donc
    soit réels soit imaginaires purs.
+3) Les conditions aux limites imposent que $\vv{E}(\theta)=\vv{E}(\theta+2\pi)$
+   /i.e./ $F$ est 2\pi périodique : \alpha est donc nécessairement imaginaire
+   pur $\alpha=i\lambda$.
+   #+BEGIN_SRC latex
+     \begin{align*}
+       F(\theta)=F_0e^{I\lambda\theta}+F_1e^{-i\lambda\theta}&=F(\theta+2\pi)\\
+       &=F_0e^{i\lambda\theta}e^{i2\pi\lambda}+F_1e^{-i\lambda\theta}e^{-i2\pi\lambda}
+     \end{align*}
+   #+END_SRC
+   d'où $e^{i2\pi\lambda}=1$ /i.e./ \lambda est donc entier relatif.
+
+   Par ailleurs, en $z=0$ et $z=h$, la composante tangentielle du champ
+   électriques est toujours continue. Les parois étant un conducteur parfait, le
+   champ électriques est nul à l'intérieur d'où les relations
+   #+BEGIN_SRC latex
+     \begin{align*}
+       \vv{E}_\parallel(z=0)=E_r(z=0)\vv{u_r}+E_\theta(z=0)\vv{u_\theta}&=\vv{0}\\
+       D_r(r,\theta)H'(z=0)e^{-i\omega t}\vv{u_r}+D_\theta(r,\theta)H'(z=0)e^{-i\omega t}\vv{u_\theta}&=\vv{0}\\
+       H'(z=0)&=0
+     \end{align*}
+   #+END_SRC
+   De même en $z=h$, $H'(z=h)=0$. Or $H'$ est égal à $H_0\beta e^{\beta
+   z}-H_1\beta e^{-i\beta}$ soit
+   #+BEGIN_SRC latex
+     \begin{align*}
+       \text{en }z=0&\to H_0\beta-H_1\beta=0\to H_0=H_1\\
+       \text{en }z=h&\to H_0\beta e^{\beta h}-H_1\beta e^{-\beta h}=0\to e^{\beta h}-e^{-\beta h}=0
+     \end{align*}
+   #+END_SRC
+   Il existe une solution "triviale" où \beta est un réel nul. Si
+   $\beta=i\delta$ on obtient
+   #+BEGIN_SRC latex
+     \begin{align*}
+       e^{i\delta h}-e^{i\delta h}=\sin\delta h=0\to\delta h=p\pi\text{ avec }p\in\mathbb{N}
+     \end{align*}
+   #+END_SRC
+   La constante \beta est donc égale à $\frac{ip\pi}{h}$. On déduit que
+   l'expression de la fonction $H(z)$ est
+   #+BEGIN_SRC latex
+     \begin{align*}
+       H(z)&=H_0\left(e^{\frac{ip\pi}{h}z}+e^{-\frac{ip\pi}{h}z}\right)=2H_0\cos\left(\frac{p\pi}{h}z\right)
+     \end{align*}
+   #+END_SRC
+4) L'équation satisfaite par $G(r)$ est
+   #+BEGIN_SRC latex
+     \begin{align*}
+       r^2\frac{G''(r)}{G(r)}+r\frac{G'(r)}{G(r)}+r^2\left(\mu_0\epsilon_0\omega^2+\beta^2\right)+\alpha^2&=0\\
+       r^2G''(r)+rG'(r)+\left(\alpha^2+r^2\beta^2+r^2\mu_0\epsilon_0\omega^2\right)G(r)&=0\\
+       \text{ avec }\alpha^2=-\lambda^2\text{ et }\beta^2=-\frac{p^2\pi^2}{h^2}&\\
+       r^2G''(r)+rG'(r)+\left[\left(\mu_0\epsilon_0\omega^2-\frac{\pi^2}{h^2}p^2\right)r^2-\lambda^2\right]G(r)&=0
+     \end{align*}
+   #+END_SRC
+   La fonction $\Gamma(u)$ est telle que $\Gamma(\gamma r)=G(r)$ avec \gamma une
+   constante quelconque. Les dérivées de $G(r)$ peuvent donc s'écrire
+   #+BEGIN_SRC latex
+     \begin{align*}
+       G'(r)&=\frac{\partial G}{\partial r}=\frac{\partial\Gamma(u)}{\partial u}\times\frac{\partial u}{\partial r}\\
+       &\text{où }u=\gamma r\to\frac{\partial u}{\partial r}=\gamma\\
+       G'(r)&=\gamma\frac{\partial\Gamma(u)}{\partial u}\\
+       G''(r)&=\gamma\frac{\partial\left(\frac{\partial\Gamma}{\partial u}\right)}{\partial r}\\
+       &=\gamma\times\frac{\partial^2\Gamma(u)}{\partial u^2}\times\frac{\partial u}{\partial r}=\gamma^2\frac{\partial^2\Gamma(u)}{\partial u^2}
+     \end{align*}
+   #+END_SRC
+   L'équation solution de $G(r)$ est, exprimée en fonction de \Gamma,
+   #+BEGIN_SRC latex
+     \begin{align*}
+       \frac{u^2}{\cancel{\gamma^2}}\cancel{\gamma^2}\frac{\partial^2\Gamma}{\partial u^2}+\frac{u}{\cancel{\gamma}}\cancel{\gamma}\frac{\partial\Gamma}{\partial u}+\left[\left(\mu_0\epsilon_0\omega^2-\frac{\pi^2}{h^2}p^2\right)\frac{u^2}{\gamma^2}-\lambda^2\right]\Gamma=0
+     \end{align*}
+   #+END_SRC
+   En choisissant $\gamma$ tel que
+   $\gamma^2=\mu_0\epsilon_0\omega^2-\frac{\pi^2}{h^2}p^2$, on obtient
+   l'équation
+   #+BEGIN_SRC latex
+     \begin{align*}
+       u^2\Gamma''+u\Gamma'+\left(u^2-\lambda^2\right)\Gamma=0
+     \end{align*}
+   #+END_SRC
+   qui correspond à l'équation de Bessel d'ordre \lambda avec \lambda
+   entier. Les solutions de cette équation sont de la forme
+   #+BEGIN_SRC latex
+     \begin{align*}
+       \Gamma(u)=A_\lambda J_\lambda(u)+B_\lambda N_\lambda(u)
+     \end{align*}
+   #+END_SRC
+   où
+   - $J_\lambda$ est la fonction de Bessel de 1^{ère} espèce
+   - $N_\lambda$ est la fonction de Bessel de 2^{ème} espèce ou fonction de Neumann
+
+   La fonction $G(r)=A_\lambda J_\lambda(\gamma r)+B_\lambda N_\lambda(\gamma
+   r)$ doit être bornée en $r\to0$ : or $N_\lambda(\gamma r)\to\left(\gamma
+   r\right)^{-\lambda}$ pour $r\to0$. Si $\lambda>0$ [fn:1] il y a donc divergence de
+   la fonction $G(r\to0)$ imposant que la constante $B_\lambda$ soit nulle.
+
+   Par ailleurs, en $r=a$, la composante tangentielle du champ électrique est
+   conservée d'où $E_z(a,\theta,z,t)=E_\text{paroi}(a,\theta,z,t)=0$ soit
+   $G(a)=A_\lambda J_\lambda(\gamma a)=0$. La fonction de Bessel $J_\lambda$ est
+   nulle pour $\gamma a=x_{\lambda n}$ où $x_{\lambda n}$ est le $n$-ième zéro
+   de la fonction de Bessel $J_\lambda(x)$.
+
+   Les fréquences de résonance \omega se déduisent alors de
+   #+BEGIN_SRC latex
+     \begin{align*}
+       \gamma^2&=\mu_0\epsilon_0\omega^2-\frac{\pi^2}{h^2}p^2=\left(\frac{x_{\lambda n}}{a}\right)^2\\
+       \omega&=c\sqrt{\frac{\pi^2}{h^2}p^2+\frac{x_{\lambda n}^2}{a^2}}
+     \end{align*}
+   #+END_SRC
+
+   En résumé, l'expression de $E_z(r,\theta,z,t)=F(\theta)G(r)H(z)\exp(-i\omega
+   t)$ se décompose en
+   -
+      $F(\theta)=F_0e^{i\lambda\theta}+F_1e^{-i\lambda\theta}=F\cos(\lambda\theta+\phi_\lambda)$,
+   - $G(r)=A_\lambda J_\lambda(\gamma r)$,
+   - $H(z)=H\cos\left(\frac{\pi p}{h}z\right)$,
+   où $F_0,F_1,A_\lambda,H$ sont autant de constantes et $\lambda,p$ sont des
+   entiers.
+   #+BEGIN_SRC latex
+     \begin{align*}
+       E_z(r,\theta,z,t)=E_{0\lambda}J_\lambda(\gamma r)\cos\left(\frac{\pi p}{h}z\right)\cos\left(\lambda\theta+\phi_\lambda\right)\exp(-i\omega t)
+     \end{align*}
+   #+END_SRC
+
+*** Étude du mode fondamental
+1) Le problème est invariant par rotation autour de $Oz$ : le champ électrique
+   ne dépend donc pas de $\theta\to
+   F(\theta)=\text{constante}\to\lambda=0$. D'autre part, le mode fondamental
+   correspond à la plus petite des valeurs de \omega /i.e./ celle correspondant
+   donc à $p=0$ et $n=1$ soit
+   #+BEGIN_SRC latex
+     \begin{align*}
+       \omega&=c\sqrt{\frac{\pi^2}{h^2}p^2+\frac{x_{\lambda n}^2}{a^2}}\\
+       \omega_0&=c\frac{x_{01}}{a}
+     \end{align*}
+   #+END_SRC
+   La fonction $G(r)$ devient égale à $A_0J_0\left(\frac{x_{01}}{a}r\right)$,
+   l'expression de $E_z$ se limitant à
+   #+BEGIN_SRC latex
+     \begin{align*}
+       E_z(r,\theta,z,t)&=E_0J_0\left(\frac{x_{01}}{a}r\right)\exp(-i\omega t)
+     \end{align*}
+   #+END_SRC
+
+   En raison des symétries du problèmes, le plan $(\vv{u_r},\vv{u_z})$ est plan
+   de symétrie, le champ électrique $\vv{E}$ appartenant nécessairement )à ce
+   dernier : $E_\theta=0$. Par ailleurs, l'expression de $E_r$ est de la forme
+   $D(r,\theta)H'(z)\exp(-i\omega t)$ avec $H'(z)=-H\frac{\pi
+   p}{h}\sin\left(\frac{\pi p}{h}z\right)=0$ pour $p=0$. La composante radiale
+   du champ électrique est donc également nulle.
+
+   Le champ électrique est ainsi
+   #+BEGIN_SRC latex
+     \begin{align*}
+       \vv{E}=E_0J_0\left(\frac{x_{01}}{a}r\right)\exp(-i\omega t)\vv{u_z}
+     \end{align*}
+   #+END_SRC
+   confirmant l'invariance par rotation autour de l'axe $Oz$ et son indépendance
+   vis-à-vis de la composante $z$.
+
+
+** Footnotes
+
+[fn:1] pour les fonctions de Bessel, on considère toujours \lambda > 0
