@@ -1,7 +1,7 @@
 #+TITLE:  Travaux Dirigés d'Électromagné\-tisme -- Licence 3
 #+AUTHOR: Xavier Garrido
 #+DATE:   21/01/14
-#+OPTIONS: ^:{} toc:2 tags:nil author:nil split:t
+#+OPTIONS: ^:{} toc:2 tags:nil author:nil split:html
 #+LATEX_CLASS: teaching-class
 
 * COMMENT TD1 : Électromagnétisme & relativité
