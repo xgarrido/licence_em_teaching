@@ -5099,7 +5099,7 @@ l'expression de la matrice inverse $\mathcal{A}^{-1}$ est
 
    La fonction $G(r)=A_\lambda J_\lambda(\gamma r)+B_\lambda N_\lambda(\gamma
    r)$ doit être bornée en $r\to0$ : or $N_\lambda(\gamma r)\to\left(\gamma
-   r\right)^{-\lambda}$ pour $r\to0$. Si $\lambda>0$ [fn:1] il y a donc divergence de
+   r\right)^{-\lambda}$ pour $r\to0$. Si $\lambda>0$ [fn:11] il y a donc divergence de
    la fonction $G(r\to0)$ imposant que la constante $B_\lambda$ soit nulle.
 
    Par ailleurs, en $r=a$, la composante tangentielle du champ électrique est
@@ -5356,4 +5356,76 @@ l'expression de la matrice inverse $\mathcal{A}^{-1}$ est
 
 ** Footnotes
 
-[fn:1] pour les fonctions de Bessel, on considère toujours \lambda > 0
+[fn:11] pour les fonctions de Bessel, on considère toujours \lambda > 0
+* TD10 : Induction électromagnétique
+** Introduction
+En régime variable, le champ magnétique demeure toujours à flux conservatif à
+savoir que
+#+BEGIN_SRC latex
+  \begin{align*}
+    \oiint_S\vv{B}.\vv{dS}=0
+  \end{align*}
+#+END_SRC
+à tout instant $t$. En revanche, la variation du flux magnétique au travers
+d'une surface (non-fermée) est à l'origine d'une force électro-motrice $e(t)$
+qui s'exprime selon la loi de Faraday
+#+BEGIN_SRC latex
+  \begin{align*}
+    e(t)=-\frac{d\Phi(t)}{dt}\text{ où }\Phi(t)=\iint_S\vv{B}.\vv{dS}
+  \end{align*}
+#+END_SRC
+Ainsi, un courant $i(t)$ parcourant une boucle $\mathcal{C}$ crée un champ
+magnétique $\vv{B}_P(M,t)$ dont le flux s'oppose à l'augmentation du flux qu'on
+impose (loi de Lenz) : le flux magnétique propre s'écrit
+#+BEGIN_SRC latex
+  \begin{align*}
+    \Phi_P=\iint_{S/\mathcal{C}}\vv{B}_P.\vv{dS}=L\times i(t)
+  \end{align*}
+#+END_SRC
+où $L$ est l'inductance propre du circuit. On parle d'*auto-induction*.
+
+Si un circuit filiforme auto-induit une force qui s'oppose à l'établissement du
+champ magnétique, deux circuits électriques induisent mutuellement une force sur
+chacun d'entre eux. Si on considère deux circuits parcourus respectivement par
+un courant $i_1(t)$ et un courant $i_2(t)$, le flux magnétique induit par le
+premier sur le second circuit s'exprime
+#+BEGIN_SRC latex
+  \begin{align*}
+    \Phi_{1\to2}=M_{1\to2}I_1
+  \end{align*}
+#+END_SRC
+de même que le deuxième circuit induit un flux magnétique égal à
+$\Phi_{2\to1}=M_{2\to1}I_2$. Les coefficients $M_{i\to j}$ sont appelés
+coefficients d'inductance mutuelle et sont., suivant le théorème de Neumann,
+égaux /i.e./ $M_{1\to2}=M_{2\to1}=M$ [fn:12].
+
+En ajoutant à l'inductance mutuelle, l'auto-infuction, les flux magnétiques au
+travers du premier et du second circuit sont
+#+BEGIN_SRC latex
+  \begin{align*}
+    \Phi_1&=L_1i_1+Mi_2\\
+    \Phi_2&=L_2i_2+Mi_1
+  \end{align*}
+#+END_SRC
+desquels on déduit les forces électro-motrices
+#+BEGIN_SRC latex
+  \begin{align*}
+    e_1&=-\frac{d\Phi_1}{dt}=-L_1\frac{di_1}{dt}-M\frac{di_2}{dt}\\
+    e_2&=-\frac{d\Phi_1}{dt}=-L_2\frac{di_2}{dt}-M\frac{di_1}{dt}
+  \end{align*}
+#+END_SRC
+
+D'un point de vue énergétique, l'énergie magnétique stockée dans un circuit est
+égale à $\mathcal{E}_m=\frac{1}{2}Li^2$. Pour deux circuits, il s'agit de
+prendre en compte l'effet d'un circuit vis-à-vis de l'autre soit
+#+BEGIN_SRC latex
+  \begin{align*}
+    \mathcal{E}_m=\frac{1}{2}L_1i_1^2+\frac{1}{2}L_2i_2^2+Mi_1i_2
+  \end{align*}
+#+END_SRC
+
+** Footnotes
+
+[fn:12] dans le cas de deux bobines chacune constituées respectivement de $N_1$
+et $N_2$ spires, le coefficient d'inductance mutuelle est proportionnel au
+produit $N_1N_2$.
