@@ -5423,9 +5423,115 @@ prendre en compte l'effet d'un circuit vis-à-vis de l'autre soit
     \mathcal{E}_m=\frac{1}{2}L_1i_1^2+\frac{1}{2}L_2i_2^2+Mi_1i_2
   \end{align*}
 #+END_SRC
+** Couplage entre un solénoïde et une bobine
+1) L'unique champ magnétique est celui crée par le solénoïde que l'on considère
+   comme infini. Ainsi le champ magnétique est égal à $\mu_0nI\vv{u_z}$ pour
+   $r<a$ et nul à l'extérieur du solénoïde. Le flux magnétique induit par le
+   solénoïde au travers de la bobine est donc égal à
+   #+BEGIN_SRC latex
+     \begin{align*}
+       \Phi_{S\to B}=\iint_{S_B}\vv{B}.\vv{dS}=\mu_0nI\times\pi a^2\times N
+     \end{align*}
+   #+END_SRC
 
+   Le coefficient d'inductance mutuelle $M$ s'écrit
+   #+BEGIN_SRC latex
+     \begin{align*}
+       \Phi_{S\to B}&=\mu_0nI\times\pi a^2\times N=M\times I\\
+       M&=\mu_0nN\pi a^2
+     \end{align*}
+   #+END_SRC
+
+2)
+   1) La force électro-motrice $e(t)$ qui correspond à la variation temporelle
+      du flux magnétique au travers de la bobine s'écrit
+      #+BEGIN_SRC latex
+        \begin{align*}
+          e(t)&=-\frac{d\Phi}{dt}=-L_\text{bobine}\frac{di}{dt}-M\frac{dI}{dt}
+        \end{align*}
+      #+END_SRC
+      où $i(t)$ est le courant induit. L'expression de $e(t)$ est ainsi la somme
+      d'un terme d'auto-inductance à savoir que le courant induit $i(t)$ génère
+      une force s'opposant à son établissement auquel s'ajoute un terme
+      d'inductance mutuelle due à la présence du solénoïde. Dans la mesure où
+      l'inductance $L_\text{bobine}$ est proportionnelle à $N^2$ alors que le
+      coefficient d'inductance mutuelle $M$ est proportionnel à $n\times N$ et
+      dans l'hypothèse où $n\gg N$, la f.e.m se réduit à
+      #+BEGIN_SRC latex
+        \begin{align*}
+          e(t)\simeq-M\frac{dI}{dt}
+        \end{align*}
+      #+END_SRC
+
+      Le courant induit $i(t)$ devient
+      #+BEGIN_SRC latex
+        \begin{align*}
+          e(t)=R\times i(t)\to i(t)&=-\frac{\mu_0nN\pi a^2}{R}\times\frac{dI}{dt}\\
+          &=-\frac{\mu_0nN\pi a^2}{R}I_0\omega\cos\omega t
+        \end{align*}
+      #+END_SRC
+   2) Pour un circuit fermé fixe, la force électro-motrice est égale à la
+      circulation du champ électrique autour de ce circuit[fn:13]
+      #+BEGIN_SRC latex
+        \begin{align*}
+          e(t)&=\oint_\mathcal{C}\vv{E}.\vv{d\ell}=2\pi b\times N\times E
+        \end{align*}
+      #+END_SRC
+      Le champ électrique est donc égal à
+      #+BEGIN_SRC latex
+        \begin{align*}
+          \vv{E}(t)&=-\frac{\mu_0n\cancel{N\pi} a^2}{R}\times{1}{2\cancel{\pi}b\cancel{N}}\times I_0\omega\cos\omega t\,\vv{u_\theta}\\
+          &=-\frac{\mu_0n}{2}\times\frac{a^2}{b}\times I_0\omega\cos\omega t\,\vv{u_\theta}
+        \end{align*}
+      #+END_SRC
+   3)
+      1) Le potentiel vecteur $\vv{A}$ oébit aux mêmes symétries que le champ
+         électrique : $\vv{A}$ est colinéaire à $\vv{u_\theta}$ et ne dépend que
+         de la distance à l'axe du solénoïde.
+      2) $\vv{B}=\rot\vv{A}=\frac{1}{r}\frac{\partial}{\partial
+         r}\left(rA_\theta\right)\vv{u_z}$
+         - pour $r<a$
+           #+BEGIN_SRC latex
+             \begin{align*}
+               \frac{1}{r}\frac{\partial}{\partial r}\left(rA_\theta\right)&=\mu_0nI\\
+               rA_\theta&=\mu_0nI\frac{r^2}{2}+\text{constante}\\
+               A_\theta&=\frac{\mu_0nI}{2}r+\frac{\text{constante}}{r}
+             \end{align*}
+           #+END_SRC
+           Le fait que $A_\theta$ doit rester fini en $r=0$ impose que la
+           constante d'intégration soi nulle.
+           #+BEGIN_SRC latex
+             \begin{align*}
+               \vv{A}(r<a)&=\frac{\mu_0nI}{2}r\,\vv{u_\theta}
+             \end{align*}
+           #+END_SRC
+         - pour $r>a$
+           #+BEGIN_SRC latex
+             \begin{align*}
+               \frac{1}{r}\frac{\partial}{\partial r}\left(rA_\theta\right)&=0\\
+               A_\theta&=\frac{\text{constante}}{r}\\
+             \end{align*}
+           #+END_SRC
+           Le potentiel-vecteur $\vv{A}$ étant par définition un potentiel, il
+           doit demeurer continu en $r=a$ soit
+           #+BEGIN_SRC latex
+             \begin{align*}
+               \frac{\text{constante}}{a}&=\frac{\mu_0nI}{2}a\to\text{constante}=\frac{\mu_0nI}{2}a^2\\
+               \vv{A}(r>a)&=\frac{\mu_0nI}{2}\frac{a^2}{r}\,\vv{u_\theta}
+             \end{align*}
+           #+END_SRC
+      3) On se place en $r=b>a$,
+         #+BEGIN_SRC latex
+           \begin{align*}
+             -\frac{\partial\vv{A}(r=b)}{\partial t}&=-\frac{\mu_0n}{2}\frac{a^2}{b}\frac{\partial I}{\partial t}\,\vv{u_\theta}\\
+             &=-\frac{\mu_0n}{2}\frac{a^2}{b}I_0\omega\cos\omega t\,\vv{u_\theta}=\vv{E}
+           \end{align*}
+         #+END_SRC
 ** Footnotes
 
 [fn:12] dans le cas de deux bobines chacune constituées respectivement de $N_1$
 et $N_2$ spires, le coefficient d'inductance mutuelle est proportionnel au
 produit $N_1N_2$.
+
+[fn:13] le plan $(\vv{u_r},\vv{u_z})$ est un plan d'antisymétrie impliquant que
+le champ électrique soit orienté selon $\vv{u_\theta}$
