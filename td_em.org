@@ -5184,8 +5184,8 @@ l'expression de la matrice inverse $\mathcal{A}^{-1}$ est
    Le champ magnétique s'écrit
    #+BEGIN_SRC latex
      \begin{align*}
-       \vv{B}&=\frac{i}{\omega}\frac{x_{01}}{a}J'_0\left(\frac{x_{01}}{a}r\right)\exp(-i\omega t)\,\vv{u_\theta}\\
-       &=\frac{i}{c}J'_0\left(\frac{x_{01}}{a}r\right)\exp(-i\omega_{01}t)\,\vv{u_\theta}
+       \vv{B}&=\frac{i}{\omega}\frac{x_{01}}{a}E_0J'_0\left(\frac{x_{01}}{a}r\right)\exp(-i\omega_{01} t)\,\vv{u_\theta}\\
+       &=\frac{i}{c}E_0J'_0\left(\frac{x_{01}}{a}r\right)\exp(-i\omega_{01}t)\,\vv{u_\theta}
      \end{align*}
    #+END_SRC
 3) Application numérique :
@@ -5195,6 +5195,165 @@ l'expression de la matrice inverse $\mathcal{A}^{-1}$ est
        \nu_\text{fonda.}&=\frac{\omega_{01}}{2\pi}=\unit[1.04]{GHz}
      \end{align*}
    #+END_SRC
+*** Facteur de qualité de la cavité pour le mode fondamental
+
+#+BEGIN_CENTER
+#+ATTR_LATEX: :width 0.6\linewidth
+[[./figures/quality_factor.pdf]]
+#+END_CENTER
+
+1) Calcul de l'énergie électromagnétique dans la cavité pour le mode fondamental
+   /i.e./ $\omega_{01}=\omega_{0}$
+   #+BEGIN_SRC latex
+     \begin{align*}
+       \mathcal{E}&=\iiint u_\text{EM}\,d\tau\\
+       &=\iiint\left(\frac{\epsilon_0E^2}{2}+\frac{B^2}{2\mu_0}\right)d\tau\text{ où } E,B\text{ sont les parties réelles}\\
+       u_\text{EM}&=\frac{\epsilon_0}{2}E_0^2J_0^2\left(\frac{x_{0}}{a}r\right)\cos^2\omega_{0}t+\frac{1}{2\mu_0c^2}E_0^2J'^2_0\left(\frac{x_{0}}{a}r\right)\sin^2\omega_{0}t\\
+       &=\frac{\epsilon_0E_0^2}{2}\left[J^2_0\left(\frac{x_{0}}{a}r\right)\cos^2\omega_{0}t+J'^2_0\left(\frac{x_{0}}{a}r\right)\sin^2\omega_{0}t\right]
+     \end{align*}
+   #+END_SRC
+   L'énergie totale stockée dans la cavité est
+   #+BEGIN_SRC latex
+     \begin{align*}
+       \mathcal{E}&=\frac{\epsilon_0E_0^2}{2}\int_0^hdz\int_0^{2\pi}d\theta\left[\cos^2\omega_0t\int_0^aJ_0^2\left(\frac{x_{01}}{a}r\right)rdr+\sin^2\omega_0t\int_0^aJ'^2_0\left(\frac{x_{01}}{a}r\right)rdr\right]\\
+       &=\pi h\epsilon_0E_0^2\left[\cos^2\omega_0t\int_0^aJ_0^2\left(\frac{x_{01}}{a}r\right)rdr+\sin^2\omega_0t\int_0^aJ'^2_0\left(\frac{x_{01}}{a}r\right)rdr\right]
+     \end{align*}
+   #+END_SRC
+   En posant $x=\frac{x_{01}}{a}r, dx=\frac{x_{01}}{a}dr$ avec $x\in[0,x_{01}]$,
+   on obtient l'expression suivante
+   #+BEGIN_SRC latex
+     \begin{align*}
+       \mathcal{E}&=\pi h\epsilon_0E_0^2\times\frac{a^2}{x_{01}^2}\left[\cos^2\omega_0t\int_0^{x_{01}}xJ_0^2(x)dx+\sin^2\omega_0t\int_0^{x_{01}}xJ'^2_0(x)dx\right]\\
+       &=\pi a^2h\times\epsilon_0E_0^2\times\frac{I}{x_{01}^2}
+     \end{align*}
+   #+END_SRC
+   En exprimant $\mathcal{E}=K_1E_0^2$, on déduit que $K_1$ est égal à
+   #+BEGIN_SRC latex
+     \begin{align*}
+       K_1=\underbrace{\pi a^2h}_{\substack{\text{volume}\\\text{de la cavité}}}\times\frac{I}{x_{01}^2}\epsilon_0
+     \end{align*}
+   #+END_SRC
+2) La densité surfacique de charge sur la surface du cylindre est nulle car le
+   champ électrique est colinéaire à l'axe du cylindre $Oz$. En revanche, aux
+   extrémités du cylindre, sur la surface des parois métalliques /i.e./ en $z=0$
+   et $z=h$, la discontinuïté de la composante normale du champ électrique
+   impose
+   - en $z=0$
+     #+BEGIN_SRC latex
+       \begin{align*}
+         \vv{u_z}.\left(\vv{E}(z=0^+)-\cancel{\vv{E}(z=0^-)}\right)&=\frac{\sigma(z=0)}{\epsilon_0}\\
+         \sigma(z=0)&=\epsilon_0E_0J_0\left(\frac{x_{01}}{a}r\right)\exp(-i\omega_0t)
+       \end{align*}
+     #+END_SRC
+   - en $z=h$
+     #+BEGIN_SRC latex
+       \begin{align*}
+         \vv{u_z}.\left(\cancel{\vv{E}(z=h^+)}-\vv{E}(z=h^-)\right)&=\frac{\sigma(z=h)}{\epsilon_0}\\
+         \sigma(z=h)&=-\epsilon_0E_0J_0\left(\frac{x_{01}}{a}r\right)\exp(-i\omega_0t)
+       \end{align*}
+     #+END_SRC
+
+   On note que la somme des charges demeure nulle (le système est donc bien
+   isolé).
+
+   Pour le calcul de la densité surfacique de courant $J_S$, chacune des parois
+   métalliques portent des courants :
+   - paroi cylindrique en $r=a$
+     #+BEGIN_SRC latex
+       \begin{align*}
+         \vv{u_r}\times\left(\cancel{\vv{B}(r=a^+)}-\vv{B}(r=a^-)\right)&=\mu_0\vv{j_S}(r=a)\\
+         \vv{j_S}(r=a)&=-\frac{E_0}{\mu_0c}J'_0\left(\frac{x_{01}}{\cancel{a}}\cancel{a}\right)\sin\omega_0t\,\vv{u_r}\times\vv{u_\theta}\\
+         &=-\frac{E_0}{\mu_0c}J'_0(x_{01})\sin\omega_0t\,\vv{u_z}=\text{constante}
+       \end{align*}
+     #+END_SRC
+   - paroi plane en $z=0$
+     #+BEGIN_SRC latex
+       \begin{align*}
+         \vv{u_z}\times\left(\vv{B}(z=0^+)-\cancel{\vv{B}(z=0^-)}\right)&=\mu_0\vv{j_S}(z=0)\\
+         \vv{j_S}(z=0)&=\frac{E_0}{\mu_0c}J'_0\left(\frac{x_{01}}{a}r\right)\sin\omega_0t\,\vv{u_z}\times\vv{u_\theta}\\
+         &=-\frac{E_0}{\mu_0c}J'_0\left(\frac{x_{01}}{a}r\right)\sin\omega_0t\,\vv{u_r}
+       \end{align*}
+     #+END_SRC
+   - paroi plane en $z=h$
+     #+BEGIN_SRC latex
+       \begin{align*}
+         \vv{u_z}\times\left(\cancel{\vv{B}(z=h^+)}-\vv{B}(z=h^-)\right)&=\mu_0\vv{j_S}(z=h)\\
+         \vv{j_S}(z=h)&=-\frac{E_0}{\mu_0c}J'_0\left(\frac{x_{01}}{a}r\right)\sin\omega_0t\,\vv{u_z}\times\vv{u_\theta}\\
+         &=+\frac{E_0}{\mu_0c}J'_0\left(\frac{x_{01}}{a}r\right)\sin\omega_0t\,\vv{u_r}
+       \end{align*}
+     #+END_SRC
+3) Calcul des puissances dissipées sur chacune des parois
+   #+BEGIN_SRC latex
+     \begin{align*}
+       d^2P_\text{latérale}&=R_Sj^2_S(r=a)dS\\
+       \langle P_\text{latérale}\rangle&=R_S\times\frac{1}{(\mu_0c)^2}J'^2_0(x_{01})\langle\sin^2\omega_0t\rangle\times2\pi ah\times E_0^2\\
+       &=\underbrace{\frac{R_S}{(\mu_0c)^2}J'^2_0(x_{01})\pi ah}_{K_2}\times E_0^2\\
+       d^2P_\text{plan}(z=0)&=R_Sj^2_S(z=0)dS\\
+       \langle P_\text{plan}(z=0)\rangle&=\frac{R_S}{(\mu_0c)^2}\langle\sin^2\omega_0t\rangle\times\int_0^{2\pi}d\theta\int_0^aJ'^2_0\left(\frac{x_{01}}{a}r\right)rdr\times E_0^2\\
+       &=\frac{R_S}{(\mu_0c)^2}\pi\times\frac{a^2}{x_{01}^2}\times\underbrace{\int_0^{x_{01}}xJ'^2_0(x)dx}_{I}\times E_0^2\\
+       &=\underbrace{\frac{\pi a^2\,R_S}{(\mu_0c)^2}I}_{K_3}\times E_0^2
+     \end{align*}
+   #+END_SRC
+
+   En l'absence de source compensant les pertes, la variation de l'énergie
+   totale au cours du temps est uniquement due à la dissipation de l'énergie sur
+   les parois de la cavité d'où
+   #+BEGIN_SRC latex
+     \begin{align*}
+       \frac{d\mathcal{E}}{dt}&=-\langle P_\text{latérale}\rangle-2\langle P_\text{paroi}\rangle\\
+       K_1\frac{dE^2_0}{dt}&=-K_2E_0^2-2K_3E_0^2\\
+       2K_1E_0\frac{dE_0}{dt}+(K_2+2K_3)E_0^2&=0\\
+       \frac{dE_0}{dt}+\frac{K_2+2K_3}{2K_1}E_0&=0
+     \end{align*}
+   #+END_SRC
+   En posant $\tau=\frac{2K_1}{K_2+2K_3}$, l'équation précédente devient
+   #+BEGIN_SRC latex
+     \begin{align*}
+       \frac{dE_0}{dt}+\frac{1}{\tau}E_0=0
+     \end{align*}
+   #+END_SRC
+   dont la solution est
+   #+BEGIN_SRC latex
+     \begin{align*}
+       E_0(t)=E_0(t=0)\,e^{-t/\tau}
+     \end{align*}
+   #+END_SRC
+
+   La largeur de raie $\Delta f=\frac{1}{\pi\tau}$ est donc égale à
+   #+BEGIN_SRC latex
+     \begin{align*}
+       \Delta f_0=\frac{1}{\pi\tau}=\frac{K_2+2K_3}{2\pi K_1}
+     \end{align*}
+   #+END_SRC
+   le facteur de qualité $Q$ étant égal à
+   #+BEGIN_SRC latex
+     \begin{align*}
+       Q&=\frac{f_0}{\Delta f_0}=\frac{\omega_0}{2\pi}\times\pi\tau\\
+       &=\frac{\omega_0K_1}{K_2+2K_3}
+     \end{align*}
+   #+END_SRC
+
+   *Discussion :*
+
+   Le facteur de qualité d'un système est, de manière très générale, une mesure
+   sans unité du taux d'amortissement d'un oscillateur. Plus le facteur de
+   qualité est élevé, plus la bande passante est petite, et plus la résonance
+   est "piquée". Le facteur de qualité permet donc de quantifier la "qualité
+   d'un filtre" (qu'il soit électronique, acoustique, optique...) : plus $Q$ est
+   élevé, plus le filtre est sélectif.
+
+   En optique, la durée de vie
+   moyenne d'un photon plongé dans une cavité résonante telle qu'une cavité
+   Fabry-Pérot est directement proportionnel au facteur de qualité. Par
+   ailleurs, ce facteur de qualité $Q=\frac{f_0}{\Delta f_0}$ est également
+   appelé la finesse.
+
+   Il existe en outre une technique d'émission laser consistant en augmenter
+   rapidement et brièvement le facteur de qualité afin d'émettre un /pulse/
+   laser beaucoup plus intense qu'en mode continu. Cette technique est connue
+   sour le nom de [[http://en.wikipedia.org/wiki/Q-switching][/Q-switching/]] ou commutation Q et est, en particulier, utilisée
+   pour retirer les tatouages.
+
 ** Footnotes
 
 [fn:1] pour les fonctions de Bessel, on considère toujours \lambda > 0
