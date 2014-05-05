@@ -1,0 +1,26 @@
+\begin{tikzpicture}[
+  mark coordinate/.style={inner sep=0pt,outer sep=0pt,minimum size=3pt,
+    fill=black,circle}%
+]
+  % Colors
+  \definecolor{red}{RGB}{221,42,43}
+  \definecolor{green}{RGB}{132,184,24}
+  \definecolor{blue}{RGB}{0,51,153}
+  \definecolor{orange}{RGB}{192,128,64}
+  \definecolor{gray}{RGB}{107,108,110}
+  \begin{axis}[
+      xlabel={angle $\alpha$ [deg]},ylabel={$\sin^3\alpha\left(1-\cos\alpha\right)$},
+      xtick={0,45,90,135,180,270,360},
+      domain=0:180,samples=500,
+      clip=false
+    ]
+    \addplot[thick,blue] {sin(x)^3*(1-cos(x))};
+    \coordinate[mark coordinate,blue] (A) at (axis cs:90,1);
+    \coordinate[mark coordinate,red] (B) at (axis cs:104,1.134);
+    \draw[red, dashed] (axis cs:104,-0.1) -- (axis cs:104,1.15);
+    \draw[red] (axis description cs:0.577,-0.04) node {104};
+
+    \addplot[thick,domain=80:104,red,<->, xshift=-5pt] {sin(x)^3*(1-cos(x))};
+    \coordinate[mark coordinate,red,xshift=-5pt] (C) at (axis cs:90,1);
+  \end{axis}
+\end{tikzpicture}

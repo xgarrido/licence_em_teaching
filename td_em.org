@@ -5596,6 +5596,100 @@ prendre en compte l'effet d'un circuit vis-à-vis de l'autre soit
        i(t)=\frac{M\omega i_{1m}}{R^2+L^2\omega^2}\left(-L\omega\cos\omega t+R\sin\omega t\right)
      \end{align*}
    #+END_SRC
+3) On assimile la bobine à un dipôle magnétique. Pour rappel, le moment
+   magnétique d'une spire est égale à $\vv{\mathcal{M}}=I\times\vv{S}$. Dans
+   notre cas, la bobine possède donc un moment magnétique égal à
+   #+BEGIN_SRC latex
+     \begin{align*}
+       \vv{m}(t)=N\times i(t)\times\pi b^2\,\vv{u_z}
+     \end{align*}
+   #+END_SRC
+   La force qu'exerce le solénoïde sur ce dipôle magnétique s'écrit[fn:15]
+   #+BEGIN_SRC latex
+     \begin{align*}
+       \vv{F}_{S\to B}&=\vv{\nabla}\left(\vv{m}.\vv{B}\right)\\
+       &=\cancel{\left(\vv{\nabla}.\vv{m}\right).\vv{B}}+\vv{m}\left(\vv{\nabla}.\vv{B}\right)\\
+       &=m\left(\frac{\partial B}{\partial z}\right)\vv{u_z}\quad(\text{car }\vv{B}\parallel\vv{u_z})\\
+       &=\vv{u_z}\,\pi b^2\frac{\mu_0ni_1Ni}{2}\frac{\partial}{\partial z}\left(1-\cos\alpha\right)\\
+       &=\vv{u_z}\,\pi b^2\frac{\mu_0ni_1Ni}{2}\frac{\partial}{\partial\alpha}\left(1-\cos\alpha\right)\times\frac{\partial\alpha}{\partial z}
+     \end{align*}
+   #+END_SRC
+   Sachant que $\tan\alpha=\frac{a}{z}$, l'expression de
+   $\frac{\partial\alpha}{\partial z}$ s'écrit
+   #+BEGIN_SRC latex
+     \begin{align*}
+       \frac{d}{d\alpha}\tan\alpha&=\frac{\cos\alpha}{\cos\alpha}+\frac{\sin^2\alpha}{\cos^2\alpha}=\frac{1}{\cos^2\alpha}\\
+       d(\tan\alpha)&=\frac{d\alpha}{\cos^2\alpha}=d\left(\frac{a}{z}\right)=-\frac{a}{z^2}dz\\
+       \frac{\partial\alpha}{\partial z}&=\frac{d\alpha}{dz}=-\frac{a\cos^2\alpha}{z^2}\\
+       &=-a\cos^2\alpha\times\frac{\tan^2\alpha}{a^2}=-\frac{\sin^2\alpha}{a}
+     \end{align*}
+   #+END_SRC
+   La force exercée par le solénoïde sur la bobine devient
+   #+BEGIN_SRC latex
+     \begin{align*}
+       \vv{F}_{S\to B}&=-\frac{\mu_0\pi b^2}{2a}\times nNii_1\times\sin^3\alpha\,\vv{u_z}
+     \end{align*}
+   #+END_SRC
+
+   La valeur moyenne de cette force $\langle\vv{F}_{S\to B}\rangle$ consiste à
+   évaluer la valeur moyenne du produit des intensités $ii_1$ soit
+   #+BEGIN_SRC latex
+     \begin{align*}
+       \langle i(t)\dot i_1(t)\rangle&=\langle i_{1m}\cos\omega t\left(A\cos\omega t+B\sin\omega t\right)\rangle\\
+       &=\frac{i_{1m}A}{2}=-\frac{ML\omega^2i_{1m}^2}{2\left(R^2+L^2\omega^2\right)}
+     \end{align*}
+   #+END_SRC
+   d'où une force moyenne égale à
+   #+BEGIN_SRC latex
+     \begin{align*}
+       \langle\vv{F}_{S\to B}\rangle&=\frac{\mu_0\pi b^2}{4a}\times nN\times\frac{ML\omega^2i_{1m}^2}{R^2+L^2\omega^2}\times\sin^3\alpha\,\vv{u_z}
+     \end{align*}
+   #+END_SRC
+   Finalement, en remplaçant $M$ par $\frac{\mu_0nN\,\pi
+   b^2}{2}\left(1-\cos\alpha\right)$, on obtient une force moyenne
+   #+BEGIN_SRC latex
+     \begin{align*}
+       \langle\vv{F}_{S\to B}\rangle&=\frac{\mu_0^2}{8}\frac{\pi^2b^4}{a}n^2N^2\sin^3\alpha\left(1-\cos\alpha\right)\frac{L\omega^2}{R^2+L^2\omega^2}\,i_{1m}^2\,\vv{u_z}
+     \end{align*}
+   #+END_SRC
+
+   *Lévitation de la bobine*
+
+   Dans l'hypothèse où la bobine est placée juste au dessus du solénoïde,
+   l'angle \alpha est donc égal à \pi/2 et
+   $\sin^2\alpha\left(1-\cos\alpha\right)=1$. Pour compenser le poids de la
+   bobine, il faut que la force exercée par le solénoïde sur la bobine soit
+   égale à $m\vv{g}$ soit un courant $i_{1m}=i_\text{lim.}$ ayant pour
+   expression
+   #+BEGIN_SRC latex
+     \begin{align*}
+       \frac{\left(\mu_0nN\pi b^2\right)^2}{8}\times\frac{L\omega^2}{R^2+L^2\omega^2}\times\frac{i_\text{lim.}^2}{a}&=mg\\
+       i_\text{lim.}&=\sqrt{\frac{8mga\times\left(R^2+L^2\omega^2\right)}{L}}\times\frac{1}{\mu_0\omega nN\pi\b^2}
+     \end{align*}
+   #+END_SRC
+
+   #+BEGIN_CENTER
+   #+ATTR_LATEX: :width 0.7\linewidth
+   [[./figures/magnetic_levitation.pdf]]
+   #+END_CENTER
+
+   Autour de la position d'équilibre $\alpha=\pi/2$, la position de la bobine
+   oscille du fait que lorsque $z$ augmente, \alpha diminue entrainant une
+   diminution de la force exercée par le solénoïde sur la bobine : le poids a
+   alors tendance à "rappeler" la bobine vers la position $\alpha=\pi/2$. /A
+   contrario/, lorsque la bobine pénètre à l'intérieur du solénoïde, le flux
+   magnétique augmente jusqu'à $\alpha=104$ degrés ($\tan\alpha\sim-4$) excédant
+   le poids de la bobine et ayant donc tendance à ramener cette dernière à sa
+   position d'équilibre. L'équilibre est donc stable dans la mesure où l'axe de
+   la bobine reste aligné avec celui du solénoïde.
+
+4) La puissance moyenne dissipée par effet Joule a pour expression
+   #+BEGIN_SRC latex
+     \begin{align*}
+       \langle P\rangle&=R\cdot\langle i^2\rangle=R\left(\frac{A^2+B^2}{2}\right)\\
+       &=\frac{1}{2}R\frac{M^2\omega^2i_\text{lim.}^2}{R^2+L^2\omega^2}=\frac{R}{L}mga
+     \end{align*}
+   #+END_SRC
 
 ** Footnotes
 
@@ -5613,3 +5707,6 @@ produit $N_1N_2$.
 
 [fn:14] le plan $(\vv{u_r},\vv{u_z})$ est un plan d'antisymétrie impliquant que
 le champ électrique soit orienté selon $\vv{u_\theta}$
+
+[fn:15] l'énergie potentielle d'un dipôle $\vv{m}$ soumis à un champ magnétique
+$\vv{B}$ est $E_p=-\vv{m}.\vv{B}$ d'où la force $\vv{F}=-\grad E_p$
