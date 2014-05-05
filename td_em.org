@@ -5691,6 +5691,16 @@ prendre en compte l'effet d'un circuit vis-à-vis de l'autre soit
      \end{align*}
    #+END_SRC
 
+** Principe de la plaque de cuisson par induction
+1) On considère une casserole occupant le demi-espace $z>0$, de conductivité
+   \gamma et de perméabilité $\mu_r$. La plaque à induction occupe le
+   demi-espace $z<0$ et est parcourue par une densité volumique de courant
+   $\vv{J_0}$.
+   1) Du fait que le champ magnétique $\vv{B_1}$ est colinéaire à $\vv{u_x}$, on
+      déduit que le plan $yOz$ est un plan de symétrie de la distribution de
+      courant impliquant que $\vv{J_0}$ est nécessairement orthogonal à ce
+      dernier : $\vv{J_0}\parallel\vv{u_y}$.
+
 ** Footnotes
 
 [fn:12] l'expression de la force électro-motrice se déduit de la relation de
