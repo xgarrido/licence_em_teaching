@@ -4945,7 +4945,7 @@ l'expression de la matrice inverse $\mathcal{A}^{-1}$ est
   \end{align*}
 #+END_SRC
 
-* TD9 : Guides d'onde
+* COMMENT TD9 : Guides d'onde
 ** Cavité cylindrique résonante
 *** Détermination des fréquences de résonance
 1) Les équations de Maxwell sont
@@ -5363,12 +5363,12 @@ En régime variable, le champ magnétique demeure toujours à flux conservatif �
 savoir que
 #+BEGIN_SRC latex
   \begin{align*}
-    \oiint_S\vv{B}.\vv{dS}=0
+    \varoiint_S\vv{B}.\vv{dS}=0
   \end{align*}
 #+END_SRC
-à tout instant $t$. En revanche, la variation du flux magnétique au travers
+reste vrai à tout instant $t$. En revanche, la variation du flux magnétique au travers
 d'une surface (non-fermée) est à l'origine d'une force électro-motrice $e(t)$
-qui s'exprime selon la loi de Faraday
+qui s'exprime selon la loi de Faraday[fn:12]
 #+BEGIN_SRC latex
   \begin{align*}
     e(t)=-\frac{d\Phi(t)}{dt}\text{ où }\Phi(t)=\iint_S\vv{B}.\vv{dS}
@@ -5379,15 +5379,15 @@ magnétique $\vv{B}_P(M,t)$ dont le flux s'oppose à l'augmentation du flux qu'o
 impose (loi de Lenz) : le flux magnétique propre s'écrit
 #+BEGIN_SRC latex
   \begin{align*}
-    \Phi_P=\iint_{S/\mathcal{C}}\vv{B}_P.\vv{dS}=L\times i(t)
+    \Phi_P=\iint_{S/\mathcal{C}}\vv{B}_P.\vv{dS}=L\times i
   \end{align*}
 #+END_SRC
 où $L$ est l'inductance propre du circuit. On parle d'*auto-induction*.
 
 Si un circuit filiforme auto-induit une force qui s'oppose à l'établissement du
 champ magnétique, deux circuits électriques induisent mutuellement une force sur
-chacun d'entre eux. Si on considère deux circuits parcourus respectivement par
-un courant $i_1(t)$ et un courant $i_2(t)$, le flux magnétique induit par le
+chacun d'entre eux. En considèrant deux circuits parcourus respectivement par un
+courant $i_1(t)$ et un courant $i_2(t)$, le flux magnétique induit par le
 premier sur le second circuit s'exprime
 #+BEGIN_SRC latex
   \begin{align*}
@@ -5396,10 +5396,10 @@ premier sur le second circuit s'exprime
 #+END_SRC
 de même que le deuxième circuit induit un flux magnétique égal à
 $\Phi_{2\to1}=M_{2\to1}I_2$. Les coefficients $M_{i\to j}$ sont appelés
-coefficients d'inductance mutuelle et sont., suivant le théorème de Neumann,
-égaux /i.e./ $M_{1\to2}=M_{2\to1}=M$ [fn:12].
+coefficients d'inductance mutuelle et sont, selon le théorème de Neumann,
+égaux /i.e./ $M_{1\to2}=M_{2\to1}=M$ [fn:13].
 
-En ajoutant à l'inductance mutuelle, l'auto-infuction, les flux magnétiques au
+En ajoutant à l'inductance mutuelle, l'auto-induction, les flux magnétiques au
 travers du premier et du second circuit sont
 #+BEGIN_SRC latex
   \begin{align*}
@@ -5471,7 +5471,7 @@ prendre en compte l'effet d'un circuit vis-à-vis de l'autre soit
         \end{align*}
       #+END_SRC
    2) Pour un circuit fermé fixe, la force électro-motrice est égale à la
-      circulation du champ électrique autour de ce circuit[fn:13]
+      circulation du champ électrique autour de ce circuit[fn:14]
       #+BEGIN_SRC latex
         \begin{align*}
           e(t)&=\oint_\mathcal{C}\vv{E}.\vv{d\ell}=2\pi b\times N\times E
@@ -5485,7 +5485,7 @@ prendre en compte l'effet d'un circuit vis-à-vis de l'autre soit
         \end{align*}
       #+END_SRC
    3)
-      1) Le potentiel vecteur $\vv{A}$ oébit aux mêmes symétries que le champ
+      1) Le potentiel vecteur $\vv{A}$ obéit aux mêmes symétries que le champ
          électrique : $\vv{A}$ est colinéaire à $\vv{u_\theta}$ et ne dépend que
          de la distance à l'axe du solénoïde.
       2) $\vv{B}=\rot\vv{A}=\frac{1}{r}\frac{\partial}{\partial
@@ -5527,11 +5527,89 @@ prendre en compte l'effet d'un circuit vis-à-vis de l'autre soit
              &=-\frac{\mu_0n}{2}\frac{a^2}{b}I_0\omega\cos\omega t\,\vv{u_\theta}=\vv{E}
            \end{align*}
          #+END_SRC
+** Lévitation magnétique
+1) Calcul du champ magnétique $B_1$ sur l'axe du solénoïde $Oz$
+   #+BEGIN_SRC latex
+     \begin{align*}
+       \vv{B_1}=\frac{\mu_0ni_1}{2}\left(\cos\theta_1-\cos\theta_2\right)\vv{u_z}
+     \end{align*}
+   #+END_SRC
+   Sachant que le solénoïde est semi-infini $\theta_1\sim0$ et que
+   $\theta_2=\alpha$ avec $\tan\alpha=\frac{a}{z}$, le champ magnétique $B_1$
+   devient
+   #+BEGIN_SRC latex
+     \begin{align*}
+       \vv{B_1}=\frac{\mu_0ni_1}{2}\left(1-\cos\alpha\right)\vv{u_z}
+     \end{align*}
+   #+END_SRC
+   Le flux magnétique induit par le solénoïde au travers de la bobine s'écrit
+   #+BEGIN_SRC latex
+     \begin{align*}
+       \Phi_{S\to B}&=\iint_{S_B}\vv{B_1}.\vv{dS}=\frac{\mu_0ni_1}{2}\left(1-\cos\alpha\right)\times N\times\pi b^2\\
+       &=M\times i_1\to M=\frac{\mu_0nN\,\pi b^2}{2}\left(1-\cos\alpha\right)
+     \end{align*}
+   #+END_SRC
+2) La bobine est traversée par le flux magnétique issue du solénoïde induisant
+   une force électro-motrice $e=-\frac{d\Phi_{S\to B}}{dt}=-M\frac{di_1}{dt}$. À
+   cette f.e.m, il convient d'ajouter l'inductance propre de la bobine
+   $e_\text{propre}=-\frac{d\Phi_\text{propre}}{dt}=-L\frac{di}{dt}$. Ainsi, la
+   f.e.m aux bornes de la bobine est égale à
+   #+BEGIN_SRC latex
+     \begin{align*}
+       e=R\times i&=-\frac{d\Phi}{dt}\\
+       &=-\frac{d\Phi_{S\to B}}{dt}-\frac{d\Phi_\text{propre}}{dt}\\
+       &=-M\frac{di_1}{dt}-L\frac{di}{dt}\\
+       \frac{di}{dt} + \frac{R}{L}i &=-\frac{M}{L}\frac{di_1}{dt}
+     \end{align*}
+   #+END_SRC
+   où $i_1(t)=i_{1m}\cos\omega t$ donc $\frac{di_1}{dt}=-i_{1m}\omega\sin\omega
+   t$. Cette équation peut se résoudre en cherchant successivement la solution
+   homogène /i.e./ sans le membre constant $-\frac{M}{L}\frac{di_1}{dt}$ puis
+   une solution particulière en utilisant, par exemple, la méthode de variation
+   de la constante. On peut également procéder différemment en considérant que
+   $i(t)$ est la superposition d'un régime transitoire et d'un régime permanent
+   sinusoïdal. On cherche donc $i(t)$ sous la forme $A\cos\omega t+B\sin\omega
+   t$. L'équation différentielle devient
+   #+BEGIN_SRC latex
+     \begin{align*}
+       -A\omega\sin\omega t+B\omega\cos\omega t+\frac{R}{L}\left(A\cos\omega t+B\sin\omega t\right)&=\frac{M}{L}i_{1m}\omega\sin\omega t
+     \end{align*}
+   #+END_SRC
+   de laquelle, en identifiant terme à terme, on déduit que
+   #+BEGIN_SRC latex
+     \begin{align*}
+       RA+BL\omega&=0\\
+       -AL\omega+BR&=Mi_{1m}\omega
+     \end{align*}
+   #+END_SRC
+   d'où
+   #+BEGIN_SRC latex
+     \begin{align*}
+       A=-\frac{L\omega}{R}B&\to RB+\frac{L^2\omega^2}{R}B=Mi_{1m}\omega\\
+       &\to B=\frac{RMi_{1m}\omega}{R^2+L^2\omega^2}\\
+       &\to A=-\frac{ML\omega^2i_{1m}}{R^2+L^2\omega^2}
+     \end{align*}
+   #+END_SRC
+   Le courant $i(t)$ induit dans la bobine prend donc la forme suivante
+   #+BEGIN_SRC latex
+     \begin{align*}
+       i(t)=\frac{M\omega i_{1m}}{R^2+L^2\omega^2}\left(-L\omega\cos\omega t+R\sin\omega t\right)
+     \end{align*}
+   #+END_SRC
+
 ** Footnotes
 
-[fn:12] dans le cas de deux bobines chacune constituées respectivement de $N_1$
+[fn:12] l'expression de la force électro-motrice se déduit de la relation de
+Maxwell-Faraday $\rot\vv{E}=-\frac{\partial\vv{B}}{\partial t}$ qui, dans sa
+version intégrale, donne
+$\oint_\mathcal{C}\vv{E}.\vv{d\ell}=-\frac{\partial}{\partial
+t}\iint_{S/\mathcal{C}}\vv{B}.\vv{dS}=-\frac{d\Phi}{dt}$. La force
+électro-motrice $e(t)$ est donc équivalente à la circulation du champ électrique
+le long du contour $\mathcal{C}$.
+
+[fn:13] dans le cas de deux bobines chacune constituées respectivement de $N_1$
 et $N_2$ spires, le coefficient d'inductance mutuelle est proportionnel au
 produit $N_1N_2$.
 
-[fn:13] le plan $(\vv{u_r},\vv{u_z})$ est un plan d'antisymétrie impliquant que
+[fn:14] le plan $(\vv{u_r},\vv{u_z})$ est un plan d'antisymétrie impliquant que
 le champ électrique soit orienté selon $\vv{u_\theta}$
