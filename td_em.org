@@ -3317,8 +3317,8 @@ $r\cos\theta$ et est lui aussi solution de l'équation de Laplace. La somme des
 deux solutions justifie ainsi de la forme de la solution utilisée dans cet
 exercice.
 
-* COMMENT TD6 : Milieux magnétiques
-** Introduction
+* TD6 : Milieux magnétiques
+** COMMENT Introduction
 Dans la plupart des matériaux soumis à un champ magnétique, les charges liées se
 déplacent à l'échelle atomique faisant apparaître des boucles de courant /i.e./
 *des dipôles magnétiques* : la milieu s'aimante. Ainsi, l'aimantation $\vv{M}$
@@ -3379,7 +3379,7 @@ les milieux para.
 Dans le cas de matériaux ferromagnétiques, $\chi_m\gg1$, l'aimantation n'est
 plus proportionnelle à l'excitation magnétique $\vv{M}\neq\chi_m\vv{H}$.
 
-** Plaque magnétique
+** COMMENT Plaque magnétique
 1) On considère une plaque magnétique linéaire, homogène et isotrope soit
    $\vv{M}=\chi_m\vv{H}=\chi_m\frac{\vv{B}}{\mu}$. Le vecteur aimantation est
    donc un pseudo-vecteur comme le champ magnétique et appartient donc aux plans
@@ -3436,7 +3436,7 @@ plus proportionnelle à l'excitation magnétique $\vv{M}\neq\chi_m\vv{H}$.
         #+END_CENTER
         Les lignes de champ magnétique sont canalisées\to blindages magnétiques
 
-** L'électro-aimant
+** COMMENT L'électro-aimant
 1) La conservation du flux magnétique, toujours vérifiée y compris au sein de
    milieux magnétiques, impose que $\varoiint_\mathcal{S}\vv{B}.\vv{dS}=0$. Le
    champ magnétique dans le fer étant perpendiculaire à la section, on obtient
@@ -3505,7 +3505,7 @@ plus proportionnelle à l'excitation magnétique $\vv{M}\neq\chi_m\vv{H}$.
        B_2&=\mu_0H_2=\mu_0\left(\frac{NI+\ell M_S}{\ell+d}\right)=\unit[1.56]{T}
      \end{align*}
    #+END_SRC
-** Aimant permanent
+** COMMENT Aimant permanent
 On considère un matériau ferromagnétique dur ayant une aimantation $\vv{M}$
 #+BEGIN_SRC latex
   \begin{align*}
@@ -3688,6 +3688,106 @@ On considère un matériau ferromagnétique dur ayant une aimantation $\vv{M}$
    vis-à-vis des contraintes expérimentales imposées par ce spectromètre. Il
    faudrait augmenter la hauteur $h$ de l'aimant jusqu'à une valeur de l'ordre
    de 700 mm.
+
+** Chaîne de gouttelettes d'une émulsion ferrofluide
+1) Interaction entre deux dipôles magnétiques identiques $m_1=m_2=m$
+   1) L'énergie potentielles s'écrit $W=-\vv{m_2}.\vv{B_1}$ où $\vv{m_2}$ est,
+      en coordonnées sphériques, égal à $(m\cos\theta, -m\sin\theta, 0)$ et
+      $\vv{B_1}$ correspond au champ magnétique généré par le dipôle $m_1$ au
+      point $P$. On déduit l'expression de $W$
+      #+BEGIN_SRC latex
+        \begin{align*}
+          W&=-\left|\begin{array}{l}
+          m\cos\theta\\
+          -m\sin\theta\\
+          0
+          \end{array}\right.\cdot\frac{\mu_0}{4\pi}
+          \left|\begin{array}{l}
+          \frac{2m\cos\theta}{r^3}\\
+          \frac{m\sin\theta}{r^3}\\
+          0
+          \end{array}\right.\\
+          &=-\frac{\mu_0m^2}{4\pi r^3}\left(2\cos^2\theta-\sin^2\theta\right)\\
+          &=-\frac{\mu_0m^2}{4\pi r^3}\left(3\cos^2\theta-1\right)
+        \end{align*}
+      #+END_SRC
+      La force d'interaction $\vv{F}$ est égal à $-\grad W$ soit
+      #+BEGIN_SRC latex
+        \begin{align*}
+          \vv{F}&=-\grad W=-\frac{\partial W}{\partial r}\vv{u_r}-\frac{1}{r}\frac{\partial W}{\partial\theta}\vv{u_\theta}\\
+          &=-\frac{3\mu_0m^2}{4\pi r^4}\left(3\cos^2\theta-1\right)\,\vv{u_r}-\frac{3\mu_0m^2}{4\pi r^4}\left(2\cos\theta\sin\theta\right)\,\vv{u_\theta}\\
+          &=\left|\begin{array}{l}
+          -\frac{3\mu_0m^2}{4\pi r^4}\left(3\cos^2\theta-1\right)\\
+          -\frac{3\mu_0m^2}{4\pi r^4}\,\sin2\theta\\
+          0
+          \end{array}\right.
+        \end{align*}
+      #+END_SRC
+   2) À distance $r$ fixée, l'énergie est minimale dès lors que
+      $3\cos^2\theta-1$ est maximal soit pour $\theta=0\,[\pi]$. La composante
+      polaire de la force $\vv{F}$ est alors nulle tandis que la composante
+      radiale se réduit à
+      #+BEGIN_SRC latex
+        \begin{align*}
+          F_r&=-\frac{6\mu_0m^2}{4\pi r^4}
+        \end{align*}
+      #+END_SRC
+      Les moments magnétiques $\vv{m_1}$ et $\vv{m_2}$ s'alignent selon la
+      direction portant les deux dipôles et la force est donc attractive.
+2)
+   1) La fraction volumique en particules $\Phi$ est très faible donc les dipôles
+      sont très éloignés les uns des autres. Par conséquent, le champ magnétique
+      dû aux particules voisines est faible et les dipôles ne s'orientent pas les
+      uns par rapport aux autres : il n'y a pas d'effet proche à proche. Les
+      dipôles pointent donc dans des directions aléatoires, l'aimantation
+      résultante est nulle, le milieu n'ayant pas de propriété magnétique
+      macroscopique.
+   2) $\chi$ correspond à la susceptibilité magnétique et est sans
+      dimension. Sachant que l'aimantation est égale à la densité volumique de
+      moment magnétique $\vv{M}=\frac{d\vv{m}}{d\tau}$, on déduit que le moment
+      magnétique associé à chaque goutte s'écrit
+      #+BEGIN_SRC latex
+        \begin{align*}
+          \vv{m}^{(1)}&=\vv{M}\times V_\text{goutte}=\vv{M}\times\frac{4}{3}\pi R^3\\
+          &=\frac{4}{3}\pi R^3\frac{\chi\vv{B}}{\mu_0}
+        \end{align*}
+      #+END_SRC
+3)
+   1) Les gouttelettes alignent toutes leur moment magnétique sur le champ
+      extérieur $\vv{B_0}$. Afin de minimiser l'énergie totale du sytème, les
+      centres s'alignent les uns sur les autres conformément au résultat de la
+      première question : les gouttelettes forment ainsi une chaîne colinéaire à
+      la direction du champ magnétique externe.
+   2) Considérons la goutellette 0 sur la figure ci-dessous
+
+      #+BEGIN_CENTER
+      #+ATTR_LATEX: :width 0.7\linewidth
+      [[./figures/emulsion_ferrofluide.pdf]]
+      #+END_CENTER
+
+      Le champ magnétique $\vv{B}_\infty$ exercée par les autres gouttelettes
+      sur celle-ci s'obtient en sommant les champs induits par les gouttelettes
+      situées en $z<z_0$ et celles au-dessus /i.e./ $z>z_0$ soit
+      #+BEGIN_SRC latex
+        \begin{align*}
+          \vv{B}_0=\vv{B}_\infty=&\cdots+\vv{B}_{-2}+\vv{B}_{-1}+\vv{B}_1+\vv{B}_2+\cdots\\
+          =&\cdots+\frac{\mu_0}{4\pi}\frac{2m^{(\infty)}\cos\pi}{(2d)^3}(-)\vv{u}_z+\frac{\mu_0}{4\pi}\frac{2m^{(\infty)}\cos\pi}{d^3}(-)\vv{u}_z\\
+          &+\frac{\mu_0}{4\pi}\frac{2m^{(\infty)}\cos0}{(2d)^3}\vv{u}_z+\frac{\mu_0}{4\pi}\frac{2m^{(\infty)}\cos0}{d^3}\vv{u}_z+\cdots\\
+          =&-\sum_{p=1}^\infty\frac{\mu_0}{4\pi}\frac{2m^{(\infty)}\cos\pi}{(pd)^3}\vv{u}_z+\sum_{p=1}^\infty\frac{\mu_0}{4\pi}\frac{2m^{(\infty)}\cos0}{(pd)^3}\vv{u}_z\\
+          =&\frac{\mu_0m^{(\infty)}}{4\pi d^3}\times2\sum_{p=1}^\infty\frac{2}{p^3}\,\vv{u}_z=\frac{\mu_0\alpha\vv{m}^{(\infty)}}{\pi d^3}
+        \end{align*}
+      #+END_SRC
+   3) Le champ magnétique total s'exerçant sur une gouttelette est donc
+      $\vv{B}=\vv{B}_0+\vv{B}_\infty$ d'où, en utilisant le résultat de la
+      question 2b,
+      #+BEGIN_SRC latex
+        \begin{align*}
+          \vv{m}^{(\infty)}&=\frac{4}{3}\pi R^3\times\frac{\chi\left(\vv{B}_0+\vv{B}_\infty\right)}{\mu_0}\\
+          &=\frac{4}{3}\pi R^3\times\frac{\chi\left(\vv{B}_0+\frac{\mu_0\alpha\vv{m}^{(\infty)}}{\pi d^3}\right)}{\mu_0}\\
+          &=\frac{4}{3}\pi R^3\frac{\chi}{1-\frac{4\alpha\chi}{3}\left(\frac{R}{d}\right)^3}\frac{\vv{B}_0}{\mu_0}
+        \end{align*}
+      #+END_SRC
+
 
 * COMMENT TD7 : Rayonnement
 ** Rayonnement d'une antenne
@@ -4945,7 +5045,7 @@ l'expression de la matrice inverse $\mathcal{A}^{-1}$ est
   \end{align*}
 #+END_SRC
 
-* TD9 : Guides d'onde
+* COMMENT TD9 : Guides d'onde
 ** Cavité cylindrique résonante
 *** Détermination des fréquences de résonance
 1) Les équations de Maxwell sont
@@ -5461,7 +5561,7 @@ l'équation de Bessel:
 ** Footnotes
 
 [fn:11] pour les fonctions de Bessel, on considère toujours \lambda > 0
-* TD10 : Induction électromagnétique
+* COMMENT TD10 : Induction électromagnétique
 ** Introduction
 En régime variable, le champ magnétique demeure toujours à flux conservatif à
 savoir que

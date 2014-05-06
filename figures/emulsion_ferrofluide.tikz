@@ -1,0 +1,40 @@
+%% document-wide tikz options and styles
+\begin{tikzpicture}[>=latex, % option for nice arrows
+    inner sep=0pt,%
+    outer sep=2pt,%
+    mark coordinate/.style={inner sep=0pt,outer sep=0pt,minimum size=3pt,
+      fill=black,circle}]
+  \sf
+  \definecolor{red}{RGB}{221,42,43}
+  \definecolor{green}{RGB}{105,182,40}
+  \definecolor{blue}{RGB}{0,51,153}
+  \definecolor{orange}{RGB}{192,128,64}
+  \definecolor{gray}{RGB}{107,108,110}
+
+  %% \clip (-2,-1) rectangle (3,1);
+
+  \coordinate[mark coordinate] (O) at (0,0);
+  \coordinate[mark coordinate] (P) at (1,0);
+  \coordinate[mark coordinate] (N) at (-1,0);
+  \coordinate[mark coordinate] (M) at (2,0);
+  \coordinate[mark coordinate] (Q) at (-2,0);
+
+  \draw[->] (-2.6,0) -- (2.6,0) node[right] {$z$};
+  \draw[dashed] (-3,0) -- (-2.6,0);
+  \draw[<->] (1,-0.3) -- (-1,-0.3) node[midway, below] {$2d$};
+
+  \begin{scope}[yshift=+2pt]
+    \tiny
+    \draw (0,0) node[above] {0};
+    \draw (1,0) node[above] {1};
+    \draw (-1,0) node[above] {-1};
+    \draw (2,0) node[above] {2};
+    \draw (-2,0) node[above] {-2};
+    \begin{scope}[yshift=+10pt]
+      \draw[->] (-0.1,0) -- (-1,0) node[midway, above] {$\theta=\pi$};
+      \draw[->] (+0.1,0) -- (+1,0) node[midway, above] {$\theta=0$};
+    \end{scope}
+  \end{scope}
+
+
+\end{tikzpicture}
