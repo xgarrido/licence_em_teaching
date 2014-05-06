@@ -1,0 +1,21 @@
+\begin{tikzpicture}
+  % Colors
+  \definecolor{red}{RGB}{221,42,43}
+  \definecolor{green}{RGB}{132,184,24}
+  \definecolor{blue}{RGB}{0,51,153}
+  \definecolor{orange}{RGB}{192,128,64}
+  \definecolor{gray}{RGB}{107,108,110}
+  \begin{axis}[
+      xlabel={x},ylabel={},
+      xtick={0,1,...,10},
+      domain=0.1:10,samples=500,
+      ymin=-1.5,ymax=0.6,
+      legend cell align=left,
+      legend style={at={(0.7,0.2)},anchor=west,legend columns=1,draw=none}
+    ]
+    \addplot[thick,blue]  gnuplot {besy0(x)};
+    \addplot[thick,green] gnuplot {besy1(x)};
+    \addplot[thick,red]   gnuplot {2*besy1(x)/x-besy0(x)};
+    \legend{$N_0(x)$,$N_1(x)$,$N_2(x)$}
+  \end{axis}
+\end{tikzpicture}
