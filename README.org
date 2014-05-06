@@ -27,4 +27,8 @@ do =make= within the different directories.
 You can navigate through the different classes (all in french) by following the
 next links
 
-#+INCLUDE: toc.org
+#+BEGIN_SRC sh :exports results :results raw
+  if [ -f ./toc.org ]; then
+      echo "#+INCLUDE: toc.org"
+  fi
+#+END_SRC
