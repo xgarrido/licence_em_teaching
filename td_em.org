@@ -3758,7 +3758,7 @@ On considère un matériau ferromagnétique dur ayant une aimantation $\vv{M}$
       centres s'alignent les uns sur les autres conformément au résultat de la
       première question : les gouttelettes forment ainsi une chaîne colinéaire à
       la direction du champ magnétique externe.
-   2) Considérons la goutellette 0 sur la figure ci-dessous
+   2) Considérons la gouttelette $i$ sur la figure ci-dessous
 
       #+BEGIN_CENTER
       #+ATTR_LATEX: :width 0.7\linewidth
@@ -3767,10 +3767,10 @@ On considère un matériau ferromagnétique dur ayant une aimantation $\vv{M}$
 
       Le champ magnétique $\vv{B}_\infty$ exercée par les autres gouttelettes
       sur celle-ci s'obtient en sommant les champs induits par les gouttelettes
-      situées en $z<z_0$ et celles au-dessus /i.e./ $z>z_0$ soit
+      situées en $z<z_i$ et celles au-dessus /i.e./ $z>z_i$ soit
       #+BEGIN_SRC latex
         \begin{align*}
-          \vv{B}_0=\vv{B}_\infty=&\cdots+\vv{B}_{-2}+\vv{B}_{-1}+\vv{B}_1+\vv{B}_2+\cdots\\
+          \vv{B}_\infty=&\cdots+\vv{B}_{-2}+\vv{B}_{-1}+\vv{B}_1+\vv{B}_2+\cdots\\
           =&\cdots+\frac{\mu_0}{4\pi}\frac{2m^{(\infty)}\cos\pi}{(2d)^3}(-)\vv{u}_z+\frac{\mu_0}{4\pi}\frac{2m^{(\infty)}\cos\pi}{d^3}(-)\vv{u}_z\\
           &+\frac{\mu_0}{4\pi}\frac{2m^{(\infty)}\cos0}{(2d)^3}\vv{u}_z+\frac{\mu_0}{4\pi}\frac{2m^{(\infty)}\cos0}{d^3}\vv{u}_z+\cdots\\
           =&-\sum_{p=1}^\infty\frac{\mu_0}{4\pi}\frac{2m^{(\infty)}\cos\pi}{(pd)^3}\vv{u}_z+\sum_{p=1}^\infty\frac{\mu_0}{4\pi}\frac{2m^{(\infty)}\cos0}{(pd)^3}\vv{u}_z\\
@@ -3788,6 +3788,95 @@ On considère un matériau ferromagnétique dur ayant une aimantation $\vv{M}$
         \end{align*}
       #+END_SRC
 
+4)
+   1) Calcul de la force exercée par la moitié inférieure de la chaîne sur la
+      moitié supérieure
+
+      #+BEGIN_CENTER
+      #+ATTR_LATEX: :width 0.7\linewidth
+      [[./figures/emulsion_ferrofluide2.pdf]]
+      #+END_CENTER
+
+      La force qu'exerce la $p$-ième gouttelette sur la $q$-ième s'écrit
+      $f_z=m_q\frac{\partial B_p}{\partial z}$. Sachant que la dérivée de $B_p$
+      est proportionnelle à $-3/z^4$ et que la distance séparant les deux
+      gouttelettes est égale à $(p+q-1)\,d$, l'expression de $f_z$ devient
+      #+BEGIN_SRC latex
+        \begin{align*}
+          f_z=-m^{(\infty)}\,\frac{\mu_0}{4\pi}\frac{2m^{(\infty)}\times3}{((p+q-1)d)^4}
+        \end{align*}
+      #+END_SRC
+      La force totale qu'exerce une moitié de la chaîne sur l'autre s'écrit
+      #+BEGIN_SRC latex
+        \begin{align*}
+          F_z&=-\frac{3\mu_0(m^{(\infty)})^2}{2\pi d^4}\sum_{p=1}^\infty\sum_{q=1}^\infty\frac{1}{(p+q-1)^4}
+        \end{align*}
+      #+END_SRC
+      En posant $p+q-1=n$, on obtient
+      #+BEGIN_SRC latex
+        \begin{align*}
+          \left.
+          \begin{array}{lcl}
+            p=1&\to&q=n\\
+            p=2&\to&q=n-1\\
+            &\vdots\\
+            p=n&\to&q=1
+            \end{array}\right\}\text{soit }n\text{ possibilités}
+          \end{align*}
+      #+END_SRC
+      La double somme sur les entiers $p$ et $q$ est donc équivalente à une somme
+      simple sur $n$ /i.e./
+      #+BEGIN_SRC latex
+        \begin{align*}
+          \sum_{p=1}^\infty\sum_{q=1}^\infty\frac{1}{(p+q-1)^4}=\sum_{n=1}^\infty\frac{1}{n^4}\times n=\sum_{n=1}^\infty\frac{1}{n^3}=\alpha
+        \end{align*}
+      #+END_SRC
+
+      On déduit que la force totale $\vv{F}_\infty$ s'écrit
+      #+BEGIN_SRC latex
+        \begin{align*}
+          \vv{F}_\infty=F_z\vv{u}_z=-\frac{3\mu_0\alpha(m^{(\infty)})^2}{2\pi\,d^4}\vv{u}_z
+        \end{align*}
+      #+END_SRC
+   2) En ne considérant que deux gouttelettes, la force $\vv{F}_2$ entre les
+      deux gouttelettes se déduit de l'expression de $f_z$ où $p=1$ et $q=1$ soit
+      #+BEGIN_SRC latex
+        \begin{align*}
+          \vv{F}_2=-\frac{3\mu_0}{2\pi\,d^4}(m^{(2)})^2\vv{u}_z
+        \end{align*}
+      #+END_SRC
+
+      Le calcul de $\vv{m}^{(2)}$ est identique à celui réalisé à la question 3c
+      où $\vv{B}^{(2)}$ est le champ magnétique généré par seulement deux
+      gouttelettes /i.e./
+      #+BEGIN_SRC latex
+        \begin{align*}
+          \vv{B}^{(2)}=\frac{\mu_0\vv{m}^{(2)}}{2\pi\,d^3}
+        \end{align*}
+      #+END_SRC
+      L'expression de $\vv{m}^{(2)}$ s'écrit
+      #+BEGIN_SRC latex
+        \begin{align*}
+          \vv{m}^{(2)}&=\frac{4}{3}\pi R^3\frac{\chi\left(\vv{B}_0+\vv{B}^{(2)}\right)}{\mu_0}\\
+          &=\frac{4}{3}\pi R^3\frac{\chi\left(\vv{B}_0+\frac{\mu_0\vv{m}^{(2)}}{2\pi\,d^3}\right)}{\mu_0}\\
+          &=\frac{4}{3}\pi R^3\frac{\chi}{1-\frac{2\chi}{3}\left(\frac{R}{d}\right)^3}\frac{\vv{B}_0}{\mu_0}
+        \end{align*}
+      #+END_SRC
+
+      L'intensité de la force s'exerçant sur la chaine $\vv{F}_\infty$ ramenée à
+      la force entre gouttelettes $\vv{F}_2$ est donc égale à
+      #+BEGIN_SRC latex
+        \begin{align*}
+          \frac{F_\infty}{F_2}&=\alpha\,\left(\frac{m^{(\infty)}}{m^{(2)}}\right)^2\\
+          &=\alpha\,\left(\frac{1-\frac{2\chi R^3}{3d^3}}{1-\frac{4\alpha\chi R^3}{3d^3}}\right)^2
+        \end{align*}
+      #+END_SRC
+
+   3) $F_\infty=\unit[0.22\,10^{-12}]{N}$, $F_2=\unit[0.18\,10^{-12}]{N}$ et
+      $F_\infty/F_2=1.23$. La force qui s'exerce entre les deux moitiés d'une
+      chaîne infinie est donc plus grande que celle qui s'exerce entre deux
+      gouttelettes seules : cette propriété explique la stabilité des longues
+      chaînes de gouttelettes dans une émulsion de ferrofluides.
 
 * COMMENT TD7 : Rayonnement
 ** Rayonnement d'une antenne

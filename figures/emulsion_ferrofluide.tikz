@@ -11,7 +11,7 @@
   \definecolor{orange}{RGB}{192,128,64}
   \definecolor{gray}{RGB}{107,108,110}
 
-  %% \clip (-2,-1) rectangle (3,1);
+  \clip (-3.2,-1) rectangle (3,1);
 
   \coordinate[mark coordinate] (O) at (0,0);
   \coordinate[mark coordinate] (P) at (1,0);
@@ -25,7 +25,7 @@
 
   \begin{scope}[yshift=+2pt]
     \tiny
-    \draw (0,0) node[above] {0};
+    \draw (0,0) node[above] {$i$};
     \draw (1,0) node[above] {1};
     \draw (-1,0) node[above] {-1};
     \draw (2,0) node[above] {2};
