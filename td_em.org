@@ -3729,7 +3729,7 @@ On considère un matériau ferromagnétique dur ayant une aimantation $\vv{M}$
       radiale se réduit à
       #+BEGIN_SRC latex
         \begin{align*}
-          F_r&=-\frac{6\mu_0m^2}{4\pi r^4}
+          F_r&=-\frac{3\mu_0m^2}{2\pi r^4}
         \end{align*}
       #+END_SRC
       Les moments magnétiques $\vv{m_1}$ et $\vv{m_2}$ s'alignent selon la
@@ -3877,7 +3877,43 @@ On considère un matériau ferromagnétique dur ayant une aimantation $\vv{M}$
       chaîne infinie est donc plus grande que celle qui s'exerce entre deux
       gouttelettes seules : cette propriété explique la stabilité des longues
       chaînes de gouttelettes dans une émulsion de ferrofluides.
+5)
+   1) L'énergie minimale du système $W=-\frac{\mu_0m^2}{2\pi\,d^3}$ est d'autant
+      plus faible que la distance séparant les gouttelettes est faible. Les
+      gouttes étant incompressibles et indéformables, la distance minimale entre
+      deux gouttes est donc égale à $d_\ell=2R$.
+   2)
+      1) Chaque gouttelette renvoie dans toutes les directions la lumière
+         qu'elle n'a pas absorbée et ceci sans distinction de longueur
+         d'onde. Le rayonnement diffracté par les gouttelettes de l'émulsion est
+         cohérent puisqu'issu de la même source de telle sorte qu'une chaîne de
+         gouttelettes se comporte comme un *réseau de diffraction*. La lumière
+         renvoyée dans une direction dépend de la longueur d'onde d'où le
+         phénomène de coloration.
+      2) En retrodiffusion, la différence de marche entre les ondes diffractées
+         par deux gouttelettes successives correspond à un aller-retour
+         supplémentaire soit $\delta=2nd$. Les interférences sont constructives
+         si $\delta$ est une valeur entière de la longueur d'onde $\lambda_0$
+         d'où
+         #+BEGIN_SRC latex
+           \begin{align*}
+             \delta=p\lambda_0\to \lambda_0=\frac{2nd}{p}
+           \end{align*}
+         #+END_SRC
 
+         Application numérique : le fait que $\lambda_0$ appartienne au spectre
+         visible (400 nm < \lambda < 700 nm), on considère uniquement le
+         premier ordre $p=1$ soit $\lambda_0=\unit[585]{nm}$. L'échantillon vu
+         en rétrodiffusion apparait donc jaune.
+      3) Lorsque le champ extérieur $B_0$ augmente, les interactions entre
+         gouttelettes augmentent en raison de l'augmentation du moment
+         magnétique associé à chacune des gouttes. L'énergie potentielle diminue
+         donc entrainant une diminution de la distance inter-gouttes. Au minimum
+         de l'énergie, cette distance tend vers la limite $d_\ell=2R$. La
+         longueur d'onde retrodiffusée est alors
+         $\lambda_0=4nR=\unit[521]{nm}$. La solution devient donc verte. Cette
+         technique de spectrométrie permet donc de mesurer la taille $R$ des
+         gouttelettes.
 * COMMENT TD7 : Rayonnement
 ** Rayonnement d'une antenne
 Soit un conducteur de longueur \ell parcouru par un courant périodique
