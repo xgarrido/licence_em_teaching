@@ -4413,8 +4413,8 @@ $I=I_0\cos\omega t$. La fonction d'Heaviside a pour représentation
       de Higgs au LHC (pour une énergie de faisceau de 14 TeV et une masse du
       Higgs voisine de 125 GeV) est voisine de 50 picobarns soit 50 10^{-12} barn
       soit 50 10^{-40} m^{2}.
-* COMMENT TD8 : Propagation dans le vide et les milieux diélectriques
-** Effet Faraday dans un diélectrique
+* TD8 : Propagation dans le vide et les milieux diélectriques
+** COMMENT Effet Faraday dans un diélectrique
 
 #+BEGIN_CENTER
 #+ATTR_LATEX: :width 0.4\linewidth
@@ -5118,7 +5118,7 @@ $\omega_c,\omega_p\ll\omega\sim\sqrt{|\omega_0^2-\omega^2|}$
       #+BEGIN_SRC latex
         \begin{align*}
           v_\phi&=\frac{\omega}{k}=\frac{\omega}{k_i\sin\theta_i}\\
-          &=\frac{\cancel{\omega} c}{\cancel{\omega}n_1\sin\theta_i}<c
+          &=\frac{\cancel{\omega} c}{\cancel{\omega}n_1\sin\theta_i}\leq c\,(\text{car }\theta_i\geq\theta_\ell\to n_1\sin\theta_i\geq n_2\geq1)
         \end{align*}
       #+END_SRC
 5) Onde MPPH polarisée suivant $\vv{u_x}\to\vv{E_t}\parallel\vv{u_x}$ et
