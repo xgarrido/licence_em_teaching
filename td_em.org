@@ -6057,8 +6057,96 @@ prendre en compte l'effet d'un circuit vis-à-vis de l'autre soit
       #+END_SRC
       Le courant de déplacement
       $\vv{J}_D=\epsilon_0\frac{\partial\vv{E}}{\partial t}$ est ici
-      négligeable.
-
+      négligeable. Les deux premières équations traduisent uniquement les
+      symétries et invariances du problèmes /i.e./ $\div\vv{E}=\frac{\partial
+      E_x}{\partial x}+\frac{\partial E_y}{\partial y}+\frac{\partial
+      E_z}{\partial z}=0$ (/idem/ pour $\div\vv{B}=0$).
+   2) Les trois dernières équations conduisent au système d'équation suivante
+      #+BEGIN_SRC latex
+        \begin{align*}
+          \rot\vv{E}=-\frac{\partial\vv{B}}{\partial t}&\to\left|
+          \begin{array}{l}
+            \frac{\partial}{\partial x}\\
+            \frac{\partial}{\partial y}\\
+            \frac{\partial}{\partial z}
+          \end{array}\right.\times\left|
+          \begin{array}{l}
+            0\\E(z,t)\\0
+          \end{array}\right.=-\frac{\partial E(z,t)}{\partial z}=-\frac{\partial B(z,t)}{\partial t}\\
+          \left.\begin{array}{l}
+            \rot\vv{B}=\mu_0\mu_r\vv{j}\\
+            \vv{j}=\gamma\vv{E}
+          \end{array}\right\}&\to\left|
+          \begin{array}{l}
+            \frac{\partial}{\partial x}\\
+            \frac{\partial}{\partial y}\\
+            \frac{\partial}{\partial z}
+          \end{array}\right.\times\left|
+          \begin{array}{l}
+            B(z,t)\\0\\0
+          \end{array}\right.=\frac{\partial B(z,t)}{\partial z}=\mu_0\mu_r\gamma E(z,t)
+        \end{align*}
+      #+END_SRC
+      Étant donné $B(z,t)=f(z)\exp(-i\omega t)$ et $E(z,t)=g(z)\exp(-i\omega
+      t)$, on obtient
+      #+BEGIN_SRC latex
+        \begin{align*}
+          \frac{\partial E(z,t)}{\partial z}=\frac{\partial B(z,t)}{\partial t}&\to g'(z)=-i\omega f(z)\\
+          \frac{\partial B(z,t)}{\partial z}=\mu_0\mu_r\gamma E(z,t)&\to f'(z)=\mu_0\mu_r\gamma g(z)
+        \end{align*}
+      #+END_SRC
+      soit en dérivant la seconde équation par rapport à $z$
+      #+BEGIN_SRC latex
+        \begin{align*}
+          f''(z)+i\mu_0\mu_r\gamma\omega f(z)=0
+        \end{align*}
+      #+END_SRC
+3)
+   1) Soit $\delta=\sqrt{\frac{2}{\mu_0\mu_r\gamma\omega}}$, l'équation
+      différentielle solution de $f(z)$ devient
+      #+BEGIN_SRC latex
+        \begin{align}
+          f''(z)+\frac{2i}{\delta^2}f(z)=0
+        \end{align}
+      #+END_SRC
+      dont les solutions sont de la forme $f(z)=Ae^{r_+z}+Be^{r_-z}$ où $r_\pm$
+      sont les racines de l'équation caractéritique
+      $r^2+\frac{2i}{\delta^2}=0$ /i.e./ $r_\pm=\pm\sqrt{\frac{-2i}{\delta^2}}$. En
+      simplifiant l'expression de $r_\pm$ suivant
+      #+BEGIN_SRC latex
+        \begin{align*}
+          i^2=-1\text{ et }i=e^{i\frac{\pi}{2}}&\to r_\pm=\pm\frac{\sqrt 2}{\delta}\times e^{i\frac{3\pi}{4}}\\
+          &\to r_\pm=\pm\frac{\sqrt2}{\delta}\left(\cos\frac{3\pi}{4}+i\sin\frac{3\pi}{4}\right)\\
+          &\to r_\pm=\pm\frac{\sqrt2}{\delta}\left(-\frac{\sqrt2}{2}+i\frac{\sqrt2}{2}\right)=\pm\frac{-1+i}{\delta}
+        \end{align*}
+      #+END_SRC
+      La fonction $f(z)$ prend donc la forme suivante
+      #+BEGIN_SRC latex
+        \begin{align*}
+          f(z)=Ae^{(-1+i)\frac{z}{\delta}}+Be^{(1-i)\frac{z}{\delta}}
+        \end{align*}
+      #+END_SRC
+      Le fait que $f(z)$ doit rester finie lorsque $z\to+\infty$ impose $B$ soit
+      nul en raison de la divergence du second terme
+      $Be^{(1-i)\frac{z}{\delta}}=Be^{\frac{z}{\delta}}e^{-i\frac{z}{\delta}}\to+\infty$. Pour
+      déterminer $A$, on considère les relations de passage en $z=0$ qui, en
+      l'absence de densité surfacique de courant, s'écrivent
+      #+BEGIN_SRC latex
+        \begin{align*}
+          \vv{H}_\text{casserole}-\vv{H}_\text{plaque}&=\vv{j}_S\times\vv{u}_z=\vv{0}\\
+          \left.\frac{f(z)\cancel{e^{-i\omega t}}}{\cancel{\mu_0}\mu_r}\right|_{z=0^+}-\left|\frac{B_1\cancel{e^{-i\omega t}}}{\cancel{\mu_0}}\right|_{z=0^-}&=0\\
+          \frac{A}{\mu_r}-B_1&=0\to A=\mu_rB_1
+        \end{align*}
+      #+END_SRC
+      Finalement, l'expression de $f(z)$ est
+      #+BEGIN_SRC latex
+        \begin{align*}
+          f(z)=\mu_rB_1\,e^{(-1+i)\frac{z}{\delta}}
+        \end{align*}
+      #+END_SRC
+   2) D'après l'équation différentielle régissant l'évolution de $f(z)$, on
+      déduit que $\delta$ est homogène à une longueur et correspond à
+      l'épaisseur de peau.
 ** Footnotes
 
 [fn:12] l'expression de la force électro-motrice se déduit de la relation de
