@@ -1,6 +1,6 @@
 #+TITLE:  Travaux Dirigés d'Électromagné\-tisme -- Licence 3
 #+AUTHOR: Xavier Garrido
-#+DATE:   21/01/14
+#+EMAIL:  xavier.garrido@u-psud.fr
 #+OPTIONS: ^:{} toc:2 tags:t author:nil split:html
 #+LATEX_CLASS: teaching-class
 
