@@ -6146,7 +6146,81 @@ prendre en compte l'effet d'un circuit vis-à-vis de l'autre soit
       #+END_SRC
    2) D'après l'équation différentielle régissant l'évolution de $f(z)$, on
       déduit que $\delta$ est homogène à une longueur et correspond à
-      l'épaisseur de peau.
+      l'épaisseur de peau. Le champ magnétique variable engendré par la plaque
+      de cuisson donne naissance à des courants induits dans le milieu
+      conducteur qu'est la casserole. Ces courants sont localisés sur une
+      épaisseur typique de l'ordre de $\delta$. Au-delà, l'autoinduction de la
+      casserole s'oppose à l'effet qui lui donne naissance et finit par exclure
+      le courant.
+   3) La fonction $g(z)$ est égale à $\frac{1}{\mu_0\mu_r\gamma}f'(z)$ soit
+      #+BEGIN_SRC latex
+        \begin{align*}
+          g(z)&=\frac{1}{\mu_0\cancel{\mu_r}\gamma}\,\cancel{\mu_r}B_1\frac{-1+i}{\delta}e^{(-1+i)\frac{z}{\delta}}\\
+          &=\frac{\sqrt2}{\mu_0\gamma\delta}\,B_1\,e^{i\frac{3\pi}{4}}e^{(-1+i)\frac{z}{\delta}}\\
+          &=\frac{\sqrt2}{\mu_0\gamma\delta}\,B_1\,e^{-\frac{z}{\delta}}\,e^{i\left(\frac{z}{\delta}+\frac{3\pi}{4}\right)}
+        \end{align*}
+      #+END_SRC
+      d'où l'expression réelle de $E(z,t)$
+      #+BEGIN_SRC latex
+        \begin{align*}
+          E(z,t)&=\text{Re}\left(g(z)\,e^{-i\omega t}\right)\\
+          &=\frac{\sqrt2}{\mu_0\gamma\delta}B_1\,e^{-\frac{z}{\delta}}\,\text{Re}\left(e^{i\left(\frac{z}{\delta}+\frac{3\pi}{4}-\omega t\right)}\right)\\
+          &=\frac{\sqrt2}{\mu_0\gamma\delta}B_1\,e^{-\frac{z}{\delta}}\,\cos\left(\frac{z}{\delta}-\omega t+\frac{3\pi}{4}\right)
+        \end{align*}
+      #+END_SRC
+4) La puissance dissipée par unité de volume est
+   $\frac{dP}{d\tau}=\vv{j}.\vv{E}=\gamma E^2$ soit
+   #+BEGIN_SRC latex
+     \begin{align*}
+       \frac{dP}{d\tau}&=\frac{2}{\mu_0^2\gamma\delta^2}B_1^2\,e^{\frac{2z}{\delta}}\,\cos^2\left(\frac{z}{\delta}-\omega t+\frac{3\pi}{4}\right)
+     \end{align*}
+   #+END_SRC
+   On déduit de ce résultat que la puissance moyenne dissipée par effet Joule
+   est
+   #+BEGIN_SRC latex
+     \begin{align*}
+       \left\langle\frac{dP}{d\tau}\right\rangle_T&=\frac{B_1^2}{\mu_0^2\gamma\delta^2}\,e^{-\frac{2z}{\delta}}
+     \end{align*}
+   #+END_SRC
+   tandis que la puissance moyenne par unité de surface s'écrit
+   #+BEGIN_SRC latex
+     \begin{align*}
+       \left\langle\frac{dP}{dS}\right\rangle_T&=\frac{B_1^2}{\mu_0^2\gamma\delta^2}\,\int_0^{+\infty}e^{-\frac{2z}{\delta}}\,dz\\
+       &=\frac{B_1^2}{\mu_0^2\gamma\delta^2}\left[-\frac{\delta}{2}e^{-\frac{2z}{\delta}}\right]_{0}^{+\infty}\\
+       &=\frac{B_1^2}{\mu_0^2\gamma\delta^2}\times\frac{\delta}{2}=\frac{B_1^2}{2\mu_0^2\gamma\delta}
+     \end{align*}
+   #+END_SRC
+5) Applications numériques :
+   1) Calcul de l'épaisseur de peau $\delta$
+      #+BEGIN_SRC latex
+        \begin{align*}
+          \delta&=\sqrt{\frac{2}{\mu_0\mu_r\gamma\omega}}\\
+          \delta_\text{Cu}&=\surd{\frac{2}{4\pi\,10^{-7}\times1\times6\,10^{7}\times1000}}=\unit[5]{mm}\\
+          \delta_\text{acier}&=\surd{\frac{2}{4\pi\,10^{-7}\times1000\times6\,10^6\times1000}}=\unit[0.5]{mm}
+        \end{align*}
+      #+END_SRC
+      L'épaisseur du fond de la casserole nécessaire est plus petite dans le
+      cas de l'acier par rapport au cuivre. Du point de vue du champ électrique
+      $E(z,t)$, le fait que $\delta$ soit plus grand autorise une plus grande
+      pénétration du champ électrique (terme en $e^{-\frac{z}{\delta}}$) mais,
+      en contrepartie, le champ électrique est moins intense. La puissance de
+      chauffage par unité de surface est quant à elle inversement
+      proportionnelle à l'épaisseur de peau $\delta$ : pour maximiser le
+      chauffage, il est plus avantageux d'avoir une épaisseur de peau faible
+      /i.e./ un champ électrique qui pénètre moins mais qui est plus
+      intense. Dans ces conditions, les casseroles en cuivre sont bien adaptées
+      que celle en acier.
+   2) Calcul du champ magnétique $B_1$
+      #+BEGIN_SRC latex
+        \begin{align*}
+          B_1^2&=2\left\langle\frac{dP}{dS}\right\rangle_T\mu_0^2\gamma\delta\\
+          B_1^\text{Cu}&=4\pi\,10^{-7}\sqrt{2\times10^4\times6\,10^7\times5\,10^{-3}}=\unit[100]{mT}\\
+          B_1^\text{acier}&=4\pi\,10^{-7}\sqrt{2\times10^4\times6\,10^6\times5\,10^{-4}}=\unit[10]{mT}
+        \end{align*}
+      #+END_SRC
+      Les casseroles en acier sont plus avantageuses à la fois en terme
+      d'efficacité de chauffage qu'en terme de sécurité[fn:16].
+
 ** Footnotes
 
 [fn:12] l'expression de la force électro-motrice se déduit de la relation de
@@ -6166,3 +6240,9 @@ le champ électrique soit orienté selon $\vv{u_\theta}$
 
 [fn:15] l'énergie potentielle d'un dipôle $\vv{m}$ soumis à un champ magnétique
 $\vv{B}$ est $E_p=-\vv{m}.\vv{B}$ d'où la force $\vv{F}=-\grad E_p$
+
+[fn:16] l'Institut National de Recherche et de Sécurité indique : "Il a été
+constaté chez des sujets soumis à un champ magnétique variable (autour d'une
+fréquence de 20 Hz et au-dessus d'un seuil d'intensité de 10 mT), un effet
+physiologique caractérisé par la perception visuelle de taches lumineuses; ce
+sont les magnétophosphènes."
