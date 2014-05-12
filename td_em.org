@@ -3317,7 +3317,7 @@ $r\cos\theta$ et est lui aussi solution de l'équation de Laplace. La somme des
 deux solutions justifie ainsi de la forme de la solution utilisée dans cet
 exercice.
 
-* TD6 : Milieux magnétiques
+* COMMENT TD6 : Milieux magnétiques
 ** COMMENT Introduction
 Dans la plupart des matériaux soumis à un champ magnétique, les charges liées se
 déplacent à l'échelle atomique faisant apparaître des boucles de courant /i.e./
@@ -4413,7 +4413,7 @@ $I=I_0\cos\omega t$. La fonction d'Heaviside a pour représentation
       de Higgs au LHC (pour une énergie de faisceau de 14 TeV et une masse du
       Higgs voisine de 125 GeV) est voisine de 50 picobarns soit 50 10^{-12} barn
       soit 50 10^{-40} m^{2}.
-* TD8 : Propagation dans le vide et les milieux diélectriques
+* COMMENT TD8 : Propagation dans le vide et les milieux diélectriques
 ** COMMENT Effet Faraday dans un diélectrique
 
 #+BEGIN_CENTER
@@ -5686,8 +5686,8 @@ l'équation de Bessel:
 ** Footnotes
 
 [fn:11] pour les fonctions de Bessel, on considère toujours \lambda > 0
-* COMMENT TD10 : Induction électromagnétique
-** Introduction
+* TD10 : Induction électromagnétique
+** COMMENT Introduction
 En régime variable, le champ magnétique demeure toujours à flux conservatif à
 savoir que
 #+BEGIN_SRC latex
@@ -5752,7 +5752,7 @@ prendre en compte l'effet d'un circuit vis-à-vis de l'autre soit
     \mathcal{E}_m=\frac{1}{2}L_1i_1^2+\frac{1}{2}L_2i_2^2+Mi_1i_2
   \end{align*}
 #+END_SRC
-** Couplage entre un solénoïde et une bobine
+** COMMENT Couplage entre un solénoïde et une bobine
 1) L'unique champ magnétique est celui crée par le solénoïde que l'on considère
    comme infini. Ainsi le champ magnétique est égal à $\mu_0nI\vv{u_z}$ pour
    $r<a$ et nul à l'extérieur du solénoïde. Le flux magnétique induit par le
@@ -5856,7 +5856,7 @@ prendre en compte l'effet d'un circuit vis-à-vis de l'autre soit
              &=-\frac{\mu_0n}{2}\frac{a^2}{b}I_0\omega\cos\omega t\,\vv{u_\theta}=\vv{E}
            \end{align*}
          #+END_SRC
-** Lévitation magnétique
+** COMMENT Lévitation magnétique
 1) Calcul du champ magnétique $B_1$ sur l'axe du solénoïde $Oz$
    #+BEGIN_SRC latex
      \begin{align*}
@@ -6024,11 +6024,40 @@ prendre en compte l'effet d'un circuit vis-à-vis de l'autre soit
 1) On considère une casserole occupant le demi-espace $z>0$, de conductivité
    \gamma et de perméabilité $\mu_r$. La plaque à induction occupe le
    demi-espace $z<0$ et est parcourue par une densité volumique de courant
-   $\vv{J_0}$.
+   $\vv{J}_0$ qui crée un champ $\vv{B}=B_1\cos\omega t\,\vv{u}_x$.
    1) Du fait que le champ magnétique $\vv{B_1}$ est colinéaire à $\vv{u_x}$, on
       déduit que le plan $yOz$ est un plan de symétrie de la distribution de
-      courant impliquant que $\vv{J_0}$ est nécessairement orthogonal à ce
-      dernier : $\vv{J_0}\parallel\vv{u_y}$.
+      courant impliquant que $\vv{J}_0$ est nécessairement orthogonal à ce
+      dernier : $\vv{J_0}\parallel\vv{u_y}$. Le fait que le problème soit
+      invariant par translation selon $Ox$ et $Oy$ impose que la composante
+      suivant $\vv{u}_z$ de $\vv{J}_0$ est nulle ($J_{0z}=\frac{\partial
+      B_y(z)}{\partial x}-\frac{\partial B_x(z)}{\partial y}$).
+   2) Dans le milieu /i.e./ dans la casserole, l'invariance par translation
+      selon $Ox$ et selon $Oy$ impose que $\vv{E}$ et $\vv{B}$ ne dépendent que
+      de $z$. Par ailleurs, le champ électrique et magnétique sont induits par
+      la distribution de courant $\vv{J}_0$ : ces champs obéissent donc aux
+      symétries de la distribution de courant à savoir $\vv{B}\parallel\vv{u}_x$
+      et $\vv{E}\parallel\vv{u}_y$ soit
+      #+BEGIN_SRC latex
+        \begin{align*}
+          \vv{E}=E(z,t)\,\vv{u}_y\quad\vv{B}=B(z,t)\,\vv{u}_x
+        \end{align*}
+      #+END_SRC
+2)
+   1) Étant donné les hypothèses du problème, les 4 équations de Maxwell + la
+      loi d'Ohm s'écrivent
+      #+BEGIN_SRC latex
+        \begin{align*}
+          \div\vv{E}&=0\\
+          \div\vv{B}&=0\\
+          \rot\vv{E}&=-\frac{\partial\vv{B}}{\partial t}\\
+          \rot\vv{B}&=\mu_0\mu_r\vv{j}\\
+          \vv{j}&=\gamma\vv{E}
+        \end{align*}
+      #+END_SRC
+      Le courant de déplacement
+      $\vv{J}_D=\epsilon_0\frac{\partial\vv{E}}{\partial t}$ est ici
+      négligeable.
 
 ** Footnotes
 
