@@ -3689,7 +3689,7 @@ On considère un matériau ferromagnétique dur ayant une aimantation $\vv{M}$
    faudrait augmenter la hauteur $h$ de l'aimant jusqu'à une valeur de l'ordre
    de 700 mm.
 
-** Chaîne de gouttelettes d'une émulsion ferrofluide
+** Chaîne de gouttelettes d'une émulsion ferrofluide                    :DM:
 1) Interaction entre deux dipôles magnétiques identiques $m_1=m_2=m$
    1) L'énergie potentielles s'écrit $W=-\vv{m_2}.\vv{B_1}$ où $\vv{m_2}$ est,
       en coordonnées sphériques, égal à $(m\cos\theta, -m\sin\theta, 0)$ et
@@ -4981,7 +4981,7 @@ $\omega_c,\omega_p\ll\omega\sim\sqrt{|\omega_0^2-\omega^2|}$
    $-$ $\lambda\sim30\,\mu\text{m}, \nu=\unit[1.5]{THz}$ $-$ et un champ
    magnétique de 8 Tesla.
 
-** Réflexion totale et onde évanescente
+** Réflexion totale et onde évanescente                                 :DM:
 
 1) La loi de Snell & Descartes impose qu'à la traversée du dioptre, l'angle
    transmis $\theta_t$ est relié à l'angle d'incidence $\theta_i$ par
@@ -5106,7 +5106,7 @@ $\omega_c,\omega_p\ll\omega\sim\sqrt{|\omega_0^2-\omega^2|}$
           \delta=\frac{1}{m}=\frac{c}{w}\times\frac{1}{\sqrt{n_1^2\sin^2\theta_i-n_2^2}}
         \end{align*}
       #+END_SRC
-   4) La phase l'onde transmise est égale à
+   4) La phase de l'onde transmise est égale à
       #+BEGIN_SRC latex
         \begin{align*}
           \phi&=\frac{\omega}{c}n_1\sin\theta_iz-\omega t\\
@@ -5579,7 +5579,7 @@ l'expression de la matrice inverse $\mathcal{A}^{-1}$ est
    sour le nom de [[http://en.wikipedia.org/wiki/Q-switching][/Q-switching/]] ou commutation Q et est, en particulier, utilisée
    pour retirer les tatouages.
 
-** Annexe A : Résolution de l'équation de Bessel
+** Résolution de l'équation de Bessel                               :ANNEXE:
 *** Équation de Bessel
 La résolution de l'équation de Laplace en coordonnées cylindriques
 $(r,\theta,z)$ :
