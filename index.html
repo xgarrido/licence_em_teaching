@@ -7,9 +7,9 @@
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="generator" content="Org-mode" />
 <meta  name="author" content="Xavier Garrido" />
-<link rel="stylesheet" href="css/styles.css">
-                 <link rel="stylesheet" href="css/org-pygments.css">
-                 <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+<link rel="stylesheet" href="css/styles.css" />
+               <link rel="stylesheet" href="css/org-pygments.css" />
+               <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" />
 <script type="text/javascript">
 /*
 @licstart  The following is the entire license notice for the
@@ -56,19 +56,31 @@ for the JavaScript code in this tag.
  }
 /*]]>*///-->
 </script><script type="text/javascript">
-function displayTOC() {
-    var first = document.getElementById("text-table-of-contents").innerHTML;
-    if (first != "") {
-        var maincontent = '<a class="button"><i class="fa fa-list"></i></a>'
-        maincontent += "<div>" + first + "</div>";
-        document.getElementById("toc").innerHTML = maincontent;
-    } else {
-        document.getElementById("toc").style.display = "none";
-    }
-   }
-</script>
+  function randomLinkColor() {
+      var colors = ['#f1c40f','#e74c3c','#3399cc','#e67e22','#67ad00','#8e44ad','#1abc9c','#003399'];
+      var random_color = colors[Math.floor(Math.random() * colors.length)];
+      var elements = document.querySelectorAll('a');
+      [].slice.call(elements).forEach(function(elem) {
+          //elem.style.color = random_color;
+      });
+  }
+  function displayTOC() {
+      var ttoc = document.getElementById("text-table-of-contents");
+      if (ttoc) {
+          var maincontent = '<a class="button"><i class="fa fa-list"></i></a>'
+          maincontent += "<div>" + ttoc.innerHTML + "</div>";
+          document.getElementById("toc").innerHTML = maincontent;
+      } else {
+          document.getElementById("toc").style.display = "none";
+          document.getElementById("preamble").style.top = "10px";
+      }
+     }
+  </script>
 </head>
-<body onload="displayTOC()"><div id="toc"></div>
+<body onload="randomLinkColor();displayTOC();"><div id="toc"></div>
+<div id="preamble" class="status">
+ 
+</div>
 <div id="content">
 <h1 class="title">Electromagnetism classes of Licence 3 - README</h1>
 
@@ -116,9 +128,25 @@ next links
 
 <div id="text-table-of-contents">
 <ul class="org-ul">
-<li><a href="././td_em_0.html">TD5 : Magnétostatique</a>
+<li><a href="././td_em_0.html">TD1 : Électromagnétisme &amp; relativité</a>
 </li>
-<li><a href="././td_em_1.html">TD8 : Propagation dans le vide et les milieux diélectriques</a>
+<li><a href="././td_em_1.html">TD2 : Équations de Maxwell dans le vide et champ électromagnétique</a>
+</li>
+<li><a href="././td_em_2.html">TD3 : Électrostatique dans le vide</a>
+</li>
+<li><a href="././td_em_3.html">TD4 : Les milieux diélectriques</a>
+</li>
+<li><a href="././td_em_4.html">TD5 : Magnétostatique</a>
+</li>
+<li><a href="././td_em_5.html">TD6 : Milieux magnétiques</a>
+</li>
+<li><a href="././td_em_6.html">TD7 : Rayonnement</a>
+</li>
+<li><a href="././td_em_7.html">TD8 : Propagation dans le vide et les milieux diélectriques</a>
+</li>
+<li><a href="././td_em_8.html">TD9 : Guides d'onde</a>
+</li>
+<li><a href="././td_em_9.html">TD10 : Induction électromagnétique</a>
 </li>
 </ul>
 </div>
@@ -126,7 +154,7 @@ next links
 </div>
 </div>
 <div id="postamble" class="status">
-File under git version control - commit <a href="https://github.com/xgarrido/licence_em_teaching/commit/9a9b7670891d678c86dc5f4346c53db4527f136a">9a9b767</a> - 2014-04-23
+File under <i class="fa fa-github-alt"></i> version control - commit <a href="https://github.com/xgarrido/licence_em_teaching/commit/8afb843b1d090687b68837281878e03049ba48c3">8afb843</a> - 2014-05-12
 </div>
 </body>
 </html>

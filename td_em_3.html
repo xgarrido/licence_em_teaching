@@ -6,9 +6,9 @@
 <title>TD4 : Les milieux diélectriques</title>
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="generator" content="Org-mode" />
-<link rel="stylesheet" href="css/styles.css">
-                 <link rel="stylesheet" href="css/org-pygments.css">
-                 <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+<link rel="stylesheet" href="css/styles.css" />
+               <link rel="stylesheet" href="css/org-pygments.css" />
+               <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" />
 <script type="text/javascript">
 /*
 @licstart  The following is the entire license notice for the
@@ -55,23 +55,33 @@ for the JavaScript code in this tag.
  }
 /*]]>*///-->
 </script><script type="text/javascript">
-function displayTOC() {
-    var first = document.getElementById("text-table-of-contents").innerHTML;
-    if (first != "") {
-        var maincontent = '<a class="button"><i class="fa fa-list"></i></a>'
-        maincontent += "<div>" + first + "</div>";
-        document.getElementById("toc").innerHTML = maincontent;
-    } else {
-        document.getElementById("toc").style.display = "none";
-    }
-   }
-</script>
+  function randomLinkColor() {
+      var colors = ['#f1c40f','#e74c3c','#3399cc','#e67e22','#67ad00','#8e44ad','#1abc9c','#003399'];
+      var random_color = colors[Math.floor(Math.random() * colors.length)];
+      var elements = document.querySelectorAll('a');
+      [].slice.call(elements).forEach(function(elem) {
+          //elem.style.color = random_color;
+      });
+  }
+  function displayTOC() {
+      var ttoc = document.getElementById("text-table-of-contents");
+      if (ttoc) {
+          var maincontent = '<a class="button"><i class="fa fa-list"></i></a>'
+          maincontent += "<div>" + ttoc.innerHTML + "</div>";
+          document.getElementById("toc").innerHTML = maincontent;
+      } else {
+          document.getElementById("toc").style.display = "none";
+          document.getElementById("preamble").style.top = "10px";
+      }
+     }
+  </script>
 <script type="text/x-mathjax-config">
   MathJax.Hub.Config({
+      messageStyle: "none",
       TeX: {
           extensions: ["cancel.js"],
           Macros: {
-              vv: ["{\\vec #1}",1],
+              vv: ["{\\vec{#1}}",1],
               Upsigma: "{\\Sigma}",
               Updelta: "{\\Delta}",
               varoiint: "{\\iint}",
@@ -99,10 +109,22 @@ function displayTOC() {
           }
       });
   });
+  MathJax.Hub.Queue(function () {
+      document.getElementById("spinner").style.display = "none";
+  });
   </script>
   <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  <div id="spinner">
+    <div id="bounce1"></div>
+    <div id="bounce2"></div>
+    <div id="bounce3"></div>
+    <small>Loading MathJax...</small>
+  </div>
 </head>
-<body onload="displayTOC()"><div id="toc"></div>
+<body onload="randomLinkColor();displayTOC();"><div id="toc"></div>
+<div id="preamble" class="status">
+ 
+</div>
 <div id="content">
 <h1 class="title">TD4 : Les milieux diélectriques</h1>
 <div style="display:none;">
@@ -123,6 +145,10 @@ function displayTOC() {
 <li><a href="././td_em_6.html">TD7 : Rayonnement</a>
 </li>
 <li><a href="././td_em_7.html">TD8 : Propagation dans le vide et les milieux diélectriques</a>
+</li>
+<li><a href="././td_em_8.html">TD9 : Guides d'onde</a>
+</li>
+<li><a href="././td_em_9.html">TD10 : Induction électromagnétique</a>
 </li>
 </ul>
 </div>
@@ -323,7 +349,7 @@ d'où \(\vv{p}=\frac{4}{3}\pi R^3\vv{P}\), on retrouve donc bien \(\vv{P}=\frac{
 <div class="center">
 
 <div class="figure">
-<p><img src="./figures/plaque_dielectrique.png" alt="plaque_dielectrique.png" />
+<p><img src="/./figures/plaque_dielectrique.png" alt="plaque_dielectrique.png" />
 </p>
 </div>
 </div>
@@ -399,7 +425,7 @@ L'énergie stockée dans le condensateur est bien d'origine électrostatique.
 <div class="center">
 
 <div class="figure">
-<p><img src="./figures/solid_angle.png" alt="solid_angle.png" />
+<p><img src="/./figures/solid_angle.png" alt="solid_angle.png" />
 </p>
 </div>
 </div>
@@ -431,7 +457,7 @@ l'angle solide \(\Omega=\pm2\pi\) sr.
 <div class="center">
 
 <div class="figure">
-<p><img src="./figures/plan_infini.png" alt="plan_infini.png" />
+<p><img src="/./figures/plan_infini.png" alt="plan_infini.png" />
 </p>
 </div>
 </div>
@@ -457,7 +483,7 @@ porte une densité surfacique \(dP_S=P(z')dz'\)
 <div class="center">
 
 <div class="figure">
-<p><img src="./figures/coupe_plaque_dielectrique.png" alt="coupe_plaque_dielectrique.png" />
+<p><img src="/./figures/coupe_plaque_dielectrique.png" alt="coupe_plaque_dielectrique.png" />
 </p>
 </div>
 </div>
@@ -524,7 +550,7 @@ Le champ électrique \(\vv{E}_d(M)\) s'écrit
 <div class="center">
 
 <div class="figure">
-<p><img src="./figures/coupe_condensateur_dielectrique.png" alt="coupe_condensateur_dielectrique.png" />
+<p><img src="/./figures/coupe_condensateur_dielectrique.png" alt="coupe_condensateur_dielectrique.png" />
 </p>
 </div>
 </div>
@@ -617,7 +643,7 @@ diélectrique-vide, on a
 <div class="center">
 
 <div class="figure">
-<p><img src="./figures/coupe_condensateur_dielectrique_charge.png" alt="coupe_condensateur_dielectrique_charge.png" />
+<p><img src="/./figures/coupe_condensateur_dielectrique_charge.png" alt="coupe_condensateur_dielectrique_charge.png" />
 </p>
 <p><span class="figure-number">Figure 1:</span> <b>Distribution des charges de polarisation et du condensateur après ajout du diélectrique</b></p>
 </div>
@@ -651,7 +677,7 @@ L}{a-\frac{b\chi_e}{1+\chi_e}}=C_1\). Finalement, l'énergie stockée \(U_2\) es
 <div class="center">
 
 <div class="figure">
-<p><img src="./figures/coupe_condensateur_dielectrique_force.png" alt="coupe_condensateur_dielectrique_force.png" />
+<p><img src="/./figures/coupe_condensateur_dielectrique_force.png" alt="coupe_condensateur_dielectrique_force.png" />
 </p>
 </div>
 </div>
@@ -730,7 +756,7 @@ Ainsi la variation d'énergie stockée correspond à
 <div class="center">
 
 <div class="figure">
-<p><img src="./figures/coupe_condensateur_dielectrique_force2.png" alt="coupe_condensateur_dielectrique_force2.png" />
+<p><img src="/./figures/coupe_condensateur_dielectrique_force2.png" alt="coupe_condensateur_dielectrique_force2.png" />
 </p>
 </div>
 </div>
@@ -1013,7 +1039,7 @@ et on vérifie que
 </div>
 </div></div>
 <div id="postamble" class="status">
-File under git version control - commit <a href="https://github.com/xgarrido/master_npp_teaching/commit/de670a2534c568f9a55c9e4c13c66212a371a2f0">de670a2</a> - 2014-03-18
+File under <i class="fa fa-github-alt"></i> version control - commit <a href="https://github.com/xgarrido/licence_em_teaching/commit/8afb843b1d090687b68837281878e03049ba48c3">8afb843</a> - 2014-05-12
 </div>
 </body>
 </html>

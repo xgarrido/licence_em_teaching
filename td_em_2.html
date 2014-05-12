@@ -6,9 +6,9 @@
 <title>TD3 : Électrostatique dans le vide</title>
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="generator" content="Org-mode" />
-<link rel="stylesheet" href="css/styles.css">
-                 <link rel="stylesheet" href="css/org-pygments.css">
-                 <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+<link rel="stylesheet" href="css/styles.css" />
+               <link rel="stylesheet" href="css/org-pygments.css" />
+               <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" />
 <script type="text/javascript">
 /*
 @licstart  The following is the entire license notice for the
@@ -55,23 +55,33 @@ for the JavaScript code in this tag.
  }
 /*]]>*///-->
 </script><script type="text/javascript">
-function displayTOC() {
-    var first = document.getElementById("text-table-of-contents").innerHTML;
-    if (first != "") {
-        var maincontent = '<a class="button"><i class="fa fa-list"></i></a>'
-        maincontent += "<div>" + first + "</div>";
-        document.getElementById("toc").innerHTML = maincontent;
-    } else {
-        document.getElementById("toc").style.display = "none";
-    }
-   }
-</script>
+  function randomLinkColor() {
+      var colors = ['#f1c40f','#e74c3c','#3399cc','#e67e22','#67ad00','#8e44ad','#1abc9c','#003399'];
+      var random_color = colors[Math.floor(Math.random() * colors.length)];
+      var elements = document.querySelectorAll('a');
+      [].slice.call(elements).forEach(function(elem) {
+          //elem.style.color = random_color;
+      });
+  }
+  function displayTOC() {
+      var ttoc = document.getElementById("text-table-of-contents");
+      if (ttoc) {
+          var maincontent = '<a class="button"><i class="fa fa-list"></i></a>'
+          maincontent += "<div>" + ttoc.innerHTML + "</div>";
+          document.getElementById("toc").innerHTML = maincontent;
+      } else {
+          document.getElementById("toc").style.display = "none";
+          document.getElementById("preamble").style.top = "10px";
+      }
+     }
+  </script>
 <script type="text/x-mathjax-config">
   MathJax.Hub.Config({
+      messageStyle: "none",
       TeX: {
           extensions: ["cancel.js"],
           Macros: {
-              vv: ["{\\vec #1}",1],
+              vv: ["{\\vec{#1}}",1],
               Upsigma: "{\\Sigma}",
               Updelta: "{\\Delta}",
               varoiint: "{\\iint}",
@@ -99,10 +109,22 @@ function displayTOC() {
           }
       });
   });
+  MathJax.Hub.Queue(function () {
+      document.getElementById("spinner").style.display = "none";
+  });
   </script>
   <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  <div id="spinner">
+    <div id="bounce1"></div>
+    <div id="bounce2"></div>
+    <div id="bounce3"></div>
+    <small>Loading MathJax...</small>
+  </div>
 </head>
-<body onload="displayTOC()"><div id="toc"></div>
+<body onload="randomLinkColor();displayTOC();"><div id="toc"></div>
+<div id="preamble" class="status">
+ 
+</div>
 <div id="content">
 <h1 class="title">TD3 : Électrostatique dans le vide</h1>
 <div style="display:none;">
@@ -123,6 +145,10 @@ function displayTOC() {
 <li><a href="././td_em_6.html">TD7 : Rayonnement</a>
 </li>
 <li><a href="././td_em_7.html">TD8 : Propagation dans le vide et les milieux diélectriques</a>
+</li>
+<li><a href="././td_em_8.html">TD9 : Guides d'onde</a>
+</li>
+<li><a href="././td_em_9.html">TD10 : Induction électromagnétique</a>
 </li>
 </ul>
 </div>
@@ -192,7 +218,7 @@ gradient du potentiel électrique
 <div class="center">
 
 <div class="figure">
-<p><img src="./figures/boule_conductrice.png" alt="boule_conductrice.png" />
+<p><img src="//./figures/boule_conductrice.png" alt="boule_conductrice.png" />
 </p>
 </div>
 </div>
@@ -308,9 +334,9 @@ demeure nul ce qui n'est pas le cas dans la situation "charge \(q\) + charge
 </colgroup>
 <tbody>
 <tr>
-<td class="left"><img src="./figures/boule_conductrice0.png" alt="boule_conductrice0.png" /></td>
+<td class="left"><img src="//./figures/boule_conductrice0.png" alt="boule_conductrice0.png" /></td>
 <td class="left">&#xa0;</td>
-<td class="left"><img src="./figures/boule_conductrice1.png" alt="boule_conductrice1.png" /></td>
+<td class="left"><img src="//./figures/boule_conductrice1.png" alt="boule_conductrice1.png" /></td>
 </tr>
 </tbody>
 </table>
@@ -349,7 +375,7 @@ Conditions de continuité du champ électrique au passage d'une surface
 <div class="center">
 
 <div class="figure">
-<p><img src="./figures/field_continuity.png" alt="field_continuity.png" />
+<p><img src="//./figures/field_continuity.png" alt="field_continuity.png" />
 </p>
 </div>
 
@@ -453,7 +479,7 @@ ainsi égale à \(-q'=\frac{qR}{PO}\) soit un potentiel \(V_0\) égal à
 <div class="center">
 
 <div class="figure">
-<p><img src="./figures/boule_conductrice_field.png" alt="boule_conductrice_field.png" />
+<p><img src="//./figures/boule_conductrice_field.png" alt="boule_conductrice_field.png" />
 </p>
 </div>
 </div>
@@ -570,7 +596,7 @@ exercée sur l'hémisphère supérieur est ainsi
 <div class="center">
 
 <div class="figure">
-<p><img src="./figures/boule_conductrice_force.png" alt="boule_conductrice_force.png" />
+<p><img src="//./figures/boule_conductrice_force.png" alt="boule_conductrice_force.png" />
 </p>
 </div>
 </div>
@@ -609,7 +635,7 @@ En procédant au changement de variable \(x=\cos\theta\) avec \(x\in[1,0]\) et
 <div class="center">
 
 <div class="figure">
-<p><img src="./figures/van_der_waals.png" alt="van_der_waals.png" />
+<p><img src="//./figures/van_der_waals.png" alt="van_der_waals.png" />
 </p>
 </div>
 </div>
@@ -721,7 +747,7 @@ symétrie de la distribution de charge et \(\vv{E}\) est donc colinéaire à
 <div class="center">
 
 <div class="figure">
-<p><img src="./figures/van_der_waals_dipole1.png" alt="van_der_waals_dipole1.png" />
+<p><img src="//./figures/van_der_waals_dipole1.png" alt="van_der_waals_dipole1.png" />
 </p>
 </div>
 </div>
@@ -743,7 +769,7 @@ les champs coulombiens générés par chacune des charges \(\pm q_1\) soit
 <div class="center">
 
 <div class="figure">
-<p><img src="./figures/van_der_waals_dipole2.png" alt="van_der_waals_dipole2.png" />
+<p><img src="//./figures/van_der_waals_dipole2.png" alt="van_der_waals_dipole2.png" />
 </p>
 </div>
 </div>
@@ -855,7 +881,7 @@ le premier et en considérant les deux atomes/molécules identiques <i>i.e.</i>
 </div>
 </div>
 <div id="postamble" class="status">
-File under git version control - commit <a href="https://github.com/xgarrido/master_npp_teaching/commit/de670a2534c568f9a55c9e4c13c66212a371a2f0">de670a2</a> - 2014-03-18
+File under <i class="fa fa-github-alt"></i> version control - commit <a href="https://github.com/xgarrido/licence_em_teaching/commit/8afb843b1d090687b68837281878e03049ba48c3">8afb843</a> - 2014-05-12
 </div>
 </body>
 </html>

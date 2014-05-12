@@ -6,9 +6,9 @@
 <title>TD5 : Magnétostatique</title>
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="generator" content="Org-mode" />
-<link rel="stylesheet" href="css/styles.css">
-                 <link rel="stylesheet" href="css/org-pygments.css">
-                 <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+<link rel="stylesheet" href="css/styles.css" />
+               <link rel="stylesheet" href="css/org-pygments.css" />
+               <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" />
 <script type="text/javascript">
 /*
 @licstart  The following is the entire license notice for the
@@ -55,23 +55,33 @@ for the JavaScript code in this tag.
  }
 /*]]>*///-->
 </script><script type="text/javascript">
-function displayTOC() {
-    var first = document.getElementById("text-table-of-contents").innerHTML;
-    if (first != "") {
-        var maincontent = '<a class="button"><i class="fa fa-list"></i></a>'
-        maincontent += "<div>" + first + "</div>";
-        document.getElementById("toc").innerHTML = maincontent;
-    } else {
-        document.getElementById("toc").style.display = "none";
-    }
-   }
-</script>
+  function randomLinkColor() {
+      var colors = ['#f1c40f','#e74c3c','#3399cc','#e67e22','#67ad00','#8e44ad','#1abc9c','#003399'];
+      var random_color = colors[Math.floor(Math.random() * colors.length)];
+      var elements = document.querySelectorAll('a');
+      [].slice.call(elements).forEach(function(elem) {
+          //elem.style.color = random_color;
+      });
+  }
+  function displayTOC() {
+      var ttoc = document.getElementById("text-table-of-contents");
+      if (ttoc) {
+          var maincontent = '<a class="button"><i class="fa fa-list"></i></a>'
+          maincontent += "<div>" + ttoc.innerHTML + "</div>";
+          document.getElementById("toc").innerHTML = maincontent;
+      } else {
+          document.getElementById("toc").style.display = "none";
+          document.getElementById("preamble").style.top = "10px";
+      }
+     }
+  </script>
 <script type="text/x-mathjax-config">
   MathJax.Hub.Config({
+      messageStyle: "none",
       TeX: {
           extensions: ["cancel.js"],
           Macros: {
-              vv: ["{\\vec #1}",1],
+              vv: ["{\\vec{#1}}",1],
               Upsigma: "{\\Sigma}",
               Updelta: "{\\Delta}",
               varoiint: "{\\iint}",
@@ -99,10 +109,22 @@ function displayTOC() {
           }
       });
   });
+  MathJax.Hub.Queue(function () {
+      document.getElementById("spinner").style.display = "none";
+  });
   </script>
   <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  <div id="spinner">
+    <div id="bounce1"></div>
+    <div id="bounce2"></div>
+    <div id="bounce3"></div>
+    <small>Loading MathJax...</small>
+  </div>
 </head>
-<body onload="displayTOC()"><div id="toc"></div>
+<body onload="randomLinkColor();displayTOC();"><div id="toc"></div>
+<div id="preamble" class="status">
+ 
+</div>
 <div id="content">
 <h1 class="title">TD5 : Magnétostatique</h1>
 <div style="display:none;">
@@ -123,6 +145,10 @@ function displayTOC() {
 <li><a href="././td_em_6.html">TD7 : Rayonnement</a>
 </li>
 <li><a href="././td_em_7.html">TD8 : Propagation dans le vide et les milieux diélectriques</a>
+</li>
+<li><a href="././td_em_8.html">TD9 : Guides d'onde</a>
+</li>
+<li><a href="././td_em_9.html">TD10 : Induction électromagnétique</a>
 </li>
 </ul>
 </div>
@@ -178,7 +204,7 @@ est plan d'antisymétrie : \(\vv{B}(M)=B_r(r,z)\vv{u}_r+B_z(r,z)\vv{u}_z\)
 <div class="center">
 
 <div class="figure">
-<p><img src="./figures/plan_symetrie_B.png" alt="plan_symetrie_B.png" />
+<p><img src="/./figures/plan_symetrie_B.png" alt="plan_symetrie_B.png" />
 </p>
 </div>
 </div>
@@ -196,7 +222,7 @@ Le plan \((xOy)\) est plan de symétrie de la distribution de courant impliquant
 <div class="center">
 
 <div class="figure">
-<p><img src="./figures/spire_circulaire.png" alt="spire_circulaire.png" />
+<p><img src="/./figures/spire_circulaire.png" alt="spire_circulaire.png" />
 </p>
 </div>
 </div>
@@ -205,7 +231,6 @@ Le plan \((xOy)\) est plan de symétrie de la distribution de courant impliquant
 Loi de Biot &amp; Savart
 </p>
 \begin{align*}
-  %%\vv{dB}(M)&=\frac{\mu_0I}{4\pi}\,\frac{\vv{d\ell}\times\vv{PM}}{PM^3}\\
   \vv{B}(M)&=\frac{\mu_0I}{4\pi}\oint_\mathcal{C}\frac{\vv{d\ell}\times\vv{PM}}{PM^3}\\
   &\text{où }\left\{
   \begin{array}{rl}
@@ -509,7 +534,7 @@ obtient
 \begin{align*}
   \rot\left(\rot\vv{B}\right)&=\mu_0\rot\vv{j}\\
   \cancel{\grad\left(\div\vv{B}\right)}-\Delta\vv{B}&=\cancel{\mu_0}\times-\frac{1}{\cancel{\mu_0}\delta^2}\rot\vv{A}\\
-  \Delta\vv{B}=\frac{\vv{B}}{\delta^2}
+  \Delta\vv{B}&=\frac{\vv{B}}{\delta^2}
 \end{align*}
 
 <p>
@@ -591,7 +616,7 @@ Le champ magnétique à l'intérieur du supraconducteur est donc
 <div class="center">
 
 <div class="figure">
-<p><img src="./figures/meissner_magnetic_field.png" alt="meissner_magnetic_field.png" />
+<p><img src="/./figures/meissner_magnetic_field.png" alt="meissner_magnetic_field.png" />
 </p>
 </div>
 </div>
@@ -699,14 +724,14 @@ s'écoulant sur la boule<sup><a id="fnr.2" class="footref" href="#fn.2">2</a></s
 <div class="center">
 
 <div class="figure">
-<p><img src="./figures/boule_supraconductrice.png" alt="boule_supraconductrice.png" />
+<p><img src="/./figures/boule_supraconductrice.png" alt="boule_supraconductrice.png" />
  <div class="footdef"><sup><a id="fn.2" class="footnum" href="#fnr.2">2</a></sup> <p class="footpara"> un fluide dont le champ vitesse \(\vv{v}\) est à rotationnel nul <i>i.e.</i> \(\rot\vv{v}=\vv{0}\) est dit irrotationnel. Cette propriété traduit le fait que chaque particule fluide ne tourne nullement sur elle-même et n'a donc aucune incidence sur la trajectoire des lignes de champ. </p></div>
 </div>
 </div>
 
 <p>
 Le champ de vitesse/magnétique est ainsi plus faible à "l'équateur" <i>i.e.</i> en
-\(A\) et \(B\) où \(B_{A,B}<B_\infty\) et plus élevé aux pôles <i>i.e.</i> en \(C\) et
+\(A\) et \(B\) où \(B_{A,B} < B_\infty\) et plus élevé aux pôles <i>i.e.</i> en \(C\) et
 \(D\) où \(B_{C,D}>B_\infty\).
 </p>
 </li>
@@ -763,7 +788,7 @@ composante tangentielle du champ magnétique soit
 <div class="center">
 
 <div class="figure">
-<p><img src="./figures/boule_supraconductrice_courant.png" alt="boule_supraconductrice_courant.png" />
+<p><img src="/./figures/boule_supraconductrice_courant.png" alt="boule_supraconductrice_courant.png" />
 </p>
 <p><span class="figure-number">Figure 1:</span> <b>Distribution du courant à la surface de la boule supraconductrice</b></p>
 </div>
@@ -878,7 +903,7 @@ nulle \(B_r=0\) d'où
 <div class="center">
 
 <div class="figure">
-<p><img src="./figures/boule_supraconductrice_force.png" alt="boule_supraconductrice_force.png" />
+<p><img src="/./figures/boule_supraconductrice_force.png" alt="boule_supraconductrice_force.png" />
 </p>
 </div>
 </div>
@@ -1014,7 +1039,7 @@ L'anneau oscille autour de sa position d'équilibre \(h_0\) à une pulsation
 </div>
 </div></div>
 <div id="postamble" class="status">
-File under git version control - commit <a href="https://github.com/xgarrido/master_npp_teaching/commit/de670a2534c568f9a55c9e4c13c66212a371a2f0">de670a2</a> - 2014-03-18
+File under <i class="fa fa-github-alt"></i> version control - commit <a href="https://github.com/xgarrido/licence_em_teaching/commit/8afb843b1d090687b68837281878e03049ba48c3">8afb843</a> - 2014-05-12
 </div>
 </body>
 </html>

@@ -6,9 +6,9 @@
 <title>TD6 : Milieux magnétiques</title>
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="generator" content="Org-mode" />
-<link rel="stylesheet" href="css/styles.css">
-                 <link rel="stylesheet" href="css/org-pygments.css">
-                 <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+<link rel="stylesheet" href="css/styles.css" />
+               <link rel="stylesheet" href="css/org-pygments.css" />
+               <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" />
 <script type="text/javascript">
 /*
 @licstart  The following is the entire license notice for the
@@ -55,23 +55,33 @@ for the JavaScript code in this tag.
  }
 /*]]>*///-->
 </script><script type="text/javascript">
-function displayTOC() {
-    var first = document.getElementById("text-table-of-contents").innerHTML;
-    if (first != "") {
-        var maincontent = '<a class="button"><i class="fa fa-list"></i></a>'
-        maincontent += "<div>" + first + "</div>";
-        document.getElementById("toc").innerHTML = maincontent;
-    } else {
-        document.getElementById("toc").style.display = "none";
-    }
-   }
-</script>
+  function randomLinkColor() {
+      var colors = ['#f1c40f','#e74c3c','#3399cc','#e67e22','#67ad00','#8e44ad','#1abc9c','#003399'];
+      var random_color = colors[Math.floor(Math.random() * colors.length)];
+      var elements = document.querySelectorAll('a');
+      [].slice.call(elements).forEach(function(elem) {
+          //elem.style.color = random_color;
+      });
+  }
+  function displayTOC() {
+      var ttoc = document.getElementById("text-table-of-contents");
+      if (ttoc) {
+          var maincontent = '<a class="button"><i class="fa fa-list"></i></a>'
+          maincontent += "<div>" + ttoc.innerHTML + "</div>";
+          document.getElementById("toc").innerHTML = maincontent;
+      } else {
+          document.getElementById("toc").style.display = "none";
+          document.getElementById("preamble").style.top = "10px";
+      }
+     }
+  </script>
 <script type="text/x-mathjax-config">
   MathJax.Hub.Config({
+      messageStyle: "none",
       TeX: {
           extensions: ["cancel.js"],
           Macros: {
-              vv: ["{\\vec #1}",1],
+              vv: ["{\\vec{#1}}",1],
               Upsigma: "{\\Sigma}",
               Updelta: "{\\Delta}",
               varoiint: "{\\iint}",
@@ -99,10 +109,22 @@ function displayTOC() {
           }
       });
   });
+  MathJax.Hub.Queue(function () {
+      document.getElementById("spinner").style.display = "none";
+  });
   </script>
   <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  <div id="spinner">
+    <div id="bounce1"></div>
+    <div id="bounce2"></div>
+    <div id="bounce3"></div>
+    <small>Loading MathJax...</small>
+  </div>
 </head>
-<body onload="displayTOC()"><div id="toc"></div>
+<body onload="randomLinkColor();displayTOC();"><div id="toc"></div>
+<div id="preamble" class="status">
+ 
+</div>
 <div id="content">
 <h1 class="title">TD6 : Milieux magnétiques</h1>
 <div style="display:none;">
@@ -123,6 +145,10 @@ function displayTOC() {
 <li><a href="././td_em_6.html">TD7 : Rayonnement</a>
 </li>
 <li><a href="././td_em_7.html">TD8 : Propagation dans le vide et les milieux diélectriques</a>
+</li>
+<li><a href="././td_em_8.html">TD9 : Guides d'onde</a>
+</li>
+<li><a href="././td_em_9.html">TD10 : Induction électromagnétique</a>
 </li>
 </ul>
 </div>
@@ -247,7 +273,7 @@ du cham extérieur \(B_{i\parallel}\lesssim B_{0\parallel}\).
 <div class="center">
 
 <div class="figure">
-<p><img src="./figures/plaque_diamagnetique.png" alt="plaque_diamagnetique.png" />
+<p><img src="//./figures/plaque_diamagnetique.png" alt="plaque_diamagnetique.png" />
 </p>
 </div>
 </div>
@@ -259,7 +285,7 @@ du cham extérieur \(B_{i\parallel}\lesssim B_{0\parallel}\).
 <div class="center">
 
 <div class="figure">
-<p><img src="./figures/plaque_paramagnetique.png" alt="plaque_paramagnetique.png" />
+<p><img src="//./figures/plaque_paramagnetique.png" alt="plaque_paramagnetique.png" />
 </p>
 </div>
 </div>
@@ -272,7 +298,7 @@ mu-métal) &rarr; \(\vv{B}_i\simeq\mu_r\vv{B}_{0\parallel}\)
 <div class="center">
 
 <div class="figure">
-<p><img src="./figures/plaque_ferromagnetique.png" alt="plaque_ferromagnetique.png" />
+<p><img src="//./figures/plaque_ferromagnetique.png" alt="plaque_ferromagnetique.png" />
 </p>
 </div>
 </div>
@@ -408,7 +434,7 @@ donc que des courants d'aimantation :
 <div class="center">
 
 <div class="figure">
-<p><img src="./figures/aimant_permanent.png" alt="aimant_permanent.png" />
+<p><img src="//./figures/aimant_permanent.png" alt="aimant_permanent.png" />
 </p>
 </div>
 </div>
@@ -465,8 +491,8 @@ symétrie de la distribution de courant.
 </colgroup>
 <tbody>
 <tr>
-<td class="left"><img src="./figures/plan_symetrie_aimant_permanent.png" alt="plan_symetrie_aimant_permanent.png" /></td>
-<td class="left"><img src="./figures/plan_antisymetrie_aimant_permanent.png" alt="plan_antisymetrie_aimant_permanent.png" /></td>
+<td class="left"><img src="//./figures/plan_symetrie_aimant_permanent.png" alt="plan_symetrie_aimant_permanent.png" /></td>
+<td class="left"><img src="//./figures/plan_antisymetrie_aimant_permanent.png" alt="plan_antisymetrie_aimant_permanent.png" /></td>
 </tr>
 </tbody>
 </table>
@@ -586,9 +612,276 @@ de 700 mm.
 </div>
 </div>
 </div>
+
+<div id="outline-container-sec-5" class="outline-2">
+<h2 id="sec-5"><span class="section-number-2">5</span> Chaîne de gouttelettes d'une émulsion ferrofluide&#xa0;&#xa0;&#xa0;<span class="tag"><span class="DM">DM</span></span></h2>
+<div class="outline-text-2" id="text-5">
+<ol class="org-ol">
+<li>Interaction entre deux dipôles magnétiques identiques \(m_1=m_2=m\)
+<ol class="org-ol">
+<li>L'énergie potentielles s'écrit \(W=-\vv{m_2}.\vv{B_1}\) où \(\vv{m_2}\) est,
+en coordonnées sphériques, égal à \((m\cos\theta, -m\sin\theta, 0)\) et
+\(\vv{B_1}\) correspond au champ magnétique généré par le dipôle \(m_1\) au
+point \(P\). On déduit l'expression de \(W\)
+\begin{align*}
+  W&=-\left|\begin{array}{l}
+  m\cos\theta\\
+  -m\sin\theta\\
+  0
+  \end{array}\right.\cdot\frac{\mu_0}{4\pi}
+  \left|\begin{array}{l}
+  \frac{2m\cos\theta}{r^3}\\
+  \frac{m\sin\theta}{r^3}\\
+  0
+  \end{array}\right.\\
+  &=-\frac{\mu_0m^2}{4\pi r^3}\left(2\cos^2\theta-\sin^2\theta\right)\\
+  &=-\frac{\mu_0m^2}{4\pi r^3}\left(3\cos^2\theta-1\right)
+\end{align*}
+
+<p>
+La force d'interaction \(\vv{F}\) est égal à \(-\grad W\) soit
+</p>
+\begin{align*}
+  \vv{F}&=-\grad W=-\frac{\partial W}{\partial r}\vv{u_r}-\frac{1}{r}\frac{\partial W}{\partial\theta}\vv{u_\theta}\\
+  &=-\frac{3\mu_0m^2}{4\pi r^4}\left(3\cos^2\theta-1\right)\,\vv{u_r}-\frac{3\mu_0m^2}{4\pi r^4}\left(2\cos\theta\sin\theta\right)\,\vv{u_\theta}\\
+  &=\left|\begin{array}{l}
+  -\frac{3\mu_0m^2}{4\pi r^4}\left(3\cos^2\theta-1\right)\\
+  -\frac{3\mu_0m^2}{4\pi r^4}\,\sin2\theta\\
+  0
+  \end{array}\right.
+\end{align*}
+</li>
+
+<li>À distance \(r\) fixée, l'énergie est minimale dès lors que
+\(3\cos^2\theta-1\) est maximal soit pour \(\theta=0\,[\pi]\). La composante
+polaire de la force \(\vv{F}\) est alors nulle tandis que la composante
+radiale se réduit à
+\begin{align*}
+  F_r&=-\frac{3\mu_0m^2}{2\pi r^4}
+\end{align*}
+
+<p>
+Les moments magnétiques \(\vv{m_1}\) et \(\vv{m_2}\) s'alignent selon la
+direction portant les deux dipôles et la force est donc attractive.
+</p>
+</li>
+</ol>
+</li>
+<li><ol class="org-ol">
+<li>La fraction volumique en particules \(\Phi\) est très faible donc les dipôles
+sont très éloignés les uns des autres. Par conséquent, le champ magnétique
+dû aux particules voisines est faible et les dipôles ne s'orientent pas les
+uns par rapport aux autres : il n'y a pas d'effet proche à proche. Les
+dipôles pointent donc dans des directions aléatoires, l'aimantation
+résultante est nulle, le milieu n'ayant pas de propriété magnétique
+macroscopique.
+</li>
+<li>\(\chi\) correspond à la susceptibilité magnétique et est sans
+dimension. Sachant que l'aimantation est égale à la densité volumique de
+moment magnétique \(\vv{M}=\frac{d\vv{m}}{d\tau}\), on déduit que le moment
+magnétique associé à chaque goutte s'écrit
+\begin{align*}
+  \vv{m}^{(1)}&=\vv{M}\times V_\text{goutte}=\vv{M}\times\frac{4}{3}\pi R^3\\
+  &=\frac{4}{3}\pi R^3\frac{\chi\vv{B}}{\mu_0}
+\end{align*}
+</li>
+</ol>
+</li>
+
+<li><ol class="org-ol">
+<li>Les gouttelettes alignent toutes leur moment magnétique sur le champ
+extérieur \(\vv{B_0}\). Afin de minimiser l'énergie totale du sytème, les
+centres s'alignent les uns sur les autres conformément au résultat de la
+première question : les gouttelettes forment ainsi une chaîne colinéaire à
+la direction du champ magnétique externe.
+</li>
+<li>Considérons la gouttelette \(i\) sur la figure ci-dessous
+
+<div class="center">
+
+<div class="figure">
+<p><img src="//./figures/emulsion_ferrofluide.png" alt="emulsion_ferrofluide.png" />
+</p>
+</div>
+</div>
+
+<p>
+Le champ magnétique \(\vv{B}_\infty\) exercée par les autres gouttelettes
+sur celle-ci s'obtient en sommant les champs induits par les gouttelettes
+situées en \(z<z_i\) et celles au-dessus <i>i.e.</i> \(z>z_i\) soit
+</p>
+\begin{align*}
+  \vv{B}_\infty=&\cdots+\vv{B}_{-2}+\vv{B}_{-1}+\vv{B}_1+\vv{B}_2+\cdots\\
+  =&\cdots+\frac{\mu_0}{4\pi}\frac{2m^{(\infty)}\cos\pi}{(2d)^3}(-)\vv{u}_z+\frac{\mu_0}{4\pi}\frac{2m^{(\infty)}\cos\pi}{d^3}(-)\vv{u}_z\\
+  &+\frac{\mu_0}{4\pi}\frac{2m^{(\infty)}\cos0}{(2d)^3}\vv{u}_z+\frac{\mu_0}{4\pi}\frac{2m^{(\infty)}\cos0}{d^3}\vv{u}_z+\cdots\\
+  =&-\sum_{p=1}^\infty\frac{\mu_0}{4\pi}\frac{2m^{(\infty)}\cos\pi}{(pd)^3}\vv{u}_z+\sum_{p=1}^\infty\frac{\mu_0}{4\pi}\frac{2m^{(\infty)}\cos0}{(pd)^3}\vv{u}_z\\
+  =&\frac{\mu_0m^{(\infty)}}{4\pi d^3}\times2\sum_{p=1}^\infty\frac{2}{p^3}\,\vv{u}_z=\frac{\mu_0\alpha\vv{m}^{(\infty)}}{\pi d^3}
+\end{align*}
+</li>
+
+<li>Le champ magnétique total s'exerçant sur une gouttelette est donc
+\(\vv{B}=\vv{B}_0+\vv{B}_\infty\) d'où, en utilisant le résultat de la
+question 2b,
+\begin{align*}
+  \vv{m}^{(\infty)}&=\frac{4}{3}\pi R^3\times\frac{\chi\left(\vv{B}_0+\vv{B}_\infty\right)}{\mu_0}\\
+  &=\frac{4}{3}\pi R^3\times\frac{\chi\left(\vv{B}_0+\frac{\mu_0\alpha\vv{m}^{(\infty)}}{\pi d^3}\right)}{\mu_0}\\
+  &=\frac{4}{3}\pi R^3\frac{\chi}{1-\frac{4\alpha\chi}{3}\left(\frac{R}{d}\right)^3}\frac{\vv{B}_0}{\mu_0}
+\end{align*}
+</li>
+</ol>
+</li>
+
+<li><ol class="org-ol">
+<li>Calcul de la force exercée par la moitié inférieure de la chaîne sur la
+moitié supérieure
+
+<div class="center">
+
+<div class="figure">
+<p><img src="//./figures/emulsion_ferrofluide2.png" alt="emulsion_ferrofluide2.png" />
+</p>
+</div>
+</div>
+
+<p>
+La force qu'exerce la \(p\)-ième gouttelette sur la \(q\)-ième s'écrit
+\(f_z=m_q\frac{\partial B_p}{\partial z}\). Sachant que la dérivée de \(B_p\)
+est proportionnelle à \(-3/z^4\) et que la distance séparant les deux
+gouttelettes est égale à \((p+q-1)\,d\), l'expression de \(f_z\) devient
+</p>
+\begin{align*}
+  f_z=-m^{(\infty)}\,\frac{\mu_0}{4\pi}\frac{2m^{(\infty)}\times3}{((p+q-1)d)^4}
+\end{align*}
+
+<p>
+La force totale qu'exerce une moitié de la chaîne sur l'autre s'écrit
+</p>
+\begin{align*}
+  F_z&=-\frac{3\mu_0(m^{(\infty)})^2}{2\pi d^4}\sum_{p=1}^\infty\sum_{q=1}^\infty\frac{1}{(p+q-1)^4}
+\end{align*}
+
+<p>
+En posant \(p+q-1=n\), on obtient
+</p>
+\begin{align*}
+  \left.
+  \begin{array}{lcl}
+    p=1&\to&q=n\\
+    p=2&\to&q=n-1\\
+    &\vdots\\
+    p=n&\to&q=1
+    \end{array}\right\}\text{soit }n\text{ possibilités}
+  \end{align*}
+
+<p>
+La double somme sur les entiers \(p\) et \(q\) est donc équivalente à une somme
+simple sur \(n\) <i>i.e.</i>
+</p>
+\begin{align*}
+  \sum_{p=1}^\infty\sum_{q=1}^\infty\frac{1}{(p+q-1)^4}=\sum_{n=1}^\infty\frac{1}{n^4}\times n=\sum_{n=1}^\infty\frac{1}{n^3}=\alpha
+\end{align*}
+
+<p>
+On déduit que la force totale \(\vv{F}_\infty\) s'écrit
+</p>
+\begin{align*}
+  \vv{F}_\infty=F_z\vv{u}_z=-\frac{3\mu_0\alpha(m^{(\infty)})^2}{2\pi\,d^4}\vv{u}_z
+\end{align*}
+</li>
+
+<li>En ne considérant que deux gouttelettes, la force \(\vv{F}_2\) entre les
+deux gouttelettes se déduit de l'expression de \(f_z\) où \(p=1\) et \(q=1\) soit
+\begin{align*}
+  \vv{F}_2=-\frac{3\mu_0}{2\pi\,d^4}(m^{(2)})^2\vv{u}_z
+\end{align*}
+
+<p>
+Le calcul de \(\vv{m}^{(2)}\) est identique à celui réalisé à la question 3c
+où \(\vv{B}^{(2)}\) est le champ magnétique généré par seulement deux
+gouttelettes <i>i.e.</i>
+</p>
+\begin{align*}
+  \vv{B}^{(2)}=\frac{\mu_0\vv{m}^{(2)}}{2\pi\,d^3}
+\end{align*}
+
+<p>
+L'expression de \(\vv{m}^{(2)}\) s'écrit
+</p>
+\begin{align*}
+  \vv{m}^{(2)}&=\frac{4}{3}\pi R^3\frac{\chi\left(\vv{B}_0+\vv{B}^{(2)}\right)}{\mu_0}\\
+  &=\frac{4}{3}\pi R^3\frac{\chi\left(\vv{B}_0+\frac{\mu_0\vv{m}^{(2)}}{2\pi\,d^3}\right)}{\mu_0}\\
+  &=\frac{4}{3}\pi R^3\frac{\chi}{1-\frac{2\chi}{3}\left(\frac{R}{d}\right)^3}\frac{\vv{B}_0}{\mu_0}
+\end{align*}
+
+<p>
+L'intensité de la force s'exerçant sur la chaine \(\vv{F}_\infty\) ramenée à
+la force entre gouttelettes \(\vv{F}_2\) est donc égale à
+</p>
+\begin{align*}
+  \frac{F_\infty}{F_2}&=\alpha\,\left(\frac{m^{(\infty)}}{m^{(2)}}\right)^2\\
+  &=\alpha\,\left(\frac{1-\frac{2\chi R^3}{3d^3}}{1-\frac{4\alpha\chi R^3}{3d^3}}\right)^2
+\end{align*}
+</li>
+
+<li>\(F_\infty=\unit[0.22\,10^{-12}]{N}\), \(F_2=\unit[0.18\,10^{-12}]{N}\) et
+\(F_\infty/F_2=1.23\). La force qui s'exerce entre les deux moitiés d'une
+chaîne infinie est donc plus grande que celle qui s'exerce entre deux
+gouttelettes seules : cette propriété explique la stabilité des longues
+chaînes de gouttelettes dans une émulsion de ferrofluides.
+</li>
+</ol>
+</li>
+<li><ol class="org-ol">
+<li>L'énergie minimale du système \(W=-\frac{\mu_0m^2}{2\pi\,d^3}\) est d'autant
+plus faible que la distance séparant les gouttelettes est faible. Les
+gouttes étant incompressibles et indéformables, la distance minimale entre
+deux gouttes est donc égale à \(d_\ell=2R\).
+</li>
+<li><ol class="org-ol">
+<li>Chaque gouttelette renvoie dans toutes les directions la lumière
+qu'elle n'a pas absorbée et ceci sans distinction de longueur
+d'onde. Le rayonnement diffracté par les gouttelettes de l'émulsion est
+cohérent puisqu'issu de la même source de telle sorte qu'une chaîne de
+gouttelettes se comporte comme un <b>réseau de diffraction</b>. La lumière
+renvoyée dans une direction dépend de la longueur d'onde d'où le
+phénomène de coloration.
+</li>
+<li>En retrodiffusion, la différence de marche entre les ondes diffractées
+par deux gouttelettes successives correspond à un aller-retour
+supplémentaire soit \(\delta=2nd\). Les interférences sont constructives
+si \(\delta\) est une valeur entière de la longueur d'onde \(\lambda_0\)
+d'où
+\begin{align*}
+  \delta=p\lambda_0\to \lambda_0=\frac{2nd}{p}
+\end{align*}
+
+<p>
+Application numérique : le fait que \(\lambda_0\) appartienne au spectre
+visible (400 nm &lt; &lambda; &lt; 700 nm), on considère uniquement le
+premier ordre \(p=1\) soit \(\lambda_0=\unit[585]{nm}\). L'échantillon vu
+en rétrodiffusion apparait donc jaune.
+</p>
+</li>
+<li>Lorsque le champ extérieur \(B_0\) augmente, les interactions entre
+gouttelettes augmentent en raison de l'augmentation du moment
+magnétique associé à chacune des gouttes. L'énergie potentielle diminue
+donc entrainant une diminution de la distance inter-gouttes. Au minimum
+de l'énergie, cette distance tend vers la limite \(d_\ell=2R\). La
+longueur d'onde retrodiffusée est alors
+\(\lambda_0=4nR=\unit[521]{nm}\). La solution devient donc verte. Cette
+technique de spectrométrie permet donc de mesurer la taille \(R\) des
+gouttelettes.
+</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+</div>
+</div>
 </div>
 <div id="postamble" class="status">
-File under git version control - commit <a href="https://github.com/xgarrido/master_npp_teaching/commit/de670a2534c568f9a55c9e4c13c66212a371a2f0">de670a2</a> - 2014-03-18
+File under <i class="fa fa-github-alt"></i> version control - commit <a href="https://github.com/xgarrido/licence_em_teaching/commit/8afb843b1d090687b68837281878e03049ba48c3">8afb843</a> - 2014-05-12
 </div>
 </body>
 </html>

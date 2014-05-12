@@ -1,0 +1,792 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<title>TD10 : Induction électromagnétique</title>
+<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta  name="generator" content="Org-mode" />
+<link rel="stylesheet" href="css/styles.css" />
+               <link rel="stylesheet" href="css/org-pygments.css" />
+               <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" />
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2013 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script><script type="text/javascript">
+  function randomLinkColor() {
+      var colors = ['#f1c40f','#e74c3c','#3399cc','#e67e22','#67ad00','#8e44ad','#1abc9c','#003399'];
+      var random_color = colors[Math.floor(Math.random() * colors.length)];
+      var elements = document.querySelectorAll('a');
+      [].slice.call(elements).forEach(function(elem) {
+          //elem.style.color = random_color;
+      });
+  }
+  function displayTOC() {
+      var ttoc = document.getElementById("text-table-of-contents");
+      if (ttoc) {
+          var maincontent = '<a class="button"><i class="fa fa-list"></i></a>'
+          maincontent += "<div>" + ttoc.innerHTML + "</div>";
+          document.getElementById("toc").innerHTML = maincontent;
+      } else {
+          document.getElementById("toc").style.display = "none";
+          document.getElementById("preamble").style.top = "10px";
+      }
+     }
+  </script>
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+      messageStyle: "none",
+      TeX: {
+          extensions: ["cancel.js"],
+          Macros: {
+              vv: ["{\\vec{#1}}",1],
+              Upsigma: "{\\Sigma}",
+              Updelta: "{\\Delta}",
+              varoiint: "{\\iint}",
+              varoint: "{\\int}",
+              grad: "{\\vec{\\nabla}}",
+              div: "{\\vec{\\nabla}.}",
+              rot: "{\\vec{\\nabla}\\times\\,}",
+              ket: ["{|#1 \\rangle}",1],
+              bra: ["{\\langle#1|}",1],
+              psh: ["{\\langle#1|#2 \\rangle}",2],
+              bm: ["{\\boldsymbol #1}",1]
+          }
+      }
+  });
+  MathJax.Hub.Register.StartupHook("TeX Jax Ready",function () {
+      var TEX = MathJax.InputJax.TeX;
+      TEX.Definitions.macros.unit = "jaxunit";
+      TEX.Parse.Augment({
+          jaxunit: function (name) {
+              var n = this.GetBrackets(name),
+              unit = this.GetArgument(name)
+              if (n == null) {n = ""}
+              var tex = n + '\\,\\text{'+unit+'}';
+              this.string = tex + this.string.slice(this.i); this.i = 0;
+          }
+      });
+  });
+  MathJax.Hub.Queue(function () {
+      document.getElementById("spinner").style.display = "none";
+  });
+  </script>
+  <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  <div id="spinner">
+    <div id="bounce1"></div>
+    <div id="bounce2"></div>
+    <div id="bounce3"></div>
+    <small>Loading MathJax...</small>
+  </div>
+</head>
+<body onload="randomLinkColor();displayTOC();"><div id="toc"></div>
+<div id="preamble" class="status">
+ 
+</div>
+<div id="content">
+<h1 class="title">TD10 : Induction électromagnétique</h1>
+<div style="display:none;">
+<div id="text-table-of-contents">
+<ul class="org-ul">
+<li><a href="././td_em_0.html">TD1 : Électromagnétisme &amp; relativité</a>
+</li>
+<li><a href="././td_em_1.html">TD2 : Équations de Maxwell dans le vide et champ électromagnétique</a>
+</li>
+<li><a href="././td_em_2.html">TD3 : Électrostatique dans le vide</a>
+</li>
+<li><a href="././td_em_3.html">TD4 : Les milieux diélectriques</a>
+</li>
+<li><a href="././td_em_4.html">TD5 : Magnétostatique</a>
+</li>
+<li><a href="././td_em_5.html">TD6 : Milieux magnétiques</a>
+</li>
+<li><a href="././td_em_6.html">TD7 : Rayonnement</a>
+</li>
+<li><a href="././td_em_7.html">TD8 : Propagation dans le vide et les milieux diélectriques</a>
+</li>
+<li><a href="././td_em_8.html">TD9 : Guides d'onde</a>
+</li>
+<li><a href="././td_em_9.html">TD10 : Induction électromagnétique</a>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-sec-1" class="outline-2">
+<h2 id="sec-1"><span class="section-number-2">1</span> Introduction</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+En régime variable, le champ magnétique demeure toujours à flux conservatif à
+savoir que
+</p>
+\begin{align*}
+  \varoiint_S\vv{B}.\vv{dS}=0
+\end{align*}
+
+<p>
+reste vrai à tout instant \(t\). En revanche, la variation du flux magnétique au travers
+d'une surface (non-fermée) est à l'origine d'une force électro-motrice \(e(t)\)
+qui s'exprime selon la loi de Faraday<sup><a id="fnr.1" class="footref" href="#fn.1">1</a></sup>
+ <div class="footdef"><sup><a id="fn.1" class="footnum" href="#fnr.1">1</a></sup> <p class="footpara"> l'expression de la force électro-motrice se déduit de la relation de Maxwell-Faraday \(\rot\vv{E}=-\frac{\partial\vv{B}}{\partial t}\) qui, dans sa version intégrale, donne \(\oint_\mathcal{C}\vv{E}.\vv{d\ell}=-\frac{\partial}{\partial t}\iint_{S/\mathcal{C}}\vv{B}.\vv{dS}=-\frac{d\Phi}{dt}\). La force électro-motrice \(e(t)\) est donc équivalente à la circulation du champ électrique le long du contour \(\mathcal{C}\). </p></div>
+\begin{align*}
+  e(t)=-\frac{d\Phi(t)}{dt}\text{ où }\Phi(t)=\iint_S\vv{B}.\vv{dS}
+\end{align*}
+
+<p>
+Ainsi, un courant \(i(t)\) parcourant une boucle \(\mathcal{C}\) crée un champ
+magnétique \(\vv{B}_P(M,t)\) dont le flux s'oppose à l'augmentation du flux qu'on
+impose (loi de Lenz) : le flux magnétique propre s'écrit
+</p>
+\begin{align*}
+  \Phi_P=\iint_{S/\mathcal{C}}\vv{B}_P.\vv{dS}=L\times i
+\end{align*}
+
+<p>
+où \(L\) est l'inductance propre du circuit. On parle d'<b>auto-induction</b>.
+</p>
+
+<p>
+Si un circuit filiforme auto-induit une force qui s'oppose à l'établissement du
+champ magnétique, deux circuits électriques induisent mutuellement une force sur
+chacun d'entre eux. En considèrant deux circuits parcourus respectivement par un
+courant \(i_1(t)\) et un courant \(i_2(t)\), le flux magnétique induit par le
+premier sur le second circuit s'exprime
+</p>
+\begin{align*}
+  \Phi_{1\to2}=M_{1\to2}I_1
+\end{align*}
+
+<p>
+de même que le deuxième circuit induit un flux magnétique égal à
+\(\Phi_{2\to1}=M_{2\to1}I_2\). Les coefficients \(M_{i\to j}\) sont appelés
+coefficients d'inductance mutuelle et sont, selon le théorème de Neumann,
+égaux <i>i.e.</i> \(M_{1\to2}=M_{2\to1}=M\) <sup><a id="fnr.2" class="footref" href="#fn.2">2</a></sup>.
+ <div class="footdef"><sup><a id="fn.2" class="footnum" href="#fnr.2">2</a></sup> <p class="footpara"> dans le cas de deux bobines chacune constituées respectivement de \(N_1\) et \(N_2\) spires, le coefficient d'inductance mutuelle est proportionnel au produit \(N_1N_2\). </p></div>
+
+<p>
+En ajoutant à l'inductance mutuelle, l'auto-induction, les flux magnétiques au
+travers du premier et du second circuit sont
+</p>
+\begin{align*}
+  \Phi_1&=L_1i_1+Mi_2\\
+  \Phi_2&=L_2i_2+Mi_1
+\end{align*}
+
+<p>
+desquels on déduit les forces électro-motrices
+</p>
+\begin{align*}
+  e_1&=-\frac{d\Phi_1}{dt}=-L_1\frac{di_1}{dt}-M\frac{di_2}{dt}\\
+  e_2&=-\frac{d\Phi_1}{dt}=-L_2\frac{di_2}{dt}-M\frac{di_1}{dt}
+\end{align*}
+
+<p>
+D'un point de vue énergétique, l'énergie magnétique stockée dans un circuit est
+égale à \(\mathcal{E}_m=\frac{1}{2}Li^2\). Pour deux circuits, il s'agit de
+prendre en compte l'effet d'un circuit vis-à-vis de l'autre soit
+</p>
+\begin{align*}
+  \mathcal{E}_m=\frac{1}{2}L_1i_1^2+\frac{1}{2}L_2i_2^2+Mi_1i_2
+\end{align*}
+</div>
+</div>
+
+<div id="outline-container-sec-2" class="outline-2">
+<h2 id="sec-2"><span class="section-number-2">2</span> Couplage entre un solénoïde et une bobine</h2>
+<div class="outline-text-2" id="text-2">
+<ol class="org-ol">
+<li>L'unique champ magnétique est celui crée par le solénoïde que l'on considère
+comme infini. Ainsi le champ magnétique est égal à \(\mu_0nI\vv{u_z}\) pour
+\(r<a\) et nul à l'extérieur du solénoïde. Le flux magnétique induit par le
+solénoïde au travers de la bobine est donc égal à
+\begin{align*}
+  \Phi_{S\to B}=\iint_{S_B}\vv{B}.\vv{dS}=\mu_0nI\times\pi a^2\times N
+\end{align*}
+
+<p>
+Le coefficient d'inductance mutuelle \(M\) s'écrit
+</p>
+\begin{align*}
+  \Phi_{S\to B}&=\mu_0nI\times\pi a^2\times N=M\times I\\
+  M&=\mu_0nN\pi a^2
+\end{align*}
+</li>
+
+<li><ol class="org-ol">
+<li>La force électro-motrice \(e(t)\) qui correspond à la variation temporelle
+du flux magnétique au travers de la bobine s'écrit
+\begin{align*}
+  e(t)&=-\frac{d\Phi}{dt}=-L_\text{bobine}\frac{di}{dt}-M\frac{dI}{dt}
+\end{align*}
+
+<p>
+où \(i(t)\) est le courant induit. L'expression de \(e(t)\) est ainsi la somme
+d'un terme d'auto-inductance à savoir que le courant induit \(i(t)\) génère
+une force s'opposant à son établissement auquel s'ajoute un terme
+d'inductance mutuelle due à la présence du solénoïde. Dans la mesure où
+l'inductance \(L_\text{bobine}\) est proportionnelle à \(N^2\) alors que le
+coefficient d'inductance mutuelle \(M\) est proportionnel à \(n\times N\) et
+dans l'hypothèse où \(n\gg N\), la f.e.m se réduit à
+</p>
+\begin{align*}
+  e(t)\simeq-M\frac{dI}{dt}
+\end{align*}
+
+<p>
+Le courant induit \(i(t)\) devient
+</p>
+\begin{align*}
+  e(t)=R\times i(t)\to i(t)&=-\frac{\mu_0nN\pi a^2}{R}\times\frac{dI}{dt}\\
+  &=-\frac{\mu_0nN\pi a^2}{R}I_0\omega\cos\omega t
+\end{align*}
+</li>
+
+<li>Pour un circuit fermé fixe, la force électro-motrice est égale à la
+circulation du champ électrique autour de ce circuit<sup><a id="fnr.3" class="footref" href="#fn.3">3</a></sup>
+\begin{align*}
+  e(t)&=\oint_\mathcal{C}\vv{E}.\vv{d\ell}=2\pi b\times N\times E
+\end{align*}
+
+<p>
+Le champ électrique est donc égal à
+ <div class="footdef"><sup><a id="fn.3" class="footnum" href="#fnr.3">3</a></sup> <p class="footpara"> le plan \((\vv{u_r},\vv{u_z})\) est un plan d'antisymétrie impliquant que le champ électrique soit orienté selon \(\vv{u_\theta}\) </p></div>
+\begin{align*}
+  \vv{E}(t)&=-\frac{\mu_0n\cancel{N\pi} a^2}{R}\times{1}{2\cancel{\pi}b\cancel{N}}\times I_0\omega\cos\omega t\,\vv{u_\theta}\\
+  &=-\frac{\mu_0n}{2}\times\frac{a^2}{b}\times I_0\omega\cos\omega t\,\vv{u_\theta}
+\end{align*}
+</li>
+
+<li><ol class="org-ol">
+<li>Le potentiel vecteur \(\vv{A}\) obéit aux mêmes symétries que le champ
+électrique : \(\vv{A}\) est colinéaire à \(\vv{u_\theta}\) et ne dépend que
+de la distance à l'axe du solénoïde.
+</li>
+<li>\(\vv{B}=\rot\vv{A}=\frac{1}{r}\frac{\partial}{\partial
+         r}\left(rA_\theta\right)\vv{u_z}\)
+<ul class="org-ul">
+<li>pour \(r<a\)
+\begin{align*}
+  \frac{1}{r}\frac{\partial}{\partial r}\left(rA_\theta\right)&=\mu_0nI\\
+  rA_\theta&=\mu_0nI\frac{r^2}{2}+\text{constante}\\
+  A_\theta&=\frac{\mu_0nI}{2}r+\frac{\text{constante}}{r}
+\end{align*}
+
+<p>
+Le fait que \(A_\theta\) doit rester fini en \(r=0\) impose que la
+constante d'intégration soi nulle.
+</p>
+\begin{align*}
+  \vv{A}(r<a)&=\frac{\mu_0nI}{2}r\,\vv{u_\theta}
+\end{align*}
+</li>
+
+<li>pour \(r>a\)
+\begin{align*}
+  \frac{1}{r}\frac{\partial}{\partial r}\left(rA_\theta\right)&=0\\
+  A_\theta&=\frac{\text{constante}}{r}\\
+\end{align*}
+
+<p>
+Le potentiel-vecteur \(\vv{A}\) étant par définition un potentiel, il
+doit demeurer continu en \(r=a\) soit
+</p>
+\begin{align*}
+  \frac{\text{constante}}{a}&=\frac{\mu_0nI}{2}a\to\text{constante}=\frac{\mu_0nI}{2}a^2\\
+  \vv{A}(r>a)&=\frac{\mu_0nI}{2}\frac{a^2}{r}\,\vv{u_\theta}
+\end{align*}
+</li>
+</ul>
+</li>
+
+<li>On se place en \(r=b>a\),
+\begin{align*}
+  -\frac{\partial\vv{A}(r=b)}{\partial t}&=-\frac{\mu_0n}{2}\frac{a^2}{b}\frac{\partial I}{\partial t}\,\vv{u_\theta}\\
+  &=-\frac{\mu_0n}{2}\frac{a^2}{b}I_0\omega\cos\omega t\,\vv{u_\theta}=\vv{E}
+\end{align*}
+</li>
+</ol>
+</li>
+</ol>
+</li>
+</ol>
+</div>
+</div>
+
+<div id="outline-container-sec-3" class="outline-2">
+<h2 id="sec-3"><span class="section-number-2">3</span> Lévitation magnétique</h2>
+<div class="outline-text-2" id="text-3">
+<ol class="org-ol">
+<li>Calcul du champ magnétique \(B_1\) sur l'axe du solénoïde \(Oz\)
+\begin{align*}
+  \vv{B_1}=\frac{\mu_0ni_1}{2}\left(\cos\theta_1-\cos\theta_2\right)\vv{u_z}
+\end{align*}
+
+<p>
+Sachant que le solénoïde est semi-infini \(\theta_1\sim0\) et que
+\(\theta_2=\alpha\) avec \(\tan\alpha=\frac{a}{z}\), le champ magnétique \(B_1\)
+devient
+</p>
+\begin{align*}
+  \vv{B_1}=\frac{\mu_0ni_1}{2}\left(1-\cos\alpha\right)\vv{u_z}
+\end{align*}
+
+<p>
+Le flux magnétique induit par le solénoïde au travers de la bobine s'écrit
+</p>
+\begin{align*}
+  \Phi_{S\to B}&=\iint_{S_B}\vv{B_1}.\vv{dS}=\frac{\mu_0ni_1}{2}\left(1-\cos\alpha\right)\times N\times\pi b^2\\
+  &=M\times i_1\to M=\frac{\mu_0nN\,\pi b^2}{2}\left(1-\cos\alpha\right)
+\end{align*}
+</li>
+
+<li>La bobine est traversée par le flux magnétique issue du solénoïde induisant
+une force électro-motrice \(e=-\frac{d\Phi_{S\to B}}{dt}=-M\frac{di_1}{dt}\). À
+cette f.e.m, il convient d'ajouter l'inductance propre de la bobine
+\(e_\text{propre}=-\frac{d\Phi_\text{propre}}{dt}=-L\frac{di}{dt}\). Ainsi, la
+f.e.m aux bornes de la bobine est égale à
+\begin{align*}
+  e=R\times i&=-\frac{d\Phi}{dt}\\
+  &=-\frac{d\Phi_{S\to B}}{dt}-\frac{d\Phi_\text{propre}}{dt}\\
+  &=-M\frac{di_1}{dt}-L\frac{di}{dt}\\
+  \frac{di}{dt} + \frac{R}{L}i &=-\frac{M}{L}\frac{di_1}{dt}
+\end{align*}
+
+<p>
+où \(i_1(t)=i_{1m}\cos\omega t\) donc \(\frac{di_1}{dt}=-i_{1m}\omega\sin\omega
+   t\). Cette équation peut se résoudre en cherchant successivement la solution
+homogène <i>i.e.</i> sans le membre constant \(-\frac{M}{L}\frac{di_1}{dt}\) puis
+une solution particulière en utilisant, par exemple, la méthode de variation
+de la constante. On peut également procéder différemment en considérant que
+\(i(t)\) est la superposition d'un régime transitoire et d'un régime permanent
+sinusoïdal. On cherche donc \(i(t)\) sous la forme \(A\cos\omega t+B\sin\omega
+   t\). L'équation différentielle devient
+</p>
+\begin{align*}
+  -A\omega\sin\omega t+B\omega\cos\omega t+\frac{R}{L}\left(A\cos\omega t+B\sin\omega t\right)&=\frac{M}{L}i_{1m}\omega\sin\omega t
+\end{align*}
+
+<p>
+de laquelle, en identifiant terme à terme, on déduit que
+</p>
+\begin{align*}
+  RA+BL\omega&=0\\
+  -AL\omega+BR&=Mi_{1m}\omega
+\end{align*}
+
+<p>
+d'où
+</p>
+\begin{align*}
+  A=-\frac{L\omega}{R}B&\to RB+\frac{L^2\omega^2}{R}B=Mi_{1m}\omega\\
+  &\to B=\frac{RMi_{1m}\omega}{R^2+L^2\omega^2}\\
+  &\to A=-\frac{ML\omega^2i_{1m}}{R^2+L^2\omega^2}
+\end{align*}
+
+<p>
+Le courant \(i(t)\) induit dans la bobine prend donc la forme suivante
+</p>
+\begin{align*}
+  i(t)=\frac{M\omega i_{1m}}{R^2+L^2\omega^2}\left(-L\omega\cos\omega t+R\sin\omega t\right)
+\end{align*}
+</li>
+
+<li>On assimile la bobine à un dipôle magnétique. Pour rappel, le moment
+magnétique d'une spire est égale à \(\vv{\mathcal{M}}=I\times\vv{S}\). Dans
+notre cas, la bobine possède donc un moment magnétique égal à
+\begin{align*}
+  \vv{m}(t)=N\times i(t)\times\pi b^2\,\vv{u_z}
+\end{align*}
+
+<p>
+La force qu'exerce le solénoïde sur ce dipôle magnétique s'écrit<sup><a id="fnr.4" class="footref" href="#fn.4">4</a></sup>
+ <div class="footdef"><sup><a id="fn.4" class="footnum" href="#fnr.4">4</a></sup> <p class="footpara"> l'énergie potentielle d'un dipôle \(\vv{m}\) soumis à un champ magnétique \(\vv{B}\) est \(E_p=-\vv{m}.\vv{B}\) d'où la force \(\vv{F}=-\grad E_p\) </p></div>
+\begin{align*}
+  \vv{F}_{S\to B}&=\vv{\nabla}\left(\vv{m}.\vv{B}\right)\\
+  &=\cancel{\left(\vv{\nabla}.\vv{m}\right).\vv{B}}+\vv{m}\left(\vv{\nabla}.\vv{B}\right)\\
+  &=m\left(\frac{\partial B}{\partial z}\right)\vv{u_z}\quad(\text{car }\vv{B}\parallel\vv{u_z})\\
+  &=\vv{u_z}\,\pi b^2\frac{\mu_0ni_1Ni}{2}\frac{\partial}{\partial z}\left(1-\cos\alpha\right)\\
+  &=\vv{u_z}\,\pi b^2\frac{\mu_0ni_1Ni}{2}\frac{\partial}{\partial\alpha}\left(1-\cos\alpha\right)\times\frac{\partial\alpha}{\partial z}
+\end{align*}
+
+<p>
+Sachant que \(\tan\alpha=\frac{a}{z}\), l'expression de
+\(\frac{\partial\alpha}{\partial z}\) s'écrit
+</p>
+\begin{align*}
+  \frac{d}{d\alpha}\tan\alpha&=\frac{\cos\alpha}{\cos\alpha}+\frac{\sin^2\alpha}{\cos^2\alpha}=\frac{1}{\cos^2\alpha}\\
+  d(\tan\alpha)&=\frac{d\alpha}{\cos^2\alpha}=d\left(\frac{a}{z}\right)=-\frac{a}{z^2}dz\\
+  \frac{\partial\alpha}{\partial z}&=\frac{d\alpha}{dz}=-\frac{a\cos^2\alpha}{z^2}\\
+  &=-a\cos^2\alpha\times\frac{\tan^2\alpha}{a^2}=-\frac{\sin^2\alpha}{a}
+\end{align*}
+
+<p>
+La force exercée par le solénoïde sur la bobine devient
+</p>
+\begin{align*}
+  \vv{F}_{S\to B}&=-\frac{\mu_0\pi b^2}{2a}\times nNii_1\times\sin^3\alpha\,\vv{u_z}
+\end{align*}
+
+<p>
+La valeur moyenne de cette force \(\langle\vv{F}_{S\to B}\rangle\) consiste à
+évaluer la valeur moyenne du produit des intensités \(ii_1\) soit
+</p>
+\begin{align*}
+  \langle i(t)\dot i_1(t)\rangle&=\langle i_{1m}\cos\omega t\left(A\cos\omega t+B\sin\omega t\right)\rangle\\
+  &=\frac{i_{1m}A}{2}=-\frac{ML\omega^2i_{1m}^2}{2\left(R^2+L^2\omega^2\right)}
+\end{align*}
+
+<p>
+d'où une force moyenne égale à
+</p>
+\begin{align*}
+  \langle\vv{F}_{S\to B}\rangle&=\frac{\mu_0\pi b^2}{4a}\times nN\times\frac{ML\omega^2i_{1m}^2}{R^2+L^2\omega^2}\times\sin^3\alpha\,\vv{u_z}
+\end{align*}
+
+<p>
+Finalement, en remplaçant \(M\) par \(\frac{\mu_0nN\,\pi
+   b^2}{2}\left(1-\cos\alpha\right)\), on obtient une force moyenne
+</p>
+\begin{align*}
+  \langle\vv{F}_{S\to B}\rangle&=\frac{\mu_0^2}{8}\frac{\pi^2b^4}{a}n^2N^2\sin^3\alpha\left(1-\cos\alpha\right)\frac{L\omega^2}{R^2+L^2\omega^2}\,i_{1m}^2\,\vv{u_z}
+\end{align*}
+
+<p>
+<b>Lévitation de la bobine</b>
+</p>
+
+<p>
+Dans l'hypothèse où la bobine est placée juste au dessus du solénoïde,
+l'angle &alpha; est donc égal à &pi;/2 et
+\(\sin^2\alpha\left(1-\cos\alpha\right)=1\). Pour compenser le poids de la
+bobine, il faut que la force exercée par le solénoïde sur la bobine soit
+égale à \(m\vv{g}\) soit un courant \(i_{1m}=i_\text{lim.}\) ayant pour
+expression
+</p>
+\begin{align*}
+  \frac{\left(\mu_0nN\pi b^2\right)^2}{8}\times\frac{L\omega^2}{R^2+L^2\omega^2}\times\frac{i_\text{lim.}^2}{a}&=mg\\
+  i_\text{lim.}&=\sqrt{\frac{8mga\times\left(R^2+L^2\omega^2\right)}{L}}\times\frac{1}{\mu_0\omega nN\pi\b^2}
+\end{align*}
+
+<div class="center">
+
+<div class="figure">
+<p><img src="//./figures/magnetic_levitation.png" alt="magnetic_levitation.png" />
+</p>
+</div>
+</div>
+
+<p>
+Autour de la position d'équilibre \(\alpha=\pi/2\), la position de la bobine
+oscille du fait que lorsque \(z\) augmente, &alpha; diminue entrainant une
+diminution de la force exercée par le solénoïde sur la bobine : le poids a
+alors tendance à "rappeler" la bobine vers la position \(\alpha=\pi/2\). <i>A
+contrario</i>, lorsque la bobine pénètre à l'intérieur du solénoïde, le flux
+magnétique augmente jusqu'à \(\alpha=104\) degrés (\(\tan\alpha\sim-4\)) excédant
+le poids de la bobine et ayant donc tendance à ramener cette dernière à sa
+position d'équilibre. L'équilibre est donc stable dans la mesure où l'axe de
+la bobine reste aligné avec celui du solénoïde.
+</p>
+</li>
+
+<li>La puissance moyenne dissipée par effet Joule a pour expression
+\begin{align*}
+  \langle P\rangle&=R\cdot\langle i^2\rangle=R\left(\frac{A^2+B^2}{2}\right)\\
+  &=\frac{1}{2}R\frac{M^2\omega^2i_\text{lim.}^2}{R^2+L^2\omega^2}=\frac{R}{L}mga
+\end{align*}
+</li>
+</ol>
+</div>
+</div>
+
+<div id="outline-container-sec-4" class="outline-2">
+<h2 id="sec-4"><span class="section-number-2">4</span> Principe de la plaque de cuisson par induction</h2>
+<div class="outline-text-2" id="text-4">
+<ol class="org-ol">
+<li>On considère une casserole occupant le demi-espace \(z>0\), de conductivité
+&gamma; et de perméabilité \(\mu_r\). La plaque à induction occupe le
+demi-espace \(z<0\) et est parcourue par une densité volumique de courant
+\(\vv{J}_0\) qui crée un champ \(\vv{B}=B_1\cos\omega t\,\vv{u}_x\).
+<ol class="org-ol">
+<li>Du fait que le champ magnétique \(\vv{B_1}\) est colinéaire à \(\vv{u_x}\), on
+déduit que le plan \(yOz\) est un plan de symétrie de la distribution de
+courant impliquant que \(\vv{J}_0\) est nécessairement orthogonal à ce
+dernier : \(\vv{J_0}\parallel\vv{u_y}\). Le fait que le problème soit
+invariant par translation selon \(Ox\) et \(Oy\) impose que la composante
+suivant \(\vv{u}_z\) de \(\vv{J}_0\) est nulle (\(J_{0z}=\frac{\partial
+      B_y(z)}{\partial x}-\frac{\partial B_x(z)}{\partial y}\)).
+</li>
+<li>Dans le milieu <i>i.e.</i> dans la casserole, l'invariance par translation
+selon \(Ox\) et selon \(Oy\) impose que \(\vv{E}\) et \(\vv{B}\) ne dépendent que
+de \(z\). Par ailleurs, le champ électrique et magnétique sont induits par
+la distribution de courant \(\vv{J}_0\) : ces champs obéissent donc aux
+symétries de la distribution de courant à savoir \(\vv{B}\parallel\vv{u}_x\)
+et \(\vv{E}\parallel\vv{u}_y\) soit
+\begin{align*}
+  \vv{E}=E(z,t)\,\vv{u}_y\quad\vv{B}=B(z,t)\,\vv{u}_x
+\end{align*}
+</li>
+</ol>
+</li>
+
+<li><ol class="org-ol">
+<li>Étant donné les hypothèses du problème, les 4 équations de Maxwell + la
+loi d'Ohm s'écrivent
+\begin{align*}
+  \div\vv{E}&=0\\
+  \div\vv{B}&=0\\
+  \rot\vv{E}&=-\frac{\partial\vv{B}}{\partial t}\\
+  \rot\vv{B}&=\mu_0\mu_r\vv{j}\\
+  \vv{j}&=\gamma\vv{E}
+\end{align*}
+
+<p>
+Le courant de déplacement
+\(\vv{J}_D=\epsilon_0\frac{\partial\vv{E}}{\partial t}\) est ici
+négligeable. Les deux premières équations traduisent uniquement les
+symétries et invariances du problèmes <i>i.e.</i> \(\div\vv{E}=\frac{\partial
+      E_x}{\partial x}+\frac{\partial E_y}{\partial y}+\frac{\partial
+      E_z}{\partial z}=0\) (<i>idem</i> pour \(\div\vv{B}=0\)).
+</p>
+</li>
+<li>Les trois dernières équations conduisent au système d'équation suivante
+\begin{align*}
+  \rot\vv{E}=-\frac{\partial\vv{B}}{\partial t}&\to\left|
+  \begin{array}{l}
+    \frac{\partial}{\partial x}\\
+    \frac{\partial}{\partial y}\\
+    \frac{\partial}{\partial z}
+  \end{array}\right.\times\left|
+  \begin{array}{l}
+    0\\E(z,t)\\0
+  \end{array}\right.=-\frac{\partial E(z,t)}{\partial z}=-\frac{\partial B(z,t)}{\partial t}\\
+  \left.\begin{array}{l}
+    \rot\vv{B}=\mu_0\mu_r\vv{j}\\
+    \vv{j}=\gamma\vv{E}
+  \end{array}\right\}&\to\left|
+  \begin{array}{l}
+    \frac{\partial}{\partial x}\\
+    \frac{\partial}{\partial y}\\
+    \frac{\partial}{\partial z}
+  \end{array}\right.\times\left|
+  \begin{array}{l}
+    B(z,t)\\0\\0
+  \end{array}\right.=\frac{\partial B(z,t)}{\partial z}=\mu_0\mu_r\gamma E(z,t)
+\end{align*}
+
+<p>
+Étant donné \(B(z,t)=f(z)\exp(-i\omega t)\) et \(E(z,t)=g(z)\exp(-i\omega
+      t)\), on obtient
+</p>
+\begin{align*}
+  \frac{\partial E(z,t)}{\partial z}=\frac{\partial B(z,t)}{\partial t}&\to g'(z)=-i\omega f(z)\\
+  \frac{\partial B(z,t)}{\partial z}=\mu_0\mu_r\gamma E(z,t)&\to f'(z)=\mu_0\mu_r\gamma g(z)
+\end{align*}
+
+<p>
+soit en dérivant la seconde équation par rapport à \(z\)
+</p>
+\begin{align*}
+  f''(z)+i\mu_0\mu_r\gamma\omega f(z)=0
+\end{align*}
+</li>
+</ol>
+</li>
+
+<li><ol class="org-ol">
+<li>Soit \(\delta=\sqrt{\frac{2}{\mu_0\mu_r\gamma\omega}}\), l'équation
+différentielle solution de \(f(z)\) devient
+\begin{align}
+  f''(z)+\frac{2i}{\delta^2}f(z)=0
+\end{align}
+
+<p>
+dont les solutions sont de la forme \(f(z)=Ae^{r_+z}+Be^{r_-z}\) où \(r_\pm\)
+sont les racines de l'équation caractéritique
+\(r^2+\frac{2i}{\delta^2}=0\) <i>i.e.</i> \(r_\pm=\pm\sqrt{\frac{-2i}{\delta^2}}\). En
+simplifiant l'expression de \(r_\pm\) suivant
+</p>
+\begin{align*}
+  i^2=-1\text{ et }i=e^{i\frac{\pi}{2}}&\to r_\pm=\pm\frac{\sqrt 2}{\delta}\times e^{i\frac{3\pi}{4}}\\
+  &\to r_\pm=\pm\frac{\sqrt2}{\delta}\left(\cos\frac{3\pi}{4}+i\sin\frac{3\pi}{4}\right)\\
+  &\to r_\pm=\pm\frac{\sqrt2}{\delta}\left(-\frac{\sqrt2}{2}+i\frac{\sqrt2}{2}\right)=\pm\frac{-1+i}{\delta}
+\end{align*}
+
+<p>
+La fonction \(f(z)\) prend donc la forme suivante
+</p>
+\begin{align*}
+  f(z)=Ae^{(-1+i)\frac{z}{\delta}}+Be^{(1-i)\frac{z}{\delta}}
+\end{align*}
+
+<p>
+Le fait que \(f(z)\) doit rester finie lorsque \(z\to+\infty\) impose \(B\) soit
+nul en raison de la divergence du second terme
+\(Be^{(1-i)\frac{z}{\delta}}=Be^{\frac{z}{\delta}}e^{-i\frac{z}{\delta}}\to+\infty\). Pour
+déterminer \(A\), on considère les relations de passage en \(z=0\) qui, en
+l'absence de densité surfacique de courant, s'écrivent
+</p>
+\begin{align*}
+  \vv{H}_\text{casserole}-\vv{H}_\text{plaque}&=\vv{j}_S\times\vv{u}_z=\vv{0}\\
+  \left.\frac{f(z)\cancel{e^{-i\omega t}}}{\cancel{\mu_0}\mu_r}\right|_{z=0^+}-\left|\frac{B_1\cancel{e^{-i\omega t}}}{\cancel{\mu_0}}\right|_{z=0^-}&=0\\
+  \frac{A}{\mu_r}-B_1&=0\to A=\mu_rB_1
+\end{align*}
+
+<p>
+Finalement, l'expression de \(f(z)\) est
+</p>
+\begin{align*}
+  f(z)=\mu_rB_1\,e^{(-1+i)\frac{z}{\delta}}
+\end{align*}
+</li>
+
+<li>D'après l'équation différentielle régissant l'évolution de \(f(z)\), on
+déduit que \(\delta\) est homogène à une longueur et correspond à
+l'épaisseur de peau. Le champ magnétique variable engendré par la plaque
+de cuisson donne naissance à des courants induits dans le milieu
+conducteur qu'est la casserole. Ces courants sont localisés sur une
+épaisseur typique de l'ordre de \(\delta\). Au-delà, l'autoinduction de la
+casserole s'oppose à l'effet qui lui donne naissance et finit par exclure
+le courant.
+</li>
+<li>La fonction \(g(z)\) est égale à \(\frac{1}{\mu_0\mu_r\gamma}f'(z)\) soit
+\begin{align*}
+  g(z)&=\frac{1}{\mu_0\cancel{\mu_r}\gamma}\,\cancel{\mu_r}B_1\frac{-1+i}{\delta}e^{(-1+i)\frac{z}{\delta}}\\
+  &=\frac{\sqrt2}{\mu_0\gamma\delta}\,B_1\,e^{i\frac{3\pi}{4}}e^{(-1+i)\frac{z}{\delta}}\\
+  &=\frac{\sqrt2}{\mu_0\gamma\delta}\,B_1\,e^{-\frac{z}{\delta}}\,e^{i\left(\frac{z}{\delta}+\frac{3\pi}{4}\right)}
+\end{align*}
+
+<p>
+d'où l'expression réelle de \(E(z,t)\)
+</p>
+\begin{align*}
+  E(z,t)&=\text{Re}\left(g(z)\,e^{-i\omega t}\right)\\
+  &=\frac{\sqrt2}{\mu_0\gamma\delta}B_1\,e^{-\frac{z}{\delta}}\,\text{Re}\left(e^{i\left(\frac{z}{\delta}+\frac{3\pi}{4}-\omega t\right)}\right)\\
+  &=\frac{\sqrt2}{\mu_0\gamma\delta}B_1\,e^{-\frac{z}{\delta}}\,\cos\left(\frac{z}{\delta}-\omega t+\frac{3\pi}{4}\right)
+\end{align*}
+</li>
+</ol>
+</li>
+
+<li>La puissance dissipée par unité de volume est
+\(\frac{dP}{d\tau}=\vv{j}.\vv{E}=\gamma E^2\) soit
+\begin{align*}
+  \frac{dP}{d\tau}&=\frac{2}{\mu_0^2\gamma\delta^2}B_1^2\,e^{\frac{2z}{\delta}}\,\cos^2\left(\frac{z}{\delta}-\omega t+\frac{3\pi}{4}\right)
+\end{align*}
+
+<p>
+On déduit de ce résultat que la puissance moyenne dissipée par effet Joule
+est
+</p>
+\begin{align*}
+  \left\langle\frac{dP}{d\tau}\right\rangle_T&=\frac{B_1^2}{\mu_0^2\gamma\delta^2}\,e^{-\frac{2z}{\delta}}
+\end{align*}
+
+<p>
+tandis que la puissance moyenne par unité de surface s'écrit
+</p>
+\begin{align*}
+  \left\langle\frac{dP}{dS}\right\rangle_T&=\frac{B_1^2}{\mu_0^2\gamma\delta^2}\,\int_0^{+\infty}e^{-\frac{2z}{\delta}}\,dz\\
+  &=\frac{B_1^2}{\mu_0^2\gamma\delta^2}\left[-\frac{\delta}{2}e^{-\frac{2z}{\delta}}\right]_{0}^{+\infty}\\
+  &=\frac{B_1^2}{\mu_0^2\gamma\delta^2}\times\frac{\delta}{2}=\frac{B_1^2}{2\mu_0^2\gamma\delta}
+\end{align*}
+</li>
+
+<li>Applications numériques :
+<ol class="org-ol">
+<li>Calcul de l'épaisseur de peau \(\delta\)
+\begin{align*}
+  \delta&=\sqrt{\frac{2}{\mu_0\mu_r\gamma\omega}}\\
+  \delta_\text{Cu}&=\surd{\frac{2}{4\pi\,10^{-7}\times1\times6\,10^{7}\times1000}}=\unit[5]{mm}\\
+  \delta_\text{acier}&=\surd{\frac{2}{4\pi\,10^{-7}\times1000\times6\,10^6\times1000}}=\unit[0.5]{mm}
+\end{align*}
+
+<p>
+L'épaisseur du fond de la casserole nécessaire est plus petite dans le
+cas de l'acier par rapport au cuivre. Du point de vue du champ électrique
+\(E(z,t)\), le fait que \(\delta\) soit plus grand autorise une plus grande
+pénétration du champ électrique (terme en \(e^{-\frac{z}{\delta}}\)) mais,
+en contrepartie, le champ électrique est moins intense. La puissance de
+chauffage par unité de surface est quant à elle inversement
+proportionnelle à l'épaisseur de peau \(\delta\) : pour maximiser le
+chauffage, il est plus avantageux d'avoir une épaisseur de peau faible
+<i>i.e.</i> un champ électrique qui pénètre moins mais qui est plus
+intense. Dans ces conditions, les casseroles en cuivre sont bien adaptées
+que celle en acier.
+</p>
+</li>
+<li>Calcul du champ magnétique \(B_1\)
+\begin{align*}
+  B_1^2&=2\left\langle\frac{dP}{dS}\right\rangle_T\mu_0^2\gamma\delta\\
+  B_1^\text{Cu}&=4\pi\,10^{-7}\sqrt{2\times10^4\times6\,10^7\times5\,10^{-3}}=\unit[100]{mT}\\
+  B_1^\text{acier}&=4\pi\,10^{-7}\sqrt{2\times10^4\times6\,10^6\times5\,10^{-4}}=\unit[10]{mT}
+\end{align*}
+
+<p>
+Les casseroles en acier sont plus avantageuses à la fois en terme
+d'efficacité de chauffage qu'en terme de sécurité<sup><a id="fnr.5" class="footref" href="#fn.5">5</a></sup>.
+ <div class="footdef"><sup><a id="fn.5" class="footnum" href="#fnr.5">5</a></sup> <p class="footpara"> l'Institut National de Recherche et de Sécurité indique : "Il a été constaté chez des sujets soumis à un champ magnétique variable (autour d'une fréquence de 20 Hz et au-dessus d'un seuil d'intensité de 10 mT), un effet physiologique caractérisé par la perception visuelle de taches lumineuses; ce sont les magnétophosphènes." </p></div>
+</li>
+</ol>
+</li>
+</ol>
+</div>
+</div>
+<div id="footnotes">
+<h2 class="footnotes"> </h2>
+<div id="text-footnotes">
+
+
+
+
+
+
+
+</div>
+</div></div>
+<div id="postamble" class="status">
+File under <i class="fa fa-github-alt"></i> version control - commit <a href="https://github.com/xgarrido/licence_em_teaching/commit/8afb843b1d090687b68837281878e03049ba48c3">8afb843</a> - 2014-05-12
+</div>
+</body>
+</html>
