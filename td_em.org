@@ -4834,7 +4834,7 @@ $I=I_0\cos\omega t$. La fonction d'Heaviside a pour représentation
 
 $\omega_c,\omega_p\ll\omega\sim\sqrt{|\omega_0^2-\omega^2|}$
 
-1)
+1) Calcul des constantes \alpha, \beta et \gamma
    #+BEGIN_SRC latex
      \begin{align*}
        \alpha&=\frac{\omega_p^2}{\omega_0^2-\omega^2}\simeq\frac{\omega_p^2}{\omega^2}\ll1\\
@@ -4844,7 +4844,7 @@ $\omega_c,\omega_p\ll\omega\sim\sqrt{|\omega_0^2-\omega^2|}$
        &\simeq\frac{\omega_p^2\omega^2}{\omega^4}\ll1
      \end{align*}
    #+END_SRC
-2) $0<z<L$, $\vv{E}=E_0\cos\left(kz-\omega t\right)\vv{u_x}$. La relation de
+2) $0 < z < L$, $\vv{E}=E_0\cos\left(kz-\omega t\right)\vv{u_x}$. La relation de
    dispersion impose toujours
    #+BEGIN_SRC latex
       \begin{align*}
@@ -4859,7 +4859,7 @@ $\omega_c,\omega_p\ll\omega\sim\sqrt{|\omega_0^2-\omega^2|}$
    #+END_SRC
    imposant que $\beta$ soit nul /i.e./ que $B_S=0$. L'onde ne peut être
    polarisée selon $\vv{u_x}$ qu'à la condition que $B_S$ soit nul.
-3)
+3) Décomposition du champ électrique pour une onde polarisée rectilignement
    #+BEGIN_SRC latex
      \begin{align*}
        \vv{E_i}(0,t)=\left|
@@ -4878,10 +4878,10 @@ $\omega_c,\omega_p\ll\omega\sim\sqrt{|\omega_0^2-\omega^2|}$
        \text{polarisée rectiligne}&=\text{polarisée gauche}+\text{polarisée droite}
      \end{align*}
    #+END_SRC
-4)
+4) Calcul du champ électrique dans le milieu ionisé
    #+BEGIN_SRC latex
      \begin{align*}
-       \vv{E}(0<z<L,t)&=\vv{E_1}(z,t)+\vv{E_2}(z,t)\\
+       \vv{E}(0 < z < L,t)&=\vv{E_1}(z,t)+\vv{E_2}(z,t)\\
        &=\frac{E_0}{2}\left|
        \begin{array}{l}
          \cos\left(k_1z-\omega t\right)\\
@@ -4915,7 +4915,7 @@ $\omega_c,\omega_p\ll\omega\sim\sqrt{|\omega_0^2-\omega^2|}$
   d'où
   #+BEGIN_SRC latex
     \begin{align*}
-      \vv{E}(0<z<L,t)&=E_0\left|
+      \vv{E}(0 < z < L,t)&=E_0\left|
       \begin{array}{l}
         \cos\left(\frac{k_1+k_2}{2}z-\omega t\right)\cos\left(\frac{k_1-k_2}{2}z\right)\\
         \cos\left(\frac{k_1+k_2}{2}z-\omega t\right)\sin\left(\frac{k_2-k_1}{2}z\right)\\
@@ -4994,7 +4994,7 @@ $\omega_c,\omega_p\ll\omega\sim\sqrt{|\omega_0^2-\omega^2|}$
      \begin{align*}
        \sin\theta_t&\geq1\\
        \sin\theta_i&\geq\frac{n_2}{n_1}\\
-       \theta_l&=\arcsin\left(\frac{n_2}{n_1}\right)\text{ avec }n_2<n_1\\
+       \theta_l&=\arcsin\left(\frac{n_2}{n_1}\right)\text{ avec }n_2 < n_1\\
        \theta_i&\geq\theta_l\to\text{réflexion totale}
      \end{align*}
    #+END_SRC
