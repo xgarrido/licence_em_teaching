@@ -409,7 +409,7 @@ En posant
 
 <p>
 les composantes \(x\) et \(y\) s'expriment en fonction de \(E_x\) et \(E_y\) par<sup><a id="fnr.1" class="footref" href="#fn.1">1</a></sup>
- <div class="footdef"><sup><a id="fn.1" class="footnum" href="#fnr.1">1</a></sup> <p class="footpara"> soit une matrice \(\mathcal{A}\) égale à </p> \begin{align*} \mathcal{A}=\begin{bmatrix} a&b\\ c&d \end{bmatrix} \end{align*} <p class="footpara"> l'expression de la matrice inverse \(\mathcal{A}^{-1}\) est </p> \begin{align*} \mathcal{A}^{-1}=\frac{1}{\text{det}\mathcal{A}}\begin{bmatrix} d&-b\\ -c&a \end{bmatrix}\text{ avec }\text{det}\mathcal{A}=ad-bc \end{align*}</div><p style="height:126px"></p>
+ <div class="footdef"><sup><a id="fn.1" class="footnum" href="#fnr.1">1</a></sup> <p class="footpara"> soit une matrice \(\mathcal{A}\) égale à </p> \begin{align*} \mathcal{A}=\begin{bmatrix} a&b\\ c&d \end{bmatrix} \end{align*} <p class="footpara"> l'expression de la matrice inverse \(\mathcal{A}^{-1}\) est </p> \begin{align*} \mathcal{A}^{-1}=\frac{1}{\text{det}\mathcal{A}}\begin{bmatrix} d&-b\\ -c&a \end{bmatrix}\text{ avec }\text{det}\mathcal{A}=ad-bc \end{align*}</div><p style="height:0px"></p>
 </p>
 \begin{align*}
   \begin{pmatrix}
@@ -638,7 +638,8 @@ est donc <b>circulaire droite</b>.
 </p>
 
 <ol class="org-ol">
-<li>\begin{align*}
+<li>Calcul des constantes &alpha;, &beta; et &gamma;
+\begin{align*}
   \alpha&=\frac{\omega_p^2}{\omega_0^2-\omega^2}\simeq\frac{\omega_p^2}{\omega^2}\ll1\\
   \beta&=\frac{\omega_p^2\omega\omega_c}{(\omega_0^2-\omega^2)^2-\omega^2\omega_c^2}\\
   &\simeq\frac{\omega_p^2\omega\omega_c}{\omega^4-\omega^2\omega_c^2}\simeq\frac{\omega^2_p\omega\omega_c}{\omega^4}=\frac{\omega_p^2\omega_c}{\omega^3}\ll1\\
@@ -647,7 +648,7 @@ est donc <b>circulaire droite</b>.
 \end{align*}
 </li>
 
-<li>\(0<z<L\), \(\vv{E}=E_0\cos\left(kz-\omega t\right)\vv{u_x}\). La relation de
+<li>\(0 < z < L\), \(\vv{E}=E_0\cos\left(kz-\omega t\right)\vv{u_x}\). La relation de
 dispersion impose toujours
 \begin{align*}
  \left(\frac{k^2c^2}{\omega^2}-1\right)\vv{E}=\bar{\bar{\chi}}\vv{E}
@@ -665,7 +666,8 @@ imposant que \(\beta\) soit nul <i>i.e.</i> que \(B_S=0\). L'onde ne peut être
 polarisée selon \(\vv{u_x}\) qu'à la condition que \(B_S\) soit nul.
 </p>
 </li>
-<li>\begin{align*}
+<li>Décomposition du champ électrique pour une onde polarisée rectilignement
+\begin{align*}
   \vv{E_i}(0,t)=\left|
   \begin{array}{l}
     E_0\cos\omega t\\0\\0
@@ -683,8 +685,9 @@ polarisée selon \(\vv{u_x}\) qu'à la condition que \(B_S\) soit nul.
 \end{align*}
 </li>
 
-<li>\begin{align*}
-  \vv{E}(0<z<L,t)&=\vv{E_1}(z,t)+\vv{E_2}(z,t)\\
+<li>Calcul du champ électrique dans le milieu ionisé
+\begin{align*}
+  \vv{E}(0 < z < L,t)&=\vv{E_1}(z,t)+\vv{E_2}(z,t)\\
   &=\frac{E_0}{2}\left|
   \begin{array}{l}
     \cos\left(k_1z-\omega t\right)\\
@@ -719,7 +722,7 @@ En utilisant la formule d'Euler, on a
 d'où
 </p>
 \begin{align*}
-  \vv{E}(0<z<L,t)&=E_0\left|
+  \vv{E}(0 < z < L,t)&=E_0\left|
   \begin{array}{l}
     \cos\left(\frac{k_1+k_2}{2}z-\omega t\right)\cos\left(\frac{k_1-k_2}{2}z\right)\\
     \cos\left(\frac{k_1+k_2}{2}z-\omega t\right)\sin\left(\frac{k_2-k_1}{2}z\right)\\
@@ -821,7 +824,7 @@ d'incidence tel que
 \begin{align*}
   \sin\theta_t&\geq1\\
   \sin\theta_i&\geq\frac{n_2}{n_1}\\
-  \theta_l&=\arcsin\left(\frac{n_2}{n_1}\right)\text{ avec }n_2<n_1\\
+  \theta_l&=\arcsin\left(\frac{n_2}{n_1}\right)\text{ avec }n_2 < n_1\\
   \theta_i&\geq\theta_l\to\text{réflexion totale}
 \end{align*}
 </li>
@@ -994,7 +997,7 @@ cette dernière se propageant selon \(Oz\).
 </div>
 </div></div>
 <div id="postamble" class="status">
-File under <i class="fa fa-github-alt"></i> version control - commit <a href="https://github.com/xgarrido/licence_em_teaching/commit/efb108f63bbdbad9aa804b135396eba799c10d0d">efb108f</a> - 2014-05-13
+File under <i class="fa fa-github-alt"></i> version control - commit <a href="https://github.com/xgarrido/licence_em_teaching/commit/3384cddd11effa410ed173542d1c6404866a3d89">3384cdd</a> - 2014-05-13
 </div>
 </body>
 </html>

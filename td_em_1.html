@@ -210,7 +210,7 @@ for the JavaScript code in this tag.
 
 <ul class="org-ul">
 <li>En régime stationnaire, \(\div\vv{j}=0\) <i>i.e.</i> champ à flux conservatif,
-on retrouve la loi des n\oe uds de Kirchhoff à savoir que l'intensité du
+on retrouve la loi des nœuds de Kirchhoff à savoir que l'intensité du
 courant \(i_1=i_2+i_3\)
 </li>
 
@@ -271,7 +271,7 @@ En appliquant le théorème d'Ostrogradsky
 
 <p>
 La puissance moyenne sortant de la surface fermée<sup><a id="fnr.1" class="footref" href="#fn.1">1</a></sup> devient
- <div class="footdef"><sup><a id="fn.1" class="footnum" href="#fnr.1">1</a></sup> <p class="footpara"> il s'agit de la puissance sortant d'une surface <b>fermée</b> qui correspond au différentiel entre la puissance ayant pénétrée dans le volume et la puissance sortant de ce volume. </p></div><p style="height:73px"></p>
+ <div class="footdef"><sup><a id="fn.1" class="footnum" href="#fnr.1">1</a></sup> <p class="footpara"> il s'agit de la puissance sortant d'une surface <b>fermée</b> qui correspond au différentiel entre la puissance ayant pénétrée dans le volume et la puissance sortant de ce volume. </p></div><p style="height:0px"></p>
 </p>
 \begin{align*}
   \left\langle\varoiint_S\vv{R}.d\vv{S}\right\rangle_T+\left\langle\iiint_V\frac{\partial u}{\partial t}d\tau\right\rangle_T+\left\langle\mathcal{P}_{\text{EM}\rightarrow\,q}\right\rangle_T=0\\
@@ -394,7 +394,7 @@ or \(\vv{v}.\vv{u}_z=0\) car la particule est maintenue dans le plan
 
 <p>
 Calcul de \(\unicode{x2460}\)
- <div class="footdef"><sup><a id="fn.2" class="footnum" href="#fnr.2">2</a></sup> <p class="footpara"> les forces extérieures \(\vv{F}_\text{ext.}\) ont pour objectif de maintenir la particule dans le plan \(z=0\). Elles sont donc soit comprises dans le plan \((xOy)\) soit opposées vectoriellement \(\Upsigma\vv{F}=\vv{0}\). Le moment cinétique induit par ces forces est donc nul du fait de \(\vv{OM}\times\vv{F}_\text{ext.}=\vv{0}\) </p></div><p style="height:116px"></p>
+ <div class="footdef"><sup><a id="fn.2" class="footnum" href="#fnr.2">2</a></sup> <p class="footpara"> les forces extérieures \(\vv{F}_\text{ext.}\) ont pour objectif de maintenir la particule dans le plan \(z=0\). Elles sont donc soit comprises dans le plan \((xOy)\) soit opposées vectoriellement \(\Upsigma\vv{F}=\vv{0}\). Le moment cinétique induit par ces forces est donc nul du fait de \(\vv{OM}\times\vv{F}_\text{ext.}=\vv{0}\) </p></div><p style="height:0px"></p>
 </p>
 \begin{align*}
   \text{\(\unicode{x2460}\)}&=q\int_0^T\left(\vv{OM}\times\vv{E}\right).\vv{u}_z\,dt\\
@@ -524,7 +524,7 @@ densité volumique d'énergie électromagnétique \(u\) est égale à
 <p>
 L'intensité \(I\) est par définition la puissance moyenne par unité de surface
 \(S\) <sup><a id="fnr.3" class="footref" href="#fn.3">3</a></sup>
- <div class="footdef"><sup><a id="fn.3" class="footnum" href="#fnr.3">3</a></sup> <p class="footpara"> l'intensité \(I\) est également égale au vecteur de Poynting moyen \(I=\|\langle\vv{R}\rangle\|\) avec \(\vv{R}=\frac{\vv{E}\times\vv{B}}{\mu_0}\) et \(\vv{B}=\frac{\vv{k}\times\vv{E}}{\omega}\) </p></div><p style="height:83px"></p>
+ <div class="footdef"><sup><a id="fn.3" class="footnum" href="#fnr.3">3</a></sup> <p class="footpara"> l'intensité \(I\) est également égale au vecteur de Poynting moyen \(I=\|\langle\vv{R}\rangle\|\) avec \(\vv{R}=\frac{\vv{E}\times\vv{B}}{\mu_0}\) et \(\vv{B}=\frac{\vv{k}\times\vv{E}}{\omega}\) </p></div><p style="height:0px"></p>
 </p>
 \begin{align*}
   I&=\frac{P_W}{S}=\frac{dE}{Sdt}\text{ où }\\
@@ -542,7 +542,7 @@ L'intensité \(I\) est par définition la puissance moyenne par unité de surfac
 </li>
 
 <li>Choc élastique \(E_1=E_2\) d'où \(p_1c=p_2c\rightarrow p_1=p_2=p\). La
-conservation de l'impulsion
+conservation de l'impulsion se traduit par
 \begin{align*}
   \vv{p}_1&=\vv{p}_2+\Updelta\vv{p}_0\\
   \Updelta\vv{p_0}&=\vv{p}_1 - \vv{p}_2=2p\cos\theta\vv{u}_z\\
@@ -550,15 +550,17 @@ conservation de l'impulsion
 \end{align*}
 </li>
 
-<li>\begin{align*}
+<li>Calcul du flux de photon par unité de surface
+\begin{align*}
   x&=\frac{N\times V_\text{cylindre}}{S_\text{projetée}\times dt}\text{ où }S_\text{projetée}=S_\text{cylindre}/\cos\theta\\
   &=\frac{N\times S_\text{cylindre}\times\cos\theta cdt}{S_\text{cylindre}\times dt}\\
   &=Nc\cos\theta=\frac{I\lambda}{hc}\cos\theta\\
-  &=\frac{9\,10^4\times5.15\,10^{-7}}{6.62\,10^{-34}\times3\,10^8}\cos 30=\unit[2\,10^{23}]{photon.m^{-2}.s^{-1}}
+  &=\frac{9\,10^4\times5.15\,10^{-7}}{6.62\,10^{-34}\times3\,10^8}\cos 30=\unit[2\,10^{23}]{photon.m}^{-2}\text{.s}^{-1}
 \end{align*}
 </li>
 
-<li>\begin{align*}
+<li>Calcul de la pression de radiation
+\begin{align*}
   P&=\frac{d\vv{p}}{Sdt}=x\cdot\Updelta p_0\\
   &=\frac{I\lambda}{hc}\cos\theta\times\frac{2h}{\lambda}\cos\theta\\
   &=\frac{2I\cos^2\theta}{c}=\frac{2\times9\,10^4\times\cos^230}{3\,10^8}=\unit[4.5\,10^{-4}]{N/m^2}\\
@@ -585,7 +587,7 @@ Virgo (<i>cf.</i> <a href="http://tel.archives-ouvertes.fr/tel-00175254/en/">htt
 </div>
 </div></div>
 <div id="postamble" class="status">
-File under <i class="fa fa-github-alt"></i> version control - commit <a href="https://github.com/xgarrido/licence_em_teaching/commit/efb108f63bbdbad9aa804b135396eba799c10d0d">efb108f</a> - 2014-05-13
+File under <i class="fa fa-github-alt"></i> version control - commit <a href="https://github.com/xgarrido/licence_em_teaching/commit/3384cddd11effa410ed173542d1c6404866a3d89">3384cdd</a> - 2014-05-13
 </div>
 </body>
 </html>
