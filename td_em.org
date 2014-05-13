@@ -5993,7 +5993,7 @@ prendre en compte l'effet d'un circuit vis-à-vis de l'autre soit
    #+BEGIN_SRC latex
      \begin{align*}
        \frac{\left(\mu_0nN\pi b^2\right)^2}{8}\times\frac{L\omega^2}{R^2+L^2\omega^2}\times\frac{i_\text{lim.}^2}{a}&=mg\\
-       i_\text{lim.}&=\sqrt{\frac{8mga\times\left(R^2+L^2\omega^2\right)}{L}}\times\frac{1}{\mu_0\omega nN\pi\b^2}
+       i_\text{lim.}&=\sqrt{\frac{8mga\times\left(R^2+L^2\omega^2\right)}{L}}\times\frac{1}{\mu_0\omega nN\pi b^2}
      \end{align*}
    #+END_SRC
 
@@ -6011,7 +6011,6 @@ prendre en compte l'effet d'un circuit vis-à-vis de l'autre soit
    le poids de la bobine et ayant donc tendance à ramener cette dernière à sa
    position d'équilibre. L'équilibre est donc stable dans la mesure où l'axe de
    la bobine reste aligné avec celui du solénoïde.
-
 4) La puissance moyenne dissipée par effet Joule a pour expression
    #+BEGIN_SRC latex
      \begin{align*}
