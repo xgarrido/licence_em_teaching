@@ -46,7 +46,7 @@ h4, h5, h6 {
 }
 
 a {
-    color: #003399;
+    color: #3399cc;
     text-decoration:none;
 }
 
@@ -109,7 +109,7 @@ pre {
 .tag {
      display:inline-block;
      white-space:no-wrap;
-     background:#003399;
+     background:#3399cc;
      color:#ffffff;
      float: right;
      font-size:.6em;
@@ -168,7 +168,7 @@ img.hidden {
 }
 
 .cbox {
-    color:#003399;
+    color:#3399cc;
 }
 
 .cbox p:before {
@@ -222,7 +222,7 @@ img.hidden {
 }
 
 #toc ul {
-    color: #003399;
+    color: #3399cc;
 }
 
 #toc:hover:before {
