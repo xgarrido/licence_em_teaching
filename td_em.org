@@ -138,7 +138,7 @@ ou
    par le déplacement des particules compense l'augmentation de la force
    électrique de répulsion.
 
-   *AN:*
+   *Application numérique :*
 
    $\mathcal{E}=\gamma mc^2 - mc^2=(\gamma-1)mc^2$ donc
    $\gamma=1+\frac{\mathcal{E}}{mc^2}$. La masse de l'électron est 0.511 MeV.
@@ -825,7 +825,7 @@ défaut de vitesse angulaire $\dot{\theta}$ initiale, on supposera donc que $\do
       *Remarques :*
 
       - En régime stationnaire, $\div\vv{j}=0$ /i.e./ champ à flux conservatif,
-        on retrouve la loi des n\oe uds de Kirchhoff à savoir que l'intensité du
+        on retrouve la loi des nœuds de Kirchhoff à savoir que l'intensité du
         courant $i_1=i_2+i_3$
 
       - Dans le conducteur, la densité de courant $\vv{j}$ s'exprime en fonction
@@ -1116,7 +1116,7 @@ défaut de vitesse angulaire $\dot{\theta}$ initiale, on supposera donc que $\do
    #+END_SRC
 
 3) Choc élastique $E_1=E_2$ d'où $p_1c=p_2c\rightarrow p_1=p_2=p$. La
-   conservation de l'impulsion
+   conservation de l'impulsion se traduit par
    #+BEGIN_SRC latex
      \begin{align*}
        \vv{p}_1&=\vv{p}_2+\Updelta\vv{p}_0\\
@@ -1125,17 +1125,17 @@ défaut de vitesse angulaire $\dot{\theta}$ initiale, on supposera donc que $\do
      \end{align*}
    #+END_SRC
 
-4)
+4) Calcul du flux de photon par unité de surface
    #+BEGIN_SRC latex
      \begin{align*}
        x&=\frac{N\times V_\text{cylindre}}{S_\text{projetée}\times dt}\text{ où }S_\text{projetée}=S_\text{cylindre}/\cos\theta\\
        &=\frac{N\times S_\text{cylindre}\times\cos\theta cdt}{S_\text{cylindre}\times dt}\\
        &=Nc\cos\theta=\frac{I\lambda}{hc}\cos\theta\\
-       &=\frac{9\,10^4\times5.15\,10^{-7}}{6.62\,10^{-34}\times3\,10^8}\cos 30=\unit[2\,10^{23}]{photon.m^{-2}.s^{-1}}
+       &=\frac{9\,10^4\times5.15\,10^{-7}}{6.62\,10^{-34}\times3\,10^8}\cos 30=\unit[2\,10^{23}]{photon.m}^{-2}\text{.s}^{-1}
      \end{align*}
    #+END_SRC
 
-5)
+5) Calcul de la pression de radiation
    #+BEGIN_SRC latex
      \begin{align*}
        P&=\frac{d\vv{p}}{Sdt}=x\cdot\Updelta p_0\\
@@ -1587,13 +1587,13 @@ $\vv{E}=-\grad\,V=-\tfrac{dV}{dr}\vv{u}_r$. Soit
      \end{align*}
    #+END_SRC
 
-   - pour $r>a$,
+   - pour $r > a$,
      #+BEGIN_SRC latex
        \begin{align*}
          \vv{E}_\text{int.}=-\frac{q}{4\pi\epsilon_0\,r^2}\vv{u}_r
        \end{align*}
      #+END_SRC
-   - pour $r<a$,
+   - pour $r < a$,
      #+BEGIN_SRC latex
        \begin{align*}
          \vv{E}_\text{int.}&=\frac{\rho}{4\pi\epsilon_0\,r^2}\times\frac{4}{3}\pi\,r^3\vv{u}_r\\
@@ -1611,7 +1611,6 @@ $\vv{E}=-\grad\,V=-\tfrac{dV}{dr}\vv{u}_r$. Soit
 
      En l'absence de champ externe, la force exercée par le nuage sur le noyau
      tend à ramener ce dernier au centre du nuage /i.e./ en $r=0$.
-
 3) En présence du champ externe, la force totale s'exerçant sur le noyau est
    $\vv{F}=+q\left(\vv{E}_\text{int.}+\vv{E}_\text{ext.}\right)$. L'équilibre
    est atteint pour $\vv{F}=\vv{0}$ soit
@@ -1626,7 +1625,6 @@ $\vv{E}=-\grad\,V=-\tfrac{dV}{dr}\vv{u}_r$. Soit
    Si $E_\text{ext.}>\frac{q}{4\pi\epsilon_0\,a^2}$, le champ électrique du
    nuage électronique ne peut contrebalancer le champ externe qui "dissocie"
    électriquement le nuage du noyau : noyau et nuage ne sont plus liés.
-
 4) Le moment dipolaire $\vv{p}$ est égal à $q\,\vv{r}$ soit en fonction du champ
    externe
    #+BEGIN_SRC latex
@@ -3552,7 +3550,7 @@ On considère un matériau ferromagnétique dur ayant une aimantation $\vv{M}$
    donc
    #+BEGIN_SRC latex
      \begin{align*}
-       \vv{B}_\text{int.}&=\vv{B}(j_{SM}(r=a))+\vv{B}(j_{SM}(r=b))+\vv{B}(j_M(a<r<b))\\
+       \vv{B}_\text{int.}&=\vv{B}(j_{SM}(r=a))+\vv{B}(j_{SM}(r=b))+\vv{B}(j_M(a < r < b))\\
        &=\cancel{\frac{\mu_0M_0}{2}\vv{u_x}}-\cancel{\frac{\mu_0M_0}{2}\vv{u_x}}+\int_a^b\frac{2\mu_0M_0}{2r}dr\,\vv{u_x}\\
        &=\mu_0M_0\ln\frac{b}{a}\vv{u_x}\equiv\text{uniforme}
      \end{align*}
@@ -4082,8 +4080,8 @@ $I=I_0\cos\omega t$. La fonction d'Heaviside a pour représentation
       #+BEGIN_SRC latex
         \begin{align*}
           \vv{A}&=\frac{\mu_0}{4\pi}\iiint\frac{\vv{j}(\vv{r'},t')}{\|\vv{r}-\vv{r'}\|}\vv{dr'}\\
-          &=\frac{\mu_0I_0}{4\pi}\underbrace{\int\delta(x')dx'}_{=1}\underbrace{\int\delta(y')dy'}_{=1}\int_{-\ell/2}^{+\ell/2}\frac{e^{-i\omega\left(t-\frac{\|\vv{r}-\vv{r'}\|}{c}\right)}}{\|\vv{r}-\vv{r'}}dz'\vv{u_z}\\
-          &=\frac{\mu_0I_0}{4\pi}e^{-i\omega t}\vv{u_z}\times\int_{-\ell/2}^{+\ell/2}\frac{e^{i\omega\frac{\|\vv{r}-\vv{r'}\|}{c}}}{\|\vv{r}-\vv{r'}}dz'
+          &=\frac{\mu_0I_0}{4\pi}\underbrace{\int\delta(x')dx'}_{=1}\underbrace{\int\delta(y')dy'}_{=1}\int_{-\ell/2}^{+\ell/2}\frac{e^{-i\omega\left(t-\frac{\|\vv{r}-\vv{r'}\|}{c}\right)}}{\|\vv{r}-\vv{r'}\|}dz'\vv{u_z}\\
+          &=\frac{\mu_0I_0}{4\pi}e^{-i\omega t}\vv{u_z}\times\int_{-\ell/2}^{+\ell/2}\frac{e^{i\omega\frac{\|\vv{r}-\vv{r'}\|}{c}}}{\|\vv{r}-\vv{r'}\|}dz'
         \end{align*}
       #+END_SRC
       Dans la mesure où $\|\vv{r}-\vv{r'}\|\sim r$, l'expression du
@@ -5819,7 +5817,7 @@ prendre en compte l'effet d'un circuit vis-à-vis de l'autre soit
          de la distance à l'axe du solénoïde.
       2) $\vv{B}=\rot\vv{A}=\frac{1}{r}\frac{\partial}{\partial
          r}\left(rA_\theta\right)\vv{u_z}$
-         - pour $r<a$
+         - pour $r < a$
            #+BEGIN_SRC latex
              \begin{align*}
                \frac{1}{r}\frac{\partial}{\partial r}\left(rA_\theta\right)&=\mu_0nI\\
@@ -5828,10 +5826,10 @@ prendre en compte l'effet d'un circuit vis-à-vis de l'autre soit
              \end{align*}
            #+END_SRC
            Le fait que $A_\theta$ doit rester fini en $r=0$ impose que la
-           constante d'intégration soi nulle.
+           constante d'intégration soit nulle.
            #+BEGIN_SRC latex
              \begin{align*}
-               \vv{A}(r<a)&=\frac{\mu_0nI}{2}r\,\vv{u_\theta}
+               \vv{A}(r < a)&=\frac{\mu_0nI}{2}r\,\vv{u_\theta}
              \end{align*}
            #+END_SRC
          - pour $r>a$
@@ -5933,7 +5931,7 @@ prendre en compte l'effet d'un circuit vis-à-vis de l'autre soit
        \vv{m}(t)=N\times i(t)\times\pi b^2\,\vv{u_z}
      \end{align*}
    #+END_SRC
-   La force qu'exerce le solénoïde sur ce dipôle magnétique s'écrit[fn:15][fn:16]
+   La force qu'exerce le solénoïde sur ce dipôle magnétique s'écrit[fn:15]
    #+BEGIN_SRC latex
      \begin{align*}
        \vv{F}_{S\to B}&=\vv{\nabla}\left(\vv{m}.\vv{B}_1\right)\\
@@ -5943,6 +5941,12 @@ prendre en compte l'effet d'un circuit vis-à-vis de l'autre soit
        &=\vv{u_z}\,\pi b^2\frac{\mu_0ni_1Ni}{2}\frac{\partial}{\partial\alpha}\left(1-\cos\alpha\right)\times\frac{\partial\alpha}{\partial z}
      \end{align*}
    #+END_SRC
+   /NB/
+   $\grad(\vv{m}.\vv{B}_1)=\vv{m}\times\rot\vv{B}_1+\vv{B}_1\times\rot\vv{m}+(\vv{m}.\grad)\vv{B}_1+(\vv{B}_1.\grad)\vv{m}$. Étant
+   donné que sur l'axe, $\rot\vv{B}_1=\vv{0}$ et que $\vv{m}$ est uniquement une
+   fonction du temps, l'expression de $\grad(\vv{m}.\vv{B}_1)$ se limite à
+   $(\vv{m}.\grad)\vv{B}_1$
+
    Sachant que $\tan\alpha=\frac{a}{z}$, l'expression de
    $\frac{\partial\alpha}{\partial z}$ s'écrit
    #+BEGIN_SRC latex
@@ -6218,7 +6222,7 @@ prendre en compte l'effet d'un circuit vis-à-vis de l'autre soit
         \end{align*}
       #+END_SRC
       Les casseroles en acier sont plus avantageuses à la fois en terme
-      d'efficacité de chauffage qu'en terme de sécurité[fn:17].
+      d'efficacité de chauffage qu'en terme de sécurité[fn:16].
 
 ** Footnotes
 
@@ -6240,13 +6244,7 @@ le champ électrique soit orienté selon $\vv{u_\theta}$
 [fn:15] l'énergie potentielle d'un dipôle $\vv{m}$ soumis à un champ magnétique
 $\vv{B}$ est $E_p=-\vv{m}.\vv{B}$ d'où la force $\vv{F}=-\grad E_p$
 
-[fn:16]
-$\grad(\vv{m}.\vv{B}_1)=\vv{m}\times\rot\vv{B}_1+\vv{B}_1\times\rot\vv{m}+(\vv{m}.\grad)\vv{B}_1+(\vv{B}_1.\grad)\vv{m}$. Étant
-donné que sur l'axe, $\rot\vv{B}_1=\vv{0}$ et que $\vv{m}$ est uniquement une
-fonction du temps, l'expression de $\grad(\vv{m}.\vv{B}_1)$ se limite à
-$(\vv{m}.\grad)\vv{B}_1$
-
-[fn:17] l'Institut National de Recherche et de Sécurité indique : "Il a été
+[fn:16] l'Institut National de Recherche et de Sécurité indique : "Il a été
 constaté chez des sujets soumis à un champ magnétique variable (autour d'une
 fréquence de 20 Hz et au-dessus d'un seuil d'intensité de 10 mT), un effet
 physiologique caractérisé par la perception visuelle de taches lumineuses; ce
