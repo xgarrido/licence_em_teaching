@@ -381,7 +381,7 @@ Le flux magnétique induit par le solénoïde au travers de la bobine s'écrit
 \end{align*}
 </li>
 
-<li>La bobine est traversée par le flux magnétique issue du solénoïde induisant
+<li>La bobine est traversée par le flux magnétique issu du solénoïde induisant
 une force électro-motrice \(e=-\frac{d\Phi_{S\to B}}{dt}=-M\frac{di_1}{dt}\). À
 cette f.e.m, il convient d'ajouter l'inductance propre de la bobine
 \(e_\text{propre}=-\frac{d\Phi_\text{propre}}{dt}=-L\frac{di}{dt}\). Ainsi, la
@@ -440,12 +440,12 @@ notre cas, la bobine possède donc un moment magnétique égal à
 \end{align*}
 
 <p>
-La force qu'exerce le solénoïde sur ce dipôle magnétique s'écrit<sup><a id="fnr.4" class="footref" href="#fn.4">4</a></sup>
- <div class="footdef"><sup><a id="fn.4" class="footnum" href="#fnr.4">4</a></sup> <p class="footpara"> l'énergie potentielle d'un dipôle \(\vv{m}\) soumis à un champ magnétique \(\vv{B}\) est \(E_p=-\vv{m}.\vv{B}\) d'où la force \(\vv{F}=-\grad E_p\) </p></div>
+La force qu'exerce le solénoïde sur ce dipôle magnétique s'écrit<sup><a id="fnr.4" class="footref" href="#fn.4">4</a></sup><sup>, </sup><sup><a id="fnr.5" class="footref" href="#fn.5">5</a></sup>
+ <div class="footdef"><sup><a id="fn.5" class="footnum" href="#fnr.5">5</a></sup> <p class="footpara"> \(\grad(\vv{m}.\vv{B}_1)=\vv{m}\times\rot\vv{B}_1+\vv{B}_1\times\rot\vv{m}+(\vv{m}.\grad)\vv{B}_1+(\vv{B}_1.\grad)\vv{m}\). Étant donné que sur l'axe, \(\rot\vv{B}_1=\vv{0}\) et que \(\vv{m}\) est uniquement une fonction du temps, l'expression de \(\grad(\vv{m}.\vv{B}_1)\) se limite à \((\vv{m}.\grad)\vv{B}_1\) </p></div>
 \begin{align*}
-  \vv{F}_{S\to B}&=\vv{\nabla}\left(\vv{m}.\vv{B}\right)\\
-  &=\cancel{\left(\vv{\nabla}.\vv{m}\right).\vv{B}}+\vv{m}\left(\vv{\nabla}.\vv{B}\right)\\
-  &=m\left(\frac{\partial B}{\partial z}\right)\vv{u_z}\quad(\text{car }\vv{B}\parallel\vv{u_z})\\
+  \vv{F}_{S\to B}&=\vv{\nabla}\left(\vv{m}.\vv{B}_1\right)\\
+  &=\left(\vv{m}.\vv{\nabla}\right)\vv{B}_1\\
+  &=m\left(\frac{\partial B_1}{\partial z}\right)\vv{u_z}\quad(\text{car }\vv{B}_1\parallel\vv{u_z})\\
   &=\vv{u_z}\,\pi b^2\frac{\mu_0ni_1Ni}{2}\frac{\partial}{\partial z}\left(1-\cos\alpha\right)\\
   &=\vv{u_z}\,\pi b^2\frac{\mu_0ni_1Ni}{2}\frac{\partial}{\partial\alpha}\left(1-\cos\alpha\right)\times\frac{\partial\alpha}{\partial z}
 \end{align*}
@@ -506,7 +506,7 @@ expression
 </p>
 \begin{align*}
   \frac{\left(\mu_0nN\pi b^2\right)^2}{8}\times\frac{L\omega^2}{R^2+L^2\omega^2}\times\frac{i_\text{lim.}^2}{a}&=mg\\
-  i_\text{lim.}&=\sqrt{\frac{8mga\times\left(R^2+L^2\omega^2\right)}{L}}\times\frac{1}{\mu_0\omega nN\pi\b^2}
+  i_\text{lim.}&=\sqrt{\frac{8mga\times\left(R^2+L^2\omega^2\right)}{L}}\times\frac{1}{\mu_0\omega nN\pi b^2}
 \end{align*}
 
 <div class="center">
@@ -529,7 +529,6 @@ position d'équilibre. L'équilibre est donc stable dans la mesure où l'axe de
 la bobine reste aligné avec celui du solénoïde.
 </p>
 </li>
-
 <li>La puissance moyenne dissipée par effet Joule a pour expression
 \begin{align*}
   \langle P\rangle&=R\cdot\langle i^2\rangle=R\left(\frac{A^2+B^2}{2}\right)\\
@@ -765,8 +764,8 @@ que celle en acier.
 
 <p>
 Les casseroles en acier sont plus avantageuses à la fois en terme
-d'efficacité de chauffage qu'en terme de sécurité<sup><a id="fnr.5" class="footref" href="#fn.5">5</a></sup>.
- <div class="footdef"><sup><a id="fn.5" class="footnum" href="#fnr.5">5</a></sup> <p class="footpara"> l'Institut National de Recherche et de Sécurité indique : "Il a été constaté chez des sujets soumis à un champ magnétique variable (autour d'une fréquence de 20 Hz et au-dessus d'un seuil d'intensité de 10 mT), un effet physiologique caractérisé par la perception visuelle de taches lumineuses; ce sont les magnétophosphènes." </p></div>
+d'efficacité de chauffage qu'en terme de sécurité<sup><a id="fnr.6" class="footref" href="#fn.6">6</a></sup>.
+ <div class="footdef"><sup><a id="fn.6" class="footnum" href="#fnr.6">6</a></sup> <p class="footpara"> l'Institut National de Recherche et de Sécurité indique : "Il a été constaté chez des sujets soumis à un champ magnétique variable (autour d'une fréquence de 20 Hz et au-dessus d'un seuil d'intensité de 10 mT), un effet physiologique caractérisé par la perception visuelle de taches lumineuses; ce sont les magnétophosphènes." </p></div>
 </li>
 </ol>
 </li>
@@ -783,10 +782,11 @@ d'efficacité de chauffage qu'en terme de sécurité<sup><a id="fnr.5" class="fo
 
 
 
+
 </div>
 </div></div>
 <div id="postamble" class="status">
-File under <i class="fa fa-github-alt"></i> version control - commit <a href="https://github.com/xgarrido/licence_em_teaching/commit/e2c5e94e7e583f5cdc40478f9dddf0c0f1795d8b">e2c5e94</a> - 2014-05-13
+File under <i class="fa fa-github-alt"></i> version control - commit <a href="https://github.com/xgarrido/licence_em_teaching/commit/710851ee896f264cc45496f0b0de75bc920ca10c">710851e</a> - 2014-05-13
 </div>
 </body>
 </html>
