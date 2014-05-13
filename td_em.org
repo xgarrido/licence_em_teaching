@@ -5964,7 +5964,7 @@ prendre en compte l'effet d'un circuit vis-à-vis de l'autre soit
    évaluer la valeur moyenne du produit des intensités $ii_1$ soit
    #+BEGIN_SRC latex
      \begin{align*}
-       \langle i(t)\dot i_1(t)\rangle&=\langle i_{1m}\cos\omega t\left(A\cos\omega t+B\sin\omega t\right)\rangle\\
+       \langle i(t)i_1(t)\rangle&=\langle i_{1m}\cos\omega t\left(A\cos\omega t+B\sin\omega t\right)\rangle\\
        &=\frac{i_{1m}A}{2}=-\frac{ML\omega^2i_{1m}^2}{2\left(R^2+L^2\omega^2\right)}
      \end{align*}
    #+END_SRC
