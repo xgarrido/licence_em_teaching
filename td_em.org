@@ -1189,9 +1189,9 @@ $h$
   \end{align*}
 #+END_SRC
 
-- pour $r<a$, $Q_\text{int.}=0$ d'où $\vv{E}(r<a)=\vv{0}$
-- pour $a<r<b$, $Q_\text{int.}=Q_a$ d'où
-  $\vv{E}(a<r<b)=\frac{Q_a}{2\pi\epsilon_0rh}\vv{u}_r$
+- pour $r < a$, $Q_\text{int.}=0$ d'où $\vv{E}(r < a)=\vv{0}$
+- pour $a < r < b$, $Q_\text{int.}=Q_a$ d'où
+  $\vv{E}(a < r < b)=\frac{Q_a}{2\pi\epsilon_0rh}\vv{u}_r$
 - pour $r>b$, $Q_\text{int.}=Q_a+Q_b=0$ d'où $\vv{E}(r>b)=\vv{0}$
 
 La capacité d'un condensateur $C$ est égale au rapport de la charge dans le
