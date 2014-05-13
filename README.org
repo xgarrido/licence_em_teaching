@@ -1,6 +1,6 @@
-#+TITLE: Electromagnetism classes of Licence 3 - README
+#+TITLE: Electromagnetism classes of Licence 3
 #+AUTHOR: Xavier Garrido
-#+OPTIONS: toc:nil
+#+OPTIONS: toc:nil num:nil
 
 * Introduction
 
