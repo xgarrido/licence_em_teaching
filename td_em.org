@@ -5753,7 +5753,7 @@ prendre en compte l'effet d'un circuit vis-à-vis de l'autre soit
 ** Couplage entre un solénoïde et une bobine
 1) L'unique champ magnétique est celui crée par le solénoïde que l'on considère
    comme infini. Ainsi le champ magnétique est égal à $\mu_0nI\vv{u_z}$ pour
-   $r<a$ et nul à l'extérieur du solénoïde. Le flux magnétique induit par le
+   $r < a$ et nul à l'extérieur du solénoïde. Le flux magnétique induit par le
    solénoïde au travers de la bobine est donc égal à
    #+BEGIN_SRC latex
      \begin{align*}
