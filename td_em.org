@@ -1,7 +1,7 @@
 #+TITLE:  Travaux Dirigés d'Électromagné\-tisme -- Licence 3
 #+AUTHOR: Xavier Garrido
 #+EMAIL:  xavier.garrido@u-psud.fr
-#+OPTIONS: ^:{} toc:2 tags:t author:nil split:html
+#+OPTIONS: ^:{} toc:2 tags:t author:t email:t split:html
 #+LATEX_CLASS: teaching-class
 
 * TD1 : Électromagnétisme & relativité
@@ -81,93 +81,113 @@ ou
 [[file:./figures/referentiel_relat_1.pdf]]
 #+END_CENTER
 
-1) Soit $\mathcal{R}'$ le référentiel où les particules sont au repos. Le
-   champ électrique exercé sur $M_2$ par $M_1$ s'écrit
-   #+BEGIN_SRC latex
-     \begin{equation*}
-       \vv{E}'(M_2) = \frac{q_1}{4\pi\epsilon_0}\times\frac{\vv{M_1M_2}}{M_1M_2^3}=-\frac{e}{4\pi\epsilon_0\,d^2}\vv{u_{z'}}
-     \end{equation*}
-   #+END_SRC
-   /i.e./ le champ électrique coulombien. Les particules étant au repos, il n'y
-   a pas de déplacement de charge donc $\vv{B}'(M_2)=\vv{0}$. La force
-   (coulombienne) qui s'exerce sur l'électron en $M_2$ est
-   #+BEGIN_SRC latex
-     \begin{equation*}
-       \vv{F}'(M_2)=-e\vv{E}'(M_2)-e\vv{v}\times\vv{B}'(M_2)=\frac{e^2}{4\pi\epsilon_0\,d^2}\vv{u_{z'}}=-\vv{F}'(M_1)
-     \end{equation*}
-   #+END_SRC
-   soit une force répulsive.
+#+BEGIN_QUESTION
+Dans le référentiel $R$, deux électrons $M_1$ et $M_2$ se déplacent côte à côte
+à vitesse constante $v$ sur deux droites parallèles distantes de $d$. Soit
+$\mathcal{E}$ leur énergie cinétique commune et $R'$ le référentiel dans lequel
+ils sont immobiles. Faire les applications numériques avec $d = 1$ mm,
+$\mathcal{E} = 1$ eV et $\mathcal{E} = 1$ MeV.
 
-2) Dans $\mathcal{R}$, on applique les règles de transformation du champ EM soit
-   $\vv{E}'_\parallel=\vv{E}_\parallel=\vv{0}$ et
-   $\vv{B}'_\parallel=\vv{B}_\parallel=\vv{0}$. Les composantes normales
-   deviennent
-   #+BEGIN_SRC latex
-     \begin{align*}
-       \vv{E}_\perp&= \gamma\,\left(\vv{E}'_\perp-\vv{v}\times\vv{B}'_\perp\right)\\
-       \vv{B}_\perp&= \gamma\,\left(\vv{B}'_\perp+\vv{v}\times\frac{\vv{E}'_\perp}{c^2}\right)
-     \end{align*}
-   #+END_SRC
-   On déduit que
-   #+BEGIN_SRC latex
-     \begin{equation*}
-       \vv{E}_\perp=\gamma\left(\vv{E}'_\perp-\vv{v}\times\vv{B}'_\perp\right)=\gamma\vv{E}'_\perp=-\frac{\gamma e}{4\pi\epsilon_0\,d^2}\vv{u_z}
-     \end{equation*}
-   #+END_SRC
-   sachant que $\vv{u_z}=\vv{u_{z'}}$.
+1) [@1] Calculer dans $R'$ les champs $\vv{E}'$ et $\vv{B}'$ créés par $M_1$ sur
+   $M_2$. En déduire la force qui s'exerce sur $M_2$. Quelle est la force qui
+   s'exerce sur $M_1$ ?
+#+END_QUESTION
 
-   Le champ magnétique $\vv{B}_\perp$ est égal à
-   $\gamma\vv{v}\times\frac{\vv{E}'_\perp}{c^2}$ soit
-   #+BEGIN_SRC latex
-     \begin{align*}
-       \vv{B}_\perp&=\frac{\gamma\,vE'_\perp}{c^2}\,\vv{u_x}\times\vv{u_z}=-\frac{\gamma\,vE'_\perp}{c^2}\,\vv{u_y}\\
-       &=\frac{\gamma v}{c^2}\times\frac{e}{4\pi\epsilon_0\,d^2}\,\vv{u_y}\text{ avec } \mu_0\epsilon_0c^2=1\\
-       &=\frac{\mu_0\gamma ve}{4\pi d^2}\vv{u_y}
-     \end{align*}
-   #+END_SRC
-   La force résultante est égale à
-   #+BEGIN_SRC latex
-     \begin{align*}
-       \vv{F}(M_2)&=-e\vv{E}(M_2)-e\vv{v}\times\vv{B}(M_2)\\
-       &=-e\gamma\vv{E}'(M_2)+e\gamma v^2\vv{u_x}\times\vv{u_y}\frac{E'(M_2)}{c^2}\\
-       &=-e\gamma\vv{E}'(M_2)\left[1-\frac{v^2}{c^2}\right]\text{ avec }\gamma=\frac{1}{\surd{1-v^2/c^2}}\\
-       &=-e\gamma\vv{E}'(M_2)\times\frac{1}{\gamma^2}=\frac{\vv{F}'(M_2)}{\gamma}
-     \end{align*}
-   #+END_SRC
-   Globalement, $F'(M_2)>F(M_2)$. La force d'origine magnétique induite
-   par le déplacement des particules compense l'augmentation de la force
-   électrique de répulsion.
+Soit $\mathcal{R}'$ le référentiel où les particules sont au repos. Le
+champ électrique exercé sur $M_2$ par $M_1$ s'écrit
+#+BEGIN_SRC latex
+  \begin{equation*}
+    \vv{E}'(M_2) = \frac{q_1}{4\pi\epsilon_0}\times\frac{\vv{M_1M_2}}{M_1M_2^3}=-\frac{e}{4\pi\epsilon_0\,d^2}\vv{u}_{z'}
+  \end{equation*}
+#+END_SRC
+/i.e./ le champ électrique coulombien. Les particules étant au repos, il n'y
+a pas de déplacement de charge donc $\vv{B}'(M_2)=\vv{0}$. La force
+(coulombienne) qui s'exerce sur l'électron en $M_2$ est
+#+BEGIN_SRC latex
+  \begin{equation*}
+    \vv{F}'(M_2)=-e\vv{E}'(M_2)-e\vv{v}\times\vv{B}'(M_2)=\frac{e^2}{4\pi\epsilon_0\,d^2}\vv{u}_{z'}=-\vv{F}'(M_1)
+  \end{equation*}
+#+END_SRC
+soit une force répulsive.
 
-   *Application numérique :*
+#+BEGIN_QUESTION
+2) [@2] Répondre aux mêmes questions dans $R$.
+#+END_QUESTION
 
-   $\mathcal{E}=\gamma mc^2 - mc^2=(\gamma-1)mc^2$ donc
-   $\gamma=1+\frac{\mathcal{E}}{mc^2}$. La masse de l'électron est 0.511 MeV.
+Dans $\mathcal{R}$, on applique les règles de transformation du champ EM soit
+$\vv{E}'_\parallel=\vv{E}_\parallel=\vv{0}$ et
+$\vv{B}'_\parallel=\vv{B}_\parallel=\vv{0}$. Les composantes normales
+deviennent
+#+BEGIN_SRC latex
+  \begin{align*}
+    \vv{E}_\perp&= \gamma\,\left(\vv{E}'_\perp-\vv{v}\times\vv{B}'_\perp\right)\\
+    \vv{B}_\perp&= \gamma\,\left(\vv{B}'_\perp+\vv{v}\times\frac{\vv{E}'_\perp}{c^2}\right)
+  \end{align*}
+#+END_SRC
+On déduit que
+#+BEGIN_SRC latex
+  \begin{equation*}
+    \vv{E}_\perp=\gamma\left(\vv{E}'_\perp-\vv{v}\times\vv{B}'_\perp\right)=\gamma\vv{E}'_\perp=-\frac{\gamma e}{4\pi\epsilon_0\,d^2}\vv{u_z}
+  \end{equation*}
+#+END_SRC
+sachant que $\vv{u_z}=\vv{u_{z'}}$.
 
-   Pour $\mathcal{E}=\unit[1]{eV}$, $\gamma\sim1$
-   #+BEGIN_SRC latex
-     \begin{align*}
-       F&=F'=\frac{e^2}{4\pi\epsilon_0\,d^2}=\frac{e^2\mu_0c^2}{4\pi d^2}\\
-       &=\frac{e^2c^2\times4\pi\,10^{-7}}{4\pi d^2}=\frac{(1.6\,10^{-19})^2\times(3\,10^8)^2\times10^{-7}}{(10^{-3})^2}\\
-       &=\unit[2.3\,10^{-22}]{N}
-     \end{align*}
-   #+END_SRC
+Le champ magnétique $\vv{B}_\perp$ est égal à
+$\gamma\vv{v}\times\frac{\vv{E}'_\perp}{c^2}$ soit
+#+BEGIN_SRC latex
+  \begin{align*}
+    \vv{B}_\perp&=\frac{\gamma\,vE'_\perp}{c^2}\,\vv{u}_x\times\vv{u}_z=-\frac{\gamma\,vE'_\perp}{c^2}\,\vv{u}_y\\
+    &=\frac{\gamma v}{c^2}\times\frac{e}{4\pi\epsilon_0\,d^2}\,\vv{u}_y\text{ avec } \mu_0\epsilon_0c^2=1\\
+    &=\frac{\mu_0\gamma ve}{4\pi d^2}\vv{u}_y
+  \end{align*}
+#+END_SRC
+La force résultante est égale à
+#+BEGIN_SRC latex
+  \begin{align*}
+    \vv{F}(M_2)&=-e\vv{E}(M_2)-e\vv{v}\times\vv{B}(M_2)\\
+    &=-e\gamma\vv{E}'(M_2)+e\gamma v^2\vv{u}_x\times\vv{u}_y\frac{E'(M_2)}{c^2}\\
+    &=-e\gamma\vv{E}'(M_2)\left[1-\frac{v^2}{c^2}\right]\text{ avec }\gamma=\frac{1}{\surd{1-v^2/c^2}}\\
+    &=-e\gamma\vv{E}'(M_2)\times\frac{1}{\gamma^2}=\frac{\vv{F}'(M_2)}{\gamma}
+  \end{align*}
+#+END_SRC
+Globalement, $F'(M_2)>F(M_2)$. La force d'origine magnétique induite
+par le déplacement des particules compense l'augmentation de la force
+électrique de répulsion.
 
-   Pour $\mathcal{E}=\unit[1]{MeV}$, $\gamma\simeq3$
-   #+BEGIN_SRC latex
-     \begin{align*}
-       F&=\frac{F'}{3}=\unit[7.7\,10^{-23}]{N}
-     \end{align*}
-   #+END_SRC
+*Application numérique :*
 
-3) $v\rightarrow0$, $\beta\ll1$ et donc $\gamma\simeq1+\tfrac{\beta^2}{2}$
-   #+BEGIN_SRC latex
-     \begin{align*}
-       \vv{F}&=\frac{\vv{F}'}{\gamma}\\
-       &=\vv{F}'\times\left(1-\beta^2\right)^{1/2}\\
-       &\simeq\left(1-\tfrac{\beta^2}{2}\right)\vv{F}'
-     \end{align*}
-   #+END_SRC
-** Fil chargé
+$\mathcal{E}=\gamma mc^2 - mc^2=(\gamma-1)mc^2$ donc
+$\gamma=1+\frac{\mathcal{E}}{mc^2}$. La masse de l'électron est 0.511 MeV.
+
+Pour $\mathcal{E}=\unit[1]{eV}$, $\gamma\sim1$
+#+BEGIN_SRC latex
+  \begin{align*}
+    F&=F'=\frac{e^2}{4\pi\epsilon_0\,d^2}=\frac{e^2\mu_0c^2}{4\pi d^2}\\
+    &=\frac{e^2c^2\times4\pi\,10^{-7}}{4\pi d^2}=\frac{(1.6\,10^{-19})^2\times(3\,10^8)^2\times10^{-7}}{(10^{-3})^2}\\
+    &=\unit[2.3\,10^{-22}]{N}
+  \end{align*}
+#+END_SRC
+
+Pour $\mathcal{E}=\unit[1]{MeV}$, $\gamma\simeq3$
+#+BEGIN_SRC latex
+  \begin{align*}
+    F&=\frac{F'}{3}=\unit[7.7\,10^{-23}]{N}
+  \end{align*}
+#+END_SRC
+
+#+BEGIN_QUESTION
+3) [@3] Calculer les forces à l'ordre 2 en $\beta$ lorsque $v\to0$. Conclusion.
+#+END_QUESTION
+
+$v\rightarrow0$, $\beta\ll1$ et donc $\gamma\simeq1+\tfrac{\beta^2}{2}$
+#+BEGIN_SRC latex
+  \begin{align*}
+    \vv{F}&=\frac{\vv{F}'}{\gamma}\\
+    &=\vv{F}'\times\left(1-\beta^2\right)^{1/2}\\
+    &\simeq\left(1-\tfrac{\beta^2}{2}\right)\vv{F}'
+  \end{align*}
+#+END_SRC
+** COMMENT Fil chargé
 1) Dans $\mathcal{R}'$, les charges électriques sont immobiles \equiv
    électrostatique. La charge électrique $Q'$ se déduit de la densité
    linéique de charge $\lambda_0'$
@@ -338,7 +358,7 @@ ou
           &=E^{\prime2}-B^{\prime2}c^2\text{ puisque }B'=0
         \end{align*}
       #+END_SRC
-** Particule chargée dans un champ magnétique uniforme                  :DM:
+** COMMENT Particule chargée dans un champ magnétique uniforme                  :DM:
 1) L'impulsion relativiste s'écrit $\vv{p}=\gamma m\vv{v}$, l'énergie totale
    étant égale à $\mathcal{E}=\gamma mc^2$. Le principe fondamental de la
    dynamique devient
@@ -490,7 +510,7 @@ ou
    avec un rayon de courbure chaque fois plus faible en raison des pertes
    d'énergie par rayonnement. Les particules décrivent une spirale.
 
-** Particule chargée dans des champs électrique et magnétique perpendiculaires
+** COMMENT Particule chargée dans des champs électrique et magnétique perpendiculaires
 
 #+BEGIN_CENTER
 #+ATTR_LATEX: :width 0.7\linewidth
@@ -544,7 +564,7 @@ trajectoire circulaire de rayon $R$
   \end{equation*}
 #+END_SRC
 
-** Étude de la charge d'espace
+** COMMENT Étude de la charge d'espace
 
 #+BEGIN_CENTER
 #+ATTR_LATEX: :width 0.7\linewidth
@@ -721,7 +741,7 @@ trajectoire circulaire de rayon $R$
 
       $V=\unit[10]{MV}$,$\gamma=21$ \rightarrow $\frac{\Delta R}{R_0}=1.5\,10^{-5}$
 
-** Variations relatives de vitesse, de quantité de mouvement et d'énergie :DM:
+** COMMENT Variations relatives de vitesse, de quantité de mouvement et d'énergie :DM:
 On considère une particule de masse $m$, de quantité de mouvement $p$, d'énergie
 totale $\mathcal{E}$ et d'énergie cinétique $\mathcal{E}_c$.
 
@@ -800,7 +820,7 @@ totale $\mathcal{E}$ et d'énergie cinétique $\mathcal{E}_c$.
 $(\ddot{r}-r\dot{\theta}^2)\vv{u}_r+(2\dot{r}\dot{\theta}+r\ddot{\theta})\vv{u}_\theta$. À
 défaut de vitesse angulaire $\dot{\theta}$ initiale, on supposera donc que $\dot{\theta}=0$.
 
-* TD2 : Équations de Maxwell dans le vide et champ électromagnétique
+* COMMENT TD2 : Équations de Maxwell dans le vide et champ électromagnétique
 ** "Propriétés mécaniques" du champ électromagnétique
 :PROPERTIES:
 :CUSTOM_ID: sec::prop_champ
@@ -1165,7 +1185,7 @@ $\vv{OM}\times\vv{F}_\text{ext.}=\vv{0}$
 $I=\|\langle\vv{R}\rangle\|$ avec $\vv{R}=\frac{\vv{E}\times\vv{B}}{\mu_0}$ et
 $\vv{B}=\frac{\vv{k}\times\vv{E}}{\omega}$
 
-* TD3 : Électrostatique dans le vide
+* COMMENT TD3 : Électrostatique dans le vide
 ** Condensateur cylindrique
 
 En considérant $h\gg a,b$, le problème est invariant par translation le long de
@@ -1769,7 +1789,7 @@ $\vv{E}=-\grad\,V=-\tfrac{dV}{dr}\vv{u}_r$. Soit
      \end{align*}
    #+END_SRC
 
-* TD4 : Les milieux diélectriques
+* COMMENT TD4 : Les milieux diélectriques
 ** Introduction
 Historiquement, la découverte expérimentale des diélectriques est à mettre au
 profit de Michael Faraday qui nota que l'introduction d'un isolant entre les
@@ -2524,7 +2544,7 @@ $\div\vv{E}=\frac{\rho_\text{tot.}}{\epsilon_0}$ d'où
 S'il n'y a donc pas de densité volumique de charge libre $\rho_\ell$, la densité
 volumique de charge liée est donc également nulle.
 
-* TD5 : Magnétostatique
+* COMMENT TD5 : Magnétostatique
 ** Introduction
 En magnétostatique, les équations locales deviennent
 #+BEGIN_SRC latex
@@ -3315,7 +3335,7 @@ $r\cos\theta$ et est lui aussi solution de l'équation de Laplace. La somme des
 deux solutions justifie ainsi de la forme de la solution utilisée dans cet
 exercice.
 
-* TD6 : Milieux magnétiques
+* COMMENT TD6 : Milieux magnétiques
 ** Introduction
 Dans la plupart des matériaux soumis à un champ magnétique, les charges liées se
 déplacent à l'échelle atomique faisant apparaître des boucles de courant /i.e./
@@ -3912,7 +3932,7 @@ On considère un matériau ferromagnétique dur ayant une aimantation $\vv{M}$
          $\lambda_0=4nR=\unit[521]{nm}$. La solution devient donc verte. Cette
          technique de spectrométrie permet donc de mesurer la taille $R$ des
          gouttelettes.
-* TD7 : Rayonnement
+* COMMENT TD7 : Rayonnement
 ** Rayonnement d'une antenne
 Soit un conducteur de longueur \ell parcouru par un courant périodique
 $I=I_0\cos\omega t$. La fonction d'Heaviside a pour représentation
@@ -4411,7 +4431,7 @@ $I=I_0\cos\omega t$. La fonction d'Heaviside a pour représentation
       de Higgs au LHC (pour une énergie de faisceau de 14 TeV et une masse du
       Higgs voisine de 125 GeV) est voisine de 50 picobarns soit 50 10^{-12} barn
       soit 50 10^{-40} m^{2}.
-* TD8 : Propagation dans le vide et les milieux diélectriques
+* COMMENT TD8 : Propagation dans le vide et les milieux diélectriques
 ** Effet Faraday dans un diélectrique
 
 #+BEGIN_CENTER
@@ -5168,7 +5188,7 @@ l'expression de la matrice inverse $\mathcal{A}^{-1}$ est
   \end{align*}
 #+END_SRC
 
-* TD9 : Guides d'onde
+* COMMENT TD9 : Guides d'onde
 ** Cavité cylindrique résonante
 *** Détermination des fréquences de résonance
 1) Les équations de Maxwell sont
@@ -5684,7 +5704,7 @@ l'équation de Bessel:
 ** Footnotes
 
 [fn:11] pour les fonctions de Bessel, on considère toujours \lambda > 0
-* TD10 : Induction électromagnétique
+* COMMENT TD10 : Induction électromagnétique
 ** Introduction
 En régime variable, le champ magnétique demeure toujours à flux conservatif à
 savoir que
