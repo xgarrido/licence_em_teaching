@@ -187,177 +187,202 @@ $v\rightarrow0$, $\beta\ll1$ et donc $\gamma\simeq1+\tfrac{\beta^2}{2}$
     &\simeq\left(1-\tfrac{\beta^2}{2}\right)\vv{F}'
   \end{align*}
 #+END_SRC
-** COMMENT Fil chargé
-1) Dans $\mathcal{R}'$, les charges électriques sont immobiles \equiv
-   électrostatique. La charge électrique $Q'$ se déduit de la densité
-   linéique de charge $\lambda_0'$
-   #+BEGIN_SRC latex
-     \begin{equation*}
-       Q'=\lambda_0'\times\ell'=\rho'\times S'\times\ell'
-     \end{equation*}
-   #+END_SRC
-   d'où $\rho'=\tfrac{\lambda_0'}{S'}=\tfrac{\lambda_0'}{S}$ car la
-   surface $S$ est une quantité perpendiculaire au déplacement donc
-   $S=S'$.
+** Fil chargé
+#+BEGIN_QUESTION
+Dans le référentiel $R$ du laboratoire, un fil cylindrique infini d’axe $Ox$, de
+section $S$ se déplace à la vitesse $\vv{u}=u\vv{u}_x$. Soit $R'$ le référentiel
+propre du fil. Dans $R'$, le fil est chargé uniformément en volume de sorte que
+sa charge linéique est $\lambda'_0$. Les charges sont immobiles dans $R'$. On
+pose $\beta=u/c$ et $\gamma=(1−\beta^2)^{-1/2}$.
 
-   Les charges étant immobiles, il n'y a pas de courant d'où
-   $\vv{j}'=\vv{0}$ et donc pas de champ magnétique
-   $\vv{B}'=\vv{0}$. Le champ électrique $\vv{E}'$ se déduit du
-   théorème de Gauss, en évaluant au préalable, les symétries et les invariances
-   de la distribution de charge. Ainsi, en coordonnées cylindriques où
-   $\vv{u_x}=\vv{u_z}$, les plans $(\vv{u}_r,\vv{u}_\theta)$ et
-   $(\vv{u_r},\vv{u_z})$ sont plans de symétrie de la distribution de charge. Le
-   champ électrique résultant est donc contenu dans chacun de ces plans soit
-   $\vv{E}(M) = E(M)\vv{u_r}$. Par ailleurs, la distribution de charge est
-   invariante par rotation $\theta$ et par translation $x\equiv z$ donc
-   $E(M)=E(r,\theta,z)=E(r)$.
+1) [@1] *Calculs dans $R'$*
 
-   Le théorème de Gauss
-   #+BEGIN_SRC latex
-     \begin{equation*}
-       \varoiint_{\mathcal{S}}\vv{E}\cdot d\vv{S}=\frac{Q_\text{int.}}{\epsilon_0}
-     \end{equation*}
-   #+END_SRC
-   où la surface de Gauss $\mathcal{S}$ est un cylindre de rayon $D'$ et
-   de hauteur $h$. En tenant compte des invariances et symétries de la
-   distribution de charge, on obtient le champ $\vv{E}'(M)$
-   #+BEGIN_SRC latex
-     \begin{equation*}
-       E'(M)\times2\pi D'\times h = \frac{\lambda_0'\times h}{\epsilon_0}
-     \end{equation*}
-   #+END_SRC
-   soit
-   #+BEGIN_SRC latex
-     \begin{equation*}
-       \vv{E}'(M)=\frac{\lambda_0'}{2\pi\epsilon_0D'}\vv{u_r}
-     \end{equation*}
-   #+END_SRC
+   Calculer dans $R'$, la charge volumique $\rho'$, la densité de courant
+   $\vv{j}'$, les champs électrique $\vv{E}'$ et magnétique $\vv{B}'$ en un
+   point $M$ situé à la distance $D'$ de $O'x'$.
+#+END_QUESTION
+Dans $\mathcal{R}'$, les charges électriques sont immobiles \equiv
+électrostatique. La charge électrique $Q'$ se déduit de la densité
+linéique de charge $\lambda_0'$
+#+BEGIN_SRC latex
+  \begin{equation*}
+    Q'=\lambda_0'\times\ell'=\rho'\times S'\times\ell'
+  \end{equation*}
+#+END_SRC
+d'où $\rho'=\tfrac{\lambda_0'}{S'}=\tfrac{\lambda_0'}{S}$ car la
+surface $S$ est une quantité perpendiculaire au déplacement donc
+$S=S'$.
 
-2) Calculs dans $\mathcal{R}$
-   1) Contraction des longeurs car $L$ est colinéaire au déplacement du
-      cylindre.
-      #+BEGIN_SRC latex
-        \begin{equation*}
-          L=\frac{L'}{\gamma}\text{ mais } S = S'\text{ car } S,S'\perp\vv{u}
-        \end{equation*}
-      #+END_SRC
+Les charges étant immobiles, il n'y a pas de courant d'où
+$\vv{j}'=\vv{0}$ et donc pas de champ magnétique
+$\vv{B}'=\vv{0}$. Le champ électrique $\vv{E}'$ se déduit du
+théorème de Gauss, en évaluant au préalable, les symétries et les invariances
+de la distribution de charge. Ainsi, en coordonnées cylindriques où
+$\vv{u_x}=\vv{u_z}$, les plans $(\vv{u}_r,\vv{u}_\theta)$ et
+$(\vv{u_r},\vv{u_z})$ sont plans de symétrie de la distribution de charge. Le
+champ électrique résultant est donc contenu dans chacun de ces plans soit
+$\vv{E}(M) = E(M)\vv{u_r}$. Par ailleurs, la distribution de charge est
+invariante par rotation $\theta$ et par translation $x\equiv z$ donc
+$E(M)=E(r,\theta,z)=E(r)$.
 
-      Invariance de la charge électrique $Q=Q'$ (ce postulat n'a jamais
-      été mis en défaut).
-      #+BEGIN_SRC latex
-        \begin{equation*}
-          Q=Q'=\rho'\times S'\times L'=\rho\times S\times L
-        \end{equation*}
-      #+END_SRC
-      d'où
-      #+BEGIN_SRC latex
-        \begin{equation*}
-          \rho=\rho'\times\frac{L'}{L}=\gamma\rho'
-        \end{equation*}
-      #+END_SRC
+Le théorème de Gauss
+#+BEGIN_SRC latex
+  \begin{equation*}
+    \varoiint_{\mathcal{S}}\vv{E}\cdot d\vv{S}=\frac{Q_\text{int.}}{\epsilon_0}
+  \end{equation*}
+#+END_SRC
+où la surface de Gauss $\mathcal{S}$ est un cylindre de rayon $D'$ et
+de hauteur $h$. En tenant compte des invariances et symétries de la
+distribution de charge, on obtient le champ $\vv{E}'(M)$
+#+BEGIN_SRC latex
+  \begin{equation*}
+    E'(M)\times2\pi D'\times h = \frac{\lambda_0'\times h}{\epsilon_0}
+  \end{equation*}
+#+END_SRC
+soit
+#+BEGIN_SRC latex
+  \begin{equation*}
+    \vv{E}'(M)=\frac{\lambda_0'}{2\pi\epsilon_0D'}\vv{u_r}
+  \end{equation*}
+#+END_SRC
 
-      Densité de courant $\vv{j}$
-      #+BEGIN_SRC latex
-        \begin{equation*}
-          \vv{j}=\rho\cdot\vv{u}=\rho u\vv{u_x}
-        \end{equation*}
-      #+END_SRC
+#+BEGIN_QUESTION
+2) [@2] *Calcul dans $R$*
+   1) On considère une portion du fil de longueur $L'$ et de section $S'$
+      dans $R'$. Calculer sa longueur $L$ et sa section $S$ dans $R$. En déduire
+      la charge volumique $\rho$ et le vecteur densité de courant $\vv{j}$ dans
+      $R$. Vérifier que le 4-vecteur $\vv{J}=(\rho c,\vv{j})$ est un
+      quadrivecteur de Lorentz.
+   2) Calculer, à partir de $\rho$ et $\vv{j}$, les champs électriques
+      $\vv{E}(M)$ et magnétique $\vv{B}(M)$ dans R.
+#+END_QUESTION
+Contraction des longueurs car $L$ est colinéaire au déplacement du cylindre.
+#+BEGIN_SRC latex
+  \begin{equation*}
+    L=\frac{L'}{\gamma}\text{ mais } S = S'\text{ car } S,S'\perp\vv{u}
+  \end{equation*}
+#+END_SRC
 
-      Le 4-vecteur $\vv{J}=(\rho c,\vv{j})$ est un 4-vecteur de Lorentz si
-      l'égalité
-      #+BEGIN_SRC latex
-        \begin{equation*}
-          \begin{bmatrix}
-            \rho' c\\j'_x\\j'_y\\j'_z
-          \end{bmatrix}
-          =
-          \begin{bmatrix}
-            \gamma&-\beta\gamma&0&0\\
-            -\beta\gamma&\gamma&0&0\\
-            0&0&1&0\\
-            0&0&0&1
-          \end{bmatrix}
-          \cdot
-          \begin{bmatrix}
-            \rho c\\j_x\\j_y\\j_z
-          \end{bmatrix}
-        \end{equation*}
-       #+END_SRC
-      est vérifiée. La distribution de courant est nulle dans $\mathcal{R}'$
-      donc $j'_x=j'_y=j'_z=0$ $j_y=j_z=0$ et
-      #+BEGIN_SRC latex
-        \begin{align*}
-          \gamma\rho c - \beta\gamma j_x&= \gamma\rho c-\beta\gamma\rho u\\
-          &=\gamma\rho c-\beta\gamma\rho u\times\frac{c}{c}\\
-          &=\gamma\rho c\left(1-\beta^2\right)\\
-          &=\gamma\rho c\times\frac{1}{\gamma^2}=\frac{\rho c}{\gamma}\\
-          &=\rho' c
-        \end{align*}
-      #+END_SRC
-      De même,
-      #+BEGIN_SRC latex
-        \begin{align*}
-          -\beta\gamma\rho c+\gamma j_x&=-\beta\gamma\rho c+\gamma\rho u\\
-          &=-\gamma\rho u+\gamma\rho u\\
-          &=0=j'_x
-        \end{align*}
-      #+END_SRC
+Invariance de la charge électrique $Q=Q'$ (ce postulat n'a jamais
+été mis en défaut).
+#+BEGIN_SRC latex
+  \begin{equation*}
+    Q=Q'=\rho'\times S'\times L'=\rho\times S\times L
+  \end{equation*}
+#+END_SRC
+d'où
+#+BEGIN_SRC latex
+  \begin{equation*}
+    \rho=\rho'\times\frac{L'}{L}=\gamma\rho'
+  \end{equation*}
+#+END_SRC
 
-   2) Calcul du champ électrique $\vv{E}(M)$
+Densité de courant $\vv{j}$
+#+BEGIN_SRC latex
+  \begin{equation*}
+    \vv{j}=\rho\cdot\vv{u}=\rho u\vv{u_x}
+  \end{equation*}
+#+END_SRC
 
-      Densité volumique et linéique de charge
-      $\rho=\gamma\rho'\rightarrow\lambda_0=\gamma\lambda_0'$ d'où
-      #+BEGIN_SRC latex
-        \begin{equation*}
-          \vv{E}(M)=\frac{\gamma\lambda_0'}{2\pi\epsilon_0\,D}\vv{u_r}
-        \end{equation*}
-      #+END_SRC
+Le 4-vecteur $\vv{J}=(\rho c,\vv{j})$ est un 4-vecteur de Lorentz si
+l'égalité
+#+BEGIN_SRC latex
+  \begin{equation*}
+    \begin{bmatrix}
+      \rho' c\\j'_x\\j'_y\\j'_z
+    \end{bmatrix}
+    =
+    \begin{bmatrix}
+      \gamma&-\beta\gamma&0&0\\
+      -\beta\gamma&\gamma&0&0\\
+      0&0&1&0\\
+      0&0&0&1
+    \end{bmatrix}
+    \cdot
+    \begin{bmatrix}
+      \rho c\\j_x\\j_y\\j_z
+    \end{bmatrix}
+  \end{equation*}
+#+END_SRC
+est vérifiée. La distribution de courant est nulle dans $\mathcal{R}'$
+donc $j'_x=j'_y=j'_z=0$ $j_y=j_z=0$ et
+#+BEGIN_SRC latex
+  \begin{align*}
+    \gamma\rho c - \beta\gamma j_x&= \gamma\rho c-\beta\gamma\rho u\\
+    &=\gamma\rho c-\beta\gamma\rho u\times\frac{c}{c}\\
+    &=\gamma\rho c\left(1-\beta^2\right)\\
+    &=\gamma\rho c\times\frac{1}{\gamma^2}=\frac{\rho c}{\gamma}\\
+    &=\rho' c
+  \end{align*}
+#+END_SRC
+De même,
+#+BEGIN_SRC latex
+  \begin{align*}
+    -\beta\gamma\rho c+\gamma j_x&=-\beta\gamma\rho c+\gamma\rho u\\
+    &=-\gamma\rho u+\gamma\rho u\\
+    &=0=j'_x
+  \end{align*}
+#+END_SRC
 
-      Le courant dans le fil est $dI=\vv{j}.d\vv{S}$ soit
-      $I=j\times S$ et le champ magnétique $\vv{B}(M)$ s'écrit (/cf./ polycopié
-      page 88, Chapitre Magnétostatique)
-      #+BEGIN_SRC latex
-        \begin{align*}
-          \vv{B}(M)&=\frac{\mu_0I}{2\pi\,D}\vv{u_\theta}\\
-          &=\frac{\mu_0jS}{2\pi\,D}\vv{u_\theta}
-        \end{align*}
-      #+END_SRC
-      or $j=\rho u=\gamma\rho' u=\frac{\gamma\lambda_0' u}{S}$ d'où
-      #+BEGIN_SRC latex
-        \begin{align*}
-          \vv{B}(M)&=\frac{\gamma\mu_0\lambda_0' u}{2\pi\,D}\vv{u_\theta}\text{ avec } \mu_0\epsilon_0c^2=1\\
-          \vv{B}(M)&=\frac{\gamma u}{c^2}E'(M)\vv{u_\theta}
-        \end{align*}
-      #+END_SRC
+Densité volumique et linéique de charge
+$\rho=\gamma\rho'\rightarrow\lambda_0=\gamma\lambda_0'$ d'où
+#+BEGIN_SRC latex
+  \begin{equation*}
+    \vv{E}(M)=\frac{\gamma\lambda_0'}{2\pi\epsilon_0\,D}\vv{u_r}
+  \end{equation*}
+#+END_SRC
 
-3) Transformation des champs
-   1) Transformation du champ électrique avec $\vv{B}'=\vv{0}$
-      #+BEGIN_SRC latex
-        \begin{align*}
-          \vv{E}_\perp&= \gamma\,\left(\vv{E}'_\perp-\vv{u}\times\vv{B}'_\perp\right)\\
-          \vv{E}(M)&= \gamma\,\vv{E}'(M)\text{ vrai } \vv{E}(M)=\frac{\gamma\lambda_0'}{2\pi\epsilon_0\,D}\vv{u_r}
-        \end{align*}
-      #+END_SRC
+Le courant dans le fil est $dI=\vv{j}.d\vv{S}$ soit
+$I=j\times S$ et le champ magnétique $\vv{B}(M)$ s'écrit (/cf./ polycopié
+page 88, Chapitre Magnétostatique)
+#+BEGIN_SRC latex
+  \begin{align*}
+    \vv{B}(M)&=\frac{\mu_0I}{2\pi\,D}\vv{u_\theta}\\
+    &=\frac{\mu_0jS}{2\pi\,D}\vv{u_\theta}
+  \end{align*}
+#+END_SRC
+or $j=\rho u=\gamma\rho' u=\frac{\gamma\lambda_0' u}{S}$ d'où
+#+BEGIN_SRC latex
+  \begin{align*}
+    \vv{B}(M)&=\frac{\gamma\mu_0\lambda_0' u}{2\pi\,D}\vv{u_\theta}\text{ avec } \mu_0\epsilon_0c^2=1\\
+    \vv{B}(M)&=\frac{\gamma u}{c^2}E'(M)\vv{u_\theta}
+  \end{align*}
+#+END_SRC
 
-      Transformation du champ magnétique
-      #+BEGIN_SRC latex
-        \begin{align*}
-          \vv{B}_\perp&= \gamma\,\left(\vv{B}'_\perp+\vv{u}\times\frac{\vv{E}'_\perp}{c^2}\right)\\
-          \vv{B}(M)&=\gamma u\frac{E'(M)}{c^2}\vv{u_x}\times\vv{u_r}\\
-          &=\frac{\gamma u}{c^2}E'(M)\vv{u_\theta}
-        \end{align*}
-      #+END_SRC
+#+BEGIN_QUESTION
+3) [@3] Transformation des champs
+   1) Vérifier dans ce cas particulier les formules de transformation
+      relativiste du champ électromagnétique.
+   2) Vérifier que $\vv{E}.\vv{B}$ est un invariant de Lorentz.
+   3) Vérifier que $E^2-B^2c^2$ est un invariant de Lorentz.
+#+END_QUESTION
+Transformation du champ électrique avec $\vv{B}'=\vv{0}$
+#+BEGIN_SRC latex
+  \begin{align*}
+    \vv{E}_\perp&= \gamma\,\left(\vv{E}'_\perp-\vv{u}\times\vv{B}'_\perp\right)\\
+    \vv{E}(M)&= \gamma\,\vv{E}'(M)\text{ vrai } \vv{E}(M)=\frac{\gamma\lambda_0'}{2\pi\epsilon_0\,D}\vv{u_r}
+  \end{align*}
+#+END_SRC
 
-   2) $\vv{E}'.\vv{B}'=0$ et
-      $\vv{E}.\vv{B}=\frac{\gamma^2u}{c^2}E^{\prime2}\,\vv{u_\theta}.\vv{u_r}=0$
-   3)
-      #+BEGIN_SRC latex
-        \begin{align*}
-          E^2-B^2c^2 &= (\gamma E')^2 - \left(\frac{\gamma u}{c^2}\right)^2E^{\prime2}c^2\\
-          &=(\gamma E')^2\left(1-\frac{u^2}{c^2}\right)=E^{\prime2}\\
-          &=E^{\prime2}-B^{\prime2}c^2\text{ puisque }B'=0
-        \end{align*}
-      #+END_SRC
+Transformation du champ magnétique
+#+BEGIN_SRC latex
+  \begin{align*}
+    \vv{B}_\perp&= \gamma\,\left(\vv{B}'_\perp+\vv{u}\times\frac{\vv{E}'_\perp}{c^2}\right)\\
+    \vv{B}(M)&=\gamma u\frac{E'(M)}{c^2}\vv{u_x}\times\vv{u_r}\\
+    &=\frac{\gamma u}{c^2}E'(M)\vv{u_\theta}
+  \end{align*}
+#+END_SRC
+
+$\vv{E}'.\vv{B}'=0$ et $\vv{E}.\vv{B}=\frac{\gamma^2u}{c^2}E^{\prime2}\,\vv{u_\theta}.\vv{u_r}=0$
+
+#+BEGIN_SRC latex
+  \begin{align*}
+    E^2-B^2c^2 &= (\gamma E')^2 - \left(\frac{\gamma u}{c^2}\right)^2E^{\prime2}c^2\\
+    &=(\gamma E')^2\left(1-\frac{u^2}{c^2}\right)=E^{\prime2}\\
+    &=E^{\prime2}-B^{\prime2}c^2\text{ puisque }B'=0
+  \end{align*}
+#+END_SRC
+
 ** COMMENT Particule chargée dans un champ magnétique uniforme                  :DM:
 1) L'impulsion relativiste s'écrit $\vv{p}=\gamma m\vv{v}$, l'énergie totale
    étant égale à $\mathcal{E}=\gamma mc^2$. Le principe fondamental de la
