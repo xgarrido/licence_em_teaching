@@ -575,12 +575,25 @@ temps. Ainsi, la trajectoire demeure circulaire à chaque instant $t$ mais
 avec un rayon de courbure chaque fois plus faible en raison des pertes
 d'énergie par rayonnement. Les particules décrivent une spirale.
 
-** COMMENT Particule chargée dans des champs électrique et magnétique perpendiculaires
+** Particule chargée dans des champs électrique et magnétique perpendiculaires
 
 #+BEGIN_CENTER
 #+ATTR_LATEX: :width 0.7\linewidth
 [[file:./figures/referentiel_relat_4.pdf]]
 #+END_CENTER
+
+#+BEGIN_QUESTION
+Dans le référentiel $R$ du laboratoire, une particule de charge $q$, de masse
+$m$, est lâchée sans vitesse initiale au point $O$ dans une région où règnent un
+champ électrique constante, uniforme $\vv{E}=E\vv{u}_y$ et un champ magnétique
+constante, uniforme $\vv{B}=B\vv{u}_z$ avec $Bc>E$.
+
+Montrer qu'il existe un référentiel $R'$ en translation uniforme parallèle à
+$\vv{u}_x$ où le champ électrique est nul. Calculer la vitesse $\vv{u}$ de $R'$
+par rapport à $R$. On pose $\beta_e=u/c$ et
+$\gamma_e=(1-\beta_e^2)^{-1/2}$. Calculer le champ magnétique $\vv{B}'$ dans
+$R'$ et en déduire la trajectoire et le mouvement de la particule dans $R'$.
+#+END_QUESTION
 
 Soit $\vv{E}=E\vv{u_y}$ et $\vv{B}=B\vv{u_z}$ avec $Bc>E$. Le référentiel
 $\mathcal{R}'$ doit être tel que $\vv{E}'=\vv{0}$ soit
