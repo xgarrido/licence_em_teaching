@@ -350,7 +350,7 @@ or $j=\rho u=\gamma\rho' u=\frac{\gamma\lambda_0' u}{S}$ d'où
 #+END_SRC
 
 #+BEGIN_QUESTION
-3) [@3] Transformation des champs
+3) [@3] *Transformation des champs*
    1) Vérifier dans ce cas particulier les formules de transformation
       relativiste du champ électromagnétique.
    2) Vérifier que $\vv{E}.\vv{B}$ est un invariant de Lorentz.
