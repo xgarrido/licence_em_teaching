@@ -383,157 +383,197 @@ $\vv{E}'.\vv{B}'=0$ et $\vv{E}.\vv{B}=\frac{\gamma^2u}{c^2}E^{\prime2}\,\vv{u_\t
   \end{align*}
 #+END_SRC
 
-** COMMENT Particule chargée dans un champ magnétique uniforme                  :DM:
-1) L'impulsion relativiste s'écrit $\vv{p}=\gamma m\vv{v}$, l'énergie totale
-   étant égale à $\mathcal{E}=\gamma mc^2$. Le principe fondamental de la
-   dynamique devient
-   #+BEGIN_SRC latex
-     \begin{align*}
-       \frac{d\vv{p}}{dt}&=\Upsigma\vv{F}\\
-       \frac{d}{dt}(\gamma m\vv{v})&=q\vv{v}\times\vv{B}
-     \end{align*}
-   #+END_SRC
+** Particule chargée dans un champ magnétique uniforme                  :DM:
+#+BEGIN_QUESTION
+Une particule de charge $q$, de masse $m$, est lancée avec la vitesse initiale
+$\vv{v}_0=v_0\vv{u}_x$ dans une région où règne un champ magnétique constant,
+uniforme $\vv{B}=B\vv{u}_z$.
+On pose $\gamma=(1-v^2/c^2)^{-1/2}$ où $\gamma$ dépend /a priori/ du temps.
 
-   L'énergie totale $\mathcal{E}$ est égale à la variation temporelle de
-   puissance $\tfrac{d\mathcal{P}}{dt}$. Or
+1) [@1] Rappeler L'impulsion généralisée $\vv{p}$ de la particule et son énergie
+   $\mathcal{E}$. Montrer que les équations du mouvement s'écrivent :
    #+BEGIN_SRC latex
      \begin{align*}
-       \mathcal{P}&=\vv{F}_\text{magnétique}.\vv{v}\\
-       &=(q\vv{v}\times\vv{B}).\vv{v}\\
-       &=0
+       \frac{d}{dt}(\gamma m\vv{v})=q\vv{v}\times\vv{B}
      \end{align*}
    #+END_SRC
-   L'énergie $\mathcal{E}$ est donc constante \rightarrow $v=v_0$ et
-   $\gamma=\tfrac{1}{\surd{1-v_0^2/c^2}}$. L'équation du mouvement devient
-   #+BEGIN_SRC latex
-     \begin{align*}
-       \gamma m\frac{d\vv{v}}{dt}&=q\vv{v}\times\vv{B}
-     \end{align*}
-   #+END_SRC
-   soit, au facteur $\gamma$ près, identique à l'équation du mouvement pour une
-   particule non-relativiste. La pulsation $\omega=\tfrac{qB}{m\gamma}$ est
-   inférieure à la pulsation cyclotron classique $\omega_c=\tfrac{qB}{m}$. La
-   trajectoire est alors circulaire autour du champ magnétique $\vv{B}$ et de
-   rayon $R=\gamma\tfrac{mv_0}{qB}$.
+   $\mathcal{E}$ est-elle constante ? En déduire que le mouvement est uniforme
+   et calculer $\gamma$. En comparant à la mécanique non relativiste, décrire la
+   trajectoire de la particule.
+#+END_QUESTION
+L'impulsion relativiste s'écrit $\vv{p}=\gamma m\vv{v}$, l'énergie totale étant
+égale à $\mathcal{E}=\gamma mc^2$. Le principe fondamental de la dynamique
+devient
+#+BEGIN_SRC latex
+  \begin{align*}
+    \frac{d\vv{p}}{dt}&=\Upsigma\vv{F}\\
+    \frac{d}{dt}(\gamma m\vv{v})&=q\vv{v}\times\vv{B}
+  \end{align*}
+#+END_SRC
 
-2) L'accélération dans le cas d'un mouvement uniforme circulaire est
-   l'accélération centripète d'expression
-   #+BEGIN_SRC latex
-     \begin{align*}
-       \vv{a}=\frac{d\vv{v}}{dt}=-\frac{v_0^2}{R}\vv{u_r}
-     \end{align*}
-   #+END_SRC
-   Le produit vectoriel $\vv{v}\times\vv{a}$ devient
-   #+BEGIN_SRC latex
-     \begin{align*}
-       \vv{v}\times\vv{a}=v_0\vv{u_\theta}\times-\frac{v_0^2}{R}\vv{u_r}=\frac{v_0^3}{R}\vv{u_z}
-     \end{align*}
-   #+END_SRC
-   La puissance rayonnée $\mathcal{P}_r$ se réduit à
-   #+BEGIN_SRC latex
-     \begin{align*}
-       \mathcal{P}_r&=\frac{q^2\gamma^6}{6\pi\epsilon_0c^3}\left[\vv{a}^2-\left(\frac{1}{c}\vv{v}\times\vv{a}\right)^2\right]\\
-       &=\frac{q^2\gamma^6}{6\pi\epsilon_0c^3}\left[\frac{v_0^4}{R^2}-\frac{v_0^6}{R^2c^2}\right]\\
-       &=\frac{q^2\gamma^6}{6\pi\epsilon_0c^3}\times\frac{v_0^4}{R^2}\left[1-\frac{v_0^2}{c^2}\right]\text{ avec } \frac{1}{\gamma^2}=1-\frac{v_0^2}{c^2}\\
-       &=\frac{q^2\gamma^4}{6\pi\epsilon_0c^3}\times\frac{v_0^4}{R^2}=\text{constante}
-     \end{align*}
-   #+END_SRC
-   et l'énergie rayonnée par tour $\mathcal{E}_r=\mathcal{P}_r\times T$ avec
-   $T=\tfrac{2\pi R}{v_0}$ devient
-   #+BEGIN_SRC latex
-     \begin{align*}
-       \mathcal{E}_r&=\frac{q^2\gamma^4}{6\pi\epsilon_0c^3}\times\frac{v_0^4}{R^2}\times\frac{2\pi R}{v_0}\\
-       &=\frac{q^2\gamma^4}{3\epsilon_0R}\times\frac{v_0^3}{c^3}
-     \end{align*}
-   #+END_SRC
-   Dans la limite ultra-relativiste, $v\rightarrow c$, l'énergie rayonnée est égale à
-   $\mathcal{E}_r=\frac{q^2\gamma^4}{3\epsilon_0R}$.
+L'énergie totale $\mathcal{E}$ est égale à la variation temporelle de
+puissance $\tfrac{d\mathcal{P}}{dt}$. Or
+#+BEGIN_SRC latex
+  \begin{align*}
+    \mathcal{P}&=\vv{F}_\text{magnétique}.\vv{v}\\
+    &=(q\vv{v}\times\vv{B}).\vv{v}\\
+    &=0
+  \end{align*}
+#+END_SRC
+L'énergie $\mathcal{E}$ est donc constante \rightarrow $v=v_0$ et
+$\gamma=\tfrac{1}{\surd{1-v_0^2/c^2}}$. L'équation du mouvement devient
+#+BEGIN_SRC latex
+  \begin{align*}
+    \gamma m\frac{d\vv{v}}{dt}&=q\vv{v}\times\vv{B}
+  \end{align*}
+#+END_SRC
+soit, au facteur $\gamma$ près, identique à l'équation du mouvement pour une
+particule non-relativiste. La pulsation $\omega=\tfrac{qB}{m\gamma}$ est
+inférieure à la pulsation cyclotron classique $\omega_c=\tfrac{qB}{m}$. La
+trajectoire est alors circulaire autour du champ magnétique $\vv{B}$ et de
+rayon $R=\gamma\tfrac{mv_0}{qB}$.
 
-   *Application numérique :*
+#+BEGIN_QUESTION
+2) [@2] On suppose désormais que la particule rayonne une puissance donnée par
+   la formule d'Abraham :
+   #+BEGIN_SRC latex
+     \begin{align*}
+       \mathcal{P}_r=\frac{q^2\gamma^6}{6\pi\epsilon_0c^3}\left[\vv{a}^2-\left(\frac{1}{c}\vv{v}\times\vv{a}\right)^2\right]
+     \end{align*}
+   #+END_SRC
+   où $\vv{a}$ est l'accélération. Déterminer l'énergie rayonnée $\mathcal{E}_r$
+   par tour. Que devient $\mathcal{E}_r$ à la limite ultra-relativiste.
 
-   Le faisceau de particules est constitué d'électrons de masse
-   $mc^2=\unit[0.511]{MeV}$. Le facteur de Lorentz $\gamma$ se déduit de l'énergie
-   totale $\mathcal{E}=\unit[6]{GeV}$
-   #+BEGIN_SRC latex
-     \begin{equation*}
-       \gamma=\frac{\mathcal{E}}{mc^2}=11\,742\text{ soit }\frac{v}{c}=0.99999999637\simeq1
-     \end{equation*}
-   #+END_SRC
-   L'énergie rayonnée exprimée en eV est alors égale à
-   #+BEGIN_SRC latex
-     \begin{align*}
-       \left.\mathcal{E}_r\right|_\text{eV}&=\frac{e^2}{3\epsilon_0R}\times\gamma^4\times\frac{1}{e}\\
-       &=\frac{1.6\,10^{-19}}{3\times8.85\,10^{-12}\times134}\times(11742)^4\\
-       &=\unit[0.855]{MeV}=1.42\,10^{-4}\mathcal{E}
-     \end{align*}
-   #+END_SRC
+   Application numérique : calculer $\mathcal{E}_r$ pour les électrons d'énergie
+   $\mathcal{E}=6$ GeV qui circulent sur une orbite circulaire de rayon $R=134$
+   m à l'ESRF (Grenoble). Comparer $\mathcal{E}_r$ à $\mathcal{E}$.
+#+END_QUESTION
+L'accélération dans le cas d'un mouvement uniforme circulaire est
+l'accélération centripète d'expression
+#+BEGIN_SRC latex
+  \begin{align*}
+    \vv{a}=\frac{d\vv{v}}{dt}=-\frac{v_0^2}{R}\vv{u_r}
+  \end{align*}
+#+END_SRC
+Le produit vectoriel $\vv{v}\times\vv{a}$ devient
+#+BEGIN_SRC latex
+  \begin{align*}
+    \vv{v}\times\vv{a}=v_0\vv{u_\theta}\times-\frac{v_0^2}{R}\vv{u_r}=\frac{v_0^3}{R}\vv{u_z}
+  \end{align*}
+#+END_SRC
+La puissance rayonnée $\mathcal{P}_r$ se réduit à
+#+BEGIN_SRC latex
+  \begin{align*}
+    \mathcal{P}_r&=\frac{q^2\gamma^6}{6\pi\epsilon_0c^3}\left[\vv{a}^2-\left(\frac{1}{c}\vv{v}\times\vv{a}\right)^2\right]\\
+    &=\frac{q^2\gamma^6}{6\pi\epsilon_0c^3}\left[\frac{v_0^4}{R^2}-\frac{v_0^6}{R^2c^2}\right]\\
+    &=\frac{q^2\gamma^6}{6\pi\epsilon_0c^3}\times\frac{v_0^4}{R^2}\left[1-\frac{v_0^2}{c^2}\right]\text{ avec } \frac{1}{\gamma^2}=1-\frac{v_0^2}{c^2}\\
+    &=\frac{q^2\gamma^4}{6\pi\epsilon_0c^3}\times\frac{v_0^4}{R^2}=\text{constante}
+  \end{align*}
+#+END_SRC
+et l'énergie rayonnée par tour $\mathcal{E}_r=\mathcal{P}_r\times T$ avec
+$T=\tfrac{2\pi R}{v_0}$ devient
+#+BEGIN_SRC latex
+  \begin{align*}
+    \mathcal{E}_r&=\frac{q^2\gamma^4}{6\pi\epsilon_0c^3}\times\frac{v_0^4}{R^2}\times\frac{2\pi R}{v_0}\\
+    &=\frac{q^2\gamma^4}{3\epsilon_0R}\times\frac{v_0^3}{c^3}
+  \end{align*}
+#+END_SRC
+Dans la limite ultra-relativiste, $v\rightarrow c$, l'énergie rayonnée est égale à
+$\mathcal{E}_r=\frac{q^2\gamma^4}{3\epsilon_0R}$.
 
-3) Les pertes d'énergie induites par le rayonnement ont pour conséquence une
-   diminution de l'énergie totale $\mathcal{E}=\gamma mc^2$ : les particules
-   perdent de la vitesse. La variation d'énergie $d\mathcal{E}$ est égale à
-   $-\mathcal{P}_r\,dt$ soit une variation du facteur de Lorentz $\gamma$
-   #+BEGIN_SRC latex
-     \begin{align*}
-       mc^2d\gamma&=-\mathcal{P}_rdt\\
-       \frac{d\gamma}{dt}&=-\mathcal{P}_r\times\frac{1}{mc^2}\\
-       &=-\frac{q^2\gamma^4}{6\pi\epsilon_0c^3}\times\frac{v^4}{R^2}\times\frac{1}{mc^2}
-     \end{align*}
-   #+END_SRC
-   En supposant la trajectoire toujours circulaire de rayon
-   $R=\gamma\tfrac{mv}{qB}=\tfrac{\gamma v}{\omega_c}$
-   #+BEGIN_SRC latex
-     \begin{align*}
-       \frac{d\gamma}{dt}&=-\frac{q^2\gamma^4}{6\pi\epsilon_0c^3}\times\frac{v^4}{R^2}\times\frac{1}{mc^2}\\
-       &=-\frac{q^2\gamma^4}{6\pi\epsilon_0c^3}\times\frac{v^4\omega_c^2}{\gamma^2v^2}\times\frac{1}{mc^2}\\
-       &=-\frac{q^2\omega_c^2}{6\pi\epsilon_0c^3}\times\frac{1}{mc^2}\times\gamma^2v^2\\
-     \end{align*}
-   #+END_SRC
-   or $\gamma^2v^2=c^2(\gamma^2-1)$ d'où
-   #+BEGIN_SRC latex
-     \begin{align*}
-       \frac{d\gamma}{dt}&=-\frac{q^2\omega_c^2}{6\pi\epsilon_0mc^3}\times\left(\gamma^2-1\right)\\
-       \frac{d\gamma}{\gamma^2-1}&=-\frac{dt}{\tau}\text{ avec }\tau=\frac{6\pi\epsilon_0mc^3}{q^2\omega_c^2}
-     \end{align*}
-   #+END_SRC
-   En intégrant l'équation précédente, on obtient
-   #+BEGIN_SRC latex
-     \begin{align*}
-       \frac{d\gamma}{\gamma^2-1}&=-\frac{dt}{\tau}\\
-       \frac{d\gamma}{1-\gamma^2}&=\frac{dt}{\tau}\\
-       \frac{d\gamma}{1+\gamma}+\frac{d\gamma}{1-\gamma}&=2\frac{dt}{\tau}\\
-       \ln(\gamma+1)-\ln(\gamma-1)&=\frac{2t}{\tau}+\text{constante}\\
-       \ln\frac{\gamma+1}{\gamma-1}&=\frac{2t}{\tau}+\text{constante}\\
-       \frac{\gamma+1}{\gamma-1}&=Ke^{\tfrac{2t}{\tau}}
-     \end{align*}
-   #+END_SRC
-   où, à $t=0,\gamma=\gamma_0=\tfrac{1}{\surd{1-v_0^2/c^2}}$,
-   $K=\frac{\gamma_0+1}{\gamma_0-1}$. On obtient ainsi
-   #+BEGIN_SRC latex
-     \begin{align*}
-       \gamma&=\frac{Ke^{\tfrac{2t}{\tau}}+1}{Ke^{\tfrac{2t}{\tau}}-1}\\
-       &=\frac{K+e^{-\tfrac{2t}{\tau}}}{K-e^{-\tfrac{2t}{\tau}}}
-     \end{align*}
-   #+END_SRC
-   et
-   #+BEGIN_SRC latex
-     \begin{align*}
-       \mathcal{E}=\gamma mc^2=\frac{Ke^{\tfrac{2t}{\tau}}+1}{Ke^{\tfrac{2t}{\tau}}-1}\times mc^2
-     \end{align*}
-   #+END_SRC
+*Application numérique :*
 
-   #+BEGIN_CENTER
-   #+ATTR_LATEX: :width 0.3\linewidth
-   [[./figures/spiral_relativite.pdf]]
-   #+END_CENTER
+Le faisceau de particules est constitué d'électrons de masse
+$mc^2=\unit[0.511]{MeV}$. Le facteur de Lorentz $\gamma$ se déduit de l'énergie
+totale $\mathcal{E}=\unit[6]{GeV}$
+#+BEGIN_SRC latex
+  \begin{equation*}
+    \gamma=\frac{\mathcal{E}}{mc^2}=11\,742\text{ soit }\frac{v}{c}=0.99999999637\simeq1
+  \end{equation*}
+#+END_SRC
+L'énergie rayonnée exprimée en eV est alors égale à
+#+BEGIN_SRC latex
+  \begin{align*}
+    \left.\mathcal{E}_r\right|_\text{eV}&=\frac{e^2}{3\epsilon_0R}\times\gamma^4\times\frac{1}{e}\\
+    &=\frac{1.6\,10^{-19}}{3\times8.85\,10^{-12}\times134}\times(11742)^4\\
+    &=\unit[0.855]{MeV}=1.42\,10^{-4}\mathcal{E}
+  \end{align*}
+#+END_SRC
 
-   Lorsque $t\rightarrow\infty$, $\gamma\simeq\frac{K}{K}=1$ et l'énergie totale
-   $\mathcal{E}$ est alors uniquement l'énergie de masse de la particule, la
-   vitesse et donc l'énergie cinétique sont nulles.
+#+BEGIN_QUESTION
+3) [@3] Établir l'équation différentielle vérifiée par $\gamma(t)$ en faisant
+   l'approximation qu'à chaque instant la trajectoire est un cercle. En déduire
+   la variation de l'énergie $\mathcal{E}$ de la particule en fonction du
+   temps. Quelle est la limite de $\mathcal{E}$ quand $t$ tend vers l'infini ?
+   Décrire qualitativement le mouvement de la particule en tenant compte du
+   rayonnement d'accélération.
+#+END_QUESTION
+Les pertes d'énergie induites par le rayonnement ont pour conséquence une
+diminution de l'énergie totale $\mathcal{E}=\gamma mc^2$ : les particules
+perdent de la vitesse. La variation d'énergie $d\mathcal{E}$ est égale à
+$-\mathcal{P}_r\,dt$ soit une variation du facteur de Lorentz $\gamma$
+#+BEGIN_SRC latex
+  \begin{align*}
+    mc^2d\gamma&=-\mathcal{P}_rdt\\
+    \frac{d\gamma}{dt}&=-\mathcal{P}_r\times\frac{1}{mc^2}\\
+    &=-\frac{q^2\gamma^4}{6\pi\epsilon_0c^3}\times\frac{v^4}{R^2}\times\frac{1}{mc^2}
+  \end{align*}
+#+END_SRC
+En supposant la trajectoire toujours circulaire de rayon
+$R=\gamma\tfrac{mv}{qB}=\tfrac{\gamma v}{\omega_c}$
+#+BEGIN_SRC latex
+  \begin{align*}
+    \frac{d\gamma}{dt}&=-\frac{q^2\gamma^4}{6\pi\epsilon_0c^3}\times\frac{v^4}{R^2}\times\frac{1}{mc^2}\\
+    &=-\frac{q^2\gamma^4}{6\pi\epsilon_0c^3}\times\frac{v^4\omega_c^2}{\gamma^2v^2}\times\frac{1}{mc^2}\\
+    &=-\frac{q^2\omega_c^2}{6\pi\epsilon_0c^3}\times\frac{1}{mc^2}\times\gamma^2v^2\\
+  \end{align*}
+#+END_SRC
+or $\gamma^2v^2=c^2(\gamma^2-1)$ d'où
+#+BEGIN_SRC latex
+  \begin{align*}
+    \frac{d\gamma}{dt}&=-\frac{q^2\omega_c^2}{6\pi\epsilon_0mc^3}\times\left(\gamma^2-1\right)\\
+    \frac{d\gamma}{\gamma^2-1}&=-\frac{dt}{\tau}\text{ avec }\tau=\frac{6\pi\epsilon_0mc^3}{q^2\omega_c^2}
+  \end{align*}
+#+END_SRC
+En intégrant l'équation précédente, on obtient
+#+BEGIN_SRC latex
+  \begin{align*}
+    \frac{d\gamma}{\gamma^2-1}&=-\frac{dt}{\tau}\\
+    \frac{d\gamma}{1-\gamma^2}&=\frac{dt}{\tau}\\
+    \frac{d\gamma}{1+\gamma}+\frac{d\gamma}{1-\gamma}&=2\frac{dt}{\tau}\\
+    \ln(\gamma+1)-\ln(\gamma-1)&=\frac{2t}{\tau}+\text{constante}\\
+    \ln\frac{\gamma+1}{\gamma-1}&=\frac{2t}{\tau}+\text{constante}\\
+    \frac{\gamma+1}{\gamma-1}&=Ke^{\tfrac{2t}{\tau}}
+  \end{align*}
+#+END_SRC
+où, à $t=0,\gamma=\gamma_0=\tfrac{1}{\surd{1-v_0^2/c^2}}$,
+$K=\frac{\gamma_0+1}{\gamma_0-1}$. On obtient ainsi
+#+BEGIN_SRC latex
+  \begin{align*}
+    \gamma&=\frac{Ke^{\tfrac{2t}{\tau}}+1}{Ke^{\tfrac{2t}{\tau}}-1}\\
+    &=\frac{K+e^{-\tfrac{2t}{\tau}}}{K-e^{-\tfrac{2t}{\tau}}}
+  \end{align*}
+#+END_SRC
+et
+#+BEGIN_SRC latex
+  \begin{align*}
+    \mathcal{E}=\gamma mc^2=\frac{Ke^{\tfrac{2t}{\tau}}+1}{Ke^{\tfrac{2t}{\tau}}-1}\times mc^2
+  \end{align*}
+#+END_SRC
 
-   Le rayon $R$, proportionnel à $\gamma v$, diminue en fonction du
-   temps. Ainsi, la trajectoire demeure circulaire à chaque instant $t$ mais
-   avec un rayon de courbure chaque fois plus faible en raison des pertes
-   d'énergie par rayonnement. Les particules décrivent une spirale.
+#+BEGIN_CENTER
+#+ATTR_LATEX: :width 0.3\linewidth
+[[./figures/spiral_relativite.pdf]]
+#+END_CENTER
+
+Lorsque $t\rightarrow\infty$, $\gamma\simeq\frac{K}{K}=1$ et l'énergie totale
+$\mathcal{E}$ est alors uniquement l'énergie de masse de la particule, la
+vitesse et donc l'énergie cinétique sont nulles.
+
+Le rayon $R$, proportionnel à $\gamma v$, diminue en fonction du
+temps. Ainsi, la trajectoire demeure circulaire à chaque instant $t$ mais
+avec un rayon de courbure chaque fois plus faible en raison des pertes
+d'énergie par rayonnement. Les particules décrivent une spirale.
 
 ** COMMENT Particule chargée dans des champs électrique et magnétique perpendiculaires
 
