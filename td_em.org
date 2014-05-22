@@ -4,8 +4,8 @@
 #+OPTIONS: ^:{} toc:2 tags:t author:t email:t split:html
 #+LATEX_CLASS: teaching-class
 
-* TD1 : Électromagnétisme & relativité
-** COMMENT Introduction
+* COMMENT TD1 : Électromagnétisme & relativité
+** Introduction
 *Transformation de Lorentz :* $\beta=\tfrac{v}{c}$ et
  $\gamma=\tfrac{1}{\surd{1-\beta^2}}$. Si $\mathcal{R}'$ est en mouvement
  rectiligne uniforme selon l'axe $x$ par rapport à $\mathcal{R}$ alors
@@ -74,7 +74,7 @@ ou
   dit une longueur $y$ restera inchangée sous la transformation
   $\mathcal{R}\rightarrow\mathcal{R}'$ : $y=y\prime$
 
-** COMMENT Force entre des électrons qui se déplacent côte à côte
+** Force entre des électrons qui se déplacent côte à côte
 
 #+BEGIN_CENTER
 #+ATTR_LATEX: :width 0.7\linewidth
@@ -187,7 +187,7 @@ $v\rightarrow0$, $\beta\ll1$ et donc $\gamma\simeq1+\tfrac{\beta^2}{2}$
     &\simeq\left(1-\tfrac{\beta^2}{2}\right)\vv{F}'
   \end{align*}
 #+END_SRC
-** COMMENT Fil chargé
+** Fil chargé
 #+BEGIN_QUESTION
 Dans le référentiel $R$ du laboratoire, un fil cylindrique infini d’axe $Ox$, de
 section $S$ se déplace à la vitesse $\vv{u}=u\vv{u}_x$. Soit $R'$ le référentiel
@@ -383,7 +383,7 @@ $\vv{E}'.\vv{B}'=0$ et $\vv{E}.\vv{B}=\frac{\gamma^2u}{c^2}E^{\prime2}\,\vv{u_\t
   \end{align*}
 #+END_SRC
 
-** COMMENT Particule chargée dans un champ magnétique uniforme                  :DM:
+** Particule chargée dans un champ magnétique uniforme                  :DM:
 #+BEGIN_QUESTION
 Une particule de charge $q$, de masse $m$, est lancée avec la vitesse initiale
 $\vv{v}_0=v_0\vv{u}_x$ dans une région où règne un champ magnétique constant,
@@ -575,7 +575,7 @@ temps. Ainsi, la trajectoire demeure circulaire à chaque instant $t$ mais
 avec un rayon de courbure chaque fois plus faible en raison des pertes
 d'énergie par rayonnement. Les particules décrivent une spirale.
 
-** COMMENT Particule chargée dans des champs électrique et magnétique perpendiculaires
+** Particule chargée dans des champs électrique et magnétique perpendiculaires
 
 #+BEGIN_CENTER
 #+ATTR_LATEX: :width 0.7\linewidth
@@ -657,7 +657,7 @@ déplace à la vitesse $u$ par rapport à $(K)$. On suppose que les origines
 coïncident à $t=t'=0$. Le rayon du faisceau est $R_0$ à l'origine, et $R$ à
 l'abscisse $x$.
 
-@@latex:\noindent@@ *Étude dans le référentiel propre des particules*
+*Étude dans le référentiel propre des particules*
 
 La densité volumique de charges $\rho_0$ est uniforme.
 
@@ -744,7 +744,7 @@ Dilatation du temps /i.e./ $t=\gamma t'$ et $x=ut$ soit
 #+END_SRC
 
 #+BEGIN_QUESTION
-@@latex:\noindent@@ *Étude dans le référentiel du laboratoire*
+*Étude dans le référentiel du laboratoire*
 
 On note $\rho$ la densité volumique de charges exprimée dans $(K)$.
 
@@ -873,53 +873,58 @@ $V=\unit[0.1]{MV}$, $\gamma=1.2$ \rightarrow $\frac{\Delta R}{R_0}=0.5=50\%$
 
 $V=\unit[10]{MV}$,$\gamma=21$ \rightarrow $\frac{\Delta R}{R_0}=1.5\,10^{-5}$
 
-** COMMENT Variations relatives de vitesse, de quantité de mouvement et d'énergie :DM:
+** Variations relatives de vitesse, de quantité de mouvement et d'énergie :DM:
+#+BEGIN_QUESTION
 On considère une particule de masse $m$, de quantité de mouvement $p$, d'énergie
 totale $\mathcal{E}$ et d'énergie cinétique $\mathcal{E}_c$.
 
 1) Exprimer $dv/v$ et $dp/p$ en fonction de $d\mathcal{E}/\mathcal{E}$.
+#+END_QUESTION
 
-   Soit l'énergie totale $\mathcal{E}=\gamma\,mc^2$ et
-   $\gamma=\frac{1}{\surd1-v^2/c^2}$. On a
-   #+BEGIN_SRC latex
-     \begin{align*}
-       \frac{d\mathcal{E}}{\mathcal{E}}&=\frac{d\gamma}{\gamma}\\
-       \text{avec }&d\gamma=-\frac{1}{2}\times\frac{1}{\left(1-v^2/c^2\right)^{3/2}}\times(-)2\frac{v}{c}dv\\
-       &d\gamma=\gamma^3\frac{v}{c}dv\\
-       \frac{d\mathcal{E}}{\mathcal{E}}&=\gamma^2\,\frac{v^2}{c^2}\times\frac{dv}{v}\\
-       &=\left(\gamma^2-1\right)\frac{dv}{v}
-     \end{align*}
-   #+END_SRC
-   soit
-   #+BEGIN_SRC latex
-     \begin{align*}
-       \frac{dv}{v}=\frac{1}{\gamma^2-1}\,\frac{d\mathcal{E}}{\mathcal{E}}
-     \end{align*}
-   #+END_SRC
+Soit l'énergie totale $\mathcal{E}=\gamma\,mc^2$ et
+$\gamma=\frac{1}{\surd1-v^2/c^2}$. On a
+#+BEGIN_SRC latex
+  \begin{align*}
+    \frac{d\mathcal{E}}{\mathcal{E}}&=\frac{d\gamma}{\gamma}\\
+    \text{avec }&d\gamma=-\frac{1}{2}\times\frac{1}{\left(1-v^2/c^2\right)^{3/2}}\times(-)2\frac{v}{c}dv\\
+    &d\gamma=\gamma^3\frac{v}{c}dv\\
+    \frac{d\mathcal{E}}{\mathcal{E}}&=\gamma^2\,\frac{v^2}{c^2}\times\frac{dv}{v}\\
+    &=\left(\gamma^2-1\right)\frac{dv}{v}
+  \end{align*}
+#+END_SRC
+soit
+#+BEGIN_SRC latex
+  \begin{align*}
+    \frac{dv}{v}=\frac{1}{\gamma^2-1}\,\frac{d\mathcal{E}}{\mathcal{E}}
+  \end{align*}
+#+END_SRC
 
-   La quantité de mouvement $p=\gamma\,mv$ est liée à l'énergie totale à travers
-   l'expression $\mathcal{E}^2=p^2c^2+m^2c^4$ soit en différentiant
-   #+BEGIN_SRC latex
-     \begin{align*}
-       2\mathcal{E}d\mathcal{E}&=2p\,dpc^2\\
-       \frac{dp}{p}&=\frac{\mathcal{E}d\mathcal{E}}{p^2c^2}\\
-       &=\frac{\mathcal{E}d\mathcal{E}}{\mathcal{E}^2-m^2c^4}\\
-       &=\frac{\gamma^2\,\cancel{m^2c^4}}{\gamma^2\,\cancel{m^2c^4}-\cancel{m^2c^4}}\,\frac{d\mathcal{E}}{\mathcal{E}}\\
-       &=\frac{\gamma^2}{\gamma^2-1}\,\frac{d\mathcal{E}}{\mathcal{E}}
-     \end{align*}
-   #+END_SRC
+La quantité de mouvement $p=\gamma\,mv$ est liée à l'énergie totale à travers
+l'expression $\mathcal{E}^2=p^2c^2+m^2c^4$ soit en différentiant
+#+BEGIN_SRC latex
+  \begin{align*}
+    2\mathcal{E}d\mathcal{E}&=2p\,dpc^2\\
+    \frac{dp}{p}&=\frac{\mathcal{E}d\mathcal{E}}{p^2c^2}\\
+    &=\frac{\mathcal{E}d\mathcal{E}}{\mathcal{E}^2-m^2c^4}\\
+    &=\frac{\gamma^2\,\cancel{m^2c^4}}{\gamma^2\,\cancel{m^2c^4}-\cancel{m^2c^4}}\,\frac{d\mathcal{E}}{\mathcal{E}}\\
+    &=\frac{\gamma^2}{\gamma^2-1}\,\frac{d\mathcal{E}}{\mathcal{E}}
+  \end{align*}
+#+END_SRC
 
-2) Que se passe-t-il à la limite ultrarelativiste ?
+#+BEGIN_QUESTION
+2) [@2] Que se passe-t-il à la limite ultrarelativiste ?
+#+END_QUESTION
 
-   $v\to c$ et $\gamma\gg1$ d'où
-   #+BEGIN_SRC latex
-     \begin{align*}
-       \frac{dv}{v}&\simeq\frac{1}{\gamma^2}\,\frac{d\mathcal{E}}{\mathcal{E}}\\
-       \frac{dp}{p}&\simeq\frac{d\mathcal{E}}{\mathcal{E}}
-     \end{align*}
-   #+END_SRC
+$v\to c$ et $\gamma\gg1$ d'où
+#+BEGIN_SRC latex
+  \begin{align*}
+    \frac{dv}{v}&\simeq\frac{1}{\gamma^2}\,\frac{d\mathcal{E}}{\mathcal{E}}\\
+    \frac{dp}{p}&\simeq\frac{d\mathcal{E}}{\mathcal{E}}
+  \end{align*}
+#+END_SRC
 
-3) On définit le facteur $\alpha$ par
+#+BEGIN_QUESTION
+3) [@3] On définit le facteur $\alpha$ par
    #+BEGIN_SRC latex
      \begin{align*}
        \frac{d\mathcal{E}_c}{\mathcal{E}_c}=\alpha\,\frac{dp}{p}
@@ -927,24 +932,25 @@ totale $\mathcal{E}$ et d'énergie cinétique $\mathcal{E}_c$.
    #+END_SRC
    Quelle est l'expression de $\alpha$ en fonction de $\beta$ ? Faire une
    représentation graphique.
+#+END_QUESTION
 
-   L'énergie totale $\mathcal{E}$ est égale à $\mathcal{E}_c+mc^2$ d'où
-   $d\mathcal{E}=d\mathcal{E}_c$. On a ainsi
-   #+BEGIN_SRC latex
-     \begin{align*}
-       \frac{dp}{p}&=\frac{\gamma^2}{\gamma^2-1}\times\frac{d\mathcal{E}_c}{\mathcal{E}}\times\frac{\mathcal{E}_c}{\mathcal{E}_c}\\
-       \frac{d\mathcal{E}_c}{\mathcal{E}_c}&=\underbrace{\frac{\gamma^2-1}{\gamma^2}\times\frac{\mathcal{E}}{\mathcal{E}_c}}_{\alpha}\times\frac{dp}{p}\\
-       \alpha&=\frac{\gamma^2-1}{\gamma^2}\times\frac{\gamma\,\cancel{mc^2}}{\gamma\,\cancel{mc^2}-\cancel{mc^2}}\\
-       &=\frac{\cancel{(\gamma-1)}(\gamma+1)}{\gamma^{\cancel{2}}}\times\frac{\cancel{\gamma}}{\cancel{\gamma-1}}\\
-       &=\frac{\gamma+1}{\gamma}=1+\frac{1}{\gamma}=1+\sqrt{1-\beta^2}
-     \end{align*}
-   #+END_SRC
+L'énergie totale $\mathcal{E}$ est égale à $\mathcal{E}_c+mc^2$ d'où
+$d\mathcal{E}=d\mathcal{E}_c$. On a ainsi
+#+BEGIN_SRC latex
+  \begin{align*}
+    \frac{dp}{p}&=\frac{\gamma^2}{\gamma^2-1}\times\frac{d\mathcal{E}_c}{\mathcal{E}}\times\frac{\mathcal{E}_c}{\mathcal{E}_c}\\
+    \frac{d\mathcal{E}_c}{\mathcal{E}_c}&=\underbrace{\frac{\gamma^2-1}{\gamma^2}\times\frac{\mathcal{E}}{\mathcal{E}_c}}_{\alpha}\times\frac{dp}{p}\\
+    \alpha&=\frac{\gamma^2-1}{\gamma^2}\times\frac{\gamma\,\cancel{mc^2}}{\gamma\,\cancel{mc^2}-\cancel{mc^2}}\\
+    &=\frac{\cancel{(\gamma-1)}(\gamma+1)}{\gamma^{\cancel{2}}}\times\frac{\cancel{\gamma}}{\cancel{\gamma-1}}\\
+    &=\frac{\gamma+1}{\gamma}=1+\frac{1}{\gamma}=1+\sqrt{1-\beta^2}
+  \end{align*}
+#+END_SRC
 
-   #+BEGIN_CENTER
-   #+ATTR_LATEX: :width 0.7\linewidth
-   #+CAPTION: *Variation du paramètre $\alpha$ en fonction de la vitesse $\beta$*
-   [[./figures/alpha_variation.pdf]]
-   #+END_CENTER
+#+BEGIN_CENTER
+#+ATTR_LATEX: :width 0.7\linewidth
+#+CAPTION: *Variation du paramètre $\alpha$ en fonction de la vitesse $\beta$*
+[[./figures/alpha_variation.pdf]]
+#+END_CENTER
 
 ** Footnotes
 
@@ -952,276 +958,371 @@ totale $\mathcal{E}$ et d'énergie cinétique $\mathcal{E}_c$.
 $(\ddot{r}-r\dot{\theta}^2)\vv{u}_r+(2\dot{r}\dot{\theta}+r\ddot{\theta})\vv{u}_\theta$. À
 défaut de vitesse angulaire $\dot{\theta}$ initiale, on supposera donc que $\dot{\theta}=0$.
 
-* COMMENT TD2 : Équations de Maxwell dans le vide et champ électromagnétique
+* TD2 : Équations de Maxwell dans le vide et champ électromagnétique
 ** "Propriétés mécaniques" du champ électromagnétique
 :PROPERTIES:
 :CUSTOM_ID: sec::prop_champ
 :END:
-1) *Énergie*
-   1) Force de Lorentz : $\vv{F}=q\vv{E}+q\vv{v}\times\vv{B}$
 
-      Équations de Maxwell :
-      | Maxwell-Gauss                   | $\div\vv{E}=\vv{\nabla}.\vv{E}=\tfrac{\rho}{\epsilon_0}$                    |
-      | Conservation du flux magnétique | $\div\vv{B}=\vv{\nabla}.\vv{B}=0$                                           |
-      | Maxwell-Faraday                 | $\rot\vv{E}=-\tfrac{\partial\vv{B}}{\partial t}$                            |
-      | Maxwell-Ampère                  | $\rot\vv{B}=\mu_0\vv{j}+\mu_0\epsilon_0\tfrac{\partial\vv{E}}{\partial t}$  |
+#+BEGIN_QUESTION
+*Énergie*
 
-   2) Équation locale de conservation de la charge
-      #+BEGIN_SRC latex
-        \begin{align*}
-          \div\left(\rot\vv{B}\right)=\vv{\nabla}.\left(\vv{\nabla}\times\vv{B}\right)&=0\\
-          \mu_0\div\vv{j}+\mu_0\epsilon_0\frac{\partial}{\partial t}\div\vv{E}&=0\\
-          \div\vv{j}+\frac{\partial\rho}{\partial t}=0
-        \end{align*}
-      #+END_SRC
-      *Remarques :*
+1) [@1] Une particule ponctuelle de masse $m$, de charge $q$, de vitesse
+   $\vv{v}$ est située en $M$ à l’instant $t$. Rappeler l'expression de la force
+   de Lorentz s'il règne en $M$ à l'instant $t$ un champ électromagnétique (EM)
+   ($\vv{E}(M,t),\vv{B}(M,t)$). Écrire les équations de Maxwell en présence
+   d'une densité volumique de charge $\rho$ et d'une densité de courant $\vv{j}$.
+#+END_QUESTION
+Force de Lorentz : $\vv{F}=q\vv{E}+q\vv{v}\times\vv{B}$
 
-      - En régime stationnaire, $\div\vv{j}=0$ /i.e./ champ à flux conservatif,
-        on retrouve la loi des nœuds de Kirchhoff à savoir que l'intensité du
-        courant $i_1=i_2+i_3$
+Équations de Maxwell :
+| Maxwell-Gauss                   | $\div\vv{E}=\vv{\nabla}.\vv{E}=\tfrac{\rho}{\epsilon_0}$                    |
+| Conservation du flux magnétique | $\div\vv{B}=\vv{\nabla}.\vv{B}=0$                                           |
+| Maxwell-Faraday                 | $\rot\vv{E}=-\tfrac{\partial\vv{B}}{\partial t}$                            |
+| Maxwell-Ampère                  | $\rot\vv{B}=\mu_0\vv{j}+\mu_0\epsilon_0\tfrac{\partial\vv{E}}{\partial t}$  |
 
-      - Dans le conducteur, la densité de courant $\vv{j}$ s'exprime en fonction
-        du champ $\vv{E}$ et de la conductivité $\gamma$ (exprimée en Siemens
-        par mètre) : $\vv{j}=\gamma\vv{E}$ d'où
-        #+BEGIN_SRC latex
-          \begin{align*}
-            \frac{\partial\rho}{\partial t}+\frac{\gamma}{\epsilon_0}\rho=0\text{ et }\rho(t)=\rho_0\,e^{-t/\tau}\text{ où }\tau=\frac{\epsilon_0}{\gamma}\sim\frac{10^{-11}}{10^7}\sim\unit[10^{-18}]{s}
-          \end{align*}
-        #+END_SRC
-        Dans un conducteur, il n'y a donc pas de charge en volume : le courant et
-        donc les charges se déplaçent en surface.
-   3) La puissance $\mathcal{P}$ s'écrit comme le produit de la force $\vv{F}$ par la
-      vitesse de la particule\nbsp$\vv{v}$ :
-      #+BEGIN_SRC latex
-        \begin{equation*}
-          \mathcal{P}=\vv{F}.\vv{v}=q\vv{E}.\vv{v}+q(\vv{v}\times\vv{B}).\vv{v}=q\vv{E}.\vv{v}
-        \end{equation*}
-      #+END_SRC
-      La puissance par unité de volume
-      $\tfrac{d\mathcal{P}}{d\tau}=nq\vv{E}.\vv{v}$ or $\vv{j}=nq\vv{v}$ d'où
-      $\tfrac{d\mathcal{P}}{d\tau}=\vv{j}.\vv{E}$
+#+BEGIN_QUESTION
+2) [@2] À partir des équations de Maxwell, établir l'équation locale de
+   conservation de la charge.
+#+END_QUESTION
+Équation locale de conservation de la charge
+#+BEGIN_SRC latex
+  \begin{align*}
+    \div\left(\rot\vv{B}\right)=\vv{\nabla}.\left(\vv{\nabla}\times\vv{B}\right)&=0\\
+    \mu_0\div\vv{j}+\mu_0\epsilon_0\frac{\partial}{\partial t}\div\vv{E}&=0\\
+    \div\vv{j}+\frac{\partial\rho}{\partial t}=0
+  \end{align*}
+#+END_SRC
+*Remarques :*
 
-   4) $\vv{R}=\tfrac{\vv{E}\times\vv{B}}{\mu_0}$ et
-      $u=\tfrac{\epsilon_0E^2}{2}+\tfrac{B^2}{2\mu_0}$
-      #+BEGIN_SRC latex
-        \begin{align*}
-          \div\vv{R}&=\frac{1}{\mu_0}\div\left(\vv{E}\times\vv{B}\right)\text{ avec }\div\left(\vv{a}\times\vv{b}\right)=\vv{b}.\rot\vv{a}-\vv{a}.\rot\vv{b}\\
-          &=\frac{1}{\mu_0}\left(\vv{B}.\rot\vv{E}-\vv{E}.\rot\vv{B}\right)\\
-          &=\frac{1}{\mu_0}\left(-\vv{B}.\frac{\partial\vv{B}}{\partial t}-\vv{E}.\left(\mu_0\vv{j}+\mu_0\epsilon_0\frac{\partial\vv{E}}{\partial t}\right)\right)\\
-          &=\frac{1}{\mu_0}\left(-\frac{1}{2}\frac{\partial B^2}{\partial t}-\frac{\mu_0\epsilon_0}{2}\frac{\partial E^2}{\partial t}-\mu_0\vv{j}.\vv{E}\right)\\
-          &=-\frac{\partial u}{\partial t}-\vv{j}.\vv{E}
-        \end{align*}
-        \begin{align*}
-          \div\vv{R}+\frac{\partial u}{\partial t}+\vv{j}.\vv{E}=0
-        \end{align*}
-      #+END_SRC
+- En régime stationnaire, $\div\vv{j}=0$ /i.e./ champ à flux conservatif,
+  on retrouve la loi des nœuds de Kirchhoff à savoir que l'intensité du
+  courant $i_1=i_2+i_3$
 
-   5) $\vv{E}=\vv{E}_0\cos\omega t$, $\vv{B}=\vv{B_0}\sin\omega t$
-      #+BEGIN_SRC latex
-        \begin{align*}
-          \iiint_V\div\vv{R}d\tau+\iiint_V\frac{\partial u}{\partial t}d\tau+\iiint_V\vv{j}.\vv{E}d\tau=0\\
-          \iiint_V\div\vv{R}d\tau+\iiint_V\frac{\partial u}{\partial t}d\tau+\underbrace{\iiint_V\frac{d\mathcal{P}}{d\tau}d\tau}_{\mathcal{P}_{\text{EM}\rightarrow\,q}}=0\\
-        \end{align*}
-      #+END_SRC
-      En appliquant le théorème d'Ostrogradsky
-      $\varoiint_S\vv{a}.d\vv{S}=\iiint_V\div\vv{a}d\tau$, on obtient
-      #+BEGIN_SRC latex
-        \begin{align*}
-          \varoiint_S\vv{R}.d\vv{S}+\iiint_V\frac{\partial u}{\partial t}d\tau+\mathcal{P}_{\text{EM}\rightarrow\,q}=0
-        \end{align*}
-      #+END_SRC
-      La puissance moyenne sortant de la surface fermée[fn:2] devient
-      #+BEGIN_SRC latex
-        \begin{align*}
-          \left\langle\varoiint_S\vv{R}.d\vv{S}\right\rangle_T+\left\langle\iiint_V\frac{\partial u}{\partial t}d\tau\right\rangle_T+\left\langle\mathcal{P}_{\text{EM}\rightarrow\,q}\right\rangle_T=0\\
-          \left\langle\mathcal{P}_\text{sortant}\right\rangle_T+\iiint_V\left\langle\frac{\partial u}{\partial t}d\tau\right\rangle_T+\left\langle\mathcal{P}_{\text{EM}\rightarrow\,q}\right\rangle_T=0
-        \end{align*}
-      #+END_SRC
-      Or
-      #+BEGIN_SRC latex
-        \begin{align*}
-          \frac{\partial u}{\partial t}&=\frac{\epsilon_0E_0^2}{2}\times2\cos\omega t\sin\omega t+\frac{B_0^2}{2\mu_0}\times2\cos\omega t\sin\omega t\\
-          \left\langle\frac{\partial u}{\partial t}\right\rangle_T&=\epsilon_0E_0^2\left\langle\sin2\omega t\right\rangle_T+\frac{1}{\mu_0}B_0^2\left\langle\sin2\omega t\right\rangle_T\\
-          \left\langle\frac{\partial u}{\partial t}\right\rangle_T&=0
-        \end{align*}
-      #+END_SRC
-      soit
-      #+BEGIN_SRC latex
-        \begin{align*}
-          \left\langle\mathcal{P}_\text{sortant}\right\rangle_T+\left\langle\mathcal{P}_{\text{EM}\rightarrow\,q}\right\rangle_T=0\\
-          \left\langle\mathcal{P}_\text{entrant}\right\rangle_T=\left\langle\mathcal{P}_{\text{EM}\rightarrow\,q}\right\rangle_T
-        \end{align*}
-      #+END_SRC
+- Dans le conducteur, la densité de courant $\vv{j}$ s'exprime en fonction
+  du champ $\vv{E}$ et de la conductivité $\gamma$ (exprimée en Siemens
+  par mètre) : $\vv{j}=\gamma\vv{E}$ d'où
+  #+BEGIN_SRC latex
+    \begin{align*}
+      \frac{\partial\rho}{\partial t}+\frac{\gamma}{\epsilon_0}\rho=0\text{ et }\rho(t)=\rho_0\,e^{-t/\tau}\text{ où }\tau=\frac{\epsilon_0}{\gamma}\sim\frac{10^{-11}}{10^7}\sim\unit[10^{-18}]{s}
+    \end{align*}
+  #+END_SRC
+  Dans un conducteur, il n'y a donc pas de charge en volume : le courant et
+  donc les charges se déplaçent en surface.
 
-2) *Impulsion*
+#+BEGIN_QUESTION
+3) [@3] Exprimer la puissance fournie à une particule par le champ EM en
+   fonction de $q, $\vv{E}$ et de $\vv{v}$. En déduire la puissance par unité de
+   volume fournie à la matière par le champ EM; on écrira que la matière est
+   composée de particules chargées identiques en nombre $n(M,t)$ par unité de
+   volume.
+#+END_QUESTION
 
-   #+BEGIN_CENTER
-   #+ATTR_LATEX: :width 0.6\linewidth
-   [[file:./figures/onde_plane.pdf]]
-   #+END_CENTER
+La puissance $\mathcal{P}$ s'écrit comme le produit de la force $\vv{F}$ par la
+vitesse de la particule\nbsp$\vv{v}$ :
+#+BEGIN_SRC latex
+  \begin{equation*}
+    \mathcal{P}=\vv{F}.\vv{v}=q\vv{E}.\vv{v}+q(\vv{v}\times\vv{B}).\vv{v}=q\vv{E}.\vv{v}
+  \end{equation*}
+#+END_SRC
+La puissance par unité de volume
+$\tfrac{d\mathcal{P}}{d\tau}=nq\vv{E}.\vv{v}$ or $\vv{j}=nq\vv{v}$ d'où
+$\tfrac{d\mathcal{P}}{d\tau}=\vv{j}.\vv{E}$
 
-   Onde plane progressive $\vv{B}=\tfrac{\vv{u}_z\times\vv{E}}{c}$
+#+BEGIN_QUESTION
+4) [@4] On note $\vv{R}$ le vecteur de Poynting et $u$ la densité d'énergie
+   électromagnétique. Calculer $\div\vv{R}$ et en déduire l'équation locale de
+   conservation de l'énergie.
+#+END_QUESTION
 
-   1) Calcul de la puissance $\mathcal{P}$
-      #+BEGIN_SRC latex
-        \begin{align*}
-          \mathcal{P}&=\frac{dW}{dt}\text{ avec }\mathcal{P}=q\vv{E}.\vv{v}\\
-          W&=\int_0^Tq\vv{E}.\vv{v}dt
-        \end{align*}
-      #+END_SRC
+$\vv{R}=\tfrac{\vv{E}\times\vv{B}}{\mu_0}$ et
+$u=\tfrac{\epsilon_0E^2}{2}+\tfrac{B^2}{2\mu_0}$
+#+BEGIN_SRC latex
+  \begin{align*}
+    \div\vv{R}&=\frac{1}{\mu_0}\div\left(\vv{E}\times\vv{B}\right)\text{ avec }\div\left(\vv{a}\times\vv{b}\right)=\vv{b}.\rot\vv{a}-\vv{a}.\rot\vv{b}\\
+    &=\frac{1}{\mu_0}\left(\vv{B}.\rot\vv{E}-\vv{E}.\rot\vv{B}\right)\\
+    &=\frac{1}{\mu_0}\left(-\vv{B}.\frac{\partial\vv{B}}{\partial t}-\vv{E}.\left(\mu_0\vv{j}+\mu_0\epsilon_0\frac{\partial\vv{E}}{\partial t}\right)\right)\\
+    &=\frac{1}{\mu_0}\left(-\frac{1}{2}\frac{\partial B^2}{\partial t}-\frac{\mu_0\epsilon_0}{2}\frac{\partial E^2}{\partial t}-\mu_0\vv{j}.\vv{E}\right)\\
+    &=-\frac{\partial u}{\partial t}-\vv{j}.\vv{E}
+  \end{align*}
+  \begin{align*}
+    \div\vv{R}+\frac{\partial u}{\partial t}+\vv{j}.\vv{E}=0
+  \end{align*}
+#+END_SRC
 
-   2) La variation d'impulsion $\vv{p}$ par unité de temps induite par le
-      passage de l'onde EM est égale à la force de Lorentz $\vv{F}$
-      #+BEGIN_SRC latex
-        \begin{align*}
-          \frac{d\vv{p}}{dt}=\vv{F}
-        \end{align*}
-      #+END_SRC
-      d'où
-      #+BEGIN_SRC latex
-        \begin{align*}
-          \vv{p}&=\int_0^T\vv{F}dt=\int_0^Tq\left(\vv{E}+\vv{v}\times\vv{B}\right)dt\\
-          &=\int_0^Tq\vv{E}dt+\int_0^Tq\vv{v}\times\left(\frac{\vv{u}_z\times\vv{E}}{c}\right)dt
-        \end{align*}
-      #+END_SRC
-      La première intégrale est nulle car $\vv{E}=\vv{E}_0\cos\omega t$. Pour
-      déterminer l'expression de la seconde intégrale, on utilise la formule
-      ci-dessous
-      #+BEGIN_SRC latex
-        \begin{align*}
-          \vv{a}\times\left(\vv{b}\times\vv{c}\right)=\left(\vv{a}.\vv{c}\right)\vv{b}-\left(\vv{a}.\vv{b}\right)\vv{c}
-        \end{align*}
-      #+END_SRC
-      L'impulsion $\vv{p}$ devient
-      #+BEGIN_SRC latex
-        \begin{align*}
-          \vv{p}&=\int_0^T\frac{q}{c}\left(\vv{v}.\vv{E}\right)\vv{u}_z\,dt-\int_0^T\frac{q}{c}\left(\vv{v}.\vv{u}_z\right)\vv{E}dt
-        \end{align*}
-      #+END_SRC
-      or $\vv{v}.\vv{u}_z=0$ car la particule est maintenue dans le plan
-      $z=0$. L'expression de l'impulsion se réduit donc
-      #+BEGIN_SRC latex
-        \begin{align*}
-          \vv{p}=\int_0^T\frac{q}{c}\left(\vv{v}.\vv{E}\right)\vv{u}_z\,dt=\frac{W}{c}\vv{u}_z
-        \end{align*}
-      #+END_SRC
+#+BEGIN_QUESTION
+5) [@5] Montrer que dans le cas d'un régime périodique, la puissance moyenne
+   entrant par rayonnement à travers une surface fermée est intégralement cédée
+   à la matière contenues dans le volume intérieur à cette surface.
+#+END_QUESTION
+$\vv{E}=\vv{E}_0\cos\omega t$, $\vv{B}=\vv{B_0}\sin\omega t$
+#+BEGIN_SRC latex
+  \begin{align*}
+    \iiint_V\div\vv{R}d\tau+\iiint_V\frac{\partial u}{\partial t}d\tau+\iiint_V\vv{j}.\vv{E}d\tau=0\\
+    \iiint_V\div\vv{R}d\tau+\iiint_V\frac{\partial u}{\partial t}d\tau+\underbrace{\iiint_V\frac{d\mathcal{P}}{d\tau}d\tau}_{\mathcal{P}_{\text{EM}\rightarrow\,q}}=0\\
+  \end{align*}
+#+END_SRC
+En appliquant le théorème d'Ostrogradsky
+$\varoiint_S\vv{a}.d\vv{S}=\iiint_V\div\vv{a}d\tau$, on obtient
+#+BEGIN_SRC latex
+  \begin{align*}
+    \varoiint_S\vv{R}.d\vv{S}+\iiint_V\frac{\partial u}{\partial t}d\tau+\mathcal{P}_{\text{EM}\rightarrow\,q}=0
+  \end{align*}
+#+END_SRC
+La puissance moyenne sortant de la surface fermée[fn:2] devient
+#+BEGIN_SRC latex
+  \begin{align*}
+    \left\langle\varoiint_S\vv{R}.d\vv{S}\right\rangle_T+\left\langle\iiint_V\frac{\partial u}{\partial t}d\tau\right\rangle_T+\left\langle\mathcal{P}_{\text{EM}\rightarrow\,q}\right\rangle_T=0\\
+    \left\langle\mathcal{P}_\text{sortant}\right\rangle_T+\iiint_V\left\langle\frac{\partial u}{\partial t}d\tau\right\rangle_T+\left\langle\mathcal{P}_{\text{EM}\rightarrow\,q}\right\rangle_T=0
+  \end{align*}
+#+END_SRC
+Or
+#+BEGIN_SRC latex
+  \begin{align*}
+    \frac{\partial u}{\partial t}&=\frac{\epsilon_0E_0^2}{2}\times2\cos\omega t\sin\omega t+\frac{B_0^2}{2\mu_0}\times2\cos\omega t\sin\omega t\\
+    \left\langle\frac{\partial u}{\partial t}\right\rangle_T&=\epsilon_0E_0^2\left\langle\sin2\omega t\right\rangle_T+\frac{1}{\mu_0}B_0^2\left\langle\sin2\omega t\right\rangle_T\\
+    \left\langle\frac{\partial u}{\partial t}\right\rangle_T&=0
+  \end{align*}
+#+END_SRC
+soit
+#+BEGIN_SRC latex
+  \begin{align*}
+    \left\langle\mathcal{P}_\text{sortant}\right\rangle_T+\left\langle\mathcal{P}_{\text{EM}\rightarrow\,q}\right\rangle_T=0\\
+    \left\langle\mathcal{P}_\text{entrant}\right\rangle_T=\left\langle\mathcal{P}_{\text{EM}\rightarrow\,q}\right\rangle_T
+  \end{align*}
+#+END_SRC
 
-   3) L'énergie d'un photon $E=h\nu=\tfrac{hc}{\lambda}$ est égale à $pc$ /via/
-      la relation de de Broglie reliant onde et matière $\lambda=\tfrac{h}{p}$
+#+BEGIN_QUESTION
+*Impulsion*
 
-3) *Moment cinétique* $\vv{\sigma}_O=\vv{r}\times\vv{p}=\vv{OM}\times\vv{p}$ et
-   $\sigma_z=\vv{\sigma}_O.\vv{u}_z$
-   1) $[\sigma_z]=[L]\times[M][L][T^{-1}]=[M]\times[L^2]\times[T^{-1}]$ et
-      $[W]=[M][L^2][T^{-2}]$ d'où
-      #+BEGIN_SRC latex
-        \begin{align*}
-          [W]&=\frac{[\sigma_z]}{[T]}\\
-          W&=k\frac{\sigma_z}{T}
-        \end{align*}
-      #+END_SRC
-   2) $\vv{p}=\tfrac{W}{c}\vv{u}_z$
-      #+BEGIN_SRC latex
-        \begin{align*}
-          \vv{\sigma}_O&=\vv{OM}\times\vv{p}=\vv{OM}\times\frac{W}{c}\vv{u}_z\\
-          \vv{\sigma}_A&=\vv{AM}\times\vv{p}=\underbrace{\vv{AO}}_{\parallel\vv{u}_z}\times\frac{W}{c}\vv{u}_z+\vv{OM}\times\frac{W}{c}\vv{u}_z\\
-          &=\vv{\sigma}_O=\vv{\sigma}
-        \end{align*}
-      #+END_SRC
-   3) Expression de $\sigma_z$ [fn:3]
-      #+BEGIN_SRC latex
-        \begin{align*}
-          \vv{\sigma}&=\vv{OM}\times\vv{p}\text{ or }\frac{d\vv{p}}{dt}=\vv{F}_\text{Lorentz}=q\vv{E}+q\vv{v}\times\vv{B}\\
-          d\vv{\sigma}&=\vv{OM}\times d\vv{p}\\
-          d\sigma_z&=d\vv{\sigma}.\vv{u}_z\\
-          \sigma_z&=\left[\underbrace{\int_0^T\vv{OM}\times q\vv{E}dt}_{\text{\ding{192}}}+\underbrace{\int_0^T\vv{OM}\times q(\vv{v}\times\vv{B})dt}_{\text{\ding{193}}}\right].\vv{u}_z
-        \end{align*}
-      #+END_SRC
+On considère l'interaction entre une onde EM plane, homogène, harmonique de
+période $T=2\pi/\omega$, progressive dans la direction et le sens $Oz$ et une
+particule $M$ (masse $m$, charge $q$) animée sous l'action de la force de
+Lorentz et d'autres forces, d'un mouvement harmonique forcé, de période $T$,
+dans le plan $z=0$, au voisinage du point $O$. La polarisation de l'onde et le
+mouvement forcé ne sont pas forcément rectilignes.
+#+END_QUESTION
 
-      Calcul de \ding{192}
-      #+BEGIN_SRC latex
-        \begin{align*}
-          \text{\ding{192}}&=q\int_0^T\left(\vv{OM}\times\vv{E}\right).\vv{u}_z\,dt\\
-          &=q\int_0^T\left(\vv{E}\times\vv{u}_z\right).\vv{OM}\,dt\\
-          &=-q\int_0^T\vv{OM}.\left(\vv{u}_z\times\vv{E}(M,t)\right)\,dt
-        \end{align*}
-      #+END_SRC
-      or $\vv{E}(M,t)=\vv{E}(O,t)$ car l'onde EM est plane et le calcul se fait
-      en $z=0$
+#+BEGIN_CENTER
+#+ATTR_LATEX: :width 0.6\linewidth
+[[file:./figures/onde_plane.pdf]]
+#+END_CENTER
 
-      Calcul de \ding{193}
-      #+BEGIN_SRC latex
-        \begin{align*}
-          \text{\ding{193}}&=q\int_0^T\vv{OM}\times\left(\vv{v}\times\vv{B}\right).\vv{u}_zdt
-        \end{align*}
-      #+END_SRC
-      or
-      #+BEGIN_SRC latex
-        \begin{align*}
-          \vv{a}\times\left(\vv{b}\times\vv{c}\right)=\left(\vv{a}.\vv{c}\right).\vv{b}-\left(\vv{a}.\vv{b}\right).\vv{c}
-        \end{align*}
-        \begin{align*}
-          \text{\ding{193}}&=q\left[\int_0^T\left(\vv{OM}.\vv{B}\right).\underbrace{\vv{v}.\vv{u}_z}_{\vv{v}\perp\vv{u}_z=0}dt-\int_0^T\left(\vv{OM}.\vv{v}\right).\underbrace{\vv{B}.\vv{u}_z}_{\vv{B}\perp\vv{u}_z=0}dt\right]
-        \end{align*}
-      #+END_SRC
+#+BEGIN_QUESTION
+1) [@1] Exprimer sous la forme d'une intégrale l'énergie $W$ fournie par le
+   champ EM à la particule en une période.
+#+END_QUESTION
 
-      Seul le champ électrique $\vv{E}$ de l'onde EM contribue au moment
-      cinétique cédé à la particule $q$
-      #+BEGIN_SRC latex
-        \begin{align*}
-          \sigma_z=-q\int_0^T\vv{OM}.\left(\vv{u}_z\times\vv{E}(O,t)\right)dt
-        \end{align*}
-      #+END_SRC
-   4) Polarisation circulaire gauche
-      #+BEGIN_SRC latex
-        \begin{align*}
-          \vv{E}(O,t)=
-          \begin{pmatrix}
-            E_0\cos\omega t\\E_0\sin\omega t\\0
-          \end{pmatrix}
-        \end{align*}
-        \begin{align*}
-          \frac{d\vv{E}(O,t)}{dt}=
-          \begin{pmatrix}
-            -E_0\omega\sin\omega t\\E_0\omega\cos\omega t\\0
-          \end{pmatrix}
-        \end{align*}
-        \begin{align*}
-          \vv{u}_z\times\vv{E}(O,t)=
-          \begin{pmatrix}
-            0\\0\\1
-          \end{pmatrix}
-          \times
-          \begin{pmatrix}
-            E_0\cos\omega t\\E_0\sin\omega t\\0
-          \end{pmatrix}
-          =
-          \begin{pmatrix}
-            -E_0\sin\omega t\\E_0\cos\omega t\\0
-          \end{pmatrix}
-          =\frac{1}{\omega}\,\frac{d\vv{E}(O,t)}{dt}
-        \end{align*}
-      #+END_SRC
-      d'où
-      #+BEGIN_SRC latex
-        \begin{align*}
-          \sigma_z=-\frac{q}{\omega}\int_0^T\vv{OM}.\frac{d\vv{E}(O,t)}{dt}dt
-        \end{align*}
-      #+END_SRC
-      En intégrant par partie /i.e./ $(uv)'=u' v+v'
-      u\rightarrow\int u' v=[uv]-\int v' u$
-      #+BEGIN_SRC latex
-        \begin{align*}
-          \sigma_z&=-\frac{q}{\omega}\left[\underbrace{\left[\vv{OM}.\vv{E}\right]_0^T}_{\vv{E}(O,0)=\vv{E}(O,T)}-\int_0^T\frac{d\vv{OM}}{dt}.\vv{E}(O,t)dt\right]\\
-          &=\frac{q}{\omega}\int_0^T\vv{v}.\vv{E}(O,t)\,dt=\frac{W}{\omega}
-        \end{align*}
-      #+END_SRC
+Onde plane progressive $\vv{B}=\tfrac{\vv{u}_z\times\vv{E}}{c}$
 
-      $\omega=\tfrac{2\pi}{T}$ d'où $W=2\pi\frac{\sigma_z}{T}=\hbar\omega$ soit
-      $\sigma_z=+\hbar$. Sur une période $T$, le champ EM cède à la particule
-      $q$, un moment cinétique égal à $+\hbar$
-   5) Le moment cinétique de photons polarisé circulairement droite est alors
-      $-\hbar$, et $\sigma_z=0$ pour une polarisation rectiligne (rectiligne
-      \equiv circulaire droite + circulaire gauche)
+Calcul de la puissance $\mathcal{P}$
+#+BEGIN_SRC latex
+  \begin{align*}
+    \mathcal{P}&=\frac{dW}{dt}\text{ avec }\mathcal{P}=q\vv{E}.\vv{v}\\
+    W&=\int_0^Tq\vv{E}.\vv{v}dt
+  \end{align*}
+#+END_SRC
+
+#+BEGIN_QUESTION
+2) [@2] Déterminer l'impulsion $\vv{p}$ cédée en une période par le champ à la
+   particule en fonction de $W$, $c$ et de $\vv{u}_z$.
+#+END_QUESTION
+
+La variation d'impulsion $\vv{p}$ par unité de temps induite par le passage de
+l'onde EM est égale à la force de Lorentz $\vv{F}$
+#+BEGIN_SRC latex
+  \begin{align*}
+    \frac{d\vv{p}}{dt}=\vv{F}
+  \end{align*}
+#+END_SRC
+d'où
+#+BEGIN_SRC latex
+  \begin{align*}
+    \vv{p}&=\int_0^T\vv{F}dt=\int_0^Tq\left(\vv{E}+\vv{v}\times\vv{B}\right)dt\\
+    &=\int_0^Tq\vv{E}dt+\int_0^Tq\vv{v}\times\left(\frac{\vv{u}_z\times\vv{E}}{c}\right)dt
+  \end{align*}
+#+END_SRC
+La première intégrale est nulle car $\vv{E}=\vv{E}_0\cos\omega t$. Pour
+déterminer l'expression de la seconde intégrale, on utilise la formule
+ci-dessous
+#+BEGIN_SRC latex
+  \begin{align*}
+    \vv{a}\times\left(\vv{b}\times\vv{c}\right)=\left(\vv{a}.\vv{c}\right)\vv{b}-\left(\vv{a}.\vv{b}\right)\vv{c}
+  \end{align*}
+#+END_SRC
+L'impulsion $\vv{p}$ devient
+#+BEGIN_SRC latex
+  \begin{align*}
+    \vv{p}&=\int_0^T\frac{q}{c}\left(\vv{v}.\vv{E}\right)\vv{u}_z\,dt-\int_0^T\frac{q}{c}\left(\vv{v}.\vv{u}_z\right)\vv{E}dt
+  \end{align*}
+#+END_SRC
+or $\vv{v}.\vv{u}_z=0$ car la particule est maintenue dans le plan
+$z=0$. L'expression de l'impulsion se réduit donc
+#+BEGIN_SRC latex
+  \begin{align*}
+    \vv{p}=\int_0^T\frac{q}{c}\left(\vv{v}.\vv{E}\right)\vv{u}_z\,dt=\frac{W}{c}\vv{u}_z
+  \end{align*}
+#+END_SRC
+
+#+BEGIN_QUESTION
+3) [@3] Rappeler le lien entre l'impulsion et l'énergie du photon. Vérifier la
+   cohérence avec la question précédente.
+#+END_QUESTION
+L'énergie d'un photon $E=h\nu=\tfrac{hc}{\lambda}$ est égale à $pc$ /via/ la
+relation de de Broglie reliant onde et matière $\lambda=\tfrac{h}{p}$
+
+#+BEGIN_QUESTION
+*Moment cinétique*
+
+La situation est la même qu'à la question 2. On note $\sigma_z$ la composante
+sur $Oz$ du moment cinétique en $O$ cédé par le champ à la particule en une
+période.
+
+1) [@1] Comparer les dimensions de $W$ et $\sigma_z$. Proposer une relation à
+   une constante multiplicative près entre $W$, $\sigma_z$ et $T$.
+#+END_QUESTION
+
+$\vv{\sigma}_O=\vv{r}\times\vv{p}=\vv{OM}\times\vv{p}$ et
+$\sigma_z=\vv{\sigma}_O.\vv{u}_z$
+
+$[\sigma_z]=[L]\times[M][L][T^{-1}]=[M]\times[L^2]\times[T^{-1}]$ et
+$[W]=[M][L^2][T^{-2}]$ d'où
+#+BEGIN_SRC latex
+  \begin{align*}
+    [W]&=\frac{[\sigma_z]}{[T]}\\
+    W&=k\frac{\sigma_z}{T}
+  \end{align*}
+#+END_SRC
+
+#+BEGIN_QUESTION
+2) [@2] En utilisant le résultat de 2b), montrer que $\sigma_z$ est indépendant
+   du choix de $O$.
+#+END_QUESTION
+
+$\vv{p}=\tfrac{W}{c}\vv{u}_z$
+#+BEGIN_SRC latex
+  \begin{align*}
+    \vv{\sigma}_O&=\vv{OM}\times\vv{p}=\vv{OM}\times\frac{W}{c}\vv{u}_z\\
+    \vv{\sigma}_A&=\vv{AM}\times\vv{p}=\underbrace{\vv{AO}}_{\parallel\vv{u}_z}\times\frac{W}{c}\vv{u}_z+\vv{OM}\times\frac{W}{c}\vv{u}_z\\
+    &=\vv{\sigma}_O=\vv{\sigma}
+  \end{align*}
+#+END_SRC
+
+#+BEGIN_QUESTION
+3) [@3] Montrer que $\sigma_z=-q\int_0^T\vv{OM}.(\vv{u}_z\times\vv{E}(O,t))\,dt$
+#+END_QUESTION
+
+Expression de $\sigma_z$ [fn:3]
+#+BEGIN_SRC latex
+  \begin{align*}
+    \vv{\sigma}&=\vv{OM}\times\vv{p}\text{ or }\frac{d\vv{p}}{dt}=\vv{F}_\text{Lorentz}=q\vv{E}+q\vv{v}\times\vv{B}\\
+    d\vv{\sigma}&=\vv{OM}\times d\vv{p}\\
+    d\sigma_z&=d\vv{\sigma}.\vv{u}_z\\
+    \sigma_z&=\left[\underbrace{\int_0^T\vv{OM}\times q\vv{E}dt}_{\text{\ding{192}}}+\underbrace{\int_0^T\vv{OM}\times q(\vv{v}\times\vv{B})dt}_{\text{\ding{193}}}\right].\vv{u}_z
+  \end{align*}
+#+END_SRC
+
+Calcul de \ding{192}
+#+BEGIN_SRC latex
+  \begin{align*}
+    \text{\ding{192}}&=q\int_0^T\left(\vv{OM}\times\vv{E}\right).\vv{u}_z\,dt\\
+    &=q\int_0^T\left(\vv{E}\times\vv{u}_z\right).\vv{OM}\,dt\\
+    &=-q\int_0^T\vv{OM}.\left(\vv{u}_z\times\vv{E}(M,t)\right)\,dt
+  \end{align*}
+#+END_SRC
+or $\vv{E}(M,t)=\vv{E}(O,t)$ car l'onde EM est plane et le calcul se fait
+en $z=0$
+
+Calcul de \ding{193}
+#+BEGIN_SRC latex
+  \begin{align*}
+    \text{\ding{193}}&=q\int_0^T\vv{OM}\times\left(\vv{v}\times\vv{B}\right).\vv{u}_zdt
+  \end{align*}
+#+END_SRC
+or
+#+BEGIN_SRC latex
+  \begin{align*}
+    \vv{a}\times\left(\vv{b}\times\vv{c}\right)=\left(\vv{a}.\vv{c}\right).\vv{b}-\left(\vv{a}.\vv{b}\right).\vv{c}
+  \end{align*}
+  \begin{align*}
+    \text{\ding{193}}&=q\left[\int_0^T\left(\vv{OM}.\vv{B}\right).\underbrace{\vv{v}.\vv{u}_z}_{\vv{v}\perp\vv{u}_z=0}dt-\int_0^T\left(\vv{OM}.\vv{v}\right).\underbrace{\vv{B}.\vv{u}_z}_{\vv{B}\perp\vv{u}_z=0}dt\right]
+  \end{align*}
+#+END_SRC
+
+Seul le champ électrique $\vv{E}$ de l'onde EM contribue au moment
+cinétique cédé à la particule $q$
+#+BEGIN_SRC latex
+  \begin{align*}
+    \sigma_z=-q\int_0^T\vv{OM}.\left(\vv{u}_z\times\vv{E}(O,t)\right)dt
+  \end{align*}
+#+END_SRC
+
+#+BEGIN_QUESTION
+4) [@4] On considère le cas où l'onde est à polarisation circulaire
+   gauche. Exprimer $\vv{u}_z\times\vv{E}(O,t)$ en fonction de
+   $\frac{d\vv{E}(O,t)}{dt}$. En intégrant par parties, trouver la relation
+   entre $\sigma_z$ et $W$. Comparer à la question a). En déduire le moment
+   cinétique selon $Oz$ des photons dans cet état de polarisation.
+#+END_QUESTION
+
+Polarisation circulaire gauche
+#+BEGIN_SRC latex
+  \begin{align*}
+    \vv{E}(O,t)=
+    \begin{pmatrix}
+      E_0\cos\omega t\\E_0\sin\omega t\\0
+    \end{pmatrix}
+  \end{align*}
+  \begin{align*}
+    \frac{d\vv{E}(O,t)}{dt}=
+    \begin{pmatrix}
+      -E_0\omega\sin\omega t\\E_0\omega\cos\omega t\\0
+    \end{pmatrix}
+  \end{align*}
+  \begin{align*}
+    \vv{u}_z\times\vv{E}(O,t)=
+    \begin{pmatrix}
+      0\\0\\1
+    \end{pmatrix}
+    \times
+    \begin{pmatrix}
+      E_0\cos\omega t\\E_0\sin\omega t\\0
+    \end{pmatrix}
+    =
+    \begin{pmatrix}
+      -E_0\sin\omega t\\E_0\cos\omega t\\0
+    \end{pmatrix}
+    =\frac{1}{\omega}\,\frac{d\vv{E}(O,t)}{dt}
+  \end{align*}
+#+END_SRC
+d'où
+#+BEGIN_SRC latex
+  \begin{align*}
+    \sigma_z=-\frac{q}{\omega}\int_0^T\vv{OM}.\frac{d\vv{E}(O,t)}{dt}dt
+  \end{align*}
+#+END_SRC
+En intégrant par partie /i.e./ $(uv)'=u' v+v'
+u\rightarrow\int u' v=[uv]-\int v' u$
+#+BEGIN_SRC latex
+  \begin{align*}
+    \sigma_z&=-\frac{q}{\omega}\left[\underbrace{\left[\vv{OM}.\vv{E}\right]_0^T}_{\vv{E}(O,0)=\vv{E}(O,T)}-\int_0^T\frac{d\vv{OM}}{dt}.\vv{E}(O,t)dt\right]\\
+    &=\frac{q}{\omega}\int_0^T\vv{v}.\vv{E}(O,t)\,dt=\frac{W}{\omega}
+  \end{align*}
+#+END_SRC
+
+$\omega=\tfrac{2\pi}{T}$ d'où $W=2\pi\frac{\sigma_z}{T}=\hbar\omega$ soit
+$\sigma_z=+\hbar$. Sur une période $T$, le champ EM cède à la particule
+$q$, un moment cinétique égal à $+\hbar$
+
+#+BEGIN_QUESTION
+5) [@5] Donner sans calcul, le moment cinétique des photons à polarisation
+   circulaire droite. Pour un état de polarisation rectiligne, que donne la
+   mesure du moment cinétique des photons selon $Oz$ ?
+#+END_QUESTION
+
+Le moment cinétique de photons polarisé circulairement droite est alors
+$-\hbar$, et $\sigma_z=0$ pour une polarisation rectiligne (rectiligne \equiv
+circulaire droite + circulaire gauche)
 
 ** Interprétation corpusculaire de la pression de radiation
 
@@ -1236,70 +1337,102 @@ défaut de vitesse angulaire $\dot{\theta}$ initiale, on supposera donc que $\do
   \end{align*}
 #+END_SRC
 
-1) Onde plane monochromatique :
-   $\vv{B}=\frac{\vv{k}\times\vv{E}}{\omega}=\frac{\vv{u_k}\times\vv{E}}{c}=\frac{E}{c}\vv{u}_B$. La
-   densité volumique d'énergie électromagnétique $u$ est égale à
-   #+BEGIN_SRC latex
-     \begin{align*}
-       u&=\frac{\epsilon_0E^2}{2}+\frac{B^2}{2\mu_0}\\
-       u&=\frac{\epsilon_0E^2}{2}+\frac{E^2}{2\mu_0c^2}\\
-       u&=\epsilon_0E^2\\
-       \left\langle u\right\rangle_T&=\left\langle\epsilon_0E_0^2\cos^2\left(\vv{k}.\vv{r}-\omega t\right)\right\rangle_T\\
-       \left\langle u\right\rangle_T&=\frac{\epsilon_0E_0^2}{2}
-     \end{align*}
-   #+END_SRC
+#+BEGIN_QUESTION
+Un faisceau cylindrique d'onde plane électromagnétique monochromatique produit
+par un laser à argon se propage dans le vide et rencontre un plan métallique
+parfaitement réfléchissant, dont la normale fait un angle de $\theta$ = 30° avec
+la direction de propagation des photons associés à l'onde.
 
-   L'intensité $I$ est par définition la puissance moyenne par unité de surface
-   $S$ [fn:4]
-   #+BEGIN_SRC latex
-     \begin{align*}
-       I&=\frac{P_W}{S}=\frac{dE}{Sdt}\text{ où }\\
-       dE&=\langle u\rangle\times S\times c\times dt\\
-       I&=\frac{\langle u\rangle\times Scdt}{Sdt}=\langle u\rangle\times c
-     \end{align*}
-   #+END_SRC
-2) Calcul de la densité $N$ de photons dans le faisceau
-   #+BEGIN_SRC latex
-     \begin{align*}
-       \langle u\rangle&=N\times E=N\times \frac{hc}{\lambda}\\
-       \frac{I}{c}&=N\times \frac{hc}{\lambda}\\
-       N&=\frac{I\lambda}{hc^2}=\frac{9\,10^4\times5.15\,10^{-7}}{6.62\,10^{-34}\times(3\,10^8)^2}=\unit[7.8\,10^{14}]{photons/m^3}
-     \end{align*}
-   #+END_SRC
+On donne la longueur d'onde $\lambda$ = 515 nm et l'intensité du faisceau
+(puissance moyenne transportée à travers une section droite unité) $I$ = 90
+kW/m^{2}. On note $E_0$ l'amplitude du champ électrique.
 
-3) Choc élastique $E_1=E_2$ d'où $p_1c=p_2c\rightarrow p_1=p_2=p$. La
-   conservation de l'impulsion se traduit par
-   #+BEGIN_SRC latex
-     \begin{align*}
-       \vv{p}_1&=\vv{p}_2+\Updelta\vv{p}_0\\
-       \Updelta\vv{p_0}&=\vv{p}_1 - \vv{p}_2=2p\cos\theta\vv{u}_z\\
-       \|\Updelta\vv{p}_0\|&=\frac{2h}{\lambda}\cos\theta=\frac{2\times6.62\,10^{-34}}{5.15\,10^{-7}}\frac{\sqrt3}{2}=\unit[2.08\,10^{-27}]{kg.m.s^{-1}}
-     \end{align*}
-   #+END_SRC
+1) [@1] Quelle est la moyene temporelle $\langle u\rangle$ de la densité
+   volumique d'énergie électromagnétique de l'onde ? Exprimer $\langle u\rangle$
+   en fonction de $I$.
+#+END_QUESTION
 
-4) Calcul du flux de photon par unité de surface
-   #+BEGIN_SRC latex
-     \begin{align*}
-       x&=\frac{N\times V_\text{cylindre}}{S_\text{projetée}\times dt}\text{ où }S_\text{projetée}=S_\text{cylindre}/\cos\theta\\
-       &=\frac{N\times S_\text{cylindre}\times\cos\theta cdt}{S_\text{cylindre}\times dt}\\
-       &=Nc\cos\theta=\frac{I\lambda}{hc}\cos\theta\\
-       &=\frac{9\,10^4\times5.15\,10^{-7}}{6.62\,10^{-34}\times3\,10^8}\cos 30=\unit[2\,10^{23}]{photon.m}^{-2}\text{.s}^{-1}
-     \end{align*}
-   #+END_SRC
+Onde plane monochromatique :
+$\vv{B}=\frac{\vv{k}\times\vv{E}}{\omega}=\frac{\vv{u_k}\times\vv{E}}{c}=\frac{E}{c}\vv{u}_B$. La
+densité volumique d'énergie électromagnétique $u$ est égale à
+#+BEGIN_SRC latex
+  \begin{align*}
+    u&=\frac{\epsilon_0E^2}{2}+\frac{B^2}{2\mu_0}\\
+    u&=\frac{\epsilon_0E^2}{2}+\frac{E^2}{2\mu_0c^2}\\
+    u&=\epsilon_0E^2\\
+    \left\langle u\right\rangle_T&=\left\langle\epsilon_0E_0^2\cos^2\left(\vv{k}.\vv{r}-\omega t\right)\right\rangle_T\\
+    \left\langle u\right\rangle_T&=\frac{\epsilon_0E_0^2}{2}
+  \end{align*}
+#+END_SRC
 
-5) Calcul de la pression de radiation
-   #+BEGIN_SRC latex
-     \begin{align*}
-       P&=\frac{d\vv{p}}{Sdt}=x\cdot\Updelta p_0\\
-       &=\frac{I\lambda}{hc}\cos\theta\times\frac{2h}{\lambda}\cos\theta\\
-       &=\frac{2I\cos^2\theta}{c}=\frac{2\times9\,10^4\times\cos^230}{3\,10^8}=\unit[4.5\,10^{-4}]{N/m^2}\\
-       &\text{ avec }I=\frac{\epsilon_0E_0^2c}{2}, P=\epsilon_0E_0^2\cos^2\theta
-     \end{align*}
-   #+END_SRC
+L'intensité $I$ est par définition la puissance moyenne par unité de surface
+$S$ [fn:4]
+#+BEGIN_SRC latex
+  \begin{align*}
+    I&=\frac{P_W}{S}=\frac{dE}{Sdt}\text{ où }\\
+    dE&=\langle u\rangle\times S\times c\times dt\\
+    I&=\frac{\langle u\rangle\times Scdt}{Sdt}=\langle u\rangle\times c
+  \end{align*}
+#+END_SRC
 
-  *Application expérimentale:* La pression de radiation aussi faible soit elle,
-  est un bruit important pour les interféromètres de haute sensibilité tels que
-  Virgo (/cf./ [[http://tel.archives-ouvertes.fr/tel-00175254/en/]]).
+#+BEGIN_QUESTION
+2) [@2] Calculer la densité $N$ de photons dans le faisceau en fonction de $I$
+   et de $\lambda$.
+#+END_QUESTION
+Calcul de la densité $N$ de photons dans le faisceau
+#+BEGIN_SRC latex
+  \begin{align*}
+    \langle u\rangle&=N\times E=N\times \frac{hc}{\lambda}\\
+    \frac{I}{c}&=N\times \frac{hc}{\lambda}\\
+    N&=\frac{I\lambda}{hc^2}=\frac{9\,10^4\times5.15\,10^{-7}}{6.62\,10^{-34}\times(3\,10^8)^2}=\unit[7.8\,10^{14}]{photons/m^3}
+  \end{align*}
+#+END_SRC
+
+#+BEGIN_QUESTION
+3) [@3] Quelle la quantité de mouvement $\Delta\vv{p}_0$ transférée au métal par
+   un photon qui subit un choc élastique.
+#+END_QUESTION
+Choc élastique $E_1=E_2$ d'où $p_1c=p_2c\rightarrow p_1=p_2=p$. La conservation
+de l'impulsion se traduit par
+#+BEGIN_SRC latex
+  \begin{align*}
+    \vv{p}_1&=\vv{p}_2+\Updelta\vv{p}_0\\
+    \Updelta\vv{p_0}&=\vv{p}_1 - \vv{p}_2=2p\cos\theta\vv{u}_z\\
+    \|\Updelta\vv{p}_0\|&=\frac{2h}{\lambda}\cos\theta=\frac{2\times6.62\,10^{-34}}{5.15\,10^{-7}}\frac{\sqrt3}{2}=\unit[2.08\,10^{-27}]{kg.m.s^{-1}}
+  \end{align*}
+#+END_SRC
+
+#+BEGIN_QUESTION
+4) [@4] Calculer le nombre $x$ de photons reçus par le métal par unité de temps
+   et par unité de surface.
+#+END_QUESTION
+Calcul du flux de photon par unité de surface
+#+BEGIN_SRC latex
+  \begin{align*}
+    x&=\frac{N\times V_\text{cylindre}}{S_\text{projetée}\times dt}\text{ où }S_\text{projetée}=S_\text{cylindre}/\cos\theta\\
+    &=\frac{N\times S_\text{cylindre}\times\cos\theta cdt}{S_\text{cylindre}\times dt}\\
+    &=Nc\cos\theta=\frac{I\lambda}{hc}\cos\theta\\
+    &=\frac{9\,10^4\times5.15\,10^{-7}}{6.62\,10^{-34}\times3\,10^8}\cos 30=\unit[2\,10^{23}]{photon.m}^{-2}\text{.s}^{-1}
+  \end{align*}
+#+END_SRC
+
+#+BEGIN_QUESTION
+5) [@5] En déduire la pressionde radiation $P$ en fonction de $\theta et de
+   $E_0$.
+#+END_QUESTION
+Calcul de la pression de radiation
+#+BEGIN_SRC latex
+  \begin{align*}
+    P&=\frac{d\vv{p}}{Sdt}=x\cdot\Updelta p_0\\
+    &=\frac{I\lambda}{hc}\cos\theta\times\frac{2h}{\lambda}\cos\theta\\
+    &=\frac{2I\cos^2\theta}{c}=\frac{2\times9\,10^4\times\cos^230}{3\,10^8}=\unit[4.5\,10^{-4}]{N/m^2}\\
+    &\text{ avec }I=\frac{\epsilon_0E_0^2c}{2}, P=\epsilon_0E_0^2\cos^2\theta
+  \end{align*}
+#+END_SRC
+
+*Application expérimentale:* La pression de radiation aussi faible soit elle,
+est un bruit important pour les interféromètres de haute sensibilité tels que
+Virgo (/cf./ [[http://tel.archives-ouvertes.fr/tel-00175254/en/]]).
 
 ** Footnotes
 
