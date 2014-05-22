@@ -5,7 +5,7 @@
 #+LATEX_CLASS: teaching-class
 
 * TD1 : Électromagnétisme & relativité
-** Introduction
+** COMMENT Introduction
 *Transformation de Lorentz :* $\beta=\tfrac{v}{c}$ et
  $\gamma=\tfrac{1}{\surd{1-\beta^2}}$. Si $\mathcal{R}'$ est en mouvement
  rectiligne uniforme selon l'axe $x$ par rapport à $\mathcal{R}$ alors
@@ -74,7 +74,7 @@ ou
   dit une longueur $y$ restera inchangée sous la transformation
   $\mathcal{R}\rightarrow\mathcal{R}'$ : $y=y\prime$
 
-** Force entre des électrons qui se déplacent côte à côte
+** COMMENT Force entre des électrons qui se déplacent côte à côte
 
 #+BEGIN_CENTER
 #+ATTR_LATEX: :width 0.7\linewidth
@@ -187,7 +187,7 @@ $v\rightarrow0$, $\beta\ll1$ et donc $\gamma\simeq1+\tfrac{\beta^2}{2}$
     &\simeq\left(1-\tfrac{\beta^2}{2}\right)\vv{F}'
   \end{align*}
 #+END_SRC
-** Fil chargé
+** COMMENT Fil chargé
 #+BEGIN_QUESTION
 Dans le référentiel $R$ du laboratoire, un fil cylindrique infini d’axe $Ox$, de
 section $S$ se déplace à la vitesse $\vv{u}=u\vv{u}_x$. Soit $R'$ le référentiel
@@ -383,7 +383,7 @@ $\vv{E}'.\vv{B}'=0$ et $\vv{E}.\vv{B}=\frac{\gamma^2u}{c^2}E^{\prime2}\,\vv{u_\t
   \end{align*}
 #+END_SRC
 
-** Particule chargée dans un champ magnétique uniforme                  :DM:
+** COMMENT Particule chargée dans un champ magnétique uniforme                  :DM:
 #+BEGIN_QUESTION
 Une particule de charge $q$, de masse $m$, est lancée avec la vitesse initiale
 $\vv{v}_0=v_0\vv{u}_x$ dans une région où règne un champ magnétique constant,
@@ -575,7 +575,7 @@ temps. Ainsi, la trajectoire demeure circulaire à chaque instant $t$ mais
 avec un rayon de courbure chaque fois plus faible en raison des pertes
 d'énergie par rayonnement. Les particules décrivent une spirale.
 
-** Particule chargée dans des champs électrique et magnétique perpendiculaires
+** COMMENT Particule chargée dans des champs électrique et magnétique perpendiculaires
 
 #+BEGIN_CENTER
 #+ATTR_LATEX: :width 0.7\linewidth
@@ -642,182 +642,236 @@ trajectoire circulaire de rayon $R$
   \end{equation*}
 #+END_SRC
 
-** COMMENT Étude de la charge d'espace
+** Étude de la charge d'espace
 
 #+BEGIN_CENTER
 #+ATTR_LATEX: :width 0.7\linewidth
 [[file:./figures/referentiel_relat_3.pdf]]
 #+END_CENTER
 
+#+BEGIN_QUESTION
+On considère un faisceau cylindrique continu et infini constitué de particules
+identiques (masse $m$ et charge $q$) de vitesse moyenne $\vv{u}=u\vv{u}_x$ dans
+le référentiel $(K)$ du laboratoire. On appelle $(K')$ le référentiel qui se
+déplace à la vitesse $u$ par rapport à $(K)$. On suppose que les origines
+coïncident à $t=t'=0$. Le rayon du faisceau est $R_0$ à l'origine, et $R$ à
+l'abscisse $x$.
+
+@@latex:\noindent@@ *Étude dans le référentiel propre des particules*
+
+La densité volumique de charges $\rho_0$ est uniforme.
+
+1) [@1] Quel est le champ électrique $E'$ crée par le faisceau ? En déduire la
+   force $F'$ que subit une particule située à la périphérie du faisceau.
+#+END_QUESTION
+
 À $t=t'=0$, $R=R_0$, $\dot{R}=\dot{R}'=0$ et $\dot{\theta}=0$
 
-1) dans $\mathcal{R}'$, $\rho_0=$ constante
-   1) Champ électrique $\vv{E}'(M)$
+Dans $\mathcal{R}'$, les plans $(\vv{u}_r,\vv{u}_\theta)$ et
+$(\vv{u}_r,\vv{u}_{x'})$ sont des plans de symétrie de la distribution de charge
+\to le champ électrique appartient donc à chacun des plans :
+$\vv{E}'(M)=E(M)\vv{u}_r$. De plus, il y a invariance par translation selon
+l'axe $x'$ et par rotation d'angle \theta : $\vv{E}'(M)=E(r)\vv{u}_r$.
 
-      Les plans $(\vv{u}_r,\vv{u}_\theta)$ et $(\vv{u}_r,\vv{u}_{x'})$
-      sont des plans de symétrie de la distribution de charge \rightarrow le
-      champ électrique appartient donc à chacun des plans :
-      $\vv{E}'(M)=E(M)\vv{u}_r$. De plus, il y a invariance par
-      translation selon l'axe $x'$ et par rotation d'angle \theta :
-      $\vv{E}'(M)=E(r)\vv{u}_r$.
+Théorème de Gauss :
+#+BEGIN_SRC latex
+  \begin{equation*}
+    \varoiint_\mathcal{S}\vv{E}'(M)\cdot d\vv{S}=\frac{Q_\text{int.}}{\epsilon_0}
+  \end{equation*}
+#+END_SRC
+où la surface de Gauss est un cylindre de rayon $r<R$ et de hauteur $h$.
+#+BEGIN_SRC latex
+  \begin{align*}
+    E'(r)\times2\pi r\times h&=\frac{\rho_0}{\epsilon_0}\times h\times\pi r^2\\
+    \vv{E}'(M)&=\frac{\rho_0r}{2\epsilon_0}\vv{u}_r=\frac{\rho_0}{2\epsilon_0}\vv{r}
+  \end{align*}
+#+END_SRC
 
-      Théorème de Gauss :
-      #+BEGIN_SRC latex
-        \begin{equation*}
-          \varoiint_\mathcal{S}\vv{E}'(M)\cdot d\vv{S}=\frac{Q_\text{int.}}{\epsilon_0}
-        \end{equation*}
-      #+END_SRC
-      où la surface de Gauss est un cylindre de rayon $r<R$ et de hauteur $h$.
-      #+BEGIN_SRC latex
-        \begin{align*}
-          E'(r)\times2\pi r\times h&=\frac{\rho_0}{\epsilon_0}\times h\times\pi r^2\\
-          \vv{E}'(M)&=\frac{\rho_0r}{2\epsilon_0}\vv{u}_r=\frac{\rho_0}{2\epsilon_0}\vv{r}
-        \end{align*}
-      #+END_SRC
+Au voisinage de $r\sim R$, la force subie par une particule de charge $q$
+devient
+#+BEGIN_SRC latex
+  \begin{equation*}
+    \vv{F}'=q\vv{E}'(R)=\frac{q\rho_0}{2\epsilon_0}\vv{R}
+  \end{equation*}
+#+END_SRC
+soit une force répulsive.
 
-      Au voisinage de $r\sim R$, la force subie par une particule de charge $q$
-      devient
-      #+BEGIN_SRC latex
-        \begin{equation*}
-          \vv{F}'=q\vv{E}'(R)=\frac{q\rho_0}{2\epsilon_0}\vv{R}
-        \end{equation*}
-      #+END_SRC
-      soit une force répulsive.
-   2) Mécanique classique ou Newtonienne $\Upsigma\vv{F}=m\vv{a}$ [fn:1]
-      #+BEGIN_SRC latex
-        \begin{align*}
-          \vv{F}'&=m\vv{a}=m\ddot{R}\vv{u}_r=m\frac{d^2R}{dt^{\prime2}}\vv{u}_r\\
-          \frac{q\rho_0}{2\epsilon_0}R\vv{u}_r&=m\ddot{R}\vv{u}_r\rightarrow\ddot{R}-\frac{q\rho_0}{2m\epsilon_0}R=0
-        \end{align*}
-      #+END_SRC
-      Solutions du type $R(t')=Ae^{\alpha t'}+Be^{-\alpha t'}$
-      où $\alpha^2=\tfrac{q\rho_0}{2m\epsilon_0}$. Or à $t'=0$, $R=R_0$ et
-      $\dot{R}=0$ d'où $A\alpha-B\alpha=0\rightarrow A=B$ et $A+B=R_0\rightarrow
-      A=\tfrac{R_0}{2}$. La solution de l'équation différentielle est ainsi
-      #+BEGIN_SRC latex
-        \begin{equation*}
-          R(t')=\frac{R_0}{2}e^{\alpha t'}+\frac{R_0}{2}e^{-\alpha t'}=R_0\cosh\alpha t'
-        \end{equation*}
-      #+END_SRC
-      On suppose que le mouvement transverse /i.e./ $R(t')$ est lent soit
-      $\alpha t'\ll1$. Le cosinus hyperbolique se réduit ainsi à
-      $\cosh\alpha t'\simeq1+\tfrac{(\alpha t')^2}{2}$. On déduit
-      ainsi la variation relative de $R$
-      #+BEGIN_SRC latex
-        \begin{align*}
-          \frac{\Delta R}{R_0}=\frac{R-R_0}{R_0}=\frac{R}{R_0}-1\simeq1+\frac{(\alpha t')^2}{2}-1&=\frac{\alpha^2}{2}t^{\prime2}\\
-          &=\frac{q\rho_0}{4\epsilon_0m}t^{\prime2}
-        \end{align*}
-      #+END_SRC
-   3) Dilatation du temps /i.e./ $t=\gamma t'$ et $x=ut$ soit
-      #+BEGIN_SRC latex
-        \begin{align*}
-          \frac{\Delta R}{R_0}=\frac{q\rho_0}{4\epsilon_0m}\frac{t^2}{\gamma^2}&=\frac{q\rho_0}{4\epsilon_0m}\times\frac{x^2}{\gamma^2u^2}\times\frac{c^2}{c^2}\\
-          &=\frac{q\rho_0}{4\epsilon_0mc^2}\times\frac{x^2}{\gamma^2\beta^2}\text{ or }\gamma^2=\tfrac{1}{1-\beta^2},\gamma^2\beta^2=\gamma^2-1\\
-          &=\frac{q\rho_0}{4\epsilon_0mc^2}\times\frac{x^2}{\gamma^2-1}
-        \end{align*}
-      #+END_SRC
-2)
-   1) Le champ électrique obéit aux mêmes règles d'invariance et de symétries
-      que dans le référentiel $\mathcal{R}'$ soit
-      $\vv{E}(M)=E(r)\vv{u}_r$. Concernant le champ magnétique $\vv{B}(M)$, la
-      densité de courant $\vv{j}=\rho\vv{u}$ est colinéaire à $\vv{u}_x$ et donc
-      le plan $(\vv{u}_r,\vv{u}_x)$ est un plan de symétrie de la distribution
-      de courant \rightarrow le champ magnétique est donc normal à ce plan soit
-      $\vv{B}(M)=B(M)\vv{u}_\theta$. Par ailleurs, les mêmes règles d'invariance
-      s'appliquent au champ magnétique : $\vv{B}(M)=B(r)\vv{u}_\theta$.
-   2) Le calcul des champs électrique et magnétique se fait /via/ respectivement
-      le théorème de Gauss et le théorème d'Ampère. Le champ électrique est
-      ainsi
-      #+BEGIN_SRC latex
-        \begin{equation*}
-          \vv{E}(M)=\frac{\rho}{2\epsilon_0}\vv{r}
-        \end{equation*}
-      #+END_SRC
+#+BEGIN_QUESTION
+2) [@2] Quelle est la loi de variation du rayon $R$ dans le référentiel $(K')$
+   ? On supposera que le mouvement transverse dans $(K')$ est très lent. En
+   déduire la variation relative du rayon $\Delta R/R_0$ en fonction du temps $t'$.
+#+END_QUESTION
 
-      Le théorème d'Ampère :
-      #+BEGIN_SRC latex
-        \begin{equation*}
-          \oint_{\mathcal{C}}\vv{B}.d\vv{\ell}=\iint_\mathcal{S}\mu_0\vv{j}.d\vv{S}\text{ avec} \vv{j}=\rho u\vv{u}_x
-        \end{equation*}
-      #+END_SRC
-      Le contour $\mathcal{C}$ est donc une boucle de rayon $r$ orientée suivant
-      $\vv{u}_\theta$, la surface $\mathcal{S}$ reposant sur ce contour étant
-      égale à $\pi r^2$. Soit un champ magnétique $\vv{B}(M)$
-      #+BEGIN_SRC latex
-        \begin{align*}
-          B(r)\times2\pi r&=\mu_0\rho u\times\pi r^2\\
-          \vv{B}(M)&=\frac{\mu_0}{2}\rho ur\vv{u}_\theta
-        \end{align*}
-      #+END_SRC
-   3)
-       #+BEGIN_SRC latex
-         \begin{align*}
-           \vv{F}(r=R)&=q\vv{E}(R)+q\vv{u}\times\vv{B}(R)\\
-           &=\frac{q\rho}{2\epsilon_0}\vv{R}+\frac{q\mu_0\rho u^2R}{2}\vv{u_x}\times\vv{u}_\theta\\
-           &=\frac{q\rho}{2\epsilon_0}R\vv{u}_r-\frac{q\mu_0\rho u^2R}{2}R\vv{u}_r\text{ soit avec } \mu_0\epsilon_0c^2=1\\
-           &=\frac{q\rho}{2\epsilon_0}\vv{R}\left(1-\frac{u^2}{c^2}\right)\\
-           &=\frac{q\rho}{2\epsilon_0\gamma^2}\vv{R}
-         \end{align*}
-       #+END_SRC
-       La relation $\vv{F}'=\gamma\vv{F}$ implique
-       #+BEGIN_SRC latex
-         \begin{equation*}
-           \frac{q\rho_0}{2\epsilon_0}\vv{R}=\frac{q\rho}{2\epsilon_0\gamma^2}\vv{R}
-         \end{equation*}
-       #+END_SRC
-       soit
-       #+BEGIN_SRC latex
-         \begin{equation*}
-           \rho=\gamma\rho_0
-         \end{equation*}
-       #+END_SRC
-   4) Le principe fondamental de la dynamique en relativité
-      #+BEGIN_SRC latex
-        \begin{align*}
-          \frac{d}{dt}\left(\gamma m\vv{u}\right)&=\Upsigma\vv{F}\\
-          \gamma m\frac{d\vv{u}}{dt}+m\vv{u}\frac{d\gamma}{dt}&=\vv{F}
-        \end{align*}
-      #+END_SRC
-      or $\vv{F}\parallel\vv{u}_r$ impliquant que le second terme
-      $m\vv{u}\tfrac{d\gamma}{dt}$ soit nul. Soit
-      #+BEGIN_SRC latex
-        \begin{align*}
-          \gamma m\frac{d\vv{u}}{dt}&=\vv{F}\\
-          \gamma m\ddot{R}&=\frac{q\rho}{2\epsilon_0\gamma^2}R\\
-          \ddot{R}-\frac{q\rho}{2\epsilon_0m}\frac{R}{\gamma^3}&=0
-        \end{align*}
-      #+END_SRC
-      La solution de cette équation différentielle s'écrit $R(t)=R_0\cosh\zeta t$
-      où $\zeta^2=\frac{q\rho}{2\epsilon_0m\gamma^3}$.
+Mécanique classique ou Newtonienne $\Upsigma\vv{F}=m\vv{a}$ [fn:1]
+#+BEGIN_SRC latex
+  \begin{align*}
+    \vv{F}'&=m\vv{a}=m\ddot{R}\vv{u}_r=m\frac{d^2R}{dt^{\prime2}}\vv{u}_r\\
+    \frac{q\rho_0}{2\epsilon_0}R\vv{u}_r&=m\ddot{R}\vv{u}_r\rightarrow\ddot{R}-\frac{q\rho_0}{2m\epsilon_0}R=0
+  \end{align*}
+#+END_SRC
+Solutions du type $R(t')=Ae^{\alpha t'}+Be^{-\alpha t'}$
+où $\alpha^2=\tfrac{q\rho_0}{2m\epsilon_0}$. Or à $t'=0$, $R=R_0$ et
+$\dot{R}=0$ d'où $A\alpha-B\alpha=0\rightarrow A=B$ et $A+B=R_0\rightarrow
+A=\tfrac{R_0}{2}$. La solution de l'équation différentielle est ainsi
+#+BEGIN_SRC latex
+  \begin{equation*}
+    R(t')=\frac{R_0}{2}e^{\alpha t'}+\frac{R_0}{2}e^{-\alpha t'}=R_0\cosh\alpha t'
+  \end{equation*}
+#+END_SRC
+On suppose que le mouvement transverse /i.e./ $R(t')$ est lent soit
+$\alpha t'\ll1$. Le cosinus hyperbolique se réduit ainsi à
+$\cosh\alpha t'\simeq1+\tfrac{(\alpha t')^2}{2}$. On déduit
+ainsi la variation relative de $R$
+#+BEGIN_SRC latex
+  \begin{align*}
+    \frac{\Delta R}{R_0}=\frac{R-R_0}{R_0}=\frac{R}{R_0}-1\simeq1+\frac{(\alpha t')^2}{2}-1&=\frac{\alpha^2}{2}t^{\prime2}\\
+    &=\frac{q\rho_0}{4\epsilon_0m}t^{\prime2}
+  \end{align*}
+#+END_SRC
 
-      La variation relative de rayon $\Delta R/R_0$ devient
-      #+BEGIN_SRC latex
-        \begin{align*}
-          \frac{\Delta R}{R_0}\simeq\frac{\zeta^2}{2}t^2&=\frac{q\rho}{4\epsilon_0m}\frac{1}{\gamma^3}t^2\\
-          &=\frac{q\gamma\rho_0}{4\epsilon_0m}\frac{1}{\gamma^3}t^2=\frac{q\gamma\rho_0}{4\epsilon_0m}\frac{1}{\gamma^3}\frac{x^2}{u^2}\\
-          &=\frac{q\rho_0}{4\epsilon_0m}\frac{x^2}{\gamma^2-1}=\left.\frac{\Delta R}{R_0}\right|_{\mathcal{R}'}
-        \end{align*}
-      #+END_SRC
-   5) L'énergie cinétique $T$ du faisceau d'électron est égale à
-      $T=F.d=eE.d=eV/d.d=eV$ soit la tension accélératrice. Ainsi, une tension
-      accélératrice de $V=\unit[0.1]{MV}$ fournit une énergie cinétique de
-      $T=\unit[0.1]{MeV}$. Le facteur de Lorentz $\gamma$ est égale à
-      $1+\tfrac{T}{mc^2}$ où $mc^2=\unit[0.511]{MeV}$. Finalement, l'intensité
-      électrique du faisceau $I$ est égale au flux de la densité de courant $j$
-      soit $I=j.S=\rho u.S\simeq\rho u\pi R_0^2$. La variation de la dimension
-      transerve devient
-      #+BEGIN_SRC latex
-        \begin{equation*}
-          \frac{\Delta R}{R_0}=\frac{e}{4\pi\epsilon_0mc^2}\times\frac{I}{c}\times\frac{L^2}{R_0^2}\times\frac{1}{(\gamma^2-1)^{3/2}}
-        \end{equation*}
-      #+END_SRC
+#+BEGIN_QUESTION
+3) [@3] Exprimer $\Delta R/R_0$ en fonction de $t$, dans $(K)$. En déduire
+   $\Delta R/R_0$ en fonction de la position $x$.
+#+END_QUESTION
 
-      *Applications numériques :*
+Dilatation du temps /i.e./ $t=\gamma t'$ et $x=ut$ soit
+#+BEGIN_SRC latex
+  \begin{align*}
+    \frac{\Delta R}{R_0}=\frac{q\rho_0}{4\epsilon_0m}\frac{t^2}{\gamma^2}&=\frac{q\rho_0}{4\epsilon_0m}\times\frac{x^2}{\gamma^2u^2}\times\frac{c^2}{c^2}\\
+    &=\frac{q\rho_0}{4\epsilon_0mc^2}\times\frac{x^2}{\gamma^2\beta^2}\text{ or }\gamma^2=\tfrac{1}{1-\beta^2},\gamma^2\beta^2=\gamma^2-1\\
+    &=\frac{q\rho_0}{4\epsilon_0mc^2}\times\frac{x^2}{\gamma^2-1}
+  \end{align*}
+#+END_SRC
 
-      $V=\unit[0.1]{MV}$, $\gamma=1.2$ \rightarrow $\frac{\Delta R}{R_0}=0.5=50\%$
+#+BEGIN_QUESTION
+@@latex:\noindent@@ *Étude dans le référentiel du laboratoire*
 
-      $V=\unit[10]{MV}$,$\gamma=21$ \rightarrow $\frac{\Delta R}{R_0}=1.5\,10^{-5}$
+On note $\rho$ la densité volumique de charges exprimée dans $(K)$.
+
+1) [@1] Déterminer les directions des champs $\vv{E}$ et $\vv{B}$ dans tout
+   l'espace dans le référentiel $(K)$.
+#+END_QUESTION
+Le champ électrique obéit aux mêmes règles d'invariance et de symétries
+que dans le référentiel $\mathcal{R}'$ soit
+$\vv{E}(M)=E(r)\vv{u}_r$. Concernant le champ magnétique $\vv{B}(M)$, la
+densité de courant $\vv{j}=\rho\vv{u}$ est colinéaire à $\vv{u}_x$ et donc
+le plan $(\vv{u}_r,\vv{u}_x)$ est un plan de symétrie de la distribution
+de courant \rightarrow le champ magnétique est donc normal à ce plan soit
+$\vv{B}(M)=B(M)\vv{u}_\theta$. Par ailleurs, les mêmes règles d'invariance
+s'appliquent au champ magnétique : $\vv{B}(M)=B(r)\vv{u}_\theta$.
+
+#+BEGIN_QUESTION
+2) [@2] Calculer ces champs.
+#+END_QUESTION
+Le calcul des champs électrique et magnétique se fait /via/ respectivement
+le théorème de Gauss et le théorème d'Ampère. Le champ électrique est
+ainsi
+#+BEGIN_SRC latex
+  \begin{equation*}
+    \vv{E}(M)=\frac{\rho}{2\epsilon_0}\vv{r}
+  \end{equation*}
+#+END_SRC
+
+Le théorème d'Ampère :
+#+BEGIN_SRC latex
+  \begin{equation*}
+    \oint_{\mathcal{C}}\vv{B}.d\vv{\ell}=\iint_\mathcal{S}\mu_0\vv{j}.d\vv{S}\text{ avec} \vv{j}=\rho u\vv{u}_x
+  \end{equation*}
+#+END_SRC
+Le contour $\mathcal{C}$ est donc une boucle de rayon $r$ orientée suivant
+$\vv{u}_\theta$, la surface $\mathcal{S}$ reposant sur ce contour étant
+égale à $\pi r^2$. Soit un champ magnétique $\vv{B}(M)$
+#+BEGIN_SRC latex
+  \begin{align*}
+    B(r)\times2\pi r&=\mu_0\rho u\times\pi r^2\\
+    \vv{B}(M)&=\frac{\mu_0}{2}\rho ur\vv{u}_\theta
+  \end{align*}
+#+END_SRC
+
+#+BEGIN_QUESTION
+3) [@3] Quelle est la force $F$ qui s'exerce à la périphérie du faisceau ? En
+   comparant $F$ à $F'$, établir une relation entre les densités $\rho$ dans
+   $(K)$ et $\rho_0$ dans $(K')$.
+#+END_QUESTION
+#+BEGIN_SRC latex
+  \begin{align*}
+    \vv{F}(r=R)&=q\vv{E}(R)+q\vv{u}\times\vv{B}(R)\\
+    &=\frac{q\rho}{2\epsilon_0}\vv{R}+\frac{q\mu_0\rho u^2R}{2}\vv{u_x}\times\vv{u}_\theta\\
+    &=\frac{q\rho}{2\epsilon_0}R\vv{u}_r-\frac{q\mu_0\rho u^2R}{2}R\vv{u}_r\text{ soit avec } \mu_0\epsilon_0c^2=1\\
+    &=\frac{q\rho}{2\epsilon_0}\vv{R}\left(1-\frac{u^2}{c^2}\right)\\
+    &=\frac{q\rho}{2\epsilon_0\gamma^2}\vv{R}
+  \end{align*}
+#+END_SRC
+La relation $\vv{F}'=\gamma\vv{F}$ implique
+#+BEGIN_SRC latex
+  \begin{equation*}
+    \frac{q\rho_0}{2\epsilon_0}\vv{R}=\frac{q\rho}{2\epsilon_0\gamma^2}\vv{R}
+  \end{equation*}
+#+END_SRC
+soit
+#+BEGIN_SRC latex
+  \begin{equation*}
+    \rho=\gamma\rho_0
+  \end{equation*}
+#+END_SRC
+
+#+BEGIN_QUESTION
+4) [@4] À partir de l'équation de la dynamique relativiste, donner l'expression
+   de la variation relative du rayon $\Delta R/R_0$ en fonction de $t$ et de
+   $x$.
+#+END_QUESTION
+Le principe fondamental de la dynamique en relativité
+#+BEGIN_SRC latex
+  \begin{align*}
+    \frac{d}{dt}\left(\gamma m\vv{u}\right)&=\Upsigma\vv{F}\\
+    \gamma m\frac{d\vv{u}}{dt}+m\vv{u}\frac{d\gamma}{dt}&=\vv{F}
+  \end{align*}
+#+END_SRC
+or $\vv{F}\parallel\vv{u}_r$ impliquant que le second terme
+$m\vv{u}\tfrac{d\gamma}{dt}$ soit nul. Soit
+#+BEGIN_SRC latex
+  \begin{align*}
+    \gamma m\frac{d\vv{u}}{dt}&=\vv{F}\\
+    \gamma m\ddot{R}&=\frac{q\rho}{2\epsilon_0\gamma^2}R\\
+    \ddot{R}-\frac{q\rho}{2\epsilon_0m}\frac{R}{\gamma^3}&=0
+  \end{align*}
+#+END_SRC
+La solution de cette équation différentielle s'écrit $R(t)=R_0\cosh\zeta t$
+où $\zeta^2=\frac{q\rho}{2\epsilon_0m\gamma^3}$.
+
+La variation relative de rayon $\Delta R/R_0$ devient
+#+BEGIN_SRC latex
+  \begin{align*}
+    \frac{\Delta R}{R_0}\simeq\frac{\zeta^2}{2}t^2&=\frac{q\rho}{4\epsilon_0m}\frac{1}{\gamma^3}t^2\\
+    &=\frac{q\gamma\rho_0}{4\epsilon_0m}\frac{1}{\gamma^3}t^2=\frac{q\gamma\rho_0}{4\epsilon_0m}\frac{1}{\gamma^3}\frac{x^2}{u^2}\\
+    &=\frac{q\rho_0}{4\epsilon_0m}\frac{x^2}{\gamma^2-1}=\left.\frac{\Delta R}{R_0}\right|_{\mathcal{R}'}
+  \end{align*}
+#+END_SRC
+
+#+BEGIN_QUESTION
+5) [@5] Calculer $\Delta R/R_0$ pour un faisceau d'électrons de rayon $R_0=20$
+   \mu{}m, d'intensité $I=1$ \mu{}A après une distance $L=1$ m. On prendra des
+   tensions accélératrices de 0.1 et 10 MV. Conclusion ?
+#+END_QUESTION
+L'énergaie cinétique $T$ du faisceau d'électron est égale à
+$T=F.d=eE.d=eV/d.d=eV$ soit la tension accélératrice. Ainsi, une tension
+accélératrice de $V=\unit[0.1]{MV}$ fournit une énergie cinétique de
+$T=\unit[0.1]{MeV}$. Le facteur de Lorentz $\gamma$ est égale à
+$1+\tfrac{T}{mc^2}$ où $mc^2=\unit[0.511]{MeV}$. Finalement, l'intensité
+électrique du faisceau $I$ est égale au flux de la densité de courant $j$
+soit $I=j.S=\rho u.S\simeq\rho u\pi R_0^2$. La variation de la dimension
+transerve devient
+#+BEGIN_SRC latex
+  \begin{equation*}
+    \frac{\Delta R}{R_0}=\frac{e}{4\pi\epsilon_0mc^2}\times\frac{I}{c}\times\frac{L^2}{R_0^2}\times\frac{1}{(\gamma^2-1)^{3/2}}
+  \end{equation*}
+#+END_SRC
+
+*Applications numériques :*
+
+$V=\unit[0.1]{MV}$, $\gamma=1.2$ \rightarrow $\frac{\Delta R}{R_0}=0.5=50\%$
+
+$V=\unit[10]{MV}$,$\gamma=21$ \rightarrow $\frac{\Delta R}{R_0}=1.5\,10^{-5}$
 
 ** COMMENT Variations relatives de vitesse, de quantité de mouvement et d'énergie :DM:
 On considère une particule de masse $m$, de quantité de mouvement $p$, d'énergie
