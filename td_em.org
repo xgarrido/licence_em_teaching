@@ -1417,7 +1417,7 @@ Calcul du flux de photon par unité de surface
 #+END_SRC
 
 #+BEGIN_QUESTION
-5) [@5] En déduire la pressionde radiation $P$ en fonction de $\theta et de
+5) [@5] En déduire la pression de radiation $P$ en fonction de $\theta$ et de
    $E_0$.
 #+END_QUESTION
 Calcul de la pression de radiation
