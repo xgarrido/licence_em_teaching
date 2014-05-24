@@ -958,7 +958,7 @@ $d\mathcal{E}=d\mathcal{E}_c$. On a ainsi
 $(\ddot{r}-r\dot{\theta}^2)\vv{u}_r+(2\dot{r}\dot{\theta}+r\ddot{\theta})\vv{u}_\theta$. À
 défaut de vitesse angulaire $\dot{\theta}$ initiale, on supposera donc que $\dot{\theta}=0$.
 
-* TD2 : Équations de Maxwell dans le vide et champ électromagnétique
+* COMMENT TD2 : Équations de Maxwell dans le vide et champ électromagnétique
 ** "Propriétés mécaniques" du champ électromagnétique
 :PROPERTIES:
 :CUSTOM_ID: sec::prop_champ
@@ -1450,8 +1450,22 @@ $\vv{OM}\times\vv{F}_\text{ext.}=\vv{0}$
 $I=\|\langle\vv{R}\rangle\|$ avec $\vv{R}=\frac{\vv{E}\times\vv{B}}{\mu_0}$ et
 $\vv{B}=\frac{\vv{k}\times\vv{E}}{\omega}$
 
-* COMMENT TD3 : Électrostatique dans le vide
-** Condensateur cylindrique
+* TD3 : Électrostatique dans le vide
+** COMMENT Condensateur cylindrique
+
+#+BEGIN_QUESTION
+On considère un condensateur constitué par un cylindre métallique de rayon $a$
+entouré par un autre cylindre creux, de même axe et de rayon $b$. Ces deux
+cylindres constituent les deux armatures du condensateur, l'amrature intérieure
+est au potentiel $V_a$ et a une charge $Q_a$ et l'armature extérieure est au
+potentiel $V_b=0$ et a une charge $Q_b=-Q_a$. Le milieu remplissant l'espace
+entre les deux armatures est le vide. Leur longueur est $h\gg b$, de telle sorte
+qu'on peut négliger les effets de bords. À l'aide du théorème de Gauss, calculer
+le champ électrique dans le condensateur. En déduire la capacité par unité de
+longueur $C$ du condensateur.
+
+Application numérique : Calculer $C$ pour $a=1$ mm et $b=8$ mm.
+#+END_QUESTION
 
 En considérant $h\gg a,b$, le problème est invariant par translation le long de
 l'axe des cylindres. Par ailleurs, le problème est invariant par rotation soit
@@ -1507,7 +1521,34 @@ $\vv{E}=-\grad\,V=-\tfrac{dV}{dr}\vv{u}_r$. Soit
 [[./figures/boule_conductrice.pdf]]
 #+END_CENTER
 
-1) $V(r=R)=0$
+#+BEGIN_QUESTION
+Soit une boule conductrice, de centre $O$, de rayon $R$. On place une charge $q$
+sur l'axe $Oz$ au point $P$. On étudiera le potentiel et le champ créés par
+cette charge.
+
+1) [@1] On impose le potentiel $V=0$ en un point de la surface de la boule.
+   1) Quel est le potentiel dans l'ensemble de la boule ? Par des
+      considérations de symétrie, simplifier l'expression du champ
+      électrostatique $\vv{E}$ (direction et dépendance des composantes par
+      rapport aux différentes coordonées). Quel système de coordonnées a-t-on
+      intérêt à adopter ?
+   2) Montrer qu'il est possible d'obtenir $V=0$ sur la surface de la boule de
+      centre $O$ et de rayon $R$ dans le vide en remplaçant la boule conductrice
+      par une deuxième charge $q'$ sur l'axe $Oz$, en plus de la charge $q$
+      initiale. Que vaut $V(\infty)$ ? Déterminer la valeur et la position de
+      $q'$.
+   3) Rappeler l'équation de Poisson. Quelles sont les conditions aux milites
+      imposées par la boule ? En déduire que pour $r > R$, le champ créé par la
+      chareg $q$ en présence de la boule est le même que celui créé par les
+      charges $q$ et $q'$.
+   4) Calculer $\vv{E}$ au voisinage de la sphère. Rappeler les conditions de
+      continuité à la traversée d'une surface chargée. En déduire la densité
+      surfacique de charges portée par la surface de la boule conductrice.
+   5) Calculer la charge totale portée par la boule conductrice. En utilisant le
+      théorème de Gauss, montrer que le résultat était prévisible.
+   6) Calculer la force qu'exerce la charge $q$ sur la sphère conductrice.
+#+END_QUESTION
+1)
    1) L'absence de charges libres dans le volume d'un conducteur (les charges
       sont surfaciques /cf./ Exercice [[#sec::prop_champ]]) implique que le champ
       électrique $\vv{E}_\text{int.}$ soit nul (théorème de Gauss). Le potentiel
@@ -1529,6 +1570,7 @@ $\vv{E}=-\grad\,V=-\tfrac{dV}{dr}\vv{u}_r$. Soit
           \vv{E}(M)=E_r(r,z)\vv{u}_r+E_z(r,z)\vv{u}_z
         \end{align*}
       #+END_SRC
+
    2) En raison de la symétrie du problème, une charge fictive $q'$ est
       nécessairement sur l'axe $Oz$. Le potentiel alors généré en tout point $M$
       de l'espace est la somme des potentiels induits par chaque particule soit
@@ -1691,7 +1733,16 @@ $\vv{E}=-\grad\,V=-\tfrac{dV}{dr}\vv{u}_r$. Soit
           &=\frac{q^2}{4\pi\epsilon_0}\frac{R\,PO}{PO^4+R^4}\vv{u}_z
         \end{align*}
       #+END_SRC
-2) $V_0\neq0$
+
+#+BEGIN_QUESTION
+2) [@2] La boule conductrice est maintenant au potentiel $V_0\neq0$
+   1) En utilisant le principe de superposition, montrer qu'on peut vérifier les
+      nouvelles condictions aux limites en ajoutant une troisième charge
+      $q''$. Déterminer la position de $q''$ et sa valeur.
+   2) Calculer la charge totale $Q$ portée par la boule conductrice. Sachant que
+      $Q=0$, déterminer $V_0$ en présence de la charge $q$.
+#+END_QUESTION
+2) [@2]
    1) Le principe de superposition implique
       #+BEGIN_SRC latex
         \begin{align*}
@@ -1715,7 +1766,24 @@ $\vv{E}=-\grad\,V=-\tfrac{dV}{dr}\vv{u}_r$. Soit
         \end{align*}
       #+END_SRC
       /i.e./ le potentiel généré en $O$ par la particule $q$.
-3) Boule conductrice dans un champ électrostatique uniforme
+
+#+BEGIN_QUESTION
+3) [@3] On place une boule conductrice dans un champ uniforme créé par deux
+   charges $+q$ et $-q$ respectivement placées en $+Z$ et $-Z$, où $Z\gg R$.
+   1) Déterminer le champ $\vv{E}$ crée par $+q$ et $-q$ en l'absence de la
+      boule conductrice. Montrer qu'au 1^{er} ordre, $\vv{E}$ peut être
+      considéré comme uniforme sur le volume de la boule.
+   2) Calculer la densité surfacique de charge $\sigma$ qui apparaît sur la
+      boule conductrice en présence de $+q$ et $-q$. Le champ reste-t-il
+      uniforme au voisinage de la boule ?
+   3) En déduire le champ créé à l'intérieur d'une sphère de rayon $R$, portant
+      la densité surfacique de charge $\sigma_0\cos\theta$.
+   4) Enfin on suppose que la boule est coupée en dexu par le plan $xOy$. Elle
+      est toujours soumise à un champ électrostatique uniforme. Calculer la
+      force qui s'exerce qui s'exerce sur chacun des hémisphères en utilisant la
+      pression électrostatique.
+#+END_QUESTION
+3) [@3] Boule conductrice dans un champ électrostatique uniforme
    #+BEGIN_CENTER
    #+ATTR_LATEX: :width 0.3\textwidth
    [[./figures/boule_conductrice_field.pdf]]
