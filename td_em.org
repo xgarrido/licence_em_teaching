@@ -2416,7 +2416,7 @@ $\vv{P}.\vv{u}_r=P\cos\theta$ on obtient
 #+END_SRC
 d'où $\vv{p}=\frac{4}{3}\pi R^3\vv{P}$, on retrouve donc bien $\vv{P}=\frac{d\vv{p}}{d\tau}$.
 
-** Plaque diélectrique
+** COMMENT Plaque diélectrique
 *** Le condensateur plan
 #+BEGIN_CENTER
 #+ATTR_LATEX: :width 0.75\linewidth
@@ -2840,15 +2840,38 @@ Ainsi la variation d'énergie stockée correspond à
 [[./figures/coupe_condensateur_dielectrique_force2.pdf]]
 #+END_CENTER
 ** COMMENT Boule chargée flottant sur un diélectrique
-1) Le potentiel $V(\vv{r})$ vérifie l'équation de Poisson dans chacun des
-   milieux $\Delta V(\vv{r})=-\frac{\rho_\text{tot.}}{\epsilon_0}$. Toutefois,
-   le milieu \ding{192} étant le vide et un conducteur n'ayant pas de densité
-   volumique de charge libre, le potentiel $V_1(\vv{r})$ vérifie l'équation de
-   Laplace[fn:6] $\Delta V_1=0$. Les conditions aux limites sont les suivantes
-   - continuité du potentiel à la surface de la boule $V_1(R)=V_2(R)=V_S$,
-   - à l'infini $r\to\infty$, $V_1(r\to\infty)=V_2(r\to\infty)=0$.
 
-2) $V(\vv{r})=V(r)$
+#+BEGIN_QUESTION
+On considère une boule conductrice de centre $O$, de masse $m$, flottant à la
+surface d'un fluide diélectrique LHI de permittivité relative $\epsilon_r$. On
+supposera que le milieu (1) est le vide. Non cahrgée, le quart de son volume est
+immergé à l'équilibre. On charge la boule en la portant au potentiel $V_S$ par
+rapport à l'infini et on constate qu'elle est à moitié immergée à
+l'équilibre. On utilise alors les coordonnées sphériques de cntre $O$, l'axe
+$Oz$ étant perpendiculaire au plan de séparation des deux milieux.
+
+1) [@1] Quelle est l'équation vérifiée par le potentiel électrique $V(\vv{r})$
+   dans chaque milieu ? Quelles conditions aux limites doit il vérifier ?
+#+END_QUESTION
+
+Le potentiel $V(\vv{r})$ vérifie l'équation de Poisson dans chacun des
+milieux $\Delta V(\vv{r})=-\frac{\rho_\text{tot.}}{\epsilon_0}$. Toutefois,
+le milieu \ding{192} étant le vide et un conducteur n'ayant pas de densité
+volumique de charge libre, le potentiel $V_1(\vv{r})$ vérifie l'équation de
+Laplace[fn:6] $\Delta V_1=0$. Les conditions aux limites sont les suivantes
+- continuité du potentiel à la surface de la boule $V_1(R)=V_2(R)=V_S$,
+- à l'infini $r\to\infty$, $V_1(r\to\infty)=V_2(r\to\infty)=0$.
+
+#+BEGIN_QUESTION
+2) [@2] On essaie un potentiel ne dépendant que de $r$ soit $V(r)$.
+   1) Déterminer $V_1(r)$ en fonction de $V_S$.
+   2) En déduire le champ électrique $\vv{E}_1$.
+   3) Exprimer les densités superficielles de charges libres qur la boule
+      $\sigma{1\ell}$ et $\sigma_{2\ell}$ en fonction de $V_S$ et de $R$. En
+      déduire les densités de charges surfaciques de polarisation.
+   4) Vérifier que $V(r)$ est bien solution du problème.
+#+END_QUESTION
+2) [@2]
    1) L'équation de Laplace dans le milieu \ding{192} s'écrit en coordonnées
       sphériques
       #+BEGIN_SRC latex
@@ -2923,85 +2946,141 @@ Ainsi la variation d'énergie stockée correspond à
    4) Les conditions aux limites sont vérifiées et $V(r)$ est solution de
       l'équation de Poisson \to théorème d'unicité, $V(r)$ est l'unique solution
 
-3) En l'absence de potentiel $V=0$ /i.e./ $\sigma_{\ell1}=\sigma_{\ell2}=0$, seul
-   le quart de la boule est immergé. Le système étant à l'équilibre on déduit
-   ainsi la poussé d'Archimède s'exerçant sur la boule
-   #+BEGIN_SRC latex
-     \begin{align*}
-       \Upsigma\vv{F}&=\vv{0}\\
-       m\vv{g}-\frac{1}{4}\times\frac{4}{3}\pi R^3\rho_\text{diél.}\vv{g}&=\vv{0}\\
-       \rho_\text{diél.}&=\frac{3m}{\pi R^3}
-     \end{align*}
-   #+END_SRC
+#+BEGIN_QUESTION
+3) [@3] Calculer $V_S$ pour que la boule soit à moitié immergée. Application
+   numérique : calculer $V_S$ avec $m=10$ g et $\epsilon_r=80$.
+#+END_QUESTION
 
-   Lorsque la boule est au potentiel $V_S$, le volume immergé correspond à la
-   moitié du volume de la boule en raison de la pression électrostatique qui
-   s'exerce à présent sur les parois du conducteur :
-   #+BEGIN_SRC latex
-     \begin{align*}
-       &\Upsigma\vv{F}=\vv{0}\\
-       &m\vv{g}-\frac{1}{2}\times\frac{4}{3}\pi R^3\rho_\text{diél.}\vv{g}+\vv{F}_1+\vv{F}_2=\vv{0}
-     \end{align*}
-   #+END_SRC
-   où $\vv{F}_1$ et $\vv{F}_2$ correspondent aux forces de pression s'exerçant
-   sur chacune des demi-sphères. Soit
-   #+BEGIN_SRC latex
-     \begin{align*}
-       \vv{F}_{1,2}&=\iint P_{1,2}d\vv{S}\\
-       F_{1,2z}&=\vv{F}_{1,2}.\vv{u}_z=\int_0^{2\pi}d\phi\int_0^{\pi/2}P_{1,2}\cos\theta R^2\sin\theta d\theta\\
-       &\text{(seule la composante selon $\vv{u}_z$ reste non nulle)}\\
-       &=2\pi R^2P_{1,2}\int_0^{\pi/2}\sin\theta d(\sin\theta)=2\pi R^2P_{1,2}\left[\frac{\sin^2\theta}{2}\right]_0^{\pi/2}\\
-       &=\pi R^2P_{1,2}
-     \end{align*}
-   #+END_SRC
-   Les pressions électrostatiques $P_{1,2}$ sont égales à
-   #+BEGIN_SRC latex
-     \begin{align*}
-       P_1&=\frac{\sigma^2_{\ell1}}{2\epsilon_0}\\
-       P_2&=\frac{d\vv{F}_2}{d\vv{S}}=\frac{\vv{E}_2dq}{d\vv{S}}\\
-       &=\frac{\sigma_{\text{tot.}2}/\epsilon_0\times\sigma_{\ell2}dS}{dS}\text{ et }\sigma_{\text{tot.}2}=\sigma_{\ell2}+\sigma_{P2}=\frac{\sigma_{\ell2}}{\epsilon_r}\\
-       &=\frac{\sigma^2_{\ell2}}{2\epsilon_0\epsilon_r}=\frac{\epsilon_r\sigma^2_{\ell1}}{2\epsilon_0}
-     \end{align*}
-   #+END_SRC
-   En projetant, le PFD selon $\vv{u}_z$, on obtient finalement l'équation suivante
-   #+BEGIN_SRC latex
-     \begin{align*}
-       -mg+\frac{3m}{\pi R^3}\times\frac{1}{2}\times\frac{4}{3}\pi R^3g+\frac{\sigma^2_{\ell1}}{2\epsilon_0}\pi R^2-\frac{\epsilon_r\sigma^2_{\ell1}}{2\epsilon_0}\pi R^2&=0\\
-       -mg+2mg+\frac{\epsilon^{\cancel{2}}_0V_S^2}{2\cancel{\epsilon_0}\cancel{R^2}}\pi \cancel{R^2}\left(1-\epsilon_r\right)&=0\\
-       mg+\frac{\epsilon_0V_S^2\pi}{2}\left(1-\epsilon_r\right)&=0\\
-       V_S&=\sqrt{\frac{2mg}{\epsilon_0\pi\left(\epsilon_r-1\right)}}\\
-       &=\sqrt{\frac{2\times10\times10^{-2}}{\pi\,8.85\,10^{-12}\times79}}=\unit[9.5]{kV}
-     \end{align*}
-   #+END_SRC
+En l'absence de potentiel $V=0$ /i.e./ $\sigma_{\ell1}=\sigma_{\ell2}=0$, seul
+le quart de la boule est immergé. Le système étant à l'équilibre on déduit
+ainsi la poussé d'Archimède s'exerçant sur la boule
+#+BEGIN_SRC latex
+  \begin{align*}
+    \Upsigma\vv{F}&=\vv{0}\\
+    m\vv{g}-\frac{1}{4}\times\frac{4}{3}\pi R^3\rho_\text{diél.}\vv{g}&=\vv{0}\\
+    \rho_\text{diél.}&=\frac{3m}{\pi R^3}
+  \end{align*}
+#+END_SRC
 
-** COMMENT Lame piézoélectrique
+Lorsque la boule est au potentiel $V_S$, le volume immergé correspond à la
+moitié du volume de la boule en raison de la pression électrostatique qui
+s'exerce à présent sur les parois du conducteur :
+#+BEGIN_SRC latex
+  \begin{align*}
+    &\Upsigma\vv{F}=\vv{0}\\
+    &m\vv{g}-\frac{1}{2}\times\frac{4}{3}\pi R^3\rho_\text{diél.}\vv{g}+\vv{F}_1+\vv{F}_2=\vv{0}
+  \end{align*}
+#+END_SRC
+où $\vv{F}_1$ et $\vv{F}_2$ correspondent aux forces de pression s'exerçant
+sur chacune des demi-sphères. Soit
+#+BEGIN_SRC latex
+  \begin{align*}
+    \vv{F}_{1,2}&=\iint P_{1,2}d\vv{S}\\
+    F_{1,2z}&=\vv{F}_{1,2}.\vv{u}_z=\int_0^{2\pi}d\phi\int_0^{\pi/2}P_{1,2}\cos\theta R^2\sin\theta d\theta\\
+    &\text{(seule la composante selon $\vv{u}_z$ reste non nulle)}\\
+    &=2\pi R^2P_{1,2}\int_0^{\pi/2}\sin\theta d(\sin\theta)=2\pi R^2P_{1,2}\left[\frac{\sin^2\theta}{2}\right]_0^{\pi/2}\\
+    &=\pi R^2P_{1,2}
+  \end{align*}
+#+END_SRC
+Les pressions électrostatiques $P_{1,2}$ sont égales à
+#+BEGIN_SRC latex
+  \begin{align*}
+    P_1&=\frac{\sigma^2_{\ell1}}{2\epsilon_0}\\
+    P_2&=\frac{d\vv{F}_2}{d\vv{S}}=\frac{\vv{E}_2dq}{d\vv{S}}\\
+    &=\frac{\sigma_{\text{tot.}2}/\epsilon_0\times\sigma_{\ell2}dS}{dS}\text{ et }\sigma_{\text{tot.}2}=\sigma_{\ell2}+\sigma_{P2}=\frac{\sigma_{\ell2}}{\epsilon_r}\\
+    &=\frac{\sigma^2_{\ell2}}{2\epsilon_0\epsilon_r}=\frac{\epsilon_r\sigma^2_{\ell1}}{2\epsilon_0}
+  \end{align*}
+#+END_SRC
+En projetant, le PFD selon $\vv{u}_z$, on obtient finalement l'équation suivante
+#+BEGIN_SRC latex
+  \begin{align*}
+    -mg+\frac{3m}{\pi R^3}\times\frac{1}{2}\times\frac{4}{3}\pi R^3g+\frac{\sigma^2_{\ell1}}{2\epsilon_0}\pi R^2-\frac{\epsilon_r\sigma^2_{\ell1}}{2\epsilon_0}\pi R^2&=0\\
+    -mg+2mg+\frac{\epsilon^{\cancel{2}}_0V_S^2}{2\cancel{\epsilon_0}\cancel{R^2}}\pi \cancel{R^2}\left(1-\epsilon_r\right)&=0\\
+    mg+\frac{\epsilon_0V_S^2\pi}{2}\left(1-\epsilon_r\right)&=0\\
+    V_S&=\sqrt{\frac{2mg}{\epsilon_0\pi\left(\epsilon_r-1\right)}}\\
+    &=\sqrt{\frac{2\times10\times10^{-2}}{\pi\,8.85\,10^{-12}\times79}}=\unit[9.5]{kV}
+  \end{align*}
+#+END_SRC
+
+** Lame piézoélectrique
+
+#+BEGIN_QUESTION
+Le phénomène de piézoélectricité consiste en l'apparition d'une polarisation
+électrique dans certains diélectriques sous l'effet d'une force exercée dans une
+direction convenable, ici $Oz$. Deux armatures conductrices sont déposées sur
+les faces opposées d'une lame diélectrique d'épaisseur $d$ et de surface
+$S$. L'ensemble est un condensateur plan et constitue le capteur
+piézoélectrique.
+
+Pendant tout l'exercice, on admet que les champs $\vv{P}$, $\vv{E}$ et $\vv{D}$
+sont parallèles à $Oz$ et que les variations d'épaisseur de la lame sont
+négligeables devant $d$. On note $q$ la charge de l'armature $z=0$ et $-q$ celle
+de l'armature $z=d$.
+
+1) [@1] Calculer $\vv{D}$ entre les armatures.
+#+END_QUESTION
+
 On suppose que les champs $\vv{P},\vv{E}$ et $\vv{D}$ sont parallèles à $Oz$ et
 ne dépendent que de $z$.
 
-1) À l'intérieur du diélectrique soit entre les armatures, il n'y a pas de
-   charges libres. On applique donc le théorème de Gauss au vecteur déplacement
-   $\vv{D}$ en choisissant pour surface fermée un cylindre. Seuls les disques
-   de surface $S$ en $z_1$ et en $z_2$ donnent un produit $\vv{D}.d\vv{S}$ non
-   nul. On obtient ainsi
+À l'intérieur du diélectrique soit entre les armatures, il n'y a pas de
+charges libres. On applique donc le théorème de Gauss au vecteur déplacement
+$\vv{D}$ en choisissant pour surface fermée un cylindre. Seuls les disques
+de surface $S$ en $z_1$ et en $z_2$ donnent un produit $\vv{D}.d\vv{S}$ non
+nul. On obtient ainsi
+#+BEGIN_SRC latex
+  \begin{align*}
+    D(z=z_1)S-D(z=z_2)S=\Upsigma Q_\text{libre}&=0\\
+    D(z=z_1)&=D(z=z_2)=D
+  \end{align*}
+#+END_SRC
+
+L'expression du vecteur déplacement ne dépend donc pas de la position à
+l'intérieur du diélectrique. Pour déterminer la valeur du champ $\vv{D}$, on
+se place à l'interface armature-diélectrique et on applique la relation de
+discontinuité de la composante normale du vecteur déplacement soit
+#+BEGIN_SRC latex
+  \begin{align*}
+    \left.\left(\vv{D}_\text{int.}-\cancel{\vv{D}_\text{ext.}}\right)\right|_{z=0}.\vv{u}_z&=\sigma_\ell=\frac{+q}{S}\\
+    \vv{D}&=\frac{q}{S}\,\vv{u}_z
+  \end{align*}
+#+END_SRC
+
+#+BEGIN_QUESTION
+2) [@2] On suppose que le diélectrique est /piézoélectrique/ de permittivité
+   $\epsilon$. Sous l'action d'une force extérieure, l'épaisseur de la lame
+   devient $d+\delta$ avec $\delta\ll d$. La déformation du diélectrique induit
+   une polarisation indépendante de la charge $q$. La relation constitutive du
+   piézoélectrique s'écrit :
    #+BEGIN_SRC latex
      \begin{align*}
-       D(z=z_1)S-D(z=z_2)S=\Upsigma Q_\text{libre}&=0\\
-       D(z=z_1)&=D(z=z_2)=D
+       \vv{P}=\epsilon_0\chi\vv{E}+\frac{\epsilon\alpha\delta}{d}\vv{u}_z
      \end{align*}
    #+END_SRC
-
-   L'expression du vecteur déplacement ne dépend donc pas de la position à
-   l'intérieur du diélectrique. Pour déterminer la valeur du champ $\vv{D}$, on
-   se place à l'interface armature-diélectrique et on applique la relation de
-   discontinuité de la composante normale du vecteur déplacement soit
-   #+BEGIN_SRC latex
-     \begin{align*}
-       \left.\left(\vv{D}_\text{int.}-\cancel{\vv{D}_\text{ext.}}\right)\right|_{z=0}.\vv{u}_z&=\sigma_\ell=\frac{+q}{S}\\
-       \vv{D}&=\frac{q}{S}\,\vv{u}_z
-     \end{align*}
-   #+END_SRC
-
-2) La polarisation d'une lame piézoélectrique se décompose de la façon suivante
+   Le premier terme est la polarisation d'un diélectrique LHI. L'état du capteur
+   dépend maintenant de deux variables $\delta$ et $q$. Le deuxième terme
+   représente l'effet piézoélectrique, $\alpha$ est une constante (typiquement
+   $\alpha=10^{10}$ V/m).
+   1) Déterminer la tension aux bornes du condensateur $V(\delta,q)$. Pourquoi
+      peut-on négliger le deuxième ordre ?
+   2) On se propose de déterminer l'énergie potentielle $W(\delta,q)$ du système
+      avec $W(0,0)=0$. Un opérateur fait varier $\delta$ en appliquant une force
+      $F$, tandis qu'un générateur fait varier la charge $q$. L'énergie
+      potentielle étant une fonction d'état, on peut aller de l'état $(0,0)$ à
+      l'état $(\delta,q)$ par n'importe quel chemin. On décompose la
+      transformation en deux étapes\nbsp{}:
+      - à $q=0$, pour maintenir la déformation $\delta'$, l'opérateur doit
+        appliquer une force $K\delta'$ sur la surface $z=d$, la face $z=0$ étant
+        fixe. La constante $K>0$ décrit la rigidité du matériau. L'opérateur
+        fait varier $\delta'$ de 0 à $\delta$.
+      - à $\delta$ constant, le générateur fait varier la charge $q'$ de 0 à
+        $q$.
+      Pour chacune des étapes, exprimer le travail de l'opérateur $W_\text{op.}$
+      et celui du générateur $W_G$. En déduire $W(\delta,q)$.
+   3) Sachant que $dW=Fd\delta+Vdq$, déterminer $F(\delta,q)$.
+#+END_QUESTION
+2) [@2] La polarisation d'une lame piézoélectrique se décompose de la façon
+   suivante
    #+BEGIN_SRC latex
      \begin{align*}
        \vv{P}=\underbrace{\epsilon_0\chi\vv{E}}_{\vv{P}_\text{LHI}}+\underbrace{\frac{\epsilon\alpha\delta}{d}\vv{u}_z}_{\vv{P}_\text{piézo.}}
