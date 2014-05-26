@@ -2232,8 +2232,8 @@ $\vv{p}_1=\vv{p}_2=\vv{p}$, on obtient une force moyenne
   \end{align*}
 #+END_SRC
 
-* TD4 : Les milieux diélectriques
-** COMMENT Introduction
+* COMMENT TD4 : Les milieux diélectriques
+** Introduction
 Historiquement, la découverte expérimentale des diélectriques est à mettre au
 profit de Michael Faraday qui nota que l'introduction d'un isolant entre les
 armatures d'un condensateur modifiait sa capacité.
@@ -2271,7 +2271,7 @@ cas, le vecteur $\vv{D}$ devient
 où $\epsilon$ et $\epsilon_r$ sont appellés respectivement la permitivité
 absolue et la permitivité relative du diélectrique.
 
-** COMMENT Boule uniformément polarisée
+** Boule uniformément polarisée
 #+BEGIN_QUESTION
 On considère une boule uniformément polarisée de rayon $R$.
 
@@ -2416,7 +2416,7 @@ $\vv{P}.\vv{u}_r=P\cos\theta$ on obtient
 #+END_SRC
 d'où $\vv{p}=\frac{4}{3}\pi R^3\vv{P}$, on retrouve donc bien $\vv{P}=\frac{d\vv{p}}{d\tau}$.
 
-** COMMENT Plaque diélectrique
+** Plaque diélectrique
 *** Le condensateur plan
 #+BEGIN_CENTER
 #+ATTR_LATEX: :width 0.75\linewidth
@@ -2839,7 +2839,7 @@ Ainsi la variation d'énergie stockée correspond à
 #+ATTR_LATEX: :width 0.7\linewidth
 [[./figures/coupe_condensateur_dielectrique_force2.pdf]]
 #+END_CENTER
-** COMMENT Boule chargée flottant sur un diélectrique
+** Boule chargée flottant sur un diélectrique
 
 #+BEGIN_QUESTION
 On considère une boule conductrice de centre $O$, de masse $m$, flottant à la
@@ -3174,7 +3174,7 @@ $\div\vv{E}=\frac{\rho_\text{tot.}}{\epsilon_0}$ d'où
 S'il n'y a donc pas de densité volumique de charge libre $\rho_\ell$, la densité
 volumique de charge liée est donc également nulle.
 
-* COMMENT TD5 : Magnétostatique
+* TD5 : Magnétostatique
 ** Introduction
 En magnétostatique, les équations locales deviennent
 #+BEGIN_SRC latex
@@ -3203,267 +3203,313 @@ Poisson $\vv{\Delta}\vv{A}=-\mu_0\vv{j}$ soit
 #+END_SRC
 
 ** Solénoïde fini
-1) Les plans $(xMz)$ et $(yMz)$ sont tous deux plans d'antisymétrie de la
-   distribution de courant : le champ magnétique pour tout point $M$ appartenant
-   à l'axe $Oz$ est compris dans chacun de ces plans soit $\vv{B}(M\in
-   Oz)\parallel\vv{u}_z$.
-2) En raison des symétries du problème, le système de coordonnées cylindriques
-   est le mieux adapté à la description du problème. En particulier, le système
-   est invariant par rotation d'angle \theta et le plan $(\vv{u}_r,\vv{u}_z)$
-   est plan d'antisymétrie : $\vv{B}(M)=B_r(r,z)\vv{u}_r+B_z(r,z)\vv{u}_z$
-3) Symétrie du champ magnétique
-   #+BEGIN_CENTER
-   #+ATTR_LATEX: :width 0.5\linewidth
-   [[./figures/plan_symetrie_B.pdf]]
-   #+END_CENTER
 
-   Le plan $(xOy)$ est plan de symétrie de la distribution de courant impliquant
+#+BEGIN_QUESTION
+Soit un solénoïde de longueur $L$, constitué de $N$ spires jointives identiques
+de rayon $R$ parcourues par un courant $I$. On note $n$ le nombre de spires par
+unité de longueur. L'origine $O$ est choisie au centre de la bobine et l'axe de
+la bobine est $Oz$.
+
+1) [@1] Quelle est la direction du champ magnétique $\vv{B}$ en tout point de
+   l'axe de la bobine ?
+#+END_QUESTION
+
+Les plans $(xMz)$ et $(yMz)$ sont tous deux plans d'antisymétrie de la
+distribution de courant : le champ magnétique pour tout point $M$ appartenant
+à l'axe $Oz$ est compris dans chacun de ces plans soit $\vv{B}(M\in
+Oz)\parallel\vv{u}_z$.
+
+#+BEGIN_QUESTION
+2) [@2] On se place cette fois en un point quelconque, qui ne se trouve pas
+   nécessairement sur l'axe $Oz$. De par les symétries, quel système de
+   coordonnées serait il judicieux d'employer ? En utilisant ce système, quelles
+   sont les composantes non nulles de $\vv{B}$? De quelles variables dépendent
+   ces composantes ?
+#+END_QUESTION
+
+En raison des symétries du problème, le système de coordonnées cylindriques
+est le mieux adapté à la description du problème. En particulier, le système
+est invariant par rotation d'angle \theta et le plan $(\vv{u}_r,\vv{u}_z)$
+est plan d'antisymétrie : $\vv{B}(M)=B_r(r,z)\vv{u}_r+B_z(r,z)\vv{u}_z$.
+
+#+BEGIN_QUESTION
+3) [@3] Montrer que $B_r(r,z)$ est une fonction impaire de $z$, alors que
+   $B_z(r,z)$ est une fonction paire de $z$.
+#+END_QUESTION
+Symétrie du champ magnétique
+#+BEGIN_CENTER
+#+ATTR_LATEX: :width 0.5\linewidth
+[[./figures/plan_symetrie_B.pdf]]
+#+END_CENTER
+
+Le plan $(xOy)$ est plan de symétrie de la distribution de courant impliquant
+#+BEGIN_SRC latex
+  \begin{align*}
+    B_z(r,z)&=B_z(r,-z)\\
+    B_r(r,z)&=-B_r(r,-z)
+  \end{align*}
+#+END_SRC
+
+#+BEGIN_QUESTION
+4) [@4] Calculer le champ en tout point de l'axe $Oz$. Vérifier la parité prévue
+   par la question 3. On suppose $L\gg R$, montrer que le champ magnétique
+   $\vv{B}$ au point $O$ est le double de celui du point situé à l'extrémité,
+   c'est-à-dire en $z=L/2$.
+#+END_QUESTION
+Calcul du champ magnétique généré par une boucle de courant
+#+BEGIN_CENTER
+#+ATTR_LATEX: :width 0.25\linewidth
+[[./figures/spire_circulaire.pdf]]
+#+END_CENTER
+
+Loi de Biot & Savart
+#+BEGIN_SRC latex
+  \begin{align*}
+    \vv{B}(M)&=\frac{\mu_0I}{4\pi}\oint_\mathcal{C}\frac{\vv{d\ell}\times\vv{PM}}{PM^3}\\
+    &\text{où }\left\{
+    \begin{array}{rl}
+      \vv{d\ell} &=Rd\theta\,\vv{u}_\theta\\
+      \vv{PM} &=\vv{PO} + \vv{OM} = -R\vv{u}_r + z\vv{u}_z \\
+    \end{array}
+    \right.\\
+    &\text{soit }\vv{d\ell}\times\vv{PM}=\left|
+    \begin{array}{l}
+      0\\Rd\theta\\0
+    \end{array}
+    \right.\times\left|
+    \begin{array}{l}
+      -R\\0\\z
+    \end{array}
+    \right.=Rd\theta z\vv{u}_r+R^2d\theta\vv{u}_z
+  \end{align*}
+#+END_SRC
+
+En raison des symétries invoquées à la question 1), le champ magnétique est
+colinéaire au vecteur $\vv{u}_z$ d'où
+#+BEGIN_SRC latex
+  \begin{align*}
+    \vv{B}(M)&=\frac{\mu_0I}{4\pi}\,\frac{R^2}{PM^3}\int_0^{2\pi}d\theta\vv{u}_z\\
+    &=\frac{\mu_0I}{2}\,\frac{R^2}{PM^3}\vv{u}_z\text{ avec } PM=\frac{R}{\sin\alpha}\\
+    &=\frac{\mu_0I}{2}\,\frac{\cancel{R^2}}{R^{\cancel{3}}}\,\sin^3\alpha\,\vv{u}_z=\frac{\mu_0I}{2R}\,\sin^3\alpha\,\vv{u}_z
+  \end{align*}
+#+END_SRC
+
+Pour calculer le champ magnétique généré par un solénoïde fini, on superpose
+les champs magnétiques générés par les $N$ spires. En considérant une
+épaisseur $dz'$ contenant donc $n\times dz=\frac{N}{L}\times dz'$ spires, le
+champ magnétique ainsi généré a pour expression
+#+BEGIN_SRC latex
+  \begin{align*}
+    \vv{dB}_\text{solénoïde}(M)&=\vv{B}_\text{spire}(M)\times n\times dz'\\
+    \vv{B}_\text{solénoïde}(M)&=\int_{-L/2}^{L/2}\frac{\mu_0nI}{2R}\,\sin^3\alpha dz'\vv{u}_z
+  \end{align*}
+#+END_SRC
+
+La coordonnée $z$ est reliée à l'angle \alpha par l'expression
+$\tan\alpha=\frac{R}{z-z'}$ d'où
+$\frac{dz'}{d\alpha}=\frac{R}{\sin^2\alpha}$ [fn:7].
+#+BEGIN_SRC latex
+  \begin{align*}
+    \vv{B}_\text{solénoïde}(M)&=\int_{\alpha_1}^{\alpha_2}\frac{\mu_0nI}{2\cancel{R}}\,\sin^{\cancel{3}}\alpha\frac{\cancel{R}}{\cancel{\sin^2\alpha}}\,d\alpha\vv{u}_z\\
+    &=\frac{\mu_0nI}{2}\left[-\cos\alpha\right]_{\alpha_1}^{\alpha_2}\,\vv{u}_z\\
+    &=\frac{\mu_0nI}{2}\left(\cos\alpha_1-\cos\alpha_2\right)\,\vv{u}_z
+  \end{align*}
+#+END_SRC
+
+Sachant que
+#+BEGIN_SRC latex
+  \begin{align*}
+    \cos\alpha_1&=\frac{z+L/2}{\surd R^2+\left(z+L/2\right)^2}=f(z)\\
+    \cos\alpha_2&=\frac{z-L/2}{\surd R^2+\left(z-L/2\right)^2}=-f(-z)
+  \end{align*}
+#+END_SRC
+le champ magnétique sur l'axe du solénoïde devient
+#+BEGIN_SRC latex
+  \begin{align*}
+    \vv{B}_\text{solénoïde}(M)&=\frac{\mu_0nI}{2}\left(f(z)+f(-z)\right)\,\vv{u}_z
+  \end{align*}
+#+END_SRC
+confirmant la parité de $B_z$ avec $\vv{B}(z)=\vv{B}(-z)$.
+
+- en $z=0$,
+  #+BEGIN_SRC latex
+    \begin{align*}
+      \vv{B}(O)&=\frac{\mu_0nI}{2}\left(\frac{L/2}{\surd R^2+L^2/4}+\frac{L/2}{\surd R^2+L^2/4}\right)\,\vv{u}_z\\
+      &=\frac{\mu_0nI}{2}\left(\frac{1}{\surd R^2+L^2/4}\right)\,\vv{u}_z\text{ avec }L\gg R\\
+      &=\frac{\mu_0nIL}{2}\left(\frac{1}{L/2\times\left(1+4R^2/L^2\right)^{1/2}}\right)\,\vv{u}_z\\
+      &\simeq\frac{\mu_0nI\cancel{L}}{\cancel{2}}\times\frac{\cancel{2}}{\cancel{L}}\,\vv{u}_z+\mathcal{O}\left(\frac{R^2}{L^2}\right)\\
+      &\simeq\mu_0nI\,\vv{u}_z
+    \end{align*}
+  #+END_SRC
+- en $z=L/2$,
+  #+BEGIN_SRC latex
+    \begin{align*}
+      \vv{B}(z=L/2)&=\frac{\mu_0nI}{2}\times\frac{L/2}{\surd R^2+L^2/4}\,\vv{u}_z\\
+      &\simeq\frac{\mu_0nI}{2}\times\frac{\cancel{L/2}}{\cancel{L/2}}\,\vv{u}_z=\frac{\vv{B}(O)}{2}
+    \end{align*}
+  #+END_SRC
+
+#+BEGIN_QUESTION
+5) [@5] On veut maintenant étudier le champ magnétique $\vv{B}$ au voisinage du
+   point $O$, c'est-à-dire lorsque $z$ et $r$ sont tous les deux très inférieurs
+   aux deux grandeurs $L$ et $R$. Établir les approximations suivantes :
    #+BEGIN_SRC latex
      \begin{align*}
-       B_z(r,z)&=B_z(r,-z)\\
-       B_r(r,z)&=-B_r(r,-z)
+       B_z(r,z)&=B_z(0,0)+ar+br^2+cz^2\\
+       B_r(r,z)&=drz
      \end{align*}
    #+END_SRC
-4) Calcul du champ magnétique généré par une boucle de courant
-   #+BEGIN_CENTER
-   #+ATTR_LATEX: :width 0.25\linewidth
-   [[./figures/spire_circulaire.pdf]]
-   #+END_CENTER
+   Calculer les constantes $a,b$ et $d$ en fonction de $c$. Comment peut-on
+   calculer la constante $c$ ? Exprimer $c$ en fonction $N$, $L$ et $R$. En
+   déduire l'expression approximative de $\vv{B}$ au voisinage du point $O$.
+#+END_QUESTION
+Champ magnétique au voisinage de $O$. On réalise un dévelopement limité à
+l'ordre 2 de $B_z$ et $B_r$ soit
+#+BEGIN_SRC latex
+  \begin{align*}
+    &\begin{array}{llll}
+       B_z(r\to0,z\to0)&\simeq B_z(0,0)&+\left.\frac{\partial B_z}{\partial r}\right|_{r=0,z=0}r&+\left.\frac{\partial B_z}{\partial z}\right|_{r=0,z=0}z\\
+       &&+\left.\frac{\partial^2 B_z}{\partial r^2}\right|_{r=0,z=0}\frac{r^2}{2!}&+\left.\frac{\partial^2 B_z}{\partial z^2}\right|_{r=0,z=0}\frac{z^2}{2!}\\
+       &&+\left.\frac{\partial^2 B_z}{\partial r\partial z}\right|_{r=0,z=0}rz&+\mathcal{O}(r^2,z^2)
+     \end{array}\\
+    &B_z(r,z)\simeq B_z(0,0) + \alpha_r\,r + \beta_r\,r^2 + \gamma_z\,z + \delta_z\,z^2 + \eta_{rz}\,rz+\mathcal{O}(r^2,z^2)\\
+    &B_r(r,z)\simeq B_r(0,0) + \alpha'_r\,r + \beta'_r\,r^2 + \gamma'_z\,z + \delta'_z\,z^2 + \eta'_{rz}\,rz+\mathcal{O}(r^2,z^2)
+  \end{align*}
+#+END_SRC
 
-   Loi de Biot & Savart
-   #+BEGIN_SRC latex
-     \begin{align*}
-       \vv{B}(M)&=\frac{\mu_0I}{4\pi}\oint_\mathcal{C}\frac{\vv{d\ell}\times\vv{PM}}{PM^3}\\
-       &\text{où }\left\{
-       \begin{array}{rl}
-         \vv{d\ell} &=Rd\theta\,\vv{u}_\theta\\
-         \vv{PM} &=\vv{PO} + \vv{OM} = -R\vv{u}_r + z\vv{u}_z \\
-       \end{array}
-       \right.\\
-       &\text{soit }\vv{d\ell}\times\vv{PM}=\left|
-       \begin{array}{l}
-         0\\Rd\theta\\0
-       \end{array}
-       \right.\times\left|
-       \begin{array}{l}
-         -R\\0\\z
-       \end{array}
-       \right.=Rd\theta z\vv{u}_r+R^2d\theta\vv{u}_z
-     \end{align*}
-   #+END_SRC
+- Calcul de $B_r$ :
 
-   En raison des symétries invoquées à la question 1), le champ magnétique est
-   colinéaire au vecteur $\vv{u}_z$ d'où
-   #+BEGIN_SRC latex
-     \begin{align*}
-       \vv{B}(M)&=\frac{\mu_0I}{4\pi}\,\frac{R^2}{PM^3}\int_0^{2\pi}d\theta\vv{u}_z\\
-       &=\frac{\mu_0I}{2}\,\frac{R^2}{PM^3}\vv{u}_z\text{ avec } PM=\frac{R}{\sin\alpha}\\
-       &=\frac{\mu_0I}{2}\,\frac{\cancel{R^2}}{R^{\cancel{3}}}\,\sin^3\alpha\,\vv{u}_z=\frac{\mu_0I}{2R}\,\sin^3\alpha\,\vv{u}_z
-     \end{align*}
-   #+END_SRC
+  $B_r(0,0)=0$ et $B_r(r,z)=-B_r(r,-z)$ /i.e./ une fonction impaire en $z$
+  implique nécessairement que $\delta'_z=0$. Par ailleurs, la parité de la
+  fonction conduit à l'équation suivante
+  #+BEGIN_SRC latex
+    \begin{align*}
+      \alpha'_r\,r+\beta'_r\,r^2+\cancel{\gamma'_z\,z}+\cancel{\eta'_{rz}\,rz}&=-\alpha'_r\,r-\beta'_r\,r^2+\cancel{\gamma'_z\,z}+\cancel{\eta'_{rz}\,rz}\\
+      \alpha'_r&=\beta'_r=0
+    \end{align*}
+  #+END_SRC
+  L'expression de $B_r$ se réduit à $\gamma'_z\,z+\eta'_{rz}\,rz$ or
+  $B_r(0,z)=0$ implique que $\gamma'_z=0$ d'où
+  #+BEGIN_SRC latex
+    \begin{align*}
+      B_r(r,z)=\eta'_{rz}\,rz=drz
+    \end{align*}
+  #+END_SRC
 
-   Pour calculer le champ magnétique généré par un solénoïde fini, on superpose
-   les champs magnétiques générés par les $N$ spires. En considérant une
-   épaisseur $dz'$ contenant donc $n\times dz=\frac{N}{L}\times dz'$ spires, le
-   champ magnétique ainsi généré a pour expression
-   #+BEGIN_SRC latex
-     \begin{align*}
-       \vv{dB}_\text{solénoïde}(M)&=\vv{B}_\text{spire}(M)\times n\times dz'\\
-       \vv{B}_\text{solénoïde}(M)&=\int_{-L/2}^{L/2}\frac{\mu_0nI}{2R}\,\sin^3\alpha dz'\vv{u}_z
-     \end{align*}
-   #+END_SRC
+- Calcul de $B_z$ :
 
-   La coordonnée $z$ est reliée à l'angle \alpha par l'expression
-   $\tan\alpha=\frac{R}{z-z'}$ d'où
-   $\frac{dz'}{d\alpha}=\frac{R}{\sin^2\alpha}$ [fn:7].
-   #+BEGIN_SRC latex
-     \begin{align*}
-       \vv{B}_\text{solénoïde}(M)&=\int_{\alpha_1}^{\alpha_2}\frac{\mu_0nI}{2\cancel{R}}\,\sin^{\cancel{3}}\alpha\frac{\cancel{R}}{\cancel{\sin^2\alpha}}\,d\alpha\vv{u}_z\\
-       &=\frac{\mu_0nI}{2}\left[-\cos\alpha\right]_{\alpha_1}^{\alpha_2}\,\vv{u}_z\\
-       &=\frac{\mu_0nI}{2}\left(\cos\alpha_1-\cos\alpha_2\right)\,\vv{u}_z
-     \end{align*}
-   #+END_SRC
+  La parité de $B_z$ /i.e./ $B_z(r,z)=B_z(r,-z)$ implique que les termes
+  "impairs" en $z$, $\gamma_z$ et $\eta_{rz}$, soient nuls. L'expression de
+  $B_z$ se limite à
+  #+BEGIN_SRC latex
+    \begin{align*}
+      B_z(r,z)&=B_z(0,0)+\alpha_r\,r+\beta_r\,r^2+\delta_z\,z^2\\
+      &=B_z(0,0)+ar+br^2+cz^2
+    \end{align*}
+  #+END_SRC
 
-   Sachant que
-   #+BEGIN_SRC latex
-     \begin{align*}
-       \cos\alpha_1&=\frac{z+L/2}{\surd R^2+\left(z+L/2\right)^2}=f(z)\\
-       \cos\alpha_2&=\frac{z-L/2}{\surd R^2+\left(z-L/2\right)^2}=-f(-z)
-     \end{align*}
-   #+END_SRC
-   le champ magnétique sur l'axe du solénoïde devient
-   #+BEGIN_SRC latex
-     \begin{align*}
-       \vv{B}_\text{solénoïde}(M)&=\frac{\mu_0nI}{2}\left(f(z)+f(-z)\right)\,\vv{u}_z
-     \end{align*}
-   #+END_SRC
-   confirmant la parité de $B_z$ avec $\vv{B}(z)=\vv{B}(-z)$.
+- Calcul de $a,b,d$ en fonction de $c$ :
 
-   - en $z=0$,
-     #+BEGIN_SRC latex
-       \begin{align*}
-         \vv{B}(O)&=\frac{\mu_0nI}{2}\left(\frac{L/2}{\surd R^2+L^2/4}+\frac{L/2}{\surd R^2+L^2/4}\right)\,\vv{u}_z\\
-         &=\frac{\mu_0nI}{2}\left(\frac{1}{\surd R^2+L^2/4}\right)\,\vv{u}_z\text{ avec }L\gg R\\
-         &=\frac{\mu_0nIL}{2}\left(\frac{1}{L/2\times\left(1+4R^2/L^2\right)^{1/2}}\right)\,\vv{u}_z\\
-         &\simeq\frac{\mu_0nI\cancel{L}}{\cancel{2}}\times\frac{\cancel{2}}{\cancel{L}}\,\vv{u}_z+\mathcal{O}\left(\frac{R^2}{L^2}\right)\\
-         &\simeq\mu_0nI\,\vv{u}_z
-       \end{align*}
-     #+END_SRC
-   - en $z=L/2$,
-     #+BEGIN_SRC latex
-       \begin{align*}
-         \vv{B}(z=L/2)&=\frac{\mu_0nI}{2}\times\frac{L/2}{\surd R^2+L^2/4}\,\vv{u}_z\\
-         &\simeq\frac{\mu_0nI}{2}\times\frac{\cancel{L/2}}{\cancel{L/2}}\,\vv{u}_z=\frac{\vv{B}(O)}{2}
-       \end{align*}
-     #+END_SRC
+  On utilise les équations de Maxwell faisant intervenir le champ magnétique
+  à savoir $\div\vv{B}=0$ et $\rot\vv{B}=\vv{0}$ (au voisinage de $O$, il
+  n'y a pas de courant ni de variation temporelle d'un champ électrique)
 
-5) Champ magnétique au voisinage de $O$. On réalise un dévelopement limité à
-   l'ordre 2 de $B_z$ et $B_r$ soit
-   #+BEGIN_SRC latex
-     \begin{align*}
-       &\begin{array}{llll}
-         B_z(r\to0,z\to0)&\simeq B_z(0,0)&+\left.\frac{\partial B_z}{\partial r}\right|_{r=0,z=0}r&+\left.\frac{\partial B_z}{\partial z}\right|_{r=0,z=0}z\\
-         &&+\left.\frac{\partial^2 B_z}{\partial r^2}\right|_{r=0,z=0}\frac{r^2}{2!}&+\left.\frac{\partial^2 B_z}{\partial z^2}\right|_{r=0,z=0}\frac{z^2}{2!}\\
-         &&+\left.\frac{\partial^2 B_z}{\partial r\partial z}\right|_{r=0,z=0}rz&+\mathcal{O}(r^2,z^2)
-       \end{array}\\
-       &B_z(r,z)\simeq B_z(0,0) + \alpha_r\,r + \beta_r\,r^2 + \gamma_z\,z + \delta_z\,z^2 + \eta_{rz}\,rz+\mathcal{O}(r^2,z^2)\\
-       &B_r(r,z)\simeq B_r(0,0) + \alpha'_r\,r + \beta'_r\,r^2 + \gamma'_z\,z + \delta'_z\,z^2 + \eta'_{rz}\,rz+\mathcal{O}(r^2,z^2)
-     \end{align*}
-   #+END_SRC
+  #+BEGIN_SRC latex
+    \begin{align*}
+      \div\vv{B}&=0\\
+      \frac{1}{r}\,\frac{\partial}{\partial r}\left(rB_r\right)+\frac{\partial B_z}{\partial z}&=0\\
+      \frac{1}{r}\times2dzr+2cz&=0\\
+      d&=-c
+    \end{align*}
+  #+END_SRC
 
-   - Calcul de $B_r$ :
+  #+BEGIN_SRC latex
+    \begin{align*}
+      \rot\vv{B}&=\vv{0}\\
+      \frac{\partial B_r}{\partial z}-\frac{\partial B_z}{\partial r}&=0\\
+      dr-a-2br&=0\\
+      a=0&\text{ et }b=\frac{d}{2}=-\frac{c}{2}
+    \end{align*}
+  #+END_SRC
 
-     $B_r(0,0)=0$ et $B_r(r,z)=-B_r(r,-z)$ /i.e./ une fonction impaire en $z$
-     implique nécessairement que $\delta'_z=0$. Par ailleurs, la parité de la
-     fonction conduit à l'équation suivante
-     #+BEGIN_SRC latex
-       \begin{align*}
-         \alpha'_r\,r+\beta'_r\,r^2+\cancel{\gamma'_z\,z}+\cancel{\eta'_{rz}\,rz}&=-\alpha'_r\,r-\beta'_r\,r^2+\cancel{\gamma'_z\,z}+\cancel{\eta'_{rz}\,rz}\\
-         \alpha'_r&=\beta'_r=0
-       \end{align*}
-     #+END_SRC
-     L'expression de $B_r$ se réduit à $\gamma'_z\,z+\eta'_{rz}\,rz$ or
-     $B_r(0,z)=0$ implique que $\gamma'_z=0$ d'où
-     #+BEGIN_SRC latex
-       \begin{align*}
-         B_r(r,z)=\eta'_{rz}\,rz=drz
-       \end{align*}
-     #+END_SRC
+- Calcul de $c$ :
 
-   - Calcul de $B_z$ :
+  Pour calculer la constante $c$, on évalue sa valeur pour $r=0$ /i.e./ sur
+  l'axe du solénoïde où nous avons établi que
+  $B_z=\frac{\mu_0nI}{2}\left(f(z)+f(-z)\right)$ avec
+  $f(z)=\frac{L/2+z}{\surd R^2+\left(L/2+z\right)^2}$. On a donc
+  #+BEGIN_SRC latex
+    \begin{align*}
+      B_z(0,z)=B_z(0,0)+cz^2=\frac{\mu_0nI}{2}\left(f(z)+f(-z)\right)
+    \end{align*}
+  #+END_SRC
 
-     La parité de $B_z$ /i.e./ $B_z(r,z)=B_z(r,-z)$ implique que les termes
-     "impairs" en $z$, $\gamma_z$ et $\eta_{rz}$, soient nuls. L'expression de
-     $B_z$ se limite à
-     #+BEGIN_SRC latex
-       \begin{align*}
-         B_z(r,z)&=B_z(0,0)+\alpha_r\,r+\beta_r\,r^2+\delta_z\,z^2\\
-         &=B_z(0,0)+ar+br^2+cz^2
-       \end{align*}
-     #+END_SRC
+  Sachant que $L\gg z$ et $R\gg r$, il s'agit dès lors de développer
+  l'expression de $f(z)$ au voisinage de zéro. On calcule ainsi
+  #+BEGIN_SRC latex
+    \begin{align*}
+      \left(R^2+\left(L/2+z\right)^2\right)^{-1/2}&=\left(R^2+L^2/4+Lz+z^2\right)^{-1/2}\\
+      &=\left(R^2+L^2/4\right)^{-1/2}\left[1+\underbrace{\frac{z^2}{R^2+L^2/4}+\frac{Lz}{R^2+L^2/4}}_{\epsilon}\right]^{-1/2}
+    \end{align*}
+  #+END_SRC
+  or
+  #+BEGIN_SRC latex
+    \begin{align*}
+      \left(1+\epsilon\right)^n=1+n\epsilon+\frac{n(n-1)}{2!}\,\epsilon^2+\mathcal{O}(\epsilon^2)
+    \end{align*}
+  #+END_SRC
+  on obtient finalement
+  #+BEGIN_SRC latex
+    \begin{align*}
+      \left(R^2+\left(L/2+z\right)^2\right)^{-1/2}&=\left(R^2+L^2/4\right)^{-1/2}\,\left[1-\frac{1}{2}\frac{Lz+z^2}{R^2+L^2/4}+\frac{3}{8}\left(\frac{Lz+z^2}{R^2+L^2/4}\right)^2\right]
+    \end{align*}
+  #+END_SRC
 
-   - Calcul de $a,b,d$ en fonction de $c$ :
+  La fonction $f(z)$ devient au deuxième ordre en $z$
+  #+BEGIN_SRC latex
+    \begin{align*}
+      f(z)&\simeq\frac{L/2\left(1+\frac{2z}{L}\right)}{\surd R^2+L^2/4}\left[1-\frac{1}{2}\,\frac{Lz}{R^2+L^2/4}-\frac{1}{2}\frac{z^2}{R^2+L^2/4}+\frac{3}{8}\frac{L^2z^2}{\left(R^2+L^2/4\right)^2}\right]
+      +\mathcal{O}(z^2)
+    \end{align*}
+    \begin{align*}
+      \begin{split}
+        f(z)\simeq\frac{L}{2}\,\frac{1}{\surd R^2+L^2/4}\left[1-\frac{1}{2}\,\frac{Lz}{R^2+L^2/4}\right.&-\frac{1}{2}\,\frac{z^2}{R^2+L^2/4}+\frac{3}{8}\,\frac{L^2z^2}{\left(R^2+L^2/4\right)^2}\\
+          +\frac{2z}{L}&\left.-\frac{z^2}{R^2+L^2/4}\right]+\mathcal{O}(z^2)
+      \end{split}
+    \end{align*}
+    \begin{align*}
+      f(z)&\simeq\frac{L}{2}\,\frac{1}{\surd R^2+L^2/4}\left[1+\frac{2z}{L}-\frac{1}{2}\,\frac{Lz}{R^2+L^2/4}-\frac{3}{2}\,\frac{z^2}{R^2+L^2/4}+\frac{3}{8}\,\frac{L^2z^2}{\left(R^2+L^2/4\right)^2}\right]+\mathcal{O}(z^2)\\
+      f(-z)&\simeq\frac{L}{2}\,\frac{1}{\surd R^2+L^2/4}\left[1-\frac{2z}{L}+\frac{1}{2}\,\frac{Lz}{R^2+L^2/4}-\frac{3}{2}\,\frac{z^2}{R^2+L^2/4}+\frac{3}{8}\,\frac{L^2z^2}{\left(R^2+L^2/4\right)^2}\right]+\mathcal{O}(z^2)
+    \end{align*}
+    \begin{align*}
+      f(z)+f(-z)&\simeq\frac{L}{2}\,\frac{1}{\surd R^2+L^2/4}\left[2-3\,\frac{z^2}{R^2+L^2/4}+\frac{3}{4}\,\frac{L^2z^2}{\left(R^2+L^2/4\right)^2}\right]+\mathcal{O}(z^2)
+    \end{align*}
+  #+END_SRC
 
-     On utilise les équations de Maxwell faisant intervenir le champ magnétique
-     à savoir $\div\vv{B}=0$ et $\rot\vv{B}=\vv{0}$ (au voisinage de $O$, il
-     n'y a pas de courant ni de variation temporelle d'un champ électrique)
+  Le champ magnétique $B_z$ se réduit à l'expression
+  #+BEGIN_SRC latex
+    \begin{align*}
+      B_z(0,z)&\simeq\frac{\mu_0nI}{2}\times\frac{L}{2}\times\frac{1}{\surd R^2+L^2/4}\left[2-\left(\frac{3}{R^2+L^2/4}-\frac{3}{4}\,\frac{L^2}{\left(R^2+L^2/4\right)^2}\right)\,z^2\right]\\
+      &\simeq B_z(0,0)+cz^2
+    \end{align*}
+  #+END_SRC
+  d'où
+  #+BEGIN_SRC latex
+    \begin{align*}
+      B_z(0,0)&=\frac{\mu_0nI}{2}\times\frac{L}{\surd R^2+L^2/4}\\
+      c&=\frac{\mu_0nI}{4}\times\frac{L}{\surd R^2+L^2/4}\left(-\frac{3}{R^2+L^2/4}+\frac{3}{4}\,\frac{L^2}{\left(R^2+L^2/4\right)^2}\right)\\
+      &=\frac{\mu_0nI}{4}\times\frac{L}{\surd R^2+L^2/4}\left(\frac{\cancel{3L^2}-3\times4\left(R^2+L^2/4\right)}{4\,\left(R^2+\cancel{L^2/4}\right)^2}\right)\\
+      &=-B_z(0,0)\times\frac{3R^2}{2\left(R^2+L^2/4\right)^2}
+    \end{align*}
+  #+END_SRC
 
-     #+BEGIN_SRC latex
-       \begin{align*}
-         \div\vv{B}&=0\\
-         \frac{1}{r}\,\frac{\partial}{\partial r}\left(rB_r\right)+\frac{\partial B_z}{\partial z}&=0\\
-         \frac{1}{r}\times2dzr+2cz&=0\\
-         d&=-c
-       \end{align*}
-     #+END_SRC
-
-     #+BEGIN_SRC latex
-       \begin{align*}
-         \rot\vv{B}&=\vv{0}\\
-         \frac{\partial B_r}{\partial z}-\frac{\partial B_z}{\partial r}&=0\\
-         dr-a-2br&=0\\
-         a=0&\text{ et }b=\frac{d}{2}=-\frac{c}{2}
-       \end{align*}
-     #+END_SRC
-
-   - Calcul de $c$ :
-
-     Pour calculer la constante $c$, on évalue sa valeur pour $r=0$ /i.e./ sur
-     l'axe du solénoïde où nous avons établi que
-     $B_z=\frac{\mu_0nI}{2}\left(f(z)+f(-z)\right)$ avec
-     $f(z)=\frac{L/2+z}{\surd R^2+\left(L/2+z\right)^2}$. On a donc
-     #+BEGIN_SRC latex
-       \begin{align*}
-         B_z(0,z)=B_z(0,0)+cz^2=\frac{\mu_0nI}{2}\left(f(z)+f(-z)\right)
-       \end{align*}
-     #+END_SRC
-
-     Sachant que $L\gg z$ et $R\gg r$, il s'agit dès lors de développer
-     l'expression de $f(z)$ au voisinage de zéro. On calcule ainsi
-     #+BEGIN_SRC latex
-       \begin{align*}
-         \left(R^2+\left(L/2+z\right)^2\right)^{-1/2}&=\left(R^2+L^2/4+Lz+z^2\right)^{-1/2}\\
-         &=\left(R^2+L^2/4\right)^{-1/2}\left[1+\underbrace{\frac{z^2}{R^2+L^2/4}+\frac{Lz}{R^2+L^2/4}}_{\epsilon}\right]^{-1/2}
-       \end{align*}
-     #+END_SRC
-     or
-     #+BEGIN_SRC latex
-       \begin{align*}
-         \left(1+\epsilon\right)^n=1+n\epsilon+\frac{n(n-1)}{2!}\,\epsilon^2+\mathcal{O}(\epsilon^2)
-       \end{align*}
-     #+END_SRC
-     on obtient finalement
-     #+BEGIN_SRC latex
-       \begin{align*}
-         \left(R^2+\left(L/2+z\right)^2\right)^{-1/2}&=\left(R^2+L^2/4\right)^{-1/2}\,\left[1-\frac{1}{2}\frac{Lz+z^2}{R^2+L^2/4}+\frac{3}{8}\left(\frac{Lz+z^2}{R^2+L^2/4}\right)^2\right]
-       \end{align*}
-     #+END_SRC
-
-     La fonction $f(z)$ devient au deuxième ordre en $z$
-     #+BEGIN_SRC latex
-       \begin{align*}
-         f(z)&\simeq\frac{L/2\left(1+\frac{2z}{L}\right)}{\surd R^2+L^2/4}\left[1-\frac{1}{2}\,\frac{Lz}{R^2+L^2/4}-\frac{1}{2}\frac{z^2}{R^2+L^2/4}+\frac{3}{8}\frac{L^2z^2}{\left(R^2+L^2/4\right)^2}\right]
-         +\mathcal{O}(z^2)
-       \end{align*}
-       \begin{align*}
-         \begin{split}
-           f(z)\simeq\frac{L}{2}\,\frac{1}{\surd R^2+L^2/4}\left[1-\frac{1}{2}\,\frac{Lz}{R^2+L^2/4}\right.&-\frac{1}{2}\,\frac{z^2}{R^2+L^2/4}+\frac{3}{8}\,\frac{L^2z^2}{\left(R^2+L^2/4\right)^2}\\
-             +\frac{2z}{L}&\left.-\frac{z^2}{R^2+L^2/4}\right]+\mathcal{O}(z^2)
-         \end{split}
-       \end{align*}
-       \begin{align*}
-         f(z)&\simeq\frac{L}{2}\,\frac{1}{\surd R^2+L^2/4}\left[1+\frac{2z}{L}-\frac{1}{2}\,\frac{Lz}{R^2+L^2/4}-\frac{3}{2}\,\frac{z^2}{R^2+L^2/4}+\frac{3}{8}\,\frac{L^2z^2}{\left(R^2+L^2/4\right)^2}\right]+\mathcal{O}(z^2)\\
-         f(-z)&\simeq\frac{L}{2}\,\frac{1}{\surd R^2+L^2/4}\left[1-\frac{2z}{L}+\frac{1}{2}\,\frac{Lz}{R^2+L^2/4}-\frac{3}{2}\,\frac{z^2}{R^2+L^2/4}+\frac{3}{8}\,\frac{L^2z^2}{\left(R^2+L^2/4\right)^2}\right]+\mathcal{O}(z^2)
-       \end{align*}
-       \begin{align*}
-         f(z)+f(-z)&\simeq\frac{L}{2}\,\frac{1}{\surd R^2+L^2/4}\left[2-3\,\frac{z^2}{R^2+L^2/4}+\frac{3}{4}\,\frac{L^2z^2}{\left(R^2+L^2/4\right)^2}\right]+\mathcal{O}(z^2)
-       \end{align*}
-     #+END_SRC
-
-     Le champ magnétique $B_z$ se réduit à l'expression
-     #+BEGIN_SRC latex
-       \begin{align*}
-         B_z(0,z)&\simeq\frac{\mu_0nI}{2}\times\frac{L}{2}\times\frac{1}{\surd R^2+L^2/4}\left[2-\left(\frac{3}{R^2+L^2/4}-\frac{3}{4}\,\frac{L^2}{\left(R^2+L^2/4\right)^2}\right)\,z^2\right]\\
-         &\simeq B_z(0,0)+cz^2
-       \end{align*}
-     #+END_SRC
-     d'où
-     #+BEGIN_SRC latex
-       \begin{align*}
-         B_z(0,0)&=\frac{\mu_0nI}{2}\times\frac{L}{\surd R^2+L^2/4}\\
-         c&=\frac{\mu_0nI}{4}\times\frac{L}{\surd R^2+L^2/4}\left(-\frac{3}{R^2+L^2/4}+\frac{3}{4}\,\frac{L^2}{\left(R^2+L^2/4\right)^2}\right)\\
-         &=\frac{\mu_0nI}{4}\times\frac{L}{\surd R^2+L^2/4}\left(\frac{\cancel{3L^2}-3\times4\left(R^2+L^2/4\right)}{4\,\left(R^2+\cancel{L^2/4}\right)^2}\right)\\
-         &=-B_z(0,0)\times\frac{3R^2}{2\left(R^2+L^2/4\right)^2}
-       \end{align*}
-     #+END_SRC
-
-     soit finalement
-     #+BEGIN_SRC latex
-       \begin{align*}
-         B_z(r\to0,z\to0)&=B_z(0,0)\times\left(1+\frac{3R^2}{4\left(R^2+L^2/4\right)^2}\,r^2-\frac{3R^2}{2\left(R^2+L^2/4\right)^2}\,z^2\right)\\
-         B_r(r\to0,z\to0)&=B_z(0,0)\times\frac{3R^2}{2\left(R^2+L^2/4\right)^2}\,rz
-       \end{align*}
-     #+END_SRC
+  soit finalement
+  #+BEGIN_SRC latex
+    \begin{align*}
+      B_z(r\to0,z\to0)&=B_z(0,0)\times\left(1+\frac{3R^2}{4\left(R^2+L^2/4\right)^2}\,r^2-\frac{3R^2}{2\left(R^2+L^2/4\right)^2}\,z^2\right)\\
+      B_r(r\to0,z\to0)&=B_z(0,0)\times\frac{3R^2}{2\left(R^2+L^2/4\right)^2}\,rz
+    \end{align*}
+  #+END_SRC
 
 ** Supraconducteurs
 *** Effet Meissner dans un supraconducteur
