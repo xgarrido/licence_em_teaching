@@ -3969,103 +3969,136 @@ longueur.
       #+END_CENTER
 
 *** Lévitation supraconducteur-supraconducteur
-1) Les supraconducteurs de même que l'espace vide sont localement neutres d'où
-   $\rho=0$ impliquant que le potentiel électrique $V$ soit solution de
-   l'équation de Laplace $\Delta V=0$. Sacahnt que le potentiel électrique est
-   nul à l'infini $V(\infty)=0$, le potentiel est donc nul en tout point $M$ de
-   l'espace. Par ailleurs, le vecteur-potentiel $\vv{A}$ étant nul dans le
-   supraconducteur, le champ électrique $\vv{E}_\text{supra.}=-\grad
-   V-\frac{\partial \vv{A}}{\partial t}=\vv{0}$.
+#+BEGIN_QUESTION
+Dans toute cette partie, on adopte le modèle macroscopique $(M'')$ et on admet
+en outre que les supraconducteurs sont localement neutres. On envisage le
+dispositif suivant : un supraconducteur de masse $m$, en forme d'anneau plat,
+est placé au-dessus d'un supraconducteur occupant le demi-espace $z < 0$, à une
+distance $h$ de l'anneau.
+1) [@1] Montrer que $\vv{E}=\vv{0}$ dans les supraconducteurs. En déduire que le
+   flux de $\vv{B}$ à travers le disque $\mathcal{C}$ s'appuyant sur le bord
+   interne de l'anneau est une constante indépendante du temps que l'on notera
+   $\phi$.
+#+END_QUESTION
+Les supraconducteurs de même que l'espace vide sont localement neutres d'où
+$\rho=0$ impliquant que le potentiel électrique $V$ soit solution de
+l'équation de Laplace $\Delta V=0$. Sacahnt que le potentiel électrique est
+nul à l'infini $V(\infty)=0$, le potentiel est donc nul en tout point $M$ de
+l'espace. Par ailleurs, le vecteur-potentiel $\vv{A}$ étant nul dans le
+supraconducteur, le champ électrique $\vv{E}_\text{supra.}=-\grad
+V-\frac{\partial \vv{A}}{\partial t}=\vv{0}$.
 
-   La loi de Faraday lie la variation temporelle du flux magnétique $\Phi_B$ à
-   la circulation du champ électrique autour d'un contour $\mathcal{C}$. En
-   prenant pour contour $\mathcal{C}$ un cercle de même axe que l'anneau
-   supra. et de rayon légèrement supérieur à $a$, on obtient
-   #+BEGIN_SRC latex
-     \begin{align*}
-       -\frac{d\Phi_B}{dt}&=\oint_\mathcal{C}\vv{E}.\vv{d\ell}=0
-     \end{align*}
-   #+END_SRC
-   Le flux magnétique au travers de l'anneau supra. est donc constant.
+La loi de Faraday lie la variation temporelle du flux magnétique $\Phi_B$ à
+la circulation du champ électrique autour d'un contour $\mathcal{C}$. En
+prenant pour contour $\mathcal{C}$ un cercle de même axe que l'anneau
+supra. et de rayon légèrement supérieur à $a$, on obtient
+#+BEGIN_SRC latex
+  \begin{align*}
+    -\frac{d\Phi_B}{dt}&=\oint_\mathcal{C}\vv{E}.\vv{d\ell}=0
+  \end{align*}
+#+END_SRC
+Le flux magnétique au travers de l'anneau supra. est donc constant.
 
-2) En supposant $\vv{B}=B(r)\vv{u_r}$, le flux du champ magnétique au travers
-   d'une surface fermée est nul soit
-   #+BEGIN_SRC latex
-     \begin{align*}
-       \div\vv{B}=0\Longleftrightarrow\varoiint_\mathcal{S}\vv{B}.\vv{dS}&=0\\
-       \iint_\text{\ding{192}}B(r)\times dS+\underbrace{\iint_\text{\ding{193}}\vv{B}.\vv{dS}}_{\Phi_B}&=0\\
-       B(r)\times2\pi rh+\Phi_B=0&\to B(r)=-\frac{\Phi_B}{2\pi rh}
-     \end{align*}
-   #+END_SRC
-   où \ding{192} correspond à la surface cylindrique de rayon $r$ entre les deux
-   supraconducteurs. La surface \ding{193} correspond au flux magnétique au
-   travers de l'anneau supra.
+#+BEGIN_QUESTION
+2) [@2] On suppose pour simplifier que $\vv{B}=B(r)\vv{u}_r$ dans une zone
+   située entre les deux supraconducteurs à une distance $r$ de l'axe de
+   l'anneau comprise entre le rayon interne $a$ et le rayon externe
+   $b$. Exprimer $B(r)$ en fonction de $r,\phi$ et $h$. À quelle(s) condition(s)
+   l'hypothèse simplificatrice vous paraît-elle correcte ?
+#+END_QUESTION
 
-   Le problème étant invariant par rotation \theta, le champ magnétique $\vv{B}$
-   s'écrit $B_r(r,z)\vv{u_r}+B_z(r,z)\vv{u_z}$ (le plan $(\vv{u_r},\vv{u_z})$ est
-   plan d'antisymétrie de la distribution de courant). Si $h\ll a,b$, on peut
-   considérer le problème comme invariant par translation selon $z$. Le champ
-   magnétique se limite à l'expression $B_r(r)\vv{u_r}+B_z(r)\vv{u_z}$ et, en
-   $z=0$, le champ magnétique est colinéaire à la surface du plan /i.e./
-   $\vv{B}\parallel\vv{u_r}$ d'où $B_z(r)=0$ pour tout valeur de $r$. Ainsi,
-   dans la mesure où $h\ll b$, le champ magnétique entre les supraconducteurs
-   peut s'approximer par $B(r)\vv{u_r}$.
+En supposant $\vv{B}=B(r)\vv{u_r}$, le flux du champ magnétique au travers
+d'une surface fermée est nul soit
+#+BEGIN_SRC latex
+  \begin{align*}
+    \div\vv{B}=0\Longleftrightarrow\varoiint_\mathcal{S}\vv{B}.\vv{dS}&=0\\
+    \iint_\text{\ding{192}}B(r)\times dS+\underbrace{\iint_\text{\ding{193}}\vv{B}.\vv{dS}}_{\Phi_B}&=0\\
+    B(r)\times2\pi rh+\Phi_B=0&\to B(r)=-\frac{\Phi_B}{2\pi rh}
+  \end{align*}
+#+END_SRC
+où \ding{192} correspond à la surface cylindrique de rayon $r$ entre les deux
+supraconducteurs. La surface \ding{193} correspond au flux magnétique au
+travers de l'anneau supra.
 
-3) L'anneau subit une pression magnétique
-   #+BEGIN_SRC latex
-     \begin{align*}
-       \frac{d\vv{F}}{dS}=\frac{B^2}{2\mu_0}\vv{u_z}&\to\vv{F}=\frac{\Phi_B^2}{4\pi^2h^2\times2\mu_0}\int_a^b\int_0^{2\pi}\frac{\cancel{r}drd\theta}{r^{\cancel{2}}}\vv{u_z}\\\\
-       &\vv{F}=\frac{\Phi_B^2}{8\pi^2h^2\mu_0}\times\ln\frac{b}{a}\,\vv{u_z}=\frac{\Phi_B^2}{4\pi\mu_0 h^2}\ln\frac{b}{a}\,\vv{u_z}
-     \end{align*}
-   #+END_SRC
-   L'équilibre de l'anneau est atteint lorsque la résultante des forces de
-   Laplace $\vv{F}$ compense le poids $m\vv{g}$ de l'anneau soit
-   #+BEGIN_SRC latex
-     \begin{align*}
-       \frac{\Phi_B^2}{4\pi\mu_0 h_0^2}\ln\frac{b}{a}&=mg\\
-       h_0&=\Phi_B\sqrt{\frac{1}{4\pi\mu_0 mg}\ln\frac{b}{a}}
-     \end{align*}
-   #+END_SRC
+Le problème étant invariant par rotation \theta, le champ magnétique $\vv{B}$
+s'écrit $B_r(r,z)\vv{u_r}+B_z(r,z)\vv{u_z}$ (le plan $(\vv{u_r},\vv{u_z})$ est
+plan d'antisymétrie de la distribution de courant). Si $h\ll a,b$, on peut
+considérer le problème comme invariant par translation selon $z$. Le champ
+magnétique se limite à l'expression $B_r(r)\vv{u_r}+B_z(r)\vv{u_z}$ et, en
+$z=0$, le champ magnétique est colinéaire à la surface du plan /i.e./
+$\vv{B}\parallel\vv{u_r}$ d'où $B_z(r)=0$ pour tout valeur de $r$. Ainsi,
+dans la mesure où $h\ll b$, le champ magnétique entre les supraconducteurs
+peut s'approximer par $B(r)\vv{u_r}$.
 
-4) Hors équilibre, le principe fondamental de la dynamique s'écrit
-   #+BEGIN_SRC latex
-     \begin{align*}
-       \vv{F}+m\vv{g}&=m\ddot{h}\vv{u_z}\text{ avec }F=F_0=mg\text{ pour }h=h_0\\
-       F-F_0&=m\ddot{h}
-     \end{align*}
-   #+END_SRC
-   Pour $h$ au voisinage de $h_0$, la force $F$ peut se développer sous la forme
-   #+BEGIN_SRC latex
-     \begin{align*}
-       F\simeq F_0+(h-h_0)\left.\frac{\partial F}{\partial h}\right|_{h_0}
-     \end{align*}
-   #+END_SRC
-   Sachant que $F$ est de la forme $\frac{\alpha}{h^2}$ où
-   $\alpha=\frac{\Phi_B^2}{4\pi\mu_0}\ln\frac{b}{a}$, la dérivée $\frac{\partial
-   F}{\partial h}=-\frac{2\alpha}{h^3}$. Le mouvement de l'anneau autour de sa
-   position d'équilibre $h_0$ devient
-   #+BEGIN_SRC latex
-     \begin{align*}
-       F-F_0\simeq -(h-h_0)\frac{2\alpha}{h_0^3}&=m\ddot{h}\\
-       \ddot{h}+\frac{2\alpha}{mh_0^3}(h-h_0)&=0
-     \end{align*}
-   #+END_SRC
-   L'anneau oscille autour de sa position d'équilibre $h_0$ à une pulsation
-   $\omega^2=\frac{2\alpha}{mh_0^3}$ soit
-   #+BEGIN_SRC latex
-     \begin{align*}
-       \omega^2&=\frac{4\pi^2}{T^2}=\frac{2\Phi_B^2}{4\pi\mu_0mh_0^3}\ln\frac{b}{a}\\
-       T&=2\pi\sqrt{\frac{2\pi\mu_0h_0^3}{\Phi_B^2\ln\frac{b}{a}}}
-     \end{align*}
-   #+END_SRC
+#+BEGIN_QUESTION
+3) [@3] Calculer la résultante $\vv{F}$ des forces de Laplace subies par
+   l'anneau (on admettra que seule la face en regard du supraconducteur plan
+   contribue). En déduire l'existence d'une position d'équilibre $h_0$ et
+   l'exprimer en fonction de $\phi,b,a,\mu_0,g$ et $m$.
+#+END_QUESTION
+L'anneau subit une pression magnétique
+#+BEGIN_SRC latex
+  \begin{align*}
+    \frac{d\vv{F}}{dS}=\frac{B^2}{2\mu_0}\vv{u_z}&\to\vv{F}=\frac{\Phi_B^2}{4\pi^2h^2\times2\mu_0}\int_a^b\int_0^{2\pi}\frac{\cancel{r}drd\theta}{r^{\cancel{2}}}\vv{u_z}\\\\
+    &\vv{F}=\frac{\Phi_B^2}{8\pi^2h^2\mu_0}\times\ln\frac{b}{a}\,\vv{u_z}=\frac{\Phi_B^2}{4\pi\mu_0 h^2}\ln\frac{b}{a}\,\vv{u_z}
+  \end{align*}
+#+END_SRC
+L'équilibre de l'anneau est atteint lorsque la résultante des forces de
+Laplace $\vv{F}$ compense le poids $m\vv{g}$ de l'anneau soit
+#+BEGIN_SRC latex
+  \begin{align*}
+    \frac{\Phi_B^2}{4\pi\mu_0 h_0^2}\ln\frac{b}{a}&=mg\\
+    h_0&=\Phi_B\sqrt{\frac{1}{4\pi\mu_0 mg}\ln\frac{b}{a}}
+  \end{align*}
+#+END_SRC
 
-5) Application numérique :
-   #+BEGIN_SRC latex
-     \begin{align*}
-       h_0&=\unit[10^{-6}]{Weber}\sqrt{\frac{1}{4\pi\times4\pi\,10^{-7}\times0.1\times10}\times\ln5}=\unit[0.32]{mm}\ll b\\
-       T&=\unit[0.02]{s}
-     \end{align*}
-   #+END_SRC
+#+BEGIN_QUESTION
+4) [@4] Lorsque l'on perturbe faiblement cet équilibre, on constate que $h$
+   varie périodiquement dans le temps. Interpréter cette observation et calculer
+   la période $T$.
+#+END_QUESTION
+Hors équilibre, le principe fondamental de la dynamique s'écrit
+#+BEGIN_SRC latex
+  \begin{align*}
+    \vv{F}+m\vv{g}&=m\ddot{h}\vv{u_z}\text{ avec }F=F_0=mg\text{ pour }h=h_0\\
+    F-F_0&=m\ddot{h}
+  \end{align*}
+#+END_SRC
+Pour $h$ au voisinage de $h_0$, la force $F$ peut se développer sous la forme
+#+BEGIN_SRC latex
+  \begin{align*}
+    F\simeq F_0+(h-h_0)\left.\frac{\partial F}{\partial h}\right|_{h_0}
+  \end{align*}
+#+END_SRC
+Sachant que $F$ est de la forme $\frac{\alpha}{h^2}$ où
+$\alpha=\frac{\Phi_B^2}{4\pi\mu_0}\ln\frac{b}{a}$, la dérivée $\frac{\partial
+F}{\partial h}=-\frac{2\alpha}{h^3}$. Le mouvement de l'anneau autour de sa
+position d'équilibre $h_0$ devient
+#+BEGIN_SRC latex
+  \begin{align*}
+    F-F_0\simeq -(h-h_0)\frac{2\alpha}{h_0^3}&=m\ddot{h}\\
+    \ddot{h}+\frac{2\alpha}{mh_0^3}(h-h_0)&=0
+  \end{align*}
+#+END_SRC
+L'anneau oscille autour de sa position d'équilibre $h_0$ à une pulsation
+$\omega^2=\frac{2\alpha}{mh_0^3}$ soit
+#+BEGIN_SRC latex
+  \begin{align*}
+    \omega^2&=\frac{4\pi^2}{T^2}=\frac{2\Phi_B^2}{4\pi\mu_0mh_0^3}\ln\frac{b}{a}\\
+    T&=2\pi\sqrt{\frac{2\pi\mu_0h_0^3}{\Phi_B^2\ln\frac{b}{a}}}
+  \end{align*}
+#+END_SRC
+
+#+BEGIN_QUESTION
+5) [@5] Application numérique : calculer $h_0$ et la période $T$ pour $a=1$ cm,
+   $b=5$ cm, $m=0.1$ kg et $\phi=10^{-6}$ Wb.
+#+END_QUESTION
+#+BEGIN_SRC latex
+  \begin{align*}
+    h_0&=\unit[10^{-6}]{Weber}\sqrt{\frac{1}{4\pi\times4\pi\,10^{-7}\times0.1\times10}\times\ln5}=\unit[0.32]{mm}\ll b\\
+    T&=\unit[0.02]{s}
+  \end{align*}
+#+END_SRC
 
 ** Footnotes
 
