@@ -3513,58 +3513,92 @@ l'ordre 2 de $B_z$ et $B_r$ soit
 
 ** Supraconducteurs
 *** Effet Meissner dans un supraconducteur
-Soit une boule supraconductrice de rayon $R$ placée dans un solénoïde de section
-circulaire $a$ telle que $a\gg R$. Le champ magnétique généré par ce solénoïde
-est $B_\infty=\mu_0nI$.
+
+#+BEGIN_QUESTION
+Dans toute cette partie, on s'intéresse à une boule supraconductrice de centre
+$O$ et de rayon $R$ placée dans un solénoïde très long et de section circulaire
+de rayon $a\gg R$, d'axe $z'Oz$, possédant $n$ spires par unité de longueur, et
+parcouru par un courant stationnaire $I$, le reste de l'espace étant vide. On
+pose $B_\infty=\mu_0nI$.
 
 On constate expérimentalement que la boule supraconductrice tend à expulser le
-champ magnétique en créant des courants localisés au voisinage de la surface :
-c'est l'effet Meissner. Pour rendre compte de cet effet, on utilisera la
-relation phénoménologique de London qui lie la densité de courant $\vv{j}$ au
-potentiel-vecteur $\vv{A}$ où $\vv{B}=\rot\vv{A}$ /via/ l'expression
-$\vv{j}=-\frac{1}{\mu_0\delta^2}\vv{A}$. $\delta$ est un paramètre
-caractéritique du matériau supraconducteur et on se placera en régime
-stationnaire.
+champ magnétique en créant des courants localisés au voisinage de la surface
+(effet Meissner). Pour rendre compte de cet effet, on admettra que dans un
+supraconducteur, la loi d'Ohm est remplacée par la relation phénoménologique de
+London : $\vv{j}=-1/(\mu_0\delta^2)\vv{A}$ où $\vv{A}$ est un potentiel-vecteur
+de $\vv{B}$ et $\delta$ un paramètre caractéristique du matériau. On se place en
+régime stationnaire.
 
-1) L'équation de conservation de la charge se déduit de la divergence du
-   rotationnel de $\vv{B}$ à savoir
-   #+BEGIN_SRC latex
-     \begin{align*}
-       \div\left(\rot\vv{B}\right)=\vv{\nabla}.\left(\vv{\nabla}\times\vv{B}\right)&=0\\
-       \mu_0\div\vv{j}+\mu_0\epsilon_0\frac{\partial}{\partial t}\div\vv{E}&=0\\
-       \div\vv{j}+\frac{\partial\rho}{\partial t}=0
-     \end{align*}
-   #+END_SRC
-   En régime stationnaire, la densité volumique de charge \rho ne dépend pas du
-   temps d'où $\frac{\partial\rho}{\partial t}=0$. On déduit ainsi que le
-   potentiel vecteur est à flux conservatif car
-   #+BEGIN_SRC latex
-     \begin{align*}
-       \div\vv{j}=-\frac{1}{\mu_0\delta^2}\,\div\vv{A}=0\Longleftrightarrow\div\vv{A}=0
-     \end{align*}
-   #+END_SRC
+1) [@1] Montrer que $\vv{A}$ doit satisfaire à la condition
+   $\div\vv{A}$. L'unicité de $\vv{A}$ justifie alors le caractère non
+   arbitraire de la loi de London. Écrire les équations de la Magnétostatique
+   dans un supraconducteur. En déduire l'équation aux dérivées partielles dont
+   est solution $\vv{B}$ et la dimension de $\delta$.
+#+END_QUESTION
 
-   Les équations de la magnétostatique sont
-   #+BEGIN_SRC latex
-     \begin{align*}
-       \div\vv{B}&=0\\
-       \rot\vv{B}&=\mu_0\vv{j}
-     \end{align*}
-   #+END_SRC
-   En appliquant de nouveau l'opérateur rotationnel à la second expression, on
-   obtient
-   #+BEGIN_SRC latex
-     \begin{align*}
-       \rot\left(\rot\vv{B}\right)&=\mu_0\rot\vv{j}\\
-       \cancel{\grad\left(\div\vv{B}\right)}-\Delta\vv{B}&=\cancel{\mu_0}\times-\frac{1}{\cancel{\mu_0}\delta^2}\rot\vv{A}\\
-       \Delta\vv{B}&=\frac{\vv{B}}{\delta^2}
-     \end{align*}
-   #+END_SRC
-   Le Laplacien faisant intervenir la dérivée seconde par rapport aux
-   coordonnées spatiales, on déduit que la dimension de \delta est celle d'une
-   longueur.
+L'équation de conservation de la charge se déduit de la divergence du
+rotationnel de $\vv{B}$ à savoir
+#+BEGIN_SRC latex
+  \begin{align*}
+    \div\left(\rot\vv{B}\right)=\vv{\nabla}.\left(\vv{\nabla}\times\vv{B}\right)&=0\\
+    \mu_0\div\vv{j}+\mu_0\epsilon_0\frac{\partial}{\partial t}\div\vv{E}&=0\\
+    \div\vv{j}+\frac{\partial\rho}{\partial t}=0
+  \end{align*}
+#+END_SRC
+En régime stationnaire, la densité volumique de charge \rho ne dépend pas du
+temps d'où $\frac{\partial\rho}{\partial t}=0$. On déduit ainsi que le
+potentiel vecteur est à flux conservatif car
+#+BEGIN_SRC latex
+  \begin{align*}
+    \div\vv{j}=-\frac{1}{\mu_0\delta^2}\,\div\vv{A}=0\Longleftrightarrow\div\vv{A}=0
+  \end{align*}
+#+END_SRC
 
-2)
+Les équations de la magnétostatique sont
+#+BEGIN_SRC latex
+  \begin{align*}
+    \div\vv{B}&=0\\
+    \rot\vv{B}&=\mu_0\vv{j}
+  \end{align*}
+#+END_SRC
+En appliquant de nouveau l'opérateur rotationnel à la second expression, on
+obtient
+#+BEGIN_SRC latex
+  \begin{align*}
+    \rot\left(\rot\vv{B}\right)&=\mu_0\rot\vv{j}\\
+    \cancel{\grad\left(\div\vv{B}\right)}-\Delta\vv{B}&=\cancel{\mu_0}\times-\frac{1}{\cancel{\mu_0}\delta^2}\rot\vv{A}\\
+    \Delta\vv{B}&=\frac{\vv{B}}{\delta^2}
+  \end{align*}
+#+END_SRC
+Le Laplacien faisant intervenir la dérivée seconde par rapport aux
+coordonnées spatiales, on déduit que la dimension de \delta est celle d'une
+longueur.
+
+#+BEGIN_QUESTION
+2) [@2] La symétrie sphérique étant peu propice aux solutions simples, on
+   remplace d'abord le problème réel par le modèle $(M')$ suivant : la sphère
+   supraconductrice est assimilée à un demi-espace $x>0$; l'espace vide entre le
+   solénoïde et la pshère est remplacé par le demi-espace vide $x < 0$; le
+   solénoïde est oublié et impose uniquement la condition aux limites
+   $\vv{B}(x=-\infty)=B_\infty\vv{u}_z$.
+   1) Montrer que $\vv{B}$ est uniforme dans le vide. Déterminer $\vv{B}$ dans
+      le supraconducteur en fonction de $B_\infty,x$ et $\delta$. Tracer le
+      graphe de $\vv{B}(x)$ et interpréter $\delta$.
+   2) Déterminer la densité volumique de courants $\vv{j}$ en fonction de
+      $B_\infty,x,\mu_0$ et $\delta$ et tracer le graphe de $j(x)$.
+   3) Montrer que la force totale subie par une colonne cylindrique de
+      supraconducteur, d'axe $\vv{u}_x$ et de section $dydz$ est de la forme
+      $d\vv{F}/dydz=B^2(x=0^-)/(2\mu_0)\vv{u}_x$.
+   4) En réalite $\delta$ est de l'ordre de 0.1 \mu{}m. Commentez
+      l'approximation d'une sphère par un plan. Pour simplifier encore, on se
+      propose de faire tendre $\delta$ vers zéro. Montrer qu'alors le champ
+      $\vv{B}$ ets discontinu et qu'il faut faire intervenir des courants
+      superficiels : calculer leur densité $\vv{j}_s$ en utilisant la relation
+      de passge et vérifier que $\vv{j}_s=\int_0^\infty\vv{j}(x)dx$ et
+      $d\vv{F}/dydz=(1/2)\vv{j}_s\times\vv{B}(x=0^-)$.
+#+END_QUESTION
+
+2) [@2]
    1) Pour $x<0$, la densité volumique de courant $\vv{j}$ est nul de même pour
       $\vv{A}$. On obtient ainsi $\Delta\vv{B}=\vv{0}$. Par ailleurs, le
       problème est invariant par translation $y,z$, les composantes du champ
