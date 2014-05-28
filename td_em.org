@@ -3593,9 +3593,9 @@ longueur.
       l'approximation d'une sphère par un plan. Pour simplifier encore, on se
       propose de faire tendre $\delta$ vers zéro. Montrer qu'alors le champ
       $\vv{B}$ ets discontinu et qu'il faut faire intervenir des courants
-      superficiels : calculer leur densité $\vv{j}_s$ en utilisant la relation
-      de passge et vérifier que $\vv{j}_s=\int_0^\infty\vv{j}(x)dx$ et
-      $d\vv{F}/dydz=(1/2)\vv{j}_s\times\vv{B}(x=0^-)$.
+      superficiels : calculer leur densité $\vv{j}_S$ en utilisant la relation
+      de passge et vérifier que $\vv{j}_S=\int_0^\infty\vv{j}(x)dx$ et
+      $d\vv{F}/dydz=(1/2)\vv{j}_S\times\vv{B}(x=0^-)$.
 #+END_QUESTION
 
 2) [@2]
@@ -3752,7 +3752,53 @@ longueur.
           \frac{d^2\vv{F}}{dydz}&=\frac{B^2_\infty}{2\mu_0}\vv{u}_x=\frac{\vv{j_S}\times\vv{B}(x=0^-)}{2}
         \end{align*}
       #+END_SRC
-3) Les champs $\vv{B}_\text{int.}$, $\vv{j}$ et $\vv{A}$ sont nuls à l'intérieur
+
+#+BEGIN_QUESTION
+3) [@3] Dans la suite, on revient à la symétrie sphérique pour décrire
+   convenablement le champ $\vv{B}$ dans le vide, mais on suppose $\delta=0$
+   pour simplifier les calculs, ce qui revient à adopter le nouveau modèle
+   $(M'')$ :
+   - les champs $\vv{B}_\text{int.},\vv{j}$ et $\vv{A}$ sont nuls à l'intérieur
+     de la boule supraconductrice;
+   - la continuité de la composante normale de $\vv{B}$ impose la condition aux
+     limites $\vv{B}.\vv{n}=0$ au champ dans le vide à l'interface
+     vide-supraconducteur;
+   - le supraconducteur est parcouru par des courants superficiels $\vv{j}_S$
+     autorisant une discontinuité de la composante tangentielle du champ
+     magnétique $\vv{B}$ à sa surface;
+   - la boule supraconductrice subit des forces de Laplace surfaciques de la
+     forme $d\vv{F}/dS=1/2\vv{j}_S\times\vv{B}$ où $\vv{B}$ est le champ dans le
+     vide à sa surface.
+
+   Questions:
+   1) Écrire les équations locales dont $\vv{B}$ est solution dans le
+      vide. En déduire un problème de mécanique des fluides analogue et tracer
+      l'allure des lignes de champ de $\vv{B}$. Indiquer, sans calcul, des
+      points où $\|\vv{B}\|>B_\infty$ et des points où $\|\vv{B}\| < B_\infty$.
+   2) On cherche un potentiel scalaire $\phi$ tel que $\vv{B}=\grad\,\phi$. De
+      quelle équation $(L)$ est solution $\phi$ ? On cherche une solution de
+      $(L)$ de la forme $\phi=\alpha
+      r\cos\theta+\beta\cos\theta/r^2$. Justifier, sans calcul, par des
+      analogies électrostatiques que ces potentiels sont solutions de
+      $(L)$. Déterminer $\alpha$ et $\beta$ en fonction de $B_\infty$ et $R$.
+   3) En déduire $\vv{j}_s$. Soit $\vv{B}_S$ le champ magnétique créé par ces
+      courants au centre $O$ de la boule. Donner, sans calcul, sa direction. Une
+      portion de sphère de surface $dS=2\pi R^2\sin\theta d\theta$ est assimilée
+      à une spire circulaire parcourue par un courant infinitésimal
+      $dI$. Montrer que $dI=j_SRd\theta$ puis calculer $\vv{B}_S$ et commenter
+      le "mécanisme" de l'effet Meissner.
+   4) Calculer le moment magnétique $d\vv{\mathcal{M}}$ de la spire élémentaire
+      étudiée dans la question précédente. En déduire le moment magnétique total
+      $\vv{\mathcal{M}}$ de la boule supraconductrice, le mettre sous la forme
+      $\vv{\mathcal{M}}=\chi/\mu_0\,4\pi R^3/3\,\vv{B}_\infty$ et déduire la
+      constante $\chi$. Le milieu est-il paramagnétique ($\chi>0$) ou
+      diamagnétique $(\chi < 0)$ ?
+   5) Montrer par une analyse de symétrie des forces $d\vv{F}$ que la résultante
+      des forces de Laplace subies par la boule supraconductrice est nulle. Ce
+      résultat était prévisible sans calculs et sans expliciter les forces
+      $d\vv{F}$. Pourquoi\nbsp?
+#+END_QUESTION
+3) [@3] Les champs $\vv{B}_\text{int.}$, $\vv{j}$ et $\vv{A}$ sont nuls à l'intérieur
    de la boule supraconductrice du fait qu'on considère à présent $\delta=0$.
    1) Dans le vide, $\vv{j}=\vv{0}$ d'où $\rot\vv{B}=\vv{0}$ et $\div\vv{B}=0$
       ($\Delta\vv{B}=\vv{0}$). La répartition des lignes de champ magnétique est
