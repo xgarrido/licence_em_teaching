@@ -3174,7 +3174,7 @@ $\div\vv{E}=\frac{\rho_\text{tot.}}{\epsilon_0}$ d'où
 S'il n'y a donc pas de densité volumique de charge libre $\rho_\ell$, la densité
 volumique de charge liée est donc également nulle.
 
-* TD5 : Magnétostatique
+* COMMENT TD5 : Magnétostatique
 ** Introduction
 En magnétostatique, les équations locales deviennent
 #+BEGIN_SRC latex
@@ -4124,7 +4124,7 @@ $r\cos\theta$ et est lui aussi solution de l'équation de Laplace. La somme des
 deux solutions justifie ainsi de la forme de la solution utilisée dans cet
 exercice.
 
-* COMMENT TD6 : Milieux magnétiques
+* TD6 : Milieux magnétiques
 ** Introduction
 Dans la plupart des matériaux soumis à un champ magnétique, les charges liées se
 déplacent à l'échelle atomique faisant apparaître des boucles de courant /i.e./
@@ -4187,6 +4187,21 @@ Dans le cas de matériaux ferromagnétiques, $\chi_m\gg1$, l'aimantation n'est
 plus proportionnelle à l'excitation magnétique $\vv{M}\neq\chi_m\vv{H}$.
 
 ** Plaque magnétique
+#+BEGIN_QUESTION
+Une plaque d'épaisseur $e$ est constituée d'un matériau magnétique linéaire,
+homogène isotrope (LHI) de susceptibilité $\chi$. On supposera en plus que ce
+matériau est un isolant électrique. La plaque est placée dans un champ
+magnétique extérieur $\vv{B}_0$ uniforme. On note $\vv{B}_{0\parallel}$ et
+$\vv{B}_{0\perp}$ les composantes de $\vv{B}_0$ parallèle et perpendiculaire à
+la plaque.
+1) On suppose que la plaque s'aimante uniformément. Dans quel plan est
+   l'aimantation $\vv{M}$ ?
+2) Calculer $\vv{M},\vv{B}$ et $\vv{H}$ dans la plaque.
+3) Tracer les lignes de champ dans les cas :
+   1) d'un milieu diamagnétique.
+   2) d'un milieu paramagnétique.
+   3) d'un ferromagnétique linéaire.
+#+END_QUESTION
 1) On considère une plaque magnétique linéaire, homogène et isotrope soit
    $\vv{M}=\chi_m\vv{H}=\chi_m\frac{\vv{B}}{\mu}$. Le vecteur aimantation est
    donc un pseudo-vecteur comme le champ magnétique et appartient donc aux plans
@@ -4244,74 +4259,108 @@ plus proportionnelle à l'excitation magnétique $\vv{M}\neq\chi_m\vv{H}$.
         Les lignes de champ magnétique sont canalisées\to blindages magnétiques
 
 ** L'électro-aimant
-1) La conservation du flux magnétique, toujours vérifiée y compris au sein de
-   milieux magnétiques, impose que $\varoiint_\mathcal{S}\vv{B}.\vv{dS}=0$. Le
-   champ magnétique dans le fer étant perpendiculaire à la section, on obtient
-   #+BEGIN_SRC latex
-     \begin{align*}
-       B_1(x_1)S_\text{barreau}&=B_1(x_2)S_\text{barreau}\\
-       B_1(x_1)&=B_1(x_2)=B_1
-     \end{align*}
-   #+END_SRC
+#+BEGIN_QUESTION
+Un électro-aimant est constitué d'un barreau de ferromagnétique doux appelé fer,
+de section constante $S$, replié sur lui-même de façon que les deux extrémités
+planes soient en regard l'une de l'autre à la distance $d$. L'espace vide entre
+les extrémités est appelé entrefer. On donne la longueur de la ligne médiane du
+barreau $\ell=1.5$ m, $d=5$ cm, la perméabilité relative du fer $\mu_r=4000$. Un
+enroulement de $N$ spires est bobiné sur une partie du fer. Il est traversé par
+le courant $I. On admet que dans le fer les lignes d echamp sont parallèles à la
+ligne médiane donc à la surface du barreau et que la norme de $\vv{B}$ dans le
+fer notée $B_1$ est constante sur une section droite.
 
-   En régime linéaire, l'excitation magnétique $\vv{H}$ est proportionnelle au
-   champ magnétique $\vv{B}$. Ainsi,
-   #+BEGIN_SRC latex
-     \begin{align*}
-       \|\vv{H}\|=H_1=\frac{B_1}{\mu_r\mu_0}
-     \end{align*}
-   #+END_SRC
-2) Le champ magnétique dans l'entrefer $\vv{B}_2$ est une fonction de la
-   position $x,y,z$, son orientation restant perpendiculaire à la section du
-   barreau soit $\vv{B}_2=B_2(x,y,z)\vv{u_z}$. La conservation du flux
-   magnétique impose que
-   #+BEGIN_SRC latex
-     \begin{align*}
-       \div\vv{B}_2&=\frac{\partial B_2}{\partial z}=0\to \vv{B}_2=B_2(x,y,\cancel{z})\vv{u_z}
-     \end{align*}
-   #+END_SRC
-   Par ailleurs, la continuité de la composante normale du champ magnétique à
-   l'interface barreau/entrefer impose
-   #+BEGIN_SRC latex
-     \begin{align*}
-       B_{1\perp}&=B_{2\perp}=\text{constante est vrai pour }\forall x,y\\
-       \vv{B}_2&=B_1\vv{u_z}
-     \end{align*}
-   #+END_SRC
-   L'excitation magnétique $H_2$ dans l'entrefer est alors égale à
-   $H_2=\frac{B_2}{\mu_0}=\frac{B_1}{\mu_0}$.
-3) Le théorème d'Ampère généralisé s'écrit
-   #+BEGIN_SRC latex
-     \begin{align*}
-       \oint_\mathcal{C}\vv{H}.\vv{d\ell}&=\Upsigma I_\text{enlacé}^\text{libres}=N\times I\\
-       H_1\times\ell+H_2\times d&=NI\\
-       \frac{B_1}{\mu_r\mu_0}\ell+\frac{B_1}{\mu_0}d&=NI\\
-       B_1&=\frac{\mu_0NI}{\ell/\mu_r+d}=\frac{\mu_r\mu_0NI}{\ell+\mu_rd}\\
-       H_1&=\frac{NI}{\ell+\mu_rd}\\
-       B_2&=B_1\\
-       H_2&=\frac{\mu_rNI}{\ell+\mu_rd}
-     \end{align*}
-   #+END_SRC
-   *Application numérique :*
-   #+BEGIN_SRC latex
-     \begin{align*}
-       N&=\frac{B_2(\ell+\mu_rd)}{\mu_r\mu_0I}\\
-       &=\frac{1\times(1.5+4000\times0.05)}{4000\times4\pi\,10^{-7}\times100}\\
-       &=\frac{1\times(1.5+200)}{4000\times4\pi\,10^{-7}\times100}=\frac{10^4}{8\pi}=\unit[400]{spires}
-     \end{align*}
-   #+END_SRC
-4) Le barreau de fer est à présent saturé impliquant que
-   $B_1=\mu_0(H_1+M_S)\neq\mu H_1$. Le champ magnétique dans l'entrefer est
-   toujours égal à $B_1$ soit $B_2=B_1=\mu_0(H_1+M_S)$. En appliquant le
-   théorème d'Ampère on obtient
-   #+BEGIN_SRC latex
-     \begin{align*}
-       H_1\times\ell+H_2\times d&=NI\\
-       H_1\times\ell+(H_1+M_S)\times d&=NI\\
-       H_1&=\frac{NI-M_S\times d}{l+d}\\
-       B_2&=\mu_0H_2=\mu_0\left(\frac{NI+\ell M_S}{\ell+d}\right)=\unit[1.56]{T}
-     \end{align*}
-   #+END_SRC
+1) [@1] Montrer que $B_1$ est constante dans tout le fer. Calculer $H_1$ norme
+   de $\vv{H}$ dans le fer en fonction de $B_1$ en régime linéaire.
+#+END_QUESTION
+La conservation du flux magnétique, toujours vérifiée y compris au sein de
+milieux magnétiques, impose que $\varoiint_\mathcal{S}\vv{B}.\vv{dS}=0$. Le
+champ magnétique dans le fer étant perpendiculaire à la section, on obtient
+#+BEGIN_SRC latex
+  \begin{align*}
+    B_1(x_1)S_\text{barreau}&=B_1(x_2)S_\text{barreau}\\
+    B_1(x_1)&=B_1(x_2)=B_1
+  \end{align*}
+#+END_SRC
+
+En régime linéaire, l'excitation magnétique $\vv{H}$ est proportionnelle au
+champ magnétique $\vv{B}$. Ainsi,
+#+BEGIN_SRC latex
+  \begin{align*}
+    \|\vv{H}\|=H_1=\frac{B_1}{\mu_r\mu_0}
+  \end{align*}
+#+END_SRC
+
+#+BEGIN_QUESTION
+2) [@2] On admet aussi que les lignes de champ dans l'entrefer sont
+   perpendicualires aux faces. Montrer que le champ $B_2$ dans l'entrefer est
+   uniforme. Calculer $B_2$ en fonction de $B_1$. En déduire $H_2$ dans
+   l'entrefer.
+#+END_QUESTION
+Le champ magnétique dans l'entrefer $\vv{B}_2$ est une fonction de la
+position $x,y,z$, son orientation restant perpendiculaire à la section du
+barreau soit $\vv{B}_2=B_2(x,y,z)\vv{u_z}$. La conservation du flux
+magnétique impose que
+#+BEGIN_SRC latex
+  \begin{align*}
+    \div\vv{B}_2&=\frac{\partial B_2}{\partial z}=0\to \vv{B}_2=B_2(x,y,\cancel{z})\vv{u_z}
+  \end{align*}
+#+END_SRC
+Par ailleurs, la continuité de la composante normale du champ magnétique à
+l'interface barreau/entrefer impose
+#+BEGIN_SRC latex
+  \begin{align*}
+    B_{1\perp}&=B_{2\perp}=\text{constante est vrai pour }\forall x,y\\
+    \vv{B}_2&=B_1\vv{u_z}
+  \end{align*}
+#+END_SRC
+L'excitation magnétique $H_2$ dans l'entrefer est alors égale à
+$H_2=\frac{B_2}{\mu_0}=\frac{B_1}{\mu_0}$.
+
+#+BEGIN_QUESTION
+3) [@3] À l'aide du théorème d'Ampère, calculer $H_1,H_2,B_1$ et $B_2$ en
+   fonction de $\mu_0,\mu_r,\ell,d,N$ et $I$.
+
+   A.N: $B_2=1$ T pour $I=100$ A. Calculer $N$.
+#+END_QUESTION
+Le théorème d'Ampère généralisé s'écrit
+#+BEGIN_SRC latex
+  \begin{align*}
+    \oint_\mathcal{C}\vv{H}.\vv{d\ell}&=\Upsigma I_\text{enlacé}^\text{libres}=N\times I\\
+    H_1\times\ell+H_2\times d&=NI\\
+    \frac{B_1}{\mu_r\mu_0}\ell+\frac{B_1}{\mu_0}d&=NI\\
+    B_1&=\frac{\mu_0NI}{\ell/\mu_r+d}=\frac{\mu_r\mu_0NI}{\ell+\mu_rd}\\
+    H_1&=\frac{NI}{\ell+\mu_rd}\\
+    B_2&=B_1\\
+    H_2&=\frac{\mu_rNI}{\ell+\mu_rd}
+  \end{align*}
+#+END_SRC
+*Application numérique :*
+#+BEGIN_SRC latex
+  \begin{align*}
+    N&=\frac{B_2(\ell+\mu_rd)}{\mu_r\mu_0I}\\
+    &=\frac{1\times(1.5+4000\times0.05)}{4000\times4\pi\,10^{-7}\times100}\\
+    &=\frac{1\times(1.5+200)}{4000\times4\pi\,10^{-7}\times100}=\frac{10^4}{8\pi}=\unit[400]{spires}
+  \end{align*}
+#+END_SRC
+
+#+BEGIN_QUESTION
+4) [@4] Refaire le calcul de $B_2$ quand le fer est saturé : $M_S=1.2\,10^6$
+   A.m^{-1}. Quel champ peut-on obtenir dans l'entrefer avec le courant maximum
+   de 180 A ?
+#+END_QUESTION
+Le barreau de fer est à présent saturé impliquant que
+$B_1=\mu_0(H_1+M_S)\neq\mu H_1$. Le champ magnétique dans l'entrefer est
+toujours égal à $B_1$ soit $B_2=B_1=\mu_0(H_1+M_S)$. En appliquant le
+théorème d'Ampère on obtient
+#+BEGIN_SRC latex
+  \begin{align*}
+    H_1\times\ell+H_2\times d&=NI\\
+    H_1\times\ell+(H_1+M_S)\times d&=NI\\
+    H_1&=\frac{NI-M_S\times d}{l+d}\\
+    B_2&=\mu_0H_2=\mu_0\left(\frac{NI+\ell M_S}{\ell+d}\right)=\unit[1.56]{T}
+  \end{align*}
+#+END_SRC
 ** Aimant permanent
 On considère un matériau ferromagnétique dur ayant une aimantation $\vv{M}$
 #+BEGIN_SRC latex
