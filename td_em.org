@@ -4,7 +4,7 @@
 #+OPTIONS: ^:{} toc:2 tags:t author:t email:t split:html
 #+LATEX_CLASS: teaching-class
 
-* COMMENT TD1 : Électromagnétisme & relativité
+* TD1 : Électromagnétisme & relativité
 ** Introduction
 *Transformation de Lorentz :* $\beta=\tfrac{v}{c}$ et
  $\gamma=\tfrac{1}{\surd{1-\beta^2}}$. Si $\mathcal{R}'$ est en mouvement
@@ -958,7 +958,7 @@ $d\mathcal{E}=d\mathcal{E}_c$. On a ainsi
 $(\ddot{r}-r\dot{\theta}^2)\vv{u}_r+(2\dot{r}\dot{\theta}+r\ddot{\theta})\vv{u}_\theta$. À
 défaut de vitesse angulaire $\dot{\theta}$ initiale, on supposera donc que $\dot{\theta}=0$.
 
-* COMMENT TD2 : Équations de Maxwell dans le vide et champ électromagnétique
+* TD2 : Équations de Maxwell dans le vide et champ électromagnétique
 ** "Propriétés mécaniques" du champ électromagnétique
 :PROPERTIES:
 :CUSTOM_ID: sec::prop_champ
@@ -970,7 +970,7 @@ défaut de vitesse angulaire $\dot{\theta}$ initiale, on supposera donc que $\do
 1) [@1] Une particule ponctuelle de masse $m$, de charge $q$, de vitesse
    $\vv{v}$ est située en $M$ à l’instant $t$. Rappeler l'expression de la force
    de Lorentz s'il règne en $M$ à l'instant $t$ un champ électromagnétique (EM)
-   ($\vv{E}(M,t),\vv{B}(M,t)$). Écrire les équations de Maxwell en présence
+   (\(\vv{E}(M,t),\vv{B}(M,t)\)). Écrire les équations de Maxwell en présence
    d'une densité volumique de charge $\rho$ et d'une densité de courant $\vv{j}$.
 #+END_QUESTION
 Force de Lorentz : $\vv{F}=q\vv{E}+q\vv{v}\times\vv{B}$
@@ -1450,7 +1450,7 @@ $\vv{OM}\times\vv{F}_\text{ext.}=\vv{0}$
 $I=\|\langle\vv{R}\rangle\|$ avec $\vv{R}=\frac{\vv{E}\times\vv{B}}{\mu_0}$ et
 $\vv{B}=\frac{\vv{k}\times\vv{E}}{\omega}$
 
-* COMMENT TD3 : Électrostatique dans le vide
+* TD3 : Électrostatique dans le vide
 ** COMMENT Condensateur cylindrique
 
 #+BEGIN_QUESTION
@@ -2232,7 +2232,7 @@ $\vv{p}_1=\vv{p}_2=\vv{p}$, on obtient une force moyenne
   \end{align*}
 #+END_SRC
 
-* COMMENT TD4 : Les milieux diélectriques
+* TD4 : Les milieux diélectriques
 ** Introduction
 Historiquement, la découverte expérimentale des diélectriques est à mettre au
 profit de Michael Faraday qui nota que l'introduction d'un isolant entre les
@@ -2897,7 +2897,7 @@ Laplace[fn:6] $\Delta V_1=0$. Les conditions aux limites sont les suivantes
         \end{align*}
       #+END_SRC
    3) À la traversée de la surface conducteur-vide/diélectrique, la composante
-      normale à la surface (ici $\parallel\vv{u}_r$) du vecteur déplacement
+      normale à la surface (ici \(\parallel\vv{u}_r\)) du vecteur déplacement
       $\vv{D}$ est discontinue et égale à la densité surfacique de charge
       libre. Le champ électrique étant par ailleurs nul à l'intérieur d'un
       conducteur, nous avons en $r=R$
@@ -3174,7 +3174,7 @@ $\div\vv{E}=\frac{\rho_\text{tot.}}{\epsilon_0}$ d'où
 S'il n'y a donc pas de densité volumique de charge libre $\rho_\ell$, la densité
 volumique de charge liée est donc également nulle.
 
-* COMMENT TD5 : Magnétostatique
+* TD5 : Magnétostatique
 ** Introduction
 En magnétostatique, les équations locales deviennent
 #+BEGIN_SRC latex
@@ -3801,7 +3801,7 @@ longueur.
 3) [@3] Les champs $\vv{B}_\text{int.}$, $\vv{j}$ et $\vv{A}$ sont nuls à l'intérieur
    de la boule supraconductrice du fait qu'on considère à présent $\delta=0$.
    1) Dans le vide, $\vv{j}=\vv{0}$ d'où $\rot\vv{B}=\vv{0}$ et $\div\vv{B}=0$
-      ($\Delta\vv{B}=\vv{0}$). La répartition des lignes de champ magnétique est
+      (\(\Delta\vv{B}=\vv{0}\)). La répartition des lignes de champ magnétique est
       alors identique aux lignes du champ de vitesse d'un fluide incompressible
       s'écoulant sur la boule[fn:8]
 
@@ -4770,7 +4770,7 @@ On considère un matériau ferromagnétique dur ayant une aimantation $\vv{M}$
          $\lambda_0=4nR=\unit[521]{nm}$. La solution devient donc verte. Cette
          technique de spectrométrie permet donc de mesurer la taille $R$ des
          gouttelettes.
-* COMMENT TD7 : Rayonnement
+* TD7 : Rayonnement
 ** Rayonnement d'une antenne
 Soit un conducteur de longueur \ell parcouru par un courant périodique
 $I=I_0\cos\omega t$. La fonction d'Heaviside a pour représentation
@@ -5269,7 +5269,7 @@ $I=I_0\cos\omega t$. La fonction d'Heaviside a pour représentation
       de Higgs au LHC (pour une énergie de faisceau de 14 TeV et une masse du
       Higgs voisine de 125 GeV) est voisine de 50 picobarns soit 50 10^{-12} barn
       soit 50 10^{-40} m^{2}.
-* COMMENT TD8 : Propagation dans le vide et les milieux diélectriques
+* TD8 : Propagation dans le vide et les milieux diélectriques
 ** Effet Faraday dans un diélectrique
 
 #+BEGIN_CENTER
@@ -6026,7 +6026,7 @@ l'expression de la matrice inverse $\mathcal{A}^{-1}$ est
   \end{align*}
 #+END_SRC
 
-* COMMENT TD9 : Guides d'onde
+* TD9 : Guides d'onde
 ** Cavité cylindrique résonante
 *** Détermination des fréquences de résonance
 1) Les équations de Maxwell sont
@@ -6542,7 +6542,7 @@ l'équation de Bessel:
 ** Footnotes
 
 [fn:11] pour les fonctions de Bessel, on considère toujours \lambda > 0
-* COMMENT TD10 : Induction électromagnétique
+* TD10 : Induction électromagnétique
 ** Introduction
 En régime variable, le champ magnétique demeure toujours à flux conservatif à
 savoir que
@@ -6886,8 +6886,8 @@ prendre en compte l'effet d'un circuit vis-à-vis de l'autre soit
       courant impliquant que $\vv{J}_0$ est nécessairement orthogonal à ce
       dernier : $\vv{J_0}\parallel\vv{u_y}$. Le fait que le problème soit
       invariant par translation selon $Ox$ et $Oy$ impose que la composante
-      suivant $\vv{u}_z$ de $\vv{J}_0$ est nulle ($J_{0z}=\frac{\partial
-      B_y(z)}{\partial x}-\frac{\partial B_x(z)}{\partial y}$).
+      suivant $\vv{u}_z$ de $\vv{J}_0$ est nulle (\(J_{0z}=\frac{\partial
+      B_y(z)}{\partial x}-\frac{\partial B_x(z)}{\partial y}\)).
    2) Dans le milieu /i.e./ dans la casserole, l'invariance par translation
       selon $Ox$ et selon $Oy$ impose que $\vv{E}$ et $\vv{B}$ ne dépendent que
       de $z$. Par ailleurs, le champ électrique et magnétique sont induits par
@@ -6916,7 +6916,7 @@ prendre en compte l'effet d'un circuit vis-à-vis de l'autre soit
       négligeable. Les deux premières équations traduisent uniquement les
       symétries et invariances du problèmes /i.e./ $\div\vv{E}=\frac{\partial
       E_x}{\partial x}+\frac{\partial E_y}{\partial y}+\frac{\partial
-      E_z}{\partial z}=0$ (/idem/ pour $\div\vv{B}=0$).
+      E_z}{\partial z}=0$ (/idem/ pour \(\div\vv{B}=0\)).
    2) Les trois dernières équations conduisent au système d'équation suivante
       #+BEGIN_SRC latex
         \begin{align*}
