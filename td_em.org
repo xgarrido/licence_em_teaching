@@ -959,6 +959,169 @@ $(\ddot{r}-r\dot{\theta}^2)\vv{u}_r+(2\dot{r}\dot{\theta}+r\ddot{\theta})\vv{u}_
 défaut de vitesse angulaire $\dot{\theta}$ initiale, on supposera donc que $\dot{\theta}=0$.
 
 * TD2 : Équations de Maxwell dans le vide et champ électromagnétique
+** Énergie magnétique stockée dans une bobine
+
+#+BEGIN_QUESTION
+Une bobine de longueur \ell, de rayon $a$ et d'axe $(Oz)$ est constituée par un
+enroulement de $n$ spires circulaires jointives par unité de longueur.
+
+1) [@1] Quelle est, dans l'approximation du solénoïde infini, le champ
+   magnétique engendré par la bobine lorsqu'elle est parcourue par un courant
+   $I$ ?
+#+END_QUESTION
+
+Dans le référentiel cartésien $(O,x,y,z)$, le plan $(xOy)$ est un plan de
+symétrie de la distribution de courant. Le champ magnétique étant un
+pseudo-vecteur, sa direction est donc orthogonale à ce plan de symétrie /i.e./
+$\vv{B}\perp(xOy)\to\vv{B}\parallel\vv{u}_z$. Par ailleurs, les invariances par
+rotation d'angle \theta et par translation le long de l'axe $(Oz)$ font que le
+champ magnétique ne dépend que de la distance $r$ à l'axe de la bobine
+
+#+BEGIN_SRC latex
+  \begin{align*}
+    \vv{B} = B(r)\,\vv{u}_z
+  \end{align*}
+#+END_SRC
+
+En appliquant le théorème d'Ampère à savoir
+#+BEGIN_SRC latex
+  \begin{align*}
+    \oint_\mathcal{C}\vv{B}.\vv{d\ell} &= \mu_0\iint_{\mathcal{S/C}}\vv{j}.\vv{dS}=\mu_0I_\mathcal{C}
+  \end{align*}
+#+END_SRC
+
+sur un contour $\mathcal{C}$ rectangulaire tel que $r\leq a$, on déduit que le
+champ magnétique en tout point $r\leq a$ est égal au champ magnétique sur l'axe
+de la bobine /i.e./
+
+#+BEGIN_SRC latex
+  \begin{align*}
+    B(r)=B(r=0)=\mu_0nI
+  \end{align*}
+#+END_SRC
+
+Pour $r>a$, en considérant une spire rectangulaire par laquelle traverse un
+courant $I'=n\ell'I$, le théorème d'Ampère implique
+
+#+BEGIN_SRC latex
+  \begin{align*}
+    \left(\mu_0nI-B(r>a)\right)\times\ell'&=\mu_0I'=\mu_0n\ell'I\\
+    B(r>a)&=0
+  \end{align*}
+#+END_SRC
+
+#+BEGIN_QUESTION
+2) [@2] Quelle est l'énergie magnétique $\mathcal{E}_m$ associée à la bobine ?
+   Quelle valeur du coefficient d'auto-inductance $\mathcal{L}$ de la bobine
+   peut-on déduire ?
+#+END_QUESTION
+
+L'énergie stockée dans la bobine correspond au produit de la densité volumique
+d'énergie électromagnétique $u=\frac{\epsilon_0E^2}{2}+\frac{B^2}{2\mu_0}$ par
+le volume de la bobine $\ell\times\pi a^2$ soit
+
+#+BEGIN_SRC latex
+  \begin{align*}
+  \mathcal{E}_m&=\frac{B^2}{2\mu_0}\times\ell\times\pi a^2\\
+  &=\frac{\mu_0^{\cancel{2}}n^2I^2}{2\cancel{\mu_0}}\times\ell\times\pi a^2\\
+  &=\frac{1}{2}\mu_0n^2\ell\pi a^2\,I^2=\frac{1}{2}\mathcal{L}I^2
+  \end{align*}
+#+END_SRC
+
+Le coefficient d'auto-inductance s'écrit donc
+#+BEGIN_SRC latex
+  \begin{align*}
+    \mathcal{L}&=\mu_0n^2\pi a^2\times\ell
+  \end{align*}
+#+END_SRC
+
+#+BEGIN_QUESTION
+3) [@3] La bobine est mise en charge par un générateur de f.e.m $u_g$, de
+   résistance $R$ grande par rapport à celle de l'enroulement. Quelle est la loi
+   d'évolution du courant dans le circuit, fermé à l'instant $t=0$ ?
+#+END_QUESTION
+
+#+BEGIN_CENTER
+#+ATTR_LATEX: :width 0.5\linewidth
+[[file:figures/inductor_circuit.pdf]]
+#+END_CENTER
+
+La loi d'évolution du courant est décrite par la formule
+#+BEGIN_SRC latex
+  \begin{align*}
+    u_g-Ri(t)&=ri(t)+\mathcal{L}\frac{di(t)}{dt}
+  \end{align*}
+#+END_SRC
+
+Étant donné que $R\gg r$, le courant $i(t)$ est régi par l'équation
+différentielle du premier ordre
+#+BEGIN_SRC latex
+  \begin{align*}
+  \frac{di(t)}{dt}+\frac{R}{\mathcal{L}}\cdot i(t)-\frac{u_g}{\mathcal{L}}&=0
+  \end{align*}
+#+END_SRC
+soit un courant $i(t)=Ae^{-\frac{R}{\mathcal{L}}t} + B$. À $t=0$, le courant est
+nul d'où $A=-B$ et $i(t)=K\left(1-e^{-\frac{t}{\tau}}\right)$ avec
+$\tau=\frac{\mathcal{L}}{R}$. La détermination de la constante $K$ se fait /via/
+l'équation d'évolution du courant /i.e./
+
+#+BEGIN_SRC latex
+  \begin{align*}
+  K\cancel{\frac{1}{\tau}e^{-\frac{t}{\tau}}}+\frac{K}{\tau}\left(1-\cancel{\frac{1}{\tau}e^{-\frac{t}{\tau}}}\right)-\frac{u_g}{\mathcal{L}}&=0\\
+  \frac{K}{\tau}&=\frac{u_g}{\mathcal{L}}\\
+  K&=\frac{u_g}{R}
+  \end{align*}
+#+END_SRC
+
+soit
+#+BEGIN_SRC latex
+  \begin{align*}
+    i(t)=\frac{u_g}{R}\left(1-e^{-\frac{t}{\tau}}\right)
+  \end{align*}
+#+END_SRC
+
+#+BEGIN_QUESTION
+4) [@4] Calculer les champs magnétique et électrique engendrés par la bobine à
+   l'instant $t$ en tout point.
+#+END_QUESTION
+
+Le champ magnétique $\vv{B}(t)$ s'écrit
+#+BEGIN_SRC latex
+  \begin{align*}
+    \vv{B}(t)&=\mu_0ni(t)\vv{u}_z=\frac{\mu_0u_gn}{R}\left(1-e^{-\frac{t}{\tau}}\right)\,\vv{u}_z
+  \end{align*}
+#+END_SRC
+
+Le champ électrique se déduit de l'équation de Maxwell-Faraday sachant qu'en
+raison des invariances, le champ $\vv{E}=\vv{E}(r,t)$ est une fonction de la
+distance $r$ à l'axe de la bobine et du temps. De plus, le champ électrique est
+un vecteur appartenant aux plans de symétrie et orthogonal aux plans
+d'antisymétrie. Dans cet exercice, le champ électrique résulte de la variation
+temporelle du champ magnétique /i.e./ de l'évolution du courant au cours du
+temps. Le vecteur $\vv{E}$ est donc normal aux plans d'antisymétrie de la
+distribution de courant : le plan $(\vv{u}_r,\vv{u}_z)$ est ainsi un plan
+d'antisymétrie de la distribution de courant impliquant que
+$\vv{E}=E(r,t)\vv{u}_\theta$. L'équation de Maxwell-Faraday dans sa version
+intégrale s'écrit alors
+
+#+BEGIN_SRC latex
+  \begin{align*}
+    \rot\vv{E}&=-\tfrac{\partial\vv{B}}{\partial t}\\
+    \iint_\mathcal{S}\rot\vv{E}.\vv{dS}&=-\iint_\mathcal{S}\frac{\partial\vv{B}}{\partial t}.\vv{dS}\\
+    \oint_{\mathcal{C}/\mathcal{S}}\vv{E}.\vv{d\ell}&=-\iint_\mathcal{S}\frac{\partial\vv{B}}{\partial t}.\vv{dS}
+  \end{align*}
+#+END_SRC
+où $\mathcal{C}$ est une boucle autour de l'axe de la bobine et de rayon $r$. On
+déduit ainsi que le champ électrique est égal à
+
+#+BEGIN_SRC latex
+  \begin{align*}
+    2\pi rE(r,t)&=-\pi r^2\frac{\partial B_z}{\partial t}\\
+    \vv{E}(r,t)&=-\frac{r}{2}\times\frac{\mu_0u_gn}{R}\times\frac{1}{\tau}e^{-\frac{t}{\tau}}\,\vv{u}_\theta\\
+    &=-\frac{r}{2}\times\frac{\mu_0u_gn}{\mathcal{L}}\times e^{-\frac{t}{\tau}}\,\vv{u}_\theta
+  \end{align*}
+#+END_SRC
+
 ** "Propriétés mécaniques" du champ électromagnétique
 :PROPERTIES:
 :CUSTOM_ID: sec::prop_champ

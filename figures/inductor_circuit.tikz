@@ -1,0 +1,9 @@
+\begin{circuitikz}
+  %%\ctikzset{voltage=american}
+  \ctikzset{bipoles/resistor/width=0.5}
+  \ctikzset{bipoles/resistor/height=0.15}
+%%\ctikzset{bipoles/inductor/height=0.2}
+  \scriptsize
+  \draw (0,0) to[V, v=$u_g$] (0,2) to [R, l=$R$, i<=$i(t)$] (2,2) to[L, l=$\mathcal{L};r$] (2,0) -- (0,0);
+;
+\end{circuitikz}
