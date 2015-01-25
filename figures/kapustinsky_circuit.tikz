@@ -1,0 +1,26 @@
+\ctikzset{bipoles/capacitor/height=0.5}
+\ctikzset{bipoles/resistor/height=0.2}
+%% \ctikzset{bipoles/inductor/height=0.2}
+\ctikzset{bipoles/diode/height=0.4}
+\ctikzset{bipoles/diode/width=0.4}
+\begin{circuitikz}[scale=0.8]
+  \scriptsize
+  \draw (3.5, -6) node[npn, xscale=-1, rotate=-90] (npn1) {};
+  \draw (1.5, -4) node[pnp, rotate=90]            (pnp1) {};
+  \draw (npn1.C) -| (pnp1.B);
+  \draw (npn1.B) |- (pnp1.C);
+  \draw (0,1.6) node[anchor=north] {-V$_\text{cc}$} (0,1) node[currarrow, rotate=-90] {}
+  to [R, l_=100k$\Omega$,  -*] (0,-1)
+  to [C, l=100pF,-*]  (0,-4)
+  to [C, l_=47pF] (-2,-4);
+  \draw (0, -4) to [R, l=2.2k$\Omega$] (0, -6) -- (npn1.C);
+  \draw (0,-4) -- (pnp1.E);
+  \draw (1.5, -6) node[circ] {} node[ground] {};
+  \draw (3.5, -4) node[circ] {} to [R, l=10k$\Omega$] (5.5, -4) |- (npn1.E);
+  \draw (5.5, -4) node[circ] {} -- (5.5, -3) to [leDo, *-*]
+  (5.5, -1.5) -- (5.5, -1) -- (0,-1);
+  \draw (5.5, -3) -- (4.5, -3) to [L, l=100nH] (4.5, -1.5) -- (5.5, -1.5);
+
+  \draw (-2.2, -4) -- (-2.4, -4) -- (-2.4, -3.5) -- (-2.8, -3.5) -- (-2.8, -4) -- (-3, -4);
+  \draw (-2.6,-4) node[anchor=north] {pulse};
+\end{circuitikz}

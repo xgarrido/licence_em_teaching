@@ -1117,10 +1117,42 @@ déduit ainsi que le champ électrique est égal à
 #+BEGIN_SRC latex
   \begin{align*}
     2\pi rE(r,t)&=-\pi r^2\frac{\partial B_z}{\partial t}\\
+    \vv{E}(r,t)&=-\frac{r}{2}\mu_0n\frac{di(t)}{dt}\,\vv{u}_\theta\\
     \vv{E}(r,t)&=-\frac{r}{2}\times\frac{\mu_0u_gn}{R}\times\frac{1}{\tau}e^{-\frac{t}{\tau}}\,\vv{u}_\theta\\
     &=-\frac{r}{2}\times\frac{\mu_0u_gn}{\mathcal{L}}\times e^{-\frac{t}{\tau}}\,\vv{u}_\theta
   \end{align*}
 #+END_SRC
+
+#+BEGIN_REMARK
+Grâce aux expressions de $\vv{E}$ et $\vv{B}$, on peut comparer l'importance
+relative des densités volumiques d'énergie électrique et magnétique
+#+BEGIN_SRC latex
+  \begin{align*}
+    \frac{u_e}{u_m}&=\frac{\frac{\epsilon_0\vv{E}^2}{2}}{\frac{\vv{B}^2}{2\mu_0}}=\mu_0\epsilon_0\frac{E^2}{B^2}\\
+    &\simeq\frac{r^2}{c^2}\times\left(\frac{\frac{di}{dt}}{i}\right)^2
+  \end{align*}
+#+END_SRC
+À défaut de calculer exactement ce rapport, on peut en faire une estimation
+dimensionnelle en introduisant la durée typique $\tau=\frac{\mathcal{L}}{R}$ sur
+laquelle ont lieu les variations de $i(t)$. Ainsi,
+$\frac{di}{dt}\sim\frac{i}{\tau}$ et le rapport $\frac{u_e}{u_m}$ devient (en se
+plaçant en $r=a$ où le rapport est maximum)
+écrire
+#+BEGIN_SRC latex
+  \begin{align*}
+    \frac{u_e}{u_m}\ll1&\to\frac{a^2}{c^2}\left(\frac{\frac{i}{\tau}}{i}\right)^2\ll1\\
+    &\to a^2\ll c^2\tau^2
+  \end{align*}
+#+END_SRC
+Cette condition équivalente à écrire $a\ll c\tau$, correspond à l'approximation
+des régimes quasi-stationnaires (ARQS) : $c\tau$ représente la distance
+parcourue par une onde électromagnétique dans le vide pendant la durée \tau
+tandis que $a$ est la dimension caractéristique du solénoïde. Elle signifie qu'à
+l'échelle $a$ du solénoïde, les phénomènes propagatifs peuvent être négligés. En
+particulier, le champ magnétique s'adapte *instantanément* aux variations du
+courant comme si le régime était stationnaire d'où la validité de l'expression
+$\vv{B}=\mu_0ni(t)\vv{u}_z$ tant que $a\ll c\tau$.
+#+END_REMARK
 
 #+BEGIN_QUESTION
 5) [@5] Quelle est l'expression du flux du vecteur de Poynting à travers la
@@ -1132,10 +1164,42 @@ devient
 
 #+BEGIN_SRC latex
   \begin{align*}
-    \vv{\pi}&=\frac{\vv{E}\times\vv{B}}{\mu_0}\\
-    &=-\frac{1}{\cancel{\mu_0}}\times\frac{r}{2}\times\frac{\mu_0^{\cancel{2}}u_g^2n^2}{R^2}e^{-\frac{t}{\tau}}\left(1-e^{-\frac{t}{\tau}}\right)\,\vv{u}_r
+    \vv{\pi}(r,t)&=\frac{\vv{E}\times\vv{B}}{\mu_0}\\
+    &=-\frac{r}{2}\times\frac{\mu_0^{\cancel{2}}n^2}{\cancel{\mu_0}}\,i\frac{di}{dt}\,\vv{u}_r
   \end{align*}
 #+END_SRC
+
+Le flux du vecteur de Poynting correspond à la puissance électromagnétique
+$\mathcal{P}_\text{EM}$ sortant à travers la surface entourant le solénoïde
+$(r=a)$ soit
+#+BEGIN_SRC latex
+  \begin{align*}
+    \mathcal{P}_\text{EM}&=\int_{\theta=0}^{2\pi}\int_{z=0}^\ell\vv{\pi}(a,t).(ad\theta dz\vv{u}_r)\\
+    &=-\underbrace{\mu_0n^2\pi a^2\ell}_{\mathcal{L}} i\frac{di}{dt}=-\mathcal{L}i\frac{di}{dt}
+  \end{align*}
+#+END_SRC
+
+L'énergie apportée par rayonnement à travers la surface est l'intégrale
+temporelle de la puissance entrante /i.e./
+$\mathcal{P}_\text{EM}^\text{sortant}=-\mathcal{P}_\text{EM}^\text{entrant}$
+#+BEGIN_SRC latex
+  \begin{align*}
+    \mathcal{E}&=\int\mathcal{P}_\text{EM}^\text{entrant}(t)dt=\int\mathcal{L}i\frac{di}{dt}dt\\
+    &=\int\mathcal{L}idi=\frac{1}{2}\mathcal{L}i^2(t)
+  \end{align*}
+#+END_SRC
+ce qui correspond à l'énergie magnétique stockée dans une bobine.
+
+Ainsi, une bobine permet "d'absorber" les variations du courant électrique et
+est utilisée, par exemple, dans des dispositifs d'émission de lumière
+ultra-courte comme sur le montage ci-dessous
+
+#+BEGIN_CENTER
+#+CAPTION: *Dispositif électronique générant des impulsions lumineuses ultra-courte.*
+#+CAPTION: (J. S. Kapustinsky /et al./ (NIMA 241, 1985).
+#+ATTR_LATEX: :width 0.5\linewidth
+[[file:figures/kapustinsky_circuit.pdf]]
+#+END_CENTER
 
 ** "Propriétés mécaniques" du champ électromagnétique
 :PROPERTIES:
