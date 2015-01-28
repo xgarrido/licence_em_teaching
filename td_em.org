@@ -1162,6 +1162,52 @@ soit la relation de dispersion $(\epsilon_0\mu_0c^2=1)$
   \end{align*}
 #+END_SRC
 
+La vitesse de phase $v_\phi$ qui correspond à la vitesse de déplacement des
+plans d'onde s'écrit
+#+BEGIN_SRC latex
+  \begin{align*}
+    v_\phi=\frac{\omega}{k}=c
+  \end{align*}
+#+END_SRC
+
+La vitesse de groupe $v_g$ qui correpond à la vitesse de l'onde enveloppe est
+égale à
+#+BEGIN_SRC latex
+  \begin{align*}
+    v_g=\frac{d\omega}{dk}=c
+  \end{align*}
+#+END_SRC
+
+Pour un milieu non-dispersif tel que le vide, la vitesse de phase est donc égale
+à la vitesse de groupe toutes les deux correspondant à la vitese de la lumière
+dans le vide $c$.
+
+#+BEGIN_QUESTION
+5) [@5] Donner l'expression du champ magnétique correspondant à
+   $\vv{E}$. Représenter sur un schéma $\vv{E},\vv{B}$ et $\vv{k}$ dans le cas
+   où $\vv{E}$ est polarisé rectilignement selon une direction $\vv{u}_x$. Que
+   se passe-t-il dans le cas d'une onde polarisée circulairement\nbsp?
+#+END_QUESTION
+
+La question précédente a permis de montrer que les vecteurs
+$(\vv{k},\vv{E},\vv{B})$ formaient un trièdre direct, $\vv{E}$ et $\vv{B}$ étant
+donc transverses à la direction de propagation de l'onde. Dans le cas d'une onde
+polarisée rectilignement selon $\vv{u}_x$ /i.e./ pour laquelle le champ
+électrique $\vv{E}$ est colinéaire à $\vv{u}_x$ on obtient ainsi
+
+#+BEGIN_CENTER
+#+ATTR_LATEX: :width 0.3\linewidth
+[[file:figures/onde_polarise_rect.tikz]]
+#+END_CENTER
+
+Dans le cas d'une polarisation circulaire, le champ électrique $\vv{E}$ décrit,
+au cours du temps, un cercle autour du vecteur d'onde $\vv{k}$
+
+#+BEGIN_CENTER
+#+ATTR_LATEX: :width 0.3\linewidth
+[[file:figures/onde_polarise_circ.tikz]]
+#+END_CENTER
+
 ** COMMENT Énergie magnétique stockée dans une bobine
 
 #+BEGIN_QUESTION

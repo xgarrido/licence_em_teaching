@@ -1,0 +1,33 @@
+\begin{tikzpicture}[x={(-0.866cm,-0.5cm)}, y={(1cm,0.0cm)}, z={(0cm,1cm)}, scale=1.0,
+    %Option for nice arrows
+    >=stealth, %
+    inner sep=0pt, outer sep=2pt,%
+    axis/.style={thick,->},
+    wave/.style={thick,color=#1,smooth},
+    polaroid/.style={fill=black!50!white, opacity=0.3},
+  ]
+  % Colors
+  \definecolor{red}{RGB}{221,42,43}
+  \definecolor{green}{RGB}{132,184,24}
+  \definecolor{blue}{RGB}{0,51,153}
+  \definecolor{orange}{RGB}{192,128,64}
+  \definecolor{gray}{RGB}{107,108,110}
+
+  % Frame
+  \coordinate (O) at (0, 0, 0);
+  \draw[axis] (O) -- +(2, 0, 0) node [below] {$\overrightarrow{u}_z$};
+  \draw[axis] (O) -- +(0, 2, 0) node [right] {$\overrightarrow{u}_x$};
+  \draw[axis] (O) -- +(0, 0, 2) node [above] {$\overrightarrow{u}_y$};
+
+  \begin{scope}[red]
+    \draw[axis] (O) -- +(1, 0, 0) node [below] {$\overrightarrow{k}$};
+    \draw[axis] (O) -- +(0, 1.25, 0.75) node [right] {$\overrightarrow{E}$};
+    \draw[axis] (O) -- +(0.75, 0, 1.5) node [above] {$\overrightarrow{B}$};
+  \end{scope}
+
+  \draw[axis, red] +(0.8, 0, 1.45) arc[radius=1cm, start angle=110, end angle=130];
+  \draw[axis, red] +(0, 1.20, 0.80) arc[radius=1cm, start angle=30, end angle=50];
+  %% \draw[axis, blue] +(0.65, 0, 1.45) arc[radius=1cm, start angle=110, end angle=90];
+
+
+\end{tikzpicture}
