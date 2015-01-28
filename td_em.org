@@ -1070,6 +1070,98 @@ est la pulsation de l'onde.
     \end{align*}
   #+END_SRC
 
+#+BEGIN_QUESTION
+3) [@3] Écrire les équations de Maxwell en présence d'une densité volumique de
+   charge $\rho(\vv{r},t)$ et d'une densité volumique de courant
+   $\vv{J}(\vv{r},t)$.
+#+END_QUESTION
+
+Équations de Maxwell :
+| Maxwell-Gauss                   | $\div\vv{E}=\vv{\nabla}.\vv{E}=\tfrac{\rho}{\epsilon_0}$                    |
+| Conservation du flux magnétique | $\div\vv{B}=\vv{\nabla}.\vv{B}=0$                                           |
+| Maxwell-Faraday                 | $\rot\vv{E}=-\tfrac{\partial\vv{B}}{\partial t}$                            |
+| Maxwell-Ampère                  | $\rot\vv{B}=\mu_0\vv{J}+\mu_0\epsilon_0\tfrac{\partial\vv{E}}{\partial t}$  |
+
+
+#+BEGIN_QUESTION
+4) [@4] Trouver les solutions en ondes planes des équations de Maxwell dans le
+   vide (avec $\rho=0$ et \(\vv{J}=\vv{0}\)). Montrer que ces solutions n'existent
+   que si $k=|\vv{k}|$ est relié à \omega par une relation que l'on
+   précisera. Rappeler l'expression de la vitesse de phase et de la vitesse de
+   groupe.
+#+END_QUESTION
+
+On cherche des solutions en ondes planes, homogènes, monochromatiques /i.e./
+#+BEGIN_SRC latex
+  \begin{align*}
+  \vv{E}&=\vv{E}_0\,e^{i\left(\vv{k}.\vv{r}-\omega t\right)}\\
+  \vv{B}&=\vv{B}_0\,e^{i\left(\vv{k}'.\vv{r}-\omega' t\right)}
+  \end{align*}
+#+END_SRC
+avec, /a priori/, $\vv{k}\neq\vv{k}'$ et $\omega\neq\omega'$.
+
+Les équations de Maxwell deviennent
+#+BEGIN_SRC latex
+  \begin{align}
+    \vv{\nabla}.\vv{E}&=i\vv{k}.\vv{E}=0\\
+    \vv{\nabla}\times\vv{E}&=i\vv{k}\times\vv{E}=-\frac{\partial\vv{B}}{\partial t}=+i\omega'\vv{B}\\
+    \vv{\nabla}.\vv{B}&=i\vv{k}'.\vv{B}=0\\
+    \vv{\nabla}\times\vv{B}&=i\vv{k}'\times\vv{B}=\epsilon_0\mu_0\frac{\partial\vv{E}}{\partial t}=-\epsilon_0\mu_0i\omega\vv{E}
+  \end{align}
+#+END_SRC
+
+En considérant les expressions (1) et (3),
+#+BEGIN_SRC latex
+  \begin{align*}
+    \vv{k}.\vv{E}&=\vv{k}'.\vv{B}=0
+  \end{align*}
+#+END_SRC
+on déduit que, *dans le vide*, les champs électrique $\vv{E}$ et magnétique
+$\vv{B}$ forment des ondes planes transverses /i.e./ que les directions de ces
+champs sont orthogonales à leur direction de propagation $\vv{k}$ ou $\vv{k}'$.
+
+En développant la relation (2), on obtient
+#+BEGIN_SRC latex
+  \begin{align*}
+    i\vv{k}\times\vv{E}&=i\omega'\vv{B}\\
+    i\vv{k}\times\vv{E}_0\,e^{i\left(\vv{k}.\vv{r}-\omega t\right)}&=i\omega'\vv{B}_0\,e^{i\left(\vv{k}'.\vv{r}-\omega' t\right)}\\
+    \vv{B}_0&=\frac{\vv{k}\times\vv{E}}{\omega'}\,e^{i\left((\vv{k}-\vv{k}').\vv{r}-(\omega-\omega')t\right)}
+  \end{align*}
+#+END_SRC
+
+Comme $\vv{B}_0$ est une constante et que la relation ci-dessus demeure valable
+pour tout $r$ et tout temps $t$, on déduit donc que $\omega=\omega'$ et
+$\vv{k}=\vv{k}'$. Dans le vide, *les vecteurs $\vv{B},\vv{k}$ et $\vv{E}$
+forment dont un trièdre direct* et sont reliés entre eux par la relation
+#+BEGIN_SRC latex
+  \begin{align*}
+    \vv{B}=\frac{\vv{k}\times\vv{E}}{\omega}
+  \end{align*}
+#+END_SRC
+
+Finalement, en remplaçant l'expression du champ magnétique dans la relation (4)
+#+BEGIN_SRC latex
+  \begin{align*}
+    i\vv{k}\times\vv{B}&=-\epsilon_0\mu_0i\omega\vv{E}\\
+    \vv{k}\times\left(\vv{k}\times\vv{E}\right)&=-\epsilon_0\mu_0\omega^2\vv{E}
+  \end{align*}
+#+END_SRC
+et en appliquant la relation
+$\vv{a}\times(\vv{b}\times\vv{c})=(\vv{a}.\vv{c}).\vv{b}-(\vv{a}.\vv{b}).\vv{c}$,
+on déduit
+#+BEGIN_SRC latex
+  \begin{align*}
+    \underbrace{\left(\vv{k}.\vv{E}\right)}_{\substack{=0\\\text{car transverse}}}.\vv{k} -\left(\vv{k}.\vv{k}\right).\vv{E}&=-\epsilon_0\mu_0\omega^2\vv{E}
+  \end{align*}
+#+END_SRC
+soit la relation de dispersion $(\epsilon_0\mu_0c^2=1)$
+#+BEGIN_SRC latex
+  \begin{align*}
+    k^2&=\epsilon_0\mu_0\omega^2\\
+    k&=\frac{\omega}{c}
+  \end{align*}
+#+END_SRC
+
 ** COMMENT Énergie magnétique stockée dans une bobine
 
 #+BEGIN_QUESTION
