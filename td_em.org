@@ -959,7 +959,118 @@ $(\ddot{r}-r\dot{\theta}^2)\vv{u}_r+(2\dot{r}\dot{\theta}+r\ddot{\theta})\vv{u}_
 défaut de vitesse angulaire $\dot{\theta}$ initiale, on supposera donc que $\dot{\theta}=0$.
 
 * TD2 : Équations de Maxwell dans le vide et champ électromagnétique
-** Énergie magnétique stockée dans une bobine
+** Équations de Maxwell dans le vide
+#+BEGIN_QUESTION
+1) [@1] On considère une onde plane scalaire en notation complexe :
+   #+BEGIN_SRC latex
+     \begin{align*}
+       A(\vv{r},t)=A_0\exp\left(i\left(\vv{k}.\vv{r}-\omega t\right)\right)
+     \end{align*}
+   #+END_SRC
+
+   Exprimer son gradient et son laplacien en fonction du vecteur d'onde
+   $\vv{k}$ et de $A(\vv{r},t)$.
+#+END_QUESTION
+
+#+BEGIN_SRC latex
+  \begin{align*}
+  A(\vv{r},t)=A_0\,e^{i\left(\vv{k}.\vv{r}-\omega t\right)}=A_0\,e^{i\left(k_xx+k_yy+k_zz\right)}\,e^{-i\omega t}
+  \end{align*}
+#+END_SRC
+où $A_0$ est l'amplitude de l'onde, $\vv{k}$ est le vecteur d'onde et $\omega$
+est la pulsation de l'onde.
+
+- Gradient ::
+  #+BEGIN_SRC latex
+    \begin{align*}
+      \vv{\nabla}A&=\left|
+      \begin{array}{l}
+        \frac{\partial A}{\partial x}\\
+        \frac{\partial A}{\partial y}\\
+        \frac{\partial A}{\partial z}
+      \end{array}
+      \right.=\left|
+      \begin{array}{l}
+        ik_xA\\ik_yA\\ik_zA
+      \end{array}
+      \right.\\
+      &=i\vv{k}A(\vv{r},t)
+    \end{align*}
+  #+END_SRC
+
+- Laplacien ::
+  #+BEGIN_SRC latex
+    \begin{align*}
+      \Delta A&=\frac{\partial^2A}{\partial x^2}+\frac{\partial^2A}{\partial y^2}+\frac{\partial^2A}{\partial z^2}\\
+      &=-k_x^2A-k_y^2A-k_z^2A\\
+      &=-k^2A(\vv{r},t)
+    \end{align*}
+  #+END_SRC
+
+#+BEGIN_QUESTION
+2) [@2] On considère maintenant une onde plane vectorielle en notation
+   complexe :
+   #+BEGIN_SRC latex
+     \begin{align*}
+       \vv{E}(\vv{r},t)=\vv{E}_0\exp\left(i\left(\vv{k}.\vv{r}-\omega t\right)\right)
+     \end{align*}
+   #+END_SRC
+
+   Donner les expressions de sa divergence et de son rotationnel en fonction du
+   vecteur d'onde $\vv{k}$ et de $\vv{E}(\vv{r},t)$.
+#+END_QUESTION
+
+#+BEGIN_SRC latex
+  \begin{align*}
+    \vv{E}(\vv{r},t)&=\left|
+    \begin{array}{l}
+      E_{0x}\\E_{0y}\\E_{0z}
+    \end{array}
+    \right.\,e^{i\left(k_xx+k_yy+k_zz\right)}\,e^{-i\omega t}
+  \end{align*}
+#+END_SRC
+
+- Divergence ::
+  #+BEGIN_SRC latex
+    \begin{align*}
+      \vv{\nabla}.\vv{E}&=\frac{\partial E_x}{\partial x}+\frac{\partial E_y}{\partial y}+\frac{\partial E_z}{\partial z}\\
+      &=\left|
+      \begin{array}{l}
+        ik_x\\ik_y\\ik_z
+      \end{array}
+      \right.\cdot\left|
+      \begin{array}{l}
+        E_{0x}\\E_{0y}\\E_{0z}
+      \end{array}
+      \right.\,e^{i\left(\vv{k}.\vv{r}-\omega t\right)}\\
+      &=i\vv{k}.\vv{E}
+    \end{align*}
+  #+END_SRC
+
+- Rotationnel ::
+  #+BEGIN_SRC latex
+    \begin{align*}
+      \vv{\nabla}\times\vv{E}&=\left|
+      \begin{array}{l}
+        \frac{\partial}{\partial x}\\\frac{\partial}{\partial y}\\\frac{\partial}{\partial z}
+      \end{array}
+      \right.\times\left|
+      \begin{array}{l}
+        E_{0x}\\E_{0y}\\E_{0z}
+      \end{array}
+      \right.\,e^{i\left(\vv{k}.\vv{r}-\omega t\right)}\\
+      &=\left|
+      \begin{array}{l}
+        ik_yE_{0z}-ik_zE_{0y}\\
+        ik_zE_{0x}-ik_xE_{0z}\\
+        ik_xE_{0y}-ik_yE_{0x}
+      \end{array}
+      \right.\,e^{i\left(\vv{k}.\vv{r}-\omega t\right)}\\
+      &=i\vv{k}\times\vv{E}
+    \end{align*}
+  #+END_SRC
+
+** COMMENT Énergie magnétique stockée dans une bobine
 
 #+BEGIN_QUESTION
 Une bobine de longueur \ell, de rayon $a$ et d'axe $(Oz)$ est constituée par un
@@ -1201,7 +1312,7 @@ ultra-courte comme sur le montage ci-dessous
 [[file:figures/kapustinsky_circuit.pdf]]
 #+END_CENTER
 
-** "Propriétés mécaniques" du champ électromagnétique
+** COMMENT "Propriétés mécaniques" du champ électromagnétique
 :PROPERTIES:
 :CUSTOM_ID: sec::prop_champ
 :END:
@@ -1566,7 +1677,7 @@ Le moment cinétique de photons polarisé circulairement droite est alors
 $-\hbar$, et $\sigma_z=0$ pour une polarisation rectiligne (rectiligne \equiv
 circulaire droite + circulaire gauche)
 
-** Interprétation corpusculaire de la pression de radiation
+** COMMENT Interprétation corpusculaire de la pression de radiation
 
 #+BEGIN_CENTER
 #+ATTR_LATEX: :width 0.5\linewidth
