@@ -6,7 +6,7 @@
 # #+LATEX_CLASS_OPTIONS: [novc]
 
 * COMMENT TD1 : Équations de Maxwell dans le vide et champ électromagnétique
-** Équations de Maxwell dans le vide
+** Équations de Maxwell dans le vide                                    :DM:
 #+BEGIN_QUESTION
 1) [@1] On considère une onde plane scalaire en notation complexe :
    #+BEGIN_SRC latex
@@ -907,7 +907,7 @@ Le moment cinétique de photons polarisé circulairement droite est alors
 $-\hbar$, et $\sigma_z=0$ pour une polarisation rectiligne (rectiligne \equiv
 circulaire droite + circulaire gauche)
 
-** Interprétation corpusculaire de la pression de radiation
+** Interprétation corpusculaire de la pression de radiation             :DM:
 
 #+BEGIN_CENTER
 #+ATTR_LATEX: :width 0.5\linewidth
@@ -1494,7 +1494,7 @@ cette charge.
           \vv{F}_2&=-\vv{F}_1=-\frac{\pi R^2\,\sigma_0^2}{4\epsilon_0}\vv{u}_z
         \end{align*}
       #+END_SRC
-** Forces de Van der Waals                                              :DM:
+** COMMENT Forces de Van der Waals                                              :DM:
 *** Modèle de l'électron élastiquement lié : moment dipolaire induit d'un atome
 
 #+BEGIN_CENTER
@@ -1816,7 +1816,7 @@ $\vv{p}_1=\vv{p}_2=\vv{p}$, on obtient une force moyenne
   \end{align*}
 #+END_SRC
 
-* COMMENT TD3 : Les milieux diélectriques
+* TD3 : Les milieux diélectriques
 ** Introduction
 Historiquement, la découverte expérimentale des diélectriques est à mettre au
 profit de Michael Faraday qui nota que l'introduction d'un isolant entre les
@@ -2000,7 +2000,7 @@ $\vv{P}.\vv{u}_r=P\cos\theta$ on obtient
 #+END_SRC
 d'où $\vv{p}=\frac{4}{3}\pi R^3\vv{P}$, on retrouve donc bien $\vv{P}=\frac{d\vv{p}}{d\tau}$.
 
-** Plaque diélectrique
+** COMMENT Plaque diélectrique
 *** Le condensateur plan
 #+BEGIN_CENTER
 #+ATTR_LATEX: :width 0.75\linewidth
@@ -2423,7 +2423,7 @@ Ainsi la variation d'énergie stockée correspond à
 #+ATTR_LATEX: :width 0.7\linewidth
 [[./figures/coupe_condensateur_dielectrique_force2.pdf]]
 #+END_CENTER
-** Boule chargée flottant sur un diélectrique
+** COMMENT Boule chargée flottant sur un diélectrique
 
 #+BEGIN_QUESTION
 On considère une boule conductrice de centre $O$, de masse $m$, flottant à la
@@ -2586,7 +2586,7 @@ En projetant, le PFD selon $\vv{u}_z$, on obtient finalement l'équation suivant
   \end{align*}
 #+END_SRC
 
-** Lame piézoélectrique
+** COMMENT Lame piézoélectrique
 
 #+BEGIN_QUESTION
 Le phénomène de piézoélectricité consiste en l'apparition d'une polarisation
