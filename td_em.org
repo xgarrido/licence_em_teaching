@@ -1121,9 +1121,9 @@ cette charge.
       par une deuxième charge $q'$ sur l'axe $Oz$, en plus de la charge $q$
       initiale. Que vaut $V(\infty)$ ? Déterminer la valeur et la position de
       $q'$.
-   3) Rappeler l'équation de Poisson. Quelles sont les conditions aux milites
+   3) Rappeler l'équation de Poisson. Quelles sont les conditions aux limites
       imposées par la boule ? En déduire que pour $r > R$, le champ créé par la
-      chareg $q$ en présence de la boule est le même que celui créé par les
+      charge $q$ en présence de la boule est le même que celui créé par les
       charges $q$ et $q'$.
    4) Calculer $\vv{E}$ au voisinage de la sphère. Rappeler les conditions de
       continuité à la traversée d'une surface chargée. En déduire la densité
@@ -1275,7 +1275,7 @@ cette charge.
           \sigma&=\frac{qR}{4\pi}\left(1-\frac{PO^2}{R^2}\right)\times\frac{1}{PM^3}
         \end{align*}
       #+END_SRC
-      La charge totale $Q_\text{tot.}$ de la boule conductrice est donc
+   5) La charge totale $Q_\text{tot.}$ de la boule conductrice est donc
       #+BEGIN_SRC latex
         \begin{align*}
           Q_\text{tot.}&=\int_0^{2\pi}d\phi\int_0^\pi d\theta\times R^2\sin\theta\times\sigma(\theta)\\
@@ -1305,7 +1305,7 @@ cette charge.
       Le théorème de Gauss impose que $Q_\text{tot.}$ soit égal à la somme des
       charges à l'intérieur de la sphère. La charge fictive $q'$ est par
       construction à l'intérieur de la sphère d'où $Q_\text{tot.}=q'$.
-   5) Calcul de la force exercée par la charge $q$ sur $q'$ \equiv à
+   6) Calcul de la force exercée par la charge $q$ sur $q'$ \equiv à
       calculer la force exercée par la charge $q$ sur la boule conductrice.
       #+BEGIN_SRC latex
         \begin{align*}
