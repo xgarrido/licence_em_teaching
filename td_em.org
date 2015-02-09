@@ -1154,7 +1154,6 @@ cette charge.
           \vv{E}(M)=E_r(r,z)\vv{u}_r+E_z(r,z)\vv{u}_z
         \end{align*}
       #+END_SRC
-
    2) En raison de la symétrie du problème, une charge fictive $q'$ est
       nécessairement sur l'axe $Oz$. Le potentiel alors généré en tout point $M$
       de l'espace est la somme des potentiels induits par chaque particule soit
@@ -1227,7 +1226,6 @@ cette charge.
 
       #+ATTR_LATEX: :align p{0.35\textwidth}p{0.05\textwidth}p{0.35\textwidth}
       | [[./figures/boule_conductrice0.pdf]] | @@latex:\vspace{-3.75cm}\LARGE{}$\bm{\equiv}$@@  | [[./figures/boule_conductrice1.pdf]] |
-
    4) Calcul du champ $\vv{E}(r\geq R)$ : combinaison des champs coulombiens de
       chacune des charges $q$ et $q'$
       #+BEGIN_SRC latex
@@ -1312,16 +1310,16 @@ cette charge.
           \vv{F}_{q\to q'}&=\vv{F}_{q\to\text{boule}}\\
           &=q'\vv{E}_{q\to q'}\\
           &=\frac{q' q}{4\pi\epsilon_0}\times\frac{\vv{PP'}}{PP^{\prime3}}=\frac{q' q}{4\pi\epsilon_0}\times\frac{-\vv{u}_z}{PP^{\prime2}}\\
-          &\text{avec }PP^{\prime2}=PO^2+OP^{\prime2}=PO^2+\frac{R^4}{PO^2}=\frac{PO^4+R^4}{PO^2}\\
-          \vv{F}_{q\to\text{boule}}&=-\frac{qq'}{4\pi\epsilon_0}\times\frac{PO^2}{PO^4+R^4}\vv{u}_z\\
-          &=\frac{q^2}{4\pi\epsilon_0}\frac{R\,PO}{PO^4+R^4}\vv{u}_z
+          &\text{avec }PP^{\prime2}=\left(PO-OP'\right)^2=\left(PO-\frac{R^2}{PO}\right)^2=\frac{(PO^2-R^2)^2}{PO^2}\\
+          \vv{F}_{q\to\text{boule}}&=-\frac{qq'}{4\pi\epsilon_0}\times\frac{PO^2}{\left((PO^2-R^2\right)^2}\vv{u}_z\\
+          &=\frac{q^2}{4\pi\epsilon_0}\frac{R\,PO}{\left(PO^2-R^2\right)^2}\vv{u}_z
         \end{align*}
       #+END_SRC
 
 #+BEGIN_QUESTION
 2) [@2] La boule conductrice est maintenant au potentiel $V_0\neq0$
    1) En utilisant le principe de superposition, montrer qu'on peut vérifier les
-      nouvelles condictions aux limites en ajoutant une troisième charge
+      nouvelles conditions aux limites en ajoutant une troisième charge
       $q''$. Déterminer la position de $q''$ et sa valeur.
    2) Calculer la charge totale $Q$ portée par la boule conductrice. Sachant que
       $Q=0$, déterminer $V_0$ en présence de la charge $q$.
@@ -1362,10 +1360,10 @@ cette charge.
       uniforme au voisinage de la boule ?
    3) En déduire le champ créé à l'intérieur d'une sphère de rayon $R$, portant
       la densité surfacique de charge $\sigma_0\cos\theta$.
-   4) Enfin on suppose que la boule est coupée en dexu par le plan $xOy$. Elle
+   4) Enfin on suppose que la boule est coupée en deux par le plan $xOy$. Elle
       est toujours soumise à un champ électrostatique uniforme. Calculer la
-      force qui s'exerce qui s'exerce sur chacun des hémisphères en utilisant la
-      pression électrostatique.
+      force qui s'exerce sur chacun des hémisphères en utilisant la pression
+      électrostatique.
 #+END_QUESTION
 3) [@3] Boule conductrice dans un champ électrostatique uniforme
    #+BEGIN_CENTER
