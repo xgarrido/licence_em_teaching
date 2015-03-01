@@ -3,7 +3,7 @@
 #+EMAIL:  xavier.garrido@u-psud.fr
 #+OPTIONS: ^:{} toc:2 tags:t author:t email:t split:html
 #+LATEX_CLASS: teaching-class
-# #+LATEX_CLASS_OPTIONS: [novc]
+#+LATEX_CLASS_OPTIONS: [novc]
 
 * COMMENT TD1 : Équations de Maxwell dans le vide et champ électromagnétique
 ** Équations de Maxwell dans le vide                                    :DM:
@@ -1034,7 +1034,7 @@ Poynting $I=\|\langle\vv{R}\rangle\|$ avec
 $\vv{R}=\frac{\vv{E}\times\vv{B}}{\mu_0}$ et
 $\vv{B}=\frac{\vv{k}\times\vv{E}}{\omega}$
 
-* TD2 : Électrostatique dans le vide
+* COMMENT TD2 : Électrostatique dans le vide
 ** COMMENT Condensateur cylindrique
 
 #+BEGIN_QUESTION
@@ -1099,7 +1099,7 @@ $\vv{E}=-\grad\,V=-\tfrac{dV}{dr}\vv{u}_r$. Soit
   \end{align*}
 #+END_SRC
 
-** Boule conductrice en présence d'une charge ponctuelle : méthode des images
+** COMMENT Boule conductrice en présence d'une charge ponctuelle : méthode des images
 #+BEGIN_CENTER
 #+ATTR_LATEX: :width 0.5\linewidth
 [[./figures/boule_conductrice.pdf]]
@@ -1593,7 +1593,7 @@ nuage électronique ne peut contrebalancer le champ externe qui "dissocie"
 
 #+BEGIN_QUESTION
 4) [@4] Calculer le moment dipolaire $\vv{p}$ de l'atome en fonction de
-   $\vv{r}$, puis en fonction de $\vv{E}_\text{ext.}$. que vaut $\vv{p}$ lorsque
+   $\vv{r}$, puis en fonction de $\vv{E}_\text{ext.}$. Que vaut $\vv{p}$ lorsque
    $\vv{E}_\text{ext.}=\vv{0}$ ? Ce moment dipolaire qui apparaît sous l'effet
    du champ $\vv{E}_\text{ext.}$ est appelé moment dipolaire induit. On définit
    le coefficient $\alpha$ de la manière suivante :
@@ -1638,7 +1638,7 @@ molécules ou les atomes présentent des moments dipolaires, soit permanents, so
 induits.
 
 Dans ce qui suit, un dipôle de moment dipolaire $\vv{p}_1$ est assimilé à un
-ensemble de deux charges ponctuelles ooposées, de valeur $+q_1$ et $-q_1$
+ensemble de deux charges ponctuelles opposées, de valeur $+q_1$ et $-q_1$
 séparées par une distance $2a$ supposée petite par rapport à la distance entre
 deux dipôles. On appelle position du dipôle la position du point à mi-distance
 des deux charges.
@@ -1702,15 +1702,15 @@ force est alors répulsive.
 
 #+BEGIN_QUESTION
 3) [@3] *Force de Keesom : interaction entre deux molécules présentant chacune
-   un moment dipolaires permanent.*
+   un moment dipolaire permanent.*
 
-   Nous nous placçons dans un modèle simple dans lequel le moment dipolaire
+   Nous nous plaçons dans un modèle simple dans lequel le moment dipolaire
    $\vv{p}_1$ de la première molécule est constant et aligné avec l'axe $Oz$. On
    considère que le moment dipolaire $\vv{p}_2$ de la seconde molécule est
    toujours parallèle à l'axe $Oz$ et ne peut prendre que deux positions :
    $p_2\vv{u}_z$ et $-p_2\vv{u}_z$. La fraction du temps passé dans chacune des
    positions est égale à $A\exp\left(+\vv{p}_2.\vv{E}/(k_BT)\right)$, où
-   $\vv{E}$ représente le champ que le prmeier dipôle exerce sur le second, $T$
+   $\vv{E}$ représente le champ que le premier dipôle exerce sur le second, $T$
    la température et $k_B$ la constante de Boltzmann. Calculer la valeur moyenne
    dans le temps de la force entre deux dipôles. On supposera que $p_2E\ll
    k_BT$.
@@ -1757,11 +1757,11 @@ Le moment dipolaire induit par le champ électrique du premier dipôle est
 #+BEGIN_SRC latex
   \begin{align*}
     \vv{p}_2&=\alpha\epsilon_0\,\vv{E}_\text{ext.}\text{ où }\vv{E}_\text{ext.}=\frac{\vv{p}_1}{2\pi\epsilon_0\,z^3}\\
-    &=\frac{\alpha\vv{p}_1}{2\pi\,z^3}\,\vv{u}_z
+    &=\frac{\alpha p_1}{2\pi\,z^3}\,\vv{u}_z
   \end{align*}
 #+END_SRC
 
-La force exercée par la première moléculé est la même que précédemment à
+La force exercée par la première molécule est la même que précédemment à
 savoir $\vv{F}=-\frac{3p_1p_2}{2\pi\epsilon_0\,z^4}\,\vv{u}_z$ avec
 $\vv{p}_2=\frac{\alpha\vv{p}_1}{2\pi\,z^3}$ soit
 #+BEGIN_SRC latex
@@ -1782,7 +1782,7 @@ $\vv{p}_2=\frac{\alpha\vv{p}_1}{2\pi\,z^3}$ soit
    attractive. On suppose que ces fluctuations se font parallèlement à l'axe
    $Oz$. On note $\langle p^2\rangle$ la moyenne temporelle de
    $\|\vv{p}\|^2$. Calculer la force moyenne due aux fluctuations du moment
-   dipolaire de la première molécule, et celle due aux fluctuation de la seconde
+   dipolaire de la première molécule, et celle due aux fluctuations de la seconde
    molécule. On supposera que le moment dipolaire induit est toujours petit
    devant le moment dipolaire de fluctuation. En déduire la force totale entre
    les deux molécules en fonction $\langle p^2\rangle,\alpha,z$ et $\epsilon_0$.
@@ -2070,11 +2070,11 @@ L'énergie stockée dans le condensateur est bien d'origine électrostatique.
 *** Plaque diélectrique infinie
 
 #+BEGIN_QUESTION
-1) [@1] Une surface élémentaire $dS$ de normale $\vv{n}$ porte une desnité surfacique
-   de dipôles $\vv{P}_S=P_S\vv{n}$. Exprimer le potentiel électrique $dV(M)$
-   créé au point $M$ en fonction de l'angle solide algébrique $d\Omega$ de la
-   surface vue du point $M$ (à l'infini le potentiel est nul). En déduire le
-   potentiel crée par un plan infini de normale $\vv{n}$ en tout point de
+1) [@1] Une surface élémentaire $dS$ de normale $\vv{n}$ porte une densité
+   surfacique de dipôles $\vv{P}_S=P_S\vv{n}$. Exprimer le potentiel électrique
+   $dV(M)$ créé au point $M$ en fonction de l'angle solide algébrique $d\Omega$
+   de la surface vue du point $M$ (à l'infini le potentiel est nul). En déduire
+   le potentiel crée par un plan infini de normale $\vv{n}$ en tout point de
    l'espace, portant une densité surfacique de dipôles uniforme colinéaire à
    $\vv{n}$. Calculer le champ électrique $\vv{E}(M)$ en tout point.
 #+END_QUESTION
@@ -2145,44 +2145,45 @@ En fonction de la position $z$ du point $M$, le potentiel électrique est
       dV(z)=\frac{dP_S}{2\epsilon_0}=\frac{P(z')dz'}{2\epsilon_0}
     \end{align*}
   #+END_SRC
-  - si $z<z'$
-    #+BEGIN_SRC latex
-      \begin{align*}
-        dV(z)=-\frac{dP_S}{2\epsilon_0}=-\frac{P(z')dz'}{2\epsilon_0}
-      \end{align*}
-    #+END_SRC
 
-    On distingue par suite 3 situations
-    - pour tout point M tel que $z<0$
-      #+BEGIN_SRC latex
-        \begin{align*}
-          V_d(M)=-\underbrace{\int_0^b\frac{P(z')dz'}{2\epsilon_0}}_{\text{indépendant de $z$}}=\text{constante}\to\vv{E}=\vv{0}
-        \end{align*}
-      #+END_SRC
-    - pour tout point M tel que $z>b$
-      #+BEGIN_SRC latex
+- si $z<z'$
+  #+BEGIN_SRC latex
+    \begin{align*}
+      dV(z)=-\frac{dP_S}{2\epsilon_0}=-\frac{P(z')dz'}{2\epsilon_0}
+    \end{align*}
+  #+END_SRC
+
+On distingue par suite 3 situations
+- pour tout point M tel que $z<0$
+  #+BEGIN_SRC latex
+    \begin{align*}
+      V_d(M)=-\underbrace{\int_0^b\frac{P(z')dz'}{2\epsilon_0}}_{\text{indépendant de $z$}}=\text{constante}\to\vv{E}=\vv{0}
+    \end{align*}
+  #+END_SRC
+- pour tout point M tel que $z>b$
+  #+BEGIN_SRC latex
         \begin{align*}
           V_d(M)=+\underbrace{\int_0^b\frac{P(z')dz'}{2\epsilon_0}}_{\text{indépendant de $z$}}=\text{constante}\to\vv{E}=\vv{0}
         \end{align*}
-      #+END_SRC
-    - pour tout point M tel que $0<z<b$
-      #+BEGIN_SRC latex
-        \begin{align*}
-          V_d(M)&=\frac{1}{2\epsilon_0}\left(\int_0^zP(z')dz'-\int_z^bP(z')dz'\right)\\
-          &=\frac{1}{2\epsilon_0}\left(\int_0^zP(z')dz'+\int_b^zP(z')dz'\right)\\
-          &=\frac{1}{2\epsilon_0}\left(\int_0^zP(z')dz'+\int_b^0P(z')dz'+\int_0^zP(z')dz'\right)\\
-          &=\frac{1}{2\epsilon_0}\left(2\int_0^zP(z')dz'-\underbrace{\int_0^bP(z')dz'}_{\text{constante}}\right)\\
-          V_d(M)&=\text{constante} + \int_0^z\frac{P(z')}{\epsilon_0}dz'
-        \end{align*}
-      #+END_SRC
-      Le champ électrique $\vv{E}_d(M)$ s'écrit
-      #+BEGIN_SRC latex
-        \begin{align*}
-          \vv{E}_d(M)=-\grad V_d(M)&=-\frac{dV_d(M)}{dz}\vv{u}_z\\
-          &=-\frac{1}{\epsilon_0}\frac{d}{dz}\int_0^zP(z')dz'\vv{u}_z\\
-          &=-\frac{P(z)\vv{u}_z}{\epsilon_0}=-\frac{\vv{P}(M)}{\epsilon_0}=\text{champ dépolarisant}
-        \end{align*}
-      #+END_SRC
+  #+END_SRC
+- pour tout point M tel que $0<z<b$
+  #+BEGIN_SRC latex
+    \begin{align*}
+      V_d(M)&=\frac{1}{2\epsilon_0}\left(\int_0^zP(z')dz'-\int_z^bP(z')dz'\right)\\
+      &=\frac{1}{2\epsilon_0}\left(\int_0^zP(z')dz'+\int_b^zP(z')dz'\right)\\
+      &=\frac{1}{2\epsilon_0}\left(\int_0^zP(z')dz'+\int_b^0P(z')dz'+\int_0^zP(z')dz'\right)\\
+      &=\frac{1}{2\epsilon_0}\left(2\int_0^zP(z')dz'-\underbrace{\int_0^bP(z')dz'}_{\text{constante}}\right)\\
+      V_d(M)&=\text{constante} + \int_0^z\frac{P(z')}{\epsilon_0}dz'
+    \end{align*}
+  #+END_SRC
+  Le champ électrique $\vv{E}_d(M)$ s'écrit
+  #+BEGIN_SRC latex
+    \begin{align*}
+      \vv{E}_d(M)=-\grad V_d(M)&=-\frac{dV_d(M)}{dz}\vv{u}_z\\
+      &=-\frac{1}{\epsilon_0}\frac{d}{dz}\int_0^zP(z')dz'\vv{u}_z\\
+      &=-\frac{P(z)\vv{u}_z}{\epsilon_0}=-\frac{\vv{P}(M)}{\epsilon_0}=\text{champ dépolarisant}
+    \end{align*}
+  #+END_SRC
 
 *** Condensateur diélectrique à potentiel constant
 #+BEGIN_CENTER
@@ -2205,7 +2206,7 @@ est plan de symétrie de la distribution de charge. Les invariances du
 problèmes restent également les mêmes d'où $\vv{E}(M)=E(z)\vv{u}_z$.
 
 #+BEGIN_QUESTION
-2) [@2] Soit $\vv{E}_1$ le champ léectrique créé par les charges des armatures
+2) [@2] Soit $\vv{E}_1$ le champ électrique créé par les charges des armatures
    seules. Appliquer le principe de superposition pour calculer le champ
    $\vv{E}$ total en fonction de $\vv{E}_1$. Montrer que :
    - tous les champs sont uniformes.
@@ -2244,9 +2245,9 @@ Le potentiel électrique $V_1$ est égal à
 #+BEGIN_SRC latex
   \begin{align*}
     \vv{E}&=-\grad V_1\rightarrow V_1=-\int_0^aE(z)dz\\
-    V_1&=-\int_0^c-E_1dz-\int_c^{b+c}-\frac{E_1}{1+\chi_e}dz-\int_{b+c}^a-E_1dz\\
-    &=\cancel{E_1\times c}+\frac{E_1}{1+\chi_e}\times b+E_1\times a-E_1\times(b+\cancel{c})\\
-    &=E_1\left(a+\frac{b}{1+\chi_e}-b\right)=E_1\left(a-\frac{b\chi_e}{1+\chi_e}\right)
+    V_1&=-\int_0^cE_1dz-\int_c^{b+c}\frac{E_1}{1+\chi_e}dz-\int_{b+c}^aE_1dz\\
+    &=-\cancel{E_1\times c}-\frac{E_1}{1+\chi_e}\times b-E_1\times a+E_1\times(b+\cancel{c})\\
+    &=-E_1\left(a+\frac{b}{1+\chi_e}-b\right)=-E_1\left(a-\frac{b\chi_e}{1+\chi_e}\right)
   \end{align*}
 #+END_SRC
 La charge des armatures est égale

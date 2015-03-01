@@ -14,6 +14,7 @@
   \clip (-5.5,-1) rectangle (3,1);
 
   \coordinate[mark coordinate] (O) at (0,0);
+  \coordinate[mark coordinate] (OO) at (-4,0);
   \coordinate[mark coordinate] (P) at (1,0);
   \coordinate[mark coordinate] (N) at (-1,0);
   \coordinate[mark coordinate] (P1) at (-4.5,0);
@@ -27,6 +28,7 @@
   \draw (N) node[above] {$-q_2$};
   \draw (P1) node[above] {$-q_1$};
   \draw (N1) node[above] {$+q_1$};
-  \draw (O) node[above] {$\mathbf{O}$};
+  \draw (O) node[above] {$\mathbf{M}$};
+  \draw (OO) node[above] {$\mathbf{O}$};
 
 \end{tikzpicture}
