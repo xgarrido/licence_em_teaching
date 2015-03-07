@@ -1034,8 +1034,8 @@ Poynting $I=\|\langle\vv{R}\rangle\|$ avec
 $\vv{R}=\frac{\vv{E}\times\vv{B}}{\mu_0}$ et
 $\vv{B}=\frac{\vv{k}\times\vv{E}}{\omega}$
 
-* COMMENT TD2 : Électrostatique dans le vide
-** COMMENT Condensateur cylindrique
+* TD2 : Électrostatique dans le vide
+** Condensateur cylindrique
 
 #+BEGIN_QUESTION
 On considère un condensateur constitué par un cylindre métallique de rayon $a$
@@ -1099,7 +1099,7 @@ $\vv{E}=-\grad\,V=-\tfrac{dV}{dr}\vv{u}_r$. Soit
   \end{align*}
 #+END_SRC
 
-** COMMENT Boule conductrice en présence d'une charge ponctuelle : méthode des images
+** Boule conductrice en présence d'une charge ponctuelle : méthode des images
 #+BEGIN_CENTER
 #+ATTR_LATEX: :width 0.5\linewidth
 [[./figures/boule_conductrice.pdf]]
@@ -1814,7 +1814,7 @@ $\vv{p}_1=\vv{p}_2=\vv{p}$, on obtient une force moyenne
   \end{align*}
 #+END_SRC
 
-* TD3 : Les milieux diélectriques
+* COMMENT TD3 : Les milieux diélectriques
 ** Introduction
 Historiquement, la découverte expérimentale des diélectriques est à mettre au
 profit de Michael Faraday qui nota que l'introduction d'un isolant entre les
