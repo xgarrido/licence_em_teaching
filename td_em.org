@@ -1034,7 +1034,7 @@ Poynting $I=\|\langle\vv{R}\rangle\|$ avec
 $\vv{R}=\frac{\vv{E}\times\vv{B}}{\mu_0}$ et
 $\vv{B}=\frac{\vv{k}\times\vv{E}}{\omega}$
 
-* TD2 : Électrostatique dans le vide
+* COMMENT TD2 : Électrostatique dans le vide
 ** Condensateur cylindrique
 
 #+BEGIN_QUESTION
@@ -2757,7 +2757,7 @@ $\div\vv{E}=\frac{\rho_\text{tot.}}{\epsilon_0}$ d'où
 S'il n'y a donc pas de densité volumique de charge libre $\rho_\ell$, la densité
 volumique de charge liée est donc également nulle.
 
-* COMMENT TD4 : Magnétostatique
+* TD4 : Magnétostatique
 ** Introduction
 En magnétostatique, les équations locales deviennent
 #+BEGIN_SRC latex
