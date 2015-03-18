@@ -2927,8 +2927,8 @@ confirmant la parité de $B_z$ avec $\vv{B}(z)=\vv{B}(-z)$.
 - en $z=L/2$,
   #+BEGIN_SRC latex
     \begin{align*}
-      \vv{B}(z=L/2)&=\frac{\mu_0nI}{2}\times\frac{L/2}{\surd R^2+L^2/4}\,\vv{u}_z\\
-      &\simeq\frac{\mu_0nI}{2}\times\frac{\cancel{L/2}}{\cancel{L/2}}\,\vv{u}_z=\frac{\vv{B}(O)}{2}
+      \vv{B}(z=L/2)&=\frac{\mu_0nI}{2}\times\frac{L}{\surd R^2+L^2}\,\vv{u}_z\\
+      &\simeq\frac{\mu_0nI}{2}\times\frac{\cancel{L}}{\cancel{L}}\,\vv{u}_z=\frac{\vv{B}(O)}{2}
     \end{align*}
   #+END_SRC
 
@@ -3113,7 +3113,7 @@ de $\vv{B}$ et $\delta$ un paramètre caractéristique du matériau. On se place
 régime stationnaire.
 
 1) [@1] Montrer que $\vv{A}$ doit satisfaire à la condition
-   $\div\vv{A}$. L'unicité de $\vv{A}$ justifie alors le caractère non
+   $\div\vv{A}=0$. L'unicité de $\vv{A}$ justifie alors le caractère non
    arbitraire de la loi de London. Écrire les équations de la Magnétostatique
    dans un supraconducteur. En déduire l'équation aux dérivées partielles dont
    est solution $\vv{B}$ et la dimension de $\delta$.
@@ -3161,7 +3161,7 @@ longueur.
 2) [@2] La symétrie sphérique étant peu propice aux solutions simples, on
    remplace d'abord le problème réel par le modèle $(M')$ suivant : la sphère
    supraconductrice est assimilée à un demi-espace $x>0$; l'espace vide entre le
-   solénoïde et la pshère est remplacé par le demi-espace vide $x < 0$; le
+   solénoïde et la sphère est remplacée par le demi-espace vide $x < 0$; le
    solénoïde est oublié et impose uniquement la condition aux limites
    $\vv{B}(x=-\infty)=B_\infty\vv{u}_z$.
    1) Montrer que $\vv{B}$ est uniforme dans le vide. Déterminer $\vv{B}$ dans
@@ -3257,7 +3257,7 @@ longueur.
       magnétique pénètre ainsi de quelques \delta dans le supraconducteur \to
       effet Meissner.
    2) La densité volumique de courant demeure nulle dans le vide /i.e./
-      $\vv{j}(x<0)=0$. Dans le supraconducteur, $\vv{j}$ s'écrit
+      $\vv{j}(x<0)=\vv{0}$. Dans le supraconducteur, $\vv{j}$ s'écrit
       #+BEGIN_SRC latex
         \begin{align*}
           \vv{j}(x>0)&=\frac{1}{\mu_0}\,\rot\vv{B}(x>0)\\
@@ -3309,14 +3309,14 @@ longueur.
    4) $\delta\sim0.1\,\mu\text{m}$ : dans l'hypothèse où $\delta\ll R$ seuls les
       premiers micromètres du supraconducteur ont une influence. La symétrie
       sphérique du supraconducteur n'est plus effective et le problème peut se
-      résumer à un problème plan.
-      Par ailleurs, si $\delta\ll1$, le champ magnétique à l'intérieur du
-      supraconducteur devient nul notamment en $x=0^+$. La disontinuité de la
-      composante tangentielle du champ magnétique étant égale à
+      résumer à un problème plan.  Par ailleurs, si $\delta\ll1$, le champ
+      magnétique à l'intérieur du supraconducteur devient nul notamment en
+      $x=0^+$. La discontinuité de la composante tangentielle du champ
+      magnétique étant égale à
       #+BEGIN_SRC latex
         \begin{align*}
-          \left[\vv{B}(x=0^-)-\cancel{\vv{B}(x=0^+)}\right]\times\vv{u}_x&=\mu_0\vv{j_S}\\
-          B_\infty\vv{u}_z\times\vv{u}_x&=\mu_0\vv{j_S}\\
+          \vv{u}_x\times\left[\vv{B}(x=0^-)-\cancel{\vv{B}(x=0^+)}\right]&=\mu_0\vv{j_S}\\
+          \vv{u}_x\times B_\infty\vv{u}_z&=\mu_0\vv{j_S}\\
           \vv{j_S}&=\frac{B_\infty}{\mu_0}\vv{u}_y=\frac{B(x=0^-)}{\mu_0}\vv{u}_y
         \end{align*}
       #+END_SRC
@@ -3325,8 +3325,8 @@ longueur.
       #+BEGIN_SRC latex
         \begin{align*}
           \int_0^\infty\vv{j}(x)dx&=\frac{B_\infty}{\mu_0\delta}\int_0^\infty e^{-x/\delta}dx\vv{u}_y\\
-          &=\frac{B_\infty}{\mu_0\cancel{\delta}}\times(-)\cancel{\delta}\left[e^{-x/\delta}\right]_0^\infty\\
-          &=\frac{B_\infty}{\mu_0}\vv{u}_z=\vv{j_S}
+          &=\frac{B_\infty}{\mu_0\cancel{\delta}}\times(-)\cancel{\delta}\left[e^{-x/\delta}\right]_0^\infty\vv{u}_y\\
+          &=\frac{B_\infty}{\mu_0}\vv{u}_y=\vv{j_S}
         \end{align*}
       #+END_SRC
       La force de Laplace devient
@@ -3396,16 +3396,16 @@ longueur.
       Le champ de vitesse/magnétique est ainsi plus faible à "l'équateur" /i.e./ en
       $A$ et $B$ où $B_{A,B} < B_\infty$ et plus élevé aux pôles /i.e./ en $C$ et
       $D$ où $B_{C,D}>B_\infty$.
-   2) Soit $\vv{B}=\grad\,\psi$ et
-      $\div\vv{B}=0=-\div(\grad\,\psi)=-\Delta\psi$. Le potentiel scalaire
-      $\psi$ est donc solution de l'équation de Laplace. La forme du potentiel
-      $\psi(r,\theta)=\alpha r\cos\theta+\beta\cos\theta/r^2$ est identique à la
+   2) Soit $\vv{B}=\grad\,\phi$ et
+      $\div\vv{B}=0=-\div(\grad\,\phi)=-\Delta\phi$. Le potentiel scalaire
+      $\phi$ est donc solution de l'équation de Laplace. La forme du potentiel
+      $\phi(r,\theta)=\alpha r\cos\theta+\beta\cos\theta/r^2$ est identique à la
       solution trouvée à l'exercice [[Boule uniformément polarisée]] également
       solution de l'équation de Laplace $\Delta V=0$ [fn:9].
       #+BEGIN_SRC latex
         \begin{align*}
-          \vv{B}&=\grad\,\psi\\
-          &=\frac{\partial\psi}{\partial r}\vv{u_r}+\frac{1}{r}\,\frac{\partial\psi}{\partial\theta}\vv{u_\theta}+\cancel{\frac{1}{r\sin\theta}\,\frac{\partial\psi}{\partial\phi}\vv{u_\phi}}\\
+          \vv{B}&=\grad\,\phi\\
+          &=\frac{\partial\phi}{\partial r}\vv{u_r}+\frac{1}{r}\,\frac{\partial\phi}{\partial\theta}\vv{u_\theta}+\cancel{\frac{1}{r\sin\theta}\,\frac{\partial\phi}{\partial\phi}\vv{u_\phi}}\\
           &=\left(\alpha\cos\theta-2\beta\frac{\cos\theta}{r^3}\right)\vv{u_r}+\frac{1}{r}\left(-\alpha r\sin\theta-\beta\frac{\sin\theta}{r^2}\right)\vv{u_\theta}\\
           &=\left(\alpha\cos\theta-\frac{2\beta\cos\theta}{r^3}\right)\vv{u_r}-\left(\alpha\sin\theta+\frac{\beta\sin\theta}{r^3}\right)\vv{u_\theta}
         \end{align*}
@@ -3421,7 +3421,7 @@ longueur.
         \end{align*}
       #+END_SRC
       Par ailleurs, loin de la boule supra. /i.e./ $r\to\infty$, le champ
-      magnétique est celui induit par la solénoïde soit
+      magnétique est celui induit par le solénoïde soit
       $\vv{B}(r\to\infty)=B_\infty\,\vv{u_z}$ d'où
       #+BEGIN_SRC latex
         \begin{align*}
@@ -3453,16 +3453,16 @@ longueur.
       #+END_CENTER
 
       Les courants surfaciques "tournent" autour de la sphère et sont
-      proportionnel au sinus de l'angle \theta : la densité de courant est ainsi
-      nulle aux pôles et maximale à l'équateur.
+      proportionnels au sinus de l'angle \theta : la densité de courant est
+      ainsi nulle aux pôles et maximale à l'équateur.
 
       En raison des symétries de la distribution de courant, tout plan contenant
-      l'axe $z$ est plan d'antisymétrie : le champ $\vv{B_S}$ induit par la
+      l'axe $Oz$ est plan d'antisymétrie : le champ $\vv{B_S}$ induit par la
       distribution de courant de surface est donc colinéaire à $\vv{u_z}$.
 
       Pour rappel, la densité volumique de courant $\vv{j}$ est proportionnel à
       un courant $I$ *par unité de surface*. Aussi, une densité surfacique de
-      courant $\vv{j_S}$ est proportionnel à un courant par unité de longueur :
+      courant $\vv{j_S}$ est proportionnelle à un courant par unité de longueur :
       $dI=j_S\,d\ell$ où $d\ell$ est égal à $Rd\theta$. Le courant est ainsi
       égal au "flux" de la densité de courant surfacique au travers d'un élément
       de longueur longitudinal $Rd\theta$. En partant du champ magnétique induit
@@ -3477,7 +3477,7 @@ longueur.
       la spire est
       #+BEGIN_SRC latex
         \begin{align*}
-          d\vv{B_S}&=\frac{\mu_0 j_S\,d\theta}{2R\sin\theta}\sin^3\theta\,\vv{u_z}\\
+          d\vv{B_S}&=\frac{\mu_0 j_SR\,d\theta}{2R\sin\theta}\sin^3\theta\,\vv{u_z}\\
           \vv{B_S}&=-\frac{3}{4}B_\infty\int_0^\pi\sin^3\theta d\theta\,\vv{u_z}
         \end{align*}
       #+END_SRC
@@ -3497,7 +3497,7 @@ longueur.
       $|B_\text{supra}|=B_\text{solénoïde}$.
    4) Le moment magnétique $\mathcal{M}$ d'un circuit fermé $\mathcal{C}$
       correspond au produit de l'intensité du courant $I$ parcourant cette
-      boucle par la surface orientée délimité par cette même boucle
+      boucle par la surface orientée et délimitée par cette même boucle
       #+BEGIN_SRC latex
         \begin{align*}
           d\vv{\mathcal{M}}=I\vv{dS}
