@@ -3708,7 +3708,7 @@ deux solutions justifie ainsi de la forme de la solution utilisée dans cet
 exercice.
 
 * TD5 : Milieux magnétiques
-** Introduction
+** COMMENT Introduction
 Dans la plupart des matériaux soumis à un champ magnétique, les charges liées se
 déplacent à l'échelle atomique faisant apparaître des boucles de courant /i.e./
 *des dipôles magnétiques* : la milieu s'aimante. Ainsi, l'aimantation $\vv{M}$
@@ -3769,7 +3769,7 @@ les milieux para.
 Dans le cas de matériaux ferromagnétiques, $\chi_m\gg1$, l'aimantation n'est
 plus proportionnelle à l'excitation magnétique $\vv{M}\neq\chi_m\vv{H}$.
 
-** Plaque magnétique
+** COMMENT Plaque magnétique
 #+BEGIN_QUESTION
 Une plaque d'épaisseur $e$ est constituée d'un matériau magnétique linéaire,
 homogène isotrope (LHI) de susceptibilité $\chi$. On supposera en plus que ce
@@ -3841,7 +3841,7 @@ la plaque.
         #+END_CENTER
         Les lignes de champ magnétique sont canalisées\to blindages magnétiques
 
-** L'électro-aimant
+** COMMENT L'électro-aimant
 #+BEGIN_QUESTION
 Un électro-aimant est constitué d'un barreau de ferromagnétique doux appelé fer,
 de section constante $S$, replié sur lui-même de façon que les deux extrémités
@@ -3944,7 +3944,7 @@ théorème d'Ampère on obtient
     B_2&=\mu_0H_2=\mu_0\left(\frac{NI+\ell M_S}{\ell+d}\right)=\unit[1.56]{T}
   \end{align*}
 #+END_SRC
-** Aimant permanent
+** COMMENT Aimant permanent
 #+BEGIN_QUESTION
 Une fois aimanté, un matériau ferromagnétique dur conserve son aimantation, dans
 la mesure où on ne le soumet pas à des champs trop intenses. Cette propriété
@@ -4196,9 +4196,42 @@ faudrait augmenter la hauteur $h$ de l'aimant jusqu'à une valeur de l'ordre
 de 700 mm.
 
 ** Chaîne de gouttelettes d'une émulsion ferrofluide                    :DM:
+#+BEGIN_QUESTION
+Un ferrofluide s'obtient en dispersant dans de l'huile de petites particules
+solides aimantées. On obtient alors un fluide aux propriétés particulières. En
+particulier, les particules ont tendance à s'aligner le long des lignes de champ
+ce qui génère des pointes tout à fait inhabituelles dans les liquides.
+
+Une émulsion ferrofluide est une suspension diluée de gouttelettes de ce fluide
+dans l'eau. Des techniques physico-chimiques permettent de contrôler la taille
+des gouttelettes et la stabilité de cette supsension. La taille des gouttelettes
+est d'environ un micromètre. Sous l'effet d'un champ magnétique extérieur, les
+gouttelettes s'organisent en longues chaînes parallèles au champ.
+
+On rappelle qu'un dipôle magnétique $\vv{m}$ crée un champ magnétique, en
+coordonnées sphériques, de la forme :
+#+BEGIN_SRC latex
+  \begin{align*}
+    \vv{B}=\frac{\mu_0}{4\pi}\left(\frac{2m\cos\theta}{r^3}\vv{u}_r+\frac{m\sin\theta}{r^3}\vv{u}_\theta\right)
+  \end{align*}
+#+END_SRC
+et que l'énergie potentielle d'un dipôle $\vv{m}$ soumis à un champ magnétique
+$\vv{B}$ est $E_p=-\vv{m}.\vv{B}$.
+
+1) [@1] On considère deux dipôles magnétiques $\vv{m}_1$ et $\vv{m}_2$
+   identiques, parallèles à $\vv{u}_z$ et de même sens.
+   1) Donner l'expression de l'énergie potentielle d'interaction $W$ entre
+      les dipôles $\vv{m}_1$, placé à l'origine, et $\vv{m}_2$, au point de
+      coordonnées polaires $(r,\theta)$. En déduire l'expression de la force
+      d'interaction $\vv{F}$ exercée par $\vv{m}_1$ sur $\vv{m}_2$.
+   2) À $r$ fixé, pour quelle direction \theta l'énergie est-elle minimale ? La
+      force d'interaction est-elle répulsive ou attractive dans cette direction
+      ?
+#+END_QUESTION
+
 1) Interaction entre deux dipôles magnétiques identiques $m_1=m_2=m$
-   1) L'énergie potentielles s'écrit $W=-\vv{m_2}.\vv{B_1}$ où $\vv{m_2}$ est,
-      en coordonnées sphériques, égal à $(m\cos\theta, -m\sin\theta, 0)$ et
+   1) L'énergie potentielle s'écrit $W=-\vv{m_2}.\vv{B_1}$ où $\vv{m_2}$ est, en
+      coordonnées sphériques, égal à $(m\cos\theta, -m\sin\theta, 0)$ et
       $\vv{B_1}$ correspond au champ magnétique généré par le dipôle $m_1$ au
       point $P$. On déduit l'expression de $W$
       #+BEGIN_SRC latex
@@ -4240,7 +4273,24 @@ de 700 mm.
       #+END_SRC
       Les moments magnétiques $\vv{m_1}$ et $\vv{m_2}$ s'alignent selon la
       direction portant les deux dipôles et la force est donc attractive.
-2)
+
+#+BEGIN_QUESTION
+2) [@2] Chaque particule solide aimantée du ferrofluide porte un moment
+   magnétique permanent $\vv{\mu}$ et possède un volume $v$. On note \Phi la
+   fraction volumique en particules dans le fluide (\Phi \ll 1).
+   1) Expliquer qualitativement pourquoi, en l'absence de champ extérieur, cette
+      assemblée de particules aimantées ne possède aucune propriété magnétique
+      macroscopique.
+   2) On considère maintenant une goutte sphérique unique de ferrofluide de
+      rayon $R$ plongée dans l'eau. Sous l'effet d'un champ magnétique extérieur
+      $\vv{B}$, cette goutte acquiert une aimantation uniforme $\vv{M}$. Pour
+      des valeurs du champ pas trop élevées, cette aimantation lui est
+      proportionnelle; on pose alors $\vv{M}=\chi\vv{B}/\mu_0$ avec ici \chi \ll
+      1 à cause de la dilution et de l'agitation thermique. Quelle est la
+      dimension de \chi ? Quelle nom peut-on lui donner ? Quel est le moment
+      magnétique $\vv{m}^{(1)}$ de la goutte ?
+#+END_QUESTION
+2) [@2]
    1) La fraction volumique en particules $\Phi$ est très faible donc les dipôles
       sont très éloignés les uns des autres. Par conséquent, le champ magnétique
       dû aux particules voisines est faible et les dipôles ne s'orientent pas les
@@ -4258,7 +4308,25 @@ de 700 mm.
           &=\frac{4}{3}\pi R^3\frac{\chi\vv{B}}{\mu_0}
         \end{align*}
       #+END_SRC
-3)
+
+#+BEGIN_QUESTION
+3) [@3] On considère une émulsion diluée de ces gouttelettes dans l'eau. Sous
+   l'action d'un champ extérieur uniforme $\vv{B}_0=B_0\vv{u}_z$, les
+   gouttelettes s'alignent et forment des chaînes de $N$ gouttelettes ($N$
+   \approx 30), parallèles au champ appliqué. Chaque gouttelette de rayon $R$
+   est assimilée à un dipôle magnétique $\vv{m}^{(N)}$. On néglige toute
+   interaction entre chaînes. Dans une chaîne isolée, supposée infinie, $d$
+   désigne la distance supposée constante entre les centres de deux gouttelettes
+   successives.
+   1) Expliquer pourquoi les moments s'alignent.
+   2) Soit une gouttelette quelconque de la chaîne. Calculer le champ
+      $\vv{B}_\infty$ créé par les autres gouttelettes sur celle-ci. Exprimer ce
+      champ en focntion de $\vv{m}^{(\infty)}$, de $d$ et de
+      $\alpha=\sum_{p=1}^\infty1/p^3\approx1.202$.
+   3) Exprimer alors $\vv{m}^{(\infty)}$ en fonction de $\vv{B}_0$, \chi, $R$ et
+      $d$.
+#+END_QUESTION
+3) [@3]
    1) Les gouttelettes alignent toutes leur moment magnétique sur le champ
       extérieur $\vv{B_0}$. Afin de minimiser l'énergie totale du sytème, les
       centres s'alignent les uns sur les autres conformément au résultat de la
@@ -4294,7 +4362,26 @@ de 700 mm.
         \end{align*}
       #+END_SRC
 
-4)
+#+BEGIN_QUESTION
+4) [@4] Pour calculer la force attractive d'origine magnétique qui s'exerce à
+   l'intérieur d'une chaîne infinie, on divise par la pensée, la chaîne en deux
+   parties.
+   1) Calculer la force qu'exercent les dipôles de l'une des moitiés (la partie
+      inférieure) sur les dipôles de l'autre. Montrer qu'elle s'exprime sous la
+      forme :
+      #+BEGIN_SRC latex
+        \begin{align*}
+          \vv{F}_\infty=-\frac{3\mu_0\alpha(m^{(\infty)})^2}{2\pi\,d^4}\vv{u}_z
+        \end{align*}
+      #+END_SRC
+   2) Déterminer de la même manière le force $\vv{F}_2$ s'exerçant entre deux
+      gouttelettes lorsque la chaîne ne contient que deux gouttelettes. Exprimer
+      cette force en fonction de $\vv{m}^{(2)}$. Calculer $\vv{m}^{(2)}$ puis
+      exprimer $F_\infty/F_2$ en fonction de \chi, $R$ et $d$.
+   3) Calculer $F_\infty$, $F_2$ et $F_\infty/F_2$ pour \chi = 0.11, $R$ = 98
+      nm, $d$ = 200 nm et $B_0$ = 6.3 10^{-2} T. Commenter.
+#+END_QUESTION
+4) [@4]
    1) Calcul de la force exercée par la moitié inférieure de la chaîne sur la
       moitié supérieure
 
@@ -4383,7 +4470,31 @@ de 700 mm.
       chaîne infinie est donc plus grande que celle qui s'exerce entre deux
       gouttelettes seules : cette propriété explique la stabilité des longues
       chaînes de gouttelettes dans une émulsion de ferrofluides.
-5)
+#+BEGIN_QUESTION
+5) [@5] Les gouttelettes d'une chaîne, toutes de rayon $R$, sont supposées
+   incompressibles et indéformables.
+   1) En l'absence d'interaction entre gouttelettes autre que l'interaction
+      magnétique, quelle est la distance $d_\ell$ entre elles ?
+   2) En réalité, il existe une force répulsive d'origine électrostatique de
+      sorte qu'à l'équilibre, $d>d_\ell$. L'émulsion est éclairée par un
+      faisceau parallèle de lumière blanche se propageant selon
+      $\vv{u}_z$. Chaque gouttelette de ferrofluide absorbe une partie de la
+      lumière qu'elle reçoit et diffracte l'autre dans toutes les directions. La
+      distribution spectrale $I(\lambda)$ de la lumière retrodiffusée (dans la
+      direction \(-\vv{u}\)) est analysée par un spectrographe (\lambda est la
+      longueur d'onde dans le vide). Elle présente un maximum très prononcé pour
+      une longueur d'onde \lambda_{0} dans le spectre visible associée à une
+      coloration très nette.
+      1) Interpréter qualitativement ce phénomène de coloration.
+      2) Exprimer $d$ en fonction de \lambda_{0} et de l'indice $n$ de
+         l'eau. Calculer numériquement \lambda_{0} pour $d$ = 220 nm et $n$ =
+         1.33. De quelle couleur apparaît l'échantillon ?
+      3) Décrire la séquence de couleurs observées en rétrodiffusion lorsque le
+         champ extérieur appliqué $\vv{B}_0$ augmente. Quelle est la longueur
+         d'onde limite \lambda_{\ell} observable ? Donner sa valeur numérique
+         ainsi que la couleur correspondante pour $R$ = 98 nm.
+#+END_QUESTION
+5) [@5]
    1) L'énergie minimale du système $W=-\frac{\mu_0m^2}{2\pi\,d^3}$ est d'autant
       plus faible que la distance séparant les gouttelettes est faible. Les
       gouttes étant incompressibles et indéformables, la distance minimale entre
