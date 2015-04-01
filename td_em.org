@@ -3707,7 +3707,7 @@ $r\cos\theta$ et est lui aussi solution de l'équation de Laplace. La somme des
 deux solutions justifie ainsi de la forme de la solution utilisée dans cet
 exercice.
 
-* TD5 : Milieux magnétiques
+* COMMENT TD5 : Milieux magnétiques
 ** COMMENT Introduction
 Dans la plupart des matériaux soumis à un champ magnétique, les charges liées se
 déplacent à l'échelle atomique faisant apparaître des boucles de courant /i.e./
@@ -4531,92 +4531,152 @@ $\vv{B}$ est $E_p=-\vv{m}.\vv{B}$.
          $\lambda_0=4nR=\unit[521]{nm}$. La solution devient donc verte. Cette
          technique de spectrométrie permet donc de mesurer la taille $R$ des
          gouttelettes.
-* COMMENT TD6 : Rayonnement
-** Rayonnement d'une antenne
-Soit un conducteur de longueur \ell parcouru par un courant périodique
-$I=I_0\cos\omega t$. La fonction d'Heaviside a pour représentation
+* TD6 : Rayonnement
+** COMMENT Rayonnement d'une antenne
+#+BEGIN_QUESTION
+On considère une portion de conducteur rectiligne $MN$ de longueur \ell, dirigée
+selon l'axe $Oz$. Ce conducteur est parcouru par un courant $I=I_0\cos\omega t$.
+
+1) [@1] On suppose qu'à l'extérieur du tronçon $MN$, la densité de courant est
+   nulle. En utilisant la fonction de Heaviside (voir à la fin de l'énoncé) et
+   la distribution de Dirac, donner l'expression de la densité de courant
+   $\vv{j}$ dans tout l'espace.
+#+END_QUESTION
+
+La fonction d'Heaviside est définie par
+#+BEGIN_SRC latex
+  \begin{align*}
+    \left\{
+      \begin{array}{lll}
+        \Theta(x)&=1&\text{si } x > 0\\
+        &=0&\text{sinon}
+      \end{array}
+      \right.
+  \end{align*}
+#+END_SRC
+et a pour représentation
 
 #+BEGIN_CENTER
 #+ATTR_LATEX: :width 0.5\linewidth
 [[./figures/heaviside_function.pdf]]
 #+END_CENTER
 
-1) En supposant que $\vv{j}$ est nul à l'extérieur du fil, seul le courant
-   traversant le fil contribue à la densité volumique de courant
-   $j(x,y,z,t)$. Par définition, le courant $I$ est égal au flux de $\vv{j}$ au
-   travers du surface $S$ : $I=\iint\vv{j}.\vv{dS}$. Le fil étant de section
-   infinitésimale et le courant étant non nul pour $z\in[-\ell/2,\ell/2]$, la
-   densité de courant s'écrit
-   #+BEGIN_SRC latex
-     \begin{align*}
-       \vv{j}(x,y,z,t)&=I(t)\times\delta(x)\times\delta(y)\times\Theta(z+\ell/2)\times\Theta(-z+\ell/2)\,\vv{u_z}\\
-       &=I_0\cos\omega t\delta(x)\delta(y)\,\Theta(z+\ell/2)\,\Theta(-z+\ell/2)\,\vv{u_z}
-     \end{align*}
-   #+END_SRC
+Par ailleurs, on note que $\frac{d}{dx}\Theta(x)=\delta(x)$.
 
-   où
-   #+ATTR_LATEX: :align C{0.45\textwidth}C{0.45\textwidth}
-   | [[./figures/heaviside_function_1.pdf]] | [[./figures/heaviside_function_2.pdf]] |
+En supposant que $\vv{j}$ est nul à l'extérieur du fil, seul le courant
+traversant le fil contribue à la densité volumique de courant
+$j(x,y,z,t)$. Par définition, le courant $I$ est égal au flux de $\vv{j}$ au
+travers du surface $S$ : $I=\iint\vv{j}.\vv{dS}$. Le fil étant de section
+infinitésimale et le courant étant non nul pour $z\in[-\ell/2,\ell/2]$, la
+densité de courant s'écrit
+#+BEGIN_SRC latex
+  \begin{align*}
+    \vv{j}(x,y,z,t)&=I(t)\times\delta(x)\times\delta(y)\times\Theta(z+\ell/2)\times\Theta(-z+\ell/2)\,\vv{u_z}\\
+    &=I_0\cos\omega t\delta(x)\delta(y)\,\Theta(z+\ell/2)\,\Theta(-z+\ell/2)\,\vv{u_z}
+  \end{align*}
+#+END_SRC
 
-   On note, par ailleurs, que la dimension de $j$ est bien celle d'une intensité
-   par unité de surface car $\delta=\frac{d\Theta}{dx}\to[\delta]=[L^{-1}]$.
+où
+#+ATTR_LATEX: :align C{0.45\textwidth}C{0.45\textwidth}
+| [[./figures/heaviside_function_1.pdf]] | [[./figures/heaviside_function_2.pdf]] |
 
-2) L'équation de conservation de la charge s'écrit
-   #+BEGIN_SRC latex
-     \begin{align*}
-       \div\vv{j}+\frac{\partial\rho}{\partial t}&=0\\
-       -\frac{\partial\rho}{\partial t}&=\frac{\partial j_z}{\partial z}\\
-       &=I_0\cos\omega t\delta(x)\delta(y)\left[\frac{d\Theta(z+\ell/2)}{dz}\Theta(-z+\ell/2)+\Theta(z+\ell/2)\frac{d\Theta(-z+\ell/2)}{dz}\right]\\
-       &=I_0\cos\omega t\delta(x)\delta(y)\left[\delta(z+\ell/2)\Theta(-z+\ell/2)-\Theta(z+\ell/2)\delta(-z+\ell/2)\right]
-     \end{align*}
-   #+END_SRC
+On note, par ailleurs, que la dimension de $j$ est bien celle d'une intensité
+par unité de surface car $\delta=\frac{d\Theta}{dx}\to[\delta]=[L^{-1}]$.
 
-   Or $\delta(z+\ell/2)$ est nul pour toute valeur de $z$ différente de
-   $-\ell/2$. De même, $\delta(-z+\ell/2)$ est nul pour toute valeur de $z$
-   différente de $+\ell/2$. On déduit donc que le produit
-   $\delta(z+\ell/2)\Theta(-z+\ell/2)$, respectivement
-   $\delta(-z+\ell/2)\Theta(z+\ell/2)$, est non nul uniquement en $z=-\ell/2$,
-   respectivement en $z=+\ell/2$. L'expression de la dérivée temporelle de
-   $\rho(x,y,z,t)$ devient
-   #+BEGIN_SRC latex
-     \begin{align*}
-       -\frac{\partial\rho}{\partial t}&=I_0\cos\omega t\delta(x)\delta(y)\left[\delta(z+\ell/2)-\delta(-z+\ell/2)\right]\\
-       \rho(x,y,z,t)&=-\frac{I_0}{\omega}\sin\omega t\delta(x)\delta(y)\left[\delta(z+\ell/2)-\delta(-z+\ell/2)\right]
-     \end{align*}
-   #+END_SRC
+#+BEGIN_QUESTION
+2) [@2] En utilisant la conservation de la charge, montrer que ce système peut
+   être assimilé à un dipôle oscillant constitué de deux charges opposées
+   placées en $M$ et $N$ et dont la valeur varie de façon sinusoïdale $(\pm
+   q\sin\omega t)$.
+#+END_QUESTION
 
-   On déduit donc que les seuls points où la charge est non nulle sont
-   #+BEGIN_SRC latex
-          \begin{align*}
-            \rho\neq0\text{ pour }\left\{
-     \begin{array}{l}
-       x=0,y=0,z=-\ell/2\to\rho_M=-\frac{I_0}{\omega}\sin\omega t\\
-       x=0,y=0,z=+\ell/2\to\rho_N=+\frac{I_0}{\omega}\sin\omega t\\
-     \end{array}
-     \right.
-          \end{align*}
-   #+END_SRC
+L'équation de conservation de la charge s'écrit
+#+BEGIN_SRC latex
+  \begin{align*}
+    \div\vv{j}+\frac{\partial\rho}{\partial t}&=0\\
+    -\frac{\partial\rho}{\partial t}&=\frac{\partial j_z}{\partial z}\\
+    &=I_0\cos\omega t\delta(x)\delta(y)\left[\frac{d\Theta(z+\ell/2)}{dz}\Theta(-z+\ell/2)+\Theta(z+\ell/2)\frac{d\Theta(-z+\ell/2)}{dz}\right]\\
+    &=I_0\cos\omega t\delta(x)\delta(y)\left[\delta(z+\ell/2)\Theta(-z+\ell/2)-\Theta(z+\ell/2)\delta(-z+\ell/2)\right]
+  \end{align*}
+#+END_SRC
 
-   L'antenne est ainsi équivalente à un dipôle oscillant avec
-   $q=\frac{I_0}{\omega}$
+Or $\delta(z+\ell/2)$ est nul pour toute valeur de $z$ différente de
+$-\ell/2$. De même, $\delta(-z+\ell/2)$ est nul pour toute valeur de $z$
+différente de $+\ell/2$. On déduit donc que le produit
+$\delta(z+\ell/2)\Theta(-z+\ell/2)$, respectivement
+$\delta(-z+\ell/2)\Theta(z+\ell/2)$, est non nul uniquement en $z=-\ell/2$,
+respectivement en $z=+\ell/2$. L'expression de la dérivée temporelle de
+$\rho(x,y,z,t)$ devient
+#+BEGIN_SRC latex
+  \begin{align*}
+    -\frac{\partial\rho}{\partial t}&=I_0\cos\omega t\delta(x)\delta(y)\left[\delta(z+\ell/2)-\delta(-z+\ell/2)\right]\\
+    \rho(x,y,z,t)&=-\frac{I_0}{\omega}\sin\omega t\delta(x)\delta(y)\left[\delta(z+\ell/2)-\delta(-z+\ell/2)\right]
+  \end{align*}
+#+END_SRC
 
-   #+BEGIN_CENTER
-   #+ATTR_LATEX: :width 0.8\linewidth
-   [[./figures/dipole_oscillant.pdf]]
-   #+END_CENTER
+On déduit donc que les seuls points où la charge est non nulle sont
+#+BEGIN_SRC latex
+       \begin{align*}
+         \rho\neq0\text{ pour }\left\{
+  \begin{array}{l}
+    x=0,y=0,z=-\ell/2\to\rho_M=-\frac{I_0}{\omega}\sin\omega t\\
+    x=0,y=0,z=+\ell/2\to\rho_N=+\frac{I_0}{\omega}\sin\omega t\\
+  \end{array}
+  \right.
+       \end{align*}
+#+END_SRC
 
-3) En notation complexe, les expressions de $\vv{j}$ et $\rho$ s'écrivent
-   #+BEGIN_SRC latex
-     \begin{align*}
-       \vv{j}(\vv{r},t)&=I_0\,e^{-i\omega t}\delta(x)\delta(y)\Theta(z+\ell/2)\Theta(-z+\ell/2)\vv{u_z}\\
-       \rho(\vv{r},t)&=-i\frac{I_0}{\omega}\,e^{-i\omega t}\underbrace{\delta(x)\delta(y)\left[\delta(z+\ell/2)-\delta(-z+\ell/2)\right]}_{\delta(\vv{r}+\ell/2\vv{u_z})-\delta(-\vv{r}+\ell/2)\vv{u_z}}
-     \end{align*}
-   #+END_SRC
+L'antenne est ainsi équivalente à un dipôle oscillant avec
+$q=\frac{I_0}{\omega}$
 
-   L'utilisation de la notation complexe a pour unique but de faciliter les
-   calculs : *seule la composante réelle a un sens physique*.
+#+BEGIN_CENTER
+#+ATTR_LATEX: :width 0.8\linewidth
+[[./figures/dipole_oscillant.pdf]]
+#+END_CENTER
 
-4) Calcul des potentiels en un point $P(r,\theta,\phi)$ à l'instant $t$
+#+BEGIN_QUESTION
+3) [@3] En déduire la densité de courant complexe $\vv{j}(\vv{r},t)$ dans tout
+   l'espace, ainsi que la densité de charge complexe $\rho(\vv{r},t)$.
+#+END_QUESTION
+
+En notation complexe, les expressions de $\vv{j}$ et $\rho$ s'écrivent
+#+BEGIN_SRC latex
+  \begin{align*}
+    \vv{j}(\vv{r},t)&=I_0\,e^{-i\omega t}\delta(x)\delta(y)\Theta(z+\ell/2)\Theta(-z+\ell/2)\vv{u_z}\\
+    \rho(\vv{r},t)&=-i\frac{I_0}{\omega}\,e^{-i\omega t}\underbrace{\delta(x)\delta(y)\left[\delta(z+\ell/2)-\delta(-z+\ell/2)\right]}_{\delta(\vv{r}+\ell/2\vv{u_z})-\delta(-\vv{r}+\ell/2)\vv{u_z}}
+  \end{align*}
+#+END_SRC
+
+L'utilisation de la notation complexe a pour unique but de faciliter les
+calculs : *seule la composante réelle a un sens physique*.
+
+#+BEGIN_QUESTION
+4) [@4] On cherche tout d'abord à calculer à l'instant $t$ les potentiels en un
+   point $P$ de coordonées sphériques $(r,\theta,\phi)$.
+   1) En utilisant l'expression des potentiels retardés, exprimer le potentiel
+      scalaire $V$ (en notation complexe) au point $P$ en fonction des distances
+      $r_1=MP$ et $r_2=NP$.
+   2) On note \lambda la longueur d'onde du champ électromagnétique rayonné par
+      le dipôle. On suppose $r\gg\lambda\gg\ell$ (approximations dipolaire et
+      champ lointain). Montrer que le potentiel scalaire complexe peut s'écrire
+      en ne gardant que le terme principal du DL en \ell/\lambda et en
+      \ell/$r$ :
+      #+BEGIN_SRC latex
+        \begin{align*}
+          V = -\frac{1}{4\pi\epsilon_0}\frac{i\omega}{c r}\,p\cos\theta
+        \end{align*}
+      #+END_SRC
+      en fonction du moment dipolaire complexe retardé
+      $p=iq\ell\exp(-i\omega(t-r/c))$.
+   3) Montrer que la seule composante non nulle du potentiel-vecteur $\vv{A}$
+      s'écrit\nbsp:
+      #+BEGIN_SRC latex
+        \begin{align*}
+          A_z = -\frac{\mu_0}{4\pi}\frac{i\omega}{r}\,p
+        \end{align*}
+      #+END_SRC
+#+END_QUESTION
+4) [@4] Calcul des potentiels en un point $P(r,\theta,\phi)$ à l'instant $t$
 
    #+BEGIN_CENTER
    #+ATTR_LATEX: :width 0.6\linewidth
@@ -4720,122 +4780,144 @@ $I=I_0\cos\omega t$. La fonction d'Heaviside a pour représentation
           &\simeq-\frac{i\mu_0}{4\pi\,r}\omega p\vv{u_z}
         \end{align*}
       #+END_SRC
-5) Calcul du champ électromagnétique $\vv{B}=\rot\vv{A}$ et $\vv{E}=-\grad
-   V-\frac{\partial\vv{A}}{\partial t}$
 
+#+BEGIN_QUESTION
+5) [@5] Calculer les composantes non nulles des champs $\vv{E}$ et $\vv{B}$ au
+   point $P$ en ne gardant que les termes principaux des DL en
+   \lambda/$r$. Montrer que $E_r\ll E_\theta$. Calculer
+   $\|\vv{E}\|/\|\vv{B}\|$. Faire un schéma montrant $O,P,\vv{E},\vv{B}$ et le
+   vecteur d'onde $\vv{k}$.
+#+END_QUESTION
+
+Calcul du champ électromagnétique $\vv{B}=\rot\vv{A}$ et $\vv{E}=-\grad
+V-\frac{\partial\vv{A}}{\partial t}$
+
+#+BEGIN_SRC latex
+  \begin{align*}
+    \vv{B}=\rot\vv{A}&=\left|
+    \begin{array}{l}
+      \frac{\partial}{\partial x}\\
+      \frac{\partial}{\partial y}\\
+      \frac{\partial}{\partial z}
+    \end{array}
+    \right.\times\left|
+    \begin{array}{l}
+      0\\0\\A_z
+    \end{array}
+    \right.\text{ et }r^2=x^2+y^2+z^2\\
+    &=\frac{\partial A_z}{\partial y}\vv{u_x}-\frac{\partial A_z}{\partial x}\vv{u_y}\\
+    &=\frac{\partial A_z}{\partial r}\times\frac{\partial r}{\partial y}\vv{u_x}-\frac{\partial A_z}{\partial r}\times\frac{\partial r}{\partial x}\vv{u_y}\\
+    &=\frac{\partial A_z}{\partial r}\left(\frac{y}{r}\vv{u_x}-\frac{x}{r}\vv{u_y}\right)\text{ et }\left|
+    \begin{array}{ll}
+      x&=r\sin\theta\cos\phi\\
+      y&=r\sin\theta\sin\phi\\
+      z&=r\cos\theta
+    \end{array}
+    \right.\\
+    &=\sin\theta\frac{\partial A_z}{\partial r}\underbrace{\left(\sin\phi\,\vv{u_x}-\cos\phi\,\vv{u_y}\right)}_{-\vv{u_\phi}}
+  \end{align*}
+#+END_SRC
+Il reste à calculer la dérivée partielle de $A_z$
+#+BEGIN_SRC latex
+  \begin{align*}
+    \frac{\partial A_z}{\partial r}&=-\frac{i\mu_0}{4\pi}\omega\frac{\partial}{\partial r}\left(\frac{p}{r}\right)\\
+    &=-\frac{i\mu_0}{4\pi}\omega\left(\frac{1}{r}\frac{\partial p}{\partial r}-\frac{1}{r^2}p\right)\\
+    &=-\frac{i\mu_0}{4\pi}\omega\left(\frac{1}{r}\frac{i\omega}{c}p-\frac{1}{r^2}p\right)\\
+    &=-\frac{i\mu_0}{4\pi}\frac{p}{r}\underbrace{\left(\frac{i2\pi}{\lambda}-\frac{1}{r}\right)}_{r\gg\lambda\to\frac{1}{r}\ll\frac{1}{\lambda}}\simeq\frac{\mu_0}{4\pi}\frac{\omega^2p}{rc}
+  \end{align*}
+#+END_SRC
+
+Finalement, le champ magnétique s'écrit
+#+BEGIN_SRC latex
+  \begin{align*}
+    \vv{B}&=-\frac{\mu_0}{4\pi}\frac{\omega^2p}{rc}\sin\theta\,\vv{u_\phi}
+  \end{align*}
+#+END_SRC
+
+Calcul du champ électrique $\vv{E}=-\grad V-\frac{\partial\vv{A}}{\partial
+t}$
+#+BEGIN_SRC latex
+  \begin{align*}
+    \grad V&=\frac{\partial V}{\partial r}\vv{u_r}+\frac{1}{r}\frac{\partial V}{\partial\theta}\vv{u_\theta}+\cancel{\frac{1}{r\sin\theta}\frac{\partial V}{\partial\phi}\vv{u_\phi}}\\
+    \frac{\partial V}{\partial r}&=-\frac{i\omega\cos\theta}{4\pi\epsilon_0c}\frac{\partial}{\partial r}\left(\frac{p}{r}\right)\\
+    &=\frac{\mu_0\omega^2p\cos\theta}{4\pi\,r}+\frac{i\omega p\cos\theta}{4\pi\epsilon_0c\,r^2}\\
+    \frac{1}{r}\frac{\partial V}{\partial\theta}&=-\frac{1}{r}\frac{i\omega p}{4\pi\epsilon_0 rc}(-)\sin\theta=\frac{i\omega p}{4\pi\epsilon_0r^2c}\sin\theta\\
+    \frac{\partial\vv{A}}{\partial t}&=-\frac{i\mu_0}{4\pi r}\omega\frac{\partial p}{\partial t}\vv{u_z}\text{ avec }\frac{\partial p}{\partial t}=-i\omega p\\
+    &=-\frac{\mu_0\omega^2}{4\pi r}p\vv{u_z}\text{ et }\vv{u_z}=\cos\theta\vv{u_r}-\sin\theta\vv{u_\theta}\\
+    &=-\frac{\mu_0\omega^2}{4\pi r}p\left(\cos\theta\vv{u_r}-\sin\theta\vv{u_\theta}\right)\\
+    \vv{E}&=\left|
+    \begin{array}{l}
+      -\frac{\mu_0\omega^2p}{4\pi r}\cos\theta + \frac{\mu_0\omega^2p}{4\pi r}\cos\theta -\frac{i\omega p}{4\pi\epsilon_0c}\frac{1}{r^2}\cos\theta\\
+      -\frac{\mu_0\omega^2p}{4\pi}\frac{1}{r}\sin\theta+\frac{i\omega p}{4\pi\epsilon_0 c}\frac{1}{r^2}\sin\theta\\
+      0
+    \end{array}
+    \right.
+  \end{align*}
+#+END_SRC
+
+Le terme en $\frac{1}{r}$ domine les deux termes en $\frac{1}{r^2}$ d'où
+$E_r\ll E_\theta$ impliquant que le champ électrique soit
+#+BEGIN_SRC latex
+  \begin{align*}
+    \vv{E}\simeq-\frac{\mu_0\omega^2p}{4\pi}\frac{1}{r}\sin\theta\,\vv{u_\theta}
+  \end{align*}
+#+END_SRC
+
+Le rapport des normes de $\vv{E}$ et $\vv{B}$ est égal à
+#+BEGIN_SRC latex
+  \begin{align*}
+    \frac{\|\vv{E}\|}{\|\vv{B}\|}=\frac{\mu_0\omega^2p\sin\theta}{4\pi\,r}\times\frac{4\pi\,r}{\mu_0\omega^2p\sin\theta}\times c=c
+  \end{align*}
+#+END_SRC
+
+#+BEGIN_CENTER
+#+CAPTION: *Onde plane progressive*
+#+ATTR_LATEX: :width 0.4\linewidth
+[[./figures/antenne_onde.pdf]]
+#+END_CENTER
+
+#+BEGIN_QUESTION
+6) [@6] On se propose maintenant de calculer la puissance rayonnée à grande
+   distance par cette antenne dipolaire en fonction de l'amplitude $I_0$ du
+   courant circulant dans le conducteur $MN$. Montrer que la puissance totale
+   peut s'exprimer par\nbsp:
    #+BEGIN_SRC latex
      \begin{align*}
-       \vv{B}=\rot\vv{A}&=\left|
-       \begin{array}{l}
-         \frac{\partial}{\partial x}\\
-         \frac{\partial}{\partial y}\\
-         \frac{\partial}{\partial z}
-       \end{array}
-       \right.\times\left|
-       \begin{array}{l}
-         0\\0\\A_z
-       \end{array}
-       \right.\text{ et }r^2=x^2+y^2+z^2\\
-       &=\frac{\partial A_z}{\partial y}\vv{u_x}-\frac{\partial A_z}{\partial x}\vv{u_y}\\
-       &=\frac{\partial A_z}{\partial r}\times\frac{\partial r}{\partial y}\vv{u_x}-\frac{\partial A_z}{\partial r}\times\frac{\partial r}{\partial x}\vv{u_y}\\
-       &=\frac{\partial A_z}{\partial r}\left(\frac{y}{r}\vv{u_x}-\frac{x}{r}\vv{u_y}\right)\text{ et }\left|
-       \begin{array}{ll}
-         x&=r\sin\theta\cos\phi\\
-         y&=r\sin\theta\sin\phi\\
-         z&=r\cos\theta
-       \end{array}
-       \right.\\
-       &=\sin\theta\frac{\partial A_z}{\partial r}\underbrace{\left(\sin\phi\,\vv{u_x}-\cos\phi\,\vv{u_y}\right)}_{-\vv{u_\phi}}
+       P = \frac{1}{2}R_rI_0^2
      \end{align*}
    #+END_SRC
-   Il reste à calculer la dérivée partielle de $A_z$
-   #+BEGIN_SRC latex
-     \begin{align*}
-       \frac{\partial A_z}{\partial r}&=-\frac{i\mu_0}{4\pi}\omega\frac{\partial}{\partial r}\left(\frac{p}{r}\right)\\
-       &=-\frac{i\mu_0}{4\pi}\omega\left(\frac{1}{r}\frac{\partial p}{\partial r}-\frac{1}{r^2}p\right)\\
-       &=-\frac{i\mu_0}{4\pi}\omega\left(\frac{1}{r}\frac{i\omega}{c}p-\frac{1}{r^2}p\right)\\
-       &=-\frac{i\mu_0}{4\pi}\frac{p}{r}\underbrace{\left(\frac{i2\pi}{\lambda}-\frac{1}{r}\right)}_{r\gg\lambda\to\frac{1}{r}\ll\frac{1}{\lambda}}\simeq\frac{\mu_0}{4\pi}\frac{\omega^2p}{rc}
-     \end{align*}
-   #+END_SRC
+   où $R_r$ est la /résistance de rayonnement/ de l'antenne dont on donnera
+   l'expression en fonction de \ell et \lambda.
+#+END_QUESTION
+Pour calculer la puissance rayonnée par le dipôle, il faut intégrer le flux
+du vecteur de Poynting $\vv{R}$ sur une sphère de rayon $r\gg\lambda$
 
-   Finalement, le champ magnétique s'écrit
-   #+BEGIN_SRC latex
-     \begin{align*}
-       \vv{B}&=-\frac{\mu_0}{4\pi}\frac{\omega^2p}{rc}\sin\theta\,\vv{u_\phi}
-     \end{align*}
-   #+END_SRC
+#+BEGIN_SRC latex
+  \begin{align*}
+    \vv{R}&=\frac{1}{\mu_0}\text{Re}({\vv{E}})\times\text{Re}(\vv{B})\\
+    &\text{où }\vv{E}=E\,\vv{u_\theta}\text{ et }\vv{B}=\frac{E}{c}\vv{u_\phi}\\
+    &=\frac{1}{\mu_0c}\text{Re}(E)^2\,\vv{u_\theta}\times\vv{u_\phi}\\
+    &=\frac{1}{\cancel{\mu_0}c}\frac{\mu_0^{\cancel{2}}\omega^4}{16\pi^2}\frac{\sin^2\theta}{r^2}\text{Re}(p)^2\,\vv{u_r}\\
+    &=\frac{\mu_0\omega^4}{16\pi^2c}\frac{\sin^2\theta}{r^2}\left(q\ell\sin\left(t-\frac{r}{c}\right)\right)^2\,\vv{u_r}\\
+    \langle\vv{R}\rangle&=\frac{\mu_0q^2\ell^2}{16\pi^2c}\frac{\sin^2\theta}{r^2}\omega^4\times\frac{1}{2}\vv{u_r}>0\to\text{rayonné vers l'extérieur}
+  \end{align*}
+#+END_SRC
 
-   Calcul du champ électrique $\vv{E}=-\grad V-\frac{\partial\vv{A}}{\partial
-   t}$
-   #+BEGIN_SRC latex
-     \begin{align*}
-       \grad V&=\frac{\partial V}{\partial r}\vv{u_r}+\frac{1}{r}\frac{\partial V}{\partial\theta}\vv{u_\theta}+\cancel{\frac{1}{r\sin\theta}\frac{\partial V}{\partial\phi}\vv{u_\phi}}\\
-       \frac{\partial V}{\partial r}&=-\frac{i\omega\cos\theta}{4\pi\epsilon_0c}\frac{\partial}{\partial r}\left(\frac{p}{r}\right)\\
-       &=\frac{\mu_0\omega^2p\cos\theta}{4\pi\,r}+\frac{i\omega p\cos\theta}{4\pi\epsilon_0c\,r^2}\\
-       \frac{1}{r}\frac{\partial V}{\partial\theta}&=-\frac{1}{r}\frac{i\omega p}{4\pi\epsilon_0 rc}(-)\sin\theta=\frac{i\omega p}{4\pi\epsilon_0r^2c}\sin\theta\\
-       \frac{\partial\vv{A}}{\partial t}&=-\frac{i\mu_0}{4\pi r}\omega\frac{\partial p}{\partial t}\vv{u_z}\text{ avec }\frac{\partial p}{\partial t}=-i\omega p\\
-       &=-\frac{\mu_0\omega^2}{4\pi r}p\vv{u_z}\text{ et }\vv{u_z}=\cos\theta\vv{u_r}-\sin\theta\vv{u_\theta}\\
-       &=-\frac{\mu_0\omega^2}{4\pi r}p\left(\cos\theta\vv{u_r}-\sin\theta\vv{u_\theta}\right)\\
-       \vv{E}&=\left|
-       \begin{array}{l}
-         -\frac{\mu_0\omega^2p}{4\pi r}\cos\theta + \frac{\mu_0\omega^2p}{4\pi r}\cos\theta -\frac{i\omega p}{4\pi\epsilon_0c}\frac{1}{r^2}\cos\theta\\
-         -\frac{\mu_0\omega^2p}{4\pi}\frac{1}{r}\sin\theta+\frac{i\omega p}{4\pi\epsilon_0 c}\frac{1}{r^2}\sin\theta\\
-         0
-       \end{array}
-       \right.
-     \end{align*}
-   #+END_SRC
+La puissance rayonnée correspond au flux du vecteur de Poynting soit
+#+BEGIN_SRC latex
+  \begin{align*}
+    P_r&=\iint\langle\vv{R}\rangle.\vv{dS}=\iint\langle\vv{R}\rangle\times r^2\sin\theta d\theta d\phi\\
+    &=\frac{\mu_0q^2\ell^2}{32\pi^2c}\omega^4\underbrace{\int_0^\pi\sin^3\theta d\theta}_{4/3}\int_0^{2\pi}d\phi\\
+    &=\frac{\mu_0q^2\ell^2}{12\pi c}\omega^4\text{ avec }q=\frac{I_0}{\omega}\\
+    &=\frac{\mu_0}{12\pi c}\omega^2\ell^2I_0^2\text{ d'où } R_r=\frac{\mu_0}{6\pi c}\omega^2\ell^2\\
+    &\text{avec }\frac{\omega}{c}=\frac{2\pi}{\lambda}\to R_r=\frac{2\pi\mu_0c}{3}\frac{\ell^2}{\lambda^2}=\frac{2\pi}{3}\left(\frac{\ell}{\lambda}\right)^2\underbrace{\sqrt{\frac{\mu_0}{\epsilon_0}}}_{Z_0}
+  \end{align*}
+#+END_SRC
+où $Z_0$ correspond à l'impédance du vide et est égale à 377 ohms.
 
-   Le terme en $\frac{1}{r}$ domine les deux termes en $\frac{1}{r^2}$ d'où
-   $E_r\ll E_\theta$ impliquant que le champ électrique soit
-   #+BEGIN_SRC latex
-     \begin{align*}
-       \vv{E}\simeq-\frac{\mu_0\omega^2p}{4\pi}\frac{1}{r}\sin\theta\,\vv{u_\theta}
-     \end{align*}
-   #+END_SRC
-
-   Le rapport des normes de $\vv{E}$ et $\vv{B}$ est égal à
-   #+BEGIN_SRC latex
-     \begin{align*}
-       \frac{\|\vv{E}\|}{\|\vv{B}\|}=\frac{\mu_0\omega^2p\sin\theta}{4\pi\,r}\times\frac{4\pi\,r}{\mu_0\omega^2p\sin\theta}\times c=c
-     \end{align*}
-   #+END_SRC
-
-   #+BEGIN_CENTER
-   #+CAPTION: *Onde plane progressive*
-   #+ATTR_LATEX: :width 0.4\linewidth
-   [[./figures/antenne_onde.pdf]]
-   #+END_CENTER
-
-6) Pour calculer la puissance rayonnée par le dipôle, il faut intégrer le flux
-   du vecteur de Poynting $\vv{R}$ sur une sphère de rayon $r\gg\lambda$
-
-   #+BEGIN_SRC latex
-     \begin{align*}
-       \vv{R}&=\frac{1}{\mu_0}\text{Re}({\vv{E}})\times\text{Re}(\vv{B})\\
-       &\text{où }\vv{E}=E\,\vv{u_\theta}\text{ et }\vv{B}=\frac{E}{c}\vv{u_\phi}\\
-       &=\frac{1}{\mu_0c}\text{Re}(E)^2\,\vv{u_\theta}\times\vv{u_\phi}\\
-       &=\frac{1}{\cancel{\mu_0}c}\frac{\mu_0^{\cancel{2}}\omega^4}{16\pi^2}\frac{\sin^2\theta}{r^2}\text{Re}(p)^2\,\vv{u_r}\\
-       &=\frac{\mu_0\omega^4}{16\pi^2c}\frac{\sin^2\theta}{r^2}\left(q\ell\sin\left(t-\frac{r}{c}\right)\right)^2\,\vv{u_r}\\
-       \langle\vv{R}\rangle&=\frac{\mu_0q^2\ell^2}{16\pi^2c}\frac{\sin^2\theta}{r^2}\omega^4\times\frac{1}{2}\vv{u_r}>0\to\text{rayonné vers l'extérieur}
-     \end{align*}
-   #+END_SRC
-
-   La puissance rayonnée correspond au flux du vecteur de Poynting soit
-   #+BEGIN_SRC latex
-     \begin{align*}
-       P_r&=\iint\langle\vv{R}\rangle.\vv{dS}=\iint\langle\vv{R}\rangle\times r^2\sin\theta d\theta d\phi\\
-       &=\frac{\mu_0q^2\ell^2}{32\pi^2c}\omega^4\underbrace{\int_0^\pi\sin^3\theta d\theta}_{4/3}\int_0^{2\pi}d\phi\\
-       &=\frac{\mu_0q^2\ell^2}{12\pi c}\omega^4\text{ avec }q=\frac{I_0}{\omega}\\
-       &=\frac{\mu_0}{12\pi c}\omega^2\ell^2I_0^2\text{ d'où } R_r=\frac{\mu_0}{6\pi c}\omega^2\ell^2\\
-       &\text{avec }\frac{\omega}{c}=\frac{2\pi}{\lambda}\to R_r=\frac{2\pi\mu_0c}{3}\frac{\ell^2}{\lambda^2}=\frac{2\pi}{3}\left(\frac{\ell}{\lambda}\right)^2\underbrace{\sqrt{\frac{\mu_0}{\epsilon_0}}}_{Z_0}
-     \end{align*}
-   #+END_SRC
-   où $Z_0$ correspond à l'impédance du vide et est égale à 377 ohms.
-
-   On note que la puissance est indépendante de $r$ autrement dit l'énergie se
-   propage sans perte : en toute rigueur, il faut donc tenir compte de
-   l'absorption pour décrire correctement la propagation de l'onde.
+On note que la puissance est indépendante de $r$ autrement dit l'énergie se
+propage sans perte : en toute rigueur, il faut donc tenir compte de
+l'absorption pour décrire correctement la propagation de l'onde.
 
 ** Interaction onde électromagnétique-électron
 *** Cas de l'atome d'hydrogène
@@ -4897,7 +4979,7 @@ $I=I_0\cos\omega t$. La fonction d'Heaviside a pour représentation
 3) En projetant l'équation gouvernant la dynamique de l'électron selon $Ox$, on obtient
    #+BEGIN_SRC latex
      \begin{align*}
-       m\frac{\partial^2x}{\partial t^2}=-m\omega_0^2x-eE_x(z=0)\text{ (car $z=0$ selon $Ox$)}
+       m\frac{\partial^2x}{\partial t^2}=-m\omega_0^2x-eE_x(z=0)\text{ (car $z=0$ à la position de l'électron)}
      \end{align*}
    #+END_SRC
 4) En notation complexe, la composante $E_x$ s'écrit $E_0\,e^{i\omega t}$ et la
@@ -5026,11 +5108,11 @@ $I=I_0\cos\omega t$. La fonction d'Heaviside a pour représentation
         \end{align*}
       #+END_SRC
 
-      À titre de comparaison, la section efficace totale de production de boson
+      À titre de comparaison, la section efficace totale de production du boson
       de Higgs au LHC (pour une énergie de faisceau de 14 TeV et une masse du
       Higgs voisine de 125 GeV) est voisine de 50 picobarns soit 50 10^{-12} barn
       soit 50 10^{-40} m^{2}.
-* COMMENT TD7 : Propagation dans le vide et les milieux diélectriques
+* TD7 : Propagation dans le vide et les milieux diélectriques
 ** Effet Faraday dans un diélectrique
 
 #+BEGIN_CENTER
@@ -5100,7 +5182,7 @@ $I=I_0\cos\omega t$. La fonction d'Heaviside a pour représentation
    1) Principe fondamental de la dynamique appliqué à un électron du milieu
       #+BEGIN_SRC latex
         \begin{align*}
-          m\frac{d\vv{v}}{dt}=-m\omega_0^2\vv{R}-e\vv{E}-e\vv{v}\times\left(\vv{B}+\vv{B_S}\right)
+          m\frac{d\vv{V}}{dt}=-m\omega_0^2\vv{R}-e\vv{E}-e\vv{V}\times\left(\vv{B}+\vv{B_S}\right)
         \end{align*}
       #+END_SRC
    2) Pour une onde plane transverse, la norme du champ magnétique associé à
@@ -5111,34 +5193,34 @@ $I=I_0\cos\omega t$. La fonction d'Heaviside a pour représentation
       la force coulombienne devient
       #+BEGIN_SRC latex
         \begin{align*}
-          \frac{\|e\vv{v}\times\vv{B}\|}{\|e\vv{E}\|}=\frac{v/c\times E}{E}&=\frac{v}{c}\ll1\to\text{ électron non relativiste}\\
-          \|e\vv{v}\times\vv{B}\|&\ll\|e\vv{E}\|
+          \frac{\|e\vv{V}\times\vv{B}\|}{\|e\vv{E}\|}=\frac{V/c\times E}{E}&=\frac{V}{c}\ll1\to\text{ électron non relativiste}\\
+          \|e\vv{V}\times\vv{B}\|&\ll\|e\vv{E}\|
         \end{align*}
       #+END_SRC
-   3) En différentialisant le champ de vitesse où  $\vv{v}$ est une fonction de
+   3) En différentialisant le champ de vitesse où  $\vv{V}$ est une fonction de
       l'espace et du temps /i.e./ $f(\vv{r},t)$, on obtient
       #+BEGIN_SRC latex
         \begin{align*}
-          d\vv{v}&=\frac{\partial\vv{v}}{\partial t}dt+\frac{\partial\vv{v}}{\partial x}dx+\frac{\partial\vv{v}}{\partial y}dy+\frac{\partial\vv{v}}{\partial z}dz\\
-          \frac{d\vv{v}}{dt}&=\frac{\partial\vv{v}}{\partial t}+\frac{\partial\vv{v}}{\partial x}\frac{dx}{dt}+\frac{\partial\vv{v}}{\partial y}\frac{dy}{dt}+\frac{\partial\vv{v}}{\partial z}\frac{dz}{dt}\\
-          \frac{d\vv{v}}{dt}&=\frac{\partial\vv{v}}{\partial t}+\frac{\partial\vv{v}}{\partial x}v_x+\frac{\partial\vv{v}}{\partial y}v_y+\frac{\partial\vv{v}}{\partial z}v_z\\
-          \underbrace{\frac{d\vv{v}}{dt}}_{\text{dérivée particulaire}}&=\underbrace{\frac{\partial\vv{v}}{\partial t}}_{\text{dérivée locale}}+\underbrace{\left(\vv{v}.\grad\right).\vv{v}}_{\text{dérivée convective}}
+          d\vv{V}&=\frac{\partial\vv{V}}{\partial t}dt+\frac{\partial\vv{V}}{\partial x}dx+\frac{\partial\vv{V}}{\partial y}dy+\frac{\partial\vv{V}}{\partial z}dz\\
+          \frac{d\vv{V}}{dt}&=\frac{\partial\vv{V}}{\partial t}+\frac{\partial\vv{V}}{\partial x}\frac{dx}{dt}+\frac{\partial\vv{V}}{\partial y}\frac{dy}{dt}+\frac{\partial\vv{V}}{\partial z}\frac{dz}{dt}\\
+          \frac{d\vv{V}}{dt}&=\frac{\partial\vv{V}}{\partial t}+\frac{\partial\vv{V}}{\partial x}v_x+\frac{\partial\vv{V}}{\partial y}v_y+\frac{\partial\vv{V}}{\partial z}v_z\\
+          \underbrace{\frac{d\vv{V}}{dt}}_{\text{dérivée particulaire}}&=\underbrace{\frac{\partial\vv{V}}{\partial t}}_{\text{dérivée locale}}+\underbrace{\left(\vv{V}.\grad\right).\vv{V}}_{\text{dérivée convective}}
         \end{align*}
       #+END_SRC
-      En posant $\vv{v}=\vv{v_0}\,e^{i(\omega t-\vv{k}.\vv{r})}$, la dérivée locale
-      $\frac{\partial\vv{v}}{\partial t}$ est égale à $i\omega\vv{v}$, la dérivée
+      En posant $\vv{V}=\vv{V_0}\,e^{i(\vv{k}.\vv{r}-\omega t)}$, la dérivée locale
+      $\frac{\partial\vv{V}}{\partial t}$ est égale à $-i\omega\vv{V}$, la dérivée
       convective prenant la forme
       #+BEGIN_SRC latex
         \begin{align*}
-          \left(\vv{v}.\grad\right).\vv{v}=\vv{v}.(-)i\vv{k}.\vv{v}
+          \left(\vv{V}.\grad\right).\vv{V}=\vv{V}.i\vv{k}.\vv{V}
         \end{align*}
       #+END_SRC
       On déduit que
       #+BEGIN_SRC latex
         \begin{align*}
-          \frac{\partial\vv{v}}{\partial t}+\left(\vv{v}.\grad\right).\vv{v}&=i\omega\vv{v}-i\vv{v}.\vv{k}.\vv{v}\\
-          &=i\omega\vv{v}\left(1-\frac{\vv{k}.\vv{v}}{\omega}\right)=i\omega\vv{v}\left(1-\frac{v}{v_\phi}\right)\\
-          \frac{d\vv{v}}{dt}&\simeq\frac{\partial v}{\partial t}\to\frac{v}{v_\phi}=\frac{v}{c}\ll1
+          \frac{\partial\vv{V}}{\partial t}+\left(\vv{V}.\grad\right).\vv{V}&=-i\omega\vv{V}+i\vv{V}.\vv{k}.\vv{V}\\
+          &=-i\omega\vv{V}\left(1-\frac{\vv{k}.\vv{V}}{\omega}\right)=-i\omega\vv{V}\left(1-\frac{V}{v_\phi}\right)\\
+          \frac{d\vv{V}}{dt}&\simeq\frac{\partial v}{\partial t}\to\frac{V}{v_\phi}=\frac{V}{c}\ll1
         \end{align*}
       #+END_SRC
 2) Cas où le champ magnétique statique est nul $\vv{B_S}=\vv{0}$. La
@@ -5149,7 +5231,7 @@ $I=I_0\cos\omega t$. La fonction d'Heaviside a pour représentation
    magnétique statique, l'équation du mouvement de l'électron se réduit à
    #+BEGIN_SRC latex
      \begin{align*}
-       m\frac{\partial\vv{v}}{\partial t}&=-e\vv{E}-m\omega_0\vv{R}\\
+       m\frac{\partial\vv{V}}{\partial t}&=-e\vv{E}-m\omega_0\vv{R}\\
        m\frac{\partial^2\vv{R}}{\partial t^2}&=-e\vv{E}-m\omega_0\vv{R}\\
        m\times(-i\omega)^2\vv{R}&=-e\vv{E}-m\omega_0\vv{R}\\
        \vv{R}&=\frac{-e\vv{E}}{m(\omega_0^2-\omega^2)}\\
@@ -5288,13 +5370,13 @@ $I=I_0\cos\omega t$. La fonction d'Heaviside a pour représentation
        y&=\frac{e}{m}\,\frac{\left(\omega^2-\omega_0^2\right)E_y+i\omega\omega_cE_x}{\left(\omega^2-\omega_0^2\right)^2-\omega^2\omega_c^2}
      \end{align*}
    #+END_SRC
-4) La vitesse de l'électron $\vv{v}$, la densité de courant $\vv{j}$ et la
+4) La vitesse de l'électron $\vv{V}$, la densité de courant $\vv{j}$ et la
    variation temporelle de courant $\frac{\partial\vv{j}}{\partial t}$
    s'expriment en fonction du vecteur position de l'électron $\vv{R}$
    #+BEGIN_SRC latex
      \begin{align*}
-       \vv{v}&=\frac{\partial\vv{R}}{\partial t}=-i\omega\vv{R}\\
-       \vv{j}&=\cancel{ne\vv{v}_\text{ion}}-ne\vv{v}\simeq-ne\vv{v}=ine\omega\vv{R}\\
+       \vv{V}&=\frac{\partial\vv{R}}{\partial t}=-i\omega\vv{R}\\
+       \vv{j}&=\cancel{ne\vv{V}_\text{ion}}-ne\vv{V}\simeq-ne\vv{V}=ine\omega\vv{R}\\
        \frac{\partial\vv{j}}{\partial t}&=-i\omega\vv{j}=ne\omega^2\vv{R}
      \end{align*}
    #+END_SRC
@@ -5326,7 +5408,7 @@ $I=I_0\cos\omega t$. La fonction d'Heaviside a pour représentation
    Soit
    #+BEGIN_SRC latex
      \begin{align*}
-       \vv{v}&=\frac{ie\omega}{m\omega_p^2}\bar{\bar{\chi}}\vv{E}\\
+       \vv{V}&=\frac{ie\omega}{m\omega_p^2}\bar{\bar{\chi}}\vv{E}\\
        \vv{j}&=-\frac{ine^2\omega}{m\omega_p^2}\bar{\bar{\chi}}\vv{E}=-i\omega\epsilon_0\bar{\bar{\chi}}\vv{E}\\
        \frac{\partial\vv{j}}{\partial t}&=-\frac{ne^2}{m}\frac{\omega^2}{\omega_p^2}\bar{\bar{\chi}}\vv{E}=-\omega^2\epsilon_0\bar{\bar{\chi}}\vv{E}
      \end{align*}
@@ -5358,7 +5440,7 @@ $I=I_0\cos\omega t$. La fonction d'Heaviside a pour représentation
    champ magnétique statique $B_S$ ne doit pas avoir d'influence sur le
    mouvement des électrons et donc sur la propagation de l'onde. En effet, la
    force de Lorentz exercée par le champ magnétique statique s'écrit
-   $\vv{F_L}=-e\vv{v}\times\vv{B_S}=-\frac{i\omega
+   $\vv{F_L}=-e\vv{V}\times\vv{B_S}=-\frac{i\omega
    e^2}{m\omega_p^2}\bar{\bar{\chi}}\vv{E}\times\vv{B_S}$. $\vv{E}\parallel\vv{u_z}$
    et $\vv{B_S}\parallel\vv{u_z}$ \to $\vv{F_L}=\vv{0}$.
 
@@ -5598,7 +5680,7 @@ $\omega_c,\omega_p\ll\omega\sim\sqrt{|\omega_0^2-\omega^2|}$
    $-$ $\lambda\sim30\,\mu\text{m}, \nu=\unit[1.5]{THz}$ $-$ et un champ
    magnétique de 8 Tesla.
 
-** Réflexion totale et onde évanescente                                 :DM:
+** COMMENT Réflexion totale et onde évanescente                                 :DM:
 
 1) La loi de Snell & Descartes impose qu'à la traversée du dioptre, l'angle
    transmis $\theta_t$ est relié à l'angle d'incidence $\theta_i$ par
