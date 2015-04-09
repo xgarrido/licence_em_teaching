@@ -3707,7 +3707,7 @@ $r\cos\theta$ et est lui aussi solution de l'équation de Laplace. La somme des
 deux solutions justifie ainsi de la forme de la solution utilisée dans cet
 exercice.
 
-* TD5 : Milieux magnétiques
+* COMMENT TD5 : Milieux magnétiques
 ** COMMENT Introduction
 Dans la plupart des matériaux soumis à un champ magnétique, les charges liées se
 déplacent à l'échelle atomique faisant apparaître des boucles de courant /i.e./
@@ -5112,7 +5112,7 @@ l'absorption pour décrire correctement la propagation de l'onde.
       de Higgs au LHC (pour une énergie de faisceau de 14 TeV et une masse du
       Higgs voisine de 125 GeV) est voisine de 50 picobarns soit 50 10^{-12} barn
       soit 50 10^{-40} m^{2}.
-* COMMENT TD7 : Propagation dans le vide et les milieux diélectriques
+* TD7 : Propagation dans le vide et les milieux diélectriques
 ** Effet Faraday dans un diélectrique
 
 #+BEGIN_QUESTION
@@ -5276,9 +5276,9 @@ $\vv{P}=n\times\vv{p}=-ne\vv{R}$. Par ailleurs, en l'absence de champ magnétiqu
 statique, l'équation du mouvement de l'électron se réduit à
 #+BEGIN_SRC latex
   \begin{align*}
-    m\frac{\partial\vv{V}}{\partial t}&=-e\vv{E}-m\omega_0\vv{R}\\
-    m\frac{\partial^2\vv{R}}{\partial t^2}&=-e\vv{E}-m\omega_0\vv{R}\\
-    m\times(-i\omega)^2\vv{R}&=-e\vv{E}-m\omega_0\vv{R}\\
+    m\frac{\partial\vv{V}}{\partial t}&=-e\vv{E}-m\omega_0^2\vv{R}\\
+    m\frac{\partial^2\vv{R}}{\partial t^2}&=-e\vv{E}-m\omega_0^2\vv{R}\\
+    m\times(-i\omega)^2\vv{R}&=-e\vv{E}-m\omega_0^2\vv{R}\\
     \vv{R}&=\frac{-e\vv{E}}{m(\omega_0^2-\omega^2)}\\
     \vv{P}&=-ne\vv{R}=\frac{ne^2\vv{E}}{m(\omega_0^2-\omega^2)}
   \end{align*}
@@ -5588,7 +5588,7 @@ $\bar{\bar{\chi'}}\vv{E}=\lambda\vv{E}$.
 - $\lambda_1=\gamma-\beta$
   #+BEGIN_SRC latex
     \begin{align*}
-      E_{1y}&=\frac{i\beta}{\beta}E_{1x}=e^{i\pi/2}E_{1x}=E_{0x}e^{\vv{k_1}.\vv{r}-\omega t+\frac{\pi}{2}}\\
+      E_{1y}&=\frac{i\beta}{\beta}E_{1x}=e^{i\pi/2}E_{1x}=E_{0x}e^{i(\vv{k_1}.\vv{r}-\omega t+\frac{\pi}{2})}\\
       \vv{E}&=E_{0x}\left|
       \begin{array}{l}
         \cos\left(\vv{k_1}.\vv{r}-\omega t\right)\\
@@ -5598,10 +5598,7 @@ $\bar{\bar{\chi'}}\vv{E}=\lambda\vv{E}$.
       \right.
     \end{align*}
   #+END_SRC
-  La polarisation de l'onde pour ce mode propre est donc *circulaire gauche*
-  (l'expression des fonctions trigonométriques cosinus et sinus dépend de
-  $-t$ d'où le résultat obtenu où $\cos(-\theta)=\cos(\theta)$ et
-  $\sin(-\theta)=-\sin(\theta)$).
+  La polarisation de l'onde pour ce mode propre est donc *circulaire gauche*.
 
 - $\lambda_2=\gamma+\beta$ : la polarisation de l'onde pour ce mode propre
   est donc *circulaire droite*.
@@ -5796,7 +5793,7 @@ de l'ordre de 6 degrés pour une radiation infrarouge $-$
 $\lambda\sim30\,\mu\text{m}, \nu=\unit[1.5]{THz}$ $-$ et un champ magnétique de
 8 Tesla.
 
-** COMMENT Réflexion totale et onde évanescente                                 :DM:
+** Réflexion totale et onde évanescente                                 :DM:
 
 1) La loi de Snell & Descartes impose qu'à la traversée du dioptre, l'angle
    transmis $\theta_t$ est relié à l'angle d'incidence $\theta_i$ par
@@ -5985,7 +5982,7 @@ l'expression de la matrice inverse $\mathcal{A}^{-1}$ est
   \end{align*}
 #+END_SRC
 
-* COMMENT TD8 : Guides d'onde
+* TD8 : Guides d'onde
 ** Cavité cylindrique résonante
 *** Détermination des fréquences de résonance
 1) Les équations de Maxwell sont
@@ -6379,7 +6376,7 @@ l'expression de la matrice inverse $\mathcal{A}^{-1}$ est
    sans unité du taux d'amortissement d'un oscillateur. Plus le facteur de
    qualité est élevé, plus la bande passante est petite, et plus la résonance
    est "piquée". Le facteur de qualité permet donc de quantifier la "qualité
-   d'un filtre" (qu'il soit électronique, acoustique, optique...) : plus $Q$ est
+   d'un filtre" (qu'il soit électronique, acoustique, optique...)\nbsp: plus $Q$ est
    élevé, plus le filtre est sélectif.
 
    En optique, la durée de vie
@@ -6388,7 +6385,7 @@ l'expression de la matrice inverse $\mathcal{A}^{-1}$ est
    ailleurs, ce facteur de qualité $Q=\frac{f_0}{\Delta f_0}$ est également
    appelé la finesse.
 
-   Il existe en outre une technique d'émission laser consistant en augmenter
+   Il existe en outre une technique d'émission laser consistant à augmenter
    rapidement et brièvement le facteur de qualité afin d'émettre un /pulse/
    laser beaucoup plus intense qu'en mode continu. Cette technique est connue
    sour le nom de [[http://en.wikipedia.org/wiki/Q-switching][/Q-switching/]] ou commutation Q et est, en particulier, utilisée
