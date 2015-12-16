@@ -3,9 +3,9 @@
 #+EMAIL:  xavier.garrido@u-psud.fr
 #+OPTIONS: ^:{} toc:2 tags:t author:t email:t split:html
 #+LATEX_CLASS: teaching-class
-#+LATEX_CLASS_OPTIONS: [novc]
+# #+LATEX_CLASS_OPTIONS: [novc]
 
-* COMMENT TD1 : Équations de Maxwell dans le vide et champ électromagnétique
+* TD1 : Équations de Maxwell dans le vide et champ électromagnétique
 ** Équations de Maxwell dans le vide                                    :DM:
 #+BEGIN_QUESTION
 1) [@1] On considère une onde plane scalaire en notation complexe :
@@ -1034,7 +1034,7 @@ Poynting $I=\|\langle\vv{R}\rangle\|$ avec
 $\vv{R}=\frac{\vv{E}\times\vv{B}}{\mu_0}$ et
 $\vv{B}=\frac{\vv{k}\times\vv{E}}{\omega}$
 
-* COMMENT TD2 : Électrostatique dans le vide
+* TD2 : Électrostatique dans le vide
 ** Condensateur cylindrique
 
 #+BEGIN_QUESTION
@@ -1814,7 +1814,7 @@ $\vv{p}_1=\vv{p}_2=\vv{p}$, on obtient une force moyenne
   \end{align*}
 #+END_SRC
 
-* COMMENT TD3 : Les milieux diélectriques
+* TD3 : Les milieux diélectriques
 ** Introduction
 Historiquement, la découverte expérimentale des diélectriques est à mettre au
 profit de Michael Faraday qui nota que l'introduction d'un isolant entre les
@@ -2757,7 +2757,7 @@ $\div\vv{E}=\frac{\rho_\text{tot.}}{\epsilon_0}$ d'où
 S'il n'y a donc pas de densité volumique de charge libre $\rho_\ell$, la densité
 volumique de charge liée est donc également nulle.
 
-* COMMENT TD4 : Magnétostatique
+* TD4 : Magnétostatique
 ** Introduction
 En magnétostatique, les équations locales deviennent
 #+BEGIN_SRC latex
@@ -3400,7 +3400,7 @@ longueur.
       $\div\vv{B}=0=-\div(\grad\,\phi)=-\Delta\phi$. Le potentiel scalaire
       $\phi$ est donc solution de l'équation de Laplace. La forme du potentiel
       $\phi(r,\theta)=\alpha r\cos\theta+\beta\cos\theta/r^2$ est identique à la
-      solution trouvée à l'exercice [[Boule uniformément polarisée]] également
+      solution trouvée à l'exercice "Boule uniformément polarisée" également
       solution de l'équation de Laplace $\Delta V=0$ [fn:9].
       #+BEGIN_SRC latex
         \begin{align*}
@@ -3707,8 +3707,8 @@ $r\cos\theta$ et est lui aussi solution de l'équation de Laplace. La somme des
 deux solutions justifie ainsi de la forme de la solution utilisée dans cet
 exercice.
 
-* COMMENT TD5 : Milieux magnétiques
-** COMMENT Introduction
+* TD5 : Milieux magnétiques
+** Introduction
 Dans la plupart des matériaux soumis à un champ magnétique, les charges liées se
 déplacent à l'échelle atomique faisant apparaître des boucles de courant /i.e./
 *des dipôles magnétiques* : la milieu s'aimante. Ainsi, l'aimantation $\vv{M}$
@@ -3769,7 +3769,7 @@ les milieux para.
 Dans le cas de matériaux ferromagnétiques, $\chi_m\gg1$, l'aimantation n'est
 plus proportionnelle à l'excitation magnétique $\vv{M}\neq\chi_m\vv{H}$.
 
-** COMMENT Plaque magnétique
+** Plaque magnétique
 #+BEGIN_QUESTION
 Une plaque d'épaisseur $e$ est constituée d'un matériau magnétique linéaire,
 homogène isotrope (LHI) de susceptibilité $\chi$. On supposera en plus que ce
@@ -3841,7 +3841,7 @@ la plaque.
         #+END_CENTER
         Les lignes de champ magnétique sont canalisées\to blindages magnétiques
 
-** COMMENT L'électro-aimant
+** L'électro-aimant
 #+BEGIN_QUESTION
 Un électro-aimant est constitué d'un barreau de ferromagnétique doux appelé fer,
 de section constante $S$, replié sur lui-même de façon que les deux extrémités
@@ -3944,7 +3944,7 @@ théorème d'Ampère on obtient
     B_2&=\mu_0H_2=\mu_0\left(\frac{NI+\ell M_S}{\ell+d}\right)=\unit[1.56]{T}
   \end{align*}
 #+END_SRC
-** COMMENT Aimant permanent
+** Aimant permanent
 #+BEGIN_QUESTION
 Une fois aimanté, un matériau ferromagnétique dur conserve son aimantation, dans
 la mesure où on ne le soumet pas à des champs trop intenses. Cette propriété
@@ -4531,7 +4531,7 @@ $\vv{B}$ est $E_p=-\vv{m}.\vv{B}$.
          $\lambda_0=4nR=\unit[521]{nm}$. La solution devient donc verte. Cette
          technique de spectrométrie permet donc de mesurer la taille $R$ des
          gouttelettes.
-* COMMENT TD6 : Rayonnement
+* TD6 : Rayonnement
 ** COMMENT Rayonnement d'une antenne
 #+BEGIN_QUESTION
 On considère une portion de conducteur rectiligne $MN$ de longueur \ell, dirigée
@@ -5112,7 +5112,7 @@ l'absorption pour décrire correctement la propagation de l'onde.
       de Higgs au LHC (pour une énergie de faisceau de 14 TeV et une masse du
       Higgs voisine de 125 GeV) est voisine de 50 picobarns soit 50 10^{-12} barn
       soit 50 10^{-40} m^{2}.
-* COMMENT TD7 : Propagation dans le vide et les milieux diélectriques
+* TD7 : Propagation dans le vide et les milieux diélectriques
 ** Effet Faraday dans un diélectrique
 
 #+BEGIN_QUESTION
@@ -5795,106 +5795,150 @@ $\lambda\sim30\,\mu\text{m}, \nu=\unit[1.5]{THz}$ $-$ et un champ magnétique de
 
 ** Réflexion totale et onde évanescente                                 :DM:
 
-1) La loi de Snell & Descartes impose qu'à la traversée du dioptre, l'angle
-   transmis $\theta_t$ est relié à l'angle d'incidence $\theta_i$ par
-   #+BEGIN_SRC latex
-     \begin{align*}
-       n_1\sin\theta_i=n_2\sin\theta_t
-     \end{align*}
-   #+END_SRC
-   Il y a réflexion totale dès lors que $\sin\theta_t\geq1$ soit pour un angle
-   d'incidence tel que
-   #+BEGIN_SRC latex
-     \begin{align*}
-       \sin\theta_t&\geq1\\
-       \sin\theta_i&\geq\frac{n_2}{n_1}\\
-       \theta_l&=\arcsin\left(\frac{n_2}{n_1}\right)\text{ avec }n_2 < n_1\\
-       \theta_i&\geq\theta_l\to\text{réflexion totale}
-     \end{align*}
-   #+END_SRC
+#+BEGIN_QUESTION
+Le demi-espace $y<0$ est rempli d'un diélectrique LHI transparent (sans pertes)
+d'indice $n_1$. Le demi-espace $y>0$ est rempli d'un diélectrique LHI d'indice
+$n_2<n_1$.
 
-2) Les champs électriques associées aux différentes ondes s'écrivent
-   #+BEGIN_SRC latex
-     \begin{align*}
-       \vv{E_i}&=\vv{E_{i0}}\,e^{i\left(\vv{k_i}.\vv{r}-\omega_it\right)}\\
-       \vv{E_t}&=\vv{E_{t0}}\,e^{i\left(\vv{k_t}.\vv{r}-\omega_tt\right)}\\
-       \vv{E_r}&=\vv{E_{r0}}\,e^{i\left(\vv{k_r}.\vv{r}-\omega_rt\right)}
-     \end{align*}
-   #+END_SRC
+Une onde électromagnétique monochromatique, plane, progressive, homogène (MPPH)
+arrive du milieu 1 sur le dioptre plan $y=0$ avec l'angle d'incidence
+$\theta_i$. L'onde incidente produit une onde MPPH réfléchie dans le milieu 1 et
+une onde MPPH transmise dans le milieu 2. On note avec les indices $i,r,t$ les
+grandeurs physiques relatives aux ondes incidente, réfléchie et transmise. Ainsi
+le champ électrique de l'onde transmise s'écrit en notation complexe :
+#+BEGIN_SRC latex
+  \begin{align*}
+  \vv{E}_t=\vv{E}_{t0}\exp\left[i(\vv{k}_t.\vv{r}-\omega_tt)\right]
+  \end{align*}
+#+END_SRC
+On choisit les axes $Ox$ et $Oz$ de sorte que $k_{ix}=0$ et $k_{iz}>0$.
 
-   À l'interface entre les deux milieux $n_1/n_2$ soit pour $\vv{r_0}$ appartenant
-   au plan $(\vv{u_x},\vv{u_z})$, la composante tangentielle du champ
-   électrique est conservée soit
-   #+BEGIN_SRC latex
-     \begin{align*}
-       \vv{E_i}^\parallel(\vv{r_0},t)+\vv{E_r}^\parallel(\vv{r_0},t)&=\vv{E_t}^\parallel(\vv{r_0},t)\\
-       \vv{E_{i0}}^\parallel\,e^{i\left(\vv{k_i}.\vv{r_0}-\omega_it\right)}+\vv{E_{r0}}^\parallel\,e^{i\left(\vv{k_r}.\vv{r_0}-\omega_rt\right)}&=\vv{E_{t0}}^\parallel\,e^{i\left(\vv{k_t}.\vv{r_0}-\omega_tt\right)}
-     \end{align*}
-   #+END_SRC
-   Cette égalité devant demeurer vrai pour tout $t$, on déduit que les
-   pulsations sont nécessairement toutes égales
-   $\omega_i=\omega_r=\omega_t=\omega$. Les longueurs d'ondes restent donc
-   inchangées à la traversée/réflexion du dioptre. L'égalité précédente devient
-   ainsi
-   #+BEGIN_SRC latex
-     \begin{align*}
-       \vv{E_{i0}}^\parallel\,e^{i\vv{k_i}.\vv{r_0}}+\vv{E_{r0}}^\parallel\,e^{i\vv{k_r}.\vv{r_0}}&=\vv{E_{t0}}^\parallel\,e^{i\vv{k_t}.\vv{r_0}}\\
-       \vv{E_{i0}}^\parallel+\vv{E_{r0}}^\parallel\,e^{i\left(\vv{k_r}-\vv{k_i}\right).\vv{r_0}}&=\vv{E_{t0}}^\parallel\,e^{i\left(\vv{k_t}-\vv{k_i}\right).\vv{r_0}}
-     \end{align*}
-   #+END_SRC
-   et doit également demeurer vrai pour tout $\vv{r_0}$ appartenant au plan
-   $(\vv{u_x},\vv{u_z})$. Cette contrainte implique nécessairement que
-   #+BEGIN_SRC latex
-     \begin{align*}
-       \left(\vv{k_r}-\vv{k_i}\right).\vv{r_0}&=\left(\vv{k_t}-\vv{k_i}\right).\vv{r_0}=0\\
-       \text{d'où }&\vv{k_r}-\vv{k_i}\parallel\vv{u_y}\text{ et }\vv{k_t}-\vv{k_i}\parallel\vv{u_y}\\
-       \vv{k_r}=\vv{k_i}+\alpha\vv{u_y}&\text{ et }\vv{k_t}=\vv{k_i}+\beta\vv{u_y}
-     \end{align*}
-   #+END_SRC
-   On déduit ainsi que $k_{rx}=k_{tx}=k_{ix}=0$ et $k_{rz}=k_{tz}=k_{iz}$.
+1) [@1] En optique géométrique, à partir de quel angle limite $\theta_l$ se
+   produit le phénomène de réflexion totale ? La suite de l'exerice concerne le
+   cas où $\theta_i>\theta_l$.
+#+END_QUESTION
+Les lois de Snell & Descartes impose qu'à la traversée du dioptre, l'angle
+transmis $\theta_t$ est relié à l'angle d'incidence $\theta_i$ par
+#+BEGIN_SRC latex
+  \begin{align*}
+    n_1\sin\theta_i=n_2\sin\theta_t
+  \end{align*}
+#+END_SRC
+Il y a réflexion totale dès lors que $\sin\theta_t\geq1$ soit pour un angle
+d'incidence tel que
+#+BEGIN_SRC latex
+  \begin{align*}
+    \sin\theta_t&\geq1\\
+    \sin\theta_i&\geq\frac{n_2}{n_1}\\
+    \theta_l&=\arcsin\left(\frac{n_2}{n_1}\right)\text{ avec }n_2 < n_1\\
+    \theta_i&\geq\theta_l\to\text{réflexion totale}
+  \end{align*}
+#+END_SRC
 
-3) Les expressions des normes des vecteurs d'onde sont les suivantes
-   #+BEGIN_SRC latex
-     \begin{align*}
-       k_i&=\frac{\omega_i}{v_1}=\frac{\omega}{c}\times n_1\\
-       k_r&=\frac{\omega}{c}\times n_1\\
-       k_t&=\frac{\omega}{c}\times n_2
-     \end{align*}
-   #+END_SRC
-   Sachant que $k_{tz}=k_{iz}$ et que $k_{iz}=k_i\sin\theta_i$, on déduit que
-   $k_{tz}=\frac{\omega}{c}\,n_1\sin\theta_i$. Par ailleurs, la norme au carré
-   de $k_t$ s'écrit
-   #+BEGIN_SRC latex
-     \begin{align*}
-       k_t^2&=\left(\frac{\omega}{c}\right)^2n_2^2=k_{tz}^2+k_{ty}^2\\
-       k_{ty}^2&=\left(\frac{\omega}{c}\right)^2n_2^2-\left(\frac{\omega}{c}\right)^2n_1^2\sin^2\theta_i\\
-       &=\left(\frac{\omega}{c}\right)^2\underbrace{\left(n_2^2-n_1^2\sin^2\theta_i\right)}_{<0\text{ car }\sin\theta_i>\frac{n_2}{n_1}}\\
-       k_{ty}&=\pm i\frac{\omega}{c}\sqrt{n_1^2\sin^2\theta_i-n_2^2}
-     \end{align*}
-   #+END_SRC
+#+BEGIN_QUESTION
+2) [@2] En utilisant une relation de passage du milieu 1 au milieu 2, justifier
+   que $\omega_i=\omega_r=\omega_t=\omega$. De même justifier que
+   $k_{rx}=k_{tx}=k_{ix}=0$ et que $k_{rz}=k_{tz}=k_{iz}$.
+#+END_QUESTION
+Les champs électriques associées aux différentes ondes s'écrivent
+#+BEGIN_SRC latex
+  \begin{align*}
+    \vv{E_i}&=\vv{E_{i0}}\,e^{i\left(\vv{k_i}.\vv{r}-\omega_it\right)}\\
+    \vv{E_t}&=\vv{E_{t0}}\,e^{i\left(\vv{k_t}.\vv{r}-\omega_tt\right)}\\
+    \vv{E_r}&=\vv{E_{r0}}\,e^{i\left(\vv{k_r}.\vv{r}-\omega_rt\right)}
+  \end{align*}
+#+END_SRC
 
-   On retrouve ainsi les trois lois de Snell-Descartes qui sont
-   - *1^{ère} loi de Descartes :* les vecteurs d'onde $\vv{k_t}$, $\vv{k_r}$
-     appartiennent au plan défini par les vecteurs $\vv{k_i}$ et la normale au
-     dioptre /i.e./ $\vv{u_y}$.
-   - *2^{ème} loi de Descartes :*
-     #+BEGIN_SRC latex
-       \begin{align*}
-         k_{iz}&=k_{rz}\\
-         \frac{\omega}{c}n_1\sin\theta_i&=\frac{\omega}{c}n_1\sin\theta_r\\
-         \theta_i&=\theta_r
-       \end{align*}
-     #+END_SRC
-   - *3^{ème} loi de Descartes :*
-     #+BEGIN_SRC latex
-       \begin{align*}
-         k_{iz}&=k_{tz}\\
-         \frac{\omega}{c}n_1\sin\theta_i&=\frac{\omega}{c}n_2\sin\theta_t\\
-         n_1\sin\theta_i&=n_2\sin\theta_t
-       \end{align*}
-     #+END_SRC
+À l'interface entre les deux milieux $n_1/n_2$ soit pour $\vv{r_0}$ appartenant
+au plan $(\vv{u_x},\vv{u_z})$, la composante tangentielle du champ
+électrique est conservée soit
+#+BEGIN_SRC latex
+  \begin{align*}
+    \vv{E_i}^\parallel(\vv{r_0},t)+\vv{E_r}^\parallel(\vv{r_0},t)&=\vv{E_t}^\parallel(\vv{r_0},t)\\
+    \vv{E_{i0}}^\parallel\,e^{i\left(\vv{k_i}.\vv{r_0}-\omega_it\right)}+\vv{E_{r0}}^\parallel\,e^{i\left(\vv{k_r}.\vv{r_0}-\omega_rt\right)}&=\vv{E_{t0}}^\parallel\,e^{i\left(\vv{k_t}.\vv{r_0}-\omega_tt\right)}
+  \end{align*}
+#+END_SRC
+Cette égalité devant demeurer vrai pour tout $t$, on déduit que les
+pulsations sont nécessairement toutes égales
+$\omega_i=\omega_r=\omega_t=\omega$. Les longueurs d'ondes restent donc
+inchangées à la traversée/réflexion du dioptre. L'égalité précédente devient
+ainsi
+#+BEGIN_SRC latex
+  \begin{align*}
+    \vv{E_{i0}}^\parallel\,e^{i\vv{k_i}.\vv{r_0}}+\vv{E_{r0}}^\parallel\,e^{i\vv{k_r}.\vv{r_0}}&=\vv{E_{t0}}^\parallel\,e^{i\vv{k_t}.\vv{r_0}}\\
+    \vv{E_{i0}}^\parallel+\vv{E_{r0}}^\parallel\,e^{i\left(\vv{k_r}-\vv{k_i}\right).\vv{r_0}}&=\vv{E_{t0}}^\parallel\,e^{i\left(\vv{k_t}-\vv{k_i}\right).\vv{r_0}}
+  \end{align*}
+#+END_SRC
+et doit également demeurer vrai pour tout $\vv{r_0}$ appartenant au plan
+$(\vv{u_x},\vv{u_z})$. Cette contrainte implique nécessairement que
+#+BEGIN_SRC latex
+  \begin{align*}
+    \left(\vv{k_r}-\vv{k_i}\right).\vv{r_0}&=\left(\vv{k_t}-\vv{k_i}\right).\vv{r_0}=0\\
+    \text{d'où }&\vv{k_r}-\vv{k_i}\parallel\vv{u_y}\text{ et }\vv{k_t}-\vv{k_i}\parallel\vv{u_y}\\
+    \vv{k_r}=\vv{k_i}+\alpha\vv{u_y}&\text{ et }\vv{k_t}=\vv{k_i}+\beta\vv{u_y}
+  \end{align*}
+#+END_SRC
+On déduit ainsi que $k_{rx}=k_{tx}=k_{ix}=0$ et $k_{rz}=k_{tz}=k_{iz}$.
 
-4) $k_{ty}=\pm im$ où $m=\frac{\omega}{c}\sqrt{n_1^2\sin^2\theta_i-n_2^2}>0$
+#+BEGIN_QUESTION
+3) [@3] Exprimer les normes $k_i,k_r,k_t$ des vecteurs d'onde en fonction de
+   $\omega,c,n_1,n_2$. En déduire $k_{tz}$ et $k_{ty}$ en fonction de $\theta_i$
+   et des constantes. Retrouver au passage les trois lois de Snell-Descartes de
+   l'optique géométrique.
+#+END_QUESTION
+Les expressions des normes des vecteurs d'onde sont les suivantes
+#+BEGIN_SRC latex
+  \begin{align*}
+    k_i&=\frac{\omega_i}{v_1}=\frac{\omega}{c}\times n_1\\
+    k_r&=\frac{\omega}{c}\times n_1\\
+    k_t&=\frac{\omega}{c}\times n_2
+  \end{align*}
+#+END_SRC
+Sachant que $k_{tz}=k_{iz}$ et que $k_{iz}=k_i\sin\theta_i$, on déduit que
+$k_{tz}=\frac{\omega}{c}\,n_1\sin\theta_i$. Par ailleurs, la norme au carré
+de $k_t$ s'écrit
+#+BEGIN_SRC latex
+  \begin{align*}
+    k_t^2&=\left(\frac{\omega}{c}\right)^2n_2^2=k_{tz}^2+k_{ty}^2\\
+    k_{ty}^2&=\left(\frac{\omega}{c}\right)^2n_2^2-\left(\frac{\omega}{c}\right)^2n_1^2\sin^2\theta_i\\
+    &=\left(\frac{\omega}{c}\right)^2\underbrace{\left(n_2^2-n_1^2\sin^2\theta_i\right)}_{<0\text{ car }\sin\theta_i>\frac{n_2}{n_1}}\\
+    k_{ty}&=\pm i\frac{\omega}{c}\sqrt{n_1^2\sin^2\theta_i-n_2^2}
+  \end{align*}
+#+END_SRC
+
+On retrouve ainsi les trois lois de Snell-Descartes qui sont
+- *1^{ère} loi de Descartes :* les vecteurs d'onde $\vv{k_t}$, $\vv{k_r}$
+  appartiennent au plan défini par les vecteurs $\vv{k_i}$ et la normale au
+  dioptre /i.e./ $\vv{u_y}$.
+- *2^{ème} loi de Descartes :*
+  #+BEGIN_SRC latex
+    \begin{align*}
+      k_{iz}&=k_{rz}\\
+      \frac{\omega}{c}n_1\sin\theta_i&=\frac{\omega}{c}n_1\sin\theta_r\\
+      \theta_i&=\theta_r
+    \end{align*}
+  #+END_SRC
+- *3^{ème} loi de Descartes :*
+  #+BEGIN_SRC latex
+    \begin{align*}
+      k_{iz}&=k_{tz}\\
+      \frac{\omega}{c}n_1\sin\theta_i&=\frac{\omega}{c}n_2\sin\theta_t\\
+      n_1\sin\theta_i&=n_2\sin\theta_t
+    \end{align*}
+  #+END_SRC
+
+#+BEGIN_QUESTION
+4) [@4] On remarque que $k_{ty}$ est imaginaire pur : $k_{ty}=\pm im$ avec
+   $m>0$.
+   1) Écrire explicitement $\vv{E}_t$ en fonction de $y,z,\theta_i,m,\omega,c$.
+   2) Quel signe faut-il choisir dans l'expression de $k_{ty}$ ?
+   3) Pour quelle valeur $\delta$ de $y$, l'amplitude du champ transmis est-elle
+      divisée par $e$ ?
+   4) Quelle est la phase $\phi$ de l'onde transmise ? Dans quelle direction se
+      propage-t-elle ?
+   5) Calculer la vitesse de phase. Peut-elle être plus grande que $c$ ?
+#+END_QUESTION
+4) [@4] $k_{ty}=\pm im$ où $m=\frac{\omega}{c}\sqrt{n_1^2\sin^2\theta_i-n_2^2}>0$
    1)
       #+BEGIN_SRC latex
         \begin{align*}
@@ -5933,34 +5977,44 @@ $\lambda\sim30\,\mu\text{m}, \nu=\unit[1.5]{THz}$ $-$ et un champ magnétique de
           &=\frac{\cancel{\omega} c}{\cancel{\omega}n_1\sin\theta_i}\leq c\,(\text{car }\theta_i\geq\theta_\ell\to n_1\sin\theta_i\geq n_2\geq1)
         \end{align*}
       #+END_SRC
-5) Onde MPPH polarisée suivant $\vv{u_x}\to\vv{E_t}\parallel\vv{u_x}$ et
-   $\vv{B_t}=\frac{\vv{k_t}\times\vv{E_t}}{\omega}$
-   #+BEGIN_SRC latex
-     \begin{align*}
-       \vv{B_t}&=\frac{1}{\omega}\left|
-       \begin{array}{l}
-         0\\-im\\\frac{\omega}{c}n_1\sin\theta_i
-       \end{array}
-       \right.\times\left|
-       \begin{array}{l}
-         E_t\\0\\0
-       \end{array}
-       \right.\\
-       &=\frac{1}{\omega}\left|
-       \begin{array}{l}
-         0\\\frac{\omega}{c}n_1\sin\theta_iE_t\\imE_t
-       \end{array}
-       \right.\\
-       &=\frac{E_{t0}}{c}\,e^{-i\omega t}\,e^{ik_i\sin\theta_iz}\,e^{-y/\delta}\left(n_1\sin\theta_i\vv{u_y}+i\sqrt{n_1^2\sin^2\theta_i-n_2^2}\vv{u_z}\right)
-     \end{align*}
-   #+END_SRC
-6)
-   #+BEGIN_SRC latex
-     \begin{align*}
-       \langle\vv{\pi_t}\rangle&=\frac{1}{2\mu_0}\text{Re}\left(\vv{E_t}\times\vv{B_t}^*\right)\\
-       &=\frac{1}{2\mu_0}\frac{E_{t0}^2}{c}\,e^{-2y/\delta}\,n_1\sin\theta_i\vv{u_z}
-     \end{align*}
-   #+END_SRC
+
+#+BEGIN_QUESTION
+5) [@5] Déterminer le champ magnétique $\vv{B}_t$ de l'onde transmise en la
+   supposant polarisée rectilignement selon $\vv{u}_x$.
+#+END_QUESTION
+Onde MPPH polarisée suivant $\vv{u_x}\to\vv{E_t}\parallel\vv{u_x}$ et
+$\vv{B_t}=\frac{\vv{k_t}\times\vv{E_t}}{\omega}$
+#+BEGIN_SRC latex
+  \begin{align*}
+    \vv{B_t}&=\frac{1}{\omega}\left|
+    \begin{array}{l}
+      0\\-im\\\frac{\omega}{c}n_1\sin\theta_i
+    \end{array}
+    \right.\times\left|
+    \begin{array}{l}
+      E_t\\0\\0
+    \end{array}
+    \right.\\
+    &=\frac{1}{\omega}\left|
+    \begin{array}{l}
+      0\\\frac{\omega}{c}n_1\sin\theta_iE_t\\imE_t
+    \end{array}
+    \right.\\
+    &=\frac{E_{t0}}{c}\,e^{-i\omega t}\,e^{ik_i\sin\theta_iz}\,e^{-y/\delta}\left(n_1\sin\theta_i\vv{u_y}+i\sqrt{n_1^2\sin^2\theta_i-n_2^2}\vv{u_z}\right)
+  \end{align*}
+#+END_SRC
+
+#+BEGIN_QUESTION
+6) [@6] En déduire la valeur moyenne du vecteur de Poynting transmis. Commenter.
+#+END_QUESTION
+
+#+BEGIN_SRC latex
+  \begin{align*}
+    \langle\vv{\pi_t}\rangle&=\frac{1}{2\mu_0}\text{Re}\left(\vv{E_t}\times\vv{B_t}^*\right)\\
+    &=\frac{1}{2\mu_0}\frac{E_{t0}^2}{c}\,e^{-2y/\delta}\,n_1\sin\theta_i\vv{u_z}
+  \end{align*}
+#+END_SRC
+
 ** Footnotes
 
 [fn:10] soit une matrice $\mathcal{A}$ égale à
@@ -6636,7 +6690,7 @@ l'équation de Bessel:
 ** Footnotes
 
 [fn:11] pour les fonctions de Bessel, on considère toujours \lambda > 0
-* COMMENT TD9 : Induction électromagnétique
+* TD9 : Induction électromagnétique
 ** Introduction
 En régime variable, le champ magnétique demeure toujours à flux conservatif à
 savoir que
@@ -6977,7 +7031,7 @@ prendre en compte l'effet d'un circuit vis-à-vis de l'autre soit
    $\vv{J}_0$ qui crée un champ $\vv{B}=B_1\cos\omega t\,\vv{u}_x$.
    1) Du fait que le champ magnétique $\vv{B_1}$ est colinéaire à $\vv{u_x}$, on
       déduit que le plan $yOz$ est un plan de symétrie de la distribution de
-      courant impliquant que $\vv{J}_0$ est nécessairement orthogonal à ce
+      courant impliquant que $\vv{J}_0$ est nécessairement parallèle à ce
       dernier : $\vv{J_0}\parallel\vv{u_y}$. Le fait que le problème soit
       invariant par translation selon $Ox$ et $Oy$ impose que la composante
       suivant $\vv{u}_z$ de $\vv{J}_0$ est nulle (\(J_{0z}=\frac{\partial
@@ -7122,7 +7176,7 @@ prendre en compte l'effet d'un circuit vis-à-vis de l'autre soit
    $\frac{dP}{d\tau}=\vv{j}.\vv{E}=\gamma E^2$ soit
    #+BEGIN_SRC latex
      \begin{align*}
-       \frac{dP}{d\tau}&=\frac{2}{\mu_0^2\gamma\delta^2}B_1^2\,e^{\frac{2z}{\delta}}\,\cos^2\left(\frac{z}{\delta}-\omega t+\frac{3\pi}{4}\right)
+       \frac{dP}{d\tau}&=\frac{2}{\mu_0^2\gamma\delta^2}B_1^2\,e^{-\frac{2z}{\delta}}\,\cos^2\left(\frac{z}{\delta}-\omega t+\frac{3\pi}{4}\right)
      \end{align*}
    #+END_SRC
    On déduit de ce résultat que la puissance moyenne dissipée par effet Joule
@@ -7149,17 +7203,17 @@ prendre en compte l'effet d'un circuit vis-à-vis de l'autre soit
           \delta_\text{acier}&=\surd{\frac{2}{4\pi\,10^{-7}\times1000\times6\,10^6\times1000}}=\unit[0.5]{mm}
         \end{align*}
       #+END_SRC
-      L'épaisseur du fond de la casserole nécessaire est plus petite dans le
-      cas de l'acier par rapport au cuivre. Du point de vue du champ électrique
+      L'épaisseur du fond de la casserole nécessaire est plus petite dans le cas
+      de l'acier par rapport au cuivre. Du point de vue du champ électrique
       $E(z,t)$, le fait que $\delta$ soit plus grand autorise une plus grande
       pénétration du champ électrique (terme en $e^{-\frac{z}{\delta}}$) mais,
       en contrepartie, le champ électrique est moins intense. La puissance de
       chauffage par unité de surface est quant à elle inversement
       proportionnelle à l'épaisseur de peau $\delta$ : pour maximiser le
       chauffage, il est plus avantageux d'avoir une épaisseur de peau faible
-      /i.e./ un champ électrique qui pénètre moins mais qui est plus
-      intense. Dans ces conditions, les casseroles en cuivre sont bien adaptées
-      que celle en acier.
+      /i.e./ un champ électrique qui pénètre moins mais qui est plus intense. Dans
+      ces conditions, les casseroles en cuivre sont moins bien adaptées que
+      celle en acier.
    2) Calcul du champ magnétique $B_1$
       #+BEGIN_SRC latex
         \begin{align*}
@@ -7197,7 +7251,7 @@ fréquence de 20 Hz et au-dessus d'un seuil d'intensité de 10 mT), un effet
 physiologique caractérisé par la perception visuelle de taches lumineuses; ce
 sont les magnétophosphènes."
 
-* COMMENT TD10 : Électromagnétisme & relativité
+* TD10 : Électromagnétisme & relativité
 ** Introduction
 *Transformation de Lorentz :* $\beta=\tfrac{v}{c}$ et
  $\gamma=\tfrac{1}{\surd{1-\beta^2}}$. Si $\mathcal{R}'$ est en mouvement
