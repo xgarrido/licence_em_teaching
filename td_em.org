@@ -5,7 +5,7 @@
 #+LATEX_CLASS: teaching-class
 # #+LATEX_CLASS_OPTIONS: [novc]
 
-* TD1 : Équations de Maxwell dans le vide et champ électromagnétique
+* COMMENT TD1 : Équations de Maxwell dans le vide et champ électromagnétique
 ** Équations de Maxwell dans le vide                                    :DM:
 #+BEGIN_QUESTION
 1) [@1] On considère une onde plane scalaire en notation complexe :
@@ -226,7 +226,7 @@ La vitesse de groupe $v_g$ qui correspond à la vitesse de l'onde enveloppe est
 #+END_SRC
 
 Pour un milieu non-dispersif tel que le vide, la vitesse de phase est donc égale
-à la vitesse de groupe toutes les deux égales à la vitese de la lumière dans le
+à la vitesse de groupe toutes les deux égales à la vitesse de la lumière dans le
 vide $c$.
 
 #+BEGIN_QUESTION
@@ -636,7 +636,7 @@ $u=\tfrac{\epsilon_0E^2}{2}+\tfrac{B^2}{2\mu_0}$
 #+BEGIN_QUESTION
 5) [@5] Montrer que dans le cas d'un régime périodique, la puissance moyenne
    entrant par rayonnement à travers une surface fermée est intégralement cédée
-   à la matière contenues dans le volume intérieur à cette surface.
+   à la matière contenue dans le volume intérieur à cette surface.
 #+END_QUESTION
 $\vv{E}=\vv{E}_0\cos\omega t$, $\vv{B}=\vv{B_0}\sin\omega t$
 #+BEGIN_SRC latex
@@ -1035,7 +1035,113 @@ $\vv{R}=\frac{\vv{E}\times\vv{B}}{\mu_0}$ et
 $\vv{B}=\frac{\vv{k}\times\vv{E}}{\omega}$
 
 * TD2 : Électrostatique dans le vide
-** Condensateur cylindrique
+** Rayon classique de l'électron
+#+BEGIN_QUESTION
+1) [@1] Calculer l'énergie électrostatique d'une boule de rayon $R$, chargée en
+   volume avec la densité volumique uniforme $\rho$.
+#+END_QUESTION
+
+1) L'énergie électrostatique $\mathcal{U}_e$ se calcule en intégrant la densité
+   volumique d'énergie électromagnétique
+   $u=\epsilon_0\frac{E^2}{2}+\frac{B^2}{2\mu_0}$ qui, en l'absence de champ
+   magnétique, est uniquement de nature électrostatique soit
+   #+BEGIN_SRC latex
+     \begin{align*}
+       \mathcal{U}_e=\iiint_{\forall\text{espace}}\epsilon_0\frac{E^2}{2}d\tau
+     \end{align*}
+   #+END_SRC
+   Il s'agit donc de calculer quel champ électrique génère la distribution de
+   charge $\rho$. On applique pour cela le théorème de Gauss /i.e./
+   #+BEGIN_SRC latex
+     \begin{align*}
+       \iiint_V\div\vv{E}\,d\tau=\varoiint_{S/V}\vv{E}.\,d\vv{S}&=\iiint_V\frac{\rho}{\epsilon_0}d\tau=\frac{\Upsigma Q_\text{int.}}{\epsilon_0}
+     \end{align*}
+   #+END_SRC
+   Le choix de la surface fermée $S$ dépend de l'orientation de $\vv{E}$ et de
+   ses dépendances. Ainsi, dans le référentiel de coordonnées sphériques
+   $(r,\theta,\phi)$, tout plan contenant le vecteur $\vv{u}_r$ est plan de
+   symétrie de la distribution de charge : le champ électrostatique $\vv{E}$
+   appartient nécessairement à ces plans de symétrie et $\vv{E}$ est donc
+   parallèle à $\vv{u}_r$. Par ailleurs, le système est invariant par rotation
+   d'angles $\theta$ et $\phi$. Le champ $\vv{E}$ peut donc s'écrire sous la
+   forme $\vv{E}=E(r)\vv{u}_r$.
+
+   La surface fermée $S$ dite de Gauss est alors une sphère de rayon $r$ et deux
+   situations sont à distinguer :
+   - à l'intérieur de la boule $r\leq R$
+     #+BEGIN_SRC latex
+       \begin{align*}
+         \varoiint_{S/V}\vv{E}.\,d\vv{S}=E(r)\,4\pi r^2&=\iiint_V\frac{\rho}{\epsilon_0}d\tau\\
+         &=\frac{\rho}{\epsilon_0}\,\frac{4}{3}\pi r^3\\
+         \vv{E}_\text{int.}&=\frac{\rho r}{3\epsilon_0}\vv{u}_r
+       \end{align*}
+     #+END_SRC
+   - à l'extérieur de la boule $r>R$
+     #+BEGIN_SRC latex
+       \begin{align*}
+         \varoiint_{S/V}\vv{E}.\,d\vv{S}=E(r)\,4\pi r^2&=\iiint_V\frac{\rho}{\epsilon_0}d\tau\\
+         &=\frac{\rho}{\epsilon_0}\,\frac{4}{3}\pi R^3\\
+         \vv{E}_\text{ext.}&=\frac{\rho R^3}{3\epsilon_0\,r^2}\vv{u}_r
+       \end{align*}
+     #+END_SRC
+
+   L'énergie électrostatique ainsi stockée dans cette boule est
+   #+BEGIN_SRC latex
+     \begin{align*}
+       \mathcal{U}_e&=\iiint_{\forall\text{espace}}\epsilon_0\frac{E^2}{2}d\tau\\
+       &=\int_0^{2\pi}\int_0^{\pi}\int_0^\infty\epsilon_0\frac{E^2}{2}\,r^2\sin\theta drd\theta d\phi\\
+       &=\frac{4\pi}{2}\epsilon_0\times\left(\int_0^RE^2_\text{int.}\,r^2dr+\int_R^\infty E^2_\text{ext.}\,r^2dr\right)\\
+       &=2\pi\epsilon_0\times\left(\int_0^R\frac{\rho^2}{9\epsilon_0^2}r^2\,r^2dr+\int_R^\infty\frac{\rho^2R^6}{9\epsilon_0^2r^4}\,r^2dr\right)\\
+       &=2\pi\epsilon_0\times\left(\frac{\rho^2}{9\epsilon_0^2}\frac{R^5}{5}+\frac{\rho^2R^6}{9\epsilon_0^2}\frac{1}{R}\right)\\
+       &=\frac{2\pi\rho^2R^5}{9\epsilon_0}\left(\frac{1}{5}+1\right)=\frac{4\pi\rho^2R^5}{15\epsilon_0}
+     \end{align*}
+   #+END_SRC
+
+   En fonction de la charge totale $Q$ de la boule soit $Q=\frac{4}{3}\pi
+   R^3\,\rho$, on obtient
+   #+BEGIN_SRC latex
+     \begin{align*}
+       \mathcal{U}_e&=\frac{3Q^2}{20\pi\epsilon_0 R}
+     \end{align*}
+   #+END_SRC
+
+#+BEGIN_QUESTION
+2) [@2] Un électron de masse $m_e$ et de charge $-e$ ($e>0$) est assimilé à une
+   telle distribution. Définir et calculer le rayon classique de l'électron
+   $R_e$. Commenter la valeur numérique.
+#+END_QUESTION
+
+On assimile l'énergie électrostatique stockée dans un électron de rayon $R_e$ et
+de charge $Q=-e$ à l'énergie de masse ou au repos de l'électron soit
+#+BEGIN_SRC latex
+  \begin{align*}
+    \mathcal{U}_e&=m_ec^2=\frac{3e^2}{20\pi\epsilon_0 R_e}
+  \end{align*}
+#+END_SRC
+
+*Application numérique :*
+#+BEGIN_SRC latex
+  \begin{align*}
+    R_e&=\frac{3e^2}{20\pi\epsilon_0\,m_ec^2}\simeq\unit[1.7]{fm}
+  \end{align*}
+#+END_SRC
+L'ordre de grandeur ne semble pas aberrant mais il faut tenir des effets
+quantiques qui apparaissent à très petites échelles.
+
+#+BEGIN_QUESTION
+3) [@3] En réalité, bien avant d'arriver à des distances de l'ordre de $R_e$,
+   d'autres phénomènes sont à prendre en compte : en préciser la nature. Quelle
+   longueur caractéristique fixe la limite inférieure de validité de la théorie
+   classique des champs pour un électron ? En donner l'ordre de grandeur.
+#+END_QUESTION
+
+Il faut appliquer un traitement quantique aux systèmes dont les dimensions
+caractéristiques sont inférieures à la longueur d'onde de de Broglie
+$\lambda=\frac{h}{p}$. Cette dimension fixe la limite entre traitement classique
+et traitement quantique. La valeur caractéristique de
+$\lambda=\frac{h}{m_ec}\simeq \unit[2.4\cdot10^{-12}]{m}$.
+
+** COMMENT Condensateur cylindrique
 
 #+BEGIN_QUESTION
 On considère un condensateur constitué par un cylindre métallique de rayon $a$
@@ -1099,7 +1205,7 @@ $\vv{E}=-\grad\,V=-\tfrac{dV}{dr}\vv{u}_r$. Soit
   \end{align*}
 #+END_SRC
 
-** Boule conductrice en présence d'une charge ponctuelle : méthode des images
+** COMMENT Boule conductrice en présence d'une charge ponctuelle : méthode des images
 #+BEGIN_CENTER
 #+ATTR_LATEX: :width 0.5\linewidth
 [[./figures/boule_conductrice.pdf]]
@@ -1492,7 +1598,7 @@ cette charge.
           \vv{F}_2&=-\vv{F}_1=-\frac{\pi R^2\,\sigma_0^2}{4\epsilon_0}\vv{u}_z
         \end{align*}
       #+END_SRC
-** Forces de Van der Waals                                              :DM:
+** COMMENT Forces de Van der Waals                                              :DM:
 *** Modèle de l'électron élastiquement lié : moment dipolaire induit d'un atome
 
 #+BEGIN_CENTER
@@ -1814,7 +1920,7 @@ $\vv{p}_1=\vv{p}_2=\vv{p}$, on obtient une force moyenne
   \end{align*}
 #+END_SRC
 
-* TD3 : Les milieux diélectriques
+* COMMENT TD3 : Les milieux diélectriques
 ** Introduction
 Historiquement, la découverte expérimentale des diélectriques est à mettre au
 profit de Michael Faraday qui nota que l'introduction d'un isolant entre les
@@ -2757,7 +2863,7 @@ $\div\vv{E}=\frac{\rho_\text{tot.}}{\epsilon_0}$ d'où
 S'il n'y a donc pas de densité volumique de charge libre $\rho_\ell$, la densité
 volumique de charge liée est donc également nulle.
 
-* TD4 : Magnétostatique
+* COMMENT TD4 : Magnétostatique
 ** Introduction
 En magnétostatique, les équations locales deviennent
 #+BEGIN_SRC latex
@@ -3707,7 +3813,7 @@ $r\cos\theta$ et est lui aussi solution de l'équation de Laplace. La somme des
 deux solutions justifie ainsi de la forme de la solution utilisée dans cet
 exercice.
 
-* TD5 : Milieux magnétiques
+* COMMENT TD5 : Milieux magnétiques
 ** Introduction
 Dans la plupart des matériaux soumis à un champ magnétique, les charges liées se
 déplacent à l'échelle atomique faisant apparaître des boucles de courant /i.e./
@@ -4531,7 +4637,7 @@ $\vv{B}$ est $E_p=-\vv{m}.\vv{B}$.
          $\lambda_0=4nR=\unit[521]{nm}$. La solution devient donc verte. Cette
          technique de spectrométrie permet donc de mesurer la taille $R$ des
          gouttelettes.
-* TD6 : Rayonnement
+* COMMENT TD6 : Rayonnement
 ** COMMENT Rayonnement d'une antenne
 #+BEGIN_QUESTION
 On considère une portion de conducteur rectiligne $MN$ de longueur \ell, dirigée
@@ -5112,7 +5218,7 @@ l'absorption pour décrire correctement la propagation de l'onde.
       de Higgs au LHC (pour une énergie de faisceau de 14 TeV et une masse du
       Higgs voisine de 125 GeV) est voisine de 50 picobarns soit 50 10^{-12} barn
       soit 50 10^{-40} m^{2}.
-* TD7 : Propagation dans le vide et les milieux diélectriques
+* COMMENT TD7 : Propagation dans le vide et les milieux diélectriques
 ** Effet Faraday dans un diélectrique
 
 #+BEGIN_QUESTION
@@ -6036,7 +6142,7 @@ l'expression de la matrice inverse $\mathcal{A}^{-1}$ est
   \end{align*}
 #+END_SRC
 
-* TD8 : Guides d'onde
+* COMMENT TD8 : Guides d'onde
 ** Cavité cylindrique résonante
 #+BEGIN_QUESTION
 On cherche à étudier les caractéristiques de certains modes d'une cavité
@@ -6690,7 +6796,7 @@ l'équation de Bessel:
 ** Footnotes
 
 [fn:11] pour les fonctions de Bessel, on considère toujours \lambda > 0
-* TD9 : Induction électromagnétique
+* COMMENT TD9 : Induction électromagnétique
 ** Introduction
 En régime variable, le champ magnétique demeure toujours à flux conservatif à
 savoir que
@@ -7251,7 +7357,7 @@ fréquence de 20 Hz et au-dessus d'un seuil d'intensité de 10 mT), un effet
 physiologique caractérisé par la perception visuelle de taches lumineuses; ce
 sont les magnétophosphènes."
 
-* TD10 : Électromagnétisme & relativité
+* COMMENT TD10 : Électromagnétisme & relativité
 ** Introduction
 *Transformation de Lorentz :* $\beta=\tfrac{v}{c}$ et
  $\gamma=\tfrac{1}{\surd{1-\beta^2}}$. Si $\mathcal{R}'$ est en mouvement
