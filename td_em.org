@@ -3,7 +3,7 @@
 #+EMAIL:  xavier.garrido@u-psud.fr
 #+OPTIONS: ^:{} toc:2 tags:t author:t email:t split:html
 #+LATEX_CLASS: teaching-class
-# #+LATEX_CLASS_OPTIONS: [novc]
+#+LATEX_CLASS_OPTIONS: [novc]
 
 * COMMENT TD1 : Équations de Maxwell dans le vide et champ électromagnétique
 ** Équations de Maxwell dans le vide                                    :DM:
@@ -478,7 +478,6 @@ dimensionnelle en introduisant la durée typique $\tau=\frac{\mathcal{L}}{R}$ su
 laquelle ont lieu les variations de $i(t)$. Ainsi,
 $\frac{di}{dt}\sim\frac{i}{\tau}$ et le rapport $\frac{u_e}{u_m}$ devient (en se
 plaçant en $r=a$ où le rapport est maximum)
-écrire
 #+BEGIN_SRC latex
   \begin{align*}
     \frac{u_e}{u_m}\ll1&\to\frac{a^2}{c^2}\left(\frac{\frac{i}{\tau}}{i}\right)^2\ll1\\
@@ -825,7 +824,7 @@ Calcul de \ding{193}
 or
 #+BEGIN_SRC latex
   \begin{align*}
-    \vv{a}\times\left(\vv{b}\times\vv{c}\right)=\left(\vv{a}.\vv{c}\right).\vv{b}-\left(\vv{a}.\vv{b}\right).\vv{c}
+    \vv{a}\times\left(\vv{b}\times\vv{c}\right)=\left(\vv{a}.\vv{c}\right)\vv{b}-\left(\vv{a}.\vv{b}\right)\vv{c}
   \end{align*}
   \begin{align*}
     \text{\ding{193}}&=q\left[\int_0^T\left(\vv{OM}.\vv{B}\right).\underbrace{\vv{v}.\vv{u}_z}_{\vv{v}\perp\vv{u}_z=0}dt-\int_0^T\left(\vv{OM}.\vv{v}\right).\underbrace{\vv{B}.\vv{u}_z}_{\vv{B}\perp\vv{u}_z=0}dt\right]
@@ -1034,7 +1033,7 @@ Poynting $I=\|\langle\vv{R}\rangle\|$ avec
 $\vv{R}=\frac{\vv{E}\times\vv{B}}{\mu_0}$ et
 $\vv{B}=\frac{\vv{k}\times\vv{E}}{\omega}$
 
-* TD2 : Électrostatique dans le vide
+* COMMENT TD2 : Électrostatique dans le vide
 ** Rayon classique de l'électron
 #+BEGIN_QUESTION
 1) [@1] Calculer l'énergie électrostatique d'une boule de rayon $R$, chargée en
@@ -1141,7 +1140,7 @@ $\lambda=\frac{h}{p}$. Cette dimension fixe la limite entre traitement classique
 et traitement quantique. La valeur caractéristique de
 $\lambda=\frac{h}{m_ec}\simeq \unit[2.4\cdot10^{-12}]{m}$.
 
-** COMMENT Condensateur cylindrique
+** Condensateur cylindrique
 
 #+BEGIN_QUESTION
 On considère un condensateur constitué par un cylindre métallique de rayon $a$
@@ -1205,7 +1204,7 @@ $\vv{E}=-\grad\,V=-\tfrac{dV}{dr}\vv{u}_r$. Soit
   \end{align*}
 #+END_SRC
 
-** COMMENT Boule conductrice en présence d'une charge ponctuelle : méthode des images
+** Boule conductrice en présence d'une charge ponctuelle : méthode des images
 #+BEGIN_CENTER
 #+ATTR_LATEX: :width 0.5\linewidth
 [[./figures/boule_conductrice.pdf]]
@@ -1598,7 +1597,7 @@ cette charge.
           \vv{F}_2&=-\vv{F}_1=-\frac{\pi R^2\,\sigma_0^2}{4\epsilon_0}\vv{u}_z
         \end{align*}
       #+END_SRC
-** COMMENT Forces de Van der Waals                                              :DM:
+** Forces de Van der Waals                                              :DM:
 *** Modèle de l'électron élastiquement lié : moment dipolaire induit d'un atome
 
 #+BEGIN_CENTER
@@ -1920,7 +1919,7 @@ $\vv{p}_1=\vv{p}_2=\vv{p}$, on obtient une force moyenne
   \end{align*}
 #+END_SRC
 
-* COMMENT TD3 : Les milieux diélectriques
+* TD3 : Les milieux diélectriques
 ** Introduction
 Historiquement, la découverte expérimentale des diélectriques est à mettre au
 profit de Michael Faraday qui nota que l'introduction d'un isolant entre les
@@ -1973,7 +1972,7 @@ V=-\frac{\rho}{\epsilon_0}=0$ devient une équation de Laplace.
 
 #+BEGIN_QUESTION
 2) [@2] Résoudre l'équation de Laplace en cherchant le potentiel sous la forme
-   $V(r)=f(r)\cos\theta$ où $f$ est une fonction de la forme :
+   $V(r,\theta)=f(r)\cos\theta$ où $f$ est une fonction de la forme :
    #+BEGIN_SRC latex
      \begin{align*}
        f(r)=\sum_{n=-\infty}^{+\infty}a_nr^n
@@ -2768,6 +2767,8 @@ discontinuité de la composante normale du vecteur déplacement soit
       et celui du générateur $W_G$. En déduire $W(\delta,q)$.
    3) Sachant que $dW=Fd\delta+Vdq$, déterminer $F(\delta,q)$.
 #+END_QUESTION
+#+BEGIN_COMMENT
+/Correction antérieure/
 2) [@2] La polarisation d'une lame piézoélectrique se décompose de la façon
    suivante
    #+BEGIN_SRC latex
@@ -2840,6 +2841,74 @@ discontinuité de la composante normale du vecteur déplacement soit
       #+BEGIN_SRC latex
         \begin{align*}
          V(\delta,q)&=\frac{\partial W}{\partial q}=\frac{qd}{\epsilon S}-\epsilon_r\alpha\delta
+        \end{align*}
+      #+END_SRC
+#+END_COMMENT
+
+2) [@2] À partir de l'expression du vecteur déplacement électrique $\vv{D}$, le
+   champ électrique à l'intérieur de la lame piézoélectrique devient
+   #+BEGIN_SRC latex
+     \begin{align*}
+       \vv{D}&=\frac{q}{S}\vv{u}_z=\epsilon_0\vv{E}+\vv{P}\\
+       &=\epsilon_0\vv{E}+\epsilon_0\chi_e\vv{E}+\frac{\epsilon\alpha\delta}{d}\vv{u}_z\\
+       \underbrace{\epsilon_0(1+\chi_e)}_{\epsilon}\vv{E}&=\left(\frac{q}{S}-\frac{\epsilon\alpha\delta}{d}\right)\vv{u}_z\\
+       \vv{E}&=\left(\frac{q}{\epsilon S}-\frac{\alpha\delta}{d}\right)\vv{u}_z
+     \end{align*}
+   #+END_SRC
+
+   1) La tension $V(\delta,q)$ s'exprime ainsi
+      #+BEGIN_SRC latex
+        \begin{align*}
+          \vv{E}&=-\grad V=-\frac{dV}{dz}\vv{u}_z\\
+          V(\delta,q)=-\int_{V(0)}^{V(d)}dV&=\int_0^d\left(\frac{q}{\epsilon S}-\frac{\alpha\delta}{d}\right)dz\\
+          V(\delta,q)&=\frac{qd}{\epsilon S}-\alpha\delta
+        \end{align*}
+      #+END_SRC
+
+   2) À $q=0$, le travail de l'opérateur s'écrit
+      #+BEGIN_SRC latex
+        \begin{align*}
+          dW_\text{op.}&=\vv{F}_\text{op.}.\vv{dz}\\
+          W_\text{op.}&=\int_0^\delta K\delta'd\delta'=K\frac{\delta^2}{2}+\text{constante}
+        \end{align*}
+      #+END_SRC
+
+      À $\delta$ constant, le travail du générateur est le suivant
+      #+BEGIN_SRC latex
+        \begin{align*}
+          dW_\text{G}&=Pdt=V\times Idt=Vdq\\
+          W_\text{G}&=\int_0^qV(\delta,q')dq'\\
+          &=\int_0^q\left(\frac{q'd}{\epsilon S}-\alpha\delta\right)dq'\\
+          &=\frac{q^2d}{2\epsilon S}-\alpha\delta q+\text{constante}
+        \end{align*}
+      #+END_SRC
+
+      L'énergie potentielle du système devient
+      #+BEGIN_SRC latex
+        \begin{align*}
+          W(\delta,q)&=W_\text{op}(\delta)+W_\text{G}(\delta,q)+\text{constante}\\
+          W(0,0)&=0\to\text{constante}=0\\
+          W(\delta,q)&=\frac{K\delta^2}{2}+\frac{q^2d}{2\epsilon S}-\alpha\delta q
+        \end{align*}
+      #+END_SRC
+
+   3) Sachant que
+      #+BEGIN_SRC latex
+        \begin{align*}
+          dW(\delta,q)&=\frac{\partial W}{\partial\delta}d\delta+\frac{\partial W}{\partial q}dq\\
+          &=Fd\delta+Vdq
+        \end{align*}
+      #+END_SRC
+      on déduit que
+      #+BEGIN_SRC latex
+        \begin{align*}
+          F(\delta,q)&=\frac{\partial W}{\partial\delta}=K\delta-\epsilon_r\alpha q
+        \end{align*}
+      #+END_SRC
+      et on vérifie que
+      #+BEGIN_SRC latex
+        \begin{align*}
+         V(\delta,q)&=\frac{\partial W}{\partial q}=\frac{qd}{\epsilon S}-\alpha\delta
         \end{align*}
       #+END_SRC
 
