@@ -3882,7 +3882,7 @@ $r\cos\theta$ et est lui aussi solution de l'équation de Laplace. La somme des
 deux solutions justifie ainsi de la forme de la solution utilisée dans cet
 exercice.
 
-* TD5 : Milieux magnétiques
+* COMMENT TD5 : Milieux magnétiques
 ** COMMENT Introduction
 Dans la plupart des matériaux soumis à un champ magnétique, les charges liées se
 déplacent à l'échelle atomique faisant apparaître des boucles de courant /i.e./
@@ -4338,7 +4338,7 @@ $B_x(0,0,h/2)=\frac{B_x(0,0,0)}{2}$ d'où
    la valeur du champ en \(O\)). Un fabricant propose un aimant permanent du
    type étudié ici, fabriqué avec un alliage de NdFeB. L'aimantation à
    saturation de cet alliage vaut $M_S$ = 8\times10^{5} A.m^{-1}, les dimensions
-   proposées sont $a$ = 50 mm, $b$ = 200 mm et $h$ = 105 mm. On donne $μ₀$ =
+   proposées sont $a$ = 50 mm, $b$ = 200 mm et $h$ = 105 mm. On donne $\mu_{0}$ =
    4π×10^{-7} N.A^{-2}. Cette proposition peut-elle convenir ?
 #+END_QUESTION
 
@@ -4790,14 +4790,14 @@ $\rho(x,y,z,t)$ devient
 
 Les seuls points où la charge est non nulle sont alors
 #+BEGIN_SRC latex
-       \begin{align*}
-         \rho\neq0\text{ pour }\left\{
-  \begin{array}{l}
-    x=0,y=0,z=-\ell/2\to\rho_M=-\frac{I_0}{\omega}\sin\omega t\\
-    x=0,y=0,z=+\ell/2\to\rho_N=+\frac{I_0}{\omega}\sin\omega t\\
-  \end{array}
-  \right.
-       \end{align*}
+  \begin{align*}
+    \left\{
+    \begin{array}{l}
+      x=0,y=0,z=-\ell/2\to q_M=-\frac{I_0}{\omega}\sin\omega t\\
+      x=0,y=0,z=+\ell/2\to q_N=+\frac{I_0}{\omega}\sin\omega t\\
+    \end{array}
+    \right.
+  \end{align*}
 #+END_SRC
 
 L'antenne est ainsi équivalente à un dipôle oscillant avec
@@ -5123,30 +5123,31 @@ repos.
 1) Le principe fondamental de la dynamique appliqué à l'électron
    #+BEGIN_SRC latex
      \begin{align*}
-       m\frac{d\vv{v}}{dt}&=-m\omega_0^2\vv{r}+\vv{F}_\text{Lorentz}\\
-       m\frac{d\vv{v}}{dt}&=-m\omega_0^2\vv{r}-e\vv{\mathcal{E}}-e\vv{v}\times\vv{\mathcal{B}}
+       m\frac{d\vv{V}}{dt}&=-m\omega_0^2\vv{r}+\vv{F}_\text{Lorentz}\\
+       m\frac{d\vv{V}}{dt}&=-m\omega_0^2\vv{r}-e\vv{\mathcal{E}}-e\vv{V}\times\vv{\mathcal{B}}
      \end{align*}
    #+END_SRC
-   Le champ électromagnétique $(\vv{E},\vv{B})$ d'une onde plane est lié au
-   vecteur d'onde $\vv{k}$ par la relation
+   Le champ électromagnétique $(\vv{\mathcal{E}},\vv{\mathcal{B}})$ d'une onde
+   plane est lié au vecteur d'onde $\vv{k}$ par la relation
    #+BEGIN_SRC latex
      \begin{align*}
-       \vv{B}=\frac{\vv{k}\times\vv{E}}{\omega}
+       \vv{\mathcal{B}}=\frac{\vv{k}\times\vv{\mathcal{E}}}{\omega}
      \end{align*}
    #+END_SRC
    Or la vitesse de phase $v_\phi$ pour une onde se propageant dans le vide est
    égale à $v_\phi=c=\frac{\omega}{k}$. On déduit que la norme du produit
-   $\vv{v}\times\vv{B}$ relativement à celle du champ électrique est égale à
+   $\vv{V}\times\vv{\mathcal{B}}$ relativement à celle du champ électrique est
+   égale à
    #+BEGIN_SRC latex
      \begin{align*}
-       \frac{\|\vv{v}\times\vv{B}\|}{\|\vv{E}\|}=\frac{vk}{\omega}=\frac{v}{v_\phi}=\frac{v}{c}\ll1&\text{ (cas non relativiste)}
+       \frac{\|\vv{V}\times\vv{\mathcal{B}}\|}{\|\vv{\mathcal{E}}\|}=\frac{Vk}{\omega}=\frac{V}{v_\phi}=\frac{V}{c}\ll1&\text{ (cas non relativiste)}
      \end{align*}
    #+END_SRC
 
    L'équation déterminant la dynamique de l'électron se limite donc à
    #+BEGIN_SRC latex
      \begin{align*}
-       \frac{d\vv{v}}{dt}\simeq-m\omega_0^2\vv{r}-e\vv{E}
+       \frac{d\vv{V}}{dt}\simeq-m\omega_0^2\vv{r}-e\vv{\mathcal{E}}
      \end{align*}
    #+END_SRC
 
@@ -5154,30 +5155,30 @@ repos.
 2) [@2] À quelle condition peut-on remplacer $d\vv{V}/dt$ par
    $\partial\vv{V}/\partial t$ ?
 #+END_QUESTION
-2) [@2] En différentialisant le champ de vitesse où $\vv{v}$ est une fonction de
+2) [@2] En différentialisant le champ de vitesse où $\vv{V}$ est une fonction de
    l'espace et du temps /i.e./ $f(\vv{r},t)$, on obtient
    #+BEGIN_SRC latex
      \begin{align*}
-       d\vv{v}&=\frac{\partial\vv{v}}{\partial t}dt+\frac{\partial\vv{v}}{\partial x}dx+\frac{\partial\vv{v}}{\partial y}dy+\frac{\partial\vv{v}}{\partial z}dz\\
-       \frac{d\vv{v}}{dt}&=\frac{\partial\vv{v}}{\partial t}+\frac{\partial\vv{v}}{\partial x}\frac{dx}{dt}+\frac{\partial\vv{v}}{\partial y}\frac{dy}{dt}+\frac{\partial\vv{v}}{\partial z}\frac{dz}{dt}\\
-       \frac{d\vv{v}}{dt}&=\frac{\partial\vv{v}}{\partial t}+\frac{\partial\vv{v}}{\partial x}v_x+\frac{\partial\vv{v}}{\partial y}v_y+\frac{\partial\vv{v}}{\partial z}v_z\\
-       \underbrace{\frac{d\vv{v}}{dt}}_{\text{dérivée particulaire}}&=\underbrace{\frac{\partial\vv{v}}{\partial t}}_{\text{dérivée locale}}+\underbrace{\left(\vv{v}.\grad\right).\vv{v}}_{\text{dérivée convective}}
+       d\vv{V}&=\frac{\partial\vv{V}}{\partial t}dt+\frac{\partial\vv{V}}{\partial x}dx+\frac{\partial\vv{V}}{\partial y}dy+\frac{\partial\vv{V}}{\partial z}dz\\
+       \frac{d\vv{V}}{dt}&=\frac{\partial\vv{V}}{\partial t}+\frac{\partial\vv{V}}{\partial x}\frac{dx}{dt}+\frac{\partial\vv{V}}{\partial y}\frac{dy}{dt}+\frac{\partial\vv{V}}{\partial z}\frac{dz}{dt}\\
+       \frac{d\vv{V}}{dt}&=\frac{\partial\vv{V}}{\partial t}+\frac{\partial\vv{V}}{\partial x}V_x+\frac{\partial\vv{V}}{\partial y}V_y+\frac{\partial\vv{V}}{\partial z}V_z\\
+       \underbrace{\frac{d\vv{V}}{dt}}_{\text{dérivée particulaire}}&=\underbrace{\frac{\partial\vv{V}}{\partial t}}_{\text{dérivée locale}}+\underbrace{\left(\vv{V}.\grad\right).\vv{V}}_{\text{dérivée convective}}
      \end{align*}
    #+END_SRC
-   En posant $\vv{v}=\vv{v_0}\,e^{i(\omega t-\vv{k}.\vv{r})}$, la dérivée locale
-   $\frac{\partial\vv{v}}{\partial t}$ est égale à $i\omega\vv{v}$, la dérivée
+   En posant $\vv{V}=\vv{V_0}\,e^{i(\omega t-\vv{k}.\vv{r})}$, la dérivée locale
+   $\frac{\partial\vv{V}}{\partial t}$ est égale à $i\omega\vv{V}$, la dérivée
    convective prenant la forme
    #+BEGIN_SRC latex
      \begin{align*}
-       \left(\vv{v}.\grad\right).\vv{v}=\vv{v}.(-)i\vv{k}.\vv{v}
+       \left(\vv{V}.\grad\right).\vv{V}=\vv{V}.(-)i\vv{k}.\vv{V}
      \end{align*}
    #+END_SRC
    On déduit que
    #+BEGIN_SRC latex
      \begin{align*}
-       \frac{\partial\vv{v}}{\partial t}+\left(\vv{v}.\grad\right).\vv{v}&=i\omega\vv{v}-i\vv{v}.\vv{k}.\vv{v}\\
-       &=i\omega\vv{v}\left(1-\frac{\vv{k}.\vv{v}}{\omega}\right)=i\omega\vv{v}\left(1-\frac{v}{v_\phi}\right)\\
-       \frac{d\vv{v}}{dt}&\simeq\frac{\partial v}{\partial t}\to\frac{v}{v_\phi}=\frac{v}{c}\ll1
+       \frac{\partial\vv{V}}{\partial t}+\left(\vv{V}.\grad\right).\vv{V}&=i\omega\vv{V}-i\vv{V}.\vv{k}.\vv{V}\\
+       &=i\omega\vv{V}\left(1-\frac{\vv{k}.\vv{V}}{\omega}\right)=i\omega\vv{V}\left(1-\frac{V}{v_\phi}\right)\\
+       \frac{d\vv{V}}{dt}&\simeq\frac{\partial V}{\partial t}\to\frac{V}{v_\phi}=\frac{V}{c}\ll1
      \end{align*}
    #+END_SRC
 
@@ -5355,18 +5356,19 @@ repos.
       On donne $\mu_0$ = 4\pi 10^{-7} SI, $e$ = 1.6 10^{-19} C et $m$ = 9.1
       10^{-31} kg. Donner un ordre de grandeur de \sigma.
 #+END_QUESTION
-2)
-   1)
+2) [@2]
+   1) Calcul du vecteur de Poynting $\vv{R_i}$ pour *l'onde plane incidente*
+      ($\vv{B}=\frac{\vv{k}\times\vv{E}}{\omega}$)
        #+BEGIN_SRC latex
          \begin{align*}
-           \vv{R}&=\frac{E^2_\theta}{\mu_0c}\vv{u_r}\\
-           \langle\vv{R}\rangle&=\frac{\langle E_\theta^2\rangle}{\mu_0c}=\frac{E_0^2}{2\mu_0c}\,\vv{u_r}
+           \vv{R_i}&=\frac{E^2}{\mu_0c}\vv{u_r}\\
+           \langle\vv{R_i}\rangle&=\frac{\langle E^2\rangle}{\mu_0c}=\frac{E_0^2}{2\mu_0c}\,\vv{u_r}
          \end{align*}
        #+END_SRC
    2) Calcul de la section efficace \sigma de diffusion
       #+BEGIN_SRC latex
         \begin{align*}
-          \sigma&=\frac{\langle P\rangle}{\langle\|\vv{R}\|\rangle}\\
+          \sigma&=\frac{\langle P\rangle}{\langle\|\vv{R_i}\|\rangle}\\
           &=\frac{\mu_0e^4\cancel{E_0^2}}{12\pi\cancel{c}\,m^2}\times\frac{2\mu_0c}{\cancel{E_0^2}}=\frac{\mu_0^2}{6\pi}\frac{e^4}{m^2}
         \end{align*}
       #+END_SRC
