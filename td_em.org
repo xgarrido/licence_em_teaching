@@ -4705,7 +4705,7 @@ $\vv{B}$ est $E_p=-\vv{m}.\vv{B}$.
          $\lambda_0=4nR=\unit[521]{nm}$. La solution devient donc verte. Cette
          technique de spectrométrie permet donc de mesurer la taille $R$ des
          gouttelettes.
-* TD6 : Rayonnement
+* COMMENT TD6 : Rayonnement
 ** Rayonnement d'une antenne
 #+BEGIN_QUESTION
 On considère une portion de conducteur rectiligne $MN$ de longueur \ell, dirigée
@@ -6313,7 +6313,7 @@ l'expression de la matrice inverse $\mathcal{A}^{-1}$ est
   \end{align*}
 #+END_SRC
 
-* COMMENT TD8 : Guides d'onde
+* TD8 : Guides d'onde
 ** Cavité cylindrique résonante
 #+BEGIN_QUESTION
 On cherche à étudier les caractéristiques de certains modes d'une cavité
@@ -6375,8 +6375,8 @@ En projetant l'équation de propagation selon $\vv{u_z}$, on obtient
 avec
 #+BEGIN_SRC latex
   \begin{align*}
-    \Delta E_z&=\frac{1}{r}\frac{\partial}{\partial r}\left(r\frac{\partial E_z}{\partial r}\right)+\frac{1}{r^2}\frac{\partial^2E_z}{\partial\theta^2}+\frac{\partial^2E_z}{\partial r^2}\\
-    &=\frac{\partial^2E_z}{\partial r^2}+\frac{1}{r}\frac{\partial E_z}{\partial r}+\frac{1}{r^2}\frac{\partial^2E_z}{\partial\theta^2}+\frac{\partial^2E_z}{\partial z}\\
+    \Delta E_z&=\frac{1}{r}\frac{\partial}{\partial r}\left(r\frac{\partial E_z}{\partial r}\right)+\frac{1}{r^2}\frac{\partial^2E_z}{\partial\theta^2}+\frac{\partial^2E_z}{\partial z^2}\\
+    &=\frac{\partial^2E_z}{\partial r^2}+\frac{1}{r}\frac{\partial E_z}{\partial r}+\frac{1}{r^2}\frac{\partial^2E_z}{\partial\theta^2}+\frac{\partial^2E_z}{\partial z^2}\\
     \frac{\partial^2E_z}{\partial t^2}&=-\omega^2E_z
   \end{align*}
 #+END_SRC
@@ -6430,15 +6430,15 @@ Les conditions aux limites imposent que $\vv{E}(\theta)=\vv{E}(\theta+2\pi)$
 pur $\alpha=i\lambda$.
 #+BEGIN_SRC latex
   \begin{align*}
-    F(\theta)=F_0e^{I\lambda\theta}+F_1e^{-i\lambda\theta}&=F(\theta+2\pi)\\
+    F(\theta)=F_0e^{i\lambda\theta}+F_1e^{-i\lambda\theta}&=F(\theta+2\pi)\\
     &=F_0e^{i\lambda\theta}e^{i2\pi\lambda}+F_1e^{-i\lambda\theta}e^{-i2\pi\lambda}
   \end{align*}
 #+END_SRC
 d'où $e^{i2\pi\lambda}=1$ /i.e./ \lambda est donc entier relatif.
 
-Par ailleurs, en $z=0$ et $z=h$, la composante tangentielle du champ
-électriques est toujours continue. Les parois étant un conducteur parfait, le
-champ électriques est nul à l'intérieur d'où les relations
+Par ailleurs, en $z=0$ et $z=h$, la composante tangentielle du champ électrique
+est toujours continue. Les parois étant un conducteur parfait, le champ
+électrique est nul à l'intérieur d'où les relations
 #+BEGIN_SRC latex
   \begin{align*}
     \vv{E}_\parallel(z=0)=E_r(z=0)\vv{u_r}+E_\theta(z=0)\vv{u_\theta}&=\vv{0}\\
@@ -6532,7 +6532,7 @@ la fonction $G(r\to0)$ imposant que la constante $B_\lambda$ soit nulle.
 Par ailleurs, en $r=a$, la composante tangentielle du champ électrique est
 conservée d'où $E_z(a,\theta,z,t)=E_\text{paroi}(a,\theta,z,t)=0$ soit
 $G(a)=A_\lambda J_\lambda(\gamma a)=0$. La fonction de Bessel $J_\lambda$ est
-nulle pour $\gamma a=x_{\lambda n}$ où $x_{\lambda n}$ est le $n$-ième zéro
+nulle pour $\gamma a=x_{\lambda n}$ où $x_{\lambda n}$ est le \(n\)-ième zéro
 de la fonction de Bessel $J_\lambda(x)$.
 
 Les fréquences de résonance \omega se déduisent alors de
@@ -6586,12 +6586,12 @@ La fonction $G(r)$ devient égale à $A_0J_0\left(\frac{x_{01}}{a}r\right)$,
 l'expression de $E_z$ se limitant à
 #+BEGIN_SRC latex
   \begin{align*}
-    E_z(r,\theta,z,t)&=E_0J_0\left(\frac{x_{01}}{a}r\right)\exp(-i\omega t)
+    E_z(r,\theta,z,t)&=E_0J_0\left(\frac{x_{01}}{a}r\right)\exp(-i\omega_{01} t)
   \end{align*}
 #+END_SRC
 
 En raison des symétries du problème, le plan $(\vv{u_r},\vv{u_z})$ est plan
-de symétrie, le champ électrique $\vv{E}$ appartenant nécessairement )à ce
+de symétrie, le champ électrique $\vv{E}$ appartenant nécessairement à ce
 dernier : $E_\theta=0$. Par ailleurs, l'expression de $E_r$ est de la forme
 $D(r,\theta)H'(z)\exp(-i\omega t)$ avec $H'(z)=-H\frac{\pi
 p}{h}\sin\left(\frac{\pi p}{h}z\right)=0$ pour $p=0$. La composante radiale
@@ -6637,7 +6637,7 @@ Le champ magnétique s'écrit
 
 #+BEGIN_QUESTION
 3) [@3] Application numérique : $a=11$ cm, $h=19$ cm, $x_{01}=2.4048$. Calculer
-   la fréquencec de résonance du mode fondamental.
+   la fréquence de résonance du mode fondamental.
 #+END_QUESTION
 Application numérique :
 #+BEGIN_SRC latex
