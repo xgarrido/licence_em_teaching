@@ -5389,8 +5389,198 @@ repos.
       de Higgs au LHC (pour une énergie de faisceau de 14 TeV et une masse du
       Higgs voisine de 125 GeV) est voisine de 50 picobarns soit 50 10^{-12} barn
       soit 50 10^{-40} m^{2}.
-* COMMENT TD7 : Propagation dans le vide et les milieux diélectriques
-** Effet Faraday dans un diélectrique
+* TD7 : Propagation dans le vide et les milieux diélectriques
+** Réflexion d'onde en incidence oblique sur un conducteur parfait
+#+BEGIN_QUESTION
+On considère une surface plane séparant le vide d'un conducteur métallique
+parfait. Une onde plane électromagnétique incidente se propage dans le vide. Son
+champ électrique en $M(x,y,z)$ à l'instant $t$ est :
+#+BEGIN_SRC latex
+  \begin{align*}
+    \vv{E_i}=\vv{E_0}\cos(\vv{k_i}.\vv{r}-\omega t)
+  \end{align*}
+#+END_SRC
+Cette onde rencontre le métal sous l'angle d'incidence \theta et se
+réfléchit. Le plan $Oxz$ est choisi de façon à contenir le vecteur d'onde
+incident $\vv{k_i}$. On prend l'origine $O$ sur la surface du métal. L'onde
+incidente est polarisée rectilignement et perpendiculairement au plan
+d'incidence $(\vv{E_i}\perp Oxz)$.
+1) [@1] Déterminer les champs $(\vv{E_i},\vv{B_i})$ de l'onde incidente et
+   $(\vv{E_r}, \vv{B_r})$ de l'onde réfléchie.
+#+END_QUESTION
+1) L'onde plane incidente est polarisée rectilignement selon $\vv{u}_y$ soit le
+   champ électrique
+   #+BEGIN_SRC latex
+     \begin{align*}
+       \vv{E_i}&=E_0\cos(\vv{k_i}.\vv{r}-\omega t)\vv{u}_y
+     \end{align*}
+   #+END_SRC
+   Le fait que l'onde incidente soit plane, le champ magnétique se déduit de
+   l'expression suivante
+   #+BEGIN_SRC latex
+     \begin{align*}
+       \vv{B_i}&=\frac{\vv{k_i}\times\vv{E_i}}{\omega}\\
+       &=\frac{1}{\omega}\left|
+       \begin{array}{l}
+         k_{ix}\\0\\k_{iz}
+       \end{array}
+       \right.\times\left|
+       \begin{array}{l}
+         0\\E_{i}\\0
+       \end{array}
+       \right.=\frac{1}{\omega}\left|
+       \begin{array}{l}
+         -k_{iz}E_i\\0\\k_{ix}E_i
+       \end{array}
+       \right.
+     \end{align*}
+   #+END_SRC
+   avec $k_{ix}=k_i\sin\theta$ et $k_{iz}=k_i\cos\theta$. La propagation se
+   faisant dans le vide, la norme du vecteur d'onde est en outre égale à
+   $\frac{\omega}{c}$. L'expression de $\vv{B_i}$ devient
+   #+BEGIN_SRC latex
+     \begin{align*}
+       \vv{B_i}&=\frac{E_0}{c}\cos(\vv{k_i}.\vv{r}-\omega t)\left(-\cos\theta\,\vv{u_x}+\sin\theta\,\vv{u_z}\right)
+     \end{align*}
+   #+END_SRC
+
+   Afin de déterminer l'expression du champ électrique de l'onde réfléchie, on
+   applique les relations de passage à l'interface vide/métal au point $O$ /i.e./ en
+   $\vv{r}=\vv{0}$. Le métal étant un conducteur parfait, la conservation de la
+   composante tangentielle du champ électrique implique que le champ électrique
+   de l'onde réfléchie demeure polarisé selon $\vv{u_y}$. On obtient donc la
+   relation suivante
+   #+BEGIN_SRC latex
+     \begin{align*}
+       \left.\left(\vv{E_i}+\vv{E_r}-\cancel{\vv{E}_\text{métal}}\right)\right|_{\vv{r}=\vv{0}}\times\vv{u_z}&=\vv{0}\\
+       \vv{E_r}(\vv{r}=\vv{0},t)&=-\vv{E_i}(\vv{r}=\vv{0},t)\\
+       \vv{E_{0r}}&=-\vv{E_{0i}}
+     \end{align*}
+   #+END_SRC
+   Le champ électrique réfléchi s'écrit en tout point de l'espace et du temps
+   #+BEGIN_SRC latex
+     \begin{align*}
+       \vv{E_r}&=-E_{0i}\cos(\vv{k_r}.\vv{r}-\omega t)\vv{u_y}
+     \end{align*}
+   #+END_SRC
+
+   De la même façon que pour l'onde incidente, le champ magnétique associé à
+   l'onde réfléchie s'exprime
+   #+BEGIN_SRC latex
+     \begin{align*}
+       \vv{B_r}&=\frac{\vv{k_r}\times\vv{E_r}}{\omega}
+     \end{align*}
+   #+END_SRC
+   avec $\vv{k_r}=k\left(\sin\theta\vv{u_x}-\cos\theta\vv{u_z}\right)$ et
+   $k=\frac{\omega}{c}$ (la longueur d'onde n'est pas modifiée lors de la
+   réflexion -- /cf./ exercice "Réflexion totale et onde évanescente" -- la norme
+   du vecteur d'onde $\vv{k_r}$ est égale à la norme du vecteur d'onde
+   $\vv{k_i}$). Le champ magnétique s'écrit donc
+   #+BEGIN_SRC latex
+     \begin{align*}
+       \vv{B_r}&=\frac{E_0}{c}\cos(\vv{k_r}.\vv{r}-\omega t)\left(-\cos\theta\,\vv{u_x}-\sin\theta\,\vv{u_z}\right)
+     \end{align*}
+   #+END_SRC
+
+
+#+BEGIN_QUESTION
+2) [@2] Déterminer les champs $(\vv{E},\vv{B})$ de l'onde résultante dans le vide.
+#+END_QUESTION
+2) [@2] Le champ électrique résultant s'exprime comme la superposition des
+   champs électriques incident et réfléchi soit
+   #+BEGIN_SRC latex
+     \begin{align*}
+       \vv{E}&=\vv{E_i}+\vv{E_r}\\
+       &=\vv{E_0}\left(\cos(\vv{k_i}.\vv{r}-\omega t)-\cos(\vv{k_r}.\vv{r}-\omega t)\right)\\
+       &=\vv{E_0}\,\text{Re}\left(e^{i(\vv{k_i}.\vv{r}-\omega t)}-e^{i(\vv{k_r}.\vv{r}-\omega t)}\right)\\
+       &=\vv{E_0}\,\text{Re}\left(e^{-i\omega t}\left(e^{i(kx\sin\theta+kz\cos\theta)}-e^{i(kx\sin\theta-kz\cos\theta)}\right)\right)\\
+       &=\vv{E_0}\,\text{Re}\left(e^{-i(\omega t-kx\sin\theta)}\left(e^{ikz\cos\theta}-e^{-ikz\cos\theta}\right)\right)\\
+       &=\vv{E_0}\,\text{Re}\left(e^{-i(\omega t-kx\sin\theta)}\times2i\sin(kz\cos\theta)\right)\\
+       &=2\vv{E_0}\left(\sin(\omega t-kx\sin\theta)\sin(kz\cos\theta)\right)\\
+       &=-2E_0\sin(kx\sin\theta-\omega t)\sin(kz\cos\theta)\,\vv{u_y}
+     \end{align*}
+   #+END_SRC
+   Le champ magnétique résultant s'écrit
+   #+BEGIN_SRC latex
+     \begin{align*}
+       \vv{B}&=\vv{B_i}+\vv{B_r}\\
+       &=\frac{E_0}{c}\Big [-\cos\theta\,\vv{u_x}\left(\cos(\vv{k_i}.\vv{r}-\omega t)+\cos(\vv{k_r}.\vv{r}-\omega t)\right)\\
+         \MoveEqLeft[-3]+\sin\theta\,\vv{u_z}\left(\cos(\vv{k_i}.\vv{r}-\omega t)-\cos(\vv{k_r}.\vv{r}-\omega t)\right)\Big ]\\
+       &=-2\frac{E_0}{c}\Big[\cos\theta\cos(kx\sin\theta-\omega t)\cos(kz\cos\theta)\,\vv{u_x}\\
+         \MoveEqLeft[-4]+\sin\theta\sin(kx\sin\theta-\omega t)\sin(kz\cos\theta)\,\vv{u_z}\Big ]
+     \end{align*}
+   #+END_SRC
+
+#+BEGIN_QUESTION
+3) [@3] Quelle est la vitesse de phase $v_\phi$ de l'onde résultante ?
+#+END_QUESTION
+3) [@3] La phase \phi de l'onde résultante est égale à $kx\sin\theta-\omega
+   t$. La vitesse de phase est le rapport entre la pulsation \omega et la norme
+   du vecteur d'onde /i.e./ $k\sin\theta$ dans le cas présent. Sachant que
+   $\frac{\omega}{k}$ est égal à $c$ (propagation dans le vide), la vitesse de
+   phase devient
+   #+BEGIN_SRC latex
+     \begin{align*}
+       v_\phi&=\frac{\omega}{k\sin\theta}=\frac{c}{\sin\theta}
+     \end{align*}
+   #+END_SRC
+
+#+BEGIN_QUESTION
+4) [@4] Que deviennent $\vv{E}$ et $\vv{B}$ au voisinage immédiat de la surface
+   du métal ?
+#+END_QUESTION
+4) [@4] Au voisinage de la surface du métal $z\to0$ et donc $\vv{E}\to\vv{0}$
+   tandis que $\vv{B}\to-2\frac{E_0}{c}\cos\theta\cos(kx\sin\theta-\omega
+   t)\,\vv{u_x}$
+
+#+BEGIN_QUESTION
+5) [@5] Déterminer les densités surfaciques de charge \sigma et de courant
+   $\vv{j_S}$ sur la surface métallique.
+#+END_QUESTION
+5) [@5] Afin de déterminer la densité surfacique de charge \sigma, on utilise le
+   fait que la composante normale du champ électrique est discontinue soit
+   #+BEGIN_SRC latex
+     \begin{align*}
+       \vv{u_z}.\left.\left(\vv{E}-\vv{E}_\text{métal}\right)\right|_\text{surface}&=\frac{\sigma}{\epsilon_0}
+     \end{align*}
+   #+END_SRC
+   or $\vv{E}\to\vv{0}$ à la surface du métal et $\vv{E}_\text{métal}=\vv{0}$,
+   la densité surfacique de charge \sigma est nulle.
+
+   La densité surfacique de courant $\vv{j_S}$ se déduit de la relation de
+   discontinuïté de la composante tangentielle du champ magnétique soit
+   #+BEGIN_SRC latex
+     \begin{align*}
+       \vv{u_z}\times\left.\left(\cancel{\vv{B}_\text{métal}-\vv{B}}\right)\right|_\text{surface}&=\mu_0\vv{j_S}\\
+       \vv{j_S}&=\frac{2E_0\cos\theta}{\mu_0 c}\cos(kx\sin\theta-\omega t)\,\vv{u_y}
+     \end{align*}
+   #+END_SRC
+
+#+BEGIN_QUESTION
+6) [@6] Quelle est la pression de radiation moyenne de l'onde sur le métal ?
+   L'exprimer en fonction de l'intensité incidente.
+#+END_QUESTION
+6) [@6] La pression de radiation $P$ s'exprime en fonction de l'angle
+   d'incidence \theta et de l'intensité $I$ par la relation (/cf./ devoir
+   "Interprétation corpusculaire de la pression de radiation")
+   #+BEGIN_SRC latex
+     \begin{align*}
+       P&=2\frac{I}{c}\cos^2\theta
+     \end{align*}
+   #+END_SRC
+   Par ailleurs, le rapport $\frac{I}{c}$ étant égal à la moyenne temporelle de
+   la densité d'énergie électromagnétique $\langle u_\text{EM}\rangle$ soit
+   #+BEGIN_SRC latex
+     \begin{align*}
+       \frac{I}{c}&=\langle u_\text{EM}\rangle\\
+       &=\cancel{\frac{\epsilon_0\langle E_\text{surface}^2\rangle}{2}}+\frac{\langle B_\text{surface}^2\rangle}{2\mu_0}\\
+       &=\frac{E_0^2}{\mu_0c^2}\cos^2\theta\\
+       P&=2\epsilon_0E_0^2\cos^4\theta
+     \end{align*}
+   #+END_SRC
+
+
+** COMMENT Effet Faraday dans un diélectrique
 
 #+BEGIN_QUESTION
 #+BEGIN_CENTER
