@@ -246,7 +246,7 @@ champ électrique $\vv{E}$ est colinéaire à $\vv{u}_x$ on obtient ainsi
 #+NAME: fig::polar_rect
 #+CAPTION: *Représentation graphique d'une onde polarisée rectilignement.*
 #+ATTR_LATEX: :width 0.25\linewidth
-[[file:figures/onde_polarise_rect.tikz]]
+[[file:figures/onde_polarise_rect.pdf]]
 #+END_CENTER
 
 Dans le cas d'une polarisation circulaire, le champ électrique $\vv{E}$ décrit,
@@ -255,7 +255,7 @@ au cours du temps, un cercle autour du vecteur d'onde $\vv{k}$
 #+BEGIN_CENTER
 #+CAPTION: *Représentation graphique d'une onde polarisée circulairement gauche.*
 #+ATTR_LATEX: :width 0.25\linewidth
-[[file:figures/onde_polarise_circ.tikz]]
+[[file:figures/onde_polarise_circ.pdf]]
 #+END_CENTER
 
 #+BEGIN_QUESTION
