@@ -542,9 +542,6 @@ ultra-courte comme sur le montage ci-dessous
 #+END_CENTER
 
 ** "Propriétés mécaniques" du champ électromagnétique
-:PROPERTIES:
-:CUSTOM_ID: sec::prop_champ
-:END:
 
 #+BEGIN_QUESTION
 *Énergie*
@@ -1239,10 +1236,9 @@ cette charge.
 #+END_QUESTION
 1)
    1) L'absence de charges libres dans le volume d'un conducteur (les charges
-      sont surfaciques /cf./ Exercice [[#sec::prop_champ]]) implique que le champ
-      électrique $\vv{E}_\text{int.}$ soit nul (théorème de Gauss). Le potentiel
-      électrique $V_\text{int.}$ déduit de
-      $\vv{E}_\text{int.}=-\grad\,V_\text{int}$ est par conséquent
+      sont surfaciques) implique que le champ électrique $\vv{E}_\text{int.}$
+      soit nul (théorème de Gauss). Le potentiel électrique $V_\text{int.}$
+      déduit de $\vv{E}_\text{int.}=-\grad\,V_\text{int}$ est par conséquent
       constant. $V_\text{int.}(r=R)$ étant par ailleurs nul
       #+BEGIN_SRC latex
         \begin{align*}
