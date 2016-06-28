@@ -3,9 +3,9 @@
 #+EMAIL:  xavier.garrido@u-psud.fr
 #+OPTIONS: ^:{} toc:2 tags:t author:t email:t split:html
 #+LATEX_CLASS: teaching-class
-#+LATEX_CLASS_OPTIONS: [novc]
+# #+LATEX_CLASS_OPTIONS: [novc]
 
-* COMMENT TD1 : Équations de Maxwell dans le vide et champ électromagnétique
+* TD1 : Équations de Maxwell dans le vide et champ électromagnétique
 ** Équations de Maxwell dans le vide                                    :DM:
 #+BEGIN_QUESTION
 1) [@1] On considère une onde plane scalaire en notation complexe :
@@ -1033,7 +1033,7 @@ Poynting $I=\|\langle\vv{R}\rangle\|$ avec
 $\vv{R}=\frac{\vv{E}\times\vv{B}}{\mu_0}$ et
 $\vv{B}=\frac{\vv{k}\times\vv{E}}{\omega}$
 
-* COMMENT TD2 : Électrostatique dans le vide
+* TD2 : Électrostatique dans le vide
 ** Rayon classique de l'électron
 #+BEGIN_QUESTION
 1) [@1] Calculer l'énergie électrostatique d'une boule de rayon $R$, chargée en
@@ -1919,7 +1919,7 @@ $\vv{p}_1=\vv{p}_2=\vv{p}$, on obtient une force moyenne
   \end{align*}
 #+END_SRC
 
-* COMMENT TD3 : Les milieux diélectriques
+* TD3 : Les milieux diélectriques
 ** Introduction
 Historiquement, la découverte expérimentale des diélectriques est à mettre au
 profit de Michael Faraday qui nota que l'introduction d'un isolant entre les
@@ -2932,7 +2932,7 @@ $\div\vv{E}=\frac{\rho_\text{tot.}}{\epsilon_0}$ d'où
 S'il n'y a donc pas de densité volumique de charge libre $\rho_\ell$, la densité
 volumique de charge liée est donc également nulle.
 
-* COMMENT TD4 : Magnétostatique
+* TD4 : Magnétostatique
 ** Introduction
 En magnétostatique, les équations locales deviennent
 #+BEGIN_SRC latex
@@ -3882,7 +3882,7 @@ $r\cos\theta$ et est lui aussi solution de l'équation de Laplace. La somme des
 deux solutions justifie ainsi de la forme de la solution utilisée dans cet
 exercice.
 
-* COMMENT TD5 : Milieux magnétiques
+* TD5 : Milieux magnétiques
 ** COMMENT Introduction
 Dans la plupart des matériaux soumis à un champ magnétique, les charges liées se
 déplacent à l'échelle atomique faisant apparaître des boucles de courant /i.e./
@@ -4705,7 +4705,7 @@ $\vv{B}$ est $E_p=-\vv{m}.\vv{B}$.
          $\lambda_0=4nR=\unit[521]{nm}$. La solution devient donc verte. Cette
          technique de spectrométrie permet donc de mesurer la taille $R$ des
          gouttelettes.
-* COMMENT TD6 : Rayonnement
+* TD6 : Rayonnement
 ** Rayonnement d'une antenne
 #+BEGIN_QUESTION
 On considère une portion de conducteur rectiligne $MN$ de longueur \ell, dirigée
@@ -6260,7 +6260,7 @@ de l'ordre de 6 degrés pour une radiation infrarouge $-$
 $\lambda\sim30\,\mu\text{m}, \nu=\unit[1.5]{THz}$ $-$ et un champ magnétique de
 8 Tesla.
 
-** Réflexion totale et onde évanescente                                 :DM:
+** COMMENT Réflexion totale et onde évanescente                                 :DM:
 
 #+BEGIN_QUESTION
 Le demi-espace $y<0$ est rempli d'un diélectrique LHI transparent (sans pertes)
@@ -7157,7 +7157,7 @@ l'équation de Bessel:
 ** Footnotes
 
 [fn:11] pour les fonctions de Bessel, on considère toujours \lambda > 0
-* COMMENT TD9 : Induction électromagnétique
+* TD9 : Induction électromagnétique
 ** Introduction
 En régime variable, le champ magnétique demeure toujours à flux conservatif à
 savoir que
@@ -7718,7 +7718,7 @@ fréquence de 20 Hz et au-dessus d'un seuil d'intensité de 10 mT), un effet
 physiologique caractérisé par la perception visuelle de taches lumineuses; ce
 sont les magnétophosphènes."
 
-* COMMENT TD10 : Électromagnétisme & relativité
+* TD10 : Électromagnétisme & relativité
 ** Introduction
 *Transformation de Lorentz :* $\beta=\tfrac{v}{c}$ et
  $\gamma=\tfrac{1}{\surd{1-\beta^2}}$. Si $\mathcal{R}'$ est en mouvement
