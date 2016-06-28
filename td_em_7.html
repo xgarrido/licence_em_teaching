@@ -3,12 +3,13 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<title>TD8 : Propagation dans le vide et les milieux diélectriques</title>
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta  name="viewport" content="width=device-width, initial-scale=1" />
+<title>TD8 : Guides d'onde</title>
 <meta  name="generator" content="Org-mode" />
 <link rel="stylesheet" href="css/styles.css" />
                <link rel="stylesheet" href="css/org-pygments.css" />
-               <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" />
+               <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" />
 <script type="text/javascript">
 /*
 @licstart  The following is the entire license notice for the
@@ -97,8 +98,10 @@ for the JavaScript code in this tag.
       }
   });
   MathJax.Hub.Register.StartupHook("TeX Jax Ready",function () {
-      var TEX = MathJax.InputJax.TeX;
+      var TEX = MathJax.InputJax.TeX,
+          MML = MathJax.ElementJax.mml;
       TEX.Definitions.macros.unit = "jaxunit";
+      TEX.Definitions.macros.nicefrac = "jaxfrac";
       TEX.Parse.Augment({
           jaxunit: function (name) {
               var n = this.GetBrackets(name),
@@ -106,6 +109,11 @@ for the JavaScript code in this tag.
               if (n == null) {n = ""}
               var tex = n + '\\,\\text{'+unit+'}';
               this.string = tex + this.string.slice(this.i); this.i = 0;
+          },
+          jaxfrac: function (name) {
+              var num = this.ParseArg(name),
+                  den = this.ParseArg(name);
+              this.Push(MML.mfrac(num,den).With({bevelled: true}));
           }
       });
   });
@@ -123,869 +131,850 @@ for the JavaScript code in this tag.
 </head>
 <body onload="randomLinkColor();displayTOC();"><div id="toc"></div>
 <div id="preamble" class="status">
- 
+<a href="index.html"><i class="fa fa-home"></i></a><br/>  
 </div>
 <div id="content">
-<h1 class="title">TD8 : Propagation dans le vide et les milieux diélectriques</h1>
+<h1 class="title">TD8 : Guides d'onde</h1>
 <div style="display:none;">
 <div id="text-table-of-contents">
 <ul class="org-ul">
-<li><a href="././td_em_0.html">TD1 : Électromagnétisme &amp; relativité</a>
-</li>
-<li><a href="././td_em_1.html">TD2 : Équations de Maxwell dans le vide et champ électromagnétique</a>
-</li>
-<li><a href="././td_em_2.html">TD3 : Électrostatique dans le vide</a>
-</li>
-<li><a href="././td_em_3.html">TD4 : Les milieux diélectriques</a>
-</li>
-<li><a href="././td_em_4.html">TD5 : Magnétostatique</a>
-</li>
-<li><a href="././td_em_5.html">TD6 : Milieux magnétiques</a>
-</li>
-<li><a href="././td_em_6.html">TD7 : Rayonnement</a>
-</li>
-<li><a href="././td_em_7.html">TD8 : Propagation dans le vide et les milieux diélectriques</a>
-</li>
-<li><a href="././td_em_8.html">TD9 : Guides d'onde</a>
-</li>
-<li><a href="././td_em_9.html">TD10 : Induction électromagnétique</a>
-</li>
+<li><a href="././td_em_0.html">TD1 : Équations de Maxwell dans le vide et champ électromagnétique</a></li>
+<li><a href="././td_em_1.html">TD2 : Électrostatique dans le vide</a></li>
+<li><a href="././td_em_2.html">TD3 : Les milieux diélectriques</a></li>
+<li><a href="././td_em_3.html">TD4 : Magnétostatique</a></li>
+<li><a href="././td_em_4.html">TD5 : Milieux magnétiques</a></li>
+<li><a href="././td_em_5.html">TD6 : Rayonnement</a></li>
+<li><a href="././td_em_6.html">TD7 : Propagation dans le vide et les milieux diélectriques</a></li>
+<li><a href="././td_em_7.html">TD8 : Guides d'onde</a></li>
+<li><a href="././td_em_8.html">TD9 : Induction électromagnétique</a></li>
+<li><a href="././td_em_9.html">TD10 : Électromagnétisme &amp; relativité</a></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-sec-1" class="outline-2">
-<h2 id="sec-1"><span class="section-number-2">1</span> Effet Faraday dans un diélectrique</h2>
+<div id="outline-container-orgheadline4" class="outline-2">
+<h2 id="orgheadline4"><span class="section-number-2">1</span> Cavité cylindrique résonante</h2>
 <div class="outline-text-2" id="text-1">
-<div class="center">
-
-<div class="figure">
-<p><img src="./figures/effet_faraday.png" alt="effet_faraday.png" />
+<div class="QUESTION">
+<p>
+On cherche à étudier les caractéristiques de certains modes d'une cavité
+cylindrique résonantes. La cavité est constituée d'un cylindre métallique creux
+de rayon intérieur \(a\), fermé en \(z=0\) et \(z=h\) par deux plans métalliques. On
+négligera l'influence des différents dispositifs permettant d'injecter et de
+détecter l'onde dans la cavité.
 </p>
-</div>
+
 </div>
 </div>
 
-<div id="outline-container-sec-1-1" class="outline-3">
-<h3 id="sec-1-1"><span class="section-number-3">1.1</span> Équation de propagation des ondes</h3>
+<div id="outline-container-orgheadline1" class="outline-3">
+<h3 id="orgheadline1"><span class="section-number-3">1.1</span> Détermination des fréquences de résonance</h3>
 <div class="outline-text-3" id="text-1-1">
+<div class="QUESTION">
+<p>
+Pour la détermination des fréquences des modes propres, on supposera que le
+métal constituant les parois est un conducteur parfait. On suppose que la
+dépendance en temps des différentes grandeurs étudiées est entièrement prise en
+compte par le terme \(\exp(-i\omega t)\).
+</p>
+
 <ol class="org-ol">
-<li>Équations de Maxwell
-\begin{align*}
-  \div\vv{E}&=\frac{\rho}{\epsilon_0}\\
-  \rot\vv{E}&=-\frac{\partial\vv{B}}{\partial t}\\
-  \div\vv{B}&=0\\
-  \rot\vv{B}&=\mu_0\vv{j}+\epsilon_0\mu_0\frac{\partial\vv{E}}{\partial t}
-\end{align*}
-
-<p>
-L'équation de propagation du champ électrique s'écrit
-</p>
-\begin{align*}
-  \rot\left(\rot\vv{E}\right)&=\grad\left(\div\vv{E}\right)-\Delta\vv{E}=-\frac{\partial\rot\vv{B}}{\partial t}\\
-  -\Delta\vv{E}+\grad\left(\frac{\rho}{\epsilon_0}\right)&=-\mu_0\frac{\partial\vv{j}}{\partial t}-\frac{1}{c^2}\frac{\partial^2\vv{E}}{\partial t^2}\\
-  \underbrace{\Delta\vv{E}-\frac{1}{c^2}\frac{\partial^2\vv{E}}{\partial t^2}}_{\square\vv{E}}&=\mu_0\frac{\partial\vv{j}}{\partial t}+\grad\left(\frac{\rho}{\epsilon_0}\right)
-\end{align*}
-
-<p>
-Pour le champ magnétique, on a
-</p>
-\begin{align*}
-  \rot\left(\rot\vv{B}\right)&=\mu_0\rot\vv{j}+\epsilon_0\mu_0\frac{\partial\rot\vv{E}}{\partial t}\\
-  -\Delta\vv{B}+\cancel{\grad\left(\div\vv{B}\right)}&=\mu_0\rot\vv{j}-\frac{1}{c^2}\frac{\partial^2\vv{B}}{\partial t^2}\\
-  \square\vv{B}&=-\mu_0\rot\vv{j}
-\end{align*}
-</li>
-
-<li>Le champ électrique associée à l'onde est de la forme
-\(\vv{E}=\vv{E_0}\,e^{i\left(\vv{k}.\vv{r}-\omega t\right)}\). L'expression de
-la divergence de \(\vv{E}\) s'écrit
-\begin{align*}
-  \div\vv{E}&=\frac{\partial E_x}{\partial x}+\frac{\partial E_y}{\partial y}+\frac{\partial E_z}{\partial z}\\
-  &=E_{0x}ik_x\,e^{i\left(\vv{k}.\vv{r}-\omega t\right)}+E_{0y}ik_y\,e^{i\left(\vv{k}.\vv{r}-\omega t\right)}+E_{0z}ik_z\,e^{i\left(\vv{k}.\vv{r}-\omega t\right)}\\
-  &=i\vv{k}.\vv{E}
-\end{align*}
-
-<p>
-Dans le cas d'une onde transverse plane, la base des vecteurs
-\((\vv{k},\vv{E},\vv{B})\) forme une base orthogonale d'où \(\vv{E}\perp\vv{k}\)
-et \(\div\vv{E}=0\). L'équation de propagation de \(\vv{E}\) devient
-</p>
-\begin{align*}
-  \Delta\vv{E}-\frac{1}{c^2}\frac{\partial^2\vv{E}}{\partial t^2}&=\mu_0\frac{\partial\vv{j}}{\partial t}\text{ avec }\vv{E}=\vv{E_0}\,e^{i\left(\vv{k}.\vv{r}-\omega t\right)}\\
-  \text{or }&\Delta\vv{E}=\left(\Delta E_x\right)\vv{u_x}+\left(\Delta E_y\right)\vv{u_y}+\left(\Delta E_z\right)\vv{u_z}\\
-  &\Delta\vv{E}=\left(\frac{\partial^2E_x}{\partial x^2}+\frac{\partial^2E_x}{\partial y^2}+\frac{\partial^2E_x}{\partial z^2}\right)\vv{u_x}+...\\
-  &\Delta\vv{E}=\left(-k_x^2E_x-k_y^2E_x-k_z^2E_x\right)\vv{u_x}-k^2E_y\vv{u_y}-k^2E_z\vv{u_z}\\
-  &\Delta\vv{E}=-k^2\vv{E}\\
-  \text{et }&\frac{\partial^2\vv{E}}{\partial t^2}=-\omega^2\vv{E},\frac{\partial\vv{j}}{\partial t}=-i\omega\vv{j}\\
-  \text{d'où }&-k^2\vv{E}+\frac{\omega^2}{c^2}\vv{E}=-i\mu_0\omega\vv{j}\\
-  &\vv{E}\left(k^2-\frac{\omega^2}{c^2}\right)=i\mu_0\omega\vv{j}
-\end{align*}
-
-<p>
-Dans le vide \(\vv{j}=\vv{0}\), on retrouve la relation de dispersion à savoir
-\(k=\frac{\omega}{c}\).
-</p>
-</li>
+<li value="1">À partir des équations de Maxwell, établir l'équation de propagation des
+ondes pour le champ \(\vv{E}\).</li>
 </ol>
-</div>
+
 </div>
 
-<div id="outline-container-sec-1-2" class="outline-3">
-<h3 id="sec-1-2"><span class="section-number-3">1.2</span> Détermination des caractéristiques du milieu</h3>
-<div class="outline-text-3" id="text-1-2">
+<p>
+Les équations de Maxwell sont
+</p>
+\begin{align*}
+  \rot\vv{E}=-\frac{\partial\vv{B}}{\partial t}&\quad\rot\vv{B}=\mu_0\epsilon_0\frac{\partial\vv{E}}{\partial t}\\
+  \rot\left(\rot\vv{E}\right)&=\underbrace{\cancel{\grad\left(\div\vv{E}\right)}}_{\rho=0\text{ pas de charge dans le vide}}-\Delta\vv{E}\\
+  \Delta\vv{E}-\mu_0\epsilon_0\frac{\partial^2\vv{E}}{\partial t^2}&=\square\vv{E}=\vv{0}
+\end{align*}
+
+<div class="QUESTION">
 <ol class="org-ol">
-<li><ol class="org-ol">
-<li>Principe fondamental de la dynamique appliqué à un électron du milieu
+<li value="2"><p>
+En utilisant la méthode de séparation des variables, on va résoudre
+l'équation de propagation des ondes pour la composante \(E_z\) du champ
+électrique. Compte tenu de la géométrie de la cavité, on a intérêt à utiliser
+les coordonnées cylindriques pour la fonction scalaire \(E_z\).
+</p>
 \begin{align*}
-  m\frac{d\vv{v}}{dt}=-m\omega_0^2\vv{R}-e\vv{E}-e\vv{v}\times\left(\vv{B}+\vv{B_S}\right)
-\end{align*}
-</li>
-
-<li>Pour une onde plane transverse, la norme du champ magnétique associé à
-l'onde est de l'ordre de
-\(\|\vv{B}\|=\frac{\|\vv{k}\times\vv{E}\|}{\omega}\) avec
-\(k=\frac{\omega}{c}\) d'où \(\|\vv{B}\|=\frac{\|\vv{E}\|}{c}\). Le rapport
-de la force magnétique exercée par le champ électrique de l'onde sur
-la force coulombienne devient
-\begin{align*}
-  \frac{\|e\vv{v}\times\vv{B}\|}{\|e\vv{E}\|}=\frac{v/c\times E}{E}&=\frac{v}{c}\ll1\to\text{ électron non relativiste}\\
-  \|e\vv{v}\times\vv{B}\|&\ll\|e\vv{E}\|
-\end{align*}
-</li>
-
-<li>En différentialisant le champ de vitesse où  \(\vv{v}\) est une fonction de
-l'espace et du temps <i>i.e.</i> \(f(\vv{r},t)\), on obtient
-\begin{align*}
-  d\vv{v}&=\frac{\partial\vv{v}}{\partial t}dt+\frac{\partial\vv{v}}{\partial x}dx+\frac{\partial\vv{v}}{\partial y}dy+\frac{\partial\vv{v}}{\partial z}dz\\
-  \frac{d\vv{v}}{dt}&=\frac{\partial\vv{v}}{\partial t}+\frac{\partial\vv{v}}{\partial x}\frac{dx}{dt}+\frac{\partial\vv{v}}{\partial y}\frac{dy}{dt}+\frac{\partial\vv{v}}{\partial z}\frac{dz}{dt}\\
-  \frac{d\vv{v}}{dt}&=\frac{\partial\vv{v}}{\partial t}+\frac{\partial\vv{v}}{\partial x}v_x+\frac{\partial\vv{v}}{\partial y}v_y+\frac{\partial\vv{v}}{\partial z}v_z\\
-  \underbrace{\frac{d\vv{v}}{dt}}_{\text{dérivée particulaire}}&=\underbrace{\frac{\partial\vv{v}}{\partial t}}_{\text{dérivée locale}}+\underbrace{\left(\vv{v}.\grad\right).\vv{v}}_{\text{dérivée convective}}
+  E_z(r,\theta,z,t)=F(\theta)G(r)H(z)\exp(-i\omega t)
 \end{align*}
 
 <p>
-En posant \(\vv{v}=\vv{v_0}\,e^{i(\omega t-\vv{k}.\vv{r})}\), la dérivée locale
-\(\frac{\partial\vv{v}}{\partial t}\) est égale à \(i\omega\vv{v}\), la dérivée
-convective prenant la forme
-</p>
-\begin{align*}
-  \left(\vv{v}.\grad\right).\vv{v}=\vv{v}.(-)i\vv{k}.\vv{v}
-\end{align*}
-
-<p>
-On déduit que
-</p>
-\begin{align*}
-  \frac{\partial\vv{v}}{\partial t}+\left(\vv{v}.\grad\right).\vv{v}&=i\omega\vv{v}-i\vv{v}.\vv{k}.\vv{v}\\
-  &=i\omega\vv{v}\left(1-\frac{\vv{k}.\vv{v}}{\omega}\right)=i\omega\vv{v}\left(1-\frac{v}{v_\phi}\right)\\
-  \frac{d\vv{v}}{dt}&\simeq\frac{\partial v}{\partial t}\to\frac{v}{v_\phi}=\frac{v}{c}\ll1
-\end{align*}
-</li>
+Montrer que les quantités \(F''(\theta)/F(\theta)\) et \(H''(z)/H(z)\) sont
+égales à des constantes que l'on notera \(\alpha^2\) et \(\beta^2\) (\(\alpha^2\)
+et \(\beta^2\) réels). En déduire les solutions possibles pour \(F\) et \(H\).
+</p></li>
 </ol>
-</li>
 
-<li>Cas où le champ magnétique statique est nul \(\vv{B_S}=\vv{0}\). La
-polarisation \(\vv{P}\) correspond, par définition, à la densité volumique de
-moment dipolaire électrique \(\vv{p}\) où \(\vv{p}=-e\vv{R}\). Sachant qu'il y a
-\(n\) dipôles ion-électron par unité de volume, la polarisation est donc égale
-à \(\vv{P}=n\times\vv{p}=-ne\vv{R}\). Par ailleurs, en l'absence de champ
-magnétique statique, l'équation du mouvement de l'électron se réduit à
+</div>
+
+<p>
+Soit \(E_z\) la composante du champ électrique colinéaire à l'axe du
+cylindre. En coordonnées cylindriques, l'expression de \(E_z(r,\theta,z,t)\)
+s'écrit
+</p>
 \begin{align*}
-  m\frac{\partial\vv{v}}{\partial t}&=-e\vv{E}-m\omega_0\vv{R}\\
-  m\frac{\partial^2\vv{R}}{\partial t^2}&=-e\vv{E}-m\omega_0\vv{R}\\
-  m\times(-i\omega)^2\vv{R}&=-e\vv{E}-m\omega_0\vv{R}\\
-  \vv{R}&=\frac{-e\vv{E}}{m(\omega_0^2-\omega^2)}\\
-  \vv{P}&=-ne\vv{R}=\frac{ne^2\vv{E}}{m(\omega_0^2-\omega^2)}
+  E_z(r,\theta,z,t)=F(\theta)G(r)H(z)\exp\left(-i\omega t\right)
 \end{align*}
 
 <p>
-Si le milieu est linéaire, homogène et isotrope, la polarisation est égale à
-\(\epsilon_0\chi_e\vv{E}\) et \(\epsilon_r=1+\chi_e\) d'où
+En projetant l'équation de propagation selon \(\vv{u_z}\), on obtient
 </p>
 \begin{align*}
-  \chi_e=\frac{ne^2}{m\epsilon_0(\omega_0^2-\omega^2)}=\frac{\omega_p^2}{\omega_0^2-\omega^2}
-\end{align*}
-
-<p>
-Dans le cas statique <i>i.e.</i> \(\omega=0\), la susceptibilité électrique est
-alors égale à \(\chi_e=\frac{\omega_p^2}{\omega_0^2}\) et la permitivité
-relative \(\epsilon_r=1+\chi_e=1+\frac{\omega_p^2}{\omega_0^2}\).
-</p>
-
-<p>
-Les propriétés diélectriques du milieu dépendent donc de la densité
-d'ion-électron de même que de l'intensité de la liaison ion-électron
-caractérisée par la pulsation \(\omega_0\) : en statique, la permitivité sera
-d'autant plus grande que le milieu sera dense et qu'il sera hautement ionisé
-<i>i.e.</i> \(\omega_0\to0\).
-</p>
-</li>
-
-<li>Cas où le champ magnétique \(B_S\) est non nul. Le principe fondamental de la
-dynamique s'écrit
-\begin{align*}
-  m\frac{\partial^2\vv{R}}{\partial t^2}&=-e\vv{E}-e\frac{\partial\vv{R}}{\partial t}\times\vv{B_S}-m\omega_0^2\vv{R}\\
-  m\omega_0^2\vv{R}-m\omega^2\vv{R}&=-e\vv{E}+i\omega e\vv{R}\times\vv{B_S}\\
-  m\left(\omega_0^2-\omega^2\right)\left|
-  \begin{array}{l}
-    x\\y\\z
-  \end{array}
-  \right.
-  &=-e\left|
-  \begin{array}{l}
-    E_x\\E_y\\E_z
-  \end{array}
-  \right.+i\omega e\left|
-  \begin{array}{l}
-    x\\y\\z
-  \end{array}
-  \right.\times\left|
-  \begin{array}{l}
-    0\\0\\B_S
-  \end{array}
-  \right.\\
-  m\left(\omega_0^2-\omega^2\right)\left|
-  \begin{array}{l}
-    x\\y\\z
-  \end{array}
-  \right.
-  &=-e\left|
-  \begin{array}{l}
-    E_x\\E_y\\E_z
-  \end{array}
-  \right.+i\omega eB_S\left|
-  \begin{array}{l}
-    y\\-x\\0
-  \end{array}
-  \right.
-\end{align*}
-
-<p>
-duquel on déduit l'expression de la coordonnée \(z\)
-</p>
-\begin{align*}
-  z=\frac{eE_z}{m\left(\omega^2-\omega_0^2\right)}
-\end{align*}
-
-<p>
-ainsi que les deux équations suivantes
-</p>
-\begin{align*}
-  m\left(\omega_0^2-\omega^2\right)x&=-eE_x+i\omega eB_Sy\\
-  m\left(\omega_0^2-\omega^2\right)y&=-eE_y-i\omega eB_Sx
-\end{align*}
-
-<p>
-qui deviennent
-</p>
-\begin{align*}
-  \begin{array}{rrl}
-    m\left(\omega^2-\omega_0^2\right)x+&im\omega\omega_cy&=eE_x\\
-    -im\omega\omega_cx+&m\left(\omega^2-\omega_0^2\right)y&=eE_y
-  \end{array}
-  \\
-  \begin{bmatrix}
-    m\left(\omega^2-\omega_0^2\right)&im\omega\omega_c\\
-    -im\omega\omega_c&m\left(\omega^2-\omega_0^2\right)
-  \end{bmatrix}
-  \begin{pmatrix}
-    x\\y
-  \end{pmatrix}
-  =\begin{pmatrix}
-  eE_x\\eE_y
-  \end{pmatrix}
-\end{align*}
-
-<p>
-En posant
-</p>
-\begin{align*}
-  \mathcal{A}=
-  \begin{bmatrix}
-    m\left(\omega^2-\omega_0^2\right)&im\omega\omega_c\\
-    -im\omega\omega_c&m\left(\omega^2-\omega_0^2\right)
-  \end{bmatrix}
-\end{align*}
-
-<p>
-les composantes \(x\) et \(y\) s'expriment en fonction de \(E_x\) et \(E_y\) par<sup><a id="fnr.1" class="footref" href="#fn.1">1</a></sup>
- <div class="footdef"><sup><a id="fn.1" class="footnum" href="#fnr.1">1</a></sup> <p class="footpara"> soit une matrice \(\mathcal{A}\) égale à </p> \begin{align*} \mathcal{A}=\begin{bmatrix} a&b\\ c&d \end{bmatrix} \end{align*} <p class="footpara"> l'expression de la matrice inverse \(\mathcal{A}^{-1}\) est </p> \begin{align*} \mathcal{A}^{-1}=\frac{1}{\text{det}\mathcal{A}}\begin{bmatrix} d&-b\\ -c&a \end{bmatrix}\text{ avec }\text{det}\mathcal{A}=ad-bc \end{align*}<br/></div>
-</p>
-\begin{align*}
-  \begin{pmatrix}
-    x\\y
-  \end{pmatrix}
-  =\mathcal{A}^{-1}
-  \begin{pmatrix}
-    eE_x\\eE_y
-  \end{pmatrix}
-\end{align*}
-
-<p>
-où
-</p>
-\begin{align*}
-  \mathcal{A}^{-1}&=\frac{1}{\text{det}\mathcal{A}}
-  \begin{bmatrix}
-    m\left(\omega^2-\omega_0^2\right)&-im\omega\omega_c\\
-    im\omega\omega_c&m\left(\omega^2-\omega_0^2\right)
-  \end{bmatrix}\\
-  \text{det}\mathcal{A}&=m^2\left(\omega^2-\omega_0^2\right)^2-m^2\omega^2\omega_c^2
-\end{align*}
-
-<p>
-Finalement, les composantes \(x\) et \(y\) deviennent
-</p>
-\begin{align*}
-  x&=\frac{e}{m}\,\frac{\left(\omega^2-\omega_0^2\right)E_x-i\omega\omega_cE_y}{\left(\omega^2-\omega_0^2\right)^2-\omega^2\omega_c^2}\\
-  y&=\frac{e}{m}\,\frac{\left(\omega^2-\omega_0^2\right)E_y+i\omega\omega_cE_x}{\left(\omega^2-\omega_0^2\right)^2-\omega^2\omega_c^2}
-\end{align*}
-</li>
-
-<li>La vitesse de l'électron \(\vv{v}\), la densité de courant \(\vv{j}\) et la
-variation temporelle de courant \(\frac{\partial\vv{j}}{\partial t}\)
-s'expriment en fonction du vecteur position de l'électron \(\vv{R}\)
-\begin{align*}
-  \vv{v}&=\frac{\partial\vv{R}}{\partial t}=-i\omega\vv{R}\\
-  \vv{j}&=\cancel{ne\vv{v}_\text{ion}}-ne\vv{v}\simeq-ne\vv{v}=ine\omega\vv{R}\\
-  \frac{\partial\vv{j}}{\partial t}&=-i\omega\vv{j}=ne\omega^2\vv{R}
+  \Delta E_z-\mu_0\epsilon_0\frac{\partial^2E_z}{\partial t^2}&=0
 \end{align*}
 
 <p>
 avec
 </p>
 \begin{align*}
-  \vv{R}&=\frac{e}{m}\left|
-  \begin{array}{l}
-    \frac{\omega^2-\omega_0^2}{\left(\omega^2-\omega_0^2\right)^2-\omega^2\omega_c^2}E_x-\frac{i\omega\omega_c}{\left(\omega^2-\omega_0^2\right)^2-\omega^2\omega_c^2}E_y\\
-    \frac{i\omega\omega_c}{\left(\omega^2-\omega_0^2\right)^2-\omega^2\omega_c^2}E_x+\frac{\omega^2-\omega_0^2}{\left(\omega^2-\omega_0^2\right)^2-\omega^2\omega_c^2}E_y\\
-    \frac{1}{\omega^2-\omega_0^2}E_z
-  \end{array}
-  \right.\\
-  &=\frac{e}{m}\left|
-  \begin{array}{l}
-    -\frac{\gamma}{\omega_p^2}E_x-i\frac{\beta}{\omega_p^2}E_y\\
-    i\frac{\beta}{\omega_p^2}E_x-\frac{\gamma}{\omega_p^2}E_y\\
-    -\frac{\alpha}{\omega_p^2}E_z
-  \end{array}
-  \right.\\
-  &=-\frac{e}{m\omega_p^2}\underbrace{\begin{bmatrix}
-    \gamma&i\beta&0\\
-    -i\beta&\gamma&0\\
-    0&0&\alpha
-  \end{bmatrix}}_{\bar{\bar{\chi}}}
-  \,\vv{E}
+  \Delta E_z&=\frac{1}{r}\frac{\partial}{\partial r}\left(r\frac{\partial E_z}{\partial r}\right)+\frac{1}{r^2}\frac{\partial^2E_z}{\partial\theta^2}+\frac{\partial^2E_z}{\partial z^2}\\
+  &=\frac{\partial^2E_z}{\partial r^2}+\frac{1}{r}\frac{\partial E_z}{\partial r}+\frac{1}{r^2}\frac{\partial^2E_z}{\partial\theta^2}+\frac{\partial^2E_z}{\partial z^2}\\
+  \frac{\partial^2E_z}{\partial t^2}&=-\omega^2E_z
 \end{align*}
 
 <p>
-Soit
+soit
 </p>
 \begin{align*}
-  \vv{v}&=\frac{ie\omega}{m\omega_p^2}\bar{\bar{\chi}}\vv{E}\\
-  \vv{j}&=-\frac{ine^2\omega}{m\omega_p^2}\bar{\bar{\chi}}\vv{E}=-i\omega\epsilon_0\bar{\bar{\chi}}\vv{E}\\
-  \frac{\partial\vv{j}}{\partial t}&=-\frac{ne^2}{m}\frac{\omega^2}{\omega_p^2}\bar{\bar{\chi}}\vv{E}=-\omega^2\epsilon_0\bar{\bar{\chi}}\vv{E}
-\end{align*}
-</li>
-
-<li>L'équation de propagation pour une onde transverse plane est
-\begin{align*}
-  \left(k^2-\frac{\omega^2}{c^2}\right)\vv{E}&=i\mu_0\omega\vv{j}\\
-  &=\mu_0\epsilon_0\omega^2\bar{\bar{\chi}}\vv{E}\\
-  &=\frac{\omega^2}{c^2}\bar{\bar{\chi}}\vv{E}\\
-  \underbrace{\left(\frac{k^2c^2}{\omega^2}-1\right)}_{\text{scalaire}}\vv{E}&=\bar{\bar{\chi}}\vv{E}\to\lambda\vv{E}=\bar{\bar{\chi}}\vv{E}
+  FH\frac{\partial^2G}{\partial r^2}+\frac{1}{r}FH\frac{\partial G}{\partial r}+\frac{1}{r^2}GH\frac{\partial^2F}{\partial t^2}+FG\frac{\partial^2H}{\partial z^2}+\mu_0\epsilon_0\omega^2FGH&=0\\
+  \underbrace{\frac{1}{G}\frac{\partial^2G}{\partial r^2}+\frac{1}{rG}\frac{\partial G}{\partial r}+\frac{1}{r^2F}\frac{\partial^2F}{\partial\theta^2}}_{f(r,\theta)}+\underbrace{\frac{1}{H}\frac{\partial^2H}{\partial z^2}}_{g(z)}+\underbrace{\mu_0\epsilon_0\omega^2}_{\text{constante}}&=0
 \end{align*}
 
 <p>
-L'équation aux valeurs propres \(\lambda\vv{E}=\bar{\bar{\chi}}\vv{E}\)
-implique que le champ électrique \(\vv{E}\) est vecteur propre de
-\(\bar{\bar{\chi}}\) avec pour valeur propre \(\frac{k^2c^2}{\omega^2}-1\).
+Les deux fonctions \(f(r,\theta)\) et \(g(z)\) sont donc nécessairement des
+constantes d'où
 </p>
-</li>
-</ol>
-</div>
-</div>
+\begin{align*}
+  \frac{H''(z)}{H(z)}=\beta^2\to H(z)=H_0e^{\beta z}+H_1e^{-\beta z}
+\end{align*}
 
-<div id="outline-container-sec-1-3" class="outline-3">
-<h3 id="sec-1-3"><span class="section-number-3">1.3</span> Détermination des modes propres de propagation</h3>
-<div class="outline-text-3" id="text-1-3">
+<p>
+On a donc
+</p>
+\begin{align*}
+  \frac{G''(r)}{G(r)}+\frac{1}{r}\frac{G'(r)}{G(r)}+\frac{1}{r^2}\frac{F''(\theta)}{F(\theta)}+\mu_0\epsilon_0\omega^2+\beta^2&=0\\
+  \underbrace{r^2\frac{G''(r)}{G(r)}+r\frac{G'(r)}{G(r)}+r^2\left(\mu_0\epsilon_0\omega^2+\beta^2\right)}_{f(r)}+\underbrace{\frac{F''(\theta)}{F(\theta)}}_{g(\theta)}&=0
+\end{align*}
+
+<p>
+Pour les mêmes raisons, le rapport \(\frac{F''(\theta)}{F(\theta)}\) est donc
+constant et égal à \(\alpha^2\). On déduit que l'expression de \(F(\theta)\) est
+de la forme
+</p>
+\begin{align*}
+  \frac{F''(\theta)}{F(\theta)}=\alpha^2\to F(\theta)=F_0e^{\alpha\theta}+F_1e^{-\alpha\theta}
+\end{align*}
+
+<p>
+<b>Remarques :</b> &alpha;<sup>2</sup> et &beta;<sup>2</sup> étant réels, &alpha; et &beta; sont donc
+soit réels soit imaginaires purs.
+</p>
+
+<div class="QUESTION">
 <ol class="org-ol">
-<li>\(\vv{E}\) est vecteur propre de \(\bar{\bar{\chi}}\) avec comme valeur propre
-\(\alpha\). Or, la valeur propre \(\alpha\) est associée au sous espace vectoriel
-défini par \(\vv{u_z}\) : le champ électrique appartient donc à ce sous espace
-vectoriel &rarr; \(\vv{E}\parallel\vv{u_z}\). L'onde étant par ailleurs plane
-transverse \(\vv{k}.\vv{E}=0\) d'où \(\vv{k}\perp\vv{E}\) : le vecteur d'onde
-\(\vv{k}\) appartient au plan \((\vv{u_x},\vv{u_y})\).
-
-<p>
-La valeur propre \(\alpha\) ne dépendant pas de \(\omega_c\) <i>i.e.</i> de \(B_S\), le
-champ magnétique statique \(B_S\) ne doit pas avoir d'influence sur le
-mouvement des électrons et donc sur la propagation de l'onde. En effet, la
-force de Lorentz exercée par le champ magnétique statique s'écrit
-\(\vv{F_L}=-e\vv{v}\times\vv{B_S}=-\frac{i\omega
-   e^2}{m\omega_p^2}\bar{\bar{\chi}}\vv{E}\times\vv{B_S}\). \(\vv{E}\parallel\vv{u_z}\)
-et \(\vv{B_S}\parallel\vv{u_z}\) &rarr; \(\vv{F_L}=\vv{0}\).
+<li value="3"><p>
+Conditions aux limites : En utilisant le fait que
+\(\vv{E}(\theta+2\pi)=\vv{E}(\theta)\), déterminer les valeurs possibles pour
+la constante \(\alpha\). On pourra introduire un nombre entier \(\lambda\).
 </p>
 
 <p>
-La vitesse de phase se déduit de la relation de dispersion
-</p>
-\begin{align*}
-  \left(\frac{k^2c^2}{\omega^2}-1\right)\vv{E}&=\bar{\bar{\chi}}\vv{E}=\alpha\vv{E}\\
-  \frac{k^2c^2}{\omega^2}-1&=\alpha\text{ soit }v_\phi=\frac{\omega}{k}=\frac{c}{\sqrt{1+\alpha}}=f(\omega)
-\end{align*}
-</li>
-
-<li>On se restreint à présent au sous espace vectoriel \((\vv{u_x},\vv{u_y})\) et à
-la détermination des valeurs propres de la matrice réduite
-\begin{align*}
-  \bar{\bar{\chi'}}&=\begin{bmatrix}
-  \gamma&i\beta\\
-  -i\beta&\gamma
-  \end{bmatrix}
-\end{align*}
-
-<p>
-Les valeurs propres de ce sous espace vectoriel sont telles que
-</p>
-\begin{align*}
-  \text{det}\left(\bar{\bar{\chi'}}-\lambda\mathcal{I}\right)&=0\\
-  \text{det}\begin{bmatrix}
-  \gamma-\lambda&i\beta\\
-  -i\beta&\gamma-\lambda
-  \end{bmatrix}&=0\\
-  (\gamma-\lambda)^2-\beta^2&=0
-\end{align*}
-
-<p>
-d'où \(\gamma-\lambda=\pm\beta\) soit \(\lambda_1=\gamma-\beta\) et
-\(\lambda_2=\gamma+\beta\).
-</p>
-
-<p>
-L'onde se propage selon \(\vv{u_z}\) du fait que
-\(\vv{E}\in(\vv{u_x},\vv{u_y})\). Par ailleurs, les modes propres de
-propagation sont tels que
-</p>
-\begin{align*}
-  \frac{k_1^2c^2}{\omega^2}-1&=\lambda_1\\
-  \frac{k_2^2c^2}{\omega^2}-1&=\lambda_2\\
-  k_1&=\frac{\omega}{c}\sqrt{\lambda_1+1}=\frac{\omega}{c}\sqrt{\gamma-\beta+1}\\
-  k_2&=\frac{\omega}{c}\sqrt{\lambda_2+1}=\frac{\omega}{c}\sqrt{\gamma+\beta+1}
-\end{align*}
-
-<p>
-<b>Étude de la polarisation de l'onde</b>
-</p>
-
-<p>
-Les valeurs propres \(\lambda_{1,2}\) sont telles que
-\(\bar{\bar{\chi'}}\vv{E}=\lambda\vv{E}\).
-</p>
-\begin{align*}
-  \left(\bar{\bar{\chi'}}-\lambda_i\mathcal{I}\right)\vv{E_i}&=\vv{0}\\
-  \begin{bmatrix}
-    \gamma-\lambda_i&i\beta\\
-    -i\beta&\gamma-\lambda_i
-  \end{bmatrix}\vv{E_i}&=\vv{0}\\
-  \left(\gamma-\lambda_i\right)E_{ix}+i\beta E_{iy}&=0\\
-  E_{iy}&=-\frac{1}{i\beta}\left(\gamma-\lambda_i\right)E_{ix}\\
-  E_{iy}&=\frac{i\left(\gamma-\lambda_i\right)}{\beta}E_{ix}
-\end{align*}
-
-<ul class="org-ul">
-<li>\(\lambda_1=\gamma-\beta\)
-\begin{align*}
-  E_{1y}&=\frac{i\beta}{\beta}E_{1x}=e^{i\pi/2}E_{1x}=E_{0x}e^{\vv{k_1}.\vv{r}-\omega t+\frac{\pi}{2}}\\
-  \vv{E}&=E_{0x}\left|
-  \begin{array}{l}
-    \cos\left(\vv{k_1}.\vv{r}-\omega t\right)\\
-    -\sin\left(\vv{k_1}.\vv{r}-\omega t\right)\\
-    0
-  \end{array}
-  \right.
-\end{align*}
-
-<p>
-La polarisation de l'onde pour ce mode propre est donc <b>circulaire gauche</b>
-(l'expression des fonctions trigonométriques cosinus et sinus dépend de
-\(-t\) d'où le résultat obtenu où \(\cos(-\theta)=\cos(\theta)\) et
-\(\sin(-\theta)=-\sin(\theta)\)).
-</p>
-</li>
-
-<li>\(\lambda_2=\gamma+\beta\) : la polarisation de l'onde pour ce mode propre
-est donc <b>circulaire droite</b>.
-</li>
-</ul>
-</li>
+On montre que les composantes \(E_r\) et \(E_\theta\) sont de la forme
+\(D(r,\theta)H'(z)\exp(-i\omega t)\) (la fonction \(D(r,\theta)\) dépend de la
+composante choisie), où \(H'(z)\) est la dérivée de la fonction \(H(z)\) trouvée
+précédemment. En appliquant les conditions aux limites en \(z=0\) et \(z=h\),
+déterminer les valeurs possibles pour \(\beta\), ainsi que les fonctions
+correspondantes. On pourra introduire un nombre entier \(p\).
+</p></li>
 </ol>
+
+</div>
+
+<p>
+Les conditions aux limites imposent que \(\vv{E}(\theta)=\vv{E}(\theta+2\pi)\)
+<i>i.e.</i> \(F\) est 2&pi; périodique : &alpha; est donc nécessairement imaginaire
+pur \(\alpha=i\lambda\).
+</p>
+\begin{align*}
+  F(\theta)=F_0e^{i\lambda\theta}+F_1e^{-i\lambda\theta}&=F(\theta+2\pi)\\
+  &=F_0e^{i\lambda\theta}e^{i2\pi\lambda}+F_1e^{-i\lambda\theta}e^{-i2\pi\lambda}
+\end{align*}
+
+<p>
+d'où \(e^{i2\pi\lambda}=1\) <i>i.e.</i> &lambda; est donc entier relatif.
+</p>
+
+<p>
+Par ailleurs, en \(z=0\) et \(z=h\), la composante tangentielle du champ électrique
+est toujours continue. Les parois étant un conducteur parfait, le champ
+électrique est nul à l'intérieur d'où les relations
+</p>
+\begin{align*}
+  \vv{E}_\parallel(z=0)=E_r(z=0)\vv{u_r}+E_\theta(z=0)\vv{u_\theta}&=\vv{0}\\
+  D_r(r,\theta)H'(z=0)e^{-i\omega t}\vv{u_r}+D_\theta(r,\theta)H'(z=0)e^{-i\omega t}\vv{u_\theta}&=\vv{0}\\
+  H'(z=0)&=0
+\end{align*}
+
+<p>
+De même en \(z=h\), \(H'(z=h)=0\). Or \(H'\) est égal à \(H_0\beta e^{\beta
+z}-H_1\beta e^{-i\beta}\) soit
+</p>
+\begin{align*}
+  \text{en }z=0&\to H_0\beta-H_1\beta=0\to H_0=H_1\\
+  \text{en }z=h&\to H_0\beta e^{\beta h}-H_1\beta e^{-\beta h}=0\to e^{\beta h}-e^{-\beta h}=0
+\end{align*}
+
+<p>
+Il existe une solution "triviale" où &beta; est un réel nul. Si
+\(\beta=i\delta\) on obtient
+</p>
+\begin{align*}
+  e^{i\delta h}-e^{i\delta h}=\sin\delta h=0\to\delta h=p\pi\text{ avec }p\in\mathbb{N}
+\end{align*}
+
+<p>
+La constante &beta; est donc égale à \(\frac{ip\pi}{h}\). On déduit que
+l'expression de la fonction \(H(z)\) est
+</p>
+\begin{align*}
+  H(z)&=H_0\left(e^{\frac{ip\pi}{h}z}+e^{-\frac{ip\pi}{h}z}\right)=2H_0\cos\left(\frac{p\pi}{h}z\right)
+\end{align*}
+
+<div class="QUESTION">
+<ol class="org-ol">
+<li value="4">Solutions pour \(G(r)\) : Écrire l'équation différentielle satisfaite par
+\(G(r)\). Il est toujours possible de trouver \(\Gamma(u)\) telle que
+\(\Gamma(\gamma r)=G(r)\) où \(\gamma\) est à priori une constante
+quelconque. Écrire l'équation différentielle satisfaite par
+\(\Gamma(u)\). Donner ses solutions. En appliquant les conditions aux limites
+en \(r=0\) et \(r=a\), déterminer \(G(r)\) et les valeurs possibles de la constante
+\(\gamma\). On note \(x_{\lambda n}\) le \(n\)<sup>ième</sup> zéro de \(J_\lambda(r)\). En
+déduire les valeurs des fréquences de résonance des modes obtenus.</li>
+</ol>
+
+</div>
+<p>
+L'équation satisfaite par \(G(r)\) est
+</p>
+\begin{align*}
+  r^2\frac{G''(r)}{G(r)}+r\frac{G'(r)}{G(r)}+r^2\left(\mu_0\epsilon_0\omega^2+\beta^2\right)+\alpha^2&=0\\
+  r^2G''(r)+rG'(r)+\left(\alpha^2+r^2\beta^2+r^2\mu_0\epsilon_0\omega^2\right)G(r)&=0\\
+  \text{ avec }\alpha^2=-\lambda^2\text{ et }\beta^2=-\frac{p^2\pi^2}{h^2}&\\
+  r^2G''(r)+rG'(r)+\left[\left(\mu_0\epsilon_0\omega^2-\frac{\pi^2}{h^2}p^2\right)r^2-\lambda^2\right]G(r)&=0
+\end{align*}
+
+<p>
+La fonction \(\Gamma(u)\) est telle que \(\Gamma(\gamma r)=G(r)\) avec &gamma; une
+constante quelconque. Les dérivées de \(G(r)\) peuvent donc s'écrire
+</p>
+\begin{align*}
+  G'(r)&=\frac{\partial G}{\partial r}=\frac{\partial\Gamma(u)}{\partial u}\times\frac{\partial u}{\partial r}\\
+  &\text{où }u=\gamma r\to\frac{\partial u}{\partial r}=\gamma\\
+  G'(r)&=\gamma\frac{\partial\Gamma(u)}{\partial u}\\
+  G''(r)&=\gamma\frac{\partial\left(\frac{\partial\Gamma}{\partial u}\right)}{\partial r}\\
+  &=\gamma\times\frac{\partial^2\Gamma(u)}{\partial u^2}\times\frac{\partial u}{\partial r}=\gamma^2\frac{\partial^2\Gamma(u)}{\partial u^2}
+\end{align*}
+
+<p>
+L'équation solution de \(G(r)\) est, exprimée en fonction de &Gamma;,
+</p>
+\begin{align*}
+  \frac{u^2}{\cancel{\gamma^2}}\cancel{\gamma^2}\frac{\partial^2\Gamma}{\partial u^2}+\frac{u}{\cancel{\gamma}}\cancel{\gamma}\frac{\partial\Gamma}{\partial u}+\left[\left(\mu_0\epsilon_0\omega^2-\frac{\pi^2}{h^2}p^2\right)\frac{u^2}{\gamma^2}-\lambda^2\right]\Gamma=0
+\end{align*}
+
+<p>
+En choisissant \(\gamma\) tel que
+\(\gamma^2=\mu_0\epsilon_0\omega^2-\frac{\pi^2}{h^2}p^2\), on obtient
+l'équation
+</p>
+\begin{align*}
+  u^2\Gamma''+u\Gamma'+\left(u^2-\lambda^2\right)\Gamma=0
+\end{align*}
+
+<p>
+qui correspond à l'équation de Bessel d'ordre &lambda; avec &lambda;
+entier. Les solutions de cette équation sont de la forme
+</p>
+\begin{align*}
+  \Gamma(u)=A_\lambda J_\lambda(u)+B_\lambda N_\lambda(u)
+\end{align*}
+
+<p>
+où
+</p>
+<ul class="org-ul">
+<li>\(J_\lambda\) est la fonction de Bessel de 1<sup>ère</sup> espèce</li>
+<li>\(N_\lambda\) est la fonction de Bessel de 2<sup>ème</sup> espèce ou fonction de Neumann</li>
+</ul>
+
+<p>
+La fonction \(G(r)=A_\lambda J_\lambda(\gamma r)+B_\lambda N_\lambda(\gamma
+r)\) doit être bornée en \(r\to0\) : or \(N_\lambda(\gamma r)\to\left(\gamma
+r\right)^{-\lambda}\) pour \(r\to0\). Si \(\lambda>0\) <sup><a id="fnr.1" class="footref" href="#fn.1">1</a></sup> il y a donc divergence de
+la fonction \(G(r\to0)\) imposant que la constante \(B_\lambda\) soit nulle.
+ <div class="footdef"><sup><a id="fn.1" class="footnum" href="#fnr.1">1</a></sup> <div class="footpara"><p class="footpara"> pour les fonctions de Bessel, on considère toujours &lambda; &gt; 0 </p></div><br/></div>
+</p>
+
+<p>
+Par ailleurs, en \(r=a\), la composante tangentielle du champ électrique est
+conservée d'où \(E_z(a,\theta,z,t)=E_\text{paroi}(a,\theta,z,t)=0\) soit
+\(G(a)=A_\lambda J_\lambda(\gamma a)=0\). La fonction de Bessel \(J_\lambda\) est
+nulle pour \(\gamma a=x_{\lambda n}\) où \(x_{\lambda n}\) est le \(n\)-ième zéro
+de la fonction de Bessel \(J_\lambda(x)\).
+</p>
+
+<p>
+Les fréquences de résonance &omega; se déduisent alors de
+</p>
+\begin{align*}
+  \gamma^2&=\mu_0\epsilon_0\omega^2-\frac{\pi^2}{h^2}p^2=\left(\frac{x_{\lambda n}}{a}\right)^2\\
+  \omega&=c\sqrt{\frac{\pi^2}{h^2}p^2+\frac{x_{\lambda n}^2}{a^2}}
+\end{align*}
+
+<p>
+En résumé, l'expression de \(E_z(r,\theta,z,t)=F(\theta)G(r)H(z)\exp(-i\omega
+t)\) se décompose en
+</p>
+<ul class="org-ul">
+<li>\(F(\theta)=F_0e^{i\lambda\theta}+F_1e^{-i\lambda\theta}=F\cos(\lambda\theta+\phi_\lambda)\),</li>
+<li>\(G(r)=A_\lambda J_\lambda(\gamma r)\),</li>
+<li>\(H(z)=H\cos\left(\frac{\pi p}{h}z\right)\),</li>
+</ul>
+<p>
+où \(F_0,F_1,A_\lambda,H\) sont autant de constantes et \(\lambda,p\) sont des
+entiers.
+</p>
+\begin{align*}
+  E_z(r,\theta,z,t)=E_{0\lambda}J_\lambda(\gamma r)\cos\left(\frac{\pi p}{h}z\right)\cos\left(\lambda\theta+\phi_\lambda\right)\exp(-i\omega t)
+\end{align*}
 </div>
 </div>
 
-<div id="outline-container-sec-1-4" class="outline-3">
-<h3 id="sec-1-4"><span class="section-number-3">1.4</span> Effet Faraday</h3>
-<div class="outline-text-3" id="text-1-4">
+<div id="outline-container-orgheadline2" class="outline-3">
+<h3 id="orgheadline2"><span class="section-number-3">1.2</span> Étude du mode fondamental</h3>
+<div class="outline-text-3" id="text-1-2">
+<div class="QUESTION">
+<p>
+Le but de cette partie est de déterminer les composantes des champs \(\vv{E}\) et
+\(\vv{B}\) pour le mode ayant la plus faible fréquence de résonance appelé mode
+fondamental.
+</p>
+
+<ol class="org-ol">
+<li value="1">Déterminer les valeurs de \(n,\lambda\) et \(p\) pour le mode fondamental,
+en admettant que le premier zéro des fonctions de Bessel de première espèce
+est \(x_{01}\). Déterminer la fonction \(G(r)\) introduite précédemment et
+calculer toutes les composantes de \(\vv{E}\). Vérifier que le champ \(\vv{E}\)
+présente une invariance par rotation autour de l'axe \(Oz\) et ne dépend pas de
+\(z\).</li>
+</ol>
+
+</div>
+
+<p>
+Le problème est invariant par rotation autour de \(Oz\) : le champ électrique
+ne dépend donc pas de \(\theta\to
+F(\theta)=\text{constante}\to\lambda=0\). D'autre part, le mode fondamental
+correspond à la plus petite des valeurs de &omega; <i>i.e.</i> celle correspondant
+donc à \(p=0\) et \(n=1\) soit
+</p>
+\begin{align*}
+  \omega&=c\sqrt{\frac{\pi^2}{h^2}p^2+\frac{x_{\lambda n}^2}{a^2}}\\
+  \omega_{01}&=c\frac{x_{01}}{a}
+\end{align*}
+
+<p>
+La fonction \(G(r)\) devient égale à \(A_0J_0\left(\frac{x_{01}}{a}r\right)\),
+l'expression de \(E_z\) se limitant à
+</p>
+\begin{align*}
+  E_z(r,\theta,z,t)&=E_0J_0\left(\frac{x_{01}}{a}r\right)\exp(-i\omega_{01} t)
+\end{align*}
+
+<p>
+En raison des symétries du problème, le plan \((\vv{u_r},\vv{u_z})\) est plan
+de symétrie, le champ électrique \(\vv{E}\) appartenant nécessairement à ce
+dernier : \(E_\theta=0\). Par ailleurs, l'expression de \(E_r\) est de la forme
+\(D(r,\theta)H'(z)\exp(-i\omega t)\) avec \(H'(z)=-H\frac{\pi
+p}{h}\sin\left(\frac{\pi p}{h}z\right)=0\) pour \(p=0\). La composante radiale
+du champ électrique est donc également nulle.
+</p>
+
+<p>
+Le champ électrique est ainsi
+</p>
+\begin{align*}
+  \vv{E}=E_0J_0\left(\frac{x_{01}}{a}r\right)\exp(-i\omega_{01}t)\,\vv{u_z}
+\end{align*}
+
+<p>
+confirmant l'invariance par rotation autour de l'axe \(Oz\) et son indépendance
+vis-à-vis de la composante \(z\).
+</p>
+
+<div class="QUESTION">
+<ol class="org-ol">
+<li value="2">En utilisant les conditions aux limites, déterminer \(B_z(z=0)\). En
+supposant que toutes les composantes de \(E\) et \(B\) ne dépendent pas de \(z\),
+en déduire toutes les composantes de \(\vv{B}\).</li>
+</ol>
+
+</div>
+<p>
+À l'interface cavité-plan, la composante normale du champ magnétique est
+conservée d'où \(B_z(z=0)=B_\text{paroi}(z=0)=0\). En appliquant la relation de
+Maxwell-Faraday, on déduit le champ magnétique dans la cavité
+</p>
+\begin{align*}
+  \rot\vv{E}=-\frac{\partial\vv{B}}{\partial t}=-i\omega\vv{B}
+\end{align*}
+
+<p>
+soit
+</p>
+\begin{align*}
+  i\omega B_r&=\frac{1}{r}\frac{\partial E_z}{\partial\theta}-\frac{\partial E_\theta}{\partial z}=0\to B_r=0\\
+  i\omega B_\theta&=\cancel{\frac{\partial E_r}{\partial z}}-\frac{\partial E_z}{\partial r}\\
+  i\omega B_z&=\frac{1}{r}\left[\frac{\partial}{\partial r}(rE_\theta)-\frac{\partial E_r}{\partial\theta}\right]\to B_z=0
+\end{align*}
+
+<p>
+Le champ magnétique s'écrit
+</p>
+\begin{align*}
+  \vv{B}&=\frac{i}{\omega}\frac{x_{01}}{a}E_0J'_0\left(\frac{x_{01}}{a}r\right)\exp(-i\omega_{01} t)\,\vv{u_\theta}\\
+  &=\frac{i}{c}E_0J'_0\left(\frac{x_{01}}{a}r\right)\exp(-i\omega_{01}t)\,\vv{u_\theta}
+\end{align*}
+
+<div class="QUESTION">
+<ol class="org-ol">
+<li value="3">Application numérique : \(a=11\) cm, \(h=19\) cm, \(x_{01}=2.4048\). Calculer
+la fréquence de résonance du mode fondamental.</li>
+</ol>
+
+</div>
+<p>
+Application numérique :
+</p>
+\begin{align*}
+  \omega_{01}&=c\frac{x_{01}}{a}=3\,10^8\times\frac{2.4048}{0.11}=\unit[6.55\,10^9]{rad.s}^{-1}\\
+  \nu_\text{fonda.}&=\frac{\omega_{01}}{2\pi}=\unit[1.04]{GHz}
+\end{align*}
+</div>
+</div>
+
+<div id="outline-container-orgheadline3" class="outline-3">
+<h3 id="orgheadline3"><span class="section-number-3">1.3</span> Facteur de qualité de la cavité pour le mode fondamental</h3>
+<div class="outline-text-3" id="text-1-3">
+<div class="QUESTION">
 <div class="center">
 
 <div class="figure">
-<p><img src="./figures/effet_faraday_2.png" alt="effet_faraday_2.png" />
+<p><img src="./figures/quality_factor.png" alt="quality_factor.png" />
 </p>
 </div>
 </div>
-
 <p>
-\(\omega_c,\omega_p\ll\omega\sim\sqrt{|\omega_0^2-\omega^2|}\)
+En pratique, le métal employé pour fabriquer la cavité n'est pas parfait; il
+présente une conductivité finie. Ceci a pour conséquence de donner une largeur
+non nulle aux raies de résonance. Le but de cette partie est d'évaluer la
+largeur de raie du mode fondamental.
 </p>
 
 <ol class="org-ol">
-<li>Calcul des constantes &alpha;, &beta; et &gamma;
+<li value="1"><p>
+Déterminer l'énergie \(\mathcal{E}\) emmagasinée sous forme
+électromagnétique dans la cavité. On exprimera \(\mathcal{E}\) en fonction de
+l'amplitude du champ électrique \(E_0,I,a,h\) et des constantes usuelles. \(I\)
+est l'intégrale suivante :
+</p>
 \begin{align*}
-  \alpha&=\frac{\omega_p^2}{\omega_0^2-\omega^2}\simeq\frac{\omega_p^2}{\omega^2}\ll1\\
-  \beta&=\frac{\omega_p^2\omega\omega_c}{(\omega_0^2-\omega^2)^2-\omega^2\omega_c^2}\\
-  &\simeq\frac{\omega_p^2\omega\omega_c}{\omega^4-\omega^2\omega_c^2}\simeq\frac{\omega^2_p\omega\omega_c}{\omega^4}=\frac{\omega_p^2\omega_c}{\omega^3}\ll1\\
-  \gamma&=\frac{\omega_p^2(\omega_0^2-\omega^2)}{(\omega_0^2-\omega^2)^2-\omega^2\omega_c^2}\\
-  &\simeq\frac{\omega_p^2\omega^2}{\omega^4}\ll1
-\end{align*}
-</li>
-
-<li>\(0 < z < L\), \(\vv{E}=E_0\cos\left(kz-\omega t\right)\vv{u_x}\). La relation de
-dispersion impose toujours
-\begin{align*}
- \left(\frac{k^2c^2}{\omega^2}-1\right)\vv{E}=\bar{\bar{\chi}}\vv{E}
+  I = \int_{0}^{x_{01}}xJ_0^2(x)dx=\int_0^{x_{01}}xJ'^2_0(x)dx
 \end{align*}
 
 <p>
-d'où selon \(Ox\)
+On pourra exprimer \(\mathcal{E}\) sous la forme : \(\mathcal{E}=K_1E_0^2\).
+</p></li>
+</ol>
+
+</div>
+
+<p>
+Calcul de l'énergie électromagnétique dans la cavité pour le mode fondamental
+<i>i.e.</i> \(\omega_{01}=\omega_{0}\)
 </p>
 \begin{align*}
-  \left(\frac{k^2c^2}{\omega^2}-1\right)E_x=\gamma E_x+i\beta E_y
+  \mathcal{E}&=\iiint u_\text{EM}\,d\tau\\
+  &=\iiint\left(\frac{\epsilon_0E^2}{2}+\frac{B^2}{2\mu_0}\right)d\tau\text{ où } E,B\text{ sont les parties réelles}\\
+  u_\text{EM}&=\frac{\epsilon_0}{2}E_0^2J_0^2\left(\frac{x_{0}}{a}r\right)\cos^2\omega_{0}t+\frac{1}{2\mu_0c^2}E_0^2J'^2_0\left(\frac{x_{0}}{a}r\right)\sin^2\omega_{0}t\\
+  &=\frac{\epsilon_0E_0^2}{2}\left[J^2_0\left(\frac{x_{0}}{a}r\right)\cos^2\omega_{0}t+J'^2_0\left(\frac{x_{0}}{a}r\right)\sin^2\omega_{0}t\right]
 \end{align*}
 
 <p>
-imposant que \(\beta\) soit nul <i>i.e.</i> que \(B_S=0\). L'onde ne peut être
-polarisée selon \(\vv{u_x}\) qu'à la condition que \(B_S\) soit nul.
+L'énergie totale stockée dans la cavité est
 </p>
-</li>
-<li>Décomposition du champ électrique pour une onde polarisée rectilignement
 \begin{align*}
-  \vv{E_i}(0,t)=\left|
-  \begin{array}{l}
-    E_0\cos\omega t\\0\\0
-  \end{array}
-  \right.&=\frac{1}{2}\left|
-  \begin{array}{l}
-    E_0\cos\omega t\\E_0\sin\omega t\\0
-  \end{array}
-  \right.+\frac{1}{2}\left|
-  \begin{array}{l}
-    E_0\cos\omega t\\-E_0\sin\omega t\\0
-  \end{array}
-  \right.\\
-  \text{polarisée rectiligne}&=\text{polarisée gauche}+\text{polarisée droite}
-\end{align*}
-</li>
-
-<li>Calcul du champ électrique dans le milieu ionisé
-\begin{align*}
-  \vv{E}(0 < z < L,t)&=\vv{E_1}(z,t)+\vv{E_2}(z,t)\\
-  &=\frac{E_0}{2}\left|
-  \begin{array}{l}
-    \cos\left(k_1z-\omega t\right)\\
-    -\sin\left(k_1z-\omega t\right)\\
-    0
-  \end{array}
-  \right.+\left|
-  \begin{array}{l}
-    \cos\left(k_2z-\omega t\right)\\
-    \sin\left(k_2z-\omega t\right)\\
-    0
-  \end{array}
-  \right.\\
-  &=\frac{E_0}{2}\left|
-  \begin{array}{l}
-    \cos\left(k_1z-\omega t\right)+\cos\left(k_2z-\omega t\right)\\
-    -\sin\left(k_1z-\omega t\right)+\sin\left(k_2z-\omega t\right)\\
-    0
-  \end{array}
-  \right.
+  \mathcal{E}&=\frac{\epsilon_0E_0^2}{2}\int_0^hdz\int_0^{2\pi}d\theta\left[\cos^2\omega_0t\int_0^aJ_0^2\left(\frac{x_{01}}{a}r\right)rdr+\sin^2\omega_0t\int_0^aJ'^2_0\left(\frac{x_{01}}{a}r\right)rdr\right]\\
+  &=\pi h\epsilon_0E_0^2\left[\cos^2\omega_0t\int_0^aJ_0^2\left(\frac{x_{01}}{a}r\right)rdr+\sin^2\omega_0t\int_0^aJ'^2_0\left(\frac{x_{01}}{a}r\right)rdr\right]
 \end{align*}
 
 <p>
-En utilisant la formule d'Euler, on a
+En posant \(x=\frac{x_{01}}{a}r, dx=\frac{x_{01}}{a}dr\) avec \(x\in[0,x_{01}]\),
+on obtient l'expression suivante
 </p>
 \begin{align*}
-  \cos p+\cos q&=2\cos\left(\frac{p+q}{2}\right)\cos\left(\frac{p-q}{2}\right)\\
-  \sin p-\sin q&=2\cos\left(\frac{p+q}{2}\right)\sin\left(\frac{p-q}{2}\right)
+  \mathcal{E}&=\pi h\epsilon_0E_0^2\times\frac{a^2}{x_{01}^2}\left[\cos^2\omega_0t\int_0^{x_{01}}xJ_0^2(x)dx+\sin^2\omega_0t\int_0^{x_{01}}xJ'^2_0(x)dx\right]\\
+  &=\pi a^2h\times\epsilon_0E_0^2\times\frac{I}{x_{01}^2}
 \end{align*}
 
 <p>
-d'où
+En exprimant \(\mathcal{E}=K_1E_0^2\), on déduit que \(K_1\) est égal à
 </p>
 \begin{align*}
-  \vv{E}(0 < z < L,t)&=E_0\left|
-  \begin{array}{l}
-    \cos\left(\frac{k_1+k_2}{2}z-\omega t\right)\cos\left(\frac{k_1-k_2}{2}z\right)\\
-    \cos\left(\frac{k_1+k_2}{2}z-\omega t\right)\sin\left(\frac{k_2-k_1}{2}z\right)\\
-    0
-  \end{array}
-  \right.
+  K_1=\underbrace{\pi a^2h}_{\substack{\text{volume}\\\text{de la cavité}}}\times\frac{I}{x_{01}^2}\epsilon_0
 \end{align*}
-</li>
 
-<li>La polarisation en sortie du milieu ionisé <i>i.e.</i> en \(z=L\) est telle que le
-rapport \(\frac{E_y}{E_x}\) est égal à
+<div class="QUESTION">
+<ol class="org-ol">
+<li value="2">En utilisant les conditions aux limites pour une interface métal vide,
+calculer la densité surfacique de charge \(\sigma\) et la densité de courant
+surfacique \(J_S\) sur les parois de la cavité. Vérifier la conservation de la
+charge.</li>
+</ol>
+
+</div>
+<p>
+La densité surfacique de charge sur la surface du cylindre est nulle car le
+champ électrique est colinéaire à l'axe du cylindre \(Oz\). En revanche, aux
+extrémités du cylindre, sur la surface des parois métalliques <i>i.e.</i> en \(z=0\)
+et \(z=h\), la discontinuïté de la composante normale du champ électrique
+impose
+</p>
+<ul class="org-ul">
+<li><p>
+en \(z=0\)
+</p>
 \begin{align*}
-  \frac{E_y(L,t)}{E_x(L,t)}&=\frac{\sin\left(\frac{k_2-k_1}{2}L\right)}{\cos\left(\frac{k_1-k_2}{2}L\right)}\\
-  &=\tan\left(\frac{k_2-k_1}{2}L\right)=\text{constante}
+  \vv{u_z}.\left(\vv{E}(z=0^+)-\cancel{\vv{E}(z=0^-)}\right)&=\frac{\sigma(z=0)}{\epsilon_0}\\
+  \sigma(z=0)&=\epsilon_0E_0J_0\left(\frac{x_{01}}{a}r\right)\exp(-i\omega_0t)
+\end{align*}</li>
+
+<li><p>
+en \(z=h\)
+</p>
+\begin{align*}
+  \vv{u_z}.\left(\cancel{\vv{E}(z=h^+)}-\vv{E}(z=h^-)\right)&=\frac{\sigma(z=h)}{\epsilon_0}\\
+  \sigma(z=h)&=-\epsilon_0E_0J_0\left(\frac{x_{01}}{a}r\right)\exp(-i\omega_0t)
+\end{align*}</li>
+</ul>
+
+<p>
+On note que la somme des charges demeure nulle (le système est donc bien
+isolé).
+</p>
+
+<p>
+Pour le calcul de la densité surfacique de courant \(J_S\), chacune des parois
+métalliques portent des courants :
+</p>
+<ul class="org-ul">
+<li><p>
+paroi cylindrique en \(r=a\)
+</p>
+\begin{align*}
+  \vv{u_r}\times\left(\cancel{\vv{B}(r=a^+)}-\vv{B}(r=a^-)\right)&=\mu_0\vv{j_S}(r=a)\\
+  \vv{j_S}(r=a)&=-\frac{E_0}{\mu_0c}J'_0\left(\frac{x_{01}}{\cancel{a}}\cancel{a}\right)\sin\omega_0t\,\vv{u_r}\times\vv{u_\theta}\\
+  &=-\frac{E_0}{\mu_0c}J'_0(x_{01})\sin\omega_0t\,\vv{u_z}=\text{constante}
+\end{align*}</li>
+
+<li><p>
+paroi plane en \(z=0\)
+</p>
+\begin{align*}
+  \vv{u_z}\times\left(\vv{B}(z=0^+)-\cancel{\vv{B}(z=0^-)}\right)&=\mu_0\vv{j_S}(z=0)\\
+  \vv{j_S}(z=0)&=\frac{E_0}{\mu_0c}J'_0\left(\frac{x_{01}}{a}r\right)\sin\omega_0t\,\vv{u_z}\times\vv{u_\theta}\\
+  &=-\frac{E_0}{\mu_0c}J'_0\left(\frac{x_{01}}{a}r\right)\sin\omega_0t\,\vv{u_r}
+\end{align*}</li>
+
+<li><p>
+paroi plane en \(z=h\)
+</p>
+\begin{align*}
+  \vv{u_z}\times\left(\cancel{\vv{B}(z=h^+)}-\vv{B}(z=h^-)\right)&=\mu_0\vv{j_S}(z=h)\\
+  \vv{j_S}(z=h)&=-\frac{E_0}{\mu_0c}J'_0\left(\frac{x_{01}}{a}r\right)\sin\omega_0t\,\vv{u_z}\times\vv{u_\theta}\\
+  &=+\frac{E_0}{\mu_0c}J'_0\left(\frac{x_{01}}{a}r\right)\sin\omega_0t\,\vv{u_r}
+\end{align*}</li>
+</ul>
+
+<div class="QUESTION">
+<ol class="org-ol">
+<li value="3"><p>
+En réalité, le courant n'est pas surfacique et circule sur une très
+faible épaisseur \(\delta\) (épaisseur de peau). On rappelle que la puissance
+instantanée dissipée par effet Joule pour un élément de surface \(dS\) de la
+paroi est :
+</p>
+\begin{align*}
+  d^2P=\frac{1}{\delta\gamma}J^2_SdS=R_SJ^2_SdS
 \end{align*}
 
 <p>
-L'onde est donc polarisée rectilignement avec \(\theta=\frac{k_2-k_1}{2}L\)
-étant l'angle entre le champ \(\vv{E}\) et l'axe \(Ox\).
+où \(R_S = 1/(\delta\gamma)\) est appelée <i>résistance de surface</i>.
 </p>
 
 <p>
-Sachant que \(\gamma,\beta\ll1\) et
-\(k_1=\frac{\omega}{c}\sqrt{\gamma-\beta+1}\),
-\(k_2=\frac{\omega}{c}\sqrt{\gamma+\beta+1}\), on peut approximer leurs
-expressions par
+Donner l'expression de l'énergie dissipée par les parois de la cavité lorsque
+le mode fondamental est excité avec un champ d'amplitude \(E_0\). On mettra
+l'énergie dissipée par la paroi latérale et celle dissipée par un plan \(z=0\)
+ou \(h\) sous la forme :
 </p>
 \begin{align*}
-  k_1&=\frac{\omega}{c}\left(1+\gamma-\beta\right)^{1/2}\simeq\frac{\omega}{c}\left(1+\frac{1}{2}(\gamma-\beta)\right)\\
-  k_2&=\frac{\omega}{c}\left(1+\gamma+\beta\right)^{1/2}\simeq\frac{\omega}{c}\left(1+\frac{1}{2}(\gamma+\beta)\right)\\
-  k_2-k_1&=\frac{\omega}{c}\left(1+\frac{\gamma+\beta}{2}-1-\frac{\gamma-\beta}{2}\right)=\frac{\omega}{c}\beta\\
-  \theta&\simeq\frac{\omega}{c}\,\frac{\beta L}{2}\\
-  &\simeq\frac{\omega}{c}\times\frac{\omega_p^2\omega_c}{\omega^3}\times\frac{L}{2}\\
-  &\simeq\frac{\omega_p^2}{\omega^2}\frac{L}{2c}\times\frac{eB_S}{m}\propto B_S\to\text{ rotateur de Faraday}
+  P_\text{latérale} &= K_ZE_0^2\\
+  P_\text{plan} &= K_3E_0^2
 \end{align*}
 
 <p>
-Ainsi, l'angle de rotation Faraday sera d'autant plus grand que le champ
-magnétique statique sera élevé et l'épaisseur \(L\) sera importante. On
-introduit ainsi la constante de Verdet \(\nu\) telle que \(\theta=\nu\,\ell
-   B\). Une des applications de la rotation Faraday est la mesure du champ
-magnétique galactique en utilisant une source lumineuse polarisée (pulsar) et
-en intégrant la densité d'électron \(n\) le long de la visée
+En l'absence de sources compensant les pertes d'énergie par les parois,
+quelle équation doit vérifier \(E_0\) ? Résoudre cette équation. On notera
+\(\tau\) la durée caractéristique pour laquelle \(E_0\) est divisé par un facteur
+\(e\) \((e=2.718)\). On montre que la largeur de raie de la cavité vaut : \(\Delta
+   f=1/(\pi\tau)\). En déduire la largeur de raie du mode fondamental, ainsi que
+le facteur de qualité de la cavité utilisée comme résonateur.
+</p></li>
+</ol>
+
+</div>
+<p>
+Calcul des puissances dissipées sur chacune des parois
 </p>
 \begin{align*}
-  \theta&=\int_0^d\frac{\omega_p^2}{\omega^2}\frac{e}{2mc}B_S(\ell)d\ell\\
-  &=\frac{e^3}{2m^2c\epsilon_0}\times\frac{\lambda^2}{4\pi^2c^2}\int_0^dn(\ell)B_S(\ell)d\ell\\
-  &=\frac{e^3}{8\pi^2\epsilon_0m^2c^3}\lambda^2\int_0^dn(\ell)B_S(\ell)d\ell
+  d^2P_\text{latérale}&=R_Sj^2_S(r=a)dS\\
+  \langle P_\text{latérale}\rangle&=R_S\times\frac{1}{(\mu_0c)^2}J'^2_0(x_{01})\langle\sin^2\omega_0t\rangle\times2\pi ah\times E_0^2\\
+  &=\underbrace{\frac{R_S}{(\mu_0c)^2}J'^2_0(x_{01})\pi ah}_{K_2}\times E_0^2\\
+  d^2P_\text{plan}(z=0)&=R_Sj^2_S(z=0)dS\\
+  \langle P_\text{plan}(z=0)\rangle&=\frac{R_S}{(\mu_0c)^2}\langle\sin^2\omega_0t\rangle\times\int_0^{2\pi}d\theta\int_0^aJ'^2_0\left(\frac{x_{01}}{a}r\right)rdr\times E_0^2\\
+  &=\frac{R_S}{(\mu_0c)^2}\pi\times\frac{a^2}{x_{01}^2}\times\underbrace{\int_0^{x_{01}}xJ'^2_0(x)dx}_{I}\times E_0^2\\
+  &=\underbrace{\frac{\pi a^2\,R_S}{(\mu_0c)^2}I}_{K_3}\times E_0^2
 \end{align*}
 
-<div class="center">
-<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="void">
+<p>
+En l'absence de source compensant les pertes, la variation de l'énergie
+totale au cours du temps est uniquement due à la dissipation de l'énergie sur
+les parois de la cavité d'où
+</p>
+\begin{align*}
+  \frac{d\mathcal{E}}{dt}&=-\langle P_\text{latérale}\rangle-2\langle P_\text{paroi}\rangle\\
+  K_1\frac{dE^2_0}{dt}&=-K_2E_0^2-2K_3E_0^2\\
+  2K_1E_0\frac{dE_0}{dt}+(K_2+2K_3)E_0^2&=0\\
+  \frac{dE_0}{dt}+\frac{K_2+2K_3}{2K_1}E_0&=0
+\end{align*}
 
+<p>
+En posant \(\tau=\frac{2K_1}{K_2+2K_3}\), l'équation précédente devient
+</p>
+\begin{align*}
+  \frac{dE_0}{dt}+\frac{1}{\tau}E_0=0
+\end{align*}
+
+<p>
+dont la solution est
+</p>
+\begin{align*}
+  E_0(t)=E_0(t=0)\,e^{-t/\tau}
+\end{align*}
+
+<p>
+La largeur de raie \(\Delta f=\frac{1}{\pi\tau}\) est donc égale à
+</p>
+\begin{align*}
+  \Delta f_0=\frac{1}{\pi\tau}=\frac{K_2+2K_3}{2\pi K_1}
+\end{align*}
+
+<p>
+le facteur de qualité \(Q\) étant égal à
+</p>
+\begin{align*}
+  Q&=\frac{f_0}{\Delta f_0}=\frac{\omega_0}{2\pi}\times\pi\tau\\
+  &=\frac{\omega_0K_1}{K_2+2K_3}
+\end{align*}
+
+<p>
+<b>Discussion :</b>
+</p>
+
+<p>
+Le facteur de qualité d'un système est, de manière très générale, une mesure
+sans unité du taux d'amortissement d'un oscillateur. Plus le facteur de
+qualité est élevé, plus la bande passante est petite, et plus la résonance
+est "piquée". Le facteur de qualité permet donc de quantifier la "qualité
+d'un filtre" (qu'il soit électronique, acoustique, optique&#x2026;)&nbsp;: plus \(Q\) est
+élevé, plus le filtre est sélectif.
+</p>
+
+<p>
+En optique, la durée de vie
+moyenne d'un photon plongé dans une cavité résonante telle qu'une cavité
+Fabry-Pérot est directement proportionnel au facteur de qualité. Par
+ailleurs, ce facteur de qualité \(Q=\frac{f_0}{\Delta f_0}\) est également
+appelé la finesse.
+</p>
+
+<p>
+Il existe en outre une technique d'émission laser consistant à augmenter
+rapidement et brièvement le facteur de qualité afin d'émettre un <i>pulse</i>
+laser beaucoup plus intense qu'en mode continu. Cette technique est connue
+sour le nom de <a href="http://en.wikipedia.org/wiki/Q-switching"><i>Q-switching</i></a> ou commutation Q et est, en particulier, utilisée
+pour retirer les tatouages.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgheadline7" class="outline-2">
+<h2 id="orgheadline7"><span class="section-number-2">2</span> Résolution de l'équation de Bessel&#xa0;&#xa0;&#xa0;<span class="tag"><span class="ANNEXE">ANNEXE</span></span></h2>
+<div class="outline-text-2" id="text-2">
+</div><div id="outline-container-orgheadline5" class="outline-3">
+<h3 id="orgheadline5"><span class="section-number-3">2.1</span> Équation de Bessel</h3>
+<div class="outline-text-3" id="text-2-1">
+<p>
+La résolution de l'équation de Laplace en coordonnées cylindriques
+\((r,\theta,z)\) :
+</p>
+\begin{align*}
+  \Delta V=\frac{\partial^2V}{\partial r^2}+\frac{1}{r}\frac{\partial V}{\partial r}+\frac{1}{r^2}\frac{\partial^2V}{\partial\theta^2}+\frac{\partial^2V}{\partial z^2}=0
+\end{align*}
+
+<p>
+peut se faire en cherchant une solution de la forme
+\(V(,r\theta,z)=R(r)\Theta(\theta)Z(z)\). On obtient alors pour \(\Theta\)
+</p>
+\begin{align*}
+  \frac{d^2\Theta}{d\theta^2}=-\nu^2\Theta\quad\text{soit}\quad\Theta=C_\nu\cos(\nu\theta)+D_\nu\sin(\nu\theta)
+\end{align*}
+
+<p>
+où \(\nu,C_\nu\) et \(D_\nu\) sont des constantes. Pour \(Z\), on a de même
+</p>
+\begin{align*}
+  \frac{d^2Z}{dz^2}=k^2Z\quad\text{soit}\quad Z=A_ke^{kz}+B_ke^{-kz}
+\end{align*}
+
+<p>
+où \(k,A_k\) et \(B_k\) sont des constantes. L'équation décrivant l'évolution de \(R\)
+devient
+</p>
+\begin{align*}
+  r^2\frac{d^2R}{dr^2}+r\frac{dR}{dr}+(k^2r^2-\nu^2)R=0
+\end{align*}
+
+<p>
+En faisant le changement de variable \(x=kr\), on obtient
+</p>
+\begin{align*}
+  x^2\frac{d^2R}{dx^2}+x\frac{dR}{dx}+(x^2-\nu^2)R=0
+\end{align*}
+
+<p>
+Cette équation est <b>l'équation de Bessel d'ordre &nu;</b>.
+</p>
+</div>
+</div>
+<div id="outline-container-orgheadline6" class="outline-3">
+<h3 id="orgheadline6"><span class="section-number-3">2.2</span> Fonctions de Bessel et fonctions de Neumann</h3>
+<div class="outline-text-3" id="text-2-2">
+<table id="orgtable1" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="void">
+<caption class="t-above"><span class="table-number">Table 1:</span> <b>Les trois premières fonctions de Bessel (à gauche) et de Neumann (à droite)</b></caption>
 
 <colgroup>
-<col  class="left" />
+<col  class="org-left" />
 
-<col  class="left" />
+<col  class="org-left" />
 </colgroup>
 <tbody>
 <tr>
-<td class="left"><img src="./figures/graphene_faraday.png" alt="graphene_faraday.png" /></td>
-<td class="left"><img src="./figures/graphene_faraday_meas.png" alt="graphene_faraday_meas.png" /></td>
+<td class="org-left"><img src="./figures/bessel_functions.png" alt="bessel_functions.png" /></td>
+<td class="org-left"><img src="./figures/neumann_functions.png" alt="neumann_functions.png" /></td>
 </tr>
 </tbody>
 </table>
-</div>
 
 <p>
-Par ailleurs, le matériau qui induit la plus grande déflexion angulaire étant
-donnée une épaisseur est le graphène dont une seule couche atomique
-occasionne des déviations de l'ordre de quelques degrés (<i>cf.</i> <a href="http://arxiv.org/abs/1007.5286">"Giant Faraday
-rotation in single- and multilayer graphene"</a>, 2011). Les déflexions
-occasionnées par la traversée d'une couche de graphène pour une température
-de 5K sont, au maximum, de l'ordre de 6 degrés pour une radiation infrarouge
-\(-\) \(\lambda\sim30\,\mu\text{m}, \nu=\unit[1.5]{THz}\) \(-\) et un champ
-magnétique de 8 Tesla.
-</p>
-</li>
-</ol>
-</div>
-</div>
-</div>
-
-<div id="outline-container-sec-2" class="outline-2">
-<h2 id="sec-2"><span class="section-number-2">2</span> Réflexion totale et onde évanescente&#xa0;&#xa0;&#xa0;<span class="tag"><span class="DM">DM</span></span></h2>
-<div class="outline-text-2" id="text-2">
-<ol class="org-ol">
-<li>La loi de Snell &amp; Descartes impose qu'à la traversée du dioptre, l'angle
-transmis \(\theta_t\) est relié à l'angle d'incidence \(\theta_i\) par
-\begin{align*}
-  n_1\sin\theta_i=n_2\sin\theta_t
-\end{align*}
-
-<p>
-Il y a réflexion totale dès lors que \(\sin\theta_t\geq1\) soit pour un angle
-d'incidence tel que
+Une solution de l'équation de Bessel est la fonction de Bessel de 1<sup>ère</sup> espèce
+\(J_\nu(x)\) définie par
 </p>
 \begin{align*}
-  \sin\theta_t&\geq1\\
-  \sin\theta_i&\geq\frac{n_2}{n_1}\\
-  \theta_l&=\arcsin\left(\frac{n_2}{n_1}\right)\text{ avec }n_2 < n_1\\
-  \theta_i&\geq\theta_l\to\text{réflexion totale}
-\end{align*}
-</li>
-
-<li>Les champs électriques associées aux différentes ondes s'écrivent
-\begin{align*}
-  \vv{E_i}&=\vv{E_{i0}}\,e^{i\left(\vv{k_i}.\vv{r}-\omega_it\right)}\\
-  \vv{E_t}&=\vv{E_{t0}}\,e^{i\left(\vv{k_t}.\vv{r}-\omega_tt\right)}\\
-  \vv{E_r}&=\vv{E_{r0}}\,e^{i\left(\vv{k_r}.\vv{r}-\omega_rt\right)}
+  J_\nu(x)=\sum_{k=0}^{+\infty}\frac{(-1)^k}{\Gamma(k+1)\Gamma(\nu+k+1)}\left(\frac{x}{2}\right)^{\nu+2k}
 \end{align*}
 
 <p>
-À l'interface entre les deux milieux \(n_1/n_2\) soit pour \(\vv{r_0}\) appartenant
-au plan \((\vv{u_x},\vv{u_z})\), la composante tangentielle du champ
-électrique est conservée soit
+où \(\Gamma(x)\) est la fonction définie par
 </p>
 \begin{align*}
-  \vv{E_i}^\parallel(\vv{r_0},t)+\vv{E_r}^\parallel(\vv{r_0},t)&=\vv{E_t}^\parallel(\vv{r_0},t)\\
-  \vv{E_{i0}}^\parallel\,e^{i\left(\vv{k_i}.\vv{r_0}-\omega_it\right)}+\vv{E_{r0}}^\parallel\,e^{i\left(\vv{k_r}.\vv{r_0}-\omega_rt\right)}&=\vv{E_{t0}}^\parallel\,e^{i\left(\vv{k_t}.\vv{r_0}-\omega_tt\right)}
+  \Gamma(x)=\int_0^{+\infty}e^{-t}t^{x-1}dt
 \end{align*}
 
 <p>
-Cette égalité devant demeurer vrai pour tout \(t\), on déduit que les
-pulsations sont nécessairement toutes égales
-\(\omega_i=\omega_r=\omega_t=\omega\). Les longueurs d'ondes restent donc
-inchangées à la traversée/réflexion du dioptre. L'égalité précédente devient
-ainsi
+Les variations des permières fonctions de Bessel sont données sur la Figure
+<a href="#orgtable1">1</a>.
+Une autre solution de l'équation de Bessel est \(J_{-\nu}(x)\). Lorsque \(\nu\)
+n'est pas entier, \(J_\nu(x)\) et \(J_{-\nu}(x)\) sont linéairement indépendants. Si
+\(\nu=n\) est entier, on peut montrer que
+</p>
+
+\begin{align*}
+  J_n(x)=(-1)^nJ_n(-x)
+\end{align*}
+
+<p>
+La fonction de Bessel de 2<sup>ème</sup> espèce ou fonction de Neumann \(N_\nu(x)\) est
+définie par
 </p>
 \begin{align*}
-  \vv{E_{i0}}^\parallel\,e^{i\vv{k_i}.\vv{r_0}}+\vv{E_{r0}}^\parallel\,e^{i\vv{k_r}.\vv{r_0}}&=\vv{E_{t0}}^\parallel\,e^{i\vv{k_t}.\vv{r_0}}\\
-  \vv{E_{i0}}^\parallel+\vv{E_{r0}}^\parallel\,e^{i\left(\vv{k_r}-\vv{k_i}\right).\vv{r_0}}&=\vv{E_{t0}}^\parallel\,e^{i\left(\vv{k_t}-\vv{k_i}\right).\vv{r_0}}
+  N_\nu(x)=\lim_{m\to\nu}\left(\frac{\cos(m\pi)J_m(x)-J_{-m}(x)}{\sin(mx)}\right)
 \end{align*}
 
 <p>
-et doit également demeurer vrai pour tout \(\vv{r_0}\) appartenant au plan
-\((\vv{u_x},\vv{u_z})\). Cette contrainte implique nécessairement que
+Les variations des premières fonctions de Neumann sont données sur la Figure
+<a href="#orgtable1">1</a>. On peut montrer que
 </p>
+
 \begin{align*}
-  \left(\vv{k_r}-\vv{k_i}\right).\vv{r_0}&=\left(\vv{k_t}-\vv{k_i}\right).\vv{r_0}=0\\
-  \text{d'où }&\vv{k_r}-\vv{k_i}\parallel\vv{u_y}\text{ et }\vv{k_t}-\vv{k_i}\parallel\vv{u_y}\\
-  \vv{k_r}=\vv{k_i}+\alpha\vv{u_y}&\text{ et }\vv{k_t}=\vv{k_i}+\beta\vv{u_y}
+  N_\nu(x)\underset{x\to0}{\longrightarrow}x^{-\nu}\quad\text{et}\quad N_\nu(x)\underset{x\to+\infty}{\longrightarrow}\ln x
 \end{align*}
 
-<p>
-On déduit ainsi que \(k_{rx}=k_{tx}=k_{ix}=0\) et \(k_{rz}=k_{tz}=k_{iz}\).
-</p>
-</li>
-
-<li>Les expressions des normes des vecteurs d'onde sont les suivantes
-\begin{align*}
-  k_i&=\frac{\omega_i}{v_1}=\frac{\omega}{c}\times n_1\\
-  k_r&=\frac{\omega}{c}\times n_1\\
-  k_t&=\frac{\omega}{c}\times n_2
-\end{align*}
 
 <p>
-Sachant que \(k_{tz}=k_{iz}\) et que \(k_{iz}=k_i\sin\theta_i\), on déduit que
-\(k_{tz}=\frac{\omega}{c}\,n_1\sin\theta_i\). Par ailleurs, la norme au carré
-de \(k_t\) s'écrit
-</p>
-\begin{align*}
-  k_t^2&=\left(\frac{\omega}{c}\right)^2n_2^2=k_{tz}^2+k_{ty}^2\\
-  k_{ty}^2&=\left(\frac{\omega}{c}\right)^2n_2^2-\left(\frac{\omega}{c}\right)^2n_1^2\sin^2\theta_i\\
-  &=\left(\frac{\omega}{c}\right)^2\underbrace{\left(n_2^2-n_1^2\sin^2\theta_i\right)}_{<0\text{ car }\sin\theta_i>\frac{n_2}{n_1}}\\
-  k_{ty}&=\pm i\frac{\omega}{c}\sqrt{n_1^2\sin^2\theta_i-n_2^2}
-\end{align*}
-
-<p>
-On retrouve ainsi les trois lois de Snell-Descartes qui sont
+En fonction de la nature du paramètre &nu;, on distingue deux types de solution à
+l'équation de Bessel:
 </p>
 <ul class="org-ul">
-<li><b>1<sup>ère</sup> loi de Descartes :</b> les vecteurs d'onde \(\vv{k_t}\), \(\vv{k_r}\)
-appartiennent au plan défini par les vecteurs \(\vv{k_i}\) et la normale au
-dioptre <i>i.e.</i> \(\vv{u_y}\).
-</li>
-<li><b>2<sup>ème</sup> loi de Descartes :</b>
-\begin{align*}
-  k_{iz}&=k_{rz}\\
-  \frac{\omega}{c}n_1\sin\theta_i&=\frac{\omega}{c}n_1\sin\theta_r\\
-  \theta_i&=\theta_r
-\end{align*}
-</li>
-
-<li><b>3<sup>ème</sup> loi de Descartes :</b>
-\begin{align*}
-  k_{iz}&=k_{tz}\\
-  \frac{\omega}{c}n_1\sin\theta_i&=\frac{\omega}{c}n_2\sin\theta_t\\
-  n_1\sin\theta_i&=n_2\sin\theta_t
-\end{align*}
-</li>
-</ul>
-</li>
-
-<li>\(k_{ty}=\pm im\) où \(m=\frac{\omega}{c}\sqrt{n_1^2\sin^2\theta_i-n_2^2}>0\)
-<ol class="org-ol">
-<li>\begin{align*}
-  \vv{E_t}&=\vv{E_{t0}}\,e^{i\left(\vv{k_{t}}.\vv{r}-\omega t\right)}\\
-  &=\vv{E_{t0}}\,e^{i\left(k_{ty}y+k_{tz}z-\omega t\right)}\\
-  &=\vv{E_{t0}}\,e^{\pm my}\,e^{i\frac{\omega}{c}n_1\sin\theta_iz}\,e^{-i\omega t}\\
-\end{align*}
-</li>
-
-<li>Lorsque \(y\to\infty\), le champ électrique transmis doit rester borné :
-seule l'expression \(e^{-my}\) est donc envisageable.
-\begin{align*}
-  \vv{E_t}&=\vv{E_{t0}}\,\underbrace{e^{-my}}_{\text{onde evanescente}}\times\underbrace{e^{i\frac{\omega}{c}n_1\sin\theta_iz}}_{\text{onde progressive}}\times e^{-i\omega t}
-\end{align*}
-</li>
-
-<li>L'épaisseur &delta; est l'inverse de \(m\) soit
-\begin{align*}
-  \delta=\frac{1}{m}=\frac{c}{w}\times\frac{1}{\sqrt{n_1^2\sin^2\theta_i-n_2^2}}
-\end{align*}
-</li>
-
-<li>La phase de l'onde transmise est égale à
-\begin{align*}
-  \phi&=\frac{\omega}{c}n_1\sin\theta_iz-\omega t\\
-  &=k_i\sin\theta_iz-\omega t
-\end{align*}
-
-<p>
-cette dernière se propageant selon \(Oz\).
+<li><p>
+<b>si &nu; n'est pas entier</b> : la solution de l'équation de Bessel est une
+combinaison linéaire de \(J_\nu(x)\) et \(J_(-\nu)(x)\)
 </p>
-</li>
-<li>Vitesse de phase
 \begin{align*}
-  v_\phi&=\frac{\omega}{k}=\frac{\omega}{k_i\sin\theta_i}\\
-  &=\frac{\cancel{\omega} c}{\cancel{\omega}n_1\sin\theta_i}\leq c\,(\text{car }\theta_i\geq\theta_\ell\to n_1\sin\theta_i\geq n_2\geq1)
-\end{align*}
-</li>
-</ol>
-</li>
+  R(x)=C_1J_\nu(x)+C_2J_{-\nu}(x)
+\end{align*}</li>
 
-<li>Onde MPPH polarisée suivant \(\vv{u_x}\to\vv{E_t}\parallel\vv{u_x}\) et
-\(\vv{B_t}=\frac{\vv{k_t}\times\vv{E_t}}{\omega}\)
+<li><p>
+<b>si &nu; est entier</b> : si \(\nu=n\), \(J_n(x)\) et \(J_n(-x)\) ne sont pas
+linéairement indépendants du fait que \(J_n(x)=(-1)^nJ_n(-x)\). On peut montrer
+que la solution de l'équation de Bessel est alors une combinaison linéaire de
+\(J_n(x)\) et \(N_n(x)\)
+</p>
 \begin{align*}
-  \vv{B_t}&=\frac{1}{\omega}\left|
-  \begin{array}{l}
-    0\\-im\\\frac{\omega}{c}n_1\sin\theta_i
-  \end{array}
-  \right.\times\left|
-  \begin{array}{l}
-    E_t\\0\\0
-  \end{array}
-  \right.\\
-  &=\frac{1}{\omega}\left|
-  \begin{array}{l}
-    0\\\frac{\omega}{c}n_1\sin\theta_iE_t\\imE_t
-  \end{array}
-  \right.\\
-  &=\frac{E_{t0}}{c}\,e^{-i\omega t}\,e^{ik_i\sin\theta_iz}\,e^{-y/\delta}\left(n_1\sin\theta_i\vv{u_y}+i\sqrt{n_1^2\sin^2\theta_i-n_2^2}\vv{u_z}\right)
-\end{align*}
-</li>
-
-<li>\begin{align*}
-  \langle\vv{\pi_t}\rangle&=\frac{1}{2\mu_0}\text{Re}\left(\vv{E_t}\times\vv{B_t}^*\right)\\
-  &=\frac{1}{2\mu_0}\frac{E_{t0}^2}{c}\,e^{-2y/\delta}\,n_1\sin\theta_i\vv{u_z}
-\end{align*}
-</li>
-</ol>
+  R(x)=C_1J_n(x)+C_2N_n(x)
+\end{align*}</li>
+</ul>
+</div>
 </div>
 </div>
 <div id="footnotes">
@@ -997,7 +986,7 @@ cette dernière se propageant selon \(Oz\).
 </div>
 </div></div>
 <div id="postamble" class="status">
-File under <i class="fa fa-github-alt"></i> version control - commit <a href="https://github.com/xgarrido/licence_em_teaching/commit/1545deeef524d078a44e2f7b2fdfc7d15dd82f2c">1545dee</a> - 2014-05-14
+File under <i class="fa fa-github-alt"></i> version control - commit <a href="https://github.com/xgarrido/licence_em_teaching/commit/78e11e6cf450707876b1ec5a9fae3255d1bb885a">78e11e6</a> - 2016-06-28
 </div>
 </body>
 </html>

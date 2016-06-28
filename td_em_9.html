@@ -3,12 +3,13 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<title>TD10 : Induction électromagnétique</title>
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta  name="viewport" content="width=device-width, initial-scale=1" />
+<title>TD10 : Électromagnétisme &amp; relativité</title>
 <meta  name="generator" content="Org-mode" />
 <link rel="stylesheet" href="css/styles.css" />
                <link rel="stylesheet" href="css/org-pygments.css" />
-               <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" />
+               <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" />
 <script type="text/javascript">
 /*
 @licstart  The following is the entire license notice for the
@@ -97,8 +98,10 @@ for the JavaScript code in this tag.
       }
   });
   MathJax.Hub.Register.StartupHook("TeX Jax Ready",function () {
-      var TEX = MathJax.InputJax.TeX;
+      var TEX = MathJax.InputJax.TeX,
+          MML = MathJax.ElementJax.mml;
       TEX.Definitions.macros.unit = "jaxunit";
+      TEX.Definitions.macros.nicefrac = "jaxfrac";
       TEX.Parse.Augment({
           jaxunit: function (name) {
               var n = this.GetBrackets(name),
@@ -106,6 +109,11 @@ for the JavaScript code in this tag.
               if (n == null) {n = ""}
               var tex = n + '\\,\\text{'+unit+'}';
               this.string = tex + this.string.slice(this.i); this.i = 0;
+          },
+          jaxfrac: function (name) {
+              var num = this.ParseArg(name),
+                  den = this.ParseArg(name);
+              this.Push(MML.mfrac(num,den).With({bevelled: true}));
           }
       });
   });
@@ -123,659 +131,1200 @@ for the JavaScript code in this tag.
 </head>
 <body onload="randomLinkColor();displayTOC();"><div id="toc"></div>
 <div id="preamble" class="status">
- 
+<a href="index.html"><i class="fa fa-home"></i></a><br/>  
 </div>
 <div id="content">
-<h1 class="title">TD10 : Induction électromagnétique</h1>
+<h1 class="title">TD10 : Électromagnétisme &amp; relativité</h1>
 <div style="display:none;">
 <div id="text-table-of-contents">
 <ul class="org-ul">
-<li><a href="././td_em_0.html">TD1 : Électromagnétisme &amp; relativité</a>
-</li>
-<li><a href="././td_em_1.html">TD2 : Équations de Maxwell dans le vide et champ électromagnétique</a>
-</li>
-<li><a href="././td_em_2.html">TD3 : Électrostatique dans le vide</a>
-</li>
-<li><a href="././td_em_3.html">TD4 : Les milieux diélectriques</a>
-</li>
-<li><a href="././td_em_4.html">TD5 : Magnétostatique</a>
-</li>
-<li><a href="././td_em_5.html">TD6 : Milieux magnétiques</a>
-</li>
-<li><a href="././td_em_6.html">TD7 : Rayonnement</a>
-</li>
-<li><a href="././td_em_7.html">TD8 : Propagation dans le vide et les milieux diélectriques</a>
-</li>
-<li><a href="././td_em_8.html">TD9 : Guides d'onde</a>
-</li>
-<li><a href="././td_em_9.html">TD10 : Induction électromagnétique</a>
-</li>
+<li><a href="././td_em_0.html">TD1 : Équations de Maxwell dans le vide et champ électromagnétique</a></li>
+<li><a href="././td_em_1.html">TD2 : Électrostatique dans le vide</a></li>
+<li><a href="././td_em_2.html">TD3 : Les milieux diélectriques</a></li>
+<li><a href="././td_em_3.html">TD4 : Magnétostatique</a></li>
+<li><a href="././td_em_4.html">TD5 : Milieux magnétiques</a></li>
+<li><a href="././td_em_5.html">TD6 : Rayonnement</a></li>
+<li><a href="././td_em_6.html">TD7 : Propagation dans le vide et les milieux diélectriques</a></li>
+<li><a href="././td_em_7.html">TD8 : Guides d'onde</a></li>
+<li><a href="././td_em_8.html">TD9 : Induction électromagnétique</a></li>
+<li><a href="././td_em_9.html">TD10 : Électromagnétisme &amp; relativité</a></li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-sec-1" class="outline-2">
-<h2 id="sec-1"><span class="section-number-2">1</span> Introduction</h2>
+<div id="outline-container-orgheadline1" class="outline-2">
+<h2 id="orgheadline1"><span class="section-number-2">1</span> Introduction</h2>
 <div class="outline-text-2" id="text-1">
 <p>
-En régime variable, le champ magnétique demeure toujours à flux conservatif à
-savoir que
+<b>Transformation de Lorentz :</b> \(\beta=\tfrac{v}{c}\) et
+ \(\gamma=\tfrac{1}{\surd{1-\beta^2}}\). Si \(\mathcal{R}'\) est en mouvement
+ rectiligne uniforme selon l'axe \(x\) par rapport à \(\mathcal{R}\) alors
 </p>
-\begin{align*}
-  \varoiint_S\vv{B}.\vv{dS}=0
-\end{align*}
+\begin{equation*}
+  \begin{bmatrix}
+    ct'\\x'\\y'\\z'
+  \end{bmatrix}
+  =
+  \begin{bmatrix}
+    \gamma&-\beta\gamma&0&0\\
+    -\beta\gamma&\gamma&0&0\\
+    0&0&1&0\\
+    0&0&0&1
+  \end{bmatrix}
+  \cdot
+  \begin{bmatrix}
+    ct\\x\\y\\z
+  \end{bmatrix}
+\end{equation*}
 
 <p>
-reste vrai à tout instant \(t\). En revanche, la variation du flux magnétique au travers
-d'une surface (non-fermée) est à l'origine d'une force électro-motrice \(e(t)\)
-qui s'exprime selon la loi de Faraday<sup><a id="fnr.1" class="footref" href="#fn.1">1</a></sup>
- <div class="footdef"><sup><a id="fn.1" class="footnum" href="#fnr.1">1</a></sup> <p class="footpara"> l'expression de la force électro-motrice se déduit de la relation de Maxwell-Faraday \(\rot\vv{E}=-\frac{\partial\vv{B}}{\partial t}\) qui, dans sa version intégrale, donne \(\oint_\mathcal{C}\vv{E}.\vv{d\ell}=-\frac{\partial}{\partial t}\iint_{S/\mathcal{C}}\vv{B}.\vv{dS}=-\frac{d\Phi}{dt}\). La force électro-motrice \(e(t)\) est donc équivalente à la circulation du champ électrique le long du contour \(\mathcal{C}\). </p><br/></div>
+et la transformation inverse
 </p>
-\begin{align*}
-  e(t)=-\frac{d\Phi(t)}{dt}\text{ où }\Phi(t)=\iint_S\vv{B}.\vv{dS}
-\end{align*}
+\begin{equation*}
+  \begin{bmatrix}
+    ct\\x\\y\\z
+  \end{bmatrix}
+  =
+  \begin{bmatrix}
+    \gamma&+\beta\gamma&0&0\\
+    +\beta\gamma&\gamma&0&0\\
+    0&0&1&0\\
+    0&0&0&1
+  \end{bmatrix}
+  \cdot
+  \begin{bmatrix}
+    ct'\\x'\\y'\\z'
+  \end{bmatrix}
+\end{equation*}
 
 <p>
-Ainsi, un courant \(i(t)\) parcourant une boucle \(\mathcal{C}\) crée un champ
-magnétique \(\vv{B}_P(M,t)\) dont le flux s'oppose à l'augmentation du flux qu'on
-impose (loi de Lenz) : le flux magnétique propre s'écrit
-</p>
-\begin{align*}
-  \Phi_P=\iint_{S/\mathcal{C}}\vv{B}_P.\vv{dS}=L\times i
-\end{align*}
-
-<p>
-où \(L\) est l'inductance propre du circuit. On parle d'<b>auto-induction</b>.
-</p>
-
-<p>
-Si un circuit filiforme auto-induit une force qui s'oppose à l'établissement du
-champ magnétique, deux circuits électriques induisent mutuellement une force sur
-chacun d'entre eux. En considèrant deux circuits parcourus respectivement par un
-courant \(i_1(t)\) et un courant \(i_2(t)\), le flux magnétique induit par le
-premier sur le second circuit s'exprime
-</p>
-\begin{align*}
-  \Phi_{1\to2}=M_{1\to2}I_1
-\end{align*}
-
-<p>
-de même que le deuxième circuit induit un flux magnétique égal à
-\(\Phi_{2\to1}=M_{2\to1}I_2\). Les coefficients \(M_{i\to j}\) sont appelés
-coefficients d'inductance mutuelle et sont, selon le théorème de Neumann,
-égaux <i>i.e.</i> \(M_{1\to2}=M_{2\to1}=M\) <sup><a id="fnr.2" class="footref" href="#fn.2">2</a></sup>.
- <div class="footdef"><sup><a id="fn.2" class="footnum" href="#fnr.2">2</a></sup> <p class="footpara"> dans le cas de deux bobines chacune constituées respectivement de \(N_1\) et \(N_2\) spires, le coefficient d'inductance mutuelle est proportionnel au produit \(N_1N_2\). </p><br/></div>
+<b>Transformation du champ EM :</b>
 </p>
 
 <p>
-En ajoutant à l'inductance mutuelle, l'auto-induction, les flux magnétiques au
-travers du premier et du second circuit sont
+Composantes tangentielles au déplacement
+\(\vv{E}'_\parallel=\vv{E}_\parallel\) et
+\(\vv{B}'_\parallel=\vv{B}_\parallel\).
+</p>
+
+<p>
+Composantes normales au déplacement
 </p>
 \begin{align*}
-  \Phi_1&=L_1i_1+Mi_2\\
-  \Phi_2&=L_2i_2+Mi_1
+  \vv{E}'_\perp&= \gamma\,\left(\vv{E}_\perp+\vv{v}\times\vv{B}_\perp\right)\\
+  \vv{B}'_\perp&= \gamma\,\left(\vv{B}_\perp-\vv{v}\times\frac{\vv{E}_\perp}{c^2}\right)
 \end{align*}
 
 <p>
-desquels on déduit les forces électro-motrices
+ou
 </p>
 \begin{align*}
-  e_1&=-\frac{d\Phi_1}{dt}=-L_1\frac{di_1}{dt}-M\frac{di_2}{dt}\\
-  e_2&=-\frac{d\Phi_1}{dt}=-L_2\frac{di_2}{dt}-M\frac{di_1}{dt}
+  \vv{E}_\perp&= \gamma\,\left(\vv{E}'_\perp-\vv{v}\times\vv{B}'_\perp\right)\\
+  \vv{B}_\perp&= \gamma\,\left(\vv{B}'_\perp+\vv{v}\times\frac{\vv{E}'_\perp}{c^2}\right)
 \end{align*}
 
 <p>
-D'un point de vue énergétique, l'énergie magnétique stockée dans un circuit est
-égale à \(\mathcal{E}_m=\frac{1}{2}Li^2\). Pour deux circuits, il s'agit de
-prendre en compte l'effet d'un circuit vis-à-vis de l'autre soit
+<b>Remarques :</b>
 </p>
-\begin{align*}
-  \mathcal{E}_m=\frac{1}{2}L_1i_1^2+\frac{1}{2}L_2i_2^2+Mi_1i_2
-\end{align*}
-</div>
-</div>
-
-<div id="outline-container-sec-2" class="outline-2">
-<h2 id="sec-2"><span class="section-number-2">2</span> Couplage entre un solénoïde et une bobine</h2>
-<div class="outline-text-2" id="text-2">
-<ol class="org-ol">
-<li>L'unique champ magnétique est celui crée par le solénoïde que l'on considère
-comme infini. Ainsi le champ magnétique est égal à \(\mu_0nI\vv{u_z}\) pour
-\(r < a\) et nul à l'extérieur du solénoïde. Le flux magnétique induit par le
-solénoïde au travers de la bobine est donc égal à
-\begin{align*}
-  \Phi_{S\to B}=\iint_{S_B}\vv{B}.\vv{dS}=\mu_0nI\times\pi a^2\times N
-\end{align*}
-
-<p>
-Le coefficient d'inductance mutuelle \(M\) s'écrit
-</p>
-\begin{align*}
-  \Phi_{S\to B}&=\mu_0nI\times\pi a^2\times N=M\times I\\
-  M&=\mu_0nN\pi a^2
-\end{align*}
-</li>
-
-<li><ol class="org-ol">
-<li>La force électro-motrice \(e(t)\) qui correspond à la variation temporelle
-du flux magnétique au travers de la bobine s'écrit
-\begin{align*}
-  e(t)&=-\frac{d\Phi}{dt}=-L_\text{bobine}\frac{di}{dt}-M\frac{dI}{dt}
-\end{align*}
-
-<p>
-où \(i(t)\) est le courant induit. L'expression de \(e(t)\) est ainsi la somme
-d'un terme d'auto-inductance à savoir que le courant induit \(i(t)\) génère
-une force s'opposant à son établissement auquel s'ajoute un terme
-d'inductance mutuelle due à la présence du solénoïde. Dans la mesure où
-l'inductance \(L_\text{bobine}\) est proportionnelle à \(N^2\) alors que le
-coefficient d'inductance mutuelle \(M\) est proportionnel à \(n\times N\) et
-dans l'hypothèse où \(n\gg N\), la f.e.m se réduit à
-</p>
-\begin{align*}
-  e(t)\simeq-M\frac{dI}{dt}
-\end{align*}
-
-<p>
-Le courant induit \(i(t)\) devient
-</p>
-\begin{align*}
-  e(t)=R\times i(t)\to i(t)&=-\frac{\mu_0nN\pi a^2}{R}\times\frac{dI}{dt}\\
-  &=-\frac{\mu_0nN\pi a^2}{R}I_0\omega\cos\omega t
-\end{align*}
-</li>
-
-<li>Pour un circuit fermé fixe, la force électro-motrice est égale à la
-circulation du champ électrique autour de ce circuit<sup><a id="fnr.3" class="footref" href="#fn.3">3</a></sup>
-\begin{align*}
-  e(t)&=\oint_\mathcal{C}\vv{E}.\vv{d\ell}=2\pi b\times N\times E
-\end{align*}
-
-<p>
-Le champ électrique est donc égal à
- <div class="footdef"><sup><a id="fn.3" class="footnum" href="#fnr.3">3</a></sup> <p class="footpara"> le plan \((\vv{u_r},\vv{u_z})\) est un plan d'antisymétrie impliquant que le champ électrique soit orienté selon \(\vv{u_\theta}\) </p><br/></div>
-</p>
-\begin{align*}
-  \vv{E}(t)&=-\frac{\mu_0n\cancel{N\pi} a^2}{R}\times{1}{2\cancel{\pi}b\cancel{N}}\times I_0\omega\cos\omega t\,\vv{u_\theta}\\
-  &=-\frac{\mu_0n}{2}\times\frac{a^2}{b}\times I_0\omega\cos\omega t\,\vv{u_\theta}
-\end{align*}
-</li>
-
-<li><ol class="org-ol">
-<li>Le potentiel vecteur \(\vv{A}\) obéit aux mêmes symétries que le champ
-électrique : \(\vv{A}\) est colinéaire à \(\vv{u_\theta}\) et ne dépend que
-de la distance à l'axe du solénoïde.
-</li>
-<li>\(\vv{B}=\rot\vv{A}=\frac{1}{r}\frac{\partial}{\partial
-         r}\left(rA_\theta\right)\vv{u_z}\)
 <ul class="org-ul">
-<li>pour \(r < a\)
-\begin{align*}
-  \frac{1}{r}\frac{\partial}{\partial r}\left(rA_\theta\right)&=\mu_0nI\\
-  rA_\theta&=\mu_0nI\frac{r^2}{2}+\text{constante}\\
-  A_\theta&=\frac{\mu_0nI}{2}r+\frac{\text{constante}}{r}
-\end{align*}
-
-<p>
-Le fait que \(A_\theta\) doit rester fini en \(r=0\) impose que la
-constante d'intégration soit nulle.
-</p>
-\begin{align*}
-  \vv{A}(r < a)&=\frac{\mu_0nI}{2}r\,\vv{u_\theta}
-\end{align*}
-</li>
-
-<li>pour \(r>a\)
-\begin{align*}
-  \frac{1}{r}\frac{\partial}{\partial r}\left(rA_\theta\right)&=0\\
-  A_\theta&=\frac{\text{constante}}{r}\\
-\end{align*}
-
-<p>
-Le potentiel-vecteur \(\vv{A}\) étant par définition un potentiel, il
-doit demeurer continu en \(r=a\) soit
-</p>
-\begin{align*}
-  \frac{\text{constante}}{a}&=\frac{\mu_0nI}{2}a\to\text{constante}=\frac{\mu_0nI}{2}a^2\\
-  \vv{A}(r>a)&=\frac{\mu_0nI}{2}\frac{a^2}{r}\,\vv{u_\theta}
-\end{align*}
-</li>
+<li>les "quantités" perpendiculaires au déplacement telles les longueurs (\(y\) et
+\(z\) dans notre cas), ne subissent pas les effets de la relativité. Autrement
+dit une longueur \(y\) restera inchangée sous la transformation
+\(\mathcal{R}\rightarrow\mathcal{R}'\) : \(y=y\prime\)</li>
 </ul>
-</li>
-
-<li>On se place en \(r=b>a\),
-\begin{align*}
-  -\frac{\partial\vv{A}(r=b)}{\partial t}&=-\frac{\mu_0n}{2}\frac{a^2}{b}\frac{\partial I}{\partial t}\,\vv{u_\theta}\\
-  &=-\frac{\mu_0n}{2}\frac{a^2}{b}I_0\omega\cos\omega t\,\vv{u_\theta}=\vv{E}
-\end{align*}
-</li>
-</ol>
-</li>
-</ol>
-</li>
-</ol>
 </div>
 </div>
 
-<div id="outline-container-sec-3" class="outline-2">
-<h2 id="sec-3"><span class="section-number-2">3</span> Lévitation magnétique</h2>
-<div class="outline-text-2" id="text-3">
+<div id="outline-container-orgheadline2" class="outline-2">
+<h2 id="orgheadline2"><span class="section-number-2">2</span> Force entre des électrons qui se déplacent côte à côte</h2>
+<div class="outline-text-2" id="text-2">
+<div class="center">
+
+<div class="figure">
+<p><img src="./figures/referentiel_relat_1.png" alt="referentiel_relat_1.png" />
+</p>
+</div>
+</div>
+
+<div class="QUESTION">
+<p>
+Dans le référentiel \(R\), deux électrons \(M_1\) et \(M_2\) se déplacent côte à côte
+à vitesse constante \(v\) sur deux droites parallèles distantes de \(d\). Soit
+\(\mathcal{E}\) leur énergie cinétique commune et \(R'\) le référentiel dans lequel
+ils sont immobiles. Faire les applications numériques avec \(d = 1\) mm,
+\(\mathcal{E} = 1\) eV et \(\mathcal{E} = 1\) MeV.
+</p>
+
 <ol class="org-ol">
-<li>Calcul du champ magnétique \(B_1\) sur l'axe du solénoïde \(Oz\)
+<li value="1">Calculer dans \(R'\) les champs \(\vv{E}'\) et \(\vv{B}'\) créés par \(M_1\) sur
+\(M_2\). En déduire la force qui s'exerce sur \(M_2\). Quelle est la force qui
+s'exerce sur \(M_1\) ?</li>
+</ol>
+
+</div>
+
+<p>
+Soit \(\mathcal{R}'\) le référentiel où les particules sont au repos. Le
+champ électrique exercé sur \(M_2\) par \(M_1\) s'écrit
+</p>
+\begin{equation*}
+  \vv{E}'(M_2) = \frac{q_1}{4\pi\epsilon_0}\times\frac{\vv{M_1M_2}}{M_1M_2^3}=-\frac{e}{4\pi\epsilon_0\,d^2}\vv{u}_{z'}
+\end{equation*}
+
+<p>
+<i>i.e.</i> le champ électrique coulombien. Les particules étant au repos, il n'y
+a pas de déplacement de charge donc \(\vv{B}'(M_2)=\vv{0}\). La force
+(coulombienne) qui s'exerce sur l'électron en \(M_2\) est
+</p>
+\begin{equation*}
+  \vv{F}'(M_2)=-e\vv{E}'(M_2)-e\vv{v}\times\vv{B}'(M_2)=\frac{e^2}{4\pi\epsilon_0\,d^2}\vv{u}_{z'}=-\vv{F}'(M_1)
+\end{equation*}
+
+<p>
+soit une force répulsive.
+</p>
+
+<div class="QUESTION">
+<ol class="org-ol">
+<li value="2">Répondre aux mêmes questions dans \(R\).</li>
+</ol>
+
+</div>
+
+<p>
+Dans \(\mathcal{R}\), on applique les règles de transformation du champ EM soit
+\(\vv{E}'_\parallel=\vv{E}_\parallel=\vv{0}\) et
+\(\vv{B}'_\parallel=\vv{B}_\parallel=\vv{0}\). Les composantes normales
+deviennent
+</p>
 \begin{align*}
-  \vv{B_1}=\frac{\mu_0ni_1}{2}\left(\cos\theta_1-\cos\theta_2\right)\vv{u_z}
+  \vv{E}_\perp&= \gamma\,\left(\vv{E}'_\perp-\vv{v}\times\vv{B}'_\perp\right)\\
+  \vv{B}_\perp&= \gamma\,\left(\vv{B}'_\perp+\vv{v}\times\frac{\vv{E}'_\perp}{c^2}\right)
 \end{align*}
 
 <p>
-Sachant que le solénoïde est semi-infini \(\theta_1\sim0\) et que
-\(\theta_2=\alpha\) avec \(\tan\alpha=\frac{a}{z}\), le champ magnétique \(B_1\)
-devient
+On déduit que
+</p>
+\begin{equation*}
+  \vv{E}_\perp=\gamma\left(\vv{E}'_\perp-\vv{v}\times\vv{B}'_\perp\right)=\gamma\vv{E}'_\perp=-\frac{\gamma e}{4\pi\epsilon_0\,d^2}\vv{u_z}
+\end{equation*}
+
+<p>
+sachant que \(\vv{u_z}=\vv{u_{z'}}\).
+</p>
+
+<p>
+Le champ magnétique \(\vv{B}_\perp\) est égal à
+\(\gamma\vv{v}\times\frac{\vv{E}'_\perp}{c^2}\) soit
 </p>
 \begin{align*}
-  \vv{B_1}=\frac{\mu_0ni_1}{2}\left(1-\cos\alpha\right)\vv{u_z}
+  \vv{B}_\perp&=\frac{\gamma\,vE'_\perp}{c^2}\,\vv{u}_x\times\vv{u}_z=-\frac{\gamma\,vE'_\perp}{c^2}\,\vv{u}_y\\
+  &=\frac{\gamma v}{c^2}\times\frac{e}{4\pi\epsilon_0\,d^2}\,\vv{u}_y\text{ avec } \mu_0\epsilon_0c^2=1\\
+  &=\frac{\mu_0\gamma ve}{4\pi d^2}\vv{u}_y
 \end{align*}
 
 <p>
-Le flux magnétique induit par le solénoïde au travers de la bobine s'écrit
+La force résultante est égale à
 </p>
 \begin{align*}
-  \Phi_{S\to B}&=\iint_{S_B}\vv{B_1}.\vv{dS}=\frac{\mu_0ni_1}{2}\left(1-\cos\alpha\right)\times N\times\pi b^2\\
-  &=M\times i_1\to M=\frac{\mu_0nN\,\pi b^2}{2}\left(1-\cos\alpha\right)
-\end{align*}
-</li>
-
-<li>La bobine est traversée par le flux magnétique issu du solénoïde induisant
-une force électro-motrice \(e=-\frac{d\Phi_{S\to B}}{dt}=-M\frac{di_1}{dt}\). À
-cette f.e.m, il convient d'ajouter l'inductance propre de la bobine
-\(e_\text{propre}=-\frac{d\Phi_\text{propre}}{dt}=-L\frac{di}{dt}\). Ainsi, la
-f.e.m aux bornes de la bobine est égale à
-\begin{align*}
-  e=R\times i&=-\frac{d\Phi}{dt}\\
-  &=-\frac{d\Phi_{S\to B}}{dt}-\frac{d\Phi_\text{propre}}{dt}\\
-  &=-M\frac{di_1}{dt}-L\frac{di}{dt}\\
-  \frac{di}{dt} + \frac{R}{L}i &=-\frac{M}{L}\frac{di_1}{dt}
+  \vv{F}(M_2)&=-e\vv{E}(M_2)-e\vv{v}\times\vv{B}(M_2)\\
+  &=-e\gamma\vv{E}'(M_2)+e\gamma v^2\vv{u}_x\times\vv{u}_y\frac{E'(M_2)}{c^2}\\
+  &=-e\gamma\vv{E}'(M_2)\left[1-\frac{v^2}{c^2}\right]\text{ avec }\gamma=\frac{1}{\surd{1-v^2/c^2}}\\
+  &=-e\gamma\vv{E}'(M_2)\times\frac{1}{\gamma^2}=\frac{\vv{F}'(M_2)}{\gamma}
 \end{align*}
 
 <p>
-où \(i_1(t)=i_{1m}\cos\omega t\) donc \(\frac{di_1}{dt}=-i_{1m}\omega\sin\omega
-   t\). Cette équation peut se résoudre en cherchant successivement la solution
-homogène <i>i.e.</i> sans le membre constant \(-\frac{M}{L}\frac{di_1}{dt}\) puis
-une solution particulière en utilisant, par exemple, la méthode de variation
-de la constante. On peut également procéder différemment en considérant que
-\(i(t)\) est la superposition d'un régime transitoire et d'un régime permanent
-sinusoïdal. On cherche donc \(i(t)\) sous la forme \(A\cos\omega t+B\sin\omega
-   t\). L'équation différentielle devient
+Globalement, \(F'(M_2)>F(M_2)\). La force d'origine magnétique induite
+par le déplacement des particules compense l'augmentation de la force
+électrique de répulsion.
+</p>
+
+<p>
+<b>Application numérique :</b>
+</p>
+
+<p>
+\(\mathcal{E}=\gamma mc^2 - mc^2=(\gamma-1)mc^2\) donc
+\(\gamma=1+\frac{\mathcal{E}}{mc^2}\). La masse de l'électron est 0.511 MeV.
+</p>
+
+<p>
+Pour \(\mathcal{E}=\unit[1]{eV}\), \(\gamma\sim1\)
 </p>
 \begin{align*}
-  -A\omega\sin\omega t+B\omega\cos\omega t+\frac{R}{L}\left(A\cos\omega t+B\sin\omega t\right)&=\frac{M}{L}i_{1m}\omega\sin\omega t
+  F&=F'=\frac{e^2}{4\pi\epsilon_0\,d^2}=\frac{e^2\mu_0c^2}{4\pi d^2}\\
+  &=\frac{e^2c^2\times4\pi\,10^{-7}}{4\pi d^2}=\frac{(1.6\,10^{-19})^2\times(3\,10^8)^2\times10^{-7}}{(10^{-3})^2}\\
+  &=\unit[2.3\,10^{-22}]{N}
 \end{align*}
 
 <p>
-de laquelle, en identifiant terme à terme, on déduit que
+Pour \(\mathcal{E}=\unit[1]{MeV}\), \(\gamma\simeq3\)
 </p>
 \begin{align*}
-  RA+BL\omega&=0\\
-  -AL\omega+BR&=Mi_{1m}\omega
+  F&=\frac{F'}{3}=\unit[7.7\,10^{-23}]{N}
 \end{align*}
+
+<div class="QUESTION">
+<ol class="org-ol">
+<li value="3">Calculer les forces à l'ordre 2 en \(\beta\) lorsque \(v\to0\). Conclusion.</li>
+</ol>
+
+</div>
+
+<p>
+\(v\rightarrow0\), \(\beta\ll1\) et donc \(\gamma\simeq1+\tfrac{\beta^2}{2}\)
+</p>
+\begin{align*}
+  \vv{F}&=\frac{\vv{F}'}{\gamma}\\
+  &=\vv{F}'\times\left(1-\beta^2\right)^{1/2}\\
+  &\simeq\left(1-\tfrac{\beta^2}{2}\right)\vv{F}'
+\end{align*}
+</div>
+</div>
+
+<div id="outline-container-orgheadline3" class="outline-2">
+<h2 id="orgheadline3"><span class="section-number-2">3</span> Fil chargé</h2>
+<div class="outline-text-2" id="text-3">
+<div class="QUESTION">
+<p>
+Dans le référentiel \(R\) du laboratoire, un fil cylindrique infini d’axe \(Ox\), de
+section \(S\) se déplace à la vitesse \(\vv{u}=u\vv{u}_x\). Soit \(R'\) le référentiel
+propre du fil. Dans \(R'\), le fil est chargé uniformément en volume de sorte que
+sa charge linéique est \(\lambda'_0\). Les charges sont immobiles dans \(R'\). On
+pose \(\beta=u/c\) et \(\gamma=(1−\beta^2)^{-1/2}\).
+</p>
+
+<ol class="org-ol">
+<li value="1"><p>
+<b>Calculs dans \(R'\)</b>
+</p>
+
+<p>
+Calculer dans \(R'\), la charge volumique \(\rho'\), la densité de courant
+\(\vv{j}'\), les champs électrique \(\vv{E}'\) et magnétique \(\vv{B}'\) en un
+point \(M\) situé à la distance \(D'\) de \(O'x'\).
+</p></li>
+</ol>
+
+</div>
+<p>
+Dans \(\mathcal{R}'\), les charges électriques sont immobiles &equiv;
+électrostatique. La charge électrique \(Q'\) se déduit de la densité
+linéique de charge \(\lambda_0'\)
+</p>
+\begin{equation*}
+  Q'=\lambda_0'\times\ell'=\rho'\times S'\times\ell'
+\end{equation*}
+
+<p>
+d'où \(\rho'=\tfrac{\lambda_0'}{S'}=\tfrac{\lambda_0'}{S}\) car la
+surface \(S\) est une quantité perpendiculaire au déplacement donc
+\(S=S'\).
+</p>
+
+<p>
+Les charges étant immobiles, il n'y a pas de courant d'où
+\(\vv{j}'=\vv{0}\) et donc pas de champ magnétique
+\(\vv{B}'=\vv{0}\). Le champ électrique \(\vv{E}'\) se déduit du
+théorème de Gauss, en évaluant au préalable, les symétries et les invariances
+de la distribution de charge. Ainsi, en coordonnées cylindriques où
+\(\vv{u_x}=\vv{u_z}\), les plans \((\vv{u}_r,\vv{u}_\theta)\) et
+\((\vv{u_r},\vv{u_z})\) sont plans de symétrie de la distribution de charge. Le
+champ électrique résultant est donc contenu dans chacun de ces plans soit
+\(\vv{E}(M) = E(M)\vv{u_r}\). Par ailleurs, la distribution de charge est
+invariante par rotation \(\theta\) et par translation \(x\equiv z\) donc
+\(E(M)=E(r,\theta,z)=E(r)\).
+</p>
+
+<p>
+Le théorème de Gauss
+</p>
+\begin{equation*}
+  \varoiint_{\mathcal{S}}\vv{E}\cdot d\vv{S}=\frac{Q_\text{int.}}{\epsilon_0}
+\end{equation*}
+
+<p>
+où la surface de Gauss \(\mathcal{S}\) est un cylindre de rayon \(D'\) et
+de hauteur \(h\). En tenant compte des invariances et symétries de la
+distribution de charge, on obtient le champ \(\vv{E}'(M)\)
+</p>
+\begin{equation*}
+  E'(M)\times2\pi D'\times h = \frac{\lambda_0'\times h}{\epsilon_0}
+\end{equation*}
+
+<p>
+soit
+</p>
+\begin{equation*}
+  \vv{E}'(M)=\frac{\lambda_0'}{2\pi\epsilon_0D'}\vv{u_r}
+\end{equation*}
+
+<div class="QUESTION">
+<ol class="org-ol">
+<li value="2"><b>Calcul dans \(R\)</b>
+<ol class="org-ol">
+<li>On considère une portion du fil de longueur \(L'\) et de section \(S'\)
+dans \(R'\). Calculer sa longueur \(L\) et sa section \(S\) dans \(R\). En déduire
+la charge volumique \(\rho\) et le vecteur densité de courant \(\vv{j}\) dans
+\(R\). Vérifier que le 4-vecteur \(\vv{J}=(\rho c,\vv{j})\) est un
+quadrivecteur de Lorentz.</li>
+<li>Calculer, à partir de \(\rho\) et \(\vv{j}\), les champs électriques
+\(\vv{E}(M)\) et magnétique \(\vv{B}(M)\) dans R.</li>
+</ol></li>
+</ol>
+
+</div>
+<p>
+Contraction des longueurs car \(L\) est colinéaire au déplacement du cylindre.
+</p>
+\begin{equation*}
+  L=\frac{L'}{\gamma}\text{ mais } S = S'\text{ car } S,S'\perp\vv{u}
+\end{equation*}
+
+<p>
+Invariance de la charge électrique \(Q=Q'\) (ce postulat n'a jamais
+été mis en défaut).
+</p>
+\begin{equation*}
+  Q=Q'=\rho'\times S'\times L'=\rho\times S\times L
+\end{equation*}
 
 <p>
 d'où
 </p>
+\begin{equation*}
+  \rho=\rho'\times\frac{L'}{L}=\gamma\rho'
+\end{equation*}
+
+<p>
+Densité de courant \(\vv{j}\)
+</p>
+\begin{equation*}
+  \vv{j}=\rho\cdot\vv{u}=\rho u\vv{u_x}
+\end{equation*}
+
+<p>
+Le 4-vecteur \(\vv{J}=(\rho c,\vv{j})\) est un 4-vecteur de Lorentz si
+l'égalité
+</p>
+\begin{equation*}
+  \begin{bmatrix}
+    \rho' c\\j'_x\\j'_y\\j'_z
+  \end{bmatrix}
+  =
+  \begin{bmatrix}
+    \gamma&-\beta\gamma&0&0\\
+    -\beta\gamma&\gamma&0&0\\
+    0&0&1&0\\
+    0&0&0&1
+  \end{bmatrix}
+  \cdot
+  \begin{bmatrix}
+    \rho c\\j_x\\j_y\\j_z
+  \end{bmatrix}
+\end{equation*}
+
+<p>
+est vérifiée. La distribution de courant est nulle dans \(\mathcal{R}'\)
+donc \(j'_x=j'_y=j'_z=0\) \(j_y=j_z=0\) et
+</p>
 \begin{align*}
-  A=-\frac{L\omega}{R}B&\to RB+\frac{L^2\omega^2}{R}B=Mi_{1m}\omega\\
-  &\to B=\frac{RMi_{1m}\omega}{R^2+L^2\omega^2}\\
-  &\to A=-\frac{ML\omega^2i_{1m}}{R^2+L^2\omega^2}
+  \gamma\rho c - \beta\gamma j_x&= \gamma\rho c-\beta\gamma\rho u\\
+  &=\gamma\rho c-\beta\gamma\rho u\times\frac{c}{c}\\
+  &=\gamma\rho c\left(1-\beta^2\right)\\
+  &=\gamma\rho c\times\frac{1}{\gamma^2}=\frac{\rho c}{\gamma}\\
+  &=\rho' c
 \end{align*}
 
 <p>
-Le courant \(i(t)\) induit dans la bobine prend donc la forme suivante
+De même,
 </p>
 \begin{align*}
-  i(t)=\frac{M\omega i_{1m}}{R^2+L^2\omega^2}\left(-L\omega\cos\omega t+R\sin\omega t\right)
-\end{align*}
-</li>
-
-<li>On assimile la bobine à un dipôle magnétique. Pour rappel, le moment
-magnétique d'une spire est égale à \(\vv{\mathcal{M}}=I\times\vv{S}\). Dans
-notre cas, la bobine possède donc un moment magnétique égal à
-\begin{align*}
-  \vv{m}(t)=N\times i(t)\times\pi b^2\,\vv{u_z}
+  -\beta\gamma\rho c+\gamma j_x&=-\beta\gamma\rho c+\gamma\rho u\\
+  &=-\gamma\rho u+\gamma\rho u\\
+  &=0=j'_x
 \end{align*}
 
 <p>
-La force qu'exerce le solénoïde sur ce dipôle magnétique s'écrit<sup><a id="fnr.4" class="footref" href="#fn.4">4</a></sup><sup>, </sup><sup><a id="fnr.5" class="footref" href="#fn.5">5</a></sup>
- <div class="footdef"><sup><a id="fn.4" class="footnum" href="#fnr.4">4</a></sup> <p class="footpara"> l'énergie potentielle d'un dipôle \(\vv{m}\) soumis à un champ magnétique \(\vv{B}\) est \(E_p=-\vv{m}.\vv{B}\) d'où la force \(\vv{F}=-\grad E_p\) </p><br/>
- <sup><a id="fn.5" class="footnum" href="#fnr.5">5</a></sup> <p class="footpara"> \(\grad(\vv{m}.\vv{B}_1)=\vv{m}\times\rot\vv{B}_1+\vv{B}_1\times\rot\vv{m}+(\vv{m}.\grad)\vv{B}_1+(\vv{B}_1.\grad)\vv{m}\). Étant donné que sur l'axe, \(\rot\vv{B}_1=\vv{0}\) et que \(\vv{m}\) est uniquement une fonction du temps, l'expression de \(\grad(\vv{m}.\vv{B}_1)\) se limite à \((\vv{m}.\grad)\vv{B}_1\) </p><br/></div>
+Densité volumique et linéique de charge
+\(\rho=\gamma\rho'\rightarrow\lambda_0=\gamma\lambda_0'\) d'où
+</p>
+\begin{equation*}
+  \vv{E}(M)=\frac{\gamma\lambda_0'}{2\pi\epsilon_0\,D}\vv{u_r}
+\end{equation*}
+
+<p>
+Le courant dans le fil est \(dI=\vv{j}.d\vv{S}\) soit
+\(I=j\times S\) et le champ magnétique \(\vv{B}(M)\) s'écrit (<i>cf.</i> polycopié
+page 88, Chapitre Magnétostatique)
 </p>
 \begin{align*}
-  \vv{F}_{S\to B}&=\vv{\nabla}\left(\vv{m}.\vv{B}_1\right)\\
-  &=\left(\vv{m}.\vv{\nabla}\right)\vv{B}_1\\
-  &=m\left(\frac{\partial B_1}{\partial z}\right)\vv{u_z}\quad(\text{car }\vv{B}_1\parallel\vv{u_z})\\
-  &=\vv{u_z}\,\pi b^2\frac{\mu_0ni_1Ni}{2}\frac{\partial}{\partial z}\left(1-\cos\alpha\right)\\
-  &=\vv{u_z}\,\pi b^2\frac{\mu_0ni_1Ni}{2}\frac{\partial}{\partial\alpha}\left(1-\cos\alpha\right)\times\frac{\partial\alpha}{\partial z}
+  \vv{B}(M)&=\frac{\mu_0I}{2\pi\,D}\vv{u_\theta}\\
+  &=\frac{\mu_0jS}{2\pi\,D}\vv{u_\theta}
 \end{align*}
 
 <p>
-Sachant que \(\tan\alpha=\frac{a}{z}\), l'expression de
-\(\frac{\partial\alpha}{\partial z}\) s'écrit
+or \(j=\rho u=\gamma\rho' u=\frac{\gamma\lambda_0' u}{S}\) d'où
 </p>
 \begin{align*}
-  \frac{d}{d\alpha}\tan\alpha&=\frac{\cos\alpha}{\cos\alpha}+\frac{\sin^2\alpha}{\cos^2\alpha}=\frac{1}{\cos^2\alpha}\\
-  d(\tan\alpha)&=\frac{d\alpha}{\cos^2\alpha}=d\left(\frac{a}{z}\right)=-\frac{a}{z^2}dz\\
-  \frac{\partial\alpha}{\partial z}&=\frac{d\alpha}{dz}=-\frac{a\cos^2\alpha}{z^2}\\
-  &=-a\cos^2\alpha\times\frac{\tan^2\alpha}{a^2}=-\frac{\sin^2\alpha}{a}
+  \vv{B}(M)&=\frac{\gamma\mu_0\lambda_0' u}{2\pi\,D}\vv{u_\theta}\text{ avec } \mu_0\epsilon_0c^2=1\\
+  \vv{B}(M)&=\frac{\gamma u}{c^2}E'(M)\vv{u_\theta}
+\end{align*}
+
+<div class="QUESTION">
+<ol class="org-ol">
+<li value="3"><b>Transformation des champs</b>
+<ol class="org-ol">
+<li>Vérifier dans ce cas particulier les formules de transformation
+relativiste du champ électromagnétique.</li>
+<li>Vérifier que \(\vv{E}.\vv{B}\) est un invariant de Lorentz.</li>
+<li>Vérifier que \(E^2-B^2c^2\) est un invariant de Lorentz.</li>
+</ol></li>
+</ol>
+
+</div>
+<p>
+Transformation du champ électrique avec \(\vv{B}'=\vv{0}\)
+</p>
+\begin{align*}
+  \vv{E}_\perp&= \gamma\,\left(\vv{E}'_\perp-\vv{u}\times\vv{B}'_\perp\right)\\
+  \vv{E}(M)&= \gamma\,\vv{E}'(M)\text{ vrai } \vv{E}(M)=\frac{\gamma\lambda_0'}{2\pi\epsilon_0\,D}\vv{u_r}
 \end{align*}
 
 <p>
-La force exercée par le solénoïde sur la bobine devient
+Transformation du champ magnétique
 </p>
 \begin{align*}
-  \vv{F}_{S\to B}&=-\frac{\mu_0\pi b^2}{2a}\times nNii_1\times\sin^3\alpha\,\vv{u_z}
+  \vv{B}_\perp&= \gamma\,\left(\vv{B}'_\perp+\vv{u}\times\frac{\vv{E}'_\perp}{c^2}\right)\\
+  \vv{B}(M)&=\gamma u\frac{E'(M)}{c^2}\vv{u_x}\times\vv{u_r}\\
+  &=\frac{\gamma u}{c^2}E'(M)\vv{u_\theta}
 \end{align*}
 
 <p>
-La valeur moyenne de cette force \(\langle\vv{F}_{S\to B}\rangle\) consiste à
-évaluer la valeur moyenne du produit des intensités \(ii_1\) soit
+\(\vv{E}'.\vv{B}'=0\) et \(\vv{E}.\vv{B}=\frac{\gamma^2u}{c^2}E^{\prime2}\,\vv{u_\theta}.\vv{u_r}=0\)
+</p>
+
+\begin{align*}
+  E^2-B^2c^2 &= (\gamma E')^2 - \left(\frac{\gamma u}{c^2}\right)^2E^{\prime2}c^2\\
+  &=(\gamma E')^2\left(1-\frac{u^2}{c^2}\right)=E^{\prime2}\\
+  &=E^{\prime2}-B^{\prime2}c^2\text{ puisque }B'=0
+\end{align*}
+</div>
+</div>
+
+<div id="outline-container-orgheadline4" class="outline-2">
+<h2 id="orgheadline4"><span class="section-number-2">4</span> Particule chargée dans un champ magnétique uniforme&#xa0;&#xa0;&#xa0;<span class="tag"><span class="DM">DM</span></span></h2>
+<div class="outline-text-2" id="text-4">
+<div class="QUESTION">
+<p>
+Une particule de charge \(q\), de masse \(m\), est lancée avec la vitesse initiale
+\(\vv{v}_0=v_0\vv{u}_x\) dans une région où règne un champ magnétique constant,
+uniforme \(\vv{B}=B\vv{u}_z\).
+On pose \(\gamma=(1-v^2/c^2)^{-1/2}\) où \(\gamma\) dépend <i>a priori</i> du temps.
+</p>
+
+<ol class="org-ol">
+<li value="1"><p>
+Rappeler L'impulsion généralisée \(\vv{p}\) de la particule et son énergie
+\(\mathcal{E}\). Montrer que les équations du mouvement s'écrivent :
 </p>
 \begin{align*}
-  \langle i(t)i_1(t)\rangle&=\langle i_{1m}\cos\omega t\left(A\cos\omega t+B\sin\omega t\right)\rangle\\
-  &=\frac{i_{1m}A}{2}=-\frac{ML\omega^2i_{1m}^2}{2\left(R^2+L^2\omega^2\right)}
+  \frac{d}{dt}(\gamma m\vv{v})=q\vv{v}\times\vv{B}
 \end{align*}
 
 <p>
-d'où une force moyenne égale à
+\(\mathcal{E}\) est-elle constante ? En déduire que le mouvement est uniforme
+et calculer \(\gamma\). En comparant à la mécanique non relativiste, décrire la
+trajectoire de la particule.
+</p></li>
+</ol>
+
+</div>
+<p>
+L'impulsion relativiste s'écrit \(\vv{p}=\gamma m\vv{v}\), l'énergie totale étant
+égale à \(\mathcal{E}=\gamma mc^2\). Le principe fondamental de la dynamique
+devient
 </p>
 \begin{align*}
-  \langle\vv{F}_{S\to B}\rangle&=\frac{\mu_0\pi b^2}{4a}\times nN\times\frac{ML\omega^2i_{1m}^2}{R^2+L^2\omega^2}\times\sin^3\alpha\,\vv{u_z}
+  \frac{d\vv{p}}{dt}&=\Upsigma\vv{F}\\
+  \frac{d}{dt}(\gamma m\vv{v})&=q\vv{v}\times\vv{B}
 \end{align*}
 
 <p>
-Finalement, en remplaçant \(M\) par \(\frac{\mu_0nN\,\pi
-   b^2}{2}\left(1-\cos\alpha\right)\), on obtient une force moyenne
+L'énergie totale \(\mathcal{E}\) est égale à la variation temporelle de
+puissance \(\tfrac{d\mathcal{P}}{dt}\). Or
 </p>
 \begin{align*}
-  \langle\vv{F}_{S\to B}\rangle&=\frac{\mu_0^2}{8}\frac{\pi^2b^4}{a}n^2N^2\sin^3\alpha\left(1-\cos\alpha\right)\frac{L\omega^2}{R^2+L^2\omega^2}\,i_{1m}^2\,\vv{u_z}
+  \mathcal{P}&=\vv{F}_\text{magnétique}.\vv{v}\\
+  &=(q\vv{v}\times\vv{B}).\vv{v}\\
+  &=0
 \end{align*}
 
 <p>
-<b>Lévitation de la bobine</b>
+L'énergie \(\mathcal{E}\) est donc constante &rarr; \(v=v_0\) et
+\(\gamma=\tfrac{1}{\surd{1-v_0^2/c^2}}\). L'équation du mouvement devient
+</p>
+\begin{align*}
+  \gamma m\frac{d\vv{v}}{dt}&=q\vv{v}\times\vv{B}
+\end{align*}
+
+<p>
+soit, au facteur \(\gamma\) près, identique à l'équation du mouvement pour une
+particule non-relativiste. La pulsation \(\omega=\tfrac{qB}{m\gamma}\) est
+inférieure à la pulsation cyclotron classique \(\omega_c=\tfrac{qB}{m}\). La
+trajectoire est alors circulaire autour du champ magnétique \(\vv{B}\) et de
+rayon \(R=\gamma\tfrac{mv_0}{qB}\).
+</p>
+
+<div class="QUESTION">
+<ol class="org-ol">
+<li value="2"><p>
+On suppose désormais que la particule rayonne une puissance donnée par
+la formule d'Abraham :
+</p>
+\begin{align*}
+  \mathcal{P}_r=\frac{q^2\gamma^6}{6\pi\epsilon_0c^3}\left[\vv{a}^2-\left(\frac{1}{c}\vv{v}\times\vv{a}\right)^2\right]
+\end{align*}
+
+<p>
+où \(\vv{a}\) est l'accélération. Déterminer l'énergie rayonnée \(\mathcal{E}_r\)
+par tour. Que devient \(\mathcal{E}_r\) à la limite ultra-relativiste.
 </p>
 
 <p>
-Dans l'hypothèse où la bobine est placée juste au dessus du solénoïde,
-l'angle &alpha; est donc égal à &pi;/2 et
-\(\sin^2\alpha\left(1-\cos\alpha\right)=1\). Pour compenser le poids de la
-bobine, il faut que la force exercée par le solénoïde sur la bobine soit
-égale à \(m\vv{g}\) soit un courant \(i_{1m}=i_\text{lim.}\) ayant pour
-expression
+Application numérique : calculer \(\mathcal{E}_r\) pour les électrons d'énergie
+\(\mathcal{E}=6\) GeV qui circulent sur une orbite circulaire de rayon \(R=134\)
+m à l'ESRF (Grenoble). Comparer \(\mathcal{E}_r\) à \(\mathcal{E}\).
+</p></li>
+</ol>
+
+</div>
+<p>
+L'accélération dans le cas d'un mouvement uniforme circulaire est
+l'accélération centripète d'expression
 </p>
 \begin{align*}
-  \frac{\left(\mu_0nN\pi b^2\right)^2}{8}\times\frac{L\omega^2}{R^2+L^2\omega^2}\times\frac{i_\text{lim.}^2}{a}&=mg\\
-  i_\text{lim.}&=\sqrt{\frac{8mga\times\left(R^2+L^2\omega^2\right)}{L}}\times\frac{1}{\mu_0\omega nN\pi b^2}
+  \vv{a}=\frac{d\vv{v}}{dt}=-\frac{v_0^2}{R}\vv{u_r}
+\end{align*}
+
+<p>
+Le produit vectoriel \(\vv{v}\times\vv{a}\) devient
+</p>
+\begin{align*}
+  \vv{v}\times\vv{a}=v_0\vv{u_\theta}\times-\frac{v_0^2}{R}\vv{u_r}=\frac{v_0^3}{R}\vv{u_z}
+\end{align*}
+
+<p>
+La puissance rayonnée \(\mathcal{P}_r\) se réduit à
+</p>
+\begin{align*}
+  \mathcal{P}_r&=\frac{q^2\gamma^6}{6\pi\epsilon_0c^3}\left[\vv{a}^2-\left(\frac{1}{c}\vv{v}\times\vv{a}\right)^2\right]\\
+  &=\frac{q^2\gamma^6}{6\pi\epsilon_0c^3}\left[\frac{v_0^4}{R^2}-\frac{v_0^6}{R^2c^2}\right]\\
+  &=\frac{q^2\gamma^6}{6\pi\epsilon_0c^3}\times\frac{v_0^4}{R^2}\left[1-\frac{v_0^2}{c^2}\right]\text{ avec } \frac{1}{\gamma^2}=1-\frac{v_0^2}{c^2}\\
+  &=\frac{q^2\gamma^4}{6\pi\epsilon_0c^3}\times\frac{v_0^4}{R^2}=\text{constante}
+\end{align*}
+
+<p>
+et l'énergie rayonnée par tour \(\mathcal{E}_r=\mathcal{P}_r\times T\) avec
+\(T=\tfrac{2\pi R}{v_0}\) devient
+</p>
+\begin{align*}
+  \mathcal{E}_r&=\frac{q^2\gamma^4}{6\pi\epsilon_0c^3}\times\frac{v_0^4}{R^2}\times\frac{2\pi R}{v_0}\\
+  &=\frac{q^2\gamma^4}{3\epsilon_0R}\times\frac{v_0^3}{c^3}
+\end{align*}
+
+<p>
+Dans la limite ultra-relativiste, \(v\rightarrow c\), l'énergie rayonnée est égale à
+\(\mathcal{E}_r=\frac{q^2\gamma^4}{3\epsilon_0R}\).
+</p>
+
+<p>
+<b>Application numérique :</b>
+</p>
+
+<p>
+Le faisceau de particules est constitué d'électrons de masse
+\(mc^2=\unit[0.511]{MeV}\). Le facteur de Lorentz \(\gamma\) se déduit de l'énergie
+totale \(\mathcal{E}=\unit[6]{GeV}\)
+</p>
+\begin{equation*}
+  \gamma=\frac{\mathcal{E}}{mc^2}=11\,742\text{ soit }\frac{v}{c}=0.99999999637\simeq1
+\end{equation*}
+
+<p>
+L'énergie rayonnée exprimée en eV est alors égale à
+</p>
+\begin{align*}
+  \left.\mathcal{E}_r\right|_\text{eV}&=\frac{e^2}{3\epsilon_0R}\times\gamma^4\times\frac{1}{e}\\
+  &=\frac{1.6\,10^{-19}}{3\times8.85\,10^{-12}\times134}\times(11742)^4\\
+  &=\unit[0.855]{MeV}=1.42\,10^{-4}\mathcal{E}
+\end{align*}
+
+<div class="QUESTION">
+<ol class="org-ol">
+<li value="3">Établir l'équation différentielle vérifiée par \(\gamma(t)\) en faisant
+l'approximation qu'à chaque instant la trajectoire est un cercle. En déduire
+la variation de l'énergie \(\mathcal{E}\) de la particule en fonction du
+temps. Quelle est la limite de \(\mathcal{E}\) quand \(t\) tend vers l'infini ?
+Décrire qualitativement le mouvement de la particule en tenant compte du
+rayonnement d'accélération.</li>
+</ol>
+
+</div>
+<p>
+Les pertes d'énergie induites par le rayonnement ont pour conséquence une
+diminution de l'énergie totale \(\mathcal{E}=\gamma mc^2\) : les particules
+perdent de la vitesse. La variation d'énergie \(d\mathcal{E}\) est égale à
+\(-\mathcal{P}_r\,dt\) soit une variation du facteur de Lorentz \(\gamma\)
+</p>
+\begin{align*}
+  mc^2d\gamma&=-\mathcal{P}_rdt\\
+  \frac{d\gamma}{dt}&=-\mathcal{P}_r\times\frac{1}{mc^2}\\
+  &=-\frac{q^2\gamma^4}{6\pi\epsilon_0c^3}\times\frac{v^4}{R^2}\times\frac{1}{mc^2}
+\end{align*}
+
+<p>
+En supposant la trajectoire toujours circulaire de rayon
+\(R=\gamma\tfrac{mv}{qB}=\tfrac{\gamma v}{\omega_c}\)
+</p>
+\begin{align*}
+  \frac{d\gamma}{dt}&=-\frac{q^2\gamma^4}{6\pi\epsilon_0c^3}\times\frac{v^4}{R^2}\times\frac{1}{mc^2}\\
+  &=-\frac{q^2\gamma^4}{6\pi\epsilon_0c^3}\times\frac{v^4\omega_c^2}{\gamma^2v^2}\times\frac{1}{mc^2}\\
+  &=-\frac{q^2\omega_c^2}{6\pi\epsilon_0c^3}\times\frac{1}{mc^2}\times\gamma^2v^2\\
+\end{align*}
+
+<p>
+or \(\gamma^2v^2=c^2(\gamma^2-1)\) d'où
+</p>
+\begin{align*}
+  \frac{d\gamma}{dt}&=-\frac{q^2\omega_c^2}{6\pi\epsilon_0mc^3}\times\left(\gamma^2-1\right)\\
+  \frac{d\gamma}{\gamma^2-1}&=-\frac{dt}{\tau}\text{ avec }\tau=\frac{6\pi\epsilon_0mc^3}{q^2\omega_c^2}
+\end{align*}
+
+<p>
+En intégrant l'équation précédente, on obtient
+</p>
+\begin{align*}
+  \frac{d\gamma}{\gamma^2-1}&=-\frac{dt}{\tau}\\
+  \frac{d\gamma}{1-\gamma^2}&=\frac{dt}{\tau}\\
+  \frac{d\gamma}{1+\gamma}+\frac{d\gamma}{1-\gamma}&=2\frac{dt}{\tau}\\
+  \ln(\gamma+1)-\ln(\gamma-1)&=\frac{2t}{\tau}+\text{constante}\\
+  \ln\frac{\gamma+1}{\gamma-1}&=\frac{2t}{\tau}+\text{constante}\\
+  \frac{\gamma+1}{\gamma-1}&=Ke^{\tfrac{2t}{\tau}}
+\end{align*}
+
+<p>
+où, à \(t=0,\gamma=\gamma_0=\tfrac{1}{\surd{1-v_0^2/c^2}}\),
+\(K=\frac{\gamma_0+1}{\gamma_0-1}\). On obtient ainsi
+</p>
+\begin{align*}
+  \gamma&=\frac{Ke^{\tfrac{2t}{\tau}}+1}{Ke^{\tfrac{2t}{\tau}}-1}\\
+  &=\frac{K+e^{-\tfrac{2t}{\tau}}}{K-e^{-\tfrac{2t}{\tau}}}
+\end{align*}
+
+<p>
+et
+</p>
+\begin{align*}
+  \mathcal{E}=\gamma mc^2=\frac{Ke^{\tfrac{2t}{\tau}}+1}{Ke^{\tfrac{2t}{\tau}}-1}\times mc^2
 \end{align*}
 
 <div class="center">
 
 <div class="figure">
-<p><img src="./figures/magnetic_levitation.png" alt="magnetic_levitation.png" />
+<p><img src="./figures/spiral_relativite.png" alt="spiral_relativite.png" />
 </p>
 </div>
 </div>
 
 <p>
-Autour de la position d'équilibre \(\alpha=\pi/2\), la position de la bobine
-oscille du fait que lorsque \(z\) augmente, &alpha; diminue entrainant une
-diminution de la force exercée par le solénoïde sur la bobine : le poids a
-alors tendance à "rappeler" la bobine vers la position \(\alpha=\pi/2\). <i>A
-contrario</i>, lorsque la bobine pénètre à l'intérieur du solénoïde, le flux
-magnétique augmente jusqu'à \(\alpha=104\) degrés (\(\tan\alpha\sim-4\)) excédant
-le poids de la bobine et ayant donc tendance à ramener cette dernière à sa
-position d'équilibre. L'équilibre est donc stable dans la mesure où l'axe de
-la bobine reste aligné avec celui du solénoïde.
+Lorsque \(t\rightarrow\infty\), \(\gamma\simeq\frac{K}{K}=1\) et l'énergie totale
+\(\mathcal{E}\) est alors uniquement l'énergie de masse de la particule, la
+vitesse et donc l'énergie cinétique sont nulles.
 </p>
-</li>
-<li>La puissance moyenne dissipée par effet Joule a pour expression
-\begin{align*}
-  \langle P\rangle&=R\cdot\langle i^2\rangle=R\left(\frac{A^2+B^2}{2}\right)\\
-  &=\frac{1}{2}R\frac{M^2\omega^2i_\text{lim.}^2}{R^2+L^2\omega^2}=\frac{R}{L}mga
-\end{align*}
-</li>
-</ol>
+
+<p>
+Le rayon \(R\), proportionnel à \(\gamma v\), diminue en fonction du
+temps. Ainsi, la trajectoire demeure circulaire à chaque instant \(t\) mais
+avec un rayon de courbure chaque fois plus faible en raison des pertes
+d'énergie par rayonnement. Les particules décrivent une spirale.
+</p>
 </div>
 </div>
 
-<div id="outline-container-sec-4" class="outline-2">
-<h2 id="sec-4"><span class="section-number-2">4</span> Principe de la plaque de cuisson par induction</h2>
-<div class="outline-text-2" id="text-4">
+<div id="outline-container-orgheadline5" class="outline-2">
+<h2 id="orgheadline5"><span class="section-number-2">5</span> Particule chargée dans des champs électrique et magnétique perpendiculaires</h2>
+<div class="outline-text-2" id="text-5">
+<div class="center">
+
+<div class="figure">
+<p><img src="./figures/referentiel_relat_4.png" alt="referentiel_relat_4.png" />
+</p>
+</div>
+</div>
+
+<div class="QUESTION">
+<p>
+Dans le référentiel \(R\) du laboratoire, une particule de charge \(q\), de masse
+\(m\), est lâchée sans vitesse initiale au point \(O\) dans une région où règnent un
+champ électrique constante, uniforme \(\vv{E}=E\vv{u}_y\) et un champ magnétique
+constante, uniforme \(\vv{B}=B\vv{u}_z\) avec \(Bc>E\).
+</p>
+
+<p>
+Montrer qu'il existe un référentiel \(R'\) en translation uniforme parallèle à
+\(\vv{u}_x\) où le champ électrique est nul. Calculer la vitesse \(\vv{u}\) de \(R'\)
+par rapport à \(R\). On pose \(\beta_e=u/c\) et
+\(\gamma_e=(1-\beta_e^2)^{-1/2}\). Calculer le champ magnétique \(\vv{B}'\) dans
+\(R'\) et en déduire la trajectoire et le mouvement de la particule dans \(R'\).
+</p>
+
+</div>
+
+<p>
+Soit \(\vv{E}=E\vv{u_y}\) et \(\vv{B}=B\vv{u_z}\) avec \(Bc>E\). Le référentiel
+\(\mathcal{R}'\) doit être tel que \(\vv{E}'=\vv{0}\) soit
+</p>
+\begin{align*}
+  \vv{E}'_\parallel&=\vv{E}_\parallel=\vv{0}\\
+  \vv{E}'_\perp&=\gamma\left(\vv{E}_\perp+\vv{u}\times\vv{B}_\perp\right)=\vv{0}
+\end{align*}
+
+<p>
+La première condition est vérifiée du fait que \(\vv{E}\) est orthogonal au
+vecteur déplacement \(\vv{u}\). La seconde condition est vérifiée si
+</p>
+\begin{align*}
+  \vv{E}+\vv{u}\times\vv{B}&=\vv{0}\\
+  E\vv{u_y} + uB\,\vv{u_x}\times\vv{u_z}&=\vv{0}\\
+  E-Bu&=0\\
+  u&=\frac{E}{B}
+\end{align*}
+
+<p>
+Pour obtenir un champ électrique nul dans le référentiel \(\mathcal{R}'\),
+il faut donc que la vitesse de déplacement \(u\) du référentiel \(\mathcal{R}'\)
+par rapport au référentiel \(\mathcal{R}\) soit égale au rapport du champ
+électrique \(E\) sur le champ magnétique \(B\). La vitesse ainsi obtenue est, par
+ailleurs, inférieure à \(c\) du fait que \(Bc>E\).
+</p>
+
+<p>
+Calcul du champ magnétique \(\vv{B}'\) :
+</p>
+\begin{align*}
+  \vv{B}'_\parallel&=\vv{B}_\parallel=\vv{0}\\
+  \vv{B}'_\perp&=\gamma_e\left(\vv{B}_\perp-\vv{u}\times\frac{\vv{E}_\perp}{c^2}\right)\\
+  &=\gamma_e\left(B\vv{u_z}-\frac{uE}{c^2}\vv{u_x}\times\vv{u_y}\right)\\
+  &=\gamma_e\left(B\vv{u_z}-\frac{u^2}{c^2}B\vv{u_z}\right)\\
+  &=\frac{\vv{B}}{\gamma_e}
+\end{align*}
+
+<p>
+La force de Lorentz \(\vv{F}'\) qui s'applique à la particule de charge \(q\)
+est purement magnétique \(q\vv{v}\times\vv{B}'\). Le principe fondamental de
+la dynamique \(\vv{F}'=q\vv{v}\times\vv{B}=m\vv{a}\) se traduit par un
+trajectoire circulaire de rayon \(R\)
+</p>
+\begin{equation*}
+  \frac{v^2}{R}=\frac{qvB'}{m}\rightarrow R=\frac{mv}{qB'}=\frac{\gamma_emv}{qB}
+\end{equation*}
+</div>
+</div>
+
+<div id="outline-container-orgheadline6" class="outline-2">
+<h2 id="orgheadline6"><span class="section-number-2">6</span> Étude de la charge d'espace</h2>
+<div class="outline-text-2" id="text-6">
+<div class="center">
+
+<div class="figure">
+<p><img src="./figures/referentiel_relat_3.png" alt="referentiel_relat_3.png" />
+</p>
+</div>
+</div>
+
+<div class="QUESTION">
+<p>
+On considère un faisceau cylindrique continu et infini constitué de particules
+identiques (masse \(m\) et charge \(q\)) de vitesse moyenne \(\vv{u}=u\vv{u}_x\) dans
+le référentiel \((K)\) du laboratoire. On appelle \((K')\) le référentiel qui se
+déplace à la vitesse \(u\) par rapport à \((K)\). On suppose que les origines
+coïncident à \(t=t'=0\). Le rayon du faisceau est \(R_0\) à l'origine, et \(R\) à
+l'abscisse \(x\).
+</p>
+
+<p>
+<b>Étude dans le référentiel propre des particules</b>
+</p>
+
+<p>
+La densité volumique de charges \(\rho_0\) est uniforme.
+</p>
+
 <ol class="org-ol">
-<li>On considère une casserole occupant le demi-espace \(z>0\), de conductivité
-&gamma; et de perméabilité \(\mu_r\). La plaque à induction occupe le
-demi-espace \(z<0\) et est parcourue par une densité volumique de courant
-\(\vv{J}_0\) qui crée un champ \(\vv{B}=B_1\cos\omega t\,\vv{u}_x\).
+<li value="1">Quel est le champ électrique \(E'\) crée par le faisceau ? En déduire la
+force \(F'\) que subit une particule située à la périphérie du faisceau.</li>
+</ol>
+
+</div>
+
+<p>
+À \(t=t'=0\), \(R=R_0\), \(\dot{R}=\dot{R}'=0\) et \(\dot{\theta}=0\)
+</p>
+
+<p>
+Dans \(\mathcal{R}'\), les plans \((\vv{u}_r,\vv{u}_\theta)\) et
+\((\vv{u}_r,\vv{u}_{x'})\) sont des plans de symétrie de la distribution de charge
+&rarr; le champ électrique appartient donc à chacun des plans :
+\(\vv{E}'(M)=E(M)\vv{u}_r\). De plus, il y a invariance par translation selon
+l'axe \(x'\) et par rotation d'angle &theta; : \(\vv{E}'(M)=E(r)\vv{u}_r\).
+</p>
+
+<p>
+Théorème de Gauss :
+</p>
+\begin{equation*}
+  \varoiint_\mathcal{S}\vv{E}'(M)\cdot d\vv{S}=\frac{Q_\text{int.}}{\epsilon_0}
+\end{equation*}
+
+<p>
+où la surface de Gauss est un cylindre de rayon \(r<R\) et de hauteur \(h\).
+</p>
+\begin{align*}
+  E'(r)\times2\pi r\times h&=\frac{\rho_0}{\epsilon_0}\times h\times\pi r^2\\
+  \vv{E}'(M)&=\frac{\rho_0r}{2\epsilon_0}\vv{u}_r=\frac{\rho_0}{2\epsilon_0}\vv{r}
+\end{align*}
+
+<p>
+Au voisinage de \(r\sim R\), la force subie par une particule de charge \(q\)
+devient
+</p>
+\begin{equation*}
+  \vv{F}'=q\vv{E}'(R)=\frac{q\rho_0}{2\epsilon_0}\vv{R}
+\end{equation*}
+
+<p>
+soit une force répulsive.
+</p>
+
+<div class="QUESTION">
 <ol class="org-ol">
-<li>Du fait que le champ magnétique \(\vv{B_1}\) est colinéaire à \(\vv{u_x}\), on
-déduit que le plan \(yOz\) est un plan de symétrie de la distribution de
-courant impliquant que \(\vv{J}_0\) est nécessairement orthogonal à ce
-dernier : \(\vv{J_0}\parallel\vv{u_y}\). Le fait que le problème soit
-invariant par translation selon \(Ox\) et \(Oy\) impose que la composante
-suivant \(\vv{u}_z\) de \(\vv{J}_0\) est nulle (\(J_{0z}=\frac{\partial
-      B_y(z)}{\partial x}-\frac{\partial B_x(z)}{\partial y}\)).
-</li>
-<li>Dans le milieu <i>i.e.</i> dans la casserole, l'invariance par translation
-selon \(Ox\) et selon \(Oy\) impose que \(\vv{E}\) et \(\vv{B}\) ne dépendent que
-de \(z\). Par ailleurs, le champ électrique et magnétique sont induits par
-la distribution de courant \(\vv{J}_0\) : ces champs obéissent donc aux
-symétries de la distribution de courant à savoir \(\vv{B}\parallel\vv{u}_x\)
-et \(\vv{E}\parallel\vv{u}_y\) soit
-\begin{align*}
-  \vv{E}=E(z,t)\,\vv{u}_y\quad\vv{B}=B(z,t)\,\vv{u}_x
-\end{align*}
-</li>
+<li value="2">Quelle est la loi de variation du rayon \(R\) dans le référentiel \((K')\)
+? On supposera que le mouvement transverse dans \((K')\) est très lent. En
+déduire la variation relative du rayon \(\Delta R/R_0\) en fonction du temps \(t'\).</li>
 </ol>
-</li>
 
-<li><ol class="org-ol">
-<li>Étant donné les hypothèses du problème, les 4 équations de Maxwell + la
-loi d'Ohm s'écrivent
+</div>
+
+<p>
+Mécanique classique ou Newtonienne \(\Upsigma\vv{F}=m\vv{a}\) <sup><a id="fnr.1" class="footref" href="#fn.1">1</a></sup>
+ <div class="footdef"><sup><a id="fn.1" class="footnum" href="#fnr.1">1</a></sup> <div class="footpara"><p class="footpara"> le vecteur accélération \(\vv{a}\) s'écrit en toute rigueur \((\ddot{r}-r\dot{\theta}^2)\vv{u}_r+(2\dot{r}\dot{\theta}+r\ddot{\theta})\vv{u}_\theta\). À défaut de vitesse angulaire \(\dot{\theta}\) initiale, on supposera donc que \(\dot{\theta}=0\). </p></div><br/></div>
+</p>
 \begin{align*}
-  \div\vv{E}&=0\\
-  \div\vv{B}&=0\\
-  \rot\vv{E}&=-\frac{\partial\vv{B}}{\partial t}\\
-  \rot\vv{B}&=\mu_0\mu_r\vv{j}\\
-  \vv{j}&=\gamma\vv{E}
+  \vv{F}'&=m\vv{a}=m\ddot{R}\vv{u}_r=m\frac{d^2R}{dt^{\prime2}}\vv{u}_r\\
+  \frac{q\rho_0}{2\epsilon_0}R\vv{u}_r&=m\ddot{R}\vv{u}_r\rightarrow\ddot{R}-\frac{q\rho_0}{2m\epsilon_0}R=0
 \end{align*}
 
 <p>
-Le courant de déplacement
-\(\vv{J}_D=\epsilon_0\frac{\partial\vv{E}}{\partial t}\) est ici
-négligeable. Les deux premières équations traduisent uniquement les
-symétries et invariances du problèmes <i>i.e.</i> \(\div\vv{E}=\frac{\partial
-      E_x}{\partial x}+\frac{\partial E_y}{\partial y}+\frac{\partial
-      E_z}{\partial z}=0\) (<i>idem</i> pour \(\div\vv{B}=0\)).
+Solutions du type \(R(t')=Ae^{\alpha t'}+Be^{-\alpha t'}\)
+où \(\alpha^2=\tfrac{q\rho_0}{2m\epsilon_0}\). Or à \(t'=0\), \(R=R_0\) et
+\(\dot{R}=0\) d'où \(A\alpha-B\alpha=0\rightarrow A=B\) et \(A+B=R_0\rightarrow
+A=\tfrac{R_0}{2}\). La solution de l'équation différentielle est ainsi
 </p>
-</li>
-<li>Les trois dernières équations conduisent au système d'équation suivante
-\begin{align*}
-  \rot\vv{E}=-\frac{\partial\vv{B}}{\partial t}&\to\left|
-  \begin{array}{l}
-    \frac{\partial}{\partial x}\\
-    \frac{\partial}{\partial y}\\
-    \frac{\partial}{\partial z}
-  \end{array}\right.\times\left|
-  \begin{array}{l}
-    0\\E(z,t)\\0
-  \end{array}\right.=-\frac{\partial E(z,t)}{\partial z}=-\frac{\partial B(z,t)}{\partial t}\\
-  \left.\begin{array}{l}
-    \rot\vv{B}=\mu_0\mu_r\vv{j}\\
-    \vv{j}=\gamma\vv{E}
-  \end{array}\right\}&\to\left|
-  \begin{array}{l}
-    \frac{\partial}{\partial x}\\
-    \frac{\partial}{\partial y}\\
-    \frac{\partial}{\partial z}
-  \end{array}\right.\times\left|
-  \begin{array}{l}
-    B(z,t)\\0\\0
-  \end{array}\right.=\frac{\partial B(z,t)}{\partial z}=\mu_0\mu_r\gamma E(z,t)
-\end{align*}
+\begin{equation*}
+  R(t')=\frac{R_0}{2}e^{\alpha t'}+\frac{R_0}{2}e^{-\alpha t'}=R_0\cosh\alpha t'
+\end{equation*}
 
 <p>
-Étant donné \(B(z,t)=f(z)\exp(-i\omega t)\) et \(E(z,t)=g(z)\exp(-i\omega
-      t)\), on obtient
+On suppose que le mouvement transverse <i>i.e.</i> \(R(t')\) est lent soit
+\(\alpha t'\ll1\). Le cosinus hyperbolique se réduit ainsi à
+\(\cosh\alpha t'\simeq1+\tfrac{(\alpha t')^2}{2}\). On déduit
+ainsi la variation relative de \(R\)
 </p>
 \begin{align*}
-  \frac{\partial E(z,t)}{\partial z}=\frac{\partial B(z,t)}{\partial t}&\to g'(z)=-i\omega f(z)\\
-  \frac{\partial B(z,t)}{\partial z}=\mu_0\mu_r\gamma E(z,t)&\to f'(z)=\mu_0\mu_r\gamma g(z)
+  \frac{\Delta R}{R_0}=\frac{R-R_0}{R_0}=\frac{R}{R_0}-1\simeq1+\frac{(\alpha t')^2}{2}-1&=\frac{\alpha^2}{2}t^{\prime2}\\
+  &=\frac{q\rho_0}{4\epsilon_0m}t^{\prime2}
 \end{align*}
 
-<p>
-soit en dérivant la seconde équation par rapport à \(z\)
-</p>
-\begin{align*}
-  f''(z)+i\mu_0\mu_r\gamma\omega f(z)=0
-\end{align*}
-</li>
-</ol>
-</li>
-
-<li><ol class="org-ol">
-<li>Soit \(\delta=\sqrt{\frac{2}{\mu_0\mu_r\gamma\omega}}\), l'équation
-différentielle solution de \(f(z)\) devient
-\begin{align}
-  f''(z)+\frac{2i}{\delta^2}f(z)=0
-\end{align}
-
-<p>
-dont les solutions sont de la forme \(f(z)=Ae^{r_+z}+Be^{r_-z}\) où \(r_\pm\)
-sont les racines de l'équation caractéritique
-\(r^2+\frac{2i}{\delta^2}=0\) <i>i.e.</i> \(r_\pm=\pm\sqrt{\frac{-2i}{\delta^2}}\). En
-simplifiant l'expression de \(r_\pm\) suivant
-</p>
-\begin{align*}
-  i^2=-1\text{ et }i=e^{i\frac{\pi}{2}}&\to r_\pm=\pm\frac{\sqrt 2}{\delta}\times e^{i\frac{3\pi}{4}}\\
-  &\to r_\pm=\pm\frac{\sqrt2}{\delta}\left(\cos\frac{3\pi}{4}+i\sin\frac{3\pi}{4}\right)\\
-  &\to r_\pm=\pm\frac{\sqrt2}{\delta}\left(-\frac{\sqrt2}{2}+i\frac{\sqrt2}{2}\right)=\pm\frac{-1+i}{\delta}
-\end{align*}
-
-<p>
-La fonction \(f(z)\) prend donc la forme suivante
-</p>
-\begin{align*}
-  f(z)=Ae^{(-1+i)\frac{z}{\delta}}+Be^{(1-i)\frac{z}{\delta}}
-\end{align*}
-
-<p>
-Le fait que \(f(z)\) doit rester finie lorsque \(z\to+\infty\) impose \(B\) soit
-nul en raison de la divergence du second terme
-\(Be^{(1-i)\frac{z}{\delta}}=Be^{\frac{z}{\delta}}e^{-i\frac{z}{\delta}}\to+\infty\). Pour
-déterminer \(A\), on considère les relations de passage en \(z=0\) qui, en
-l'absence de densité surfacique de courant, s'écrivent
-</p>
-\begin{align*}
-  \vv{H}_\text{casserole}-\vv{H}_\text{plaque}&=\vv{j}_S\times\vv{u}_z=\vv{0}\\
-  \left.\frac{f(z)\cancel{e^{-i\omega t}}}{\cancel{\mu_0}\mu_r}\right|_{z=0^+}-\left|\frac{B_1\cancel{e^{-i\omega t}}}{\cancel{\mu_0}}\right|_{z=0^-}&=0\\
-  \frac{A}{\mu_r}-B_1&=0\to A=\mu_rB_1
-\end{align*}
-
-<p>
-Finalement, l'expression de \(f(z)\) est
-</p>
-\begin{align*}
-  f(z)=\mu_rB_1\,e^{(-1+i)\frac{z}{\delta}}
-\end{align*}
-</li>
-
-<li>D'après l'équation différentielle régissant l'évolution de \(f(z)\), on
-déduit que \(\delta\) est homogène à une longueur et correspond à
-l'épaisseur de peau. Le champ magnétique variable engendré par la plaque
-de cuisson donne naissance à des courants induits dans le milieu
-conducteur qu'est la casserole. Ces courants sont localisés sur une
-épaisseur typique de l'ordre de \(\delta\). Au-delà, l'autoinduction de la
-casserole s'oppose à l'effet qui lui donne naissance et finit par exclure
-le courant.
-</li>
-<li>La fonction \(g(z)\) est égale à \(\frac{1}{\mu_0\mu_r\gamma}f'(z)\) soit
-\begin{align*}
-  g(z)&=\frac{1}{\mu_0\cancel{\mu_r}\gamma}\,\cancel{\mu_r}B_1\frac{-1+i}{\delta}e^{(-1+i)\frac{z}{\delta}}\\
-  &=\frac{\sqrt2}{\mu_0\gamma\delta}\,B_1\,e^{i\frac{3\pi}{4}}e^{(-1+i)\frac{z}{\delta}}\\
-  &=\frac{\sqrt2}{\mu_0\gamma\delta}\,B_1\,e^{-\frac{z}{\delta}}\,e^{i\left(\frac{z}{\delta}+\frac{3\pi}{4}\right)}
-\end{align*}
-
-<p>
-d'où l'expression réelle de \(E(z,t)\)
-</p>
-\begin{align*}
-  E(z,t)&=\text{Re}\left(g(z)\,e^{-i\omega t}\right)\\
-  &=\frac{\sqrt2}{\mu_0\gamma\delta}B_1\,e^{-\frac{z}{\delta}}\,\text{Re}\left(e^{i\left(\frac{z}{\delta}+\frac{3\pi}{4}-\omega t\right)}\right)\\
-  &=\frac{\sqrt2}{\mu_0\gamma\delta}B_1\,e^{-\frac{z}{\delta}}\,\cos\left(\frac{z}{\delta}-\omega t+\frac{3\pi}{4}\right)
-\end{align*}
-</li>
-</ol>
-</li>
-
-<li>La puissance dissipée par unité de volume est
-\(\frac{dP}{d\tau}=\vv{j}.\vv{E}=\gamma E^2\) soit
-\begin{align*}
-  \frac{dP}{d\tau}&=\frac{2}{\mu_0^2\gamma\delta^2}B_1^2\,e^{\frac{2z}{\delta}}\,\cos^2\left(\frac{z}{\delta}-\omega t+\frac{3\pi}{4}\right)
-\end{align*}
-
-<p>
-On déduit de ce résultat que la puissance moyenne dissipée par effet Joule
-est
-</p>
-\begin{align*}
-  \left\langle\frac{dP}{d\tau}\right\rangle_T&=\frac{B_1^2}{\mu_0^2\gamma\delta^2}\,e^{-\frac{2z}{\delta}}
-\end{align*}
-
-<p>
-tandis que la puissance moyenne par unité de surface s'écrit
-</p>
-\begin{align*}
-  \left\langle\frac{dP}{dS}\right\rangle_T&=\frac{B_1^2}{\mu_0^2\gamma\delta^2}\,\int_0^{+\infty}e^{-\frac{2z}{\delta}}\,dz\\
-  &=\frac{B_1^2}{\mu_0^2\gamma\delta^2}\left[-\frac{\delta}{2}e^{-\frac{2z}{\delta}}\right]_{0}^{+\infty}\\
-  &=\frac{B_1^2}{\mu_0^2\gamma\delta^2}\times\frac{\delta}{2}=\frac{B_1^2}{2\mu_0^2\gamma\delta}
-\end{align*}
-</li>
-
-<li>Applications numériques :
+<div class="QUESTION">
 <ol class="org-ol">
-<li>Calcul de l'épaisseur de peau \(\delta\)
+<li value="3">Exprimer \(\Delta R/R_0\) en fonction de \(t\), dans \((K)\). En déduire
+\(\Delta R/R_0\) en fonction de la position \(x\).</li>
+</ol>
+
+</div>
+
+<p>
+Dilatation du temps <i>i.e.</i> \(t=\gamma t'\) et \(x=ut\) soit
+</p>
 \begin{align*}
-  \delta&=\sqrt{\frac{2}{\mu_0\mu_r\gamma\omega}}\\
-  \delta_\text{Cu}&=\surd{\frac{2}{4\pi\,10^{-7}\times1\times6\,10^{7}\times1000}}=\unit[5]{mm}\\
-  \delta_\text{acier}&=\surd{\frac{2}{4\pi\,10^{-7}\times1000\times6\,10^6\times1000}}=\unit[0.5]{mm}
+  \frac{\Delta R}{R_0}=\frac{q\rho_0}{4\epsilon_0m}\frac{t^2}{\gamma^2}&=\frac{q\rho_0}{4\epsilon_0m}\times\frac{x^2}{\gamma^2u^2}\times\frac{c^2}{c^2}\\
+  &=\frac{q\rho_0}{4\epsilon_0mc^2}\times\frac{x^2}{\gamma^2\beta^2}\text{ or }\gamma^2=\tfrac{1}{1-\beta^2},\gamma^2\beta^2=\gamma^2-1\\
+  &=\frac{q\rho_0}{4\epsilon_0mc^2}\times\frac{x^2}{\gamma^2-1}
+\end{align*}
+
+<div class="QUESTION">
+<p>
+<b>Étude dans le référentiel du laboratoire</b>
+</p>
+
+<p>
+On note \(\rho\) la densité volumique de charges exprimée dans \((K)\).
+</p>
+
+<ol class="org-ol">
+<li value="1">Déterminer les directions des champs \(\vv{E}\) et \(\vv{B}\) dans tout
+l'espace dans le référentiel \((K)\).</li>
+</ol>
+
+</div>
+<p>
+Le champ électrique obéit aux mêmes règles d'invariance et de symétries
+que dans le référentiel \(\mathcal{R}'\) soit
+\(\vv{E}(M)=E(r)\vv{u}_r\). Concernant le champ magnétique \(\vv{B}(M)\), la
+densité de courant \(\vv{j}=\rho\vv{u}\) est colinéaire à \(\vv{u}_x\) et donc
+le plan \((\vv{u}_r,\vv{u}_x)\) est un plan de symétrie de la distribution
+de courant &rarr; le champ magnétique est donc normal à ce plan soit
+\(\vv{B}(M)=B(M)\vv{u}_\theta\). Par ailleurs, les mêmes règles d'invariance
+s'appliquent au champ magnétique : \(\vv{B}(M)=B(r)\vv{u}_\theta\).
+</p>
+
+<div class="QUESTION">
+<ol class="org-ol">
+<li value="2">Calculer ces champs.</li>
+</ol>
+
+</div>
+<p>
+Le calcul des champs électrique et magnétique se fait <i>via</i> respectivement
+le théorème de Gauss et le théorème d'Ampère. Le champ électrique est
+ainsi
+</p>
+\begin{equation*}
+  \vv{E}(M)=\frac{\rho}{2\epsilon_0}\vv{r}
+\end{equation*}
+
+<p>
+Le théorème d'Ampère :
+</p>
+\begin{equation*}
+  \oint_{\mathcal{C}}\vv{B}.d\vv{\ell}=\iint_\mathcal{S}\mu_0\vv{j}.d\vv{S}\text{ avec} \vv{j}=\rho u\vv{u}_x
+\end{equation*}
+
+<p>
+Le contour \(\mathcal{C}\) est donc une boucle de rayon \(r\) orientée suivant
+\(\vv{u}_\theta\), la surface \(\mathcal{S}\) reposant sur ce contour étant
+égale à \(\pi r^2\). Soit un champ magnétique \(\vv{B}(M)\)
+</p>
+\begin{align*}
+  B(r)\times2\pi r&=\mu_0\rho u\times\pi r^2\\
+  \vv{B}(M)&=\frac{\mu_0}{2}\rho ur\vv{u}_\theta
+\end{align*}
+
+<div class="QUESTION">
+<ol class="org-ol">
+<li value="3">Quelle est la force \(F\) qui s'exerce à la périphérie du faisceau ? En
+comparant \(F\) à \(F'\), établir une relation entre les densités \(\rho\) dans
+\((K)\) et \(\rho_0\) dans \((K')\).</li>
+</ol>
+
+</div>
+\begin{align*}
+  \vv{F}(r=R)&=q\vv{E}(R)+q\vv{u}\times\vv{B}(R)\\
+  &=\frac{q\rho}{2\epsilon_0}\vv{R}+\frac{q\mu_0\rho u^2R}{2}\vv{u_x}\times\vv{u}_\theta\\
+  &=\frac{q\rho}{2\epsilon_0}R\vv{u}_r-\frac{q\mu_0\rho u^2R}{2}R\vv{u}_r\text{ soit avec } \mu_0\epsilon_0c^2=1\\
+  &=\frac{q\rho}{2\epsilon_0}\vv{R}\left(1-\frac{u^2}{c^2}\right)\\
+  &=\frac{q\rho}{2\epsilon_0\gamma^2}\vv{R}
 \end{align*}
 
 <p>
-L'épaisseur du fond de la casserole nécessaire est plus petite dans le
-cas de l'acier par rapport au cuivre. Du point de vue du champ électrique
-\(E(z,t)\), le fait que \(\delta\) soit plus grand autorise une plus grande
-pénétration du champ électrique (terme en \(e^{-\frac{z}{\delta}}\)) mais,
-en contrepartie, le champ électrique est moins intense. La puissance de
-chauffage par unité de surface est quant à elle inversement
-proportionnelle à l'épaisseur de peau \(\delta\) : pour maximiser le
-chauffage, il est plus avantageux d'avoir une épaisseur de peau faible
-<i>i.e.</i> un champ électrique qui pénètre moins mais qui est plus
-intense. Dans ces conditions, les casseroles en cuivre sont bien adaptées
-que celle en acier.
+La relation \(\vv{F}'=\gamma\vv{F}\) implique
 </p>
-</li>
-<li>Calcul du champ magnétique \(B_1\)
+\begin{equation*}
+  \frac{q\rho_0}{2\epsilon_0}\vv{R}=\frac{q\rho}{2\epsilon_0\gamma^2}\vv{R}
+\end{equation*}
+
+<p>
+soit
+</p>
+\begin{equation*}
+  \rho=\gamma\rho_0
+\end{equation*}
+
+<div class="QUESTION">
+<ol class="org-ol">
+<li value="4">À partir de l'équation de la dynamique relativiste, donner l'expression
+de la variation relative du rayon \(\Delta R/R_0\) en fonction de \(t\) et de
+\(x\).</li>
+</ol>
+
+</div>
+<p>
+Le principe fondamental de la dynamique en relativité
+</p>
 \begin{align*}
-  B_1^2&=2\left\langle\frac{dP}{dS}\right\rangle_T\mu_0^2\gamma\delta\\
-  B_1^\text{Cu}&=4\pi\,10^{-7}\sqrt{2\times10^4\times6\,10^7\times5\,10^{-3}}=\unit[100]{mT}\\
-  B_1^\text{acier}&=4\pi\,10^{-7}\sqrt{2\times10^4\times6\,10^6\times5\,10^{-4}}=\unit[10]{mT}
+  \frac{d}{dt}\left(\gamma m\vv{u}\right)&=\Upsigma\vv{F}\\
+  \gamma m\frac{d\vv{u}}{dt}+m\vv{u}\frac{d\gamma}{dt}&=\vv{F}
 \end{align*}
 
 <p>
-Les casseroles en acier sont plus avantageuses à la fois en terme
-d'efficacité de chauffage qu'en terme de sécurité<sup><a id="fnr.6" class="footref" href="#fn.6">6</a></sup>.
- <div class="footdef"><sup><a id="fn.6" class="footnum" href="#fnr.6">6</a></sup> <p class="footpara"> l'Institut National de Recherche et de Sécurité indique : "Il a été constaté chez des sujets soumis à un champ magnétique variable (autour d'une fréquence de 20 Hz et au-dessus d'un seuil d'intensité de 10 mT), un effet physiologique caractérisé par la perception visuelle de taches lumineuses; ce sont les magnétophosphènes." </p><br/></div>
+or \(\vv{F}\parallel\vv{u}_r\) impliquant que le second terme
+\(m\vv{u}\tfrac{d\gamma}{dt}\) soit nul. Soit
 </p>
-</li>
+\begin{align*}
+  \gamma m\frac{d\vv{u}}{dt}&=\vv{F}\\
+  \gamma m\ddot{R}&=\frac{q\rho}{2\epsilon_0\gamma^2}R\\
+  \ddot{R}-\frac{q\rho}{2\epsilon_0m}\frac{R}{\gamma^3}&=0
+\end{align*}
+
+<p>
+La solution de cette équation différentielle s'écrit \(R(t)=R_0\cosh\zeta t\)
+où \(\zeta^2=\frac{q\rho}{2\epsilon_0m\gamma^3}\).
+</p>
+
+<p>
+La variation relative de rayon \(\Delta R/R_0\) devient
+</p>
+\begin{align*}
+  \frac{\Delta R}{R_0}\simeq\frac{\zeta^2}{2}t^2&=\frac{q\rho}{4\epsilon_0m}\frac{1}{\gamma^3}t^2\\
+  &=\frac{q\gamma\rho_0}{4\epsilon_0m}\frac{1}{\gamma^3}t^2=\frac{q\gamma\rho_0}{4\epsilon_0m}\frac{1}{\gamma^3}\frac{x^2}{u^2}\\
+  &=\frac{q\rho_0}{4\epsilon_0m}\frac{x^2}{\gamma^2-1}=\left.\frac{\Delta R}{R_0}\right|_{\mathcal{R}'}
+\end{align*}
+
+<div class="QUESTION">
+<ol class="org-ol">
+<li value="5">Calculer \(\Delta R/R_0\) pour un faisceau d'électrons de rayon \(R_0=20\)
+&mu;m, d'intensité \(I=1\) &mu;A après une distance \(L=1\) m. On prendra des
+tensions accélératrices de 0.1 et 10 MV. Conclusion ?</li>
 </ol>
-</li>
+
+</div>
+<p>
+L'énergaie cinétique \(T\) du faisceau d'électron est égale à
+\(T=F.d=eE.d=eV/d.d=eV\) soit la tension accélératrice. Ainsi, une tension
+accélératrice de \(V=\unit[0.1]{MV}\) fournit une énergie cinétique de
+\(T=\unit[0.1]{MeV}\). Le facteur de Lorentz \(\gamma\) est égale à
+\(1+\tfrac{T}{mc^2}\) où \(mc^2=\unit[0.511]{MeV}\). Finalement, l'intensité
+électrique du faisceau \(I\) est égale au flux de la densité de courant \(j\)
+soit \(I=j.S=\rho u.S\simeq\rho u\pi R_0^2\). La variation de la dimension
+transerve devient
+</p>
+\begin{equation*}
+  \frac{\Delta R}{R_0}=\frac{e}{4\pi\epsilon_0mc^2}\times\frac{I}{c}\times\frac{L^2}{R_0^2}\times\frac{1}{(\gamma^2-1)^{3/2}}
+\end{equation*}
+
+<p>
+<b>Applications numériques :</b>
+</p>
+
+<p>
+\(V=\unit[0.1]{MV}\), \(\gamma=1.2\) &rarr; \(\frac{\Delta R}{R_0}=0.5=50\%\)
+</p>
+
+<p>
+\(V=\unit[10]{MV}\),\(\gamma=21\) &rarr; \(\frac{\Delta R}{R_0}=1.5\,10^{-5}\)
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgheadline7" class="outline-2">
+<h2 id="orgheadline7"><span class="section-number-2">7</span> Variations relatives de vitesse, de quantité de mouvement et d'énergie&#xa0;&#xa0;&#xa0;<span class="tag"><span class="DM">DM</span></span></h2>
+<div class="outline-text-2" id="text-7">
+<div class="QUESTION">
+<p>
+On considère une particule de masse \(m\), de quantité de mouvement \(p\), d'énergie
+totale \(\mathcal{E}\) et d'énergie cinétique \(\mathcal{E}_c\).
+</p>
+
+<ol class="org-ol">
+<li>Exprimer \(dv/v\) et \(dp/p\) en fonction de \(d\mathcal{E}/\mathcal{E}\).</li>
 </ol>
+
+</div>
+
+<p>
+Soit l'énergie totale \(\mathcal{E}=\gamma\,mc^2\) et
+\(\gamma=\frac{1}{\surd1-v^2/c^2}\). On a
+</p>
+\begin{align*}
+  \frac{d\mathcal{E}}{\mathcal{E}}&=\frac{d\gamma}{\gamma}\\
+  \text{avec }&d\gamma=-\frac{1}{2}\times\frac{1}{\left(1-v^2/c^2\right)^{3/2}}\times(-)2\frac{v}{c}dv\\
+  &d\gamma=\gamma^3\frac{v}{c}dv\\
+  \frac{d\mathcal{E}}{\mathcal{E}}&=\gamma^2\,\frac{v^2}{c^2}\times\frac{dv}{v}\\
+  &=\left(\gamma^2-1\right)\frac{dv}{v}
+\end{align*}
+
+<p>
+soit
+</p>
+\begin{align*}
+  \frac{dv}{v}=\frac{1}{\gamma^2-1}\,\frac{d\mathcal{E}}{\mathcal{E}}
+\end{align*}
+
+<p>
+La quantité de mouvement \(p=\gamma\,mv\) est liée à l'énergie totale à travers
+l'expression \(\mathcal{E}^2=p^2c^2+m^2c^4\) soit en différentiant
+</p>
+\begin{align*}
+  2\mathcal{E}d\mathcal{E}&=2p\,dpc^2\\
+  \frac{dp}{p}&=\frac{\mathcal{E}d\mathcal{E}}{p^2c^2}\\
+  &=\frac{\mathcal{E}d\mathcal{E}}{\mathcal{E}^2-m^2c^4}\\
+  &=\frac{\gamma^2\,\cancel{m^2c^4}}{\gamma^2\,\cancel{m^2c^4}-\cancel{m^2c^4}}\,\frac{d\mathcal{E}}{\mathcal{E}}\\
+  &=\frac{\gamma^2}{\gamma^2-1}\,\frac{d\mathcal{E}}{\mathcal{E}}
+\end{align*}
+
+<div class="QUESTION">
+<ol class="org-ol">
+<li value="2">Que se passe-t-il à la limite ultrarelativiste ?</li>
+</ol>
+
+</div>
+
+<p>
+\(v\to c\) et \(\gamma\gg1\) d'où
+</p>
+\begin{align*}
+  \frac{dv}{v}&\simeq\frac{1}{\gamma^2}\,\frac{d\mathcal{E}}{\mathcal{E}}\\
+  \frac{dp}{p}&\simeq\frac{d\mathcal{E}}{\mathcal{E}}
+\end{align*}
+
+<div class="QUESTION">
+<ol class="org-ol">
+<li value="3"><p>
+On définit le facteur \(\alpha\) par
+</p>
+\begin{align*}
+  \frac{d\mathcal{E}_c}{\mathcal{E}_c}=\alpha\,\frac{dp}{p}
+\end{align*}
+
+<p>
+Quelle est l'expression de \(\alpha\) en fonction de \(\beta\) ? Faire une
+représentation graphique.
+</p></li>
+</ol>
+
+</div>
+
+<p>
+L'énergie totale \(\mathcal{E}\) est égale à \(\mathcal{E}_c+mc^2\) d'où
+\(d\mathcal{E}=d\mathcal{E}_c\). On a ainsi
+</p>
+\begin{align*}
+  \frac{dp}{p}&=\frac{\gamma^2}{\gamma^2-1}\times\frac{d\mathcal{E}_c}{\mathcal{E}}\times\frac{\mathcal{E}_c}{\mathcal{E}_c}\\
+  \frac{d\mathcal{E}_c}{\mathcal{E}_c}&=\underbrace{\frac{\gamma^2-1}{\gamma^2}\times\frac{\mathcal{E}}{\mathcal{E}_c}}_{\alpha}\times\frac{dp}{p}\\
+  \alpha&=\frac{\gamma^2-1}{\gamma^2}\times\frac{\gamma\,\cancel{mc^2}}{\gamma\,\cancel{mc^2}-\cancel{mc^2}}\\
+  &=\frac{\cancel{(\gamma-1)}(\gamma+1)}{\gamma^{\cancel{2}}}\times\frac{\cancel{\gamma}}{\cancel{\gamma-1}}\\
+  &=\frac{\gamma+1}{\gamma}=1+\frac{1}{\gamma}=1+\sqrt{1-\beta^2}
+\end{align*}
+
+<div class="center">
+
+<div class="figure">
+<p><img src="./figures/alpha_variation.png" alt="alpha_variation.png" />
+</p>
+<p><span class="figure-number">Figure 5:</span> <b>Variation du paramètre \(\alpha\) en fonction de la vitesse \(\beta\)</b></p>
+</div>
+</div>
 </div>
 </div>
 <div id="footnotes">
@@ -784,15 +1333,10 @@ d'efficacité de chauffage qu'en terme de sécurité<sup><a id="fnr.6" class="fo
 
 
 
-
-
-
-
-
 </div>
 </div></div>
 <div id="postamble" class="status">
-File under <i class="fa fa-github-alt"></i> version control - commit <a href="https://github.com/xgarrido/licence_em_teaching/commit/1545deeef524d078a44e2f7b2fdfc7d15dd82f2c">1545dee</a> - 2014-05-14
+File under <i class="fa fa-github-alt"></i> version control - commit <a href="https://github.com/xgarrido/licence_em_teaching/commit/78e11e6cf450707876b1ec5a9fae3255d1bb885a">78e11e6</a> - 2016-06-28
 </div>
 </body>
 </html>
