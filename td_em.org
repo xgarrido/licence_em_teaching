@@ -3879,7 +3879,7 @@ deux solutions justifie ainsi de la forme de la solution utilisée dans cet
 exercice.
 
 * TD5 : Milieux magnétiques
-** COMMENT Introduction
+** Introduction
 Dans la plupart des matériaux soumis à un champ magnétique, les charges liées se
 déplacent à l'échelle atomique faisant apparaître des boucles de courant /i.e./
 *des dipôles magnétiques* : la milieu s'aimante. Ainsi, l'aimantation $\vv{M}$
@@ -3940,7 +3940,7 @@ les milieux para.
 Dans le cas de matériaux ferromagnétiques, $\chi_m\gg1$, l'aimantation n'est
 plus proportionnelle à l'excitation magnétique $\vv{M}\neq\chi_m\vv{H}$.
 
-** COMMENT Plaque magnétique
+** Plaque magnétique
 #+BEGIN_QUESTION
 Une plaque d'épaisseur $e$ est constituée d'un matériau magnétique linéaire,
 homogène isotrope (LHI) de susceptibilité $\chi$. On supposera en plus que ce
@@ -4012,7 +4012,7 @@ la plaque.
         #+END_CENTER
         Les lignes de champ magnétique sont canalisées\to blindages magnétiques
 
-** COMMENT L'électro-aimant
+** L'électro-aimant
 #+BEGIN_QUESTION
 Un électro-aimant est constitué d'un barreau de ferromagnétique doux appelé fer,
 de section constante $S$, replié sur lui-même de façon que les deux extrémités
@@ -4365,7 +4365,7 @@ vis-à-vis des contraintes expérimentales imposées par ce spectromètre. Il
 faudrait augmenter la hauteur $h$ de l'aimant jusqu'à une valeur de l'ordre de
 700 mm (dans la limite où le développement limité précédent demeure valable).
 
-** COMMENT Chaîne de gouttelettes d'une émulsion ferrofluide                    :DM:
+** Chaîne de gouttelettes d'une émulsion ferrofluide                    :DM:
 #+BEGIN_QUESTION
 Un ferrofluide s'obtient en dispersant dans de l'huile de petites particules
 solides aimantées. On obtient alors un fluide aux propriétés particulières. En
@@ -5576,7 +5576,7 @@ d'incidence $(\vv{E_i}\perp Oxz)$.
    #+END_SRC
 
 
-** COMMENT Effet Faraday dans un diélectrique
+** Effet Faraday dans un diélectrique
 
 #+BEGIN_QUESTION
 #+BEGIN_CENTER
@@ -6256,7 +6256,7 @@ de l'ordre de 6 degrés pour une radiation infrarouge $-$
 $\lambda\sim30\,\mu\text{m}, \nu=\unit[1.5]{THz}$ $-$ et un champ magnétique de
 8 Tesla.
 
-** COMMENT Réflexion totale et onde évanescente                                 :DM:
+** Réflexion totale et onde évanescente                                 :DM:
 
 #+BEGIN_QUESTION
 Le demi-espace $y<0$ est rempli d'un diélectrique LHI transparent (sans pertes)
