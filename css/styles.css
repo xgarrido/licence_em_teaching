@@ -45,8 +45,12 @@ h4, h5, h6 {
     font-size: 150%;
 }
 
+#hidden {
+    display: none;
+}
+
 a {
-    color: #3399cc;
+    color: #003399;
     text-decoration:none;
 }
 
@@ -106,10 +110,13 @@ pre {
     overflow-x: auto;
 }
 
+cite {
+    font-style: normal;
+}
 .tag {
      display:inline-block;
      white-space:no-wrap;
-     background:#3399cc;
+     background:#003399;
      color:#ffffff;
      float: right;
      font-size:.6em;
@@ -168,7 +175,7 @@ img.hidden {
 }
 
 .cbox {
-    color:#3399cc;
+    color:#003399;
 }
 
 .cbox p:before {
@@ -176,6 +183,14 @@ img.hidden {
     content: "\f02b ";
     display: inline-block;
     padding-right: 3px;
+}
+
+.question, .QUESTION {
+    border-left:2px solid #003399;
+    margin:0;
+    padding:0 0 0 20px;
+    font-style:italic;
+    color: #003399;
 }
 
 #table-of-contents {
@@ -222,7 +237,7 @@ img.hidden {
 }
 
 #toc ul {
-    color: #3399cc;
+    color: #003399;
 }
 
 #toc:hover:before {
