@@ -5,8 +5,8 @@
 #+LATEX_CLASS: teaching-class
 # #+LATEX_CLASS_OPTIONS: [novc]
 
-* TD1 : Équations de Maxwell dans le vide et champ électromagnétique
-** Équations de Maxwell dans le vide                                    :DM:
+* COMMENT TD1 : Équations de Maxwell dans le vide et champ électromagnétique
+** Équations de Maxwell dans le vide
 #+BEGIN_QUESTION
 1) [@1] On considère une onde plane scalaire en notation complexe :
    #+BEGIN_SRC latex
@@ -194,7 +194,7 @@ Finalement, en remplaçant l'expression du champ magnétique dans la relation (4
   \end{align*}
 #+END_SRC
 et en appliquant la relation
-$\vv{a}\times(\vv{b}\times\vv{c})=(\vv{a}.\vv{c}).\vv{b}-(\vv{a}.\vv{b}).\vv{c}$,
+$\vv{a}\times(\vv{b}\times\vv{c})=(\vv{a}.\vv{c})\vv{b}-(\vv{a}.\vv{b})\vv{c}$,
 on déduit
 #+BEGIN_SRC latex
   \begin{align*}
@@ -262,9 +262,7 @@ au cours du temps, un cercle autour du vecteur d'onde $\vv{k}$
 6) [@6] Calculer le vecteur de Poynting $\vv{R}$ et l'intensité $I$.
 #+END_QUESTION
 
-Le vecteur de Poynting se calcule à partir des champs réels soit, dans le cas
-d'une onde polarisée rectilignement ($\vv{E}_0\parallel\vv{u}_x$, /cf./ Figure
-[[fig::polar_rect]]),
+Le vecteur de Poynting se calcule à partir des champs réels soit
 #+BEGIN_SRC latex
   \begin{align*}
     \vv{R}&=\frac{\text{Re}(\vv{E})\times\text{Re}(\vv{B})}{\mu_0}\\
@@ -285,8 +283,8 @@ Poynting
 #+END_SRC
 
 L'intensité $I$ correspond à la variation de la puissance électromagnétique
-traversant un élément de surface $d\vv{S}$. C'est donc la moyenne temporelle du
-vecteur de Poynting
+traversant un élément de surface $d\vv{S}$. C'est donc la moyenne temporelle de
+la norme du vecteur de Poynting
 #+BEGIN_SRC latex
   \begin{align*}
     I&=\left\|\left\langle\vv{R}\right\rangle_T\right\|\\
@@ -300,7 +298,7 @@ dont la fréquence est trop grande : l'intensité est par conséquent la quantit
 pertinente à estimer car mesurable expérimentalement.
 #+END_REMARK
 
-** Énergie magnétique stockée dans une bobine
+** COMMENT Énergie magnétique stockée dans une bobine
 
 #+BEGIN_QUESTION
 Une bobine de longueur \ell, de rayon $a$ et d'axe $(Oz)$ est constituée par un
@@ -903,7 +901,7 @@ Le moment cinétique de photons polarisé circulairement droite est alors
 $-\hbar$, et $\sigma_z=0$ pour une polarisation rectiligne (rectiligne \equiv
 circulaire droite + circulaire gauche)
 
-** Interprétation corpusculaire de la pression de radiation             :DM:
+** COMMENT Interprétation corpusculaire de la pression de radiation             :DM:
 
 #+BEGIN_CENTER
 #+ATTR_LATEX: :width 0.5\linewidth
@@ -1013,6 +1011,494 @@ Calcul de la pression de radiation
 est un bruit important pour les interféromètres de haute sensibilité tels que
 Virgo (/cf./ [[http://tel.archives-ouvertes.fr/tel-00175254/en/]]).
 
+** COMMENT Gravito-Électromagnétisme et effet Lense-Thirring                    :DM:
+#+BEGIN_QUESTION
+Dans ce problème, on se propose d’étudier l'effet Lense-Thirring, une prédiction
+de la théorie de la Relativité Générale (RG) datant de 1918, confirmée en 2011
+de manière directe par les mesures de la sonde Gravity Probe B. Pour cela, on
+construira, par analogie avec l'Électromagnétisme, une théorie linéaire de la
+gravitation dite Gravito-ÉlectroMagnétique (GEM), qui constitue une bonne
+approximation de la Relativité Générale en champ faible et pour des objets
+non-relativistes ($v/c\ll1$).
+1) [@1] Rappeler les équations de Maxwell reliant, dans le vide, le champ
+   électromagnétique ($\vv{E},\vv{B}$) aux densités totales de charges et de
+   courants électriques ($\rho_e,\vv{j}_e$). Justifier la définition des
+   potentiels scalaire $V$ et vecteur $\vv{A}$ à partir de ces équations.
+2) [@2] À quoi les équations de Maxwell se réduisent-elles en régime statique ?
+#+END_QUESTION
+
+1) [@1] Équations de Maxwell :
+| Maxwell-Gauss                   | $\vv{\nabla}\cdot\vv{E}=\tfrac{\rho_e}{\epsilon_0}$                                       |
+| Conservation du flux magnétique | $\vv{\nabla}\cdot\vv{B}=0$                                                                |
+| Maxwell-Faraday                 | $\vv{\nabla}\times\vv{E}=-\tfrac{\partial\vv{B}}{\partial t}$                             |
+| Maxwell-Ampère                  | $\vv{\nabla}\times\vv{B}=\mu_0\vv{j}_e+\mu_0\epsilon_0\tfrac{\partial\vv{E}}{\partial t}$ |
+
+   Conservation du flux magnétique \to $\vv{B}=\vv{\nabla}\times\vv{A}$.
+
+   Maxwell-Faraday + potentiel vecteur $\vv{A}$ \to
+   $\vv{E}=-\vv{\nabla}V-\frac{\partial\vv{A}}{\partial t}$
+
+2) [@2] Régime statique \equiv indépendant du temps \to
+   $\vv{\nabla}\times\vv{E}=\vv{0}$ et $\vv{\nabla}\times\vv{B}=\mu_0\vv{j}_e$
+
+#+BEGIN_QUESTION
+On rappelle que, dans la théorie newtonnienne de la gravitation, le champ
+gravitationnel $\vv{g}$ associé à une distribution statique de matière, de masse
+volumique $\rho$, vérifie
+#+BEGIN_SRC latex
+  \begin{align*}
+   \vv{\nabla}\cdot\vv{g}&=-4\pi G_N\rho,
+  \end{align*}
+#+END_SRC
+où $G_N$ = 6,67.10^{−11} N.m^{2}.kg^{−2} est la constante de Newton et qu’il
+dérive d’un potentiel scalaire $\phi$, c’est-à-dire que $\vv{g} =
+−\vv{\nabla}\phi$.
+
+3) [@3] Avec quelle(s) composante(s) du champ électromagnétique
+   ($\vv{E},\vv{B}$) voyez-vous une analogie ? Vous justifierez votre
+   proposition en complétant le tableau ci-dessous
+
+   | Gravitation newtonnienne               | Électromagnétisme |
+   |----------------------------------------+-------------------|
+   | $\vv{g}$                               | ?                 |
+   | $\rho$                                 | ?                 |
+   | $-4\pi G_N$                            | ?                 |
+   | $\vv{\nabla}\cdot\vv{g}=-4\pi G_N\rho$ | ?                 |
+   | $\vv{\nabla}\times\vv{g}=$ ?           | ?                 |
+
+4) [@4] Quelles sont les deux différences majeures entre les deux colonnes du
+   tableau ainsi complété ? En donner la raison physique.
+#+END_QUESTION
+
+3) [@3] Comme $\vv{g}$ dérive d’un potentiel scalaire, on a localement
+   $\vv{\nabla}\times\vv{g}=\vv{0}$, d’où l’analogie suivante entre gravitation
+   newtonnienne et électrostatique :
+   | Gravitation newtonnienne               | Électromagnétisme                          |
+   |----------------------------------------+--------------------------------------------|
+   | $\vv{g}$                               | $\vv{E}$                                   |
+   | $\rho$                                 | $\rho_e$                                   |
+   | $-4\pi G_N$                            | $1/\epsilon_0$                             |
+   | $\vv{\nabla}\cdot\vv{g}=-4\pi G_N\rho$ | $\vv{\nabla}\cdot\vv{E}=\rho_e/\epsilon_0$ |
+   | $\vv{\nabla}\times\vv{g}=\vv{0}$       | $\vv{\nabla}\times\vv{E}=\vv{0}$           |
+
+4) [@4] Les deux différences principales entre les deux colonnes ci-dessus
+   sont :
+   - $\rho_e$ est à valeurs réelles quelconques tandis que $\rho\geq0$;
+   - $\epsilon_0>0$ a pour analogue $−1/(4\pi G_N) < 0$.
+
+   L’origine physique de ces différences est :
+   - l’existence de charges positives et négatives en électrostatique tandis que
+     la gravitation a pour analogue la masse qui est positive;
+   - la nature universellement attractive de la gravitation newtonnienne, par
+     opposition au caractère tantôt attractif tantôt répulsif de l’interaction
+     électrostatique.
+
+#+BEGIN_QUESTION
+Afin d’obtenir une théorie de la gravitation en régime variable, il est tentant
+de pousser l’analogie précédente jusqu’à considérer l’existence d’un champ dit
+gravito-électromagnétique (GEM), que l’on notera ($\vv{E}_g,\vv{B}_g$) vérifiant
+une version gravitationnelle des équations de Maxwell.
+
+5) [@5] Proposer un analogue gravitationnel $\vv{j}$ au vecteur densité de
+   courant de l’Électro\-magnétisme. Exprimer $\vv{j}$ pour une distribution de
+   matière de masse volumique $\rho$ animée d’un champ de vitesse $\vv{v}$.
+#+END_QUESTION
+
+5) [@5] L’analogue de la charge électrique étant la masse, l’analogue naturel de
+   la densité de courant est la densité de courant de matière, autrement dit la
+   densité de quantité de mouvement. Ainsi, pour une distribution de matière de
+   masse volumique ρ animée d’un champ de vitesse $\vv{v}$ , on a
+   #+BEGIN_SRC latex
+     \begin{align*}
+       \vv{j}=\rho\vv{v}
+     \end{align*}
+   #+END_SRC
+
+#+BEGIN_QUESTION
+6) [@6] Écrire les équations de Maxwell dépendant du temps reliant
+   ($\vv{E}_g,\vv{B}_g$) à ($\rho,\vv{j}$). On introduira les constantes réelles
+   $\epsilon$ et $\mu$ à la place respectivement de la permittivité diélectrique
+   $\epsilon_0$ et de la perméabilité magnétique $\mu_0$ du vide. Que vaut
+   $\epsilon$ ? Préciser les dimensions de $\vv{E}_g$ et $\vv{B}_g$.
+#+END_QUESTION
+
+6) [@6] On pose, comme l’énoncé nous y invite
+   #+BEGIN_SRC latex
+     \begin{align*}
+       \vv{\nabla}\cdot\vv{E}_g&=\tfrac{\rho}{\epsilon}\\
+       \vv{\nabla}\cdot\vv{B}_g&=0\\
+       \vv{\nabla}\times\vv{E}_g&=-\tfrac{\partial\vv{B}_g}{\partial t}\\
+       \vv{\nabla}\times\vv{B}_g&=\mu_0\vv{j}+\mu\epsilon\tfrac{\partial\vv{E}_g}{\partial t}
+     \end{align*}
+   #+END_SRC
+   Afin de reproduire l’analogie gravitation newtonnienne/électrostatique en
+   régime statique, on pose également
+   #+BEGIN_SRC latex
+     \begin{align*}
+       \epsilon=-\frac{1}{4\pi G_N}
+     \end{align*}
+   #+END_SRC
+
+   On a
+   #+BEGIN_SRC latex
+     \begin{align*}
+       \left[\vv{E}_g\right]=\left[\vv{g}\right]=LT^{-2}
+     \end{align*}
+   #+END_SRC
+   et donc
+   #+BEGIN_SRC latex
+     \begin{align*}
+       \left[\vv{B}_g\right]=T^{-1}
+     \end{align*}
+   #+END_SRC
+#+BEGIN_QUESTION
+7) [@7] Montrer que les équations de Maxwell gravitationnelles garantissent la
+   conservation de la masse.
+#+END_QUESTION
+
+7) [@7] Par analogie avec l'équation locale de conservation de la charge
+   électrique, on obtient l'équation local de conservation de la masse
+   #+BEGIN_SRC latex
+     \begin{align*}
+       \frac{\partial\rho}{\partial t}+\vv{\nabla}\cdot\vv{j}=0
+     \end{align*}
+   #+END_SRC
+
+#+BEGIN_QUESTION
+On suppose dans toute la suite que
+#+BEGIN_SRC latex
+  \begin{align}
+    \mu=-\frac{4\pi G_N}{c^2}
+  \end{align}
+#+END_SRC
+
+8) [@8] Montrer que les équations de Maxwell gravitationnelles entraînent
+   l’existence d’ondes gravitationnelles. À quelle vitesse se propagent ces
+   ondes ? /Indication : on montrera que, dans le vide et en l’absence de charges
+   et de courants/ ($\rho=0, \vv{j}=0$), /le champ GEM vérifie l’équation de
+   d’Alembert./
+#+END_QUESTION
+
+8) [@8] Comme dans le cours, on obtient
+   #+BEGIN_SRC latex
+     \begin{align*}
+       \mu\epsilon=-\frac{\mu}{4\pi G_N}=\frac{1}{c^2}
+     \end{align*}
+   #+END_SRC
+   Les ondes gravitationnelles se propagent alors à la vitesse $c$.
+
+#+BEGIN_QUESTION
+9) [@9] Proposer une expression pour l’analogue gravitationnel du vecteur de
+   Poynting $\vv{R}$. En déduire une équation locale de conservation pour
+   l’énergie gravitationnelle dont on interprétera physiquement chacun des
+   termes.
+#+END_QUESTION
+
+9) [@9] On propose
+   #+BEGIN_SRC latex
+     \begin{align*}
+       \vv{R}=\frac{\vv{E}_g\times\vv{B}_g}{\mu}=-c^2\frac{\vv{E}_g\times\vv{B}_g}{4\pi G_N}
+     \end{align*}
+   #+END_SRC
+
+   Comme dans le cours, on déduit alors des équations de Maxwell
+   gravitationnelles une équation locale de conservation
+   #+BEGIN_SRC latex
+     \begin{align*}
+       \frac{\partial u}{\partial t}+\vv{\nabla}\cdot\vv{R}=-\vv{j}\cdot\vv{E}_g
+     \end{align*}
+   #+END_SRC
+   avec
+   #+BEGIN_SRC latex
+     \begin{align*}
+       u=\frac{\epsilon}{2}\vv{E}_g^2+\frac{1}{2\mu}\vv{B}_g^2=-\frac{1}{8\pi G_N}\left(\vv{E}_g^2+c^2\vv{B}_g^2\right)
+     \end{align*}
+   #+END_SRC
+   qu'on interprète comme la densité volumique d'énergie
+   gravito-électromagnétique, le vecteur de Poynting gravitationnel $\vv{R}$
+   s'interprétant comme la densité de flux de puissance et le membre de droite
+   comme la puissance cédée par le champ à la matière.
+
+#+BEGIN_QUESTION
+Dans le cadre de l’analogie GEM, il est naturel de supposer que le champ GEM
+exerce sur toute particule de masse $m$ animée d’une vitesse $\vv{v}$ une
+version gravitationnelle de la force de Lorentz et il semble tout aussi naturel
+de supposer que cette force soit égale à
+$m\vv{E}_g+m\vv{v}\times\vv{B}_g$. Toutefois, un calcul approché en Relativité
+Générale montre que pour des particules non-relativistes ($v/c\ll1$) évoluant
+dans un champ gravitationnel suffisamment faible pour être convenablement décrit
+par un champ GEM ($\vv{E}_g,\vv{B}_g$), on a en réalité
+#+BEGIN_SRC latex
+  \begin{align}
+    \vv{F}=m\vv{E}_g+4m\vv{v}\times\vv{B}_g
+  \end{align}
+#+END_SRC
+Le facteur 4 apparaissant dans le terme gravitomagnétique tient en fait au
+caractère strictement tensoriel de la gravitation, par opposition au caractère
+vectoriel de l’électromagnétisme.
+
+10) [@10] Montrer que l’expression (2) est compatible avec votre interprétation
+    des termes figurant dans l’équation de conservation de l’énergie
+    gravitationnelle obtenue à la question précédente. /Indication : on
+    calculera la puissance de la force de Lorentz gravitationnelle s’exerçant/
+    /sur une particule de masse $m$ animée d’une vitesse $\vv{v}$/.
+#+END_QUESTION
+
+10) [@10] La puissance $\mathcal{P}$ de la force de Lorentz gravitationnelle
+    s’exerçant sur une particule ponctuelle $M$ de masse $m$ animée d’une
+    vitesse $\vv{v}$ est donnée par
+    #+BEGIN_SRC latex
+      \begin{align*}
+        \mathcal{P}=m\left(\vv{E}_g(M,t)+\vv{v}\times\vv{B}_g(M,t)\right)\cdot\vv{v}=m\vv{E}_g(M,t)\cdot\vv{v}=\int_{\mathbb{R}^3}d^3x\vv{E}_g(\vv{x},t)\cdot\vv{j}(\vv{x},t)
+      \end{align*}
+    #+END_SRC
+    avec ici
+    #+BEGIN_SRC latex
+      \begin{align*}
+        \vv{j}=m\vv{v}\delta_M.
+      \end{align*}
+    #+END_SRC
+    On retrouve donc bien -- au signe près -- la puissance cédée à la matière
+    par le champ gravitationnel.
+
+#+BEGIN_QUESTION
+11) [@11] En quoi l’expression (2) diffère-t-elle de la force gravitationnelle
+    newtonnienne ?
+#+END_QUESTION
+
+11) [@11] La force gravitationnelle newtonnienne s’écrit $m\vv{g} =
+    m\vv{E}_g$. C’est la partie gravitoélectrique de la force de Lorent GEM. La
+    contribution non-newtonnienne responsable de l’effet Lense-Thirring est donc
+    la composante gravitomagnétique de cette force.
+
+#+BEGIN_QUESTION
+Cette différence est à l’origine de l’effet Lense-Thirring que l’on se propose
+d’étudier à présent.
+
+12) [@12] Expliquer, par analogie avec l’électromagnétisme, pourquoi le champ
+    gravitomagnétique est non-nul au voisinage d’un astre en rotation.
+#+END_QUESTION
+
+12) [@12] Un astre en rotation est constitué de masses en mouvement. Dans le
+    cadre de notre analogie EM/GEM, cela revient à considérer des charges en
+    mouvement, autrement dit des courants. On s’attend donc à avoir un champ
+    gravitomagnétique non-nul au voisinage d’un astre en rotation.
+
+#+BEGIN_QUESTION
+13) [@13] On assimile la Terre à une boule homogène de centre $O$, de masse $M$
+    = 5,97.10^{24}\nbsp{}kg et de rayon $R_T$ = 6371 km, en rotation à la vitesse
+    angulaire constante $\vv{\Omega}=\Omega\vv{u}_z$ dans le référentiel
+    géocentrique supposé galiléen. Déterminer le champ gravitoélectrique associé
+    à l’aide du théorème de Gauss. On adoptera les coordonnées sphériques $(r,
+    \theta, \phi)$ centrées en $O$, $\theta$ étant mesuré à partir de l’axe $Oz$
+    de rotation de la Terre.
+#+END_QUESTION
+
+13) [@13] On est en régime statique. Le champ $\vv{E}_g$ est donc indépendant du
+    temps. Soit $M$ un point de l’espace. Tout plan contenant le centre $O$ de
+    la Terre et le point $M$ est un plan de symétrie de la distribution de masse
+    et le vecteur $\vv{E}_g(M)$ est contenu dans ce plan. On en déduit que
+    $\vv{E}_g(M)$ est radial. On adopte les coordonnées sphériques ($r, \theta,
+    \phi$) centrées en $O$, $\theta$ étant mesuré à partir de l’axe $Oz$ de
+    rotation de la Terre. Alors $\vv{E}_g(M)=E_r(r,\theta,\phi)\vv{u}_r$. La
+    distribution de masses étant par ailleurs invariant par toutes les rotations
+    fixant $O$, on a finalement $\vv{E}_g(M)=E_r(r)\vv{u}_r$. En appliquant le
+    théorème de Gauss à la sphère $\mathbb{S}_r$ de centre $O$ et de rayon $r$,
+    on obtient pour tout $r > R_T$,
+    #+BEGIN_SRC latex
+      \begin{align*}
+        \int_{\mathbb{S}_r}d\vv{S}\cdot\vv{E}_g=4\pi r^2E_r(r)=-4\pi G_NM,
+      \end{align*}
+    #+END_SRC
+    soit finalement
+    #+BEGIN_SRC latex
+      \begin{align*}
+        \forall r>R_T\quad\vv{E}_g(r)=-\frac{G_NM}{r^2}\vv{u}_r.
+      \end{align*}
+    #+END_SRC
+#+BEGIN_QUESTION
+14) [@14] Calculer, en coordonnées sphériques, $\vv{j}(\vv{r})$ pour la Terre,
+    dans le modèle de la question précédente.
+#+END_QUESTION
+
+14) [@14] Tout point $M$ de la Terre est animé, du fait de la rotation de cette
+    dernière, d’une vitesse
+    #+BEGIN_SRC latex
+      \begin{align*}
+        \vv{v}_M=\vv{\Omega}\times\vv{OM}.
+      \end{align*}
+    #+END_SRC
+    On a donc, par définition
+    #+BEGIN_SRC latex
+      \begin{align*}
+        \vv{j}(\vv{r})=\rho\vv{v}(\vv{r})=\rho\vv{\Omega}\times\vv{r}.
+      \end{align*}
+    #+END_SRC
+    Dans les coordonnées sphériques ($r,\theta,\phi$), on trouve donc
+    #+BEGIN_SRC latex
+      \begin{align*}
+        \vv{j}(r,\theta,\phi)=\rho\Omega r\vv{u}_z\times\vv{u}_r=\rho\Omega r\sin\theta\vv{u}_\phi.
+      \end{align*}
+    #+END_SRC
+#+BEGIN_QUESTION
+15) [@15] En utilisant les symétries de $\vv{j}(\vv{r})$, déterminer la
+    direction du champ gravitomagnétique dans le plan équatorial de la Terre
+    ($\theta=\pi/2$) et sur son axe de rotation $Oz$. De quelles coordonnées,
+    parmi les coordonnées sphériques $(r,\theta,\phi)$ le champ $\vv{B}_g$
+    dépend-il ?
+#+END_QUESTION
+
+15) [@15] D’après la question précédente, la distribution de courants est
+    invariante par rotation d’axe Oz et le champ $\vv{B}_g$ est donc indépendant
+    de la coordonnée $\phi$. De plus, il est clair que la plan équatorial de la
+    Terre est un plan de symétrie de la distribution de courants
+    ($\vv{j}(r,\pi-\theta) = \vv{j}(r,\theta)$). Le pseudo-vecteur $\vv{B}_g$
+    est donc orthogonal à ce plan, autrement dit
+    $\vv{B}_g(r,\pi/2)=B_\theta(r,\pi/2)\vv{u}_\theta=-B_\theta(r,\pi/2)$. Enfin,
+    tout plan contenant l’axe $Oz$ est un plan d’antisymétrie de la distribution
+    de courants ($\vv{j}(r,\theta,\phi+\pi) = −\vv{j}(r, \theta, \phi)$) et, sur
+    l’axe $Oz$, le pseudo-vecteur $\vv{B}_g$ est contenu dans l’intersection de
+    ces plans, c’est-à-dire que
+    $\vv{B}_g(r,0)=-\vv{B}_g(r,\pi)=B_r(r,0)\vv{u}_r=B_g\vv{u}_z$.
+
+#+BEGIN_QUESTION
+16) [@16] On considère un point matériel $P$ en orbite circulaire de rayon $R$
+    dans le plan équatorial de la Terre ($\theta=\pi/2$). En supposant, dans un
+    premier temps, que $P$ est soumis au seul champ gravito-électrique terrestre
+    $\vv{E}_g$ (on suppose donc que $\vv{B}_g=\vv{0}$), exprimer, à l’aide de la
+    relation fondamentale de la dynamique, la vitesse angulaire $\omega_0$ de
+    $P$ sur son orbite en fonction de $R$.
+#+END_QUESTION
+
+16) [@16] On suppose tout d’abord que $P$ décrit, à la pulsation $\omega_0$, une
+    orbite circulaire de rayon $R$ dans le plan équatorial sous l’action du seul
+    champ gravitoélectrique $\vv{E}_g$. En appliquant le PFD à $P$, on obtient
+
+    #+BEGIN_SRC latex
+      \begin{align*}
+        -m\omega_0^2R\vv{u}_r=m\vv{E}_g=-\frac{G_NMm}{R^2}\vv{u}_r,
+      \end{align*}
+    #+END_SRC
+    soit
+    #+BEGIN_SRC latex
+      \begin{align*}
+        \omega_0=\left(\frac{G_NM}{R^3}\right)^{1/2}
+      \end{align*}
+    #+END_SRC
+    ce qui constitue la troisième loi de Kepler.
+
+#+BEGIN_QUESTION
+17) [@17] On suppose à présent que $\vv{B}_g\neq\vv{0}$. Déterminer la
+    composante gravitomagnétique de la force de Lorentz à laquelle $P$ est
+    soumis, en fonction de $R$, $B_g=\vv{u}_z\cdot\vv{B}_g$ et de la vitesse
+    angulaire $\omega$ de P sur son orbite. À l’aide de la relation fondamentale
+    de la dynamique, exprimer $\omega$ en fonction de $B_g$ et de la vitesse
+    angulaire $\omega_0$ obtenue à la question précédente.
+#+END_QUESTION
+
+17) [@17] En supposant à présent que $P$ décrit, à la pulsation $\omega$, une
+    orbite circulaire de rayon $R$ dans le plan équatorial sous l’action
+    combinée de $\vv{E}_g$ et $\vv{B}_g$, on a
+    #+BEGIN_SRC latex
+      \begin{align*}
+        -m\omega^2R\vv{u}_r&=m\left(\vv{E}_g+4\vv{v}\times\vv{B}_g\right)\\
+        &=m\vv{E}_g+4m\left(\vv{\omega}\times\vv{r}\right)\times\vv{B}_g\\
+        &=m\vv{E}_g+4m\omega RB_g\vv{u}_\phi\times\vv{u}_z\\
+        &=m\vv{E}_g+4m\omega RB\vv{u}_r\\
+        &=-m\omega_0^2R\vv{u}_r+4m\omega RB_g\vv{u}_r
+      \end{align*}
+    #+END_SRC
+
+    On en déduit
+    #+BEGIN_SRC latex
+      \begin{align*}
+        \omega^2=\omega_0^2-4\omega B_g
+      \end{align*}
+    #+END_SRC
+    et finalement
+    #+BEGIN_SRC latex
+      \begin{align*}
+        \omega=-2B_g\pm\sqrt{4B_g^2+\omega_0^2}.
+      \end{align*}
+    #+END_SRC
+
+    On met ainsi en évidence, sur le cas particulier d’une orbite équatoriale
+    circulaire, une dépendance sans équivalent dans le cadre newtonnien de la
+    période orbitale d’un satellite dans la rotation propre de son astre. Cet
+    effet est connu sous le nom /d’effet d’horloge/.
+
+#+BEGIN_QUESTION
+On considère à présent le champ gravitomagnétique de la Terre dans
+l’approximation dipolaire, c’est- à-dire qu’en première approximation, on
+suppose que
+#+BEGIN_SRC latex
+  \begin{align}
+    \vv{B}_g=-\frac{G_N}{2c^2}\frac{3\vv{r}(\vv{r}\cdot\vv{S})-(\vv{r}\cdot\vv{r})\vv{S}}{r^5}
+  \end{align}
+#+END_SRC
+où $\vv{S}$ est le moment cinétique de la Terre et équivaut, dans cette
+approximation dipolaire, au moment dipolaire magnétique $\vv{m}$.
+
+18) [@18] Relier $\vv{S}$ à $\vv{\Omega}, M$ et $R_T$, en supposant que le moment
+    principal d’inertie $I$ associé à la rotation propre de la Terre vaut
+    $I=\alpha M R_T^2$ avec $\alpha\simeq0,33$. Cette dernière hypothèse vous
+    semble-t-elle compatible avec le modèle adopté jusqu’ici pour la Terre ?
+    Justifiez brièvement votre réponse. En déduire la valeur numérique de
+    $S=\vv{u}_z\cdot\vv{S}$.
+#+END_QUESTION
+
+18) [@18] D’après l’énoncé, on a
+    #+BEGIN_SRC latex
+      \begin{align*}
+        \vv{S}=I\vv{\Omega}=\alpha MR_T^2\Omega\vv{u}_z,
+      \end{align*}
+    #+END_SRC
+    ce qui donne la valeur numérique
+    #+BEGIN_SRC latex
+      \begin{align*}
+        S=\vv{u}_z\cdot\vv{S}=0,33MR_T^2\Omega=\unit[5,82.10^{33}]{kg.m^2.s^{-1}}
+      \end{align*}
+    #+END_SRC
+
+    La valeur du moment d’inertie proposée est sensiblement différente de celle
+    qu’on obtiendrait en assimilant la Terre à une boule homogène. Dans ce cas,
+    on aurait en effet $I=2M R_T^2/5$. Or $\alpha < 2/5$.  La valeur proposée
+    par l’énoncé est en fait une valeur expérimentale. Elle diffère donc
+    naturellement de la valeur obtenue pour le modèle de la boule homogène du
+    fait que la Terre n’est ni homogène ni rigoureusement sphérique.
+
+#+BEGIN_QUESTION
+19) [@19] A l’aide de (3) et de votre réponse à la question 16, estimer la
+    variation relative $|\omega-\omega_0|/|\omega_0|$ due au champ
+    gravitomagnétique terrestre de la période de révolution d’un satellite
+    terrestre sur une orbite équatoriale d’altitude $h$ = 642 km.
+#+END_QUESTION
+
+19) [@19] De l’équation (3) de l’énoncé, on tire que, sur une orbite équatoriale
+    circulaire d’altitude $h$ = 642 km,
+    #+BEGIN_SRC latex
+      \begin{align*}
+        \vv{B}_g=\frac{G_N\vv{S}}{2c^2(R_T+h)^3},
+      \end{align*}
+    #+END_SRC
+    soit numériquement
+    #+BEGIN_SRC latex
+      \begin{align*}
+        B_g=\vv{u}_z\cdot\vv{B}_g=\frac{G_NS}{2c^2(R_T+h)^3}=\unit[7,58.10^{-15}]{s^{-1}}
+      \end{align*}
+    #+END_SRC
+    Pour cette même orbite, on a d'après la question 16)
+    #+BEGIN_SRC latex
+      \begin{align*}
+        \omega_0=\left(\frac{G_NM}{(R_T+h)^3}\right)^{1/2}=\unit[1,10.10^{-3}]{rad.s^{-1}}
+      \end{align*}
+    #+END_SRC
+    Ainsi, $B_g/\omega_0\sim10^{-11}$. On a donc
+    #+BEGIN_SRC latex
+      \begin{align*}
+        \left|\frac{\omega-\omega_0}{\omega_0}\right|\simeq\frac{2B_g}{\omega_0}\sim10^{-11}
+      \end{align*}
+    #+END_SRC
 ** Footnotes
 
 [fn:2] il s'agit de la puissance sortant d'une surface *fermée* qui correspond
@@ -1031,7 +1517,7 @@ $\vv{R}=\frac{\vv{E}\times\vv{B}}{\mu_0}$ et
 $\vv{B}=\frac{\vv{k}\times\vv{E}}{\omega}$
 
 * TD2 : Électrostatique dans le vide
-** Rayon classique de l'électron
+** COMMENT Rayon classique de l'électron
 #+BEGIN_QUESTION
 1) [@1] Calculer l'énergie électrostatique d'une boule de rayon $R$, chargée en
    volume avec la densité volumique uniforme $\rho$.
@@ -1201,7 +1687,7 @@ $\vv{E}=-\grad\,V=-\tfrac{dV}{dr}\vv{u}_r$. Soit
   \end{align*}
 #+END_SRC
 
-** Boule conductrice en présence d'une charge ponctuelle : méthode des images
+** COMMENT Boule conductrice en présence d'une charge ponctuelle : méthode des images
 #+BEGIN_CENTER
 #+ATTR_LATEX: :width 0.5\linewidth
 [[./figures/boule_conductrice.pdf]]
@@ -1326,7 +1812,7 @@ cette charge.
       $q'$".
 
       #+ATTR_LATEX: :align p{0.35\textwidth}p{0.05\textwidth}p{0.35\textwidth}
-      | [[./figures/boule_conductrice0.pdf]] | @@latex:\vspace{-3.75cm}\LARGE{}$\bm{\equiv}$@@  | [[./figures/boule_conductrice1.pdf]] |
+      | [[./figures/boule_conductrice0.pdf]] | @@latex:\vspace{+3.75ecm}\LARGE{}$\bm{\equiv}$@@ | [[./figures/boule_conductrice1.pdf]] |
    4) Calcul du champ $\vv{E}(r\geq R)$ : combinaison des champs coulombiens de
       chacune des charges $q$ et $q'$
       #+BEGIN_SRC latex
@@ -1508,7 +1994,7 @@ cette charge.
         \end{eqnarray*}
       #+END_SRC
       Le champ ainsi généré correspond au champ électrique généré par un dipôle
-      électrique $\vv{p}=q\vv{PN}$ (où la charge $q$ est en $P$ et la charge
+      électrique $\vv{p}=q\vv{NP}$ (où la charge $q$ est en $P$ et la charge
       $-q$ est en $N$, /cf./ Cours Chapitre 2, page 44).
    2) Nous avons établi à la question 1.d) qu'en présence d'une charge
       ponctuelle $q$, la densité surfacique de charge était
@@ -1593,7 +2079,7 @@ cette charge.
           \vv{F}_2&=-\vv{F}_1=-\frac{\pi R^2\,\sigma_0^2}{4\epsilon_0}\vv{u}_z
         \end{align*}
       #+END_SRC
-** Forces de Van der Waals                                              :DM:
+** COMMENT Forces de Van der Waals                                              :DM:
 *** Modèle de l'électron élastiquement lié : moment dipolaire induit d'un atome
 
 #+BEGIN_CENTER
@@ -1915,7 +2401,7 @@ $\vv{p}_1=\vv{p}_2=\vv{p}$, on obtient une force moyenne
   \end{align*}
 #+END_SRC
 
-* TD3 : Les milieux diélectriques
+* COMMENT TD3 : Les milieux diélectriques
 ** Introduction
 Historiquement, la découverte expérimentale des diélectriques est à mettre au
 profit de Michael Faraday qui nota que l'introduction d'un isolant entre les
@@ -2928,7 +3414,7 @@ $\div\vv{E}=\frac{\rho_\text{tot.}}{\epsilon_0}$ d'où
 S'il n'y a donc pas de densité volumique de charge libre $\rho_\ell$, la densité
 volumique de charge liée est donc également nulle.
 
-* TD4 : Magnétostatique
+* COMMENT TD4 : Magnétostatique
 ** Introduction
 En magnétostatique, les équations locales deviennent
 #+BEGIN_SRC latex
@@ -3878,7 +4364,7 @@ $r\cos\theta$ et est lui aussi solution de l'équation de Laplace. La somme des
 deux solutions justifie ainsi de la forme de la solution utilisée dans cet
 exercice.
 
-* TD5 : Milieux magnétiques
+* COMMENT TD5 : Milieux magnétiques
 ** Introduction
 Dans la plupart des matériaux soumis à un champ magnétique, les charges liées se
 déplacent à l'échelle atomique faisant apparaître des boucles de courant /i.e./
@@ -4701,7 +5187,7 @@ $\vv{B}$ est $E_p=-\vv{m}.\vv{B}$.
          $\lambda_0=4nR=\unit[521]{nm}$. La solution devient donc verte. Cette
          technique de spectrométrie permet donc de mesurer la taille $R$ des
          gouttelettes.
-* TD6 : Rayonnement
+* COMMENT TD6 : Rayonnement
 ** Rayonnement d'une antenne
 #+BEGIN_QUESTION
 On considère une portion de conducteur rectiligne $MN$ de longueur \ell, dirigée
@@ -5385,7 +5871,7 @@ repos.
       de Higgs au LHC (pour une énergie de faisceau de 14 TeV et une masse du
       Higgs voisine de 125 GeV) est voisine de 50 picobarns soit 50 10^{-12} barn
       soit 50 10^{-40} m^{2}.
-* TD7 : Propagation dans le vide et les milieux diélectriques
+* COMMENT TD7 : Propagation dans le vide et les milieux diélectriques
 ** Réflexion d'onde en incidence oblique sur un conducteur parfait
 #+BEGIN_QUESTION
 On considère une surface plane séparant le vide d'un conducteur métallique
@@ -6499,7 +6985,7 @@ l'expression de la matrice inverse $\mathcal{A}^{-1}$ est
   \end{align*}
 #+END_SRC
 
-* TD8 : Guides d'onde
+* COMMENT TD8 : Guides d'onde
 ** Cavité cylindrique résonante
 #+BEGIN_QUESTION
 On cherche à étudier les caractéristiques de certains modes d'une cavité
@@ -7153,7 +7639,7 @@ l'équation de Bessel:
 ** Footnotes
 
 [fn:11] pour les fonctions de Bessel, on considère toujours \lambda > 0
-* TD9 : Induction électromagnétique
+* COMMENT TD9 : Induction électromagnétique
 ** Introduction
 En régime variable, le champ magnétique demeure toujours à flux conservatif à
 savoir que
@@ -7714,7 +8200,7 @@ fréquence de 20 Hz et au-dessus d'un seuil d'intensité de 10 mT), un effet
 physiologique caractérisé par la perception visuelle de taches lumineuses; ce
 sont les magnétophosphènes."
 
-* TD10 : Électromagnétisme & relativité
+* COMMENT TD10 : Électromagnétisme & relativité
 ** Introduction
 *Transformation de Lorentz :* $\beta=\tfrac{v}{c}$ et
  $\gamma=\tfrac{1}{\surd{1-\beta^2}}$. Si $\mathcal{R}'$ est en mouvement
