@@ -3,10 +3,10 @@
 #+EMAIL:  xavier.garrido@u-psud.fr
 #+OPTIONS: ^:{} toc:2 tags:t author:t email:t split:html
 #+LATEX_CLASS: teaching-class
-# #+LATEX_CLASS_OPTIONS: [novc]
+#+LATEX_CLASS_OPTIONS: [novc]
 
-* COMMENT TD1 : Équations de Maxwell dans le vide et champ électromagnétique
-** Équations de Maxwell dans le vide
+* TD1 : Équations de Maxwell dans le vide et champ électromagnétique
+** COMMENT Équations de Maxwell dans le vide
 #+BEGIN_QUESTION
 1) [@1] On considère une onde plane scalaire en notation complexe :
    #+BEGIN_SRC latex
@@ -539,7 +539,7 @@ ultra-courte comme sur le montage ci-dessous
 [[file:figures/kapustinsky_circuit.pdf]]
 #+END_CENTER
 
-** "Propriétés mécaniques" du champ électromagnétique
+** COMMENT "Propriétés mécaniques" du champ électromagnétique
 
 #+BEGIN_QUESTION
 *Énergie*
@@ -1517,7 +1517,7 @@ $\vv{R}=\frac{\vv{E}\times\vv{B}}{\mu_0}$ et
 $\vv{B}=\frac{\vv{k}\times\vv{E}}{\omega}$
 
 * TD2 : Électrostatique dans le vide
-** COMMENT Rayon classique de l'électron
+** Rayon classique de l'électron
 #+BEGIN_QUESTION
 1) [@1] Calculer l'énergie électrostatique d'une boule de rayon $R$, chargée en
    volume avec la densité volumique uniforme $\rho$.
@@ -1621,7 +1621,7 @@ Il faut appliquer un traitement quantique aux systèmes dont les dimensions
 caractéristiques sont inférieures à la longueur d'onde de de Broglie
 $\lambda=\frac{h}{p}$. Cette dimension fixe la limite entre traitement classique
 et traitement quantique. La valeur caractéristique de
-$\lambda=\frac{h}{m_ec}\simeq \unit[2.4\cdot10^{-12}]{m}$.
+$\lambda=\frac{h}{m_ec}\simeq$ 2.4\cdot10^{-12} m.
 
 ** Condensateur cylindrique
 
@@ -1687,7 +1687,7 @@ $\vv{E}=-\grad\,V=-\tfrac{dV}{dr}\vv{u}_r$. Soit
   \end{align*}
 #+END_SRC
 
-** COMMENT Boule conductrice en présence d'une charge ponctuelle : méthode des images
+** Boule conductrice en présence d'une charge ponctuelle : méthode des images
 #+BEGIN_CENTER
 #+ATTR_LATEX: :width 0.5\linewidth
 [[./figures/boule_conductrice.pdf]]
@@ -1702,7 +1702,7 @@ cette charge.
    1) Quel est le potentiel dans l'ensemble de la boule ? Par des
       considérations de symétrie, simplifier l'expression du champ
       électrostatique $\vv{E}$ (direction et dépendance des composantes par
-      rapport aux différentes coordonées). Quel système de coordonnées a-t-on
+      rapport aux différentes coordonnées). Quel système de coordonnées a-t-on
       intérêt à adopter ?
    2) Montrer qu'il est possible d'obtenir $V=0$ sur la surface de la boule de
       centre $O$ et de rayon $R$ dans le vide en remplaçant la boule conductrice
@@ -1812,7 +1812,7 @@ cette charge.
       $q'$".
 
       #+ATTR_LATEX: :align p{0.35\textwidth}p{0.05\textwidth}p{0.35\textwidth}
-      | [[./figures/boule_conductrice0.pdf]] | @@latex:\vspace{+3.75ecm}\LARGE{}$\bm{\equiv}$@@ | [[./figures/boule_conductrice1.pdf]] |
+      | [[./figures/boule_conductrice0.pdf]] | @@latex:\vspace{+3.75cm}\LARGE{}$\bm{\equiv}$@@  | [[./figures/boule_conductrice1.pdf]] |
    4) Calcul du champ $\vv{E}(r\geq R)$ : combinaison des champs coulombiens de
       chacune des charges $q$ et $q'$
       #+BEGIN_SRC latex
@@ -2079,7 +2079,7 @@ cette charge.
           \vv{F}_2&=-\vv{F}_1=-\frac{\pi R^2\,\sigma_0^2}{4\epsilon_0}\vv{u}_z
         \end{align*}
       #+END_SRC
-** COMMENT Forces de Van der Waals                                              :DM:
+** Forces de Van der Waals
 *** Modèle de l'électron élastiquement lié : moment dipolaire induit d'un atome
 
 #+BEGIN_CENTER
@@ -2401,7 +2401,7 @@ $\vv{p}_1=\vv{p}_2=\vv{p}$, on obtient une force moyenne
   \end{align*}
 #+END_SRC
 
-* COMMENT TD3 : Les milieux diélectriques
+* TD3 : Les milieux diélectriques
 ** Introduction
 Historiquement, la découverte expérimentale des diélectriques est à mettre au
 profit de Michael Faraday qui nota que l'introduction d'un isolant entre les
@@ -2441,6 +2441,7 @@ où $\epsilon$ et $\epsilon_r$ sont appellés respectivement la permitivité
 absolue et la permitivité relative du diélectrique.
 
 ** Boule uniformément polarisée
+
 #+BEGIN_QUESTION
 On considère une boule uniformément polarisée de rayon $R$.
 
@@ -3036,8 +3037,8 @@ Laplace[fn:6] $\Delta V_1=0$. Les conditions aux limites sont les suivantes
 2) [@2] On essaie un potentiel ne dépendant que de $r$ soit $V(r)$.
    1) Déterminer $V_1(r)$ en fonction de $V_S$.
    2) En déduire le champ électrique $\vv{E}_1$.
-   3) Exprimer les densités superficielles de charges libres qur la boule
-      $\sigma{1\ell}$ et $\sigma_{2\ell}$ en fonction de $V_S$ et de $R$. En
+   3) Exprimer les densités superficielles de charges libres de la boule
+      $\sigma_{1\ell}$ et $\sigma_{2\ell}$ en fonction de $V_S$ et de $R$. En
       déduire les densités de charges surfaciques de polarisation.
    4) Vérifier que $V(r)$ est bien solution du problème.
 #+END_QUESTION
@@ -3082,8 +3083,8 @@ Laplace[fn:6] $\Delta V_1=0$. Les conditions aux limites sont les suivantes
       \ding{193}, on utilise la même relation soit
       #+BEGIN_SRC latex
         \begin{align*}
-          \vv{D}_2(R).\vv{u}_r&=\sigma_{\ell1}\\
-          \epsilon_r\epsilon_0E_2(R)&=\sigma_{\ell2}
+          \vv{D}_2(R).\vv{u}_r&=\sigma_{\ell2-}\\
+          \epsilon_r\epsilon_0\vv{E}_2(R).\vv{u}_r&=\sigma_{\ell2}
         \end{align*}
       #+END_SRC
       Pour calculer $\vv{E}_2.\vv{u}_r$, on utilise la relation de continuité de
@@ -3414,7 +3415,7 @@ $\div\vv{E}=\frac{\rho_\text{tot.}}{\epsilon_0}$ d'où
 S'il n'y a donc pas de densité volumique de charge libre $\rho_\ell$, la densité
 volumique de charge liée est donc également nulle.
 
-* COMMENT TD4 : Magnétostatique
+* TD4 : Magnétostatique
 ** Introduction
 En magnétostatique, les équations locales deviennent
 #+BEGIN_SRC latex
@@ -3441,7 +3442,6 @@ Poisson $\vv{\Delta}\vv{A}=-\mu_0\vv{j}$ soit
     \vv{B}(M)&=\frac{\mu_0}{4\pi}\iiint\frac{\vv{j}(P)\times\vv{PM}}{PM^3}\,d\tau=\frac{\mu_0}{4\pi}\oint_\mathcal{C}\frac{I\vv{d\ell}\times\vv{PM}}{PM^3}
   \end{align*}
 #+END_SRC
-
 ** Solénoïde fini
 
 #+BEGIN_QUESTION
@@ -4339,7 +4339,6 @@ $\omega^2=\frac{2\alpha}{mh_0^3}$ soit
     T&=\unit[0.02]{s}
   \end{align*}
 #+END_SRC
-
 ** Footnotes
 
 [fn:7] la dérivée de $\frac{1}{\tan\alpha}$ est égale à
@@ -4364,11 +4363,11 @@ $r\cos\theta$ et est lui aussi solution de l'équation de Laplace. La somme des
 deux solutions justifie ainsi de la forme de la solution utilisée dans cet
 exercice.
 
-* COMMENT TD5 : Milieux magnétiques
+* TD5 : Milieux magnétiques
 ** Introduction
 Dans la plupart des matériaux soumis à un champ magnétique, les charges liées se
 déplacent à l'échelle atomique faisant apparaître des boucles de courant /i.e./
-*des dipôles magnétiques* : la milieu s'aimante. Ainsi, l'aimantation $\vv{M}$
+*des dipôles magnétiques* : le milieu s'aimante. Ainsi, l'aimantation $\vv{M}$
 d'un matériau correspond à la densité volumique de moment magnétique $\vv{m}$
 soit
 #+BEGIN_SRC latex
@@ -4406,7 +4405,7 @@ Le théorème d'Ampère généralisé s'écrit
   \end{align*}
 #+END_SRC
 
-Les relations de passage demeurent inchangés pour ce qui concerne la composante
+Les relations de passage demeurent inchangées pour ce qui concerne la composante
 normale du champ magnétique
 $\vv{n}_{1\to2}.\left(\vv{B}_2-\vv{B}_1\right)=0$. La composante tangentielle
 devient
@@ -4853,43 +4852,39 @@ faudrait augmenter la hauteur $h$ de l'aimant jusqu'à une valeur de l'ordre de
 
 ** Chaîne de gouttelettes d'une émulsion ferrofluide                    :DM:
 #+BEGIN_QUESTION
-Un ferrofluide s'obtient en dispersant dans de l'huile de petites particules
-solides aimantées. On obtient alors un fluide aux propriétés particulières. En
-particulier, les particules ont tendance à s'aligner le long des lignes de champ
-ce qui génère des pointes tout à fait inhabituelles dans les liquides.
+Un ferrofluide s'obtient en dispersant dans de l'huile de petites particules solides aimantées. On
+obtient alors un fluide aux propriétés particulières. En particulier, les particules ont tendance à
+s'aligner le long des lignes de champ ce qui génère des pointes tout à fait inhabituelles dans les
+liquides.
 
-Une émulsion ferrofluide est une suspension diluée de gouttelettes de ce fluide
-dans l'eau. Des techniques physico-chimiques permettent de contrôler la taille
-des gouttelettes et la stabilité de cette suspension. La taille des gouttelettes
-est d'environ un micromètre. Sous l'effet d'un champ magnétique extérieur, les
-gouttelettes s'organisent en longues chaînes parallèles au champ.
+Une émulsion ferrofluide est une suspension diluée de gouttelettes de ce fluide dans l'eau. Des
+techniques physico-chimiques permettent de contrôler la taille des gouttelettes et la stabilité de
+cette suspension. La taille des gouttelettes est d'environ un micromètre. Sous l'effet d'un champ
+magnétique extérieur, les gouttelettes s'organisent en longues chaînes parallèles au champ.
 
-On rappelle qu'un dipôle magnétique $\vv{m}$ crée un champ magnétique, en
-coordonnées sphériques, de la forme :
+On rappelle qu'un dipôle magnétique $\vv{m}$ crée un champ magnétique, en coordonnées sphériques, de
+la forme :
 #+BEGIN_SRC latex
   \begin{align*}
     \vv{B}=\frac{\mu_0}{4\pi}\left(\frac{2m\cos\theta}{r^3}\vv{u}_r+\frac{m\sin\theta}{r^3}\vv{u}_\theta\right)
   \end{align*}
 #+END_SRC
-et que l'énergie potentielle d'un dipôle $\vv{m}$ soumis à un champ magnétique
-$\vv{B}$ est $E_p=-\vv{m}.\vv{B}$.
+et que l'énergie potentielle d'un dipôle $\vv{m}$ soumis à un champ magnétique $\vv{B}$ est
+$E_p=-\vv{m}.\vv{B}$.
 
-1) [@1] On considère deux dipôles magnétiques $\vv{m}_1$ et $\vv{m}_2$
-   identiques, parallèles à $\vv{u}_z$ et de même sens.
-   1) Donner l'expression de l'énergie potentielle d'interaction $W$ entre
-      les dipôles $\vv{m}_1$, placé à l'origine, et $\vv{m}_2$, au point de
-      coordonnées polaires $(r,\theta)$. En déduire l'expression de la force
-      d'interaction $\vv{F}$ exercée par $\vv{m}_1$ sur $\vv{m}_2$.
-   2) À $r$ fixé, pour quelle direction \theta l'énergie est-elle minimale ? La
-      force d'interaction est-elle répulsive ou attractive dans cette direction
-      ?
+1) [@1] On considère deux dipôles magnétiques $\vv{m}_1$ et $\vv{m}_2$ identiques, parallèles à
+   $\vv{u}_z$ et de même sens.
+   1) Donner l'expression de l'énergie potentielle d'interaction $W$ entre les dipôles $\vv{m}_1$,
+      placé à l'origine, et $\vv{m}_2$, au point de coordonnées polaires $(r,\theta)$. En déduire
+      l'expression de la force d'interaction $\vv{F}$ exercée par $\vv{m}_1$ sur $\vv{m}_2$.
+   2) À $r$ fixé, pour quelle direction \theta l'énergie est-elle minimale ? La force d'interaction
+      est-elle répulsive ou attractive dans cette direction ?
 #+END_QUESTION
 
 1) Interaction entre deux dipôles magnétiques identiques $m_1=m_2=m$
-   1) L'énergie potentielle s'écrit $W=-\vv{m_2}.\vv{B_1}$ où $\vv{m_2}$ est, en
-      coordonnées sphériques, égal à $(m\cos\theta, -m\sin\theta, 0)$ et
-      $\vv{B_1}$ correspond au champ magnétique généré par le dipôle $m_1$ au
-      point $P$. On déduit l'expression de $W$
+   1) L'énergie potentielle s'écrit $W=-\vv{m_2}.\vv{B_1}$ où $\vv{m_2}$ est, en coordonnées
+      sphériques, égal à $(m\cos\theta, -m\sin\theta, 0)$ et $\vv{B_1}$ correspond au champ
+      magnétique généré par le dipôle $m_1$ au point $P$. On déduit l'expression de $W$
       #+BEGIN_SRC latex
         \begin{align*}
           W&=-\left|\begin{array}{l}
@@ -4918,46 +4913,40 @@ $\vv{B}$ est $E_p=-\vv{m}.\vv{B}$.
           \end{array}\right.
         \end{align*}
       #+END_SRC
-   2) À distance $r$ fixée, l'énergie est minimale dès lors que
-      $3\cos^2\theta-1$ est maximal soit pour $\theta=0\,[\pi]$. La composante
-      polaire de la force $\vv{F}$ est alors nulle tandis que la composante
-      radiale se réduit à
+   2) À distance $r$ fixée, l'énergie est minimale dès lors que $3\cos^2\theta-1$ est maximal soit
+      pour $\theta=0\,[\pi]$. La composante polaire de la force $\vv{F}$ est alors nulle tandis que
+      la composante radiale se réduit à
       #+BEGIN_SRC latex
         \begin{align*}
           F_r&=-\frac{3\mu_0m^2}{2\pi r^4}
         \end{align*}
       #+END_SRC
-      Les moments magnétiques $\vv{m_1}$ et $\vv{m_2}$ s'alignent selon la
-      direction portant les deux dipôles et la force est donc attractive.
+      Les moments magnétiques $\vv{m_1}$ et $\vv{m_2}$ s'alignent selon la direction portant les
+      deux dipôles et la force est donc attractive.
 
 #+BEGIN_QUESTION
-2) [@2] Chaque particule solide aimantée du ferrofluide porte un moment
-   magnétique permanent $\vv{\mu}$ et possède un volume $v$. On note \Phi la
-   fraction volumique en particules dans le fluide (\Phi \ll 1).
-   1) Expliquer qualitativement pourquoi, en l'absence de champ extérieur, cette
-      assemblée de particules aimantées ne possède aucune propriété magnétique
-      macroscopique.
-   2) On considère maintenant une goutte sphérique unique de ferrofluide de
-      rayon $R$ plongée dans l'eau. Sous l'effet d'un champ magnétique extérieur
-      $\vv{B}$, cette goutte acquiert une aimantation uniforme $\vv{M}$. Pour
-      des valeurs du champ pas trop élevées, cette aimantation lui est
-      proportionnelle; on pose alors $\vv{M}=\chi\vv{B}/\mu_0$ avec ici \chi \ll
-      1 à cause de la dilution et de l'agitation thermique. Quelle est la
-      dimension de \chi ? Quelle nom peut-on lui donner ? Quel est le moment
-      magnétique $\vv{m}^{(1)}$ de la goutte ?
+2) [@2] Chaque particule solide aimantée du ferrofluide porte un moment magnétique permanent
+   $\vv{\mu}$ et possède un volume $v$. On note \Phi la fraction volumique en particules dans le
+   fluide (\Phi \ll 1).
+   1) Expliquer qualitativement pourquoi, en l'absence de champ extérieur, cette assemblée de
+      particules aimantées ne possède aucune propriété magnétique macroscopique.
+   2) On considère maintenant une goutte sphérique unique de ferrofluide de rayon $R$ plongée dans
+      l'eau. Sous l'effet d'un champ magnétique extérieur $\vv{B}$, cette goutte acquiert une
+      aimantation uniforme $\vv{M}$. Pour des valeurs du champ pas trop élevées, cette aimantation
+      lui est proportionnelle; on pose alors $\vv{M}=\chi\vv{B}/\mu_0$ avec ici \chi \ll 1 à cause
+      de la dilution et de l'agitation thermique. Quelle est la dimension de \chi ? Quelle nom
+      peut-on lui donner ? Quel est le moment magnétique $\vv{m}^{(1)}$ de la goutte\nbsp{}?
 #+END_QUESTION
 2) [@2]
-   1) La fraction volumique en particules $\Phi$ est très faible donc les dipôles
-      sont très éloignés les uns des autres. Par conséquent, le champ magnétique
-      dû aux particules voisines est faible et les dipôles ne s'orientent pas les
-      uns par rapport aux autres : il n'y a pas d'effet proche à proche. Les
-      dipôles pointent donc dans des directions aléatoires, l'aimantation
-      résultante est nulle, le milieu n'ayant pas de propriété magnétique
-      macroscopique.
-   2) $\chi$ correspond à la susceptibilité magnétique et est sans
-      dimension. Sachant que l'aimantation est égale à la densité volumique de
-      moment magnétique $\vv{M}=\frac{d\vv{m}}{d\tau}$, on déduit que le moment
-      magnétique associé à chaque goutte s'écrit
+   1) La fraction volumique en particules $\Phi$ est très faible donc les dipôles sont très éloignés
+      les uns des autres. Par conséquent, le champ magnétique dû aux particules voisines est faible
+      et les dipôles ne s'orientent pas les uns par rapport aux autres : il n'y a pas d'effet proche
+      à proche. Les dipôles pointent donc dans des directions aléatoires, l'aimantation résultante
+      est nulle, le milieu n'ayant pas de propriété magnétique macroscopique.
+   2) $\chi$ correspond à la susceptibilité magnétique et est sans dimension. Sachant que
+      l'aimantation est égale à la densité volumique de moment magnétique
+      $\vv{M}=\frac{d\vv{m}}{d\tau}$, on déduit que le moment magnétique associé à chaque goutte
+      s'écrit
       #+BEGIN_SRC latex
         \begin{align*}
           \vv{m}^{(1)}&=\vv{M}\times V_\text{goutte}=\vv{M}\times\frac{4}{3}\pi R^3\\
@@ -4966,28 +4955,24 @@ $\vv{B}$ est $E_p=-\vv{m}.\vv{B}$.
       #+END_SRC
 
 #+BEGIN_QUESTION
-3) [@3] On considère une émulsion diluée de ces gouttelettes dans l'eau. Sous
-   l'action d'un champ extérieur uniforme $\vv{B}_0=B_0\vv{u}_z$, les
-   gouttelettes s'alignent et forment des chaînes de $N$ gouttelettes ($N$
-   \approx 30), parallèles au champ appliqué. Chaque gouttelette de rayon $R$
-   est assimilée à un dipôle magnétique $\vv{m}^{(N)}$. On néglige toute
-   interaction entre chaînes. Dans une chaîne isolée, supposée infinie, $d$
-   désigne la distance supposée constante entre les centres de deux gouttelettes
-   successives.
+3) [@3] On considère une émulsion diluée de ces gouttelettes dans l'eau. Sous l'action d'un champ
+   extérieur uniforme $\vv{B}_0=B_0\vv{u}_z$, les gouttelettes s'alignent et forment des chaînes de
+   $N$ gouttelettes ($N$ \approx 30), parallèles au champ appliqué. Chaque gouttelette de rayon $R$
+   est assimilée à un dipôle magnétique $\vv{m}^{(N)}$. On néglige toute interaction entre
+   chaînes. Dans une chaîne isolée, supposée infinie, $d$ désigne la distance supposée constante
+   entre les centres de deux gouttelettes successives.
    1) Expliquer pourquoi les moments s'alignent.
-   2) Soit une gouttelette quelconque de la chaîne. Calculer le champ
-      $\vv{B}_\infty$ créé par les autres gouttelettes sur celle-ci. Exprimer ce
-      champ en fonction de $\vv{m}^{(\infty)}$, de $d$ et de
-      $\alpha=\sum_{p=1}^\infty1/p^3\approx1.202$.
+   2) Soit une gouttelette quelconque de la chaîne. Calculer le champ $\vv{B}_\infty$ créé par les
+      autres gouttelettes sur celle-ci. Exprimer ce champ en fonction de $\vv{m}^{(\infty)}$, de $d$
+      et de $\alpha=\sum_{p=1}^\infty1/p^3\approx1.202$.
    3) Exprimer alors $\vv{m}^{(\infty)}$ en fonction de $\vv{B}_0$, \chi, $R$ et
       $d$.
 #+END_QUESTION
 3) [@3]
-   1) Les gouttelettes alignent toutes leur moment magnétique sur le champ
-      extérieur $\vv{B_0}$. Afin de minimiser l'énergie totale du sytème, les
-      centres s'alignent les uns sur les autres conformément au résultat de la
-      première question : les gouttelettes forment ainsi une chaîne colinéaire à
-      la direction du champ magnétique externe.
+   1) Les gouttelettes alignent toutes leur moment magnétique sur le champ extérieur
+      $\vv{B_0}$. Afin de minimiser l'énergie totale du sytème, les centres s'alignent les uns sur
+      les autres conformément au résultat de la première question : les gouttelettes forment ainsi
+      une chaîne colinéaire à la direction du champ magnétique externe.
    2) Considérons la gouttelette $i$ sur la figure ci-dessous
 
       #+BEGIN_CENTER
@@ -4995,9 +4980,9 @@ $\vv{B}$ est $E_p=-\vv{m}.\vv{B}$.
       [[./figures/emulsion_ferrofluide.pdf]]
       #+END_CENTER
 
-      Le champ magnétique $\vv{B}_\infty$ exercée par les autres gouttelettes
-      sur celle-ci s'obtient en sommant les champs induits par les gouttelettes
-      situées en $z<z_i$ et celles au-dessus /i.e./ $z>z_i$ soit
+      Le champ magnétique $\vv{B}_\infty$ exercée par les autres gouttelettes sur celle-ci s'obtient
+      en sommant les champs induits par les gouttelettes situées en $z<z_i$ et celles au-dessus /i.e./
+      $z>z_i$ soit
       #+BEGIN_SRC latex
         \begin{align*}
           \vv{B}_\infty=&\cdots+\vv{B}_{-2}+\vv{B}_{-1}+\vv{B}_1+\vv{B}_2+\cdots\\
@@ -5008,8 +4993,7 @@ $\vv{B}$ est $E_p=-\vv{m}.\vv{B}$.
         \end{align*}
       #+END_SRC
    3) Le champ magnétique total s'exerçant sur une gouttelette est donc
-      $\vv{B}=\vv{B}_0+\vv{B}_\infty$ d'où, en utilisant le résultat de la
-      question 2b,
+      $\vv{B}=\vv{B}_0+\vv{B}_\infty$ d'où, en utilisant le résultat de la question 2b,
       #+BEGIN_SRC latex
         \begin{align*}
           \vv{m}^{(\infty)}&=\frac{4}{3}\pi R^3\times\frac{\chi\left(\vv{B}_0+\vv{B}_\infty\right)}{\mu_0}\\
@@ -5019,37 +5003,34 @@ $\vv{B}$ est $E_p=-\vv{m}.\vv{B}$.
       #+END_SRC
 
 #+BEGIN_QUESTION
-4) [@4] Pour calculer la force attractive d'origine magnétique qui s'exerce à
-   l'intérieur d'une chaîne infinie, on divise par la pensée, la chaîne en deux
-   parties.
-   1) Calculer la force qu'exercent les dipôles de l'une des moitiés (la partie
-      inférieure) sur les dipôles de l'autre. Montrer qu'elle s'exprime sous la
-      forme :
+4) [@4] Pour calculer la force attractive d'origine magnétique qui s'exerce à l'intérieur d'une
+   chaîne infinie, on divise par la pensée, la chaîne en deux parties.
+   1) Calculer la force qu'exercent les dipôles de l'une des moitiés (la partie inférieure) sur les
+      dipôles de l'autre. Montrer qu'elle s'exprime sous la forme\nbsp{}:
       #+BEGIN_SRC latex
         \begin{align*}
           \vv{F}_\infty=-\frac{3\mu_0\alpha(m^{(\infty)})^2}{2\pi\,d^4}\vv{u}_z
         \end{align*}
       #+END_SRC
-   2) Déterminer de la même manière la force $\vv{F}_2$ s'exerçant entre deux
-      gouttelettes lorsque la chaîne ne contient que deux gouttelettes. Exprimer
-      cette force en fonction de $\vv{m}^{(2)}$. Calculer $\vv{m}^{(2)}$ puis
-      exprimer $F_\infty/F_2$ en fonction de \chi, $R$ et $d$.
-   3) Calculer $F_\infty$, $F_2$ et $F_\infty/F_2$ pour \chi = 0.11, $R$ = 98
-      nm, $d$ = 200 nm et $B_0$ = 6.3 10^{-2} T. Commenter.
+   2) Déterminer de la même manière la force $\vv{F}_2$ s'exerçant entre deux gouttelettes lorsque
+      la chaîne ne contient que deux gouttelettes. Exprimer cette force en fonction de
+      $\vv{m}^{(2)}$. Calculer $\vv{m}^{(2)}$ puis exprimer $F_\infty/F_2$ en fonction de \chi, $R$
+      et $d$.
+   3) Calculer $F_\infty$, $F_2$ et $F_\infty/F_2$ pour \chi = 0.11, $R$ = 98 nm, $d$ = 200 nm et
+      $B_0$ = 6.3 10^{-2} T. Commenter.
 #+END_QUESTION
 4) [@4]
-   1) Calcul de la force exercée par la moitié inférieure de la chaîne sur la
-      moitié supérieure
+   1) Calcul de la force exercée par la moitié inférieure de la chaîne sur la moitié supérieure
 
       #+BEGIN_CENTER
       #+ATTR_LATEX: :width 0.7\linewidth
       [[./figures/emulsion_ferrofluide2.pdf]]
       #+END_CENTER
 
-      La force qu'exerce la $p$-ième gouttelette sur la $q$-ième s'écrit
-      $f_z=m_q\frac{\partial B_p}{\partial z}$. Sachant que la dérivée de $B_p$
-      est proportionnelle à $-3/z^4$ et que la distance séparant les deux
-      gouttelettes est égale à $(p+q-1)\,d$, l'expression de $f_z$ devient
+      La force qu'exerce la \(p\)-ième gouttelette sur la \(q\)-ième s'écrit $f_z=m_q\frac{\partial
+      B_p}{\partial z}$. Sachant que la dérivée de $B_p$ est proportionnelle à $-3/z^4$ et que la
+      distance séparant les deux gouttelettes est égale à $(p+q-1)\,d$, l'expression de $f_z$
+      devient
       #+BEGIN_SRC latex
         \begin{align*}
           f_z=-m^{(\infty)}\,\frac{\mu_0}{4\pi}\frac{2m^{(\infty)}\times3}{((p+q-1)d)^4}
@@ -5073,8 +5054,8 @@ $\vv{B}$ est $E_p=-\vv{m}.\vv{B}$.
             \end{array}\right\}\text{soit }n\text{ possibilités}
           \end{align*}
       #+END_SRC
-      La double somme sur les entiers $p$ et $q$ est donc équivalente à une somme
-      simple sur $n$ /i.e./
+      La double somme sur les entiers $p$ et $q$ est donc équivalente à une somme simple sur $n$
+      /i.e./
       #+BEGIN_SRC latex
         \begin{align*}
           \sum_{p=1}^\infty\sum_{q=1}^\infty\frac{1}{(p+q-1)^4}=\sum_{n=1}^\infty\frac{1}{n^4}\times n=\sum_{n=1}^\infty\frac{1}{n^3}=\alpha
@@ -5187,7 +5168,7 @@ $\vv{B}$ est $E_p=-\vv{m}.\vv{B}$.
          $\lambda_0=4nR=\unit[521]{nm}$. La solution devient donc verte. Cette
          technique de spectrométrie permet donc de mesurer la taille $R$ des
          gouttelettes.
-* COMMENT TD6 : Rayonnement
+* TD6 : Rayonnement
 ** Rayonnement d'une antenne
 #+BEGIN_QUESTION
 On considère une portion de conducteur rectiligne $MN$ de longueur \ell, dirigée
@@ -5308,7 +5289,7 @@ calculs : *seule la composante réelle a un sens physique*.
 
 #+BEGIN_QUESTION
 4) [@4] On cherche tout d'abord à calculer à l'instant $t$ les potentiels en un
-   point $P$ de coordonées sphériques $(r,\theta,\phi)$.
+   point $P$ de coordonnées sphériques $(r,\theta,\phi)$.
    1) En utilisant l'expression des potentiels retardés, exprimer le potentiel
       scalaire $V$ (en notation complexe) au point $P$ en fonction des distances
       $r_1=MP$ et $r_2=NP$.
@@ -5769,7 +5750,7 @@ repos.
 #+BEGIN_QUESTION
 6) [@6] Exprimer la puissance $\langle\mathcal{P}\rangle$ en fonction $e,c,E_0,\mu_0$
 #+END_QUESTION
-6)
+6) [@6]
    1) *électron libre* : la force de rappel est négligeable devant l'influence
       du champ électromagnétique /i.e./ $\omega_0\ll\omega$
       #+BEGIN_SRC latex
@@ -5871,7 +5852,7 @@ repos.
       de Higgs au LHC (pour une énergie de faisceau de 14 TeV et une masse du
       Higgs voisine de 125 GeV) est voisine de 50 picobarns soit 50 10^{-12} barn
       soit 50 10^{-40} m^{2}.
-* COMMENT TD7 : Propagation dans le vide et les milieux diélectriques
+* TD7 : Propagation dans le vide et les milieux diélectriques
 ** Réflexion d'onde en incidence oblique sur un conducteur parfait
 #+BEGIN_QUESTION
 On considère une surface plane séparant le vide d'un conducteur métallique
@@ -6060,7 +6041,6 @@ d'incidence $(\vv{E_i}\perp Oxz)$.
        P&=2\epsilon_0E_0^2\cos^4\theta
      \end{align*}
    #+END_SRC
-
 
 ** Effet Faraday dans un diélectrique
 
@@ -6376,7 +6356,7 @@ Finalement, les composantes $x$ et $y$ deviennent
    les coefficients à l'aide des nombres $\alpha,\beta,\gamma$ suivants :
    #+BEGIN_SRC latex
      \begin{align*}
-       \alpha = \frac{\omega_p^2}{\omega_0^2-\omega^2}\quad\beta=\frac{\omega_p^2\omega\omega_c}{(\omega_0^2-\omega^2)^2-\omega^2\omega_0^2}\quad\gamma=\frac{\omega_p^2(\omega_0^2-\omega^2)}{(\omega_0^2-\omega^2)^2-\omega^2\omega_c^2}
+       \alpha = \frac{\omega_p^2}{\omega_0^2-\omega^2}\quad\beta=\frac{\omega_p^2\omega\omega_c}{(\omega_0^2-\omega^2)^2-\omega^2\omega_c^2}\quad\gamma=\frac{\omega_p^2(\omega_0^2-\omega^2)}{(\omega_0^2-\omega^2)^2-\omega^2\omega_c^2}
      \end{align*}
    #+END_SRC
 #+END_QUESTION
@@ -6474,15 +6454,14 @@ La vitesse de phase se déduit de la relation de dispersion
 #+END_SRC
 
 #+BEGIN_QUESTION
-2) [@2] 2^{ème} cas : $\vv{E}$ est vecteur propre de $\bar{\bar{\chi}}$ avec une
-   valeur propre différente de \alpha. Déterminer les valeurs propres
-   popssibles. Déterminer la direction de $\vv{k}$ pour une onde
-   transverse. Calculer les normes $k_1$ et $k_2$ des vecteurs d'ondes des ondes
-   associées aux deux valeurs propres (modes propres). Étudier la polarisation
-   de chaque mode propre.
+2) [@2] 2^{ème} cas : $\vv{E}$ est vecteur propre de $\bar{\bar{\chi}}$ avec une valeur propre
+   différente de \alpha. Déterminer les valeurs propres possibles. Déterminer la direction de
+   $\vv{k}$ pour une onde transverse. Calculer les normes $k_1$ et $k_2$ des vecteurs d'ondes des
+   ondes associées aux deux valeurs propres (modes propres). Étudier la polarisation de chaque mode
+   propre.
 #+END_QUESTION
-On se restreint à présent au sous espace vectoriel $(\vv{u_x},\vv{u_y})$ et à
-la détermination des valeurs propres de la matrice réduite
+On se restreint à présent au sous espace vectoriel $(\vv{u_x},\vv{u_y})$ et à la détermination des
+valeurs propres de la matrice réduite
 #+BEGIN_SRC latex
   \begin{align*}
     \bar{\bar{\chi'}}&=\begin{bmatrix}
@@ -6606,7 +6585,7 @@ polarisée selon $\vv{u_x}$ qu'à la condition que $B_S$ soit nul.
    modes trouvés en C.2. Décomposer l'onde incidente
    $\vv{E}_i(z=0,t)=E_0\cos\omega t\vv{u}_x$ en somme d'une onde à polarisation
    circulaire droite et une onde à polarisation circulaire gauche. Dans le
-   milieu on cherche une solution $\vv{E}(z,t)=\vv{E}_1(z,t)=\vv{E}_2(z,t)$ où
+   milieu on cherche une solution $\vv{E}(z,t)=\vv{E}_1(z,t)+\vv{E}_2(z,t)$ où
    l'indice 1 (respectivement 2) est relatif à une onde polarisation circulaire
    gauche (respectivement droite).
 #+END_QUESTION
@@ -6985,7 +6964,7 @@ l'expression de la matrice inverse $\mathcal{A}^{-1}$ est
   \end{align*}
 #+END_SRC
 
-* COMMENT TD8 : Guides d'onde
+* TD8 : Guides d'onde
 ** Cavité cylindrique résonante
 #+BEGIN_QUESTION
 On cherche à étudier les caractéristiques de certains modes d'une cavité
@@ -7639,7 +7618,7 @@ l'équation de Bessel:
 ** Footnotes
 
 [fn:11] pour les fonctions de Bessel, on considère toujours \lambda > 0
-* COMMENT TD9 : Induction électromagnétique
+* TD9 : Induction électromagnétique
 ** Introduction
 En régime variable, le champ magnétique demeure toujours à flux conservatif à
 savoir que
@@ -8200,7 +8179,7 @@ fréquence de 20 Hz et au-dessus d'un seuil d'intensité de 10 mT), un effet
 physiologique caractérisé par la perception visuelle de taches lumineuses; ce
 sont les magnétophosphènes."
 
-* COMMENT TD10 : Électromagnétisme & relativité
+* TD10 : Électromagnétisme & relativité
 ** Introduction
 *Transformation de Lorentz :* $\beta=\tfrac{v}{c}$ et
  $\gamma=\tfrac{1}{\surd{1-\beta^2}}$. Si $\mathcal{R}'$ est en mouvement
