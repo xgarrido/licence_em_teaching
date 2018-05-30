@@ -8334,7 +8334,7 @@ Dans le référentiel $R$ du laboratoire, un fil cylindrique infini d’axe $Ox$
 section $S$ se déplace à la vitesse $\vv{u}=u\vv{u}_x$. Soit $R'$ le référentiel
 propre du fil. Dans $R'$, le fil est chargé uniformément en volume de sorte que
 sa charge linéique est $\lambda'_0$. Les charges sont immobiles dans $R'$. On
-pose $\beta=u/c$ et $\gamma=(1−\beta^2)^{-1/2}$.
+pose $\beta=u/c$ et $\gamma=(1-\beta^2)^{-1/2}$.
 
 1) [@1] *Calculs dans $R'$*
 
