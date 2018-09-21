@@ -1,7 +1,8 @@
-#+TITLE:  Travaux Dirigés d'Électromagné\-tisme -- Licence 3
-#+AUTHOR: Xavier Garrido
+#+TITLE: Électromagnétisme -- Licence 3
+#+SUBTITLE: Travaux Dirigés du Magistère de Physique Fondamentale d'Orsay
+#+AUTHOR: Xavier Garrido, Ségolène Guilbaud, Claire Marrache-Kikuchi, Claude Pasquier
 #+EMAIL:  xavier.garrido@u-psud.fr
-#+OPTIONS: ^:{} toc:2 tags:t author:t email:t split:html
+#+OPTIONS: ^:{} toc:2 tags:t author:nil email:nil split:html
 #+LATEX_CLASS: teaching-class
 # #+LATEX_CLASS_OPTIONS: [novc]
 
