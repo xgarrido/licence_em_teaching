@@ -326,7 +326,7 @@ champ magnétique ne dépend que de la distance $r$ à l'axe de la bobine
 En appliquant le théorème d'Ampère à savoir
 #+BEGIN_SRC latex
   \begin{align*}
-    \oint_\mathcal{C}\vv{B}.\vv{d\ell} &= \mu_0\iint_{\mathcal{S/C}}\vv{j}.\vv{dS}=\mu_0I_\mathcal{C}
+    \oint_\mathcal{C}\vv{B}.\vv{\d\ell} &= \mu_0\iint_{\mathcal{S/C}}\vv{j}.\vv{\d S}=\mu_0I_\mathcal{C}
   \end{align*}
 #+END_SRC
 
@@ -389,7 +389,7 @@ Le coefficient d'auto-inductance s'écrit donc
 La loi d'évolution du courant est décrite par la formule
 #+BEGIN_SRC latex
   \begin{align*}
-    u_g-Ri(t)&=ri(t)+\mathcal{L}\frac{di(t)}{dt}
+    u_g-Ri(t)&=ri(t)+\mathcal{L}\frac{\d i(t)}{\d t}
   \end{align*}
 #+END_SRC
 
@@ -397,7 +397,7 @@ La loi d'évolution du courant est décrite par la formule
 différentielle du premier ordre
 #+BEGIN_SRC latex
   \begin{align*}
-  \frac{di(t)}{dt}+\frac{R}{\mathcal{L}}\cdot i(t)-\frac{u_g}{\mathcal{L}}&=0
+  \frac{\d i(t)}{\d t}+\frac{R}{\mathcal{L}}\cdot i(t)-\frac{u_g}{\mathcal{L}}&=0
   \end{align*}
 #+END_SRC
 soit un courant $i(t)=Ae^{-\frac{R}{\mathcal{L}}t} + B$. À $t=0$, le courant est
@@ -447,8 +447,8 @@ intégrale s'écrit alors
 #+BEGIN_SRC latex
   \begin{align*}
     \rot\vv{E}&=-\tfrac{\partial\vv{B}}{\partial t}\\
-    \iint_\mathcal{S}\rot\vv{E}.\vv{dS}&=-\iint_\mathcal{S}\frac{\partial\vv{B}}{\partial t}.\vv{dS}\\
-    \oint_{\mathcal{C}/\mathcal{S}}\vv{E}.\vv{d\ell}&=-\iint_\mathcal{S}\frac{\partial\vv{B}}{\partial t}.\vv{dS}
+    \iint_\mathcal{S}\rot\vv{E}.\vv{\d S}&=-\iint_\mathcal{S}\frac{\partial\vv{B}}{\partial t}.\vv{\d S}\\
+    \oint_{\mathcal{C}/\mathcal{S}}\vv{E}.\vv{\d\ell}&=-\iint_\mathcal{S}\frac{\partial\vv{B}}{\partial t}.\vv{\d S}
   \end{align*}
 #+END_SRC
 où $\mathcal{C}$ est une boucle autour de l'axe de la bobine et de rayon $r$. On
@@ -457,7 +457,7 @@ déduit ainsi que le champ électrique est égal à
 #+BEGIN_SRC latex
   \begin{align*}
     2\pi rE(r,t)&=-\pi r^2\frac{\partial B_z}{\partial t}\\
-    \vv{E}(r,t)&=-\frac{r}{2}\mu_0n\frac{di(t)}{dt}\,\vv{u}_\theta\\
+    \vv{E}(r,t)&=-\frac{r}{2}\mu_0n\frac{\d i(t)}{\d t}\,\vv{u}_\theta\\
     \vv{E}(r,t)&=-\frac{r}{2}\times\frac{\mu_0u_gn}{R}\times\frac{1}{\tau}e^{-\frac{t}{\tau}}\,\vv{u}_\theta\\
     &=-\frac{r}{2}\times\frac{\mu_0u_gn}{\mathcal{L}}\times e^{-\frac{t}{\tau}}\,\vv{u}_\theta
   \end{align*}
@@ -504,7 +504,7 @@ devient
 #+BEGIN_SRC latex
   \begin{align*}
     \vv{\pi}(r,t)&=\frac{\vv{E}\times\vv{B}}{\mu_0}\\
-    &=-\frac{r}{2}\times\frac{\mu_0^{\cancel{2}}n^2}{\cancel{\mu_0}}\,i\frac{di}{dt}\,\vv{u}_r
+    &=-\frac{r}{2}\times\frac{\mu_0^{\cancel{2}}n^2}{\cancel{\mu_0}}\,i\frac{\d i}{\d t}\,\vv{u}_r
   \end{align*}
 #+END_SRC
 
@@ -513,8 +513,8 @@ $\mathcal{P}_\text{EM}$ sortant à travers la surface entourant le solénoïde
 $(r=a)$ soit
 #+BEGIN_SRC latex
   \begin{align*}
-    \mathcal{P}_\text{EM}&=\int_{\theta=0}^{2\pi}\int_{z=0}^\ell\vv{\pi}(a,t).(ad\theta dz\vv{u}_r)\\
-    &=-\underbrace{\mu_0n^2\pi a^2\ell}_{\mathcal{L}} i\frac{di}{dt}=-\mathcal{L}i\frac{di}{dt}
+    \mathcal{P}_\text{EM}&=\int_{\theta=0}^{2\pi}\int_{z=0}^\ell\vv{\pi}(a,t).(a\d\theta \d z\vv{u}_r)\\
+    &=-\underbrace{\mu_0n^2\pi a^2\ell}_{\mathcal{L}} i\frac{\d i}{\d t}=-\mathcal{L}i\frac{\d i}{\d t}
   \end{align*}
 #+END_SRC
 
@@ -523,8 +523,8 @@ temporelle de la puissance entrante /i.e./
 $\mathcal{P}_\text{EM}^\text{sortant}=-\mathcal{P}_\text{EM}^\text{entrant}$
 #+BEGIN_SRC latex
   \begin{align*}
-    \mathcal{E}&=\int\mathcal{P}_\text{EM}^\text{entrant}(t)dt=\int\mathcal{L}i\frac{di}{dt}dt\\
-    &=\int\mathcal{L}idi=\frac{1}{2}\mathcal{L}i^2(t)
+    \mathcal{E}&=\int\mathcal{P}_\text{EM}^\text{entrant}(t)\d t=\int\mathcal{L}i\frac{\d i}{\d t}\d t\\
+    &=\int\mathcal{L}i\d i=\frac{1}{2}\mathcal{L}i^2(t)
   \end{align*}
 #+END_SRC
 ce qui correspond à l'énergie magnétique stockée dans une bobine.
@@ -604,13 +604,13 @@ vitesse de la particule\nbsp$\vv{v}$ :
   \end{equation*}
 #+END_SRC
 La puissance par unité de volume
-$\tfrac{d\mathcal{P}}{d\tau}=nq\vv{E}.\vv{v}$ or $\vv{j}=nq\vv{v}$ d'où
-$\tfrac{d\mathcal{P}}{d\tau}=\vv{j}.\vv{E}$
+$\tfrac{\d\mathcal{P}}{\d\tau}=nq\vv{E}.\vv{v}$ or $\vv{j}=nq\vv{v}$ d'où
+$\tfrac{\d\mathcal{P}}{\d\tau}=\vv{j}.\vv{E}$
 
 #+BEGIN_QUESTION
 4) [@4] On note $\vv{R}$ le vecteur de Poynting et $u$ la densité d'énergie
-   électromagnétique. Calculer $\div\vv{R}$ et en déduire l'équation locale de
-   conservation de l'énergie.
+   électromagnétique. Calculer $\div\vv{R}$ et en déduire l'équation locale de conservation de
+   l'énergie.
 #+END_QUESTION
 
 $\vv{R}=\tfrac{\vv{E}\times\vv{B}}{\mu_0}$ et
@@ -629,29 +629,29 @@ $u=\tfrac{\epsilon_0E^2}{2}+\tfrac{B^2}{2\mu_0}$
 #+END_SRC
 
 #+BEGIN_QUESTION
-5) [@5] Montrer que dans le cas d'un régime périodique, la puissance moyenne
-   entrant par rayonnement à travers une surface fermée est intégralement cédée
-   à la matière contenue dans le volume intérieur à cette surface.
+5) [@5] Montrer que dans le cas d'un régime périodique, la puissance moyenne entrant par rayonnement
+   à travers une surface fermée est intégralement cédée à la matière contenue dans le volume
+   intérieur à cette surface.
 #+END_QUESTION
 $\vv{E}=\vv{E}_0\cos\omega t$, $\vv{B}=\vv{B_0}\sin\omega t$
 #+BEGIN_SRC latex
   \begin{align*}
-    \iiint_V\div\vv{R}d\tau+\iiint_V\frac{\partial u}{\partial t}d\tau+\iiint_V\vv{j}.\vv{E}d\tau=0\\
-    \iiint_V\div\vv{R}d\tau+\iiint_V\frac{\partial u}{\partial t}d\tau+\underbrace{\iiint_V\frac{d\mathcal{P}}{d\tau}d\tau}_{\mathcal{P}_{\text{EM}\rightarrow\,q}}=0\\
+    \iiint_V\div\vv{R}\d\tau+\iiint_V\frac{\partial u}{\partial t}\d\tau+\iiint_V\vv{j}.\vv{E}\d\tau=0\\
+    \iiint_V\div\vv{R}\d\tau+\iiint_V\frac{\partial u}{\partial t}\d\tau+\underbrace{\iiint_V\frac{\d\mathcal{P}}{\d\tau}\d\tau}_{\mathcal{P}_{\text{EM}\rightarrow\,q}}=0\\
   \end{align*}
 #+END_SRC
 En appliquant le théorème d'Ostrogradsky
-$\varoiint_S\vv{a}.d\vv{S}=\iiint_V\div\vv{a}d\tau$, on obtient
+$\varoiint_S\vv{a}.\d\vv{S}=\iiint_V\div\vv{a}\d\tau$, on obtient
 #+BEGIN_SRC latex
   \begin{align*}
-    \varoiint_S\vv{R}.d\vv{S}+\iiint_V\frac{\partial u}{\partial t}d\tau+\mathcal{P}_{\text{EM}\rightarrow\,q}=0
+    \varoiint_S\vv{R}.\d\vv{S}+\iiint_V\frac{\partial u}{\partial t}\d\tau+\mathcal{P}_{\text{EM}\rightarrow\,q}=0
   \end{align*}
 #+END_SRC
 La puissance moyenne sortant de la surface fermée[fn:2] devient
 #+BEGIN_SRC latex
   \begin{align*}
-    \left\langle\varoiint_S\vv{R}.d\vv{S}\right\rangle_T+\left\langle\iiint_V\frac{\partial u}{\partial t}d\tau\right\rangle_T+\left\langle\mathcal{P}_{\text{EM}\rightarrow\,q}\right\rangle_T=0\\
-    \left\langle\mathcal{P}_\text{sortant}\right\rangle_T+\iiint_V\left\langle\frac{\partial u}{\partial t}d\tau\right\rangle_T+\left\langle\mathcal{P}_{\text{EM}\rightarrow\,q}\right\rangle_T=0
+    \left\langle\varoiint_S\vv{R}.\d\vv{S}\right\rangle_T+\left\langle\iiint_V\frac{\partial u}{\partial t}\d\tau\right\rangle_T+\left\langle\mathcal{P}_{\text{EM}\rightarrow\,q}\right\rangle_T=0\\
+    \left\langle\mathcal{P}_\text{sortant}\right\rangle_T+\iiint_V\left\langle\frac{\partial u}{\partial t}\d\tau\right\rangle_T+\left\langle\mathcal{P}_{\text{EM}\rightarrow\,q}\right\rangle_T=0
   \end{align*}
 #+END_SRC
 Or
@@ -673,12 +673,11 @@ soit
 #+BEGIN_QUESTION
 *Impulsion*
 
-On considère l'interaction entre une onde EM plane, homogène, harmonique de
-période $T=2\pi/\omega$, progressive dans la direction et le sens $Oz$ et une
-particule $M$ (masse $m$, charge \(q\)) animée sous l'action de la force de
-Lorentz et d'autres forces, d'un mouvement harmonique forcé, de période $T$,
-dans le plan $z=0$, au voisinage du point $O$. La polarisation de l'onde et le
-mouvement forcé ne sont pas forcément rectilignes.
+On considère l'interaction entre une onde EM plane, homogène, harmonique de période $T=2\pi/\omega$,
+progressive dans la direction et le sens $Oz$ et une particule $M$ (masse $m$, charge \(q\)) animée
+sous l'action de la force de Lorentz et d'autres forces, d'un mouvement harmonique forcé, de période
+$T$, dans le plan $z=0$, au voisinage du point $O$. La polarisation de l'onde et le mouvement forcé
+ne sont pas forcément rectilignes.
 #+END_QUESTION
 
 #+BEGIN_CENTER
@@ -687,8 +686,8 @@ mouvement forcé ne sont pas forcément rectilignes.
 #+END_CENTER
 
 #+BEGIN_QUESTION
-1) [@1] Exprimer sous la forme d'une intégrale l'énergie $W$ fournie par le
-   champ EM à la particule en une période.
+1) [@1] Exprimer sous la forme d'une intégrale l'énergie $W$ fournie par le champ EM à la particule
+   en une période.
 #+END_QUESTION
 
 Onde plane progressive $\vv{B}=\tfrac{\vv{u}_z\times\vv{E}}{c}$
@@ -696,33 +695,32 @@ Onde plane progressive $\vv{B}=\tfrac{\vv{u}_z\times\vv{E}}{c}$
 Calcul de la puissance $\mathcal{P}$
 #+BEGIN_SRC latex
   \begin{align*}
-    \mathcal{P}&=\frac{dW}{dt}\text{ avec }\mathcal{P}=q\vv{E}.\vv{v}\\
-    W&=\int_0^Tq\vv{E}.\vv{v}dt
+    \mathcal{P}&=\frac{\d W}{\d t}\text{ avec }\mathcal{P}=q\vv{E}.\vv{v}\\
+    W&=\int_0^Tq\vv{E}.\vv{v}\d t
   \end{align*}
 #+END_SRC
 
 #+BEGIN_QUESTION
-2) [@2] Déterminer l'impulsion $\vv{p}$ cédée en une période par le champ à la
-   particule en fonction de $W$, $c$ et de $\vv{u}_z$.
+2) [@2] Déterminer l'impulsion $\vv{p}$ cédée en une période par le champ à la particule en fonction
+   de $W$, $c$ et de $\vv{u}_z$.
 #+END_QUESTION
 
-La variation d'impulsion $\vv{p}$ par unité de temps induite par le passage de
-l'onde EM est égale à la force de Lorentz $\vv{F}$
+La variation d'impulsion $\vv{p}$ par unité de temps induite par le passage de l'onde EM est égale à
+la force de Lorentz $\vv{F}$
 #+BEGIN_SRC latex
   \begin{align*}
-    \frac{d\vv{p}}{dt}=\vv{F}
+    \frac{\d\vv{p}}{\d t}=\vv{F}
   \end{align*}
 #+END_SRC
 d'où
 #+BEGIN_SRC latex
   \begin{align*}
-    \vv{p}&=\int_0^T\vv{F}dt=\int_0^Tq\left(\vv{E}+\vv{v}\times\vv{B}\right)dt\\
-    &=\int_0^Tq\vv{E}dt+\int_0^Tq\vv{v}\times\left(\frac{\vv{u}_z\times\vv{E}}{c}\right)dt
+    \vv{p}&=\int_0^T\vv{F}\d t=\int_0^Tq\left(\vv{E}+\vv{v}\times\vv{B}\right)\d t\\
+    &=\int_0^Tq\vv{E}\d t+\int_0^Tq\vv{v}\times\left(\frac{\vv{u}_z\times\vv{E}}{c}\right)\d t
   \end{align*}
 #+END_SRC
-La première intégrale est nulle car $\vv{E}=\vv{E}_0\cos\omega t$. Pour
-déterminer l'expression de la seconde intégrale, on utilise la formule
-ci-dessous
+La première intégrale est nulle car $\vv{E}=\vv{E}_0\cos\omega t$. Pour déterminer l'expression de
+la seconde intégrale, on utilise la formule ci-dessous
 #+BEGIN_SRC latex
   \begin{align*}
     \vv{a}\times\left(\vv{b}\times\vv{c}\right)=\left(\vv{a}.\vv{c}\right)\vv{b}-\left(\vv{a}.\vv{b}\right)\vv{c}
@@ -731,40 +729,37 @@ ci-dessous
 L'impulsion $\vv{p}$ devient
 #+BEGIN_SRC latex
   \begin{align*}
-    \vv{p}&=\int_0^T\frac{q}{c}\left(\vv{v}.\vv{E}\right)\vv{u}_z\,dt-\int_0^T\frac{q}{c}\left(\vv{v}.\vv{u}_z\right)\vv{E}dt
+    \vv{p}&=\int_0^T\frac{q}{c}\left(\vv{v}.\vv{E}\right)\vv{u}_z\,\d t-\int_0^T\frac{q}{c}\left(\vv{v}.\vv{u}_z\right)\vv{E}\d t
   \end{align*}
 #+END_SRC
-or $\vv{v}.\vv{u}_z=0$ car la particule est maintenue dans le plan
-$z=0$. L'expression de l'impulsion se réduit donc
+or $\vv{v}.\vv{u}_z=0$ car la particule est maintenue dans le plan $z=0$. L'expression de
+l'impulsion se réduit donc
 #+BEGIN_SRC latex
   \begin{align*}
-    \vv{p}=\int_0^T\frac{q}{c}\left(\vv{v}.\vv{E}\right)\vv{u}_z\,dt=\frac{W}{c}\vv{u}_z
+    \vv{p}=\int_0^T\frac{q}{c}\left(\vv{v}.\vv{E}\right)\vv{u}_z\,\d t=\frac{W}{c}\vv{u}_z
   \end{align*}
 #+END_SRC
 
 #+BEGIN_QUESTION
-3) [@3] Rappeler le lien entre l'impulsion et l'énergie du photon. Vérifier la
-   cohérence avec la question précédente.
+3) [@3] Rappeler le lien entre l'impulsion et l'énergie du photon. Vérifier la cohérence avec la
+   question précédente.
 #+END_QUESTION
-L'énergie d'un photon $E=h\nu=\tfrac{hc}{\lambda}$ est égale à $pc$ /via/ la
-relation de de Broglie reliant onde et matière $\lambda=\tfrac{h}{p}$
+L'énergie d'un photon $E=h\nu=\tfrac{hc}{\lambda}$ est égale à $pc$ /via/ la relation de de Broglie
+reliant onde et matière $\lambda=\tfrac{h}{p}$
 
 #+BEGIN_QUESTION
 *Moment cinétique*
 
-La situation est la même qu'à la question 2. On note $\sigma_z$ la composante
-sur $Oz$ du moment cinétique en $O$ cédé par le champ à la particule en une
-période.
+La situation est la même qu'à la question 2. On note $\sigma_z$ la composante sur $Oz$ du moment
+cinétique en $O$ cédé par le champ à la particule en une période.
 
-1) [@1] Comparer les dimensions de $W$ et $\sigma_z$. Proposer une relation à
-   une constante multiplicative près entre $W$, $\sigma_z$ et $T$.
+1) [@1] Comparer les dimensions de $W$ et $\sigma_z$. Proposer une relation à une constante
+   multiplicative près entre $W$, $\sigma_z$ et $T$.
 #+END_QUESTION
 
-$\vv{\sigma}_O=\vv{r}\times\vv{p}=\vv{OM}\times\vv{p}$ et
-$\sigma_z=\vv{\sigma}_O.\vv{u}_z$
+$\vv{\sigma}_O=\vv{r}\times\vv{p}=\vv{OM}\times\vv{p}$ et $\sigma_z=\vv{\sigma}_O.\vv{u}_z$
 
-$[\sigma_z]=[L]\times[M][L][T^{-1}]=[M]\times[L^2]\times[T^{-1}]$ et
-$[W]=[M][L^2][T^{-2}]$ d'où
+$[\sigma_z]=[L]\times[M][L][T^{-1}]=[M]\times[L^2]\times[T^{-1}]$ et $[W]=[M][L^2][T^{-2}]$ d'où
 #+BEGIN_SRC latex
   \begin{align*}
     [W]&=\frac{[\sigma_z]}{[T]}\\
@@ -773,8 +768,7 @@ $[W]=[M][L^2][T^{-2}]$ d'où
 #+END_SRC
 
 #+BEGIN_QUESTION
-2) [@2] En utilisant le résultat de 2b), montrer que $\sigma_z$ est indépendant
-   du choix de $O$.
+2) [@2] En utilisant le résultat de 2b), montrer que $\sigma_z$ est indépendant du choix de $O$.
 #+END_QUESTION
 
 $\vv{p}=\tfrac{W}{c}\vv{u}_z$
@@ -794,27 +788,26 @@ Expression de $\sigma_z$ [fn:3]
 #+BEGIN_SRC latex
   \begin{align*}
     \vv{\sigma}&=\vv{OM}\times\vv{p}\text{ or }\frac{d\vv{p}}{dt}=\vv{F}_\text{Lorentz}=q\vv{E}+q\vv{v}\times\vv{B}\\
-    d\vv{\sigma}&=\vv{OM}\times d\vv{p}\\
-    d\sigma_z&=d\vv{\sigma}.\vv{u}_z\\
-    \sigma_z&=\left[\underbrace{\int_0^T\vv{OM}\times q\vv{E}dt}_{\text{\ding{192}}}+\underbrace{\int_0^T\vv{OM}\times q(\vv{v}\times\vv{B})dt}_{\text{\ding{193}}}\right].\vv{u}_z
+    \d\vv{\sigma}&=\vv{OM}\times \d\vv{p}\\
+    \d\sigma_z&=\d\vv{\sigma}.\vv{u}_z\\
+    \sigma_z&=\left[\underbrace{\int_0^T\vv{OM}\times q\vv{E}\d t}_{\text{\ding{192}}}+\underbrace{\int_0^T\vv{OM}\times q(\vv{v}\times\vv{B})\d t}_{\text{\ding{193}}}\right].\vv{u}_z
   \end{align*}
 #+END_SRC
 
 Calcul de \ding{192}
 #+BEGIN_SRC latex
   \begin{align*}
-    \text{\ding{192}}&=q\int_0^T\left(\vv{OM}\times\vv{E}\right).\vv{u}_z\,dt\\
-    &=q\int_0^T\left(\vv{E}\times\vv{u}_z\right).\vv{OM}\,dt\\
-    &=-q\int_0^T\vv{OM}.\left(\vv{u}_z\times\vv{E}(M,t)\right)\,dt
+    \text{\ding{192}}&=q\int_0^T\left(\vv{OM}\times\vv{E}\right).\vv{u}_z\,\d t\\
+    &=q\int_0^T\left(\vv{E}\times\vv{u}_z\right).\vv{OM}\,\d t\\
+    &=-q\int_0^T\vv{OM}.\left(\vv{u}_z\times\vv{E}(M,t)\right)\,\d t
   \end{align*}
 #+END_SRC
-or $\vv{E}(M,t)=\vv{E}(O,t)$ car l'onde EM est plane et le calcul se fait
-en $z=0$
+or $\vv{E}(M,t)=\vv{E}(O,t)$ car l'onde EM est plane et le calcul se fait en $z=0$
 
 Calcul de \ding{193}
 #+BEGIN_SRC latex
   \begin{align*}
-    \text{\ding{193}}&=q\int_0^T\vv{OM}\times\left(\vv{v}\times\vv{B}\right).\vv{u}_zdt
+    \text{\ding{193}}&=q\int_0^T\vv{OM}\times\left(\vv{v}\times\vv{B}\right).\vv{u}_z\d t
   \end{align*}
 #+END_SRC
 or
@@ -823,24 +816,22 @@ or
     \vv{a}\times\left(\vv{b}\times\vv{c}\right)=\left(\vv{a}.\vv{c}\right)\vv{b}-\left(\vv{a}.\vv{b}\right)\vv{c}
   \end{align*}
   \begin{align*}
-    \text{\ding{193}}&=q\left[\int_0^T\left(\vv{OM}.\vv{B}\right).\underbrace{\vv{v}.\vv{u}_z}_{\vv{v}\perp\vv{u}_z=0}dt-\int_0^T\left(\vv{OM}.\vv{v}\right).\underbrace{\vv{B}.\vv{u}_z}_{\vv{B}\perp\vv{u}_z=0}dt\right]
+    \text{\ding{193}}&=q\left[\int_0^T\left(\vv{OM}.\vv{B}\right).\underbrace{\vv{v}.\vv{u}_z}_{\vv{v}\perp\vv{u}_z=0}\d t-\int_0^T\left(\vv{OM}.\vv{v}\right).\underbrace{\vv{B}.\vv{u}_z}_{\vv{B}\perp\vv{u}_z=0}\d t\right]
   \end{align*}
 #+END_SRC
 
-Seul le champ électrique $\vv{E}$ de l'onde EM contribue au moment
-cinétique cédé à la particule $q$
+Seul le champ électrique $\vv{E}$ de l'onde EM contribue au moment cinétique cédé à la particule\nbsp$q$
 #+BEGIN_SRC latex
   \begin{align*}
-    \sigma_z=-q\int_0^T\vv{OM}.\left(\vv{u}_z\times\vv{E}(O,t)\right)dt
+    \sigma_z=-q\int_0^T\vv{OM}.\left(\vv{u}_z\times\vv{E}(O,t)\right)\d t
   \end{align*}
 #+END_SRC
 
 #+BEGIN_QUESTION
-4) [@4] On considère le cas où l'onde est à polarisation circulaire
-   gauche. Exprimer $\vv{u}_z\times\vv{E}(O,t)$ en fonction de
-   $\frac{d\vv{E}(O,t)}{dt}$. En intégrant par parties, trouver la relation
-   entre $\sigma_z$ et $W$. Comparer à la question a). En déduire le moment
-   cinétique selon $Oz$ des photons dans cet état de polarisation.
+4) [@4] On considère le cas où l'onde est à polarisation circulaire gauche. Exprimer
+   $\vv{u}_z\times\vv{E}(O,t)$ en fonction de $\frac{\d\vv{E}(O,t)}{\d t}$. En intégrant par
+   parties, trouver la relation entre $\sigma_z$ et $W$. Comparer à la question a). En déduire le
+   moment cinétique selon $Oz$ des photons dans cet état de polarisation.
 #+END_QUESTION
 
 Polarisation circulaire gauche
@@ -888,19 +879,17 @@ u\rightarrow\int u' v=[uv]-\int v' u$
   \end{align*}
 #+END_SRC
 
-$\omega=\tfrac{2\pi}{T}$ d'où $W=2\pi\frac{\sigma_z}{T}=\hbar\omega$ soit
-$\sigma_z=+\hbar$. Sur une période $T$, le champ EM cède à la particule
-$q$, un moment cinétique égal à $+\hbar$
+$\omega=\tfrac{2\pi}{T}$ d'où $W=2\pi\frac{\sigma_z}{T}=\hbar\omega$ soit $\sigma_z=+\hbar$. Sur une
+période $T$, le champ EM cède à la particule $q$, un moment cinétique égal à $+\hbar$
 
 #+BEGIN_QUESTION
-5) [@5] Donner sans calcul, le moment cinétique des photons à polarisation
-   circulaire droite. Pour un état de polarisation rectiligne, que donne la
-   mesure du moment cinétique des photons selon $Oz$ ?
+5) [@5] Donner sans calcul, le moment cinétique des photons à polarisation circulaire droite. Pour
+   un état de polarisation rectiligne, que donne la mesure du moment cinétique des photons selon
+   $Oz$ ?
 #+END_QUESTION
 
-Le moment cinétique de photons polarisé circulairement droite est alors
-$-\hbar$, et $\sigma_z=0$ pour une polarisation rectiligne (rectiligne \equiv
-circulaire droite + circulaire gauche)
+Le moment cinétique de photons polarisé circulairement droite est alors $-\hbar$, et $\sigma_z=0$
+pour une polarisation rectiligne (rectiligne \equiv circulaire droite + circulaire gauche)
 
 ** Interprétation corpusculaire de la pression de radiation             :DM:
 
@@ -911,23 +900,21 @@ circulaire droite + circulaire gauche)
 
 #+BEGIN_SRC latex
   \begin{align*}
-    \vv{F}=\frac{d\vv{p}}{dt}, P=\frac{F}{S}=\frac{d\vv{p}/dt}{S}
+    \vv{F}=\frac{\d\vv{p}}{\d t}, P=\frac{F}{S}=\frac{\d\vv{p}/\d t}{S}
   \end{align*}
 #+END_SRC
 
 #+BEGIN_QUESTION
-Un faisceau cylindrique d'onde plane électromagnétique monochromatique produit
-par un laser à argon se propage dans le vide et rencontre un plan métallique
-parfaitement réfléchissant, dont la normale fait un angle de $\theta$ = 30° avec
-la direction de propagation des photons associés à l'onde.
+Un faisceau cylindrique d'onde plane électromagnétique monochromatique produit par un laser à argon
+se propage dans le vide et rencontre un plan métallique parfaitement réfléchissant, dont la normale
+fait un angle de $\theta$ = 30° avec la direction de propagation des photons associés à l'onde.
 
-On donne la longueur d'onde $\lambda$ = 515 nm et l'intensité du faisceau
-(puissance moyenne transportée à travers une section droite unité) $I$ = 90
-kW/m^{2}. On note $E_0$ l'amplitude du champ électrique.
+On donne la longueur d'onde $\lambda$ = 515 nm et l'intensité du faisceau (puissance moyenne
+transportée à travers une section droite unité) $I$ = 90 kW/m^{2}. On note $E_0$ l'amplitude du
+champ électrique.
 
-1) [@1] Quelle est la moyenne temporelle $\langle u\rangle$ de la densité
-   volumique d'énergie électromagnétique de l'onde ? Exprimer $\langle u\rangle$
-   en fonction de $I$.
+1) [@1] Quelle est la moyenne temporelle $\langle u\rangle$ de la densité volumique d'énergie
+   électromagnétique de l'onde ? Exprimer $\langle u\rangle$ en fonction de $I$.
 #+END_QUESTION
 
 Onde plane monochromatique :
@@ -943,19 +930,17 @@ densité volumique d'énergie électromagnétique $u$ est égale à
   \end{align*}
 #+END_SRC
 
-L'intensité $I$ est par définition la puissance moyenne par unité de surface
-$S$ [fn:4]
+L'intensité $I$ est par définition la puissance moyenne par unité de surface $S$ [fn:4]
 #+BEGIN_SRC latex
   \begin{align*}
-    I&=\frac{P_W}{S}=\frac{dE}{Sdt}\text{ où }\\
-    dE&=\langle u\rangle\times S\times c\times dt\\
-    I&=\frac{\langle u\rangle\times Scdt}{Sdt}=\langle u\rangle\times c
+    I&=\frac{P_W}{S}=\frac{\d E}{S\d t}\text{ où }\\
+    \d E&=\langle u\rangle\times S\times c\times\d t\\
+    I&=\frac{\langle u\rangle\times Sc\d t}{S\d t}=\langle u\rangle\times c
   \end{align*}
 #+END_SRC
 
 #+BEGIN_QUESTION
-2) [@2] Calculer la densité $N$ de photons dans le faisceau en fonction de $I$
-   et de $\lambda$.
+2) [@2] Calculer la densité $N$ de photons dans le faisceau en fonction de $I$ et de $\lambda$.
 #+END_QUESTION
 Calcul de la densité $N$ de photons dans le faisceau
 #+BEGIN_SRC latex
@@ -967,11 +952,11 @@ Calcul de la densité $N$ de photons dans le faisceau
 #+END_SRC
 
 #+BEGIN_QUESTION
-3) [@3] Quelle la quantité de mouvement $\Delta\vv{p}_0$ transférée au métal par
-   un photon qui subit un choc élastique.
+3) [@3] Quelle la quantité de mouvement $\Delta\vv{p}_0$ transférée au métal par un photon qui subit
+   un choc élastique.
 #+END_QUESTION
-Choc élastique $E_1=E_2$ d'où $p_1c=p_2c\rightarrow p_1=p_2=p$. La conservation
-de l'impulsion se traduit par
+Choc élastique $E_1=E_2$ d'où $p_1c=p_2c\rightarrow p_1=p_2=p$. La conservation de l'impulsion se
+traduit par
 #+BEGIN_SRC latex
   \begin{align*}
     \vv{p}_1&=\vv{p}_2+\Updelta\vv{p}_0\\
@@ -981,50 +966,48 @@ de l'impulsion se traduit par
 #+END_SRC
 
 #+BEGIN_QUESTION
-4) [@4] Calculer le nombre $x$ de photons reçus par le métal par unité de temps
-   et par unité de surface.
+4) [@4] Calculer le nombre $x$ de photons reçus par le métal par unité de temps et par unité de
+   surface.
 #+END_QUESTION
 Calcul du flux de photon par unité de surface
 #+BEGIN_SRC latex
   \begin{align*}
-    x&=\frac{N\times V_\text{cylindre}}{S_\text{projetée}\times dt}\text{ où }S_\text{projetée}=S_\text{cylindre}/\cos\theta\\
-    &=\frac{N\times S_\text{cylindre}\times\cos\theta cdt}{S_\text{cylindre}\times dt}\\
+    x&=\frac{N\times V_\text{cylindre}}{S_\text{projetée}\times\d t}\text{ où }S_\text{projetée}=S_\text{cylindre}/\cos\theta\\
+    &=\frac{N\times S_\text{cylindre}\times\cos\theta c\d t}{S_\text{cylindre}\times\d t}\\
     &=Nc\cos\theta=\frac{I\lambda}{hc}\cos\theta\\
     &=\frac{9\,10^4\times5.15\,10^{-7}}{6.62\,10^{-34}\times3\,10^8}\cos 30=\unit[2\,10^{23}]{photon.m}^{-2}\text{.s}^{-1}
   \end{align*}
 #+END_SRC
 
 #+BEGIN_QUESTION
-5) [@5] En déduire la pression de radiation $P$ en fonction de $\theta$ et de
-   $E_0$.
+5) [@5] En déduire la pression de radiation $P$ en fonction de $\theta$ et de $E_0$.
 #+END_QUESTION
 Calcul de la pression de radiation
 #+BEGIN_SRC latex
   \begin{align*}
-    P&=\frac{d\vv{p}}{Sdt}=x\cdot\Updelta p_0\\
+    P&=\frac{\d\vv{p}}{S\d t}=x\cdot\Updelta p_0\\
     &=\frac{I\lambda}{hc}\cos\theta\times\frac{2h}{\lambda}\cos\theta\\
     &=\frac{2I\cos^2\theta}{c}=\frac{2\times9\,10^4\times\cos^230}{3\,10^8}=\unit[4.5\,10^{-4}]{N/m^2}\\
     &\text{ avec }I=\frac{\epsilon_0E_0^2c}{2}, P=\epsilon_0E_0^2\cos^2\theta
   \end{align*}
 #+END_SRC
 
-*Application expérimentale:* La pression de radiation aussi faible soit elle,
-est un bruit important pour les interféromètres de haute sensibilité tels que
-Virgo (/cf./ [[http://tel.archives-ouvertes.fr/tel-00175254/en/]]).
+*Application expérimentale:* La pression de radiation aussi faible soit elle, est un bruit important
+pour les interféromètres de haute sensibilité tels que Virgo (/cf./
+[[http://tel.archives-ouvertes.fr/tel-00175254/en/]]).
 
 ** Gravito-Électromagnétisme et effet Lense-Thirring                    :DM:
 #+BEGIN_QUESTION
-Dans ce problème, on se propose d’étudier l'effet Lense-Thirring, une prédiction
-de la théorie de la Relativité Générale (RG) datant de 1918, confirmée en 2011
-de manière directe par les mesures de la sonde Gravity Probe B. Pour cela, on
-construira, par analogie avec l'Électromagnétisme, une théorie linéaire de la
-gravitation dite Gravito-ÉlectroMagnétique (GEM), qui constitue une bonne
-approximation de la Relativité Générale en champ faible et pour des objets
-non-relativistes ($v/c\ll1$).
-1) [@1] Rappeler les équations de Maxwell reliant, dans le vide, le champ
-   électromagnétique ($\vv{E},\vv{B}$) aux densités totales de charges et de
-   courants électriques ($\rho_e,\vv{j}_e$). Justifier la définition des
-   potentiels scalaire $V$ et vecteur $\vv{A}$ à partir de ces équations.
+Dans ce problème, on se propose d’étudier l'effet Lense-Thirring, une prédiction de la théorie de la
+Relativité Générale (RG) datant de 1918, confirmée en 2011 de manière directe par les mesures de la
+sonde Gravity Probe B. Pour cela, on construira, par analogie avec l'Électromagnétisme, une théorie
+linéaire de la gravitation dite Gravito-ÉlectroMagnétique (GEM), qui constitue une bonne
+approximation de la Relativité Générale en champ faible et pour des objets non-relativistes
+($v/c\ll1$).
+1) [@1] Rappeler les équations de Maxwell reliant, dans le vide, le champ électromagnétique
+   ($\vv{E},\vv{B}$) aux densités totales de charges et de courants électriques
+   ($\rho_e,\vv{j}_e$). Justifier la définition des potentiels scalaire $V$ et vecteur $\vv{A}$ à
+   partir de ces équations.
 2) [@2] À quoi les équations de Maxwell se réduisent-elles en régime statique ?
 #+END_QUESTION
 
@@ -1039,25 +1022,22 @@ non-relativistes ($v/c\ll1$).
    Maxwell-Faraday + potentiel vecteur $\vv{A}$ \to
    $\vv{E}=-\vv{\nabla}V-\frac{\partial\vv{A}}{\partial t}$
 
-2) [@2] Régime statique \equiv indépendant du temps \to
-   $\vv{\nabla}\times\vv{E}=\vv{0}$ et $\vv{\nabla}\times\vv{B}=\mu_0\vv{j}_e$
+2) [@2] Régime statique \equiv indépendant du temps \to $\vv{\nabla}\times\vv{E}=\vv{0}$ et
+   $\vv{\nabla}\times\vv{B}=\mu_0\vv{j}_e$
 
 #+BEGIN_QUESTION
-On rappelle que, dans la théorie newtonnienne de la gravitation, le champ
-gravitationnel $\vv{g}$ associé à une distribution statique de matière, de masse
-volumique $\rho$, vérifie
+On rappelle que, dans la théorie newtonnienne de la gravitation, le champ gravitationnel $\vv{g}$
+associé à une distribution statique de matière, de masse volumique $\rho$, vérifie
 #+BEGIN_SRC latex
   \begin{align*}
    \vv{\nabla}\cdot\vv{g}&=-4\pi G_N\rho,
   \end{align*}
 #+END_SRC
-où $G_N$ = 6,67.10^{−11} N.m^{2}.kg^{−2} est la constante de Newton et qu’il
-dérive d’un potentiel scalaire $\phi$, c’est-à-dire que $\vv{g} =
-−\vv{\nabla}\phi$.
+où $G_N$ = 6,67.10^{−11} N.m^{2}.kg^{−2} est la constante de Newton et qu’il dérive d’un potentiel
+scalaire $\phi$, c’est-à-dire que $\vv{g} = −\vv{\nabla}\phi$.
 
-3) [@3] Avec quelle(s) composante(s) du champ électromagnétique
-   ($\vv{E},\vv{B}$) voyez-vous une analogie ? Vous justifierez votre
-   proposition en complétant le tableau ci-dessous
+3) [@3] Avec quelle(s) composante(s) du champ électromagnétique ($\vv{E},\vv{B}$) voyez-vous une
+   analogie ? Vous justifierez votre proposition en complétant le tableau ci-dessous
 
    | Gravitation newtonnienne               | Électromagnétisme |
    |----------------------------------------+-------------------|
@@ -1067,13 +1047,13 @@ dérive d’un potentiel scalaire $\phi$, c’est-à-dire que $\vv{g} =
    | $\vv{\nabla}\cdot\vv{g}=-4\pi G_N\rho$ | ?                 |
    | $\vv{\nabla}\times\vv{g}=$ ?           | ?                 |
 
-4) [@4] Quelles sont les deux différences majeures entre les deux colonnes du
-   tableau ainsi complété ? En donner la raison physique.
+4) [@4] Quelles sont les deux différences majeures entre les deux colonnes du tableau ainsi complété
+   ? En donner la raison physique.
 #+END_QUESTION
 
 3) [@3] Comme $\vv{g}$ dérive d’un potentiel scalaire, on a localement
-   $\vv{\nabla}\times\vv{g}=\vv{0}$, d’où l’analogie suivante entre gravitation
-   newtonnienne et électrostatique :
+   $\vv{\nabla}\times\vv{g}=\vv{0}$, d’où l’analogie suivante entre gravitation newtonnienne et
+   électrostatique :
    | Gravitation newtonnienne               | Électromagnétisme                          |
    |----------------------------------------+--------------------------------------------|
    | $\vv{g}$                               | $\vv{E}$                                   |
@@ -1082,33 +1062,31 @@ dérive d’un potentiel scalaire $\phi$, c’est-à-dire que $\vv{g} =
    | $\vv{\nabla}\cdot\vv{g}=-4\pi G_N\rho$ | $\vv{\nabla}\cdot\vv{E}=\rho_e/\epsilon_0$ |
    | $\vv{\nabla}\times\vv{g}=\vv{0}$       | $\vv{\nabla}\times\vv{E}=\vv{0}$           |
 
-4) [@4] Les deux différences principales entre les deux colonnes ci-dessus
-   sont :
+4) [@4] Les deux différences principales entre les deux colonnes ci-dessus sont :
    - $\rho_e$ est à valeurs réelles quelconques tandis que $\rho\geq0$;
    - $\epsilon_0>0$ a pour analogue $−1/(4\pi G_N) < 0$.
 
    L’origine physique de ces différences est :
-   - l’existence de charges positives et négatives en électrostatique tandis que
-     la gravitation a pour analogue la masse qui est positive;
-   - la nature universellement attractive de la gravitation newtonnienne, par
-     opposition au caractère tantôt attractif tantôt répulsif de l’interaction
-     électrostatique.
+   - l’existence de charges positives et négatives en électrostatique tandis que la gravitation a
+     pour analogue la masse qui est positive;
+   - la nature universellement attractive de la gravitation newtonnienne, par opposition au
+     caractère tantôt attractif tantôt répulsif de l’interaction électrostatique.
 
 #+BEGIN_QUESTION
-Afin d’obtenir une théorie de la gravitation en régime variable, il est tentant
-de pousser l’analogie précédente jusqu’à considérer l’existence d’un champ dit
-gravito-électromagnétique (GEM), que l’on notera ($\vv{E}_g,\vv{B}_g$) vérifiant
-une version gravitationnelle des équations de Maxwell.
+Afin d’obtenir une théorie de la gravitation en régime variable, il est tentant de pousser
+l’analogie précédente jusqu’à considérer l’existence d’un champ dit gravito-électro\-magnétique
+(GEM), que l’on notera ($\vv{E}_g,\vv{B}_g$) vérifiant une version gravitationnelle des équations de
+Maxwell.
 
-5) [@5] Proposer un analogue gravitationnel $\vv{j}$ au vecteur densité de
-   courant de l’Électro\-magnétisme. Exprimer $\vv{j}$ pour une distribution de
-   matière de masse volumique $\rho$ animée d’un champ de vitesse $\vv{v}$.
+5) [@5] Proposer un analogue gravitationnel $\vv{j}$ au vecteur densité de courant de
+   l’Électro\-magnétisme. Exprimer $\vv{j}$ pour une distribution de matière de masse volumique
+   $\rho$ animée d’un champ de vitesse $\vv{v}$.
 #+END_QUESTION
 
-5) [@5] L’analogue de la charge électrique étant la masse, l’analogue naturel de
-   la densité de courant est la densité de courant de matière, autrement dit la
-   densité de quantité de mouvement. Ainsi, pour une distribution de matière de
-   masse volumique ρ animée d’un champ de vitesse $\vv{v}$ , on a
+5) [@5] L’analogue de la charge électrique étant la masse, l’analogue naturel de la densité de
+   courant est la densité de courant de matière, autrement dit la densité de quantité de
+   mouvement. Ainsi, pour une distribution de matière de masse volumique ρ animée d’un champ de
+   vitesse $\vv{v}$ , on a
    #+BEGIN_SRC latex
      \begin{align*}
        \vv{j}=\rho\vv{v}
@@ -1116,11 +1094,10 @@ une version gravitationnelle des équations de Maxwell.
    #+END_SRC
 
 #+BEGIN_QUESTION
-6) [@6] Écrire les équations de Maxwell dépendant du temps reliant
-   ($\vv{E}_g,\vv{B}_g$) à ($\rho,\vv{j}$). On introduira les constantes réelles
-   $\epsilon$ et $\mu$ à la place respectivement de la permittivité diélectrique
-   $\epsilon_0$ et de la perméabilité magnétique $\mu_0$ du vide. Que vaut
-   $\epsilon$ ? Préciser les dimensions de $\vv{E}_g$ et $\vv{B}_g$.
+6) [@6] Écrire les équations de Maxwell dépendant du temps reliant ($\vv{E}_g,\vv{B}_g$) à
+   ($\rho,\vv{j}$). On introduira les constantes réelles $\epsilon$ et $\mu$ à la place
+   respectivement de la permittivité diélectrique $\epsilon_0$ et de la perméabilité magnétique
+   $\mu_0$ du vide. Que vaut $\epsilon$ ? Préciser les dimensions de $\vv{E}_g$ et $\vv{B}_g$.
 #+END_QUESTION
 
 6) [@6] On pose, comme l’énoncé nous y invite
@@ -1250,7 +1227,7 @@ vectoriel de l’électromagnétisme.
     vitesse $\vv{v}$ est donnée par
     #+BEGIN_SRC latex
       \begin{align*}
-        \mathcal{P}=m\left(\vv{E}_g(M,t)+\vv{v}\times\vv{B}_g(M,t)\right)\cdot\vv{v}=m\vv{E}_g(M,t)\cdot\vv{v}=\int_{\mathbb{R}^3}d^3x\vv{E}_g(\vv{x},t)\cdot\vv{j}(\vv{x},t)
+        \mathcal{P}=m\left(\vv{E}_g(M,t)+\vv{v}\times\vv{B}_g(M,t)\right)\cdot\vv{v}=m\vv{E}_g(M,t)\cdot\vv{v}=\int_{\mathbb{R}^3}\d^3x\vv{E}_g(\vv{x},t)\cdot\vv{j}(\vv{x},t)
       \end{align*}
     #+END_SRC
     avec ici
@@ -1263,52 +1240,45 @@ vectoriel de l’électromagnétisme.
     par le champ gravitationnel.
 
 #+BEGIN_QUESTION
-11) [@11] En quoi l’expression (2) diffère-t-elle de la force gravitationnelle
-    newtonnienne ?
+11) [@11] En quoi l’expression (2) diffère-t-elle de la force gravitationnelle newtonnienne\nbsp?
 #+END_QUESTION
 
-11) [@11] La force gravitationnelle newtonnienne s’écrit $m\vv{g} =
-    m\vv{E}_g$. C’est la partie gravitoélectrique de la force de Lorent GEM. La
-    contribution non-newtonnienne responsable de l’effet Lense-Thirring est donc
-    la composante gravitomagnétique de cette force.
+11) [@11] La force gravitationnelle newtonnienne s’écrit $m\vv{g} = m\vv{E}_g$. C’est la partie
+    gravitoélectrique de la force de Lorent GEM. La contribution non-newtonnienne responsable de
+    l’effet Lense-Thirring est donc la composante gravitomagnétique de cette force.
 
 #+BEGIN_QUESTION
-Cette différence est à l’origine de l’effet Lense-Thirring que l’on se propose
-d’étudier à présent.
+Cette différence est à l’origine de l’effet Lense-Thirring que l’on se propose d’étudier à présent.
 
-12) [@12] Expliquer, par analogie avec l’électromagnétisme, pourquoi le champ
-    gravitomagnétique est non-nul au voisinage d’un astre en rotation.
+12) [@12] Expliquer, par analogie avec l’électromagnétisme, pourquoi le champ gravitomagnétique est
+    non-nul au voisinage d’un astre en rotation.
 #+END_QUESTION
 
-12) [@12] Un astre en rotation est constitué de masses en mouvement. Dans le
-    cadre de notre analogie EM/GEM, cela revient à considérer des charges en
-    mouvement, autrement dit des courants. On s’attend donc à avoir un champ
-    gravitomagnétique non-nul au voisinage d’un astre en rotation.
+12) [@12] Un astre en rotation est constitué de masses en mouvement. Dans le cadre de notre analogie
+    EM/GEM, cela revient à considérer des charges en mouvement, autrement dit des courants. On
+    s’attend donc à avoir un champ gravitomagnétique non-nul au voisinage d’un astre en rotation.
 
 #+BEGIN_QUESTION
-13) [@13] On assimile la Terre à une boule homogène de centre $O$, de masse $M$
-    = 5,97.10^{24}\nbsp{}kg et de rayon $R_T$ = 6371 km, en rotation à la vitesse
-    angulaire constante $\vv{\Omega}=\Omega\vv{u}_z$ dans le référentiel
-    géocentrique supposé galiléen. Déterminer le champ gravitoélectrique associé
-    à l’aide du théorème de Gauss. On adoptera les coordonnées sphériques $(r,
-    \theta, \phi)$ centrées en $O$, $\theta$ étant mesuré à partir de l’axe $Oz$
-    de rotation de la Terre.
+13) [@13] On assimile la Terre à une boule homogène de centre $O$, de masse $M$ =
+    5,97.10^{24}\nbsp{}kg et de rayon $R_T$ = 6371 km, en rotation à la vitesse angulaire constante
+    $\vv{\Omega}=\Omega\vv{u}_z$ dans le référentiel géocentrique supposé galiléen. Déterminer le
+    champ gravitoélectrique associé à l’aide du théorème de Gauss. On adoptera les coordonnées
+    sphériques $(r, \theta, \phi)$ centrées en $O$, $\theta$ étant mesuré à partir de l’axe $Oz$ de
+    rotation de la Terre.
 #+END_QUESTION
 
-13) [@13] On est en régime statique. Le champ $\vv{E}_g$ est donc indépendant du
-    temps. Soit $M$ un point de l’espace. Tout plan contenant le centre $O$ de
-    la Terre et le point $M$ est un plan de symétrie de la distribution de masse
-    et le vecteur $\vv{E}_g(M)$ est contenu dans ce plan. On en déduit que
-    $\vv{E}_g(M)$ est radial. On adopte les coordonnées sphériques ($r, \theta,
-    \phi$) centrées en $O$, $\theta$ étant mesuré à partir de l’axe $Oz$ de
-    rotation de la Terre. Alors $\vv{E}_g(M)=E_r(r,\theta,\phi)\vv{u}_r$. La
-    distribution de masses étant par ailleurs invariant par toutes les rotations
-    fixant $O$, on a finalement $\vv{E}_g(M)=E_r(r)\vv{u}_r$. En appliquant le
-    théorème de Gauss à la sphère $\mathbb{S}_r$ de centre $O$ et de rayon $r$,
-    on obtient pour tout $r > R_T$,
+13) [@13] On est en régime statique. Le champ $\vv{E}_g$ est donc indépendant du temps. Soit $M$ un
+    point de l’espace. Tout plan contenant le centre $O$ de la Terre et le point $M$ est un plan de
+    symétrie de la distribution de masse et le vecteur $\vv{E}_g(M)$ est contenu dans ce plan. On en
+    déduit que $\vv{E}_g(M)$ est radial. On adopte les coordonnées sphériques ($r, \theta, \phi$)
+    centrées en $O$, $\theta$ étant mesuré à partir de l’axe $Oz$ de rotation de la Terre. Alors
+    $\vv{E}_g(M)=E_r(r,\theta,\phi)\vv{u}_r$. La distribution de masses étant par ailleurs invariant
+    par toutes les rotations fixant $O$, on a finalement $\vv{E}_g(M)=E_r(r)\vv{u}_r$. En appliquant
+    le théorème de Gauss à la sphère $\mathbb{S}_r$ de centre $O$ et de rayon $r$, on obtient pour
+    tout $r > R_T$,
     #+BEGIN_SRC latex
       \begin{align*}
-        \int_{\mathbb{S}_r}d\vv{S}\cdot\vv{E}_g=4\pi r^2E_r(r)=-4\pi G_NM,
+        \int_{\mathbb{S}_r}\d\vv{S}\cdot\vv{E}_g=4\pi r^2E_r(r)=-4\pi G_NM,
       \end{align*}
     #+END_SRC
     soit finalement
@@ -1349,31 +1319,28 @@ d’étudier à présent.
     dépend-il ?
 #+END_QUESTION
 
-15) [@15] D’après la question précédente, la distribution de courants est
-    invariante par rotation d’axe Oz et le champ $\vv{B}_g$ est donc indépendant
-    de la coordonnée $\phi$. De plus, il est clair que la plan équatorial de la
-    Terre est un plan de symétrie de la distribution de courants
-    ($\vv{j}(r,\pi-\theta) = \vv{j}(r,\theta)$). Le pseudo-vecteur $\vv{B}_g$
-    est donc orthogonal à ce plan, autrement dit
-    $\vv{B}_g(r,\pi/2)=B_\theta(r,\pi/2)\vv{u}_\theta=-B_\theta(r,\pi/2)$. Enfin,
-    tout plan contenant l’axe $Oz$ est un plan d’antisymétrie de la distribution
-    de courants ($\vv{j}(r,\theta,\phi+\pi) = −\vv{j}(r, \theta, \phi)$) et, sur
-    l’axe $Oz$, le pseudo-vecteur $\vv{B}_g$ est contenu dans l’intersection de
-    ces plans, c’est-à-dire que
+15) [@15] D’après la question précédente, la distribution de courants est invariante par rotation
+    d’axe Oz et le champ $\vv{B}_g$ est donc indépendant de la coordonnée $\phi$. De plus, il est
+    clair que la plan équatorial de la Terre est un plan de symétrie de la distribution de courants
+    ($\vv{j}(r,\pi-\theta) = \vv{j}(r,\theta)$). Le pseudo-vecteur $\vv{B}_g$ est donc orthogonal à
+    ce plan, autrement dit
+    $\vv{B}_g(r,\pi/2)=B_\theta(r,\pi/2)\vv{u}_\theta=-B_\theta(r,\pi/2)$. Enfin, tout plan
+    contenant l’axe $Oz$ est un plan d’antisymétrie de la distribution de courants
+    ($\vv{j}(r,\theta,\phi+\pi) = −\vv{j}(r, \theta, \phi)$) et, sur l’axe $Oz$, le pseudo-vecteur
+    $\vv{B}_g$ est contenu dans l’intersection de ces plans, c’est-à-dire que
     $\vv{B}_g(r,0)=-\vv{B}_g(r,\pi)=B_r(r,0)\vv{u}_r=B_g\vv{u}_z$.
 
 #+BEGIN_QUESTION
-16) [@16] On considère un point matériel $P$ en orbite circulaire de rayon $R$
-    dans le plan équatorial de la Terre ($\theta=\pi/2$). En supposant, dans un
-    premier temps, que $P$ est soumis au seul champ gravito-électrique terrestre
-    $\vv{E}_g$ (on suppose donc que $\vv{B}_g=\vv{0}$), exprimer, à l’aide de la
-    relation fondamentale de la dynamique, la vitesse angulaire $\omega_0$ de
-    $P$ sur son orbite en fonction de $R$.
+16) [@16] On considère un point matériel $P$ en orbite circulaire de rayon $R$ dans le plan
+    équatorial de la Terre ($\theta=\pi/2$). En supposant, dans un premier temps, que $P$ est soumis
+    au seul champ gravito-électrique terrestre $\vv{E}_g$ (on suppose donc que $\vv{B}_g=\vv{0}$),
+    exprimer, à l’aide de la relation fondamentale de la dynamique, la vitesse angulaire $\omega_0$
+    de $P$ sur son orbite en fonction de $R$.
 #+END_QUESTION
 
-16) [@16] On suppose tout d’abord que $P$ décrit, à la pulsation $\omega_0$, une
-    orbite circulaire de rayon $R$ dans le plan équatorial sous l’action du seul
-    champ gravitoélectrique $\vv{E}_g$. En appliquant le PFD à $P$, on obtient
+16) [@16] On suppose tout d’abord que $P$ décrit, à la pulsation $\omega_0$, une orbite circulaire
+    de rayon $R$ dans le plan équatorial sous l’action du seul champ gravitoélectrique
+    $\vv{E}_g$. En appliquant le PFD à $P$, on obtient
 
     #+BEGIN_SRC latex
       \begin{align*}
@@ -1389,17 +1356,15 @@ d’étudier à présent.
     ce qui constitue la troisième loi de Kepler.
 
 #+BEGIN_QUESTION
-17) [@17] On suppose à présent que $\vv{B}_g\neq\vv{0}$. Déterminer la
-    composante gravitomagnétique de la force de Lorentz à laquelle $P$ est
-    soumis, en fonction de $R$, $B_g=\vv{u}_z\cdot\vv{B}_g$ et de la vitesse
-    angulaire $\omega$ de P sur son orbite. À l’aide de la relation fondamentale
-    de la dynamique, exprimer $\omega$ en fonction de $B_g$ et de la vitesse
-    angulaire $\omega_0$ obtenue à la question précédente.
+17) [@17] On suppose à présent que $\vv{B}_g\neq\vv{0}$. Déterminer la composante gravitomagnétique
+    de la force de Lorentz à laquelle $P$ est soumis, en fonction de $R$,
+    $B_g=\vv{u}_z\cdot\vv{B}_g$ et de la vitesse angulaire $\omega$ de P sur son orbite. À l’aide de
+    la relation fondamentale de la dynamique, exprimer $\omega$ en fonction de $B_g$ et de la
+    vitesse angulaire $\omega_0$ obtenue à la question précédente.
 #+END_QUESTION
 
-17) [@17] En supposant à présent que $P$ décrit, à la pulsation $\omega$, une
-    orbite circulaire de rayon $R$ dans le plan équatorial sous l’action
-    combinée de $\vv{E}_g$ et $\vv{B}_g$, on a
+17) [@17] En supposant à présent que $P$ décrit, à la pulsation $\omega$, une orbite circulaire de
+    rayon $R$ dans le plan équatorial sous l’action combinée de $\vv{E}_g$ et $\vv{B}_g$, on a
     #+BEGIN_SRC latex
       \begin{align*}
         -m\omega^2R\vv{u}_r&=m\left(\vv{E}_g+4\vv{v}\times\vv{B}_g\right)\\
@@ -1423,28 +1388,25 @@ d’étudier à présent.
       \end{align*}
     #+END_SRC
 
-    On met ainsi en évidence, sur le cas particulier d’une orbite équatoriale
-    circulaire, une dépendance sans équivalent dans le cadre newtonnien de la
-    période orbitale d’un satellite dans la rotation propre de son astre. Cet
-    effet est connu sous le nom /d’effet d’horloge/.
+    On met ainsi en évidence, sur le cas particulier d’une orbite équatoriale circulaire, une
+    dépendance sans équivalent dans le cadre newtonnien de la période orbitale d’un satellite dans
+    la rotation propre de son astre. Cet effet est connu sous le nom /d’effet d’horloge/.
 
 #+BEGIN_QUESTION
-On considère à présent le champ gravitomagnétique de la Terre dans
-l’approximation dipolaire, c’est- à-dire qu’en première approximation, on
-suppose que
+On considère à présent le champ gravitomagnétique de la Terre dans l’approximation dipolaire, c’est-
+à-dire qu’en première approximation, on suppose que
 #+BEGIN_SRC latex
   \begin{align}
     \vv{B}_g=-\frac{G_N}{2c^2}\frac{3\vv{r}(\vv{r}\cdot\vv{S})-(\vv{r}\cdot\vv{r})\vv{S}}{r^5}
   \end{align}
 #+END_SRC
-où $\vv{S}$ est le moment cinétique de la Terre et équivaut, dans cette
-approximation dipolaire, au moment dipolaire magnétique $\vv{m}$.
+où $\vv{S}$ est le moment cinétique de la Terre et équivaut, dans cette approximation dipolaire, au
+moment dipolaire magnétique $\vv{m}$.
 
-18) [@18] Relier $\vv{S}$ à $\vv{\Omega}, M$ et $R_T$, en supposant que le moment
-    principal d’inertie $I$ associé à la rotation propre de la Terre vaut
-    $I=\alpha M R_T^2$ avec $\alpha\simeq0,33$. Cette dernière hypothèse vous
-    semble-t-elle compatible avec le modèle adopté jusqu’ici pour la Terre ?
-    Justifiez brièvement votre réponse. En déduire la valeur numérique de
+18) [@18] Relier $\vv{S}$ à $\vv{\Omega}, M$ et $R_T$, en supposant que le moment principal
+    d’inertie $I$ associé à la rotation propre de la Terre vaut $I=\alpha M R_T^2$ avec
+    $\alpha\simeq0,33$. Cette dernière hypothèse vous semble-t-elle compatible avec le modèle adopté
+    jusqu’ici pour la Terre ?  Justifiez brièvement votre réponse. En déduire la valeur numérique de
     $S=\vv{u}_z\cdot\vv{S}$.
 #+END_QUESTION
 
@@ -1461,22 +1423,20 @@ approximation dipolaire, au moment dipolaire magnétique $\vv{m}$.
       \end{align*}
     #+END_SRC
 
-    La valeur du moment d’inertie proposée est sensiblement différente de celle
-    qu’on obtiendrait en assimilant la Terre à une boule homogène. Dans ce cas,
-    on aurait en effet $I=2M R_T^2/5$. Or $\alpha < 2/5$.  La valeur proposée
-    par l’énoncé est en fait une valeur expérimentale. Elle diffère donc
-    naturellement de la valeur obtenue pour le modèle de la boule homogène du
-    fait que la Terre n’est ni homogène ni rigoureusement sphérique.
+    La valeur du moment d’inertie proposée est sensiblement différente de celle qu’on obtiendrait en
+    assimilant la Terre à une boule homogène. Dans ce cas, on aurait en effet $I=2M R_T^2/5$. Or
+    $\alpha < 2/5$.  La valeur proposée par l’énoncé est en fait une valeur expérimentale. Elle
+    diffère donc naturellement de la valeur obtenue pour le modèle de la boule homogène du fait que
+    la Terre n’est ni homogène ni rigoureusement sphérique.
 
 #+BEGIN_QUESTION
-19) [@19] A l’aide de (3) et de votre réponse à la question 16, estimer la
-    variation relative $|\omega-\omega_0|/|\omega_0|$ due au champ
-    gravitomagnétique terrestre de la période de révolution d’un satellite
-    terrestre sur une orbite équatoriale d’altitude $h$ = 642 km.
+19) [@19] A l’aide de (3) et de votre réponse à la question 16, estimer la variation relative
+    $|\omega-\omega_0|/|\omega_0|$ due au champ gravitomagnétique terrestre de la période de
+    révolution d’un satellite terrestre sur une orbite équatoriale d’altitude $h$ = 642 km.
 #+END_QUESTION
 
-19) [@19] De l’équation (3) de l’énoncé, on tire que, sur une orbite équatoriale
-    circulaire d’altitude $h$ = 642 km,
+19) [@19] De l’équation (3) de l’énoncé, on tire que, sur une orbite équatoriale circulaire
+    d’altitude $h$ = 642 km,
     #+BEGIN_SRC latex
       \begin{align*}
         \vv{B}_g=\frac{G_N\vv{S}}{2c^2(R_T+h)^3},
@@ -1502,59 +1462,53 @@ approximation dipolaire, au moment dipolaire magnétique $\vv{m}$.
     #+END_SRC
 ** Footnotes
 
-[fn:2] il s'agit de la puissance sortant d'une surface *fermée* qui correspond
-au différentiel entre la puissance ayant pénétrée dans le volume et la puissance
-sortant de ce volume.
+[fn:2] il s'agit de la puissance sortant d'une surface *fermée* qui correspond au différentiel entre
+la puissance ayant pénétrée dans le volume et la puissance sortant de ce volume.
 
-[fn:3] les forces extérieures $\vv{F}_\text{ext.}$ ont pour objectif de
-maintenir la particule dans le plan $z=0$. Elles sont donc soit comprises dans
-le plan $(xOy)$ soit opposées vectoriellement $\Upsigma\vv{F}=\vv{0}$. Le moment
-cinétique induit par ces forces est donc nul du fait de
+[fn:3] les forces extérieures $\vv{F}_\text{ext.}$ ont pour objectif de maintenir la particule dans
+le plan $z=0$. Elles sont donc soit comprises dans le plan $(xOy)$ soit opposées vectoriellement
+$\Upsigma\vv{F}=\vv{0}$. Le moment cinétique induit par ces forces est donc nul du fait de
 $\vv{OM}\times\vv{F}_\text{ext.}=\vv{0}$
 
-[fn:4] l'intensité $I$ est également égale à la valeur moyenne du vecteur de
-Poynting $I=\|\langle\vv{R}\rangle\|$ avec
-$\vv{R}=\frac{\vv{E}\times\vv{B}}{\mu_0}$ et
+[fn:4] l'intensité $I$ est également égale à la valeur moyenne du vecteur de Poynting
+$I=\|\langle\vv{R}\rangle\|$ avec $\vv{R}=\frac{\vv{E}\times\vv{B}}{\mu_0}$ et
 $\vv{B}=\frac{\vv{k}\times\vv{E}}{\omega}$
 
 * TD2 : Électrostatique dans le vide
 ** Rayon classique de l'électron
 #+BEGIN_QUESTION
-1) [@1] Calculer l'énergie électrostatique d'une boule de rayon $R$, chargée en
-   volume avec la densité volumique uniforme $\rho$.
+1) [@1] Calculer l'énergie électrostatique d'une boule de rayon $R$, chargée en volume avec la
+   densité volumique uniforme $\rho$.
 #+END_QUESTION
 
-1) L'énergie électrostatique $\mathcal{U}_e$ se calcule en intégrant la densité
-   volumique d'énergie électromagnétique
-   $u=\epsilon_0\frac{E^2}{2}+\frac{B^2}{2\mu_0}$ qui, en l'absence de champ
+1) L'énergie électrostatique $\mathcal{U}_e$ se calcule en intégrant la densité volumique d'énergie
+   électromagnétique $u=\epsilon_0\frac{E^2}{2}+\frac{B^2}{2\mu_0}$ qui, en l'absence de champ
    magnétique, est uniquement de nature électrostatique soit
    #+BEGIN_SRC latex
      \begin{align*}
-       \mathcal{U}_e=\iiint_{\forall\text{espace}}\epsilon_0\frac{E^2}{2}d\tau
+       \mathcal{U}_e=\iiint_{\forall\text{espace}}\epsilon_0\frac{E^2}{2}\d\tau
      \end{align*}
    #+END_SRC
-   Il s'agit donc de calculer quel champ électrique génère la distribution de
-   charge $\rho$. On applique pour cela le théorème de Gauss /i.e./
+   Il s'agit donc de calculer quel champ électrique génère la distribution de charge $\rho$. On
+   applique pour cela le théorème de Gauss /i.e./
    #+BEGIN_SRC latex
      \begin{align*}
-       \iiint_V\div\vv{E}\,d\tau=\varoiint_{S/V}\vv{E}.\,d\vv{S}&=\iiint_V\frac{\rho}{\epsilon_0}d\tau=\frac{\Upsigma Q_\text{int.}}{\epsilon_0}
+       \iiint_V\div\vv{E}\,\d\tau=\varoiint_{S/V}\vv{E}.\,\d\vv{S}&=\iiint_V\frac{\rho}{\epsilon_0}\d\tau=\frac{\Upsigma Q_\text{int.}}{\epsilon_0}
      \end{align*}
    #+END_SRC
-   Le choix de la surface fermée $S$ dépend de l'orientation de $\vv{E}$ et de
-   ses dépendances. Ainsi, dans le référentiel de coordonnées sphériques
-   $(r,\theta,\phi)$, tout plan contenant le vecteur $\vv{u}_r$ est plan de
-   symétrie de la distribution de charge : le champ électrostatique $\vv{E}$
-   appartient nécessairement à ces plans de symétrie et $\vv{E}$ est donc
-   parallèle à $\vv{u}_r$. Par ailleurs, le système est invariant par rotation
-   d'angles $\theta$ et $\phi$. Le champ $\vv{E}$ peut donc s'écrire sous la
-   forme $\vv{E}=E(r)\vv{u}_r$.
+   Le choix de la surface fermée $S$ dépend de l'orientation de $\vv{E}$ et de ses
+   dépendances. Ainsi, dans le référentiel de coordonnées sphériques $(r,\theta,\phi)$, tout plan
+   contenant le vecteur $\vv{u}_r$ est plan de symétrie de la distribution de charge : le champ
+   électrostatique $\vv{E}$ appartient nécessairement à ces plans de symétrie et $\vv{E}$ est donc
+   parallèle à $\vv{u}_r$. Par ailleurs, le système est invariant par rotation d'angles $\theta$ et
+   $\phi$. Le champ $\vv{E}$ peut donc s'écrire sous la forme $\vv{E}=E(r)\vv{u}_r$.
 
-   La surface fermée $S$ dite de Gauss est alors une sphère de rayon $r$ et deux
-   situations sont à distinguer :
+   La surface fermée $S$ dite de Gauss est alors une sphère de rayon $r$ et deux situations sont à
+   distinguer :
    - à l'intérieur de la boule $r\leq R$
      #+BEGIN_SRC latex
        \begin{align*}
-         \varoiint_{S/V}\vv{E}.\,d\vv{S}=E(r)\,4\pi r^2&=\iiint_V\frac{\rho}{\epsilon_0}d\tau\\
+         \varoiint_{S/V}\vv{E}.\,\d\vv{S}=E(r)\,4\pi r^2&=\iiint_V\frac{\rho}{\epsilon_0}\d\tau\\
          &=\frac{\rho}{\epsilon_0}\,\frac{4}{3}\pi r^3\\
          \vv{E}_\text{int.}&=\frac{\rho r}{3\epsilon_0}\vv{u}_r
        \end{align*}
@@ -1562,7 +1516,7 @@ $\vv{B}=\frac{\vv{k}\times\vv{E}}{\omega}$
    - à l'extérieur de la boule $r>R$
      #+BEGIN_SRC latex
        \begin{align*}
-         \varoiint_{S/V}\vv{E}.\,d\vv{S}=E(r)\,4\pi r^2&=\iiint_V\frac{\rho}{\epsilon_0}d\tau\\
+         \varoiint_{S/V}\vv{E}.\,\d\vv{S}=E(r)\,4\pi r^2&=\iiint_V\frac{\rho}{\epsilon_0}\d\tau\\
          &=\frac{\rho}{\epsilon_0}\,\frac{4}{3}\pi R^3\\
          \vv{E}_\text{ext.}&=\frac{\rho R^3}{3\epsilon_0\,r^2}\vv{u}_r
        \end{align*}
@@ -1571,10 +1525,10 @@ $\vv{B}=\frac{\vv{k}\times\vv{E}}{\omega}$
    L'énergie électrostatique ainsi stockée dans cette boule est
    #+BEGIN_SRC latex
      \begin{align*}
-       \mathcal{U}_e&=\iiint_{\forall\text{espace}}\epsilon_0\frac{E^2}{2}d\tau\\
-       &=\int_0^{2\pi}\int_0^{\pi}\int_0^\infty\epsilon_0\frac{E^2}{2}\,r^2\sin\theta drd\theta d\phi\\
-       &=\frac{4\pi}{2}\epsilon_0\times\left(\int_0^RE^2_\text{int.}\,r^2dr+\int_R^\infty E^2_\text{ext.}\,r^2dr\right)\\
-       &=2\pi\epsilon_0\times\left(\int_0^R\frac{\rho^2}{9\epsilon_0^2}r^2\,r^2dr+\int_R^\infty\frac{\rho^2R^6}{9\epsilon_0^2r^4}\,r^2dr\right)\\
+       \mathcal{U}_e&=\iiint_{\forall\text{espace}}\epsilon_0\frac{E^2}{2}\d\tau\\
+       &=\int_0^{2\pi}\int_0^{\pi}\int_0^\infty\epsilon_0\frac{E^2}{2}\,r^2\sin\theta \d r\d\theta\d\phi\\
+       &=\frac{4\pi}{2}\epsilon_0\times\left(\int_0^RE^2_\text{int.}\,r^2\d r+\int_R^\infty E^2_\text{ext.}\,r^2\d r\right)\\
+       &=2\pi\epsilon_0\times\left(\int_0^R\frac{\rho^2}{9\epsilon_0^2}r^2\,r^2\d r+\int_R^\infty\frac{\rho^2R^6}{9\epsilon_0^2r^4}\,r^2\d r\right)\\
        &=2\pi\epsilon_0\times\left(\frac{\rho^2}{9\epsilon_0^2}\frac{R^5}{5}+\frac{\rho^2R^6}{9\epsilon_0^2}\frac{1}{R}\right)\\
        &=\frac{2\pi\rho^2R^5}{9\epsilon_0}\left(\frac{1}{5}+1\right)=\frac{4\pi\rho^2R^5}{15\epsilon_0}
      \end{align*}
@@ -1589,13 +1543,13 @@ $\vv{B}=\frac{\vv{k}\times\vv{E}}{\omega}$
    #+END_SRC
 
 #+BEGIN_QUESTION
-2) [@2] Un électron de masse $m_e$ et de charge $-e$ ($e>0$) est assimilé à une
-   telle distribution. Définir et calculer le rayon classique de l'électron
-   $R_e$. Commenter la valeur numérique.
+2) [@2] Un électron de masse $m_e$ et de charge $-e$ ($e>0$) est assimilé à une telle
+   distribution. Définir et calculer le rayon classique de l'électron $R_e$. Commenter la valeur
+   numérique.
 #+END_QUESTION
 
-On assimile l'énergie électrostatique stockée dans un électron de rayon $R_e$ et
-de charge $Q=-e$ à l'énergie de masse ou au repos de l'électron soit
+On assimile l'énergie électrostatique stockée dans un électron de rayon $R_e$ et de charge $Q=-e$ à
+l'énergie de masse ou au repos de l'électron soit
 #+BEGIN_SRC latex
   \begin{align*}
     \mathcal{U}_e&=m_ec^2=\frac{3e^2}{20\pi\epsilon_0 R_e}
@@ -1608,43 +1562,39 @@ de charge $Q=-e$ à l'énergie de masse ou au repos de l'électron soit
     R_e&=\frac{3e^2}{20\pi\epsilon_0\,m_ec^2}\simeq\unit[1.7]{fm}
   \end{align*}
 #+END_SRC
-L'ordre de grandeur ne semble pas aberrant mais il faut tenir des effets
-quantiques qui apparaissent à très petites échelles.
+L'ordre de grandeur ne semble pas aberrant mais il faut tenir des effets quantiques qui apparaissent
+à très petites échelles.
 
 #+BEGIN_QUESTION
-3) [@3] En réalité, bien avant d'arriver à des distances de l'ordre de $R_e$,
-   d'autres phénomènes sont à prendre en compte : en préciser la nature. Quelle
-   longueur caractéristique fixe la limite inférieure de validité de la théorie
-   classique des champs pour un électron ? En donner l'ordre de grandeur.
+3) [@3] En réalité, bien avant d'arriver à des distances de l'ordre de $R_e$, d'autres phénomènes
+   sont à prendre en compte : en préciser la nature. Quelle longueur caractéristique fixe la limite
+   inférieure de validité de la théorie classique des champs pour un électron ? En donner l'ordre de
+   grandeur.
 #+END_QUESTION
 
-Il faut appliquer un traitement quantique aux systèmes dont les dimensions
-caractéristiques sont inférieures à la longueur d'onde de de Broglie
-$\lambda=\frac{h}{p}$. Cette dimension fixe la limite entre traitement classique
-et traitement quantique. La valeur caractéristique de
+Il faut appliquer un traitement quantique aux systèmes dont les dimensions caractéristiques sont
+inférieures à la longueur d'onde de de Broglie $\lambda=\frac{h}{p}$. Cette dimension fixe la limite
+entre traitement classique et traitement quantique. La valeur caractéristique de
 $\lambda=\frac{h}{m_ec}\simeq$ 2.4\cdot10^{-12} m.
 
 ** Condensateur cylindrique
 
 #+BEGIN_QUESTION
-On considère un condensateur constitué par un cylindre métallique de rayon $a$
-entouré par un autre cylindre creux, de même axe et de rayon $b$. Ces deux
-cylindres constituent les deux armatures du condensateur, l'amrature intérieure
-est au potentiel $V_a$ et a une charge $Q_a$ et l'armature extérieure est au
-potentiel $V_b=0$ et a une charge $Q_b=-Q_a$. Le milieu remplissant l'espace
-entre les deux armatures est le vide. Leur longueur est $h\gg b$, de telle sorte
-qu'on peut négliger les effets de bords. À l'aide du théorème de Gauss, calculer
-le champ électrique dans le condensateur. En déduire la capacité par unité de
-longueur $C$ du condensateur.
+On considère un condensateur constitué par un cylindre métallique de rayon $a$ entouré par un autre
+cylindre creux, de même axe et de rayon $b$. Ces deux cylindres constituent les deux armatures du
+condensateur, l'amrature intérieure est au potentiel $V_a$ et a une charge $Q_a$ et l'armature
+extérieure est au potentiel $V_b=0$ et a une charge $Q_b=-Q_a$. Le milieu remplissant l'espace entre
+les deux armatures est le vide. Leur longueur est $h\gg b$, de telle sorte qu'on peut négliger les
+effets de bords. À l'aide du théorème de Gauss, calculer le champ électrique dans le
+condensateur. En déduire la capacité par unité de longueur $C$ du condensateur.
 
 Application numérique : Calculer $C$ pour $a=1$ mm et $b=8$ mm.
 #+END_QUESTION
 
-En considérant $h\gg a,b$, le problème est invariant par translation le long de
-l'axe des cylindres. Par ailleurs, le problème est invariant par rotation soit
-$E(M)=E(r)$. En coordonnées cylindriques, les plans $(\vv{u}_r,\vv{u}_\theta)$
-et $(\vv{u}_r,\vv{u}_z)$ sont des plans de symétrie de la distribution de
-charge. On déduit que le champ électrique s'écrit
+En considérant $h\gg a,b$, le problème est invariant par translation le long de l'axe des
+cylindres. Par ailleurs, le problème est invariant par rotation soit $E(M)=E(r)$. En coordonnées
+cylindriques, les plans $(\vv{u}_r,\vv{u}_\theta)$ et $(\vv{u}_r,\vv{u}_z)$ sont des plans de
+symétrie de la distribution de charge. On déduit que le champ électrique s'écrit
 #+BEGIN_SRC latex
   \begin{align*}
     \vv{E}(M)=E(r)\vv{u}_r
@@ -1655,26 +1605,25 @@ Le choix de la surface de Gauss est alors un cylindre de rayon $r$ et de hauteur
 $h$
 #+BEGIN_SRC latex
   \begin{align*}
-    \varoiint_S\vv{E}.\,d\vv{S}&=\iiint_V\frac{\rho}{\epsilon_0}d\tau=\frac{\Upsigma Q_\text{int.}}{\epsilon_0}\\
+    \varoiint_S\vv{E}.\,\d\vv{S}&=\iiint_V\frac{\rho}{\epsilon_0}\d\tau=\frac{\Upsigma Q_\text{int.}}{\epsilon_0}\\
     E(r)\times2\pi rh&=\frac{\Upsigma Q_\text{int.}}{\epsilon_0}\\
     \vv{E}(M)&=\frac{\Upsigma Q_\text{int.}}{2\pi\epsilon_0}\times\frac{1}{rh}\vv{u}_r
   \end{align*}
 #+END_SRC
 
 - pour $r < a$, $Q_\text{int.}=0$ d'où $\vv{E}(r < a)=\vv{0}$
-- pour $a < r < b$, $Q_\text{int.}=Q_a$ d'où
-  $\vv{E}(a < r < b)=\frac{Q_a}{2\pi\epsilon_0rh}\vv{u}_r$
+- pour $a < r < b$, $Q_\text{int.}=Q_a$ d'où $\vv{E}(a < r <
+  b)=\frac{Q_a}{2\pi\epsilon_0rh}\vv{u}_r$
 - pour $r>b$, $Q_\text{int.}=Q_a+Q_b=0$ d'où $\vv{E}(r>b)=\vv{0}$
 
-La capacité d'un condensateur $C$ est égale au rapport de la charge dans le
-condensateur sur le potentiel électrique appliqué aux bornes du condensateur
-soit $C=\tfrac{Q}{V}$. Par ailleurs, le champ électrique $\vv{E}$ est égal au
-gradient du potentiel électrique
+La capacité d'un condensateur $C$ est égale au rapport de la charge dans le condensateur sur le
+potentiel électrique appliqué aux bornes du condensateur soit $C=\tfrac{Q}{V}$. Par ailleurs, le
+champ électrique $\vv{E}$ est égal au gradient du potentiel électrique
 $\vv{E}=-\grad\,V=-\tfrac{dV}{dr}\vv{u}_r$. Soit
 #+BEGIN_SRC latex
   \begin{align*}
     -\frac{dV}{dr}&=\frac{Q_a}{2\pi\epsilon_0rh}\\
-    -\int_{V_a}^{V_b}dV&=\int_a^b\frac{Q_a}{2\pi\epsilon_0h}\frac{dr}{r}\\
+    -\int_{V_a}^{V_b}dV&=\int_a^b\frac{Q_a}{2\pi\epsilon_0h}\frac{\d r}{r}\\
     -V_b+V_a&=\frac{Q_a}{2\pi\epsilon_0h}\ln\frac{b}{a}\\
     V_a&=\frac{Q_a}{2\pi\epsilon_0h}\ln\frac{b}{a}=\frac{Q_a}{C}\\
     C&=\frac{2\pi\epsilon_0h}{\ln\frac{b}{a}}
@@ -1864,18 +1813,18 @@ cette charge.
    5) La charge totale $Q_\text{tot.}$ de la boule conductrice est donc
       #+BEGIN_SRC latex
         \begin{align*}
-          Q_\text{tot.}&=\int_0^{2\pi}d\phi\int_0^\pi d\theta\times R^2\sin\theta\times\sigma(\theta)\\
-          &=\frac{2\pi qR^3}{4\pi R^2}\left(R^2-PO^2\right)\times\int_0^\pi d\theta\frac{\sin\theta}{PM^3}\\
+          Q_\text{tot.}&=\int_0^{2\pi}\d\phi\int_0^\pi \d\theta\times R^2\sin\theta\times\sigma(\theta)\\
+          &=\frac{2\pi qR^3}{4\pi R^2}\left(R^2-PO^2\right)\times\int_0^\pi \d\theta\frac{\sin\theta}{PM^3}\\
           &\text{avec }PM^2=PO^2+OM^2+2\vv{PO}.\vv{OM}=PO^2+R^2-2R\,PO\cos\theta\\
-          Q_\text{tot.}&=\frac{qR(R^2-PO^2)}{2}\times\underbrace{\int_0^\pi\frac{\sin\theta d\theta}{\left(PO^2+R^2-2R\,PO\cos\theta\right)^{3/2}}}_{\text{\ding{192}}}
+          Q_\text{tot.}&=\frac{qR(R^2-PO^2)}{2}\times\underbrace{\int_0^\pi\frac{\sin\theta\d\theta}{\left(PO^2+R^2-2R\,PO\cos\theta\right)^{3/2}}}_{\text{\ding{192}}}
         \end{align*}
       #+END_SRC
       Pour calculer \ding{192}, on pose $x=\cos\theta$ avec $x\in[1,-1]$ et
       $dx=-\sin\theta d\theta$
       #+BEGIN_SRC latex
         \begin{align*}
-          \text{\ding{192}}&=\int_1^{-1}\frac{-dx}{\left(PO^2+R^2-2R\,POx\right)^{3/2}}\\
-          &\text{or }\int\frac{dx}{(b+ax)^{3/2}}=\frac{1}{(b+ax)^{1/2}}\times-\frac{2}{a}\\
+          \text{\ding{192}}&=\int_1^{-1}\frac{-\d x}{\left(PO^2+R^2-2R\,POx\right)^{3/2}}\\
+          &\text{or }\int\frac{\d x}{(b+ax)^{3/2}}=\frac{1}{(b+ax)^{1/2}}\times-\frac{2}{a}\\
           \text{\ding{192}}&=\frac{1}{R\,PO}\left(\frac{1}{\surd PO^2+R^2-2R\,PO}-\frac{1}{\surd PO^2+R^2+2R\,PO}\right)\\
           &=\frac{1}{R\,PO}\left(\frac{1}{PO-R}-\frac{1}{PO+R}\right)\\
           &=\frac{1}{R\,PO}\left(\frac{2R}{PO^2-R^2}\right)
@@ -1938,20 +1887,18 @@ cette charge.
       /i.e./ le potentiel généré en $O$ par la particule $q$.
 
 #+BEGIN_QUESTION
-3) [@3] On place une boule conductrice dans un champ uniforme créé par deux
-   charges $+q$ et $-q$ respectivement placées en $+Z$ et $-Z$, où $Z\gg R$.
-   1) Déterminer le champ $\vv{E}$ crée par $+q$ et $-q$ en l'absence de la
-      boule conductrice. Montrer qu'au 1^{er} ordre, $\vv{E}$ peut être
-      considéré comme uniforme sur le volume de la boule.
-   2) Calculer la densité surfacique de charge $\sigma$ qui apparaît sur la
-      boule conductrice en présence de $+q$ et $-q$. Le champ reste-t-il
-      uniforme au voisinage de la boule ?
-   3) En déduire le champ créé à l'intérieur d'une sphère de rayon $R$, portant
-      la densité surfacique de charge $\sigma_0\cos\theta$.
-   4) Enfin on suppose que la boule est coupée en deux par le plan $xOy$. Elle
-      est toujours soumise à un champ électrostatique uniforme. Calculer la
-      force qui s'exerce sur chacun des hémisphères en utilisant la pression
-      électrostatique.
+3) [@3] On place une boule conductrice dans un champ uniforme créé par deux charges $+q$ et $-q$
+   respectivement placées en $+Z$ et $-Z$, où $Z\gg R$.
+   1) Déterminer le champ $\vv{E}$ crée par $+q$ et $-q$ en l'absence de la boule
+      conductrice. Montrer qu'au 1^{er} ordre, $\vv{E}$ peut être considéré comme uniforme sur le
+      volume de la boule.
+   2) Calculer la densité surfacique de charge $\sigma$ qui apparaît sur la boule conductrice en
+      présence de $+q$ et $-q$. Le champ reste-t-il uniforme au voisinage de la boule ?
+   3) En déduire le champ créé à l'intérieur d'une sphère de rayon $R$, portant la densité
+      surfacique de charge $\sigma_0\cos\theta$.
+   4) Enfin on suppose que la boule est coupée en deux par le plan $xOy$. Elle est toujours soumise
+      à un champ électrostatique uniforme. Calculer la force qui s'exerce sur chacun des hémisphères
+      en utilisant la pression électrostatique.
 #+END_QUESTION
 3) [@3] Boule conductrice dans un champ électrostatique uniforme
    #+BEGIN_CENTER
@@ -1994,11 +1941,11 @@ cette charge.
           &=-\frac{1}{4\pi\epsilon_0}\times\frac{2q}{Z^2}\vv{u}_z&\rightarrow\text{champ électrique constant pour }r\leq R\\
         \end{eqnarray*}
       #+END_SRC
-      Le champ ainsi généré correspond au champ électrique généré par un dipôle
-      électrique $\vv{p}=q\vv{NP}$ (où la charge $q$ est en $P$ et la charge
-      $-q$ est en $N$, /cf./ Cours Chapitre 2, page 44).
-   2) Nous avons établi à la question 1.d) qu'en présence d'une charge
-      ponctuelle $q$, la densité surfacique de charge était
+      Le champ ainsi généré correspond au champ électrique généré par un dipôle électrique
+      $\vv{p}=q\vv{NP}$ (où la charge $q$ est en $P$ et la charge $-q$ est en $N$, /cf./ Cours
+      Chapitre 2, page 44).
+   2) Nous avons établi à la question 1.d) qu'en présence d'une charge ponctuelle $q$, la densité
+      surfacique de charge était
       #+BEGIN_SRC latex
         \begin{align*}
           \sigma=\frac{q}{4\pi}\times\frac{R^2-PO^2}{R}\times\frac{1}{PM^3}
@@ -2018,8 +1965,8 @@ cette charge.
           \sigma_-=\frac{-q}{4\pi}\times\frac{R^2-NO^2}{R}\times\frac{1}{NM^3}
         \end{align*}
       #+END_SRC
-      En ne considérant toujours que le premier ordre en $\frac{R}{Z}$, on
-      obtient une densité surfacique totale
+      En ne considérant toujours que le premier ordre en $\frac{R}{Z}$, on obtient une densité
+      surfacique totale
       #+BEGIN_SRC latex
         \begin{align*}
           \sigma_\text{totale}&=\sigma_++\sigma_-\\
@@ -2028,8 +1975,8 @@ cette charge.
           &\simeq-\frac{3q}{2\pi Z^2}\cos\theta
         \end{align*}
       #+END_SRC
-      Le champ électrique au voisinage de la surface de la boule n'est plus
-      uniforme du fait de la présence de charge en surface de cette boule.
+      Le champ électrique au voisinage de la surface de la boule n'est plus uniforme du fait de la
+      présence de charge en surface de cette boule.
    3) Le champ dipolaire électrique s'écrit
       #+BEGIN_SRC latex
         \begin{align*}
@@ -2038,23 +1985,22 @@ cette charge.
           &\text{où }\sigma_\text{totale}=-\frac{3q}{2\pi Z^2}\cos\theta=\sigma_0\cos\theta
         \end{align*}
       #+END_SRC
-      Le champ électrique à l'intérieur de la boule conductrice demeurant nul,
-      on déduit que le champ électrique $\vv{E}_\sigma$ crée par la densité
-      surfacique de charge $\sigma_\text{totale}$ s'écrit
+      Le champ électrique à l'intérieur de la boule conductrice demeurant nul, on déduit que le
+      champ électrique $\vv{E}_\sigma$ crée par la densité surfacique de charge
+      $\sigma_\text{totale}$ s'écrit
       #+BEGIN_SRC latex
         \begin{align*}
           \vv{E}_\text{int.}=\vv{0}&=\vv{E}_\text{dipôle}+\vv{E}_\sigma\\
           \vv{E}_\sigma&=-\frac{\sigma_0}{3\epsilon_0}\vv{u}_z
         \end{align*}
       #+END_SRC
-   4) La pression électrostatique $P$ est égale à
-      $\frac{\sigma^2}{2\epsilon_0}$. C'est par ailleurs, la force
-      électrostatique par unité de surface $P=\frac{d\vv{F}}{d\vv{S}}$. La force
+   4) La pression électrostatique $P$ est égale à $\frac{\sigma^2}{2\epsilon_0}$. C'est par
+      ailleurs, la force électrostatique par unité de surface $P=\frac{\d\vv{F}}{\d\vv{S}}$. La force
       exercée sur l'hémisphère supérieur est ainsi
       #+BEGIN_SRC latex
         \begin{align*}
-          d\vv{F}_1&=\frac{\sigma^2}{2\epsilon_0}\,d\vv{S}\\
-          \vv{F}_1&=\int_0^{2\pi}d\phi\int_0^{\pi/2}d\theta\frac{\sigma_0^2}{2\epsilon_0}\cos^2\theta R^2\sin\theta\vv{u}_r
+          \d\vv{F}_1&=\frac{\sigma^2}{2\epsilon_0}\,\d\vv{S}\\
+          \vv{F}_1&=\int_0^{2\pi}\d\phi\int_0^{\pi/2}\d\theta\frac{\sigma_0^2}{2\epsilon_0}\cos^2\theta R^2\sin\theta\vv{u}_r
         \end{align*}
       #+END_SRC
 
@@ -2063,18 +2009,18 @@ cette charge.
       [[./figures/boule_conductrice_force.pdf]]
       #+END_CENTER
 
-      Seule la composante suivant $\vv{u}_z$ de la force est non nulle soit en
-      remplaçant $\vv{u}_r=\vv{u}_z\cos\theta$, la force $\vv{F}_1$ devient
+      Seule la composante suivant $\vv{u}_z$ de la force est non nulle soit en remplaçant
+      $\vv{u}_r=\vv{u}_z\cos\theta$, la force $\vv{F}_1$ devient
       #+BEGIN_SRC latex
         \begin{align*}
-          \vv{F}_1&=\int_0^{2\pi}d\phi\int_0^{\pi/2}d\theta\frac{\sigma_0^2}{2\epsilon_0}\cos^3\theta R^2\sin\theta\vv{u}_z
+          \vv{F}_1&=\int_0^{2\pi}\d\phi\int_0^{\pi/2}\d\theta\frac{\sigma_0^2}{2\epsilon_0}\cos^3\theta R^2\sin\theta\vv{u}_z
         \end{align*}
       #+END_SRC
-      En procédant au changement de variable $x=\cos\theta$ avec $x\in[1,0]$ et
-      $dx=-\sin\theta d\theta$
+      En procédant au changement de variable $x=\cos\theta$ avec $x\in[1,0]$ et $\d x=-\sin\theta
+      \d\theta$
       #+BEGIN_SRC latex
         \begin{align*}
-          \vv{F}_1&=2\pi\frac{\sigma_0^2}{2\epsilon_0}R^2\int_0^1x^3dx\vv{u}_z\\
+          \vv{F}_1&=2\pi\frac{\sigma_0^2}{2\epsilon_0}R^2\int_0^1x^3\d x\vv{u}_z\\
           &=\frac{\pi R^2\,\sigma_0^2}{\epsilon_0}\times\frac{1}{4}\vv{u}_z\\
           &=\frac{\pi R^2\,\sigma_0^2}{4\epsilon_0}\vv{u}_z=\frac{\pi R^2}{4\epsilon_0}\times\frac{9q^2}{4\pi^2Z^4}\vv{u}_z\\
           \vv{F}_2&=-\vv{F}_1=-\frac{\pi R^2\,\sigma_0^2}{4\epsilon_0}\vv{u}_z
@@ -2128,8 +2074,8 @@ En choisissant comme surface de Gauss, une sphère centrée sur le centre du
 nuage et de rayon $r$, on a
 #+BEGIN_SRC latex
   \begin{align*}
-    \varoiint_\text{sphère}\vv{E}_\text{int.}.\vv{dS}&=\iiint_\text{volume int.}\frac{\rho}{\epsilon_0}\,d\tau\\
-    4\pi\,r^2\,\vv{E}_\text{int.}(r)&=\iiint_\text{volume int.}\frac{\rho}{\epsilon_0}\,d\tau
+    \varoiint_\text{sphère}\vv{E}_\text{int.}.\vv{\d S}&=\iiint_\text{volume int.}\frac{\rho}{\epsilon_0}\,\d\tau\\
+    4\pi\,r^2\,\vv{E}_\text{int.}(r)&=\iiint_\text{volume int.}\frac{\rho}{\epsilon_0}\,\d\tau
   \end{align*}
 #+END_SRC
 
@@ -2404,16 +2350,15 @@ $\vv{p}_1=\vv{p}_2=\vv{p}$, on obtient une force moyenne
 
 * TD3 : Les milieux diélectriques
 ** Introduction
-Historiquement, la découverte expérimentale des diélectriques est à mettre au
-profit de Michael Faraday qui nota que l'introduction d'un isolant entre les
-armatures d'un condensateur modifiait sa capacité.
+Historiquement, la découverte expérimentale des diélectriques est à mettre au profit de Michael
+Faraday qui nota que l'introduction d'un isolant entre les armatures d'un condensateur modifiait sa
+capacité.
 
-On exprime la polarisation $\vv{P}$ d'un matériau comme la densité volumique de
-moment dipolaire $\vv{p}$ soit $\vv{P}=\frac{d\vv{p}}{d\tau}$. En calculant le
-potentiel électrique à partir d'une distribution de moment dipolaire, on déduit
-que la densité volumique de charge liées ou polarisées $\rho_P$ est égale à la
-divergence du vecteur polarisation : $\rho_P=-\div\vv{P}$. De même, la densité
-surfacique de charges liées est égale à $\sigma_P=\vv{P}.\vv{n}$. L'équation de
+On exprime la polarisation $\vv{P}$ d'un matériau comme la densité volumique de moment dipolaire
+$\vv{p}$ soit $\vv{P}=\frac{\d\vv{p}}{\d\tau}$. En calculant le potentiel électrique à partir d'une
+distribution de moment dipolaire, on déduit que la densité volumique de charge liées ou polarisées
+$\rho_P$ est égale à la divergence du vecteur polarisation : $\rho_P=-\div\vv{P}$. De même, la
+densité surfacique de charges liées est égale à $\sigma_P=\vv{P}.\vv{n}$. L'équation de
 Maxwell-Gauss devient
 #+BEGIN_SRC latex
   \begin{align*}
@@ -2425,7 +2370,7 @@ En posant le vecteur $\vv{D}=\epsilon_0\vv{E}+\vv{P}$, on obtient l'équation lo
 suivante
 #+BEGIN_SRC latex
   \begin{align*}
-    \div\vv{D}=\rho_\text{libre}\rightarrow\varoiint_S\vv{D}.\,d\vv{S}=\Upsigma Q_\text{libre}
+    \div\vv{D}=\rho_\text{libre}\rightarrow\varoiint_S\vv{D}.\,\d\vv{S}=\Upsigma Q_\text{libre}
   \end{align*}
 #+END_SRC
 
@@ -2585,7 +2530,7 @@ $\vv{P}.\vv{u}_r=P\cos\theta$ on obtient
     \vv{E}_e=\frac{R^3}{3\epsilon_0}\,\frac{3\left(\vv{P}.\vv{u}_r\right).\vv{u}_r-\vv{P}}{r^3}
   \end{align*}
 #+END_SRC
-d'où $\vv{p}=\frac{4}{3}\pi R^3\vv{P}$, on retrouve donc bien $\vv{P}=\frac{d\vv{p}}{d\tau}$.
+d'où $\vv{p}=\frac{4}{3}\pi R^3\vv{P}$, on retrouve donc bien $\vv{P}=\frac{\d\vv{p}}{\d\tau}$.
 
 ** Plaque diélectrique
 *** Le condensateur plan
@@ -2616,10 +2561,10 @@ d'une surface fermée de forme cylindrique à l'intérieur du condensateur. Le
 théorème de Gauss implique
 #+BEGIN_SRC latex
   \begin{align*}
-    \varoiint_S\vv{E}.\vv{dS}=\frac{\Upsigma Q_\text{int.}}{\epsilon_0}&=0\text{ (pas de charge à l'intérieur du condensateur)}\\
+    \varoiint_S\vv{E}.\vv{\d S}=\frac{\Upsigma Q_\text{int.}}{\epsilon_0}&=0\text{ (pas de charge à l'intérieur du condensateur)}\\
     E(z_1)S - E(z_2)S&=0\rightarrow E(z_1)=E(z_2)=E_0\\
-    \vv{E}=E_0\vv{u}_z&=-\grad V=-\frac{dV}{dz}\vv{u}_z\\
-    \int_0^aE_0dz&=-\int_0^{V_0}dV\rightarrow E_0a=-V_0
+    \vv{E}=E_0\vv{u}_z&=-\grad V=-\frac{\d V}{\d z}\vv{u}_z\\
+    \int_0^aE_0\d z&=-\int_0^{V_0}\d V\rightarrow E_0a=-V_0
   \end{align*}
 #+END_SRC
 
@@ -2651,7 +2596,7 @@ théorème de Gauss implique
 #+BEGIN_SRC latex
   \begin{align*}
     U_0=\frac{1}{2}C_0V_0^2&\rightarrow U_0=\frac{\epsilon_0\ell\times L}{2a}V_0^2\\
-    u_\text{em}=\frac{\epsilon_0E^2}{2}&\rightarrow U=\int u_\text{em}\,d\tau=\frac{\epsilon_0\ell\times L}{2a}V_0^2=U_0
+    u_\text{em}=\frac{\epsilon_0E^2}{2}&\rightarrow U=\int u_\text{em}\,\d\tau=\frac{\epsilon_0\ell\times L}{2a}V_0^2=U_0
   \end{align*}
 #+END_SRC
 L'énergie stockée dans le condensateur est bien d'origine électrostatique.
@@ -2659,68 +2604,62 @@ L'énergie stockée dans le condensateur est bien d'origine électrostatique.
 *** Plaque diélectrique infinie
 
 #+BEGIN_QUESTION
-1) [@1] Une surface élémentaire $dS$ de normale $\vv{n}$ porte une densité
-   surfacique de dipôles $\vv{P}_S=P_S\vv{n}$. Exprimer le potentiel électrique
-   $dV(M)$ créé au point $M$ en fonction de l'angle solide algébrique $d\Omega$
-   de la surface vue du point $M$ (à l'infini le potentiel est nul). En déduire
-   le potentiel crée par un plan infini de normale $\vv{n}$ en tout point de
-   l'espace, portant une densité surfacique de dipôles uniforme colinéaire à
-   $\vv{n}$. Calculer le champ électrique $\vv{E}(M)$ en tout point.
+1) [@1] Une surface élémentaire $\d S$ de normale $\vv{n}$ porte une densité surfacique de dipôles
+   $\vv{P}_S=P_S\vv{n}$. Exprimer le potentiel électrique $\d V(M)$ créé au point $M$ en fonction de
+   l'angle solide algébrique $\d\Omega$ de la surface vue du point $M$ (à l'infini le potentiel est
+   nul). En déduire le potentiel crée par un plan infini de normale $\vv{n}$ en tout point de
+   l'espace, portant une densité surfacique de dipôles uniforme colinéaire à $\vv{n}$. Calculer le
+   champ électrique $\vv{E}(M)$ en tout point.
 #+END_QUESTION
 
 #+BEGIN_CENTER
 #+ATTR_LATEX: :width 0.7\linewidth
 [[./figures/solid_angle.pdf]]
 #+END_CENTER
-Potentiel crée par un dipôle $d\vv{p}$
+Potentiel crée par un dipôle $\d\vv{p}$
 #+BEGIN_SRC latex
   \begin{align*}
-    dV(M)=\frac{1}{4\pi\epsilon_0}\,\frac{d\vv{p}.\vv{AM}}{AM^3}\text{ où $A$ est le barycentre du dipôle}
+    \d V(M)=\frac{1}{4\pi\epsilon_0}\,\frac{\d\vv{p}.\vv{AM}}{AM^3}\text{ où $A$ est le barycentre du dipôle}
   \end{align*}
 #+END_SRC
 La polarisation $\vv{P}$ représente la densité volumique de moment dipolaire
-$\frac{d\vv{p}}{d\tau}$. La polarisation surfacique $\vv{P}_S$ est ainsi
-égale à
+$\frac{\d\vv{p}}{\d\tau}$. La polarisation surfacique $\vv{P}_S$ est ainsi égale à
 #+BEGIN_SRC latex
   \begin{align*}
-    \vv{P}_S&=\frac{d\vv{p}}{d\vv{S}}\\
-    d\vv{p}&=P_S\,d\vv{S}=P_S\,dS\vv{n}\\
-    dV(M)&=\frac{1}{4\pi\epsilon_0}\,\frac{P_SdS\vv{n}\vv{AM}}{AM^3}\\
+    \vv{P}_S&=\frac{\d\vv{p}}{\d\vv{S}}\\
+    d\vv{p}&=P_S\,\d\vv{S}=P_S\,\d S\vv{n}\\
+    \d V(M)&=\frac{1}{4\pi\epsilon_0}\,\frac{P_S\d S\vv{n}\vv{AM}}{AM^3}\\
     &\text{avec }\vv{AM}=-r\vv{u}_r\\
-    dV(M)&=-\frac{P_S}{4\pi\epsilon_0}\,d\Omega
+    \d V(M)&=-\frac{P_S}{4\pi\epsilon_0}\,\d\Omega
   \end{align*}
 #+END_SRC
 
-En fonction de la position du point $M$ /i.e./ au dessus ou en dessous du
-plan infini le potentiel électrique $V(M)$ change de signe du fait que
-l'angle solide $\Omega=\pm2\pi$ sr.
+En fonction de la position du point $M$ /i.e./ au dessus ou en dessous du plan infini le potentiel
+électrique $V(M)$ change de signe du fait que l'angle solide $\Omega=\pm2\pi$ sr.
 
 #+BEGIN_CENTER
 #+ATTR_LATEX: :width 0.7\linewidth
 [[./figures/plan_infini.pdf]]
 #+END_CENTER
 
-Ainsi, le potentiel vu en un point au dessus de la surface du diélectrique
-est égal à
+Ainsi, le potentiel vu en un point au dessus de la surface du diélectrique est égal à
 #+BEGIN_SRC latex
   \begin{align*}
-    V(M_+)&=\int_\text{plan}-\frac{P_S}{4\pi\epsilon_0}\,d\Omega=\frac{P_S}{2\epsilon_0}\\
+    V(M_+)&=\int_\text{plan}-\frac{P_S}{4\pi\epsilon_0}\,\d\Omega=\frac{P_S}{2\epsilon_0}\\
     V(M_-)&=-\frac{P_S}{2\epsilon_0}
   \end{align*}
 #+END_SRC
-Dans les deux cas, le potentiel électrique étant constant : $\vv{E}=-\grad
-V=\vv{0}$.
+Dans les deux cas, le potentiel électrique étant constant : $\vv{E}=-\grad V=\vv{0}$.
 
 #+BEGIN_QUESTION
-2) [@2] Une plaque diélectrique infinie parallèle au plan $xOy$, d'épaisseur
-   $b$, porte les dipôles répartis en son volume de sorte que sa polarisation
-   est $\vv{P}=P(z)\vv{u}_z$. Calculer en tout point $M$, le potentiel $V_d(M)$
-   et le champ électrique $\vv{E}_d(M)$. Indication : décomposer la plaque en
-   tranches d'épaisseur $dz$, exprimer $V_d(M)$ par une intégrale de $P(z)$ en
-   distinguant les cas où $M$ est extérieur ou intérieur à la plaque.
+2) [@2] Une plaque diélectrique infinie parallèle au plan $xOy$, d'épaisseur $b$, porte les dipôles
+   répartis en son volume de sorte que sa polarisation est $\vv{P}=P(z)\vv{u}_z$. Calculer en tout
+   point $M$, le potentiel $V_d(M)$ et le champ électrique $\vv{E}_d(M)$. Indication : décomposer la
+   plaque en tranches d'épaisseur $\d z$, exprimer $V_d(M)$ par une intégrale de $P(z)$ en distinguant
+   les cas où $M$ est extérieur ou intérieur à la plaque.
 #+END_QUESTION
-En décomposant la plaque en tranche d'épaisseur infinitésimale $dz'$, chacune
-porte une densité surfacique $dP_S=P(z')dz'$
+En décomposant la plaque en tranche d'épaisseur infinitésimale $\d z'$, chacune porte une densité
+surfacique $\d P_S=P(z')\d z'$
 
 #+BEGIN_CENTER
 #+ATTR_LATEX: :width 0.6\linewidth
@@ -2731,14 +2670,14 @@ En fonction de la position $z$ du point $M$, le potentiel électrique est
 - si $z>z'$
   #+BEGIN_SRC latex
     \begin{align*}
-      dV(z)=\frac{dP_S}{2\epsilon_0}=\frac{P(z')dz'}{2\epsilon_0}
+      \d V(z)=\frac{\d P_S}{2\epsilon_0}=\frac{P(z')\d z'}{2\epsilon_0}
     \end{align*}
   #+END_SRC
 
 - si $z<z'$
   #+BEGIN_SRC latex
     \begin{align*}
-      dV(z)=-\frac{dP_S}{2\epsilon_0}=-\frac{P(z')dz'}{2\epsilon_0}
+      \d V(z)=-\frac{\d P_S}{2\epsilon_0}=-\frac{P(z')\d z'}{2\epsilon_0}
     \end{align*}
   #+END_SRC
 
@@ -2746,30 +2685,30 @@ On distingue par suite 3 situations
 - pour tout point M tel que $z<0$
   #+BEGIN_SRC latex
     \begin{align*}
-      V_d(M)=-\underbrace{\int_0^b\frac{P(z')dz'}{2\epsilon_0}}_{\text{indépendant de $z$}}=\text{constante}\to\vv{E}=\vv{0}
+      V_d(M)=-\underbrace{\int_0^b\frac{P(z')\d z'}{2\epsilon_0}}_{\text{indépendant de $z$}}=\text{constante}\to\vv{E}=\vv{0}
     \end{align*}
   #+END_SRC
 - pour tout point M tel que $z>b$
   #+BEGIN_SRC latex
-        \begin{align*}
-          V_d(M)=+\underbrace{\int_0^b\frac{P(z')dz'}{2\epsilon_0}}_{\text{indépendant de $z$}}=\text{constante}\to\vv{E}=\vv{0}
-        \end{align*}
+    \begin{align*}
+      V_d(M)=+\underbrace{\int_0^b\frac{P(z')\d z'}{2\epsilon_0}}_{\text{indépendant de $z$}}=\text{constante}\to\vv{E}=\vv{0}
+    \end{align*}
   #+END_SRC
 - pour tout point M tel que $0<z<b$
   #+BEGIN_SRC latex
     \begin{align*}
-      V_d(M)&=\frac{1}{2\epsilon_0}\left(\int_0^zP(z')dz'-\int_z^bP(z')dz'\right)\\
-      &=\frac{1}{2\epsilon_0}\left(\int_0^zP(z')dz'+\int_b^zP(z')dz'\right)\\
-      &=\frac{1}{2\epsilon_0}\left(\int_0^zP(z')dz'+\int_b^0P(z')dz'+\int_0^zP(z')dz'\right)\\
-      &=\frac{1}{2\epsilon_0}\left(2\int_0^zP(z')dz'-\underbrace{\int_0^bP(z')dz'}_{\text{constante}}\right)\\
-      V_d(M)&=\text{constante} + \int_0^z\frac{P(z')}{\epsilon_0}dz'
+      V_d(M)&=\frac{1}{2\epsilon_0}\left(\int_0^zP(z')\d z'-\int_z^bP(z')\d z'\right)\\
+      &=\frac{1}{2\epsilon_0}\left(\int_0^zP(z')\d z'+\int_b^zP(z')\d z'\right)\\
+      &=\frac{1}{2\epsilon_0}\left(\int_0^zP(z')\d z'+\int_b^0P(z')\d z'+\int_0^zP(z')\d z'\right)\\
+      &=\frac{1}{2\epsilon_0}\left(2\int_0^zP(z')\d z'-\underbrace{\int_0^bP(z')\d z'}_{\text{constante}}\right)\\
+      V_d(M)&=\text{constante} + \int_0^z\frac{P(z')}{\epsilon_0}\d z'
     \end{align*}
   #+END_SRC
   Le champ électrique $\vv{E}_d(M)$ s'écrit
   #+BEGIN_SRC latex
     \begin{align*}
-      \vv{E}_d(M)=-\grad V_d(M)&=-\frac{dV_d(M)}{dz}\vv{u}_z\\
-      &=-\frac{1}{\epsilon_0}\frac{d}{dz}\int_0^zP(z')dz'\vv{u}_z\\
+      \vv{E}_d(M)=-\grad V_d(M)&=-\frac{\d V_d(M)}{\d z}\vv{u}_z\\
+      &=-\frac{1}{\epsilon_0}\frac{\d}{\d z}\int_0^zP(z')\d z'\vv{u}_z\\
       &=-\frac{P(z)\vv{u}_z}{\epsilon_0}=-\frac{\vv{P}(M)}{\epsilon_0}=\text{champ dépolarisant}
     \end{align*}
   #+END_SRC
@@ -2781,27 +2720,25 @@ On distingue par suite 3 situations
 #+END_CENTER
 
 #+BEGIN_QUESTION
-On considère le condensateur de la question 1. On introduit la plaque de la
-question 2 entre ses deux armatures ($b>a$) tout en le maintenant à un potentiel
-constant $V_1$. On considèrera le diélectrique linéaire, homogène, isotrope, de
-susceptibilité $\chi$.
+On considère le condensateur de la question 1. On introduit la plaque de la question 2 entre ses
+deux armatures ($b>a$) tout en le maintenant à un potentiel constant $V_1$. On considèrera le
+diélectrique linéaire, homogène, isotrope, de susceptibilité $\chi$.
 
-1) [@1] Montrer que les champs intervenant dans le problème sont parallèles à
-   $Oz$ et ne dépendent que de $z$
+1) [@1] Montrer que les champs intervenant dans le problème sont parallèles à $Oz$ et ne dépendent
+   que de $z$
 #+END_QUESTION
 
-Les symétries restent les mêmes à savoir que tout plan contenant l'axe $Oz$
-est plan de symétrie de la distribution de charge. Les invariances du
-problèmes restent également les mêmes d'où $\vv{E}(M)=E(z)\vv{u}_z$.
+Les symétries restent les mêmes à savoir que tout plan contenant l'axe $Oz$ est plan de symétrie de
+la distribution de charge. Les invariances du problèmes restent également les mêmes d'où
+$\vv{E}(M)=E(z)\vv{u}_z$.
 
 #+BEGIN_QUESTION
-2) [@2] Soit $\vv{E}_1$ le champ électrique créé par les charges des armatures
-   seules. Appliquer le principe de superposition pour calculer le champ
-   $\vv{E}$ total en fonction de $\vv{E}_1$. Montrer que :
+2) [@2] Soit $\vv{E}_1$ le champ électrique créé par les charges des armatures seules. Appliquer le
+   principe de superposition pour calculer le champ $\vv{E}$ total en fonction de
+   $\vv{E}_1$. Montrer que :
    - tous les champs sont uniformes.
-   - on retrouverait le même champ électrique en remplaçant la plaque
-     diélectrique par deux plans chargés séparés par du vide. Quelles seraient
-     leurs charges (charges de polarisation) ?
+   - on retrouverait le même champ électrique en remplaçant la plaque diélectrique par deux plans
+     chargés séparés par du vide. Quelles seraient leurs charges (charges de polarisation) ?
 #+END_QUESTION
 - *à l'extérieur de la plaque diélectrique*
   #+BEGIN_SRC latex
@@ -2818,23 +2755,22 @@ problèmes restent également les mêmes d'où $\vv{E}(M)=E(z)\vv{u}_z$.
     \end{align*}
   #+END_SRC
 
-On a vu que la densité surfacique de charge $\sigma_S=\pm\epsilon_0E_0$ sur
-les armatures du condensateur est à l'origine d'un champ électrique
-constant. Pour créer un champ uniforme d'expression
-$-\frac{\vv{P}}{\epsilon_0}$, cela reviendrait à placer deux plaques /i.e./
-deux armatures chargées en surface par des densités $\sigma_S=\pm P$. Leurs
-charges $Q_P=\pm P\times\ell\times L$.
+On a vu que la densité surfacique de charge $\sigma_S=\pm\epsilon_0E_0$ sur les armatures du
+condensateur est à l'origine d'un champ électrique constant. Pour créer un champ uniforme
+d'expression $-\frac{\vv{P}}{\epsilon_0}$, cela reviendrait à placer deux plaques /i.e./ deux
+armatures chargées en surface par des densités $\sigma_S=\pm P$. Leurs charges $Q_P=\pm
+P\times\ell\times L$.
 
 #+BEGIN_QUESTION
-3) [@3] Calculer la charge $Q_1$ des armatures, la capacité $C_1$ du
-   condensateur et l'énergie stockée $U_1$.
+3) [@3] Calculer la charge $Q_1$ des armatures, la capacité $C_1$ du condensateur et l'énergie
+   stockée $U_1$.
 #+END_QUESTION
 
 Le potentiel électrique $V_1$ est égal à
 #+BEGIN_SRC latex
   \begin{align*}
-    \vv{E}&=-\grad V_1\rightarrow V_1=-\int_0^aE(z)dz\\
-    V_1&=-\int_0^cE_1dz-\int_c^{b+c}\frac{E_1}{1+\chi_e}dz-\int_{b+c}^aE_1dz\\
+    \vv{E}&=-\grad V_1\rightarrow V_1=-\int_0^aE(z)\d z\\
+    V_1&=-\int_0^cE_1dz-\int_c^{b+c}\frac{E_1}{1+\chi_e}\d z-\int_{b+c}^aE_1\d z\\
     &=-\cancel{E_1\times c}-\frac{E_1}{1+\chi_e}\times b-E_1\times a+E_1\times(b+\cancel{c})\\
     &=-E_1\left(a+\frac{b}{1+\chi_e}-b\right)=-E_1\left(a-\frac{b\chi_e}{1+\chi_e}\right)
   \end{align*}
@@ -2842,7 +2778,7 @@ Le potentiel électrique $V_1$ est égal à
 La charge des armatures est égale
 #+BEGIN_SRC latex
   \begin{align*}
-    Q_1(z=0)=\sigma_Z\times\ell\times L=-E_1\epsilon_0\,\ell\times L\\
+    Q_1(z=0)=+\sigma_Z\times\ell\times L=-E_1\epsilon_0\,\ell\times L\\
     Q_1(z=a)=-\sigma_Z\times\ell\times L=E_1\epsilon_0\,\ell\times L
   \end{align*}
 #+END_SRC
@@ -2855,8 +2791,8 @@ $\frac{|Q_1|}{V_1}$
     &=\frac{\epsilon_0\ell\times L}{a-\frac{b\chi_e}{1+\chi_e}}>C_0
   \end{align*}
 #+END_SRC
-L'ajout du diélectrique a contribué à l'augmentation de la capacité du
-condensateur. L'énergie stockée dans le condensateur est
+L'ajout du diélectrique a contribué à l'augmentation de la capacité du condensateur. L'énergie
+stockée dans le condensateur est
 #+BEGIN_SRC latex
   \begin{align*}
     U_1&=\frac{1}{2}C_1V_1^2\\
@@ -2865,23 +2801,21 @@ condensateur. L'énergie stockée dans le condensateur est
 #+END_SRC
 
 #+BEGIN_QUESTION
-4) [@4] Retrouver les résultats précédents en utilisant le déplacement
-   électrique et le théorème de Gauss.
+4) [@4] Retrouver les résultats précédents en utilisant le déplacement électrique et le théorème de
+   Gauss.
 #+END_QUESTION
 
-Le déplacement électrique $\vv{D}$ est égal à $\epsilon_0\vv{E}+\vv{P}$. Le
-theorème de Gauss appliqué aux diélectriques implique que
-$\div\vv{D}=\rho_\text{libre}\rightarrow\varoiint\vv{D}.d\vv{S}=Q_\text{libre}^\text{int.}$. En
-tout point situé entre les armatures du condensateur y compris à l'intérieur
-du diélectrique, il n'y a pas de charges libres. Par ailleurs, le vecteur
-déplacement $\vv{D}$ est égal dans le diélectrique à
-$\epsilon_0\vv{E}+\vv{P}$ et à $\epsilon_0\vv{E}_1$ entre le diélectrique et
-les armatures du condensateur. En choisissant une surface fermée cylindrique
-dont les sections circulaires sont de part et d'autre de l'interface
-diélectrique-vide, on a
+Le déplacement électrique $\vv{D}$ est égal à $\epsilon_0\vv{E}+\vv{P}$. Le theorème de Gauss
+appliqué aux diélectriques implique que
+$\div\vv{D}=\rho_\text{libre}\rightarrow\varoiint\vv{D}.\d\vv{S}=Q_\text{libre}^\text{int.}$. En
+tout point situé entre les armatures du condensateur y compris à l'intérieur du diélectrique, il n'y
+a pas de charges libres. Par ailleurs, le vecteur déplacement $\vv{D}$ est égal dans le diélectrique
+à $\epsilon_0\vv{E}+\vv{P}$ et à $\epsilon_0\vv{E}_1$ entre le diélectrique et les armatures du
+condensateur. En choisissant une surface fermée cylindrique dont les sections circulaires sont de
+part et d'autre de l'interface diélectrique-vide, on a
 #+BEGIN_SRC latex
   \begin{align*}
-    \varoiint\vv{D}.\,d\vv{S}&=0\\
+    \varoiint\vv{D}.\,\d\vv{S}&=0\\
     D_\text{vide}S-D_\text{diélectrique}S&=0\\
     \vv{D}_\text{vide}&=\vv{D}_\text{diélectrique}\\
     \epsilon_0\vv{E}_1&=\epsilon_0\vv{E}+\vv{P}\\
@@ -2921,12 +2855,10 @@ L}{a-\frac{b\chi_e}{1+\chi_e}}=C_1$. Finalement, l'énergie stockée $U_2$ est
 *** Force électrostatique sur la plaque diélectrique
 
 #+BEGIN_QUESTION
-La plaque diélectrique est introduite dans le condensateur parallèlement à la
-longueur $L$ de sorte qu'il subsiste une longueur $x$ vide. On admet que les
-champs restent uniformes parallèles à $Oz$.
+La plaque diélectrique est introduite dans le condensateur parallèlement à la longueur $L$ de sorte
+qu'il subsiste une longueur $x$ vide. On admet que les champs restent uniformes parallèles à $Oz$.
 
-1) [@1] En déduire les densités surfaciques de charge. Calculer $Q$, $C$, et $U$
-   en fonction de $x$.
+1) [@1] En déduire les densités surfaciques de charge. Calculer $Q$, $C$, et $U$ en fonction de $x$.
 #+END_QUESTION
 
 #+BEGIN_CENTER
@@ -2934,10 +2866,9 @@ champs restent uniformes parallèles à $Oz$.
 [[./figures/coupe_condensateur_dielectrique_force.pdf]]
 #+END_CENTER
 
-On supposera la situation identique à celle de la question [[Condensateur
-diélectrique à potentiel constant]] soit à potentiel constant
-$V=V_1=E_1\left(a-\frac{b\chi_e}{1+\chi_e}\right)$. Dans la région \ding{192},
-le champ électrique est égal à $\vv{E}'_1=-\frac{V_1}{a}\vv{u}_z$.
+On supposera la situation identique à celle de la question [[Condensateur diélectrique à potentiel
+constant]] soit à potentiel constant $V=V_1=E_1\left(a-\frac{b\chi_e}{1+\chi_e}\right)$. Dans la
+région \ding{192}, le champ électrique est égal à $\vv{E}'_1=-\frac{V_1}{a}\vv{u}_z$.
 
 Les densités surfaciques de charge sont respectivement
 - région \ding{192} :
@@ -2955,7 +2886,7 @@ Les densités surfaciques de charge sont respectivement
 La charge $Q$ du condensateur est égale à
 #+BEGIN_SRC latex
   \begin{align*}
-    Q&=\int_0^x\sigma_S^\text{\ding{193}}\,\ell dx+\int_x^L\sigma_S^\text{\ding{192}}\,\ell dx\\
+    Q&=\int_0^x\sigma_S^\text{\ding{193}}\,\ell\d x+\int_x^L\sigma_S^\text{\ding{192}}\,\ell\d x\\
     &=\epsilon_0E_1\ell\left(\frac{x}{a}\left(a-\frac{b\chi_e}{1+\chi_e}\right)+L-x\right)\\
     &=\epsilon_0E_1\ell\left(L-\frac{\chi_e}{1+\chi_e}\frac{bx}{a}\right)
   \end{align*}
@@ -2964,45 +2895,42 @@ La capacité $C$ est égale à $\frac{Q}{V_1}$, l'énergie stockée
 $U=\frac{1}{2}CV_1^2=\frac{1}{2}QV_1$.
 
 #+BEGIN_QUESTION
-2) [@2] Pour calculer la force $\vv{F}$ que subit la plaque diélectrique on
-   imagine que l'opérateur déplace la plaque de $dx$ à vitesse nulle en lui
-   appliquant la force $\vv{F}_\text{op.}=-\vv{F}$. Calculer la variation
-   d'énergie stockée, le travail de l'opérateur et le travail du générateur à
-   potentiel constant. En déduire $\vv{F}$.
+2) [@2] Pour calculer la force $\vv{F}$ que subit la plaque diélectrique on imagine que l'opérateur
+   déplace la plaque de $\d x$ à vitesse nulle en lui appliquant la force
+   $\vv{F}_\text{op.}=-\vv{F}$. Calculer la variation d'énergie stockée, le travail de l'opérateur
+   et le travail du générateur à potentiel constant. En déduire $\vv{F}$.
 #+END_QUESTION
-Lorsque la plaque diélectrique est introduite $x\nearrow$, la charge du
-condensateur diminue de même que la capacité $C$. L'énergie stockée diminue
-donc de pair avec l'introduction de la plaque.
+Lorsque la plaque diélectrique est introduite $x\nearrow$, la charge du condensateur diminue de même
+que la capacité $C$. L'énergie stockée diminue donc de pair avec l'introduction de la plaque.
 #+BEGIN_SRC latex
   \begin{align*}
-    dU=\frac{1}{2}V_1^2dC=\frac{1}{2}V_1dQ&=\frac{1}{2}V_1\frac{dQ}{dx}dx\\
-    &=\frac{1}{2}V_1\epsilon_0E_1\ell(-)\frac{\chi_e}{1+\chi_e}\frac{b}{a}dx
+    dU=\frac{1}{2}V_1^2\d C=\frac{1}{2}V_1\d Q&=\frac{1}{2}V_1\frac{\d Q}{\d x}\d x\\
+    &=\frac{1}{2}V_1\epsilon_0E_1\ell(-)\frac{\chi_e}{1+\chi_e}\frac{b}{a}\d x
   \end{align*}
 #+END_SRC
 
-Le travail $dW_\text{op.}$ fourni par l'opérateur correspond au produit
-scalaire de la force $\vv{F}_\text{op.}$ par le déplacement infinitésimal
-$d\vv{x}$
+Le travail $dW_\text{op.}$ fourni par l'opérateur correspond au produit scalaire de la force
+$\vv{F}_\text{op.}$ par le déplacement infinitésimal $\d\vv{x}$
 #+BEGIN_SRC latex
   \begin{align*}
-    dW_\text{op.}=\vv{F}_\text{op.}.d\vv{x}=F_\text{op.}dx=-Fdx
+    dW_\text{op.}=\vv{F}_\text{op.}.\d\vv{x}=F_\text{op.}\d x=-F\d x
   \end{align*}
 #+END_SRC
 
 La puissance du générateur $P=V_1\times I$ d'où le travail $dW_\text{g}$
 #+BEGIN_SRC latex
   \begin{align*}
-    dW_\text{g}=Pdt=V_1Idt&=V_1dQ\\
-    &=-V_1\epsilon_0E_1\ell(-)\frac{\chi_e}{1+\chi_e}\frac{b}{a}dx=2dU
+    \d W_\text{g}=P\d t=V_1I\d t&=V_1\d Q\\
+    &=-V_1\epsilon_0E_1\ell(-)\frac{\chi_e}{1+\chi_e}\frac{b}{a}\d x=2\d U
   \end{align*}
 #+END_SRC
 
 Ainsi la variation d'énergie stockée correspond à
 #+BEGIN_SRC latex
   \begin{align*}
-    dU&=dW_\text{g}+dW_\text{op.}\\
-    dU&=2dU+dW_\text{op.}\\
-    F_\text{op.}dx&=-dU=\frac{1}{2}V_1\epsilon_0E_1\ell\frac{\chi_e}{1+\chi_e}\frac{b}{a}dx\\
+    \d U&=\d W_\text{g}+\d W_\text{op.}\\
+    \d U&=2\d U+\d W_\text{op.}\\
+    F_\text{op.}\d x&=-\d U=\frac{1}{2}V_1\epsilon_0E_1\ell\frac{\chi_e}{1+\chi_e}\frac{b}{a}\d x\\
     F_\text{op.}&=\frac{1}{2}V_1\epsilon_0E_1\ell\frac{\chi_e}{1+\chi_e}\frac{b}{a}>0
   \end{align*}
 #+END_SRC
@@ -3014,23 +2942,21 @@ Ainsi la variation d'énergie stockée correspond à
 ** Boule chargée flottant sur un diélectrique
 
 #+BEGIN_QUESTION
-On considère une boule conductrice de centre $O$, de masse $m$, flottant à la
-surface d'un fluide diélectrique LHI de permittivité relative $\epsilon_r$. On
-supposera que le milieu (1) est le vide. Non chargée, le quart de son volume est
-immergé à l'équilibre. On charge la boule en la portant au potentiel $V_S$ par
-rapport à l'infini et on constate qu'elle est à moitié immergée à
-l'équilibre. On utilise alors les coordonnées sphériques de centre $O$, l'axe
-$Oz$ étant perpendiculaire au plan de séparation des deux milieux.
+On considère une boule conductrice de centre $O$, de masse $m$, flottant à la surface d'un fluide
+diélectrique LHI de permittivité relative $\epsilon_r$. On supposera que le milieu (1) est le
+vide. Non chargée, le quart de son volume est immergé à l'équilibre. On charge la boule en la
+portant au potentiel $V_S$ par rapport à l'infini et on constate qu'elle est à moitié immergée à
+l'équilibre. On utilise alors les coordonnées sphériques de centre $O$, l'axe $Oz$ étant
+perpendiculaire au plan de séparation des deux milieux.
 
-1) [@1] Quelle est l'équation vérifiée par le potentiel électrique $V(\vv{r})$
-   dans chaque milieu ? Quelles conditions aux limites doit il vérifier ?
+1) [@1] Quelle est l'équation vérifiée par le potentiel électrique $V(\vv{r})$ dans chaque milieu ?
+   Quelles conditions aux limites doit il vérifier ?
 #+END_QUESTION
 
-Le potentiel $V(\vv{r})$ vérifie l'équation de Poisson dans chacun des
-milieux $\Delta V(\vv{r})=-\frac{\rho_\text{tot.}}{\epsilon_0}$. Toutefois,
-le milieu \ding{192} étant le vide et un conducteur n'ayant pas de densité
-volumique de charge libre, le potentiel $V_1(\vv{r})$ vérifie l'équation de
-Laplace[fn:6] $\Delta V_1=0$. Les conditions aux limites sont les suivantes
+Le potentiel $V(\vv{r})$ vérifie l'équation de Poisson dans chacun des milieux $\Delta
+V(\vv{r})=-\frac{\rho_\text{tot.}}{\epsilon_0}$. Toutefois, le milieu \ding{192} étant le vide et un
+conducteur n'ayant pas de densité volumique de charge libre, le potentiel $V_1(\vv{r})$ vérifie
+l'équation de Laplace[fn:6] $\Delta V_1=0$. Les conditions aux limites sont les suivantes
 - continuité du potentiel à la surface de la boule $V_1(R)=V_2(R)=V_S$,
 - à l'infini $r\to\infty$, $V_1(r\to\infty)=V_2(r\to\infty)=0$.
 
@@ -3038,14 +2964,13 @@ Laplace[fn:6] $\Delta V_1=0$. Les conditions aux limites sont les suivantes
 2) [@2] On essaie un potentiel ne dépendant que de $r$ soit $V(r)$.
    1) Déterminer $V_1(r)$ en fonction de $V_S$.
    2) En déduire le champ électrique $\vv{E}_1$.
-   3) Exprimer les densités superficielles de charges libres de la boule
-      $\sigma_{1\ell}$ et $\sigma_{2\ell}$ en fonction de $V_S$ et de $R$. En
-      déduire les densités de charges surfaciques de polarisation.
+   3) Exprimer les densités superficielles de charges libres de la boule $\sigma_{1\ell}$ et
+      $\sigma_{2\ell}$ en fonction de $V_S$ et de $R$. En déduire les densités de charges
+      surfaciques de polarisation.
    4) Vérifier que $V(r)$ est bien solution du problème.
 #+END_QUESTION
 2) [@2]
-   1) L'équation de Laplace dans le milieu \ding{192} s'écrit en coordonnées
-      sphériques
+   1) L'équation de Laplace dans le milieu \ding{192} s'écrit en coordonnées sphériques
       #+BEGIN_SRC latex
         \begin{align*}
           \Delta V_1=\frac{1}{r^2}\frac{\partial}{\partial r}\left(r^2\frac{\partial V_1(r)}{\partial r}\right)&=0\\
@@ -3053,8 +2978,8 @@ Laplace[fn:6] $\Delta V_1=0$. Les conditions aux limites sont les suivantes
           V_1(r)&=\frac{A}{r}+B
         \end{align*}
       #+END_SRC
-      En utilisant les conditions aux limites, on a $V_1(r\to\infty)=B=0$ et
-      $V_1(R)=V_S\rightarrow A=RV_S$
+      En utilisant les conditions aux limites, on a $V_1(r\to\infty)=B=0$ et $V_1(R)=V_S\rightarrow
+      A=RV_S$
       #+BEGIN_SRC latex
         \begin{align*}
           V_1(r)&=\frac{V_SR}{r}
@@ -3068,11 +2993,10 @@ Laplace[fn:6] $\Delta V_1=0$. Les conditions aux limites sont les suivantes
           &=\frac{V_SR}{r^2}\vv{u}_r
         \end{align*}
       #+END_SRC
-   3) À la traversée de la surface conducteur-vide/diélectrique, la composante
-      normale à la surface (ici \(\parallel\vv{u}_r\)) du vecteur déplacement
-      $\vv{D}$ est discontinue et égale à la densité surfacique de charge
-      libre. Le champ électrique étant par ailleurs nul à l'intérieur d'un
-      conducteur, nous avons en $r=R$
+   3) À la traversée de la surface conducteur-vide/diélectrique, la composante normale à la surface
+      (ici \(\parallel\vv{u}_r\)) du vecteur déplacement $\vv{D}$ est discontinue et égale à la
+      densité surfacique de charge libre. Le champ électrique étant par ailleurs nul à l'intérieur
+      d'un conducteur, nous avons en $r=R$
       #+BEGIN_SRC latex
         \begin{align*}
           \vv{D}_1(R).\vv{u}_r&=\sigma_{\ell1}\\
@@ -3080,18 +3004,17 @@ Laplace[fn:6] $\Delta V_1=0$. Les conditions aux limites sont les suivantes
           \text{d'où }\sigma_{\ell1}&=\epsilon_0\frac{V_S}{R}
         \end{align*}
       #+END_SRC
-      Pour déterminer, la densité surfacique de charge libre dans le milieu
-      \ding{193}, on utilise la même relation soit
+      Pour déterminer, la densité surfacique de charge libre dans le milieu \ding{193}, on utilise
+      la même relation soit
       #+BEGIN_SRC latex
         \begin{align*}
           \vv{D}_2(R).\vv{u}_r&=\sigma_{\ell2-}\\
           \epsilon_r\epsilon_0\vv{E}_2(R).\vv{u}_r&=\sigma_{\ell2}
         \end{align*}
       #+END_SRC
-      Pour calculer $\vv{E}_2.\vv{u}_r$, on utilise la relation de continuité de
-      la composante tangentielle du champ électrique à l'interface milieu
-      \ding{192} - milieu \ding{193} et en surface du conducteur soit en
-      $r=R$. On a ainsi
+      Pour calculer $\vv{E}_2.\vv{u}_r$, on utilise la relation de continuité de la composante
+      tangentielle du champ électrique à l'interface milieu \ding{192} - milieu \ding{193} et en
+      surface du conducteur soit en $r=R$. On a ainsi
       #+BEGIN_SRC latex
         \begin{align*}
           \vv{E}_2(r=R).\vv{u}_r&=\vv{E}_1(r=R).\vv{u}_r\\
@@ -3105,27 +3028,26 @@ Laplace[fn:6] $\Delta V_1=0$. Les conditions aux limites sont les suivantes
         \end{align*}
       #+END_SRC
 
-      Les densités surfaciques de charge de polarisation se déduisent de la
-      discontinuité du vecteur polarisation
-      $\vv{P}=\epsilon_0\chi_e\vv{E}_2$. L'absence de polarisation dans le
-      milieu \ding{192} fait que $\sigma_{P1}=0$ et
+      Les densités surfaciques de charge de polarisation se déduisent de la discontinuité du vecteur
+      polarisation $\vv{P}=\epsilon_0\chi_e\vv{E}_2$. L'absence de polarisation dans le milieu
+      \ding{192} fait que $\sigma_{P1}=0$ et
       #+BEGIN_SRC latex
         \begin{align*}
           \sigma_{P2}&=-\vv{P}.\vv{u}_r\\
           &=-\epsilon_0\chi_e\frac{V_S}{R}
         \end{align*}
       #+END_SRC
-   4) Les conditions aux limites sont vérifiées et $V(r)$ est solution de
-      l'équation de Poisson \to théorème d'unicité, $V(r)$ est l'unique solution
+   4) Les conditions aux limites sont vérifiées et $V(r)$ est solution de l'équation de Poisson \to
+      théorème d'unicité, $V(r)$ est l'unique solution
 
 #+BEGIN_QUESTION
-3) [@3] Calculer $V_S$ pour que la boule soit à moitié immergée. Application
-   numérique : calculer $V_S$ avec $m=10$ g et $\epsilon_r=80$.
+3) [@3] Calculer $V_S$ pour que la boule soit à moitié immergée. Application numérique\nbsp:
+   calculer $V_S$ avec $m=10$ g et $\epsilon_r=80$.
 #+END_QUESTION
 
-En l'absence de potentiel $V=0$ /i.e./ $\sigma_{\ell1}=\sigma_{\ell2}=0$, seul
-le quart de la boule est immergé. Le système étant à l'équilibre on déduit
-ainsi la poussé d'Archimède s'exerçant sur la boule
+En l'absence de potentiel $V=0$ /i.e./ $\sigma_{\ell1}=\sigma_{\ell2}=0$, seul le quart de la boule
+est immergé. Le système étant à l'équilibre on déduit ainsi la poussé d'Archimède s'exerçant sur la
+boule
 #+BEGIN_SRC latex
   \begin{align*}
     \Upsigma\vv{F}&=\vv{0}\\
@@ -3134,23 +3056,22 @@ ainsi la poussé d'Archimède s'exerçant sur la boule
   \end{align*}
 #+END_SRC
 
-Lorsque la boule est au potentiel $V_S$, le volume immergé correspond à la
-moitié du volume de la boule en raison de la pression électrostatique qui
-s'exerce à présent sur les parois du conducteur :
+Lorsque la boule est au potentiel $V_S$, le volume immergé correspond à la moitié du volume de la
+boule en raison de la pression électrostatique qui s'exerce à présent sur les parois du conducteur :
 #+BEGIN_SRC latex
   \begin{align*}
     &\Upsigma\vv{F}=\vv{0}\\
     &m\vv{g}-\frac{1}{2}\times\frac{4}{3}\pi R^3\rho_\text{diél.}\vv{g}+\vv{F}_1+\vv{F}_2=\vv{0}
   \end{align*}
 #+END_SRC
-où $\vv{F}_1$ et $\vv{F}_2$ correspondent aux forces de pression s'exerçant
-sur chacune des demi-sphères. Soit
+où $\vv{F}_1$ et $\vv{F}_2$ correspondent aux forces de pression s'exerçant sur chacune des
+demi-sphères. Soit
 #+BEGIN_SRC latex
   \begin{align*}
-    \vv{F}_{1,2}&=\iint P_{1,2}d\vv{S}\\
-    F_{1,2z}&=\vv{F}_{1,2}.\vv{u}_z=\int_0^{2\pi}d\phi\int_0^{\pi/2}P_{1,2}\cos\theta R^2\sin\theta d\theta\\
+    \vv{F}_{1,2}&=\iint P_{1,2}\d\vv{S}\\
+    F_{1,2z}&=\vv{F}_{1,2}.\vv{u}_z=\int_0^{2\pi}\d\phi\int_0^{\pi/2}P_{1,2}\cos\theta R^2\sin\theta \d\theta\\
     &\text{(seule la composante selon $\vv{u}_z$ reste non nulle)}\\
-    &=2\pi R^2P_{1,2}\int_0^{\pi/2}\sin\theta d(\sin\theta)=2\pi R^2P_{1,2}\left[\frac{\sin^2\theta}{2}\right]_0^{\pi/2}\\
+    &=2\pi R^2P_{1,2}\int_0^{\pi/2}\sin\theta \d(\sin\theta)=2\pi R^2P_{1,2}\left[\frac{\sin^2\theta}{2}\right]_0^{\pi/2}\\
     &=\pi R^2P_{1,2}
   \end{align*}
 #+END_SRC
@@ -3158,8 +3079,8 @@ Les pressions électrostatiques $P_{1,2}$ sont égales à
 #+BEGIN_SRC latex
   \begin{align*}
     P_1&=\frac{\sigma^2_{\ell1}}{2\epsilon_0}\\
-    P_2&=\frac{d\vv{F}_2}{d\vv{S}}=\frac{\vv{E}_2dq}{d\vv{S}}\\
-    &=\frac{\sigma_{\text{tot.}2}/\epsilon_0\times\sigma_{\ell2}dS}{dS}\text{ et }\sigma_{\text{tot.}2}=\sigma_{\ell2}+\sigma_{P2}=\frac{\sigma_{\ell2}}{\epsilon_r}\\
+    P_2&=\frac{\d\vv{F}_2}{\d\vv{S}}=\frac{\vv{E}_2\d q}{\d\vv{S}}\\
+    &=\frac{\sigma_{\text{tot.}2}/\epsilon_0\times\sigma_{\ell2}\d S}{\d S}\text{ et }\sigma_{\text{tot.}2}=\sigma_{\ell2}+\sigma_{P2}=\frac{\sigma_{\ell2}}{\epsilon_r}\\
     &=\frac{\sigma^2_{\ell2}}{2\epsilon_0\epsilon_r}=\frac{\epsilon_r\sigma^2_{\ell1}}{2\epsilon_0}
   \end{align*}
 #+END_SRC
@@ -3177,17 +3098,15 @@ En projetant, le PFD selon $\vv{u}_z$, on obtient finalement l'équation suivant
 ** Lame piézoélectrique
 
 #+BEGIN_QUESTION
-Le phénomène de piézoélectricité consiste en l'apparition d'une polarisation
-électrique dans certains diélectriques sous l'effet d'une force exercée dans une
-direction convenable, ici $Oz$. Deux armatures conductrices sont déposées sur
-les faces opposées d'une lame diélectrique d'épaisseur $d$ et de surface
-$S$. L'ensemble est un condensateur plan et constitue le capteur
+Le phénomène de piézoélectricité consiste en l'apparition d'une polarisation électrique dans
+certains diélectriques sous l'effet d'une force exercée dans une direction convenable, ici
+$Oz$. Deux armatures conductrices sont déposées sur les faces opposées d'une lame diélectrique
+d'épaisseur $d$ et de surface $S$. L'ensemble est un condensateur plan et constitue le capteur
 piézoélectrique.
 
-Pendant tout l'exercice, on admet que les champs $\vv{P}$, $\vv{E}$ et $\vv{D}$
-sont parallèles à $Oz$ et que les variations d'épaisseur de la lame sont
-négligeables devant $d$. On note $q$ la charge de l'armature $z=0$ et $-q$ celle
-de l'armature $z=d$.
+Pendant tout l'exercice, on admet que les champs $\vv{P}$, $\vv{E}$ et $\vv{D}$ sont parallèles à
+$Oz$ et que les variations d'épaisseur de la lame sont négligeables devant $d$. On note $q$ la
+charge de l'armature $z=0$ et $-q$ celle de l'armature $z=d$.
 
 1) [@1] Calculer $\vv{D}$ entre les armatures.
 #+END_QUESTION
@@ -3195,11 +3114,10 @@ de l'armature $z=d$.
 On suppose que les champs $\vv{P},\vv{E}$ et $\vv{D}$ sont parallèles à $Oz$ et
 ne dépendent que de $z$.
 
-À l'intérieur du diélectrique soit entre les armatures, il n'y a pas de
-charges libres. On applique donc le théorème de Gauss au vecteur déplacement
-$\vv{D}$ en choisissant pour surface fermée un cylindre. Seuls les disques
-de surface $S$ en $z_1$ et en $z_2$ donnent un produit $\vv{D}.d\vv{S}$ non
-nul. On obtient ainsi
+À l'intérieur du diélectrique soit entre les armatures, il n'y a pas de charges libres. On applique
+donc le théorème de Gauss au vecteur déplacement $\vv{D}$ en choisissant pour surface fermée un
+cylindre. Seuls les disques de surface $S$ en $z_1$ et en $z_2$ donnent un produit $\vv{D}.d\vv{S}$
+non nul. On obtient ainsi
 #+BEGIN_SRC latex
   \begin{align*}
     D(z=z_1)S-D(z=z_2)S=\Upsigma Q_\text{libre}&=0\\
@@ -3207,10 +3125,10 @@ nul. On obtient ainsi
   \end{align*}
 #+END_SRC
 
-L'expression du vecteur déplacement ne dépend donc pas de la position à
-l'intérieur du diélectrique. Pour déterminer la valeur du champ $\vv{D}$, on
-se place à l'interface armature-diélectrique et on applique la relation de
-discontinuité de la composante normale du vecteur déplacement soit
+L'expression du vecteur déplacement ne dépend donc pas de la position à l'intérieur du
+diélectrique. Pour déterminer la valeur du champ $\vv{D}$, on se place à l'interface
+armature-diélectrique et on applique la relation de discontinuité de la composante normale du
+vecteur déplacement soit
 #+BEGIN_SRC latex
   \begin{align*}
     \left.\left(\vv{D}_\text{int.}-\cancel{\vv{D}_\text{ext.}}\right)\right|_{z=0}.\vv{u}_z&=\sigma_\ell=\frac{+q}{S}\\
@@ -3219,37 +3137,33 @@ discontinuité de la composante normale du vecteur déplacement soit
 #+END_SRC
 
 #+BEGIN_QUESTION
-2) [@2] On suppose que le diélectrique est /piézoélectrique/ de permittivité
-   $\epsilon$. Sous l'action d'une force extérieure, l'épaisseur de la lame
-   devient $d+\delta$ avec $\delta\ll d$. La déformation du diélectrique induit
-   une polarisation indépendante de la charge $q$. La relation constitutive du
-   piézoélectrique s'écrit :
+2) [@2] On suppose que le diélectrique est /piézoélectrique/ de permittivité $\epsilon$. Sous l'action
+   d'une force extérieure, l'épaisseur de la lame devient $d+\delta$ avec $\delta\ll d$. La
+   déformation du diélectrique induit une polarisation indépendante de la charge $q$. La relation
+   constitutive du piézoélectrique s'écrit :
    #+BEGIN_SRC latex
      \begin{align*}
        \vv{P}=\epsilon_0\chi\vv{E}+\frac{\epsilon\alpha\delta}{d}\vv{u}_z
      \end{align*}
    #+END_SRC
-   Le premier terme est la polarisation d'un diélectrique LHI. L'état du capteur
-   dépend maintenant de deux variables $\delta$ et $q$. Le deuxième terme
-   représente l'effet piézoélectrique, $\alpha$ est une constante (typiquement
-   $\alpha=10^{10}$ V/m).
-   1) Déterminer la tension aux bornes du condensateur $V(\delta,q)$. Pourquoi
-      peut-on négliger le deuxième ordre ?
-   2) On se propose de déterminer l'énergie potentielle $W(\delta,q)$ du système
-      avec $W(0,0)=0$. Un opérateur fait varier $\delta$ en appliquant une force
-      $F$, tandis qu'un générateur fait varier la charge $q$. L'énergie
-      potentielle étant une fonction d'état, on peut aller de l'état $(0,0)$ à
-      l'état $(\delta,q)$ par n'importe quel chemin. On décompose la
-      transformation en deux étapes\nbsp{}:
-      - à $q=0$, pour maintenir la déformation $\delta'$, l'opérateur doit
-        appliquer une force $K\delta'$ sur la surface $z=d$, la face $z=0$ étant
-        fixe. La constante $K>0$ décrit la rigidité du matériau. L'opérateur
-        fait varier $\delta'$ de 0 à $\delta$.
+   Le premier terme est la polarisation d'un diélectrique LHI. L'état du capteur dépend maintenant
+   de deux variables $\delta$ et $q$. Le deuxième terme représente l'effet piézoélectrique, $\alpha$
+   est une constante (typiquement $\alpha=10^{10}$ V/m).
+   1) Déterminer la tension aux bornes du condensateur $V(\delta,q)$. Pourquoi peut-on négliger le
+      deuxième ordre ?
+   2) On se propose de déterminer l'énergie potentielle $W(\delta,q)$ du système avec $W(0,0)=0$. Un
+      opérateur fait varier $\delta$ en appliquant une force $F$, tandis qu'un générateur fait
+      varier la charge $q$. L'énergie potentielle étant une fonction d'état, on peut aller de l'état
+      $(0,0)$ à l'état $(\delta,q)$ par n'importe quel chemin. On décompose la transformation en
+      deux étapes\nbsp{}:
+      - à $q=0$, pour maintenir la déformation $\delta'$, l'opérateur doit appliquer une force
+        $K\delta'$ sur la surface $z=d$, la face $z=0$ étant fixe. La constante $K>0$ décrit la
+        rigidité du matériau. L'opérateur fait varier $\delta'$ de 0 à $\delta$.
       - à $\delta$ constant, le générateur fait varier la charge $q'$ de 0 à
         $q$.
-      Pour chacune des étapes, exprimer le travail de l'opérateur $W_\text{op.}$
-      et celui du générateur $W_G$. En déduire $W(\delta,q)$.
-   3) Sachant que $dW=Fd\delta+Vdq$, déterminer $F(\delta,q)$.
+      Pour chacune des étapes, exprimer le travail de l'opérateur $W_\text{op.}$ et celui du
+      générateur $W_G$. En déduire $W(\delta,q)$.
+   3) Sachant que $\d W=F\d\delta+V\d q$, déterminer $F(\delta,q)$.
 #+END_QUESTION
 #+BEGIN_COMMENT
 /Correction antérieure/
@@ -3275,8 +3189,9 @@ discontinuité de la composante normale du vecteur déplacement soit
    1) La tension $V(\delta,q)$ s'exprime ainsi
       #+BEGIN_SRC latex
         \begin{align*}
-          \vv{E}_\text{total}&=-\grad V=-\frac{dV}{dz}\vv{u}_z\\
-          V(\delta,q)=-\int_{V(0)}^{V(d)}dV&=\int_0^d\left(\frac{q}{\epsilon S}-\frac{\epsilon_r\alpha\delta}{d}\right)dz\\
+          \vv{E}_\text{total}&=-\grad V=-\frac{\d V}{\d z}\vv{u}_z\\
+          V(\delta,q)=-\int_{V(0)}^{V(d)}\d V&=\int_0^d\left(\frac{q}{\epsilon
+          S}-\frac{\epsilon_r\alpha\delta}{d}\right)\d z\\
           V(\delta,q)&=\frac{qd}{\epsilon S}-\epsilon_r\alpha\delta
         \end{align*}
       #+END_SRC
@@ -3284,17 +3199,17 @@ discontinuité de la composante normale du vecteur déplacement soit
    2) À $q=0$, le travail de l'opérateur s'écrit
       #+BEGIN_SRC latex
         \begin{align*}
-          dW_\text{op.}&=\vv{F}_\text{op.}.\vv{dz}\\
-          W_\text{op.}&=\int_0^\delta K\delta'd\delta'=K\frac{\delta^2}{2}+\text{constante}
+          dW_\text{op.}&=\vv{F}_\text{op.}.\vv{\d z}\\
+          W_\text{op.}&=\int_0^\delta K\delta'\d\delta'=K\frac{\delta^2}{2}+\text{constante}
         \end{align*}
       #+END_SRC
 
       À $\delta$ constant, le travail du générateur est le suivant
       #+BEGIN_SRC latex
         \begin{align*}
-          dW_\text{G}&=Pdt=V\times Idt=Vdq\\
-          W_\text{G}&=\int_0^qV(\delta,q')dq'\\
-          &=\int_0^q\left(\frac{q'd}{\epsilon S}-\epsilon_r\alpha\delta\right)dq'\\
+          \d W_\text{G}&=P\d t=V\times I\d t=V\d q\\
+          W_\text{G}&=\int_0^qV(\delta,q')\d q'\\
+          &=\int_0^q\left(\frac{q'd}{\epsilon S}-\epsilon_r\alpha\delta\right)\d q'\\
           &=\frac{q^2d}{2\epsilon S}-\epsilon_r\alpha\delta q+\text{constante}
         \end{align*}
       #+END_SRC
@@ -3311,8 +3226,8 @@ discontinuité de la composante normale du vecteur déplacement soit
    3) Sachant que
       #+BEGIN_SRC latex
         \begin{align*}
-          dW(\delta,q)&=\frac{\partial W}{\partial\delta}d\delta+\frac{\partial W}{\partial q}dq\\
-          &=Fd\delta+Vdq
+          \d W(\delta,q)&=\frac{\partial W}{\partial\delta}\d\delta+\frac{\partial W}{\partial q}\d q\\
+          &=F\d\delta+V\d q
         \end{align*}
       #+END_SRC
       on déduit que
@@ -3343,8 +3258,8 @@ discontinuité de la composante normale du vecteur déplacement soit
    1) La tension $V(\delta,q)$ s'exprime ainsi
       #+BEGIN_SRC latex
         \begin{align*}
-          \vv{E}&=-\grad V=-\frac{dV}{dz}\vv{u}_z\\
-          V(\delta,q)=-\int_{V(0)}^{V(d)}dV&=\int_0^d\left(\frac{q}{\epsilon S}-\frac{\alpha\delta}{d}\right)dz\\
+          \vv{E}&=-\grad V=-\frac{\d V}{\d z}\vv{u}_z\\
+          V(\delta,q)=-\int_{V(0)}^{V(d)}\d V&=\int_0^d\left(\frac{q}{\epsilon S}-\frac{\alpha\delta}{d}\right)\d z\\
           V(\delta,q)&=\frac{qd}{\epsilon S}-\alpha\delta
         \end{align*}
       #+END_SRC
@@ -3352,17 +3267,17 @@ discontinuité de la composante normale du vecteur déplacement soit
    2) À $q=0$, le travail de l'opérateur s'écrit
       #+BEGIN_SRC latex
         \begin{align*}
-          dW_\text{op.}&=\vv{F}_\text{op.}.\vv{dz}\\
-          W_\text{op.}&=\int_0^\delta K\delta'd\delta'=K\frac{\delta^2}{2}+\text{constante}
+          dW_\text{op.}&=\vv{F}_\text{op.}.\vv{\d z}\\
+          W_\text{op.}&=\int_0^\delta K\delta'\d\delta'=K\frac{\delta^2}{2}+\text{constante}
         \end{align*}
       #+END_SRC
 
       À $\delta$ constant, le travail du générateur est le suivant
       #+BEGIN_SRC latex
         \begin{align*}
-          dW_\text{G}&=Pdt=V\times Idt=Vdq\\
-          W_\text{G}&=\int_0^qV(\delta,q')dq'\\
-          &=\int_0^q\left(\frac{q'd}{\epsilon S}-\alpha\delta\right)dq'\\
+          \d W_\text{G}&=P\d t=V\times I\d t=V\d q\\
+          W_\text{G}&=\int_0^qV(\delta,q')\d q'\\
+          &=\int_0^q\left(\frac{q'd}{\epsilon S}-\alpha\delta\right)\d q'\\
           &=\frac{q^2d}{2\epsilon S}-\alpha\delta q+\text{constante}
         \end{align*}
       #+END_SRC
@@ -3379,8 +3294,8 @@ discontinuité de la composante normale du vecteur déplacement soit
    3) Sachant que
       #+BEGIN_SRC latex
         \begin{align*}
-          dW(\delta,q)&=\frac{\partial W}{\partial\delta}d\delta+\frac{\partial W}{\partial q}dq\\
-          &=Fd\delta+Vdq
+          \d W(\delta,q)&=\frac{\partial W}{\partial\delta}\d\delta+\frac{\partial W}{\partial q}\d q\\
+          &=F\d\delta+V\d q
         \end{align*}
       #+END_SRC
       on déduit que
@@ -3428,8 +3343,8 @@ En magnétostatique, les équations locales deviennent
 soit, dans leurs versions intégrales
 #+BEGIN_SRC latex
   \begin{align*}
-    \iint_\mathcal{S}\vv{B}.\vv{dS} &= 0\\
-    \oint_\mathcal{C}\vv{B}.\vv{d\ell} &= \mu_0I_\mathcal{C}(\text{courant enlacé})
+    \iint_\mathcal{S}\vv{B}.\vv{\d S} &= 0\\
+    \oint_\mathcal{C}\vv{B}.\vv{\d\ell} &= \mu_0I_\mathcal{C}(\text{courant enlacé})
   \end{align*}
 #+END_SRC
 
@@ -3439,8 +3354,8 @@ $\div\vv{A}=0$ (jauge de Coulomb). On déduit ainsi l'équation vectorielle de
 Poisson $\vv{\Delta}\vv{A}=-\mu_0\vv{j}$ soit
 #+BEGIN_SRC latex
   \begin{align*}
-    \vv{A}(M)&=\frac{\mu_0}{4\pi}\iiint\frac{\vv{j}(P)}{PM}\,d\tau\\
-    \vv{B}(M)&=\frac{\mu_0}{4\pi}\iiint\frac{\vv{j}(P)\times\vv{PM}}{PM^3}\,d\tau=\frac{\mu_0}{4\pi}\oint_\mathcal{C}\frac{I\vv{d\ell}\times\vv{PM}}{PM^3}
+    \vv{A}(M)&=\frac{\mu_0}{4\pi}\iiint\frac{\vv{j}(P)}{PM}\,\d\tau\\
+    \vv{B}(M)&=\frac{\mu_0}{4\pi}\iiint\frac{\vv{j}(P)\times\vv{PM}}{PM^3}\,\d\tau=\frac{\mu_0}{4\pi}\oint_\mathcal{C}\frac{I\vv{\d\ell}\times\vv{PM}}{PM^3}
   \end{align*}
 #+END_SRC
 ** Solénoïde fini
@@ -3506,14 +3421,14 @@ Calcul du champ magnétique généré par une boucle de courant
 Loi de Biot & Savart
 #+BEGIN_SRC latex
   \begin{align*}
-    \vv{B}(M)&=\frac{\mu_0I}{4\pi}\oint_\mathcal{C}\frac{\vv{d\ell}\times\vv{PM}}{PM^3}\\
+    \vv{B}(M)&=\frac{\mu_0I}{4\pi}\oint_\mathcal{C}\frac{\vv{\d\ell}\times\vv{PM}}{PM^3}\\
     &\text{où }\left\{
     \begin{array}{rl}
-      \vv{d\ell} &=Rd\theta\,\vv{u}_\theta\\
+      \vv{\d\ell} &=R\d\theta\,\vv{u}_\theta\\
       \vv{PM} &=\vv{PO} + \vv{OM} = -R\vv{u}_r + z\vv{u}_z \\
     \end{array}
     \right.\\
-    &\text{soit }\vv{d\ell}\times\vv{PM}=\left|
+    &\text{soit }\vv{\d\ell}\times\vv{PM}=\left|
     \begin{array}{l}
       0\\Rd\theta\\0
     \end{array}
@@ -3521,15 +3436,15 @@ Loi de Biot & Savart
     \begin{array}{l}
       -R\\0\\z
     \end{array}
-    \right.=Rd\theta z\vv{u}_r+R^2d\theta\vv{u}_z
+    \right.=R\d\theta z\vv{u}_r+R^2\d\theta\vv{u}_z
   \end{align*}
 #+END_SRC
 
-En raison des symétries invoquées à la question 1), le champ magnétique est
-colinéaire au vecteur $\vv{u}_z$ d'où
+En raison des symétries invoquées à la question 1), le champ magnétique est colinéaire au vecteur
+$\vv{u}_z$ d'où
 #+BEGIN_SRC latex
   \begin{align*}
-    \vv{B}(M)&=\frac{\mu_0I}{4\pi}\,\frac{R^2}{PM^3}\int_0^{2\pi}d\theta\vv{u}_z\\
+    \vv{B}(M)&=\frac{\mu_0I}{4\pi}\,\frac{R^2}{PM^3}\int_0^{2\pi}\d\theta\vv{u}_z\\
     &=\frac{\mu_0I}{2}\,\frac{R^2}{PM^3}\vv{u}_z\text{ avec } PM=\frac{R}{\sin\alpha}\\
     &=\frac{\mu_0I}{2}\,\frac{\cancel{R^2}}{R^{\cancel{3}}}\,\sin^3\alpha\,\vv{u}_z=\frac{\mu_0I}{2R}\,\sin^3\alpha\,\vv{u}_z
   \end{align*}
@@ -3541,17 +3456,16 @@ les champs magnétiques générés par les $N$ spires. En considérant une
 champ magnétique ainsi généré a pour expression
 #+BEGIN_SRC latex
   \begin{align*}
-    \vv{dB}_\text{solénoïde}(M)&=\vv{B}_\text{spire}(M)\times n\times dz'\\
-    \vv{B}_\text{solénoïde}(M)&=\int_{-L/2}^{L/2}\frac{\mu_0nI}{2R}\,\sin^3\alpha dz'\vv{u}_z
+    \vv{dB}_\text{solénoïde}(M)&=\vv{B}_\text{spire}(M)\times n\times\d z'\\
+    \vv{B}_\text{solénoïde}(M)&=\int_{-L/2}^{L/2}\frac{\mu_0nI}{2R}\,\sin^3\alpha\d z'\vv{u}_z
   \end{align*}
 #+END_SRC
 
-La coordonnée $z$ est reliée à l'angle \alpha par l'expression
-$\tan\alpha=\frac{R}{z-z'}$ d'où
-$\frac{dz'}{d\alpha}=\frac{R}{\sin^2\alpha}$ [fn:7].
+La coordonnée $z$ est reliée à l'angle \alpha par l'expression $\tan\alpha=\frac{R}{z-z'}$ d'où
+$\frac{\d z'}{\d\alpha}=\frac{R}{\sin^2\alpha}$ [fn:7].
 #+BEGIN_SRC latex
   \begin{align*}
-    \vv{B}_\text{solénoïde}(M)&=\int_{\alpha_1}^{\alpha_2}\frac{\mu_0nI}{2\cancel{R}}\,\sin^{\cancel{3}}\alpha\frac{\cancel{R}}{\cancel{\sin^2\alpha}}\,d\alpha\vv{u}_z\\
+    \vv{B}_\text{solénoïde}(M)&=\int_{\alpha_1}^{\alpha_2}\frac{\mu_0nI}{2\cancel{R}}\,\sin^{\cancel{3}}\alpha\frac{\cancel{R}}{\cancel{\sin^2\alpha}}\,\d\alpha\vv{u}_z\\
     &=\frac{\mu_0nI}{2}\left[-\cos\alpha\right]_{\alpha_1}^{\alpha_2}\,\vv{u}_z\\
     &=\frac{\mu_0nI}{2}\left(\cos\alpha_1-\cos\alpha_2\right)\,\vv{u}_z
   \end{align*}
@@ -3936,13 +3850,13 @@ longueur.
           &=\frac{B_\infty}{\mu_0\delta}\,e^{-x/\delta}\vv{u}_y
         \end{align*}
       #+END_SRC
-   3) La force de Laplace $d\vv{F}$ est égale à $I\vv{d\ell}\times\vv{B}$. En
+   3) La force de Laplace $\d\vv{F}$ est égale à $I\vv{\d\ell}\times\vv{B}$. En
       fonction de la densité volumique de courant $\vv{j}$, son expression
-      devient $d^3\vv{F}=\vv{j}\times\vv{B}d\tau$ avec $d\tau=dxdydz$. Ainsi,
+      devient $\d^3\vv{F}=\vv{j}\times\vv{B}\d\tau$ avec $\d\tau=\d x\d y\d z$. Ainsi,
       #+BEGIN_SRC latex
         \begin{align*}
-          \frac{d^3\vv{F}}{dydz}&=\vv{j}\times\vv{B}dx\\
-          \frac{d^2\vv{F}}{dydz}&=\int_0^\infty\vv{j}\times\vv{B}dx\\
+          \frac{\d^3\vv{F}}{\d y\d z}&=\vv{j}\times\vv{B}\d x\\
+          \frac{\d^2\vv{F}}{\d y\d z}&=\int_0^\infty\vv{j}\times\vv{B}\d x\\
           &=\int_0^\infty\left|
           \begin{array}{l}
             0\\
@@ -3955,8 +3869,8 @@ longueur.
             0\\
             B_\infty\,e^{-x/\delta}\\
           \end{array}
-          \right.dx\\
-          &=\int_0^\infty\frac{B^2_\infty}{\mu_0\delta}\,e^{-2x/\delta}\vv{u}_xdx\\
+          \right.\d x\\
+          &=\int_0^\infty\frac{B^2_\infty}{\mu_0\delta}\,e^{-2x/\delta}\vv{u}_x\d x\\
           &=\frac{B^2_\infty}{\mu_0\cancel{\delta}}\times(-)\frac{\cancel{\delta}}{2}\left[e^{-2x/\delta}\right]_0^\infty\vv{u}_x\\
           &=\frac{B^2_\infty}{2\mu_0}\vv{u}_x=\frac{B^2(x=0^-)}{2\mu_0}\vv{u}_x
         \end{align*}
@@ -3982,7 +3896,7 @@ longueur.
       s'écrit
       #+BEGIN_SRC latex
         \begin{align*}
-          \int_0^\infty\vv{j}(x)dx&=\frac{B_\infty}{\mu_0\delta}\int_0^\infty e^{-x/\delta}dx\vv{u}_y\\
+          \int_0^\infty\vv{j}(x)\d x&=\frac{B_\infty}{\mu_0\delta}\int_0^\infty e^{-x/\delta}\d x\vv{u}_y\\
           &=\frac{B_\infty}{\mu_0\cancel{\delta}}\times(-)\cancel{\delta}\left[e^{-x/\delta}\right]_0^\infty\vv{u}_y\\
           &=\frac{B_\infty}{\mu_0}\vv{u}_y=\vv{j_S}
         \end{align*}
@@ -3990,7 +3904,7 @@ longueur.
       La force de Laplace devient
       #+BEGIN_SRC latex
         \begin{align*}
-          \frac{d^2\vv{F}}{dydz}&=\frac{B^2_\infty}{2\mu_0}\vv{u}_x=\frac{\vv{j_S}\times\vv{B}(x=0^-)}{2}
+          \frac{\d^2\vv{F}}{\d y\d z}&=\frac{B^2_\infty}{2\mu_0}\vv{u}_x=\frac{\vv{j_S}\times\vv{B}(x=0^-)}{2}
         \end{align*}
       #+END_SRC
 
@@ -4110,80 +4024,75 @@ longueur.
       [[./figures/boule_supraconductrice_courant.pdf]]
       #+END_CENTER
 
-      Les courants surfaciques "tournent" autour de la sphère et sont
-      proportionnels au sinus de l'angle \theta : la densité de courant est
-      ainsi nulle aux pôles et maximale à l'équateur.
+      Les courants surfaciques "tournent" autour de la sphère et sont proportionnels au sinus de
+      l'angle \theta : la densité de courant est ainsi nulle aux pôles et maximale à l'équateur.
 
-      En raison des symétries de la distribution de courant, tout plan contenant
-      l'axe $Oz$ est plan d'antisymétrie : le champ $\vv{B_S}$ induit par la
-      distribution de courant de surface est donc colinéaire à $\vv{u_z}$.
+      En raison des symétries de la distribution de courant, tout plan contenant l'axe $Oz$ est plan
+      d'antisymétrie : le champ $\vv{B_S}$ induit par la distribution de courant de surface est donc
+      colinéaire à $\vv{u_z}$.
 
-      Pour rappel, la densité volumique de courant $\vv{j}$ est proportionnel à
-      un courant $I$ *par unité de surface*. Aussi, une densité surfacique de
-      courant $\vv{j_S}$ est proportionnelle à un courant par unité de longueur :
-      $dI=j_S\,d\ell$ où $d\ell$ est égal à $Rd\theta$. Le courant est ainsi
-      égal au "flux" de la densité de courant surfacique au travers d'un élément
-      de longueur longitudinal $Rd\theta$. En partant du champ magnétique induit
-      par une spire de courant
+      Pour rappel, la densité volumique de courant $\vv{j}$ est proportionnel à un courant $I$ *par
+      unité de surface*. Aussi, une densité surfacique de courant $\vv{j_S}$ est proportionnelle à un
+      courant par unité de longueur : $\d I=j_S\,\d\ell$ où $\d\ell$ est égal à $R\d\theta$. Le courant
+      est ainsi égal au "flux" de la densité de courant surfacique au travers d'un élément de
+      longueur longitudinal $R\d\theta$. En partant du champ magnétique induit par une spire de
+      courant
       #+BEGIN_SRC latex
         \begin{align*}
-          d\vv{B}_\text{spire}=\frac{\mu_0\,dI}{2R_\text{spire}}\sin^3\theta\vv{u_z}
+          \d\vv{B}_\text{spire}=\frac{\mu_0\,\d I}{2R_\text{spire}}\sin^3\theta\vv{u_z}
         \end{align*}
       #+END_SRC
-      Dans notre cas, le rayon de la spire est une fonction de l'angle zénithal
-      \theta /i.e./ $R_\text{spire}=R\sin\theta$. Le champ magnétique crée par
-      la spire est
+      Dans notre cas, le rayon de la spire est une fonction de l'angle zénithal \theta /i.e./
+      $R_\text{spire}=R\sin\theta$. Le champ magnétique crée par la spire est
       #+BEGIN_SRC latex
         \begin{align*}
-          d\vv{B_S}&=\frac{\mu_0 j_SR\,d\theta}{2R\sin\theta}\sin^3\theta\,\vv{u_z}\\
-          \vv{B_S}&=-\frac{3}{4}B_\infty\int_0^\pi\sin^3\theta d\theta\,\vv{u_z}
+          \d\vv{B_S}&=\frac{\mu_0 j_SR\,\d\theta}{2R\sin\theta}\sin^3\theta\,\vv{u_z}\\
+          \vv{B_S}&=-\frac{3}{4}B_\infty\int_0^\pi\sin^3\theta\d\theta\,\vv{u_z}
         \end{align*}
       #+END_SRC
       En posant $x=\cos\theta$, $dx=-\sin\theta\,d\theta$ avec $x\in[1,-1]$ d'où
       #+BEGIN_SRC latex
         \begin{align*}
-          \vv{B_S}&=-\frac{3}{4}B_\infty\,\vv{u_z}\int_0^\pi\sin^2\theta\sin\theta\,d\theta\\
-          &=-\frac{3}{4}B_\infty\,\vv{u_z}\int_0^\pi(1-\cos^2\theta)\sin\theta\,d\theta\\
-          &=-\frac{3}{4}B_\infty\,\vv{u_z}\int_1^{-1}(1-x^2)(-)dx\\
+          \vv{B_S}&=-\frac{3}{4}B_\infty\,\vv{u_z}\int_0^\pi\sin^2\theta\sin\theta\,\d\theta\\
+          &=-\frac{3}{4}B_\infty\,\vv{u_z}\int_0^\pi(1-\cos^2\theta)\sin\theta\,\d\theta\\
+          &=-\frac{3}{4}B_\infty\,\vv{u_z}\int_1^{-1}(1-x^2)(-)\d x\\
           &=-\frac{3}{4}B_\infty\,\vv{u_z}\left[x-\frac{x^3}{3}\right]_{-1}^1\\
           &=-\frac{3}{4}B_\infty\,\vv{u_z}\left(2-\frac{2}{3}\right)=-B_\infty\,\vv{u_z}
         \end{align*}
       #+END_SRC
-      L'effet Meissner traduit le fait que le supraconducteur "excité" par le
-      champ magnétique externe /i.e./ celui généré par le solénoïde, réagit en
-      faisant circuler des courants superficiels de telle sorte que
-      $|B_\text{supra}|=B_\text{solénoïde}$.
-   4) Le moment magnétique $\mathcal{M}$ d'un circuit fermé $\mathcal{C}$
-      correspond au produit de l'intensité du courant $I$ parcourant cette
-      boucle par la surface orientée et délimitée par cette même boucle
+      L'effet Meissner traduit le fait que le supraconducteur "excité" par le champ magnétique
+      externe /i.e./ celui généré par le solénoïde, réagit en faisant circuler des courants
+      superficiels de telle sorte que $|B_\text{supra}|=B_\text{solénoïde}$.
+   4) Le moment magnétique $\mathcal{M}$ d'un circuit fermé $\mathcal{C}$ correspond au produit de
+      l'intensité du courant $I$ parcourant cette boucle par la surface orientée et délimitée par
+      cette même boucle
       #+BEGIN_SRC latex
         \begin{align*}
-          d\vv{\mathcal{M}}=I\vv{dS}
+          \d\vv{\mathcal{M}}=I\vv{\d S}
         \end{align*}
       #+END_SRC
-      Dans notre problème, une spire parcourue par un courant $dI=j_SRd\theta$
-      et de rayon $R\sin\theta$ aura un moment magnétique
-      $d\vv{\mathcal{M}}_\text{spire}=dI\,\pi(R\sin\theta)^2\,\vv{u_z}$. Le
-      moment magnétique total de la boule est alors
+      Dans notre problème, une spire parcourue par un courant $\d I=j_SR\d\theta$ et de rayon
+      $R\sin\theta$ aura un moment magnétique
+      $d\vv{\mathcal{M}}_\text{spire}=\d I\,\pi(R\sin\theta)^2\,\vv{u_z}$. Le moment magnétique total
+      de la boule est alors
       #+BEGIN_SRC latex
         \begin{align*}
-          \vv{\mathcal{M}}_\text{boule}&=\int_0^\pi\pi R^2j_S\,Rd\theta\sin^2\theta\,\vv{u_z}\\
-          &=-\frac{3\pi R^3}{2\mu_0}\,B_\infty\,\vv{u_z}\int_0^\pi\sin^3\theta\,d\theta\\
+          \vv{\mathcal{M}}_\text{boule}&=\int_0^\pi\pi R^2j_S\,R\d\theta\sin^2\theta\,\vv{u_z}\\
+          &=-\frac{3\pi R^3}{2\mu_0}\,B_\infty\,\vv{u_z}\int_0^\pi\sin^3\theta\,\d\theta\\
           &=-\frac{3\pi R^3}{2\mu_0}\,B_\infty\vv{u_z}\times\frac{4}{3}\\
           &=-\frac{2\pi R^3}{\mu_0}\,B_\infty\,\vv{u_z}\\
           &=-\frac{4\pi R^3}{3}\times\frac{3}{2\mu_0}\vv{B_\infty}
         \end{align*}
       #+END_SRC
-      soit une susceptibilité magnétique égale à $\chi_m=-\frac{3}{2}$. Un
-      supraconducteur est donc un matériau diamagnétique c'est-à-dire un
-      matériau qui soumis à un champ magnétique externe, génére un autre champ
-      magnétique *opposé* (dans notre cas, également de même intensité).
-   5) Dans la première partie de l'exercice, nous avons montré que la force de
-      Laplace induite par une densité surfacique de courant est égale à
-      $\frac{d\vv{F}}{dS}=\frac{1}{2}\vv{j_S}\times\vv{B}$. Nous avons donc
+      soit une susceptibilité magnétique égale à $\chi_m=-\frac{3}{2}$. Un supraconducteur est donc
+      un matériau diamagnétique c'est-à-dire un matériau qui soumis à un champ magnétique externe,
+      génére un autre champ magnétique *opposé* (dans notre cas, également de même intensité).
+   5) Dans la première partie de l'exercice, nous avons montré que la force de Laplace induite par
+      une densité surfacique de courant est égale à
+      $\frac{\d\vv{F}}{\d S}=\frac{1}{2}\vv{j_S}\times\vv{B}$. Nous avons donc
       #+BEGIN_SRC latex
         \begin{align*}
-          \frac{d\vv{F}}{dS}&=\frac{1}{2}\left|
+          \frac{\d\vv{F}}{\d S}&=\frac{1}{2}\left|
           \begin{array}{l}
             0\\0\\j_S
           \end{array}
@@ -4198,7 +4107,7 @@ longueur.
       nulle $B_r=0$ d'où
       #+BEGIN_SRC latex
         \begin{align*}
-          \frac{d\vv{F}}{dS}&=-\frac{j_S}{2}B_\theta\,\vv{u_r}\\
+          \frac{\d\vv{F}}{\d S}&=-\frac{j_S}{2}B_\theta\,\vv{u_r}\\
           &=-\frac{1}{2}\times(-)\frac{3}{2\mu_0}B_\infty\sin\theta\times(-)B_\infty\sin\theta\times\frac{3}{2}\,\vv{u_r}\\
           &=-\frac{9}{8\mu_0}B^2_\infty\sin^2\theta\,\vv{u_r}
         \end{align*}
@@ -4235,7 +4144,7 @@ prenant pour contour $\mathcal{C}$ un cercle de même axe que l'anneau
 supra. et de rayon légèrement supérieur à $a$, on obtient
 #+BEGIN_SRC latex
   \begin{align*}
-    -\frac{d\Phi_B}{dt}&=\oint_\mathcal{C}\vv{E}.\vv{d\ell}=0
+    -\frac{d\Phi_B}{dt}&=\oint_\mathcal{C}\vv{E}.\vv{\d\ell}=0
   \end{align*}
 #+END_SRC
 Le flux magnétique au travers de l'anneau supra. est donc constant.
@@ -4252,8 +4161,8 @@ En supposant $\vv{B}=B(r)\vv{u_r}$, le flux du champ magnétique au travers
 d'une surface fermée est nul soit
 #+BEGIN_SRC latex
   \begin{align*}
-    \div\vv{B}=0\Longleftrightarrow\varoiint_\mathcal{S}\vv{B}.\vv{dS}&=0\\
-    \iint_\text{\ding{192}}B(r)\times dS+\underbrace{\iint_\text{\ding{193}}\vv{B}.\vv{dS}}_{\Phi_B}&=0\\
+    \div\vv{B}=0\Longleftrightarrow\varoiint_\mathcal{S}\vv{B}.\vv{\d S}&=0\\
+    \iint_\text{\ding{192}}B(r)\times\d S+\underbrace{\iint_\text{\ding{193}}\vv{B}.\vv{\d S}}_{\Phi_B}&=0\\
     B(r)\times2\pi rh+\Phi_B=0&\to B(r)=-\frac{\Phi_B}{2\pi rh}
   \end{align*}
 #+END_SRC
@@ -4261,26 +4170,23 @@ où \ding{192} correspond à la surface cylindrique de rayon $r$ entre les deux
 supraconducteurs. La surface \ding{193} correspond au flux magnétique au
 travers de l'anneau supra.
 
-Le problème étant invariant par rotation \theta, le champ magnétique $\vv{B}$
-s'écrit $B_r(r,z)\vv{u_r}+B_z(r,z)\vv{u_z}$ (le plan $(\vv{u_r},\vv{u_z})$ est
-plan d'antisymétrie de la distribution de courant). Si $h\ll a,b$, on peut
-considérer le problème comme invariant par translation selon $z$. Le champ
-magnétique se limite à l'expression $B_r(r)\vv{u_r}+B_z(r)\vv{u_z}$ et, en
-$z=0$, le champ magnétique est colinéaire à la surface du plan /i.e./
-$\vv{B}\parallel\vv{u_r}$ d'où $B_z(r)=0$ pour tout valeur de $r$. Ainsi,
-dans la mesure où $h\ll b$, le champ magnétique entre les supraconducteurs
-peut s'approximer par $B(r)\vv{u_r}$.
+Le problème étant invariant par rotation \theta, le champ magnétique $\vv{B}$ s'écrit
+$B_r(r,z)\vv{u_r}+B_z(r,z)\vv{u_z}$ (le plan $(\vv{u_r},\vv{u_z})$ est plan d'antisymétrie de la
+distribution de courant). Si $h\ll a,b$, on peut considérer le problème comme invariant par
+translation selon $z$. Le champ magnétique se limite à l'expression $B_r(r)\vv{u_r}+B_z(r)\vv{u_z}$
+et, en $z=0$, le champ magnétique est colinéaire à la surface du plan /i.e./ $\vv{B}\parallel\vv{u_r}$
+d'où $B_z(r)=0$ pour tout valeur de $r$. Ainsi, dans la mesure où $h\ll b$, le champ magnétique
+entre les supraconducteurs peut s'approximer par $B(r)\vv{u_r}$.
 
 #+BEGIN_QUESTION
-3) [@3] Calculer la résultante $\vv{F}$ des forces de Laplace subies par
-   l'anneau (on admettra que seule la face en regard du supraconducteur plan
-   contribue). En déduire l'existence d'une position d'équilibre $h_0$ et
-   l'exprimer en fonction de $\phi,b,a,\mu_0,g$ et $m$.
+3) [@3] Calculer la résultante $\vv{F}$ des forces de Laplace subies par l'anneau (on admettra que
+   seule la face en regard du supraconducteur plan contribue). En déduire l'existence d'une position
+   d'équilibre $h_0$ et l'exprimer en fonction de $\phi,b,a,\mu_0,g$ et $m$.
 #+END_QUESTION
 L'anneau subit une pression magnétique
 #+BEGIN_SRC latex
   \begin{align*}
-    \frac{d\vv{F}}{dS}=\frac{B^2}{2\mu_0}\vv{u_z}&\to\vv{F}=\frac{\Phi_B^2}{4\pi^2h^2\times2\mu_0}\int_a^b\int_0^{2\pi}\frac{\cancel{r}drd\theta}{r^{\cancel{2}}}\vv{u_z}\\\\
+    \frac{\d\vv{F}}{\d S}=\frac{B^2}{2\mu_0}\vv{u_z}&\to\vv{F}=\frac{\Phi_B^2}{4\pi^2h^2\times2\mu_0}\int_a^b\int_0^{2\pi}\frac{\cancel{r}\d r\d\theta}{r^{\cancel{2}}}\vv{u_z}\\\\
     &\vv{F}=\frac{\Phi_B^2}{8\pi^2h^2\mu_0}\times\ln\frac{b}{a}\,\vv{u_z}=\frac{\Phi_B^2}{4\pi\mu_0 h^2}\ln\frac{b}{a}\,\vv{u_z}
   \end{align*}
 #+END_SRC
@@ -4296,7 +4202,7 @@ Laplace $\vv{F}$ compense le poids $m\vv{g}$ de l'anneau soit
 #+BEGIN_QUESTION
 4) [@4] Lorsque l'on perturbe faiblement cet équilibre, on constate que $h$
    varie périodiquement dans le temps. Interpréter cette observation et calculer
-   la période $T$.
+   la période\nbsp$T$.
 #+END_QUESTION
 Hors équilibre, le principe fondamental de la dynamique s'écrit
 #+BEGIN_SRC latex
@@ -4366,21 +4272,20 @@ exercice.
 
 * TD5 : Milieux magnétiques
 ** Introduction
-Dans la plupart des matériaux soumis à un champ magnétique, les charges liées se
-déplacent à l'échelle atomique faisant apparaître des boucles de courant /i.e./
-*des dipôles magnétiques* : le milieu s'aimante. Ainsi, l'aimantation $\vv{M}$
-d'un matériau correspond à la densité volumique de moment magnétique $\vv{m}$
-soit
+Dans la plupart des matériaux soumis à un champ magnétique, les charges liées se déplacent à
+l'échelle atomique faisant apparaître des boucles de courant /i.e./ *des dipôles magnétiques* : le
+milieu s'aimante. Ainsi, l'aimantation $\vv{M}$ d'un matériau correspond à la densité volumique de
+moment magnétique $\vv{m}$ soit
 #+BEGIN_SRC latex
   \begin{align*}
     \vv{M}=\frac{d\vv{m}}{d\tau}
   \end{align*}
 #+END_SRC
-Pour rappel, le moment dipolaire magnétique $\vv{m}$ d'une boucle de courant est
-égale à $\vv{m}=I\times\vv{S}$.
+Pour rappel, le moment dipolaire magnétique $\vv{m}$ d'une boucle de courant est égale à
+$\vv{m}=I\times\vv{S}$.
 
-On peut alors introduire une densité de courant liés (ou d'aimantation)
-$\vv{j}_\text{liés}$ correspondant au rotationnel de l'aimantation
+On peut alors introduire une densité de courant liés (ou d'aimantation) $\vv{j}_\text{liés}$
+correspondant au rotationnel de l'aimantation
 #+BEGIN_SRC latex
   \begin{align*}
     \rot\vv{M}=\vv{j}_\text{liés}
@@ -4396,13 +4301,13 @@ L'équation de Maxwell-Ampère devient
     \rot\vv{H}&=\vv{j}_\text{libres}
   \end{align*}
 #+END_SRC
-où $\vv{H}=\frac{\vv{B}}{\mu_0}-\vv{M}$ est le vecteur d'excitation magnétique
-dont l'unité est l'Ampère par mètre.
+où $\vv{H}=\frac{\vv{B}}{\mu_0}-\vv{M}$ est le vecteur d'excitation magnétique dont l'unité est
+l'Ampère par mètre.
 
 Le théorème d'Ampère généralisé s'écrit
 #+BEGIN_SRC latex
   \begin{align*}
-    \oint_\mathcal{C}\vv{H}.\vv{d\ell}&=\iint_{\mathcal{S}}\vv{j}_\text{libres}.\vv{dS}=\Upsigma I_\text{libres}^\text{enlacés}
+    \oint_\mathcal{C}\vv{H}.\vv{\d\ell}&=\iint_{\mathcal{S}}\vv{j}_\text{libres}.\vv{\d S}=\Upsigma I_\text{libres}^\text{enlacés}
   \end{align*}
 #+END_SRC
 
@@ -4500,22 +4405,21 @@ la plaque.
 
 ** L'électro-aimant
 #+BEGIN_QUESTION
-Un électro-aimant est constitué d'un barreau de ferromagnétique doux appelé fer,
-de section constante $S$, replié sur lui-même de façon que les deux extrémités
-planes soient en regard l'une de l'autre à la distance $d$. L'espace vide entre
-les extrémités est appelé entrefer. On donne la longueur de la ligne médiane du
-barreau \ell = 1.5 m, $d$ = 5 cm, la perméabilité relative du fer
-$\mu_r=4000$. Un enroulement de $N$ spires est bobiné sur une partie du fer. Il
-est traversé par le courant $I$. On admet que dans le fer les lignes de champ
-sont parallèles à la ligne médiane donc à la surface du barreau et que la norme
-de $\vv{B}$ dans le fer notée $B_1$ est constante sur une section droite.
+Un électro-aimant est constitué d'un barreau de ferromagnétique doux appelé fer, de section
+constante $S$, replié sur lui-même de façon que les deux extrémités planes soient en regard l'une de
+l'autre à la distance $d$. L'espace vide entre les extrémités est appelé entrefer. On donne la
+longueur de la ligne médiane du barreau \ell = 1.5 m, $d$ = 5 cm, la perméabilité relative du fer
+$\mu_r=4000$. Un enroulement de $N$ spires est bobiné sur une partie du fer. Il est traversé par le
+courant $I$. On admet que dans le fer les lignes de champ sont parallèles à la ligne médiane donc à
+la surface du barreau et que la norme de $\vv{B}$ dans le fer notée $B_1$ est constante sur une
+section droite.
 
-1) [@1] Montrer que $B_1$ est constante dans tout le fer. Calculer $H_1$ norme
-   de $\vv{H}$ dans le fer en fonction de $B_1$ en régime linéaire.
+1) [@1] Montrer que $B_1$ est constante dans tout le fer. Calculer $H_1$ norme de $\vv{H}$ dans le
+   fer en fonction de $B_1$ en régime linéaire.
 #+END_QUESTION
-La conservation du flux magnétique, toujours vérifiée y compris au sein de
-milieux magnétiques, impose que $\varoiint_\mathcal{S}\vv{B}.\vv{dS}=0$. Le
-champ magnétique dans le fer étant perpendiculaire à la section, on obtient
+La conservation du flux magnétique, toujours vérifiée y compris au sein de milieux magnétiques,
+impose que $\varoiint_\mathcal{S}\vv{B}.\vv{\d S}=0$. Le champ magnétique dans le fer étant
+perpendiculaire à la section, on obtient
 #+BEGIN_SRC latex
   \begin{align*}
     B_1(x_1)S_\text{barreau}&=B_1(x_2)S_\text{barreau}\\
@@ -4523,8 +4427,8 @@ champ magnétique dans le fer étant perpendiculaire à la section, on obtient
   \end{align*}
 #+END_SRC
 
-En régime linéaire, l'excitation magnétique $\vv{H}$ est proportionnelle au
-champ magnétique $\vv{B}$. Ainsi,
+En régime linéaire, l'excitation magnétique $\vv{H}$ est proportionnelle au champ magnétique
+$\vv{B}$. Ainsi,
 #+BEGIN_SRC latex
   \begin{align*}
     \|\vv{H}\|=H_1=\frac{B_1}{\mu_r\mu_0}
@@ -4532,22 +4436,20 @@ champ magnétique $\vv{B}$. Ainsi,
 #+END_SRC
 
 #+BEGIN_QUESTION
-2) [@2] On admet aussi que les lignes de champ dans l'entrefer sont
-   perpendiculaires aux faces. Montrer que le champ $B_2$ dans l'entrefer est
-   uniforme. Calculer $B_2$ en fonction de $B_1$. En déduire $H_2$ dans
-   l'entrefer.
+2) [@2] On admet aussi que les lignes de champ dans l'entrefer sont perpendiculaires aux
+   faces. Montrer que le champ $B_2$ dans l'entrefer est uniforme. Calculer $B_2$ en fonction de
+   $B_1$. En déduire $H_2$ dans l'entrefer.
 #+END_QUESTION
-Le champ magnétique dans l'entrefer $\vv{B}_2$ est une fonction de la
-position $x,y,z$, son orientation restant perpendiculaire à la section du
-barreau soit $\vv{B}_2=B_2(x,y,z)\vv{u_z}$. La conservation du flux
-magnétique impose que
+Le champ magnétique dans l'entrefer $\vv{B}_2$ est une fonction de la position $x,y,z$, son
+orientation restant perpendiculaire à la section du barreau soit $\vv{B}_2=B_2(x,y,z)\vv{u_z}$. La
+conservation du flux magnétique impose que
 #+BEGIN_SRC latex
   \begin{align*}
     \div\vv{B}_2&=\frac{\partial B_2}{\partial z}=0\to \vv{B}_2=B_2(x,y,\cancel{z})\vv{u_z}
   \end{align*}
 #+END_SRC
-Par ailleurs, la continuité de la composante normale du champ magnétique à
-l'interface barreau/entrefer impose
+Par ailleurs, la continuité de la composante normale du champ magnétique à l'interface
+barreau/entrefer impose
 #+BEGIN_SRC latex
   \begin{align*}
     B_{1\perp}&=B_{2\perp}=\text{constante est vrai pour }\forall x,y\\
@@ -4558,15 +4460,15 @@ L'excitation magnétique $H_2$ dans l'entrefer est alors égale à
 $H_2=\frac{B_2}{\mu_0}=\frac{B_1}{\mu_0}$.
 
 #+BEGIN_QUESTION
-3) [@3] À l'aide du théorème d'Ampère, calculer $H_1,H_2,B_1$ et $B_2$ en
-   fonction de $\mu_0,\mu_r,\ell,d,N$ et $I$.
+3) [@3] À l'aide du théorème d'Ampère, calculer $H_1,H_2,B_1$ et $B_2$ en fonction de
+   $\mu_0,\mu_r,\ell,d,N$ et $I$.
 
    A.N: $B_2=1$ T pour $I=100$ A. Calculer $N$.
 #+END_QUESTION
 Le théorème d'Ampère généralisé s'écrit
 #+BEGIN_SRC latex
   \begin{align*}
-    \oint_\mathcal{C}\vv{H}.\vv{d\ell}&=\Upsigma I_\text{enlacé}^\text{libres}=N\times I\\
+    \oint_\mathcal{C}\vv{H}.\vv{\d\ell}&=\Upsigma I_\text{enlacé}^\text{libres}=N\times I\\
     H_1\times\ell+H_2\times d&=NI\\
     \frac{B_1}{\mu_r\mu_0}\ell+\frac{B_1}{\mu_0}d&=NI\\
     B_1&=\frac{\mu_0NI}{\ell/\mu_r+d}=\frac{\mu_r\mu_0NI}{\ell+\mu_rd}\\
@@ -4674,7 +4576,7 @@ donc
 #+BEGIN_SRC latex
   \begin{align*}
     \vv{B}_\text{int.}&=\vv{B}(j_{SM}(r=a))+\vv{B}(j_{SM}(r=b))+\vv{B}(j_M(a < r < b))\\
-    &=\cancel{\frac{\mu_0M_0}{2}\vv{u_x}}-\cancel{\frac{\mu_0M_0}{2}\vv{u_x}}+\int_a^b\frac{2\mu_0M_0}{2r}dr\,\vv{u_x}\\
+    &=\cancel{\frac{\mu_0M_0}{2}\vv{u_x}}-\cancel{\frac{\mu_0M_0}{2}\vv{u_x}}+\int_a^b\frac{2\mu_0M_0}{2r}\d r\,\vv{u_x}\\
     &=\mu_0M_0\ln\frac{b}{a}\vv{u_x}\equiv\text{uniforme}
   \end{align*}
 #+END_SRC
@@ -5233,18 +5135,16 @@ L'équation de conservation de la charge s'écrit
   \begin{align*}
     \div\vv{j}+\frac{\partial\rho}{\partial t}&=0\\
     -\frac{\partial\rho}{\partial t}&=\frac{\partial j_z}{\partial z}\\
-    &=I_0\cos\omega t\delta(x)\delta(y)\left[\frac{d\Theta(z+\ell/2)}{dz}\Theta(-z+\ell/2)+\Theta(z+\ell/2)\frac{d\Theta(-z+\ell/2)}{dz}\right]\\
+    &=I_0\cos\omega t\delta(x)\delta(y)\left[\frac{\d\Theta(z+\ell/2)}{\d z}\Theta(-z+\ell/2)+\Theta(z+\ell/2)\frac{\d\Theta(-z+\ell/2)}{\d z}\right]\\
     &=I_0\cos\omega t\delta(x)\delta(y)\left[\delta(z+\ell/2)\Theta(-z+\ell/2)-\Theta(z+\ell/2)\delta(-z+\ell/2)\right]
   \end{align*}
 #+END_SRC
 
-Or $\delta(z+\ell/2)$ est nul pour toute valeur de $z$ différente de
-$-\ell/2$. De même, $\delta(-z+\ell/2)$ est nul pour toute valeur de $z$
-différente de $+\ell/2$. On déduit donc que le produit
-$\delta(z+\ell/2)\Theta(-z+\ell/2)$, respectivement
-$\delta(-z+\ell/2)\Theta(z+\ell/2)$, est non nul uniquement en $z=-\ell/2$,
-respectivement en $z=+\ell/2$. L'expression de la dérivée temporelle de
-$\rho(x,y,z,t)$ devient
+Or $\delta(z+\ell/2)$ est nul pour toute valeur de $z$ différente de $-\ell/2$. De même,
+$\delta(-z+\ell/2)$ est nul pour toute valeur de $z$ différente de $+\ell/2$. On déduit donc que le
+produit $\delta(z+\ell/2)\Theta(-z+\ell/2)$, respectivement $\delta(-z+\ell/2)\Theta(z+\ell/2)$, est
+non nul uniquement en $z=-\ell/2$, respectivement en $z=+\ell/2$. L'expression de la dérivée
+temporelle de $\rho(x,y,z,t)$ devient
 #+BEGIN_SRC latex
   \begin{align*}
     -\frac{\partial\rho}{\partial t}&=I_0\cos\omega t\delta(x)\delta(y)\left[\delta(z+\ell/2)-\delta(-z+\ell/2)\right]\\
@@ -5273,8 +5173,8 @@ $q=\frac{I_0}{\omega}$
 #+END_CENTER
 
 #+BEGIN_QUESTION
-3) [@3] En déduire la densité de courant complexe $\vv{j}(\vv{r},t)$ dans tout
-   l'espace, ainsi que la densité de charge complexe $\rho(\vv{r},t)$.
+3) [@3] En déduire la densité de courant complexe $\vv{j}(\vv{r},t)$ dans tout l'espace, ainsi que
+   la densité de charge complexe $\rho(\vv{r},t)$.
 #+END_QUESTION
 
 En notation complexe, les expressions de $\vv{j}$ et $\rho$ s'écrivent
@@ -5285,29 +5185,25 @@ En notation complexe, les expressions de $\vv{j}$ et $\rho$ s'écrivent
   \end{align*}
 #+END_SRC
 
-L'utilisation de la notation complexe a pour unique but de faciliter les
-calculs : *seule la composante réelle a un sens physique*.
+L'utilisation de la notation complexe a pour unique but de faciliter les calculs : *seule la
+composante réelle a un sens physique*.
 
 #+BEGIN_QUESTION
-4) [@4] On cherche tout d'abord à calculer à l'instant $t$ les potentiels en un
-   point $P$ de coordonnées sphériques $(r,\theta,\phi)$.
-   1) En utilisant l'expression des potentiels retardés, exprimer le potentiel
-      scalaire $V$ (en notation complexe) au point $P$ en fonction des distances
-      $r_1=MP$ et $r_2=NP$.
-   2) On note \lambda la longueur d'onde du champ électromagnétique rayonné par
-      le dipôle. On suppose $r\gg\lambda\gg\ell$ (approximations dipolaire et
-      champ lointain). Montrer que le potentiel scalaire complexe peut s'écrire
-      en ne gardant que le terme principal du DL en \ell/\lambda et en
-      \ell/$r$ :
+4) [@4] On cherche tout d'abord à calculer à l'instant $t$ les potentiels en un point $P$ de
+   coordonnées sphériques $(r,\theta,\phi)$.
+   1) En utilisant l'expression des potentiels retardés, exprimer le potentiel scalaire $V$ (en
+      notation complexe) au point $P$ en fonction des distances $r_1=MP$ et $r_2=NP$.
+   2) On note \lambda la longueur d'onde du champ électromagnétique rayonné par le dipôle. On
+      suppose $r\gg\lambda\gg\ell$ (approximations dipolaire et champ lointain). Montrer que le
+      potentiel scalaire complexe peut s'écrire en ne gardant que le terme principal du DL en
+      \ell/\lambda et en \ell/$r$ :
       #+BEGIN_SRC latex
         \begin{align*}
           V = -\frac{1}{4\pi\epsilon_0}\frac{i\omega}{c r}\,p\cos\theta
         \end{align*}
       #+END_SRC
-      en fonction du moment dipolaire complexe retardé
-      $p=iq\ell\exp(-i\omega(t-r/c))$.
-   3) Montrer que la seule composante non nulle du potentiel-vecteur $\vv{A}$
-      s'écrit\nbsp:
+      en fonction du moment dipolaire complexe retardé $p=iq\ell\exp(-i\omega(t-r/c))$.
+   3) Montrer que la seule composante non nulle du potentiel-vecteur $\vv{A}$ s'écrit\nbsp:
       #+BEGIN_SRC latex
         \begin{align*}
           A_z = -\frac{\mu_0}{4\pi}\frac{i\omega}{r}\,p
@@ -5325,7 +5221,7 @@ calculs : *seule la composante réelle a un sens physique*.
 
       #+BEGIN_SRC latex
         \begin{align*}
-          V_\text{retardé}&=\frac{1}{4\pi\epsilon_0}\iiint\frac{\rho(r',t')}{\|\vv{r}-\vv{r'}\|}\vv{dr'}\\
+          V_\text{retardé}&=\frac{1}{4\pi\epsilon_0}\iiint\frac{\rho(r',t')}{\|\vv{r}-\vv{r'}\|}\vv{\d r'}\\
           &\text{où }t'=t-\frac{\|\vv{r}-\vv{r'}\|}{c}\text{ et }\|\vv{r}-\vv{r'}\|=QP
         \end{align*}
       #+END_SRC
@@ -5333,7 +5229,7 @@ calculs : *seule la composante réelle a un sens physique*.
       Soit
       #+BEGIN_SRC latex
         \begin{align*}
-          V_\text{retardé}&=-\frac{iq}{4\pi\epsilon_0}\iiint\frac{e^{-i\omega\left(t-\frac{\|\vv{r}-\vv{r'}\|}{c}\right)}}{\|\vv{r}-\vv{r'}\|}\left[\delta(\vv{r'}+\ell/2\vv{u_z})-\delta(-\vv{r'}+\ell/2\vv{u_z})\right]d\vv{r'}
+          V_\text{retardé}&=-\frac{iq}{4\pi\epsilon_0}\iiint\frac{e^{-i\omega\left(t-\frac{\|\vv{r}-\vv{r'}\|}{c}\right)}}{\|\vv{r}-\vv{r'}\|}\left[\delta(\vv{r'}+\ell/2\vv{u_z})-\delta(-\vv{r'}+\ell/2\vv{u_z})\right]\d\vv{r'}
         \end{align*}
       #+END_SRC
 
@@ -5396,16 +5292,16 @@ calculs : *seule la composante réelle a un sens physique*.
    3) L'expression du potentiel-vecteur $\vv{A}$ s'écrit
       #+BEGIN_SRC latex
         \begin{align*}
-          \vv{A}&=\frac{\mu_0}{4\pi}\iiint\frac{\vv{j}(\vv{r'},t')}{\|\vv{r}-\vv{r'}\|}\vv{dr'}\\
-          &=\frac{\mu_0I_0}{4\pi}\underbrace{\int\delta(x')dx'}_{=1}\underbrace{\int\delta(y')dy'}_{=1}\int_{-\ell/2}^{+\ell/2}\frac{e^{-i\omega\left(t-\frac{\|\vv{r}-\vv{r'}\|}{c}\right)}}{\|\vv{r}-\vv{r'}\|}dz'\vv{u_z}\\
-          &=\frac{\mu_0I_0}{4\pi}e^{-i\omega t}\vv{u_z}\times\int_{-\ell/2}^{+\ell/2}\frac{e^{i\omega\frac{\|\vv{r}-\vv{r'}\|}{c}}}{\|\vv{r}-\vv{r'}\|}dz'
+          \vv{A}&=\frac{\mu_0}{4\pi}\iiint\frac{\vv{j}(\vv{r'},t')}{\|\vv{r}-\vv{r'}\|}\vv{\d r'}\\
+          &=\frac{\mu_0I_0}{4\pi}\underbrace{\int\delta(x')\d x'}_{=1}\underbrace{\int\delta(y')\d y'}_{=1}\int_{-\ell/2}^{+\ell/2}\frac{e^{-i\omega\left(t-\frac{\|\vv{r}-\vv{r'}\|}{c}\right)}}{\|\vv{r}-\vv{r'}\|}\d z'\vv{u_z}\\
+          &=\frac{\mu_0I_0}{4\pi}e^{-i\omega t}\vv{u_z}\times\int_{-\ell/2}^{+\ell/2}\frac{e^{i\omega\frac{\|\vv{r}-\vv{r'}\|}{c}}}{\|\vv{r}-\vv{r'}\|}\d z'
         \end{align*}
       #+END_SRC
       Dans la mesure où $\|\vv{r}-\vv{r'}\|\sim r$, l'expression du
       potentiel-vecteur se réduit à
       #+BEGIN_SRC latex
         \begin{align*}
-          \vv{A}&\simeq\frac{\mu_0I_0}{4\pi}e^{-i\omega t}\vv{u_z}\times\frac{e^{i\omega\frac{r}{c}}}{r}\int_{-\ell/2}^{+\ell/2}dz'\\
+          \vv{A}&\simeq\frac{\mu_0I_0}{4\pi}e^{-i\omega t}\vv{u_z}\times\frac{e^{i\omega\frac{r}{c}}}{r}\int_{-\ell/2}^{+\ell/2}\d z'\\
           &\simeq\frac{\mu_0I_0}{4\pi}\times\frac{\ell}{r}e^{-i\omega\left(t-\frac{r}{c}\right)}\vv{u_z}
         \end{align*}
       #+END_SRC
@@ -5515,20 +5411,19 @@ Le rapport des normes de $\vv{E}$ et $\vv{B}$ est égal à
 #+END_CENTER
 
 #+BEGIN_QUESTION
-6) [@6] On se propose maintenant de calculer la puissance rayonnée à grande
-   distance par cette antenne dipolaire en fonction de l'amplitude $I_0$ du
-   courant circulant dans le conducteur $MN$. Montrer que la puissance totale
-   peut s'exprimer par\nbsp:
+6) [@6] On se propose maintenant de calculer la puissance rayonnée à grande distance par cette
+   antenne dipolaire en fonction de l'amplitude $I_0$ du courant circulant dans le conducteur
+   $MN$. Montrer que la puissance totale peut s'exprimer par\nbsp:
    #+BEGIN_SRC latex
      \begin{align*}
        P = \frac{1}{2}R_rI_0^2
      \end{align*}
    #+END_SRC
-   où $R_r$ est la /résistance de rayonnement/ de l'antenne dont on donnera
-   l'expression en fonction de \ell et \lambda.
+   où $R_r$ est la /résistance de rayonnement/ de l'antenne dont on donnera l'expression en fonction
+   de \ell et \lambda.
 #+END_QUESTION
-Pour calculer la puissance rayonnée par le dipôle, il faut intégrer le flux
-du vecteur de Poynting $\vv{R}$ sur une sphère de rayon $r\gg\lambda$
+Pour calculer la puissance rayonnée par le dipôle, il faut intégrer le flux du vecteur de Poynting
+$\vv{R}$ sur une sphère de rayon $r\gg\lambda$
 
 #+BEGIN_SRC latex
   \begin{align*}
@@ -5544,8 +5439,8 @@ du vecteur de Poynting $\vv{R}$ sur une sphère de rayon $r\gg\lambda$
 La puissance rayonnée correspond au flux du vecteur de Poynting soit
 #+BEGIN_SRC latex
   \begin{align*}
-    P_r&=\iint\langle\vv{R}\rangle.\vv{dS}=\iint\langle\vv{R}\rangle\times r^2\sin\theta d\theta d\phi\\
-    &=\frac{\mu_0q^2\ell^2}{32\pi^2c}\omega^4\underbrace{\int_0^\pi\sin^3\theta d\theta}_{4/3}\int_0^{2\pi}d\phi\\
+    P_r&=\iint\langle\vv{R}\rangle.\vv{\d S}=\iint\langle\vv{R}\rangle\times r^2\sin\theta\d\theta\d\phi\\
+    &=\frac{\mu_0q^2\ell^2}{32\pi^2c}\omega^4\underbrace{\int_0^\pi\sin^3\theta\d\theta}_{4/3}\int_0^{2\pi}\d\phi\\
     &=\frac{\mu_0q^2\ell^2}{12\pi c}\omega^4\text{ avec }q=\frac{I_0}{\omega}\\
     &=\frac{\mu_0}{12\pi c}\omega^2\ell^2I_0^2\text{ d'où } R_r=\frac{\mu_0}{6\pi c}\omega^2\ell^2\\
     &\text{avec }\frac{\omega}{c}=\frac{2\pi}{\lambda}\to R_r=\frac{2\pi\mu_0c}{3}\frac{\ell^2}{\lambda^2}=\frac{2\pi}{3}\left(\frac{\ell}{\lambda}\right)^2\underbrace{\sqrt{\frac{\mu_0}{\epsilon_0}}}_{Z_0}
@@ -5560,35 +5455,33 @@ l'absorption pour décrire correctement la propagation de l'onde.
 ** Interaction onde électromagnétique-électron
 *** Cas de l'atome d'hydrogène
 #+BEGIN_QUESTION
-Dans un modèle classique, chaque électron (de masse $m$ et de charge $-e$) d'une
-molécule d'hydrogène soumis à l'attraction électrostatique du noyau, est rappelé
-vers sa position d'équilibre par une force de rappel
-$\vv{f}_r=-m\omega_0^2\vv{r}$ lorsqu'il est écarté de $\vv{r}$ de sa position
-équilibre.
+Dans un modèle classique, chaque électron (de masse $m$ et de charge $-e$) d'une molécule
+d'hydrogène soumis à l'attraction électrostatique du noyau, est rappelé vers sa position d'équilibre
+par une force de rappel $\vv{f}_r=-m\omega_0^2\vv{r}$ lorsqu'il est écarté de $\vv{r}$ de sa
+position équilibre.
 
-L'électron est soumis à l'action d'une onde électromagnétique plane de pulsation
-$\omega$ se propageant suivant $Oz$ dont l'expression complexe du champ
-électrique $\vv{\mathcal{E}}$ polarisé suivant $Ox$ est :
+L'électron est soumis à l'action d'une onde électromagnétique plane de pulsation $\omega$ se
+propageant suivant $Oz$ dont l'expression complexe du champ électrique $\vv{\mathcal{E}}$ polarisé
+suivant $Ox$ est :
 #+BEGIN_SRC latex
   \begin{align*}
   \vv{\mathcal{E}}=E_0\exp\left(i\omega\left(t-\frac{z}{c}\right)\right)\vv{e_x}
   \end{align*}
 #+END_SRC
-On notera $x(t)=A\exp(i(\omega t+\phi))$ la projection sur l'axe $Ox$ de la
-position de l'électron, où $A$ et $\phi$ sont des constantes du problème. On
-supposera $E_0>0$. On fixe l'origine du repère $(\vv{e_x},\vv{e_y},\vv{e_z})$ ou
-$(\vv{e_\rho},\vv{e_\theta},\vv{e_\phi})$ sur la position de l'électron au
-repos.
+On notera $x(t)=A\exp(i(\omega t+\phi))$ la projection sur l'axe $Ox$ de la position de l'électron,
+où $A$ et $\phi$ sont des constantes du problème. On supposera $E_0>0$. On fixe l'origine du repère
+$(\vv{e_x},\vv{e_y},\vv{e_z})$ ou $(\vv{e_\rho},\vv{e_\theta},\vv{e_\phi})$ sur la position de
+l'électron au repos.
 
-1) [@1] Écrire le principe fondamental de la dynamique appliqué à un électron en
-   appelant $\vv{V}$ sa vitesse. Pourquoi peut-on négliger l'effet du champ
-   $\vv{\mathcal{B}}$ de l'onde devant celui du champ $\vv{\mathcal{E}}$ ?
+1) [@1] Écrire le principe fondamental de la dynamique appliqué à un électron en appelant $\vv{V}$
+   sa vitesse. Pourquoi peut-on négliger l'effet du champ $\vv{\mathcal{B}}$ de l'onde devant celui
+   du champ $\vv{\mathcal{E}}$ ?
 #+END_QUESTION
 1) Le principe fondamental de la dynamique appliqué à l'électron
    #+BEGIN_SRC latex
      \begin{align*}
-       m\frac{d\vv{V}}{dt}&=-m\omega_0^2\vv{r}+\vv{F}_\text{Lorentz}\\
-       m\frac{d\vv{V}}{dt}&=-m\omega_0^2\vv{r}-e\vv{\mathcal{E}}-e\vv{V}\times\vv{\mathcal{B}}
+       m\frac{\d\vv{V}}{\d t}&=-m\omega_0^2\vv{r}+\vv{F}_\text{Lorentz}\\
+       m\frac{\d\vv{V}}{\d t}&=-m\omega_0^2\vv{r}-e\vv{\mathcal{E}}-e\vv{V}\times\vv{\mathcal{B}}
      \end{align*}
    #+END_SRC
    Le champ électromagnétique $(\vv{\mathcal{E}},\vv{\mathcal{B}})$ d'une onde
@@ -5611,22 +5504,21 @@ repos.
    L'équation déterminant la dynamique de l'électron se limite donc à
    #+BEGIN_SRC latex
      \begin{align*}
-       \frac{d\vv{V}}{dt}\simeq-m\omega_0^2\vv{r}-e\vv{\mathcal{E}}
+       \frac{\d\vv{V}}{\d t}\simeq-m\omega_0^2\vv{r}-e\vv{\mathcal{E}}
      \end{align*}
    #+END_SRC
 
 #+BEGIN_QUESTION
-2) [@2] À quelle condition peut-on remplacer $d\vv{V}/dt$ par
-   $\partial\vv{V}/\partial t$ ?
+2) [@2] À quelle condition peut-on remplacer $\d\vv{V}/\d t$ par $\partial\vv{V}/\partial t$ ?
 #+END_QUESTION
 2) [@2] En différentialisant le champ de vitesse où $\vv{V}$ est une fonction de
    l'espace et du temps /i.e./ $f(\vv{r},t)$, on obtient
    #+BEGIN_SRC latex
      \begin{align*}
-       d\vv{V}&=\frac{\partial\vv{V}}{\partial t}dt+\frac{\partial\vv{V}}{\partial x}dx+\frac{\partial\vv{V}}{\partial y}dy+\frac{\partial\vv{V}}{\partial z}dz\\
-       \frac{d\vv{V}}{dt}&=\frac{\partial\vv{V}}{\partial t}+\frac{\partial\vv{V}}{\partial x}\frac{dx}{dt}+\frac{\partial\vv{V}}{\partial y}\frac{dy}{dt}+\frac{\partial\vv{V}}{\partial z}\frac{dz}{dt}\\
-       \frac{d\vv{V}}{dt}&=\frac{\partial\vv{V}}{\partial t}+\frac{\partial\vv{V}}{\partial x}V_x+\frac{\partial\vv{V}}{\partial y}V_y+\frac{\partial\vv{V}}{\partial z}V_z\\
-       \underbrace{\frac{d\vv{V}}{dt}}_{\text{dérivée particulaire}}&=\underbrace{\frac{\partial\vv{V}}{\partial t}}_{\text{dérivée locale}}+\underbrace{\left(\vv{V}.\grad\right).\vv{V}}_{\text{dérivée convective}}
+       \d\vv{V}&=\frac{\partial\vv{V}}{\partial t}\d t+\frac{\partial\vv{V}}{\partial x}\d x+\frac{\partial\vv{V}}{\partial y}\d y+\frac{\partial\vv{V}}{\partial z}\d z\\
+       \frac{\d\vv{V}}{\d t}&=\frac{\partial\vv{V}}{\partial t}+\frac{\partial\vv{V}}{\partial x}\frac{\d x}{\d t}+\frac{\partial\vv{V}}{\partial y}\frac{\d y}{\d t}+\frac{\partial\vv{V}}{\partial z}\frac{\d z}{\d t}\\
+       \frac{\d\vv{V}}{\d t}&=\frac{\partial\vv{V}}{\partial t}+\frac{\partial\vv{V}}{\partial x}V_x+\frac{\partial\vv{V}}{\partial y}V_y+\frac{\partial\vv{V}}{\partial z}V_z\\
+       \underbrace{\frac{\d\vv{V}}{\d t}}_{\text{dérivée particulaire}}&=\underbrace{\frac{\partial\vv{V}}{\partial t}}_{\text{dérivée locale}}+\underbrace{\left(\vv{V}.\grad\right).\vv{V}}_{\text{dérivée convective}}
      \end{align*}
    #+END_SRC
    En posant $\vv{V}=\vv{V_0}\,e^{i(\omega t-\vv{k}.\vv{r})}$, la dérivée locale
@@ -5642,7 +5534,7 @@ repos.
      \begin{align*}
        \frac{\partial\vv{V}}{\partial t}+\left(\vv{V}.\grad\right).\vv{V}&=i\omega\vv{V}-i\vv{V}.\vv{k}.\vv{V}\\
        &=i\omega\vv{V}\left(1-\frac{\vv{k}.\vv{V}}{\omega}\right)=i\omega\vv{V}\left(1-\frac{V}{v_\phi}\right)\\
-       \frac{d\vv{V}}{dt}&\simeq\frac{\partial V}{\partial t}\to\frac{V}{v_\phi}=\frac{V}{c}\ll1
+       \frac{\d\vv{V}}{\d t}&\simeq\frac{\partial V}{\partial t}\to\frac{V}{v_\phi}=\frac{V}{c}\ll1
      \end{align*}
    #+END_SRC
 
@@ -5742,8 +5634,8 @@ repos.
         #+BEGIN_SRC latex
           \begin{align*}
             \vv{R}&=\frac{\vv{E}\times\vv{B}}{\mu_0}=\frac{E_\theta^2}{\mu_0c}\,\vv{u_\theta}\times\vv{u_\phi}\\
-            \langle P\rangle&=\iint\langle\vv{R}\rangle.\vv{dS}=\iint\frac{\langle E_\theta^2\rangle}{\mu_0c}\rho^2\sin\theta d\theta d\phi\\
-            &=\frac{\mu_0^2e^2}{16\pi^2}\gamma_0^2\times\langle\cos^2(\omega t-k\rho)\rangle\times\frac{1}{\mu_0c}\int_0^{2\pi}d\phi\int_0^\pi\sin^3\theta d\theta\\
+            \langle P\rangle&=\iint\langle\vv{R}\rangle.\vv{dS}=\iint\frac{\langle E_\theta^2\rangle}{\mu_0c}\rho^2\sin\theta\d\theta\d\phi\\
+            &=\frac{\mu_0^2e^2}{16\pi^2}\gamma_0^2\times\langle\cos^2(\omega t-k\rho)\rangle\times\frac{1}{\mu_0c}\int_0^{2\pi}\d\phi\int_0^\pi\sin^3\theta\d\theta\\
             &=\frac{\mu_0e^2X_0^2}{16\pi c}\times\frac{4}{3}=\frac{\mu_0e^2X_0^2}{12\pi c}\,\omega^4
           \end{align*}
         #+END_SRC
@@ -6152,7 +6044,7 @@ la pulsation plasma $\omega_p$ telle que $\omega_p^2=\frac{ne^2}{m\epsilon_0}$.
    1) Principe fondamental de la dynamique appliqué à un électron du milieu
       #+BEGIN_SRC latex
         \begin{align*}
-          m\frac{d\vv{V}}{dt}=-m\omega_0^2\vv{R}-e\vv{E}-e\vv{V}\times\left(\vv{B}+\vv{B_S}\right)
+          m\frac{\d\vv{V}}{\d t}=-m\omega_0^2\vv{R}-e\vv{E}-e\vv{V}\times\left(\vv{B}+\vv{B_S}\right)
         \end{align*}
       #+END_SRC
    2) Pour une onde plane transverse, la norme du champ magnétique associé à
@@ -6171,15 +6063,15 @@ la pulsation plasma $\omega_p$ telle que $\omega_p^2=\frac{ne^2}{m\epsilon_0}$.
       l'espace et du temps /i.e./ $f(\vv{r},t)$, on obtient
       #+BEGIN_SRC latex
         \begin{align*}
-          d\vv{V}&=\frac{\partial\vv{V}}{\partial t}dt+\frac{\partial\vv{V}}{\partial x}dx+\frac{\partial\vv{V}}{\partial y}dy+\frac{\partial\vv{V}}{\partial z}dz\\
-          \frac{d\vv{V}}{dt}&=\frac{\partial\vv{V}}{\partial t}+\frac{\partial\vv{V}}{\partial x}\frac{dx}{dt}+\frac{\partial\vv{V}}{\partial y}\frac{dy}{dt}+\frac{\partial\vv{V}}{\partial z}\frac{dz}{dt}\\
-          \frac{d\vv{V}}{dt}&=\frac{\partial\vv{V}}{\partial t}+\frac{\partial\vv{V}}{\partial x}v_x+\frac{\partial\vv{V}}{\partial y}v_y+\frac{\partial\vv{V}}{\partial z}v_z\\
-          \underbrace{\frac{d\vv{V}}{dt}}_{\text{dérivée particulaire}}&=\underbrace{\frac{\partial\vv{V}}{\partial t}}_{\text{dérivée locale}}+\underbrace{\left(\vv{V}.\grad\right).\vv{V}}_{\text{dérivée convective}}
+          \d\vv{V}&=\frac{\partial\vv{V}}{\partial t}\d t+\frac{\partial\vv{V}}{\partial x}\d x+\frac{\partial\vv{V}}{\partial y}\d y+\frac{\partial\vv{V}}{\partial z}\d z\\
+          \frac{\d\vv{V}}{\d t}&=\frac{\partial\vv{V}}{\partial t}+\frac{\partial\vv{V}}{\partial x}\frac{\d x}{\d t}+\frac{\partial\vv{V}}{\partial y}\frac{\d y}{\d t}+\frac{\partial\vv{V}}{\partial z}\frac{\d z}{\d t}\\
+          \frac{\d\vv{V}}{\d t}&=\frac{\partial\vv{V}}{\partial t}+\frac{\partial\vv{V}}{\partial x}V_x+\frac{\partial\vv{V}}{\partial y}V_y+\frac{\partial\vv{V}}{\partial z}V_z\\
+          \underbrace{\frac{\d\vv{V}}{\d t}}_{\text{dérivée particulaire}}&=\underbrace{\frac{\partial\vv{V}}{\partial t}}_{\text{dérivée locale}}+\underbrace{\left(\vv{V}.\grad\right).\vv{V}}_{\text{dérivée convective}}
         \end{align*}
       #+END_SRC
       En posant $\vv{V}=\vv{V_0}\,e^{i(\vv{k}.\vv{r}-\omega t)}$, la dérivée locale
-      $\frac{\partial\vv{V}}{\partial t}$ est égale à $-i\omega\vv{V}$, la dérivée
-      convective prenant la forme
+      $\frac{\partial\vv{V}}{\partial t}$ est égale à $-i\omega\vv{V}$, la dérivée convective
+      prenant la forme
       #+BEGIN_SRC latex
         \begin{align*}
           \left(\vv{V}.\grad\right).\vv{V}=\vv{V}.i\vv{k}.\vv{V}
@@ -6190,7 +6082,7 @@ la pulsation plasma $\omega_p$ telle que $\omega_p^2=\frac{ne^2}{m\epsilon_0}$.
         \begin{align*}
           \frac{\partial\vv{V}}{\partial t}+\left(\vv{V}.\grad\right).\vv{V}&=-i\omega\vv{V}+i\vv{V}.\vv{k}.\vv{V}\\
           &=-i\omega\vv{V}\left(1-\frac{\vv{k}.\vv{V}}{\omega}\right)=-i\omega\vv{V}\left(1-\frac{V}{v_\phi}\right)\\
-          \frac{d\vv{V}}{dt}&\simeq\frac{\partial v}{\partial t}\to\frac{V}{v_\phi}=\frac{V}{c}\ll1
+          \frac{\d\vv{V}}{\d t}&\simeq\frac{\partial v}{\partial t}\to\frac{V}{v_\phi}=\frac{V}{c}\ll1
         \end{align*}
       #+END_SRC
 
@@ -6694,17 +6586,16 @@ expressions par
   \end{align*}
 #+END_SRC
 
-Ainsi, l'angle de rotation Faraday sera d'autant plus grand que le champ
-magnétique statique sera élevé et l'épaisseur $L$ sera importante. On
-introduit ainsi la constante de Verdet $\nu$ telle que $\theta=\nu\,\ell
-B$. Une des applications de la rotation Faraday est la mesure du champ
-magnétique galactique en utilisant une source lumineuse polarisée (pulsar) et
-en intégrant la densité d'électron $n$ le long de la visée
+Ainsi, l'angle de rotation Faraday sera d'autant plus grand que le champ magnétique statique sera
+élevé et l'épaisseur $L$ sera importante. On introduit ainsi la constante de Verdet $\nu$ telle que
+$\theta=\nu\,\ell B$. Une des applications de la rotation Faraday est la mesure du champ magnétique
+galactique en utilisant une source lumineuse polarisée (pulsar) et en intégrant la densité
+d'électron $n$ le long de la visée
 #+BEGIN_SRC latex
   \begin{align*}
-    \theta&=\int_0^d\frac{\omega_p^2}{\omega^2}\frac{e}{2mc}B_S(\ell)d\ell\\
-    &=\frac{e^3}{2m^2c\epsilon_0}\times\frac{\lambda^2}{4\pi^2c^2}\int_0^dn(\ell)B_S(\ell)d\ell\\
-    &=\frac{e^3}{8\pi^2\epsilon_0m^2c^3}\lambda^2\int_0^dn(\ell)B_S(\ell)d\ell
+    \theta&=\int_0^d\frac{\omega_p^2}{\omega^2}\frac{e}{2mc}B_S(\ell)\d\ell\\
+    &=\frac{e^3}{2m^2c\epsilon_0}\times\frac{\lambda^2}{4\pi^2c^2}\int_0^dn(\ell)B_S(\ell)\d\ell\\
+    &=\frac{e^3}{8\pi^2\epsilon_0m^2c^3}\lambda^2\int_0^dn(\ell)B_S(\ell)\d\ell
   \end{align*}
 #+END_SRC
 
@@ -6713,14 +6604,12 @@ en intégrant la densité d'électron $n$ le long de la visée
 | [[./figures/graphene_faraday.pdf]] | [[./figures/graphene_faraday_meas.pdf]] |
 #+END_CENTER
 
-Par ailleurs, le matériau qui induit la plus grande déflexion angulaire étant
-donnée une épaisseur est le graphène dont une seule couche atomique occasionne
-des déviations de l'ordre de quelques degrés (/cf./ [[http://arxiv.org/abs/1007.5286]["Giant Faraday rotation in
-single- and multilayer graphene"]], 2011). Les déflexions occasionnées par la
-traversée d'une couche de graphène pour une température de 5K sont, au maximum,
-de l'ordre de 6 degrés pour une radiation infrarouge $-$
-$\lambda\sim30\,\mu\text{m}, \nu=\unit[1.5]{THz}$ $-$ et un champ magnétique de
-8 Tesla.
+Par ailleurs, le matériau qui induit la plus grande déflexion angulaire étant donnée une épaisseur
+est le graphène dont une seule couche atomique occasionne des déviations de l'ordre de quelques
+degrés (/cf./ [[http://arxiv.org/abs/1007.5286]["Giant Faraday rotation in single- and multilayer graphene"]], 2011). Les déflexions
+occasionnées par la traversée d'une couche de graphène pour une température de 5K sont, au maximum,
+de l'ordre de 6 degrés pour une radiation infrarouge $-$ $\lambda\sim30\,\mu\text{m},
+\nu=\unit[1.5]{THz}$ $-$ et un champ magnétique de 8 Tesla.
 
 ** Réflexion totale et onde évanescente                                 :DM:
 
@@ -7298,7 +7187,7 @@ résonance. Le but de cette partie est d'évaluer la largeur de raie du mode fon
    des constantes usuelles. $I$ est l'intégrale suivante :
    #+BEGIN_SRC latex
      \begin{align*}
-       I = \int_{0}^{x_{01}}xJ_0^2(x)dx=\int_0^{x_{01}}xJ'^2_0(x)dx
+       I = \int_{0}^{x_{01}}xJ_0^2(x)\d x=\int_0^{x_{01}}xJ'^2_0(x)\d x
      \end{align*}
    #+END_SRC
    On pourra exprimer $\mathcal{E}$ sous la forme : $\mathcal{E}=K_1E_0^2$.
@@ -7308,8 +7197,8 @@ Calcul de l'énergie électromagnétique dans la cavité pour le mode fondamenta
 $\omega_{01}=\omega_{0}$
 #+BEGIN_SRC latex
   \begin{align*}
-    \mathcal{E}&=\iiint u_\text{EM}\,d\tau\\
-    &=\iiint\left(\frac{\epsilon_0E^2}{2}+\frac{B^2}{2\mu_0}\right)d\tau\text{ où } E,B\text{ sont les parties réelles}\\
+    \mathcal{E}&=\iiint u_\text{EM}\,\d\tau\\
+    &=\iiint\left(\frac{\epsilon_0E^2}{2}+\frac{B^2}{2\mu_0}\right)\d\tau\text{ où } E,B\text{ sont les parties réelles}\\
     u_\text{EM}&=\frac{\epsilon_0}{2}E_0^2J_0^2\left(\frac{x_{0}}{a}r\right)\cos^2\omega_{0}t+\frac{1}{2\mu_0c^2}E_0^2J'^2_0\left(\frac{x_{0}}{a}r\right)\sin^2\omega_{0}t\\
     &=\frac{\epsilon_0E_0^2}{2}\left[J^2_0\left(\frac{x_{0}}{a}r\right)\cos^2\omega_{0}t+J'^2_0\left(\frac{x_{0}}{a}r\right)\sin^2\omega_{0}t\right]
   \end{align*}
@@ -7317,15 +7206,15 @@ $\omega_{01}=\omega_{0}$
 L'énergie totale stockée dans la cavité est
 #+BEGIN_SRC latex
   \begin{align*}
-    \mathcal{E}&=\frac{\epsilon_0E_0^2}{2}\int_0^hdz\int_0^{2\pi}d\theta\left[\cos^2\omega_0t\int_0^aJ_0^2\left(\frac{x_{01}}{a}r\right)rdr+\sin^2\omega_0t\int_0^aJ'^2_0\left(\frac{x_{01}}{a}r\right)rdr\right]\\
-    &=\pi h\epsilon_0E_0^2\left[\cos^2\omega_0t\int_0^aJ_0^2\left(\frac{x_{01}}{a}r\right)rdr+\sin^2\omega_0t\int_0^aJ'^2_0\left(\frac{x_{01}}{a}r\right)rdr\right]
+    \mathcal{E}&=\frac{\epsilon_0E_0^2}{2}\int_0^h\d z\int_0^{2\pi}\d\theta\left[\cos^2\omega_0t\int_0^aJ_0^2\left(\frac{x_{01}}{a}r\right)r\d r+\sin^2\omega_0t\int_0^aJ'^2_0\left(\frac{x_{01}}{a}r\right)r\d r\right]\\
+    &=\pi h\epsilon_0E_0^2\left[\cos^2\omega_0t\int_0^aJ_0^2\left(\frac{x_{01}}{a}r\right)r\d r+\sin^2\omega_0t\int_0^aJ'^2_0\left(\frac{x_{01}}{a}r\right)r\d r\right]
   \end{align*}
 #+END_SRC
 En posant $x=\frac{x_{01}}{a}r, dx=\frac{x_{01}}{a}dr$ avec $x\in[0,x_{01}]$, on obtient
 l'expression suivante
 #+BEGIN_SRC latex
   \begin{align*}
-    \mathcal{E}&=\pi h\epsilon_0E_0^2\times\frac{a^2}{x_{01}^2}\left[\cos^2\omega_0t\int_0^{x_{01}}xJ_0^2(x)dx+\sin^2\omega_0t\int_0^{x_{01}}xJ'^2_0(x)dx\right]\\
+    \mathcal{E}&=\pi h\epsilon_0E_0^2\times\frac{a^2}{x_{01}^2}\left[\cos^2\omega_0t\int_0^{x_{01}}xJ_0^2(x)\d x+\sin^2\omega_0t\int_0^{x_{01}}xJ'^2_0(x)\d x\right]\\
     &=\pi a^2h\times\epsilon_0E_0^2\times\frac{I}{x_{01}^2}
   \end{align*}
 #+END_SRC
@@ -7392,10 +7281,10 @@ courants :
 #+BEGIN_QUESTION
 3) [@3] En réalité, le courant n'est pas surfacique et circule sur une très faible épaisseur
    $\delta$ (épaisseur de peau). On rappelle que la puissance instantanée dissipée par effet Joule
-   pour un élément de surface $dS$ de la paroi est :
+   pour un élément de surface $\d S$ de la paroi est :
    #+BEGIN_SRC latex
      \begin{align*}
-       d^2P=\frac{1}{\delta\gamma}J^2_SdS=R_SJ^2_SdS
+       \d^2P=\frac{1}{\delta\gamma}J^2_S\d S=R_SJ^2_S\d S
      \end{align*}
    #+END_SRC
    où $R_S = 1/(\delta\gamma)$ est appelée /résistance de surface/.
@@ -7418,12 +7307,12 @@ courants :
 Calcul des puissances dissipées sur chacune des parois
 #+BEGIN_SRC latex
   \begin{align*}
-    d^2P_\text{latérale}&=R_Sj^2_S(r=a)dS\\
+    \d^2P_\text{latérale}&=R_Sj^2_S(r=a)\d S\\
     \langle P_\text{latérale}\rangle&=R_S\times\frac{1}{(\mu_0c)^2}J'^2_0(x_{01})\langle\sin^2\omega_0t\rangle\times2\pi ah\times E_0^2\\
     &=\underbrace{\frac{R_S}{(\mu_0c)^2}J'^2_0(x_{01})\pi ah}_{K_2}\times E_0^2\\
-    d^2P_\text{plan}(z=0)&=R_Sj^2_S(z=0)dS\\
-    \langle P_\text{plan}(z=0)\rangle&=\frac{R_S}{(\mu_0c)^2}\langle\sin^2\omega_0t\rangle\times\int_0^{2\pi}d\theta\int_0^aJ'^2_0\left(\frac{x_{01}}{a}r\right)rdr\times E_0^2\\
-    &=\frac{R_S}{(\mu_0c)^2}\pi\times\frac{a^2}{x_{01}^2}\times\underbrace{\int_0^{x_{01}}xJ'^2_0(x)dx}_{I}\times E_0^2\\
+    \d^2P_\text{plan}(z=0)&=R_Sj^2_S(z=0)\d S\\
+    \langle P_\text{plan}(z=0)\rangle&=\frac{R_S}{(\mu_0c)^2}\langle\sin^2\omega_0t\rangle\times\int_0^{2\pi}d\theta\int_0^aJ'^2_0\left(\frac{x_{01}}{a}r\right)r\d r\times E_0^2\\
+    &=\frac{R_S}{(\mu_0c)^2}\pi\times\frac{a^2}{x_{01}^2}\times\underbrace{\int_0^{x_{01}}xJ'^2_0(x)\d x}_{I}\times E_0^2\\
     &=\underbrace{\frac{\pi a^2\,R_S}{(\mu_0cx_{01})^2}I}_{K_3}\times E_0^2
   \end{align*}
 #+END_SRC
@@ -7432,8 +7321,8 @@ En l'absence de source compensant les pertes, la variation de l'énergie totale 
 uniquement due à la dissipation de l'énergie sur les parois de la cavité d'où
 #+BEGIN_SRC latex
   \begin{align*}
-    \frac{d\mathcal{E}}{dt}&=-\langle P_\text{latérale}\rangle-2\langle P_\text{paroi}\rangle\\
-    K_1\frac{dE^2_0}{dt}&=-K_2E_0^2-2K_3E_0^2\\
+    \frac{\d\mathcal{E}}{\d t}&=-\langle P_\text{latérale}\rangle-2\langle P_\text{paroi}\rangle\\
+    K_1\frac{\d E^2_0}{\d t}&=-K_2E_0^2-2K_3E_0^2\\
     2K_1E_0\frac{dE_0}{dt}+(K_2+2K_3)E_0^2&=0\\
     \frac{dE_0}{dt}+\frac{K_2+2K_3}{2K_1}E_0&=0
   \end{align*}
@@ -7441,7 +7330,7 @@ uniquement due à la dissipation de l'énergie sur les parois de la cavité d'o�
 En posant $\tau=\frac{2K_1}{K_2+2K_3}$, l'équation précédente devient
 #+BEGIN_SRC latex
   \begin{align*}
-    \frac{dE_0}{dt}+\frac{1}{\tau}E_0=0
+    \frac{\d E_0}{\d t}+\frac{1}{\tau}E_0=0
   \end{align*}
 #+END_SRC
 dont la solution est
@@ -7494,29 +7383,29 @@ La résolution de l'équation de Laplace en coordonnées cylindriques $(r,\theta
     \Delta V=\frac{\partial^2V}{\partial r^2}+\frac{1}{r}\frac{\partial V}{\partial r}+\frac{1}{r^2}\frac{\partial^2V}{\partial\theta^2}+\frac{\partial^2V}{\partial z^2}=0
   \end{align*}
 #+END_SRC
-peut se faire en cherchant une solution de la forme $V(,r\theta,z)=R(r)\Theta(\theta)Z(z)$. On
+peut se faire en cherchant une solution de la forme $V(r,\theta,z)=R(r)\Theta(\theta)Z(z)$. On
 obtient alors pour $\Theta$
 #+BEGIN_SRC latex
   \begin{align*}
-    \frac{d^2\Theta}{d\theta^2}=-\nu^2\Theta\quad\text{soit}\quad\Theta=C_\nu\cos(\nu\theta)+D_\nu\sin(\nu\theta)
+    \frac{\d^2\Theta}{\d\theta^2}=-\nu^2\Theta\quad\text{soit}\quad\Theta=C_\nu\cos(\nu\theta)+D_\nu\sin(\nu\theta)
   \end{align*}
 #+END_SRC
 où $\nu,C_\nu$ et $D_\nu$ sont des constantes. Pour $Z$, on a de même
 #+BEGIN_SRC latex
   \begin{align*}
-    \frac{d^2Z}{dz^2}=k^2Z\quad\text{soit}\quad Z=A_ke^{kz}+B_ke^{-kz}
+    \frac{\d^2Z}{\d z^2}=k^2Z\quad\text{soit}\quad Z=A_ke^{kz}+B_ke^{-kz}
   \end{align*}
 #+END_SRC
 où $k,A_k$ et $B_k$ sont des constantes. L'équation décrivant l'évolution de $R$ devient
 #+BEGIN_SRC latex
   \begin{align*}
-    r^2\frac{d^2R}{dr^2}+r\frac{dR}{dr}+(k^2r^2-\nu^2)R=0
+    r^2\frac{\d^2R}{\d r^2}+r\frac{\d R}{\d r}+(k^2r^2-\nu^2)R=0
   \end{align*}
 #+END_SRC
 En faisant le changement de variable $x=kr$, on obtient
 #+BEGIN_SRC latex
   \begin{align*}
-    x^2\frac{d^2R}{dx^2}+x\frac{dR}{dx}+(x^2-\nu^2)R=0
+    x^2\frac{\d^2R}{\d x^2}+x\frac{\d R}{\d x}+(x^2-\nu^2)R=0
   \end{align*}
 #+END_SRC
 Cette équation est *l'équation de Bessel d'ordre \nu*.
@@ -7537,7 +7426,7 @@ par
 où $\Gamma(x)$ est la fonction définie par
 #+BEGIN_SRC latex
   \begin{align*}
-    \Gamma(x)=\int_0^{+\infty}e^{-t}t^{x-1}dt
+    \Gamma(x)=\int_0^{+\infty}e^{-t}t^{x-1}\d t
   \end{align*}
 #+END_SRC
 
@@ -7591,7 +7480,7 @@ En régime variable, le champ magnétique demeure toujours à flux conservatif �
 savoir que
 #+BEGIN_SRC latex
   \begin{align*}
-    \varoiint_S\vv{B}.\vv{dS}=0
+    \varoiint_S\vv{B}.\vv{\d S}=0
   \end{align*}
 #+END_SRC
 reste vrai à tout instant $t$. En revanche, la variation du flux magnétique au travers
@@ -7599,7 +7488,7 @@ d'une surface (non-fermée) est à l'origine d'une force électro-motrice $e(t)$
 qui s'exprime selon la loi de Faraday[fn:12]
 #+BEGIN_SRC latex
   \begin{align*}
-    e(t)=-\frac{d\Phi(t)}{dt}\text{ où }\Phi(t)=\iint_S\vv{B}.\vv{dS}
+    e(t)=-\frac{\d\Phi(t)}{\d t}\text{ où }\Phi(t)=\iint_S\vv{B}.\vv{\d S}
   \end{align*}
 #+END_SRC
 Ainsi, un courant $i(t)$ parcourant une boucle $\mathcal{C}$ crée un champ
@@ -7607,28 +7496,26 @@ magnétique $\vv{B}_P(M,t)$ dont le flux s'oppose à l'augmentation du flux qu'o
 impose (loi de Lenz) : le flux magnétique propre s'écrit
 #+BEGIN_SRC latex
   \begin{align*}
-    \Phi_P=\iint_{S/\mathcal{C}}\vv{B}_P.\vv{dS}=L\times i
+    \Phi_P=\iint_{S/\mathcal{C}}\vv{B}_P.\vv{\d S}=L\times i
   \end{align*}
 #+END_SRC
 où $L$ est l'inductance propre du circuit. On parle d'*auto-induction*.
 
-Si un circuit filiforme auto-induit une force qui s'oppose à l'établissement du
-champ magnétique, deux circuits électriques induisent mutuellement une force sur
-chacun d'entre eux. En considèrant deux circuits parcourus respectivement par un
-courant $i_1(t)$ et un courant $i_2(t)$, le flux magnétique induit par le
-premier sur le second circuit s'exprime
+Si un circuit filiforme auto-induit une force qui s'oppose à l'établissement du champ magnétique,
+deux circuits électriques induisent mutuellement une force sur chacun d'entre eux. En considèrant
+deux circuits parcourus respectivement par un courant $i_1(t)$ et un courant $i_2(t)$, le flux
+magnétique induit par le premier sur le second circuit s'exprime
 #+BEGIN_SRC latex
   \begin{align*}
     \Phi_{1\to2}=M_{1\to2}I_1
   \end{align*}
 #+END_SRC
-de même que le deuxième circuit induit un flux magnétique égal à
-$\Phi_{2\to1}=M_{2\to1}I_2$. Les coefficients $M_{i\to j}$ sont appelés
-coefficients d'inductance mutuelle et sont, selon le théorème de Neumann,
-égaux /i.e./ $M_{1\to2}=M_{2\to1}=M$ [fn:13].
+de même que le deuxième circuit induit un flux magnétique égal à $\Phi_{2\to1}=M_{2\to1}I_2$. Les
+coefficients $M_{i\to j}$ sont appelés coefficients d'inductance mutuelle et sont, selon le théorème
+de Neumann, égaux /i.e./ $M_{1\to2}=M_{2\to1}=M$ [fn:13].
 
-En ajoutant à l'inductance mutuelle, l'auto-induction, les flux magnétiques au
-travers du premier et du second circuit sont
+En ajoutant à l'inductance mutuelle, l'auto-induction, les flux magnétiques au travers du premier et
+du second circuit sont
 #+BEGIN_SRC latex
   \begin{align*}
     \Phi_1&=L_1i_1+Mi_2\\
@@ -7638,27 +7525,26 @@ travers du premier et du second circuit sont
 desquels on déduit les forces électro-motrices
 #+BEGIN_SRC latex
   \begin{align*}
-    e_1&=-\frac{d\Phi_1}{dt}=-L_1\frac{di_1}{dt}-M\frac{di_2}{dt}\\
-    e_2&=-\frac{d\Phi_1}{dt}=-L_2\frac{di_2}{dt}-M\frac{di_1}{dt}
+    e_1&=-\frac{\d\Phi_1}{\d t}=-L_1\frac{\d i_1}{\d t}-M\frac{\d i_2}{\d t}\\
+    e_2&=-\frac{\d\Phi_1}{\d t}=-L_2\frac{\d i_2}{\d t}-M\frac{\d i_1}{\d t}
   \end{align*}
 #+END_SRC
 
-D'un point de vue énergétique, l'énergie magnétique stockée dans un circuit est
-égale à $\mathcal{E}_m=\frac{1}{2}Li^2$. Pour deux circuits, il s'agit de
-prendre en compte l'effet d'un circuit vis-à-vis de l'autre soit
+D'un point de vue énergétique, l'énergie magnétique stockée dans un circuit est égale à
+$\mathcal{E}_m=\frac{1}{2}Li^2$. Pour deux circuits, il s'agit de prendre en compte l'effet d'un
+circuit vis-à-vis de l'autre soit
 #+BEGIN_SRC latex
   \begin{align*}
     \mathcal{E}_m=\frac{1}{2}L_1i_1^2+\frac{1}{2}L_2i_2^2+Mi_1i_2
   \end{align*}
 #+END_SRC
 ** Couplage entre un solénoïde et une bobine
-1) L'unique champ magnétique est celui crée par le solénoïde que l'on considère
-   comme infini. Ainsi le champ magnétique est égal à $\mu_0nI\vv{u_z}$ pour
-   $r < a$ et nul à l'extérieur du solénoïde. Le flux magnétique induit par le
-   solénoïde au travers de la bobine est donc égal à
+1) L'unique champ magnétique est celui crée par le solénoïde que l'on considère comme infini. Ainsi
+   le champ magnétique est égal à $\mu_0nI\vv{u_z}$ pour $r < a$ et nul à l'extérieur du
+   solénoïde. Le flux magnétique induit par le solénoïde au travers de la bobine est donc égal à
    #+BEGIN_SRC latex
      \begin{align*}
-       \Phi_{S\to B}=\iint_{S_B}\vv{B}.\vv{dS}=\mu_0nI\times\pi a^2\times N
+       \Phi_{S\to B}=\iint_{S_B}\vv{B}.\vv{\d S}=\mu_0nI\times\pi a^2\times N
      \end{align*}
    #+END_SRC
 
@@ -7671,30 +7557,29 @@ prendre en compte l'effet d'un circuit vis-à-vis de l'autre soit
    #+END_SRC
 
 2)
-   1) La force électro-motrice $e(t)$ qui correspond à la variation temporelle
-      du flux magnétique au travers de la bobine s'écrit
+   1) La force électro-motrice $e(t)$ qui correspond à la variation temporelle du flux magnétique au
+      travers de la bobine s'écrit
       #+BEGIN_SRC latex
         \begin{align*}
-          e(t)&=-\frac{d\Phi}{dt}=-L_\text{bobine}\frac{di}{dt}-M\frac{dI}{dt}
+          e(t)&=-\frac{\d\Phi}{\d t}=-L_\text{bobine}\frac{\d i}{\d t}-M\frac{\d I}{\d t}
         \end{align*}
       #+END_SRC
-      où $i(t)$ est le courant induit. L'expression de $e(t)$ est ainsi la somme
-      d'un terme d'auto-inductance à savoir que le courant induit $i(t)$ génère
-      une force s'opposant à son établissement auquel s'ajoute un terme
-      d'inductance mutuelle due à la présence du solénoïde. Dans la mesure où
-      l'inductance $L_\text{bobine}$ est proportionnelle à $N^2$ alors que le
-      coefficient d'inductance mutuelle $M$ est proportionnel à $n\times N$ et
-      dans l'hypothèse où $n\gg N$, la f.e.m se réduit à
+      où $i(t)$ est le courant induit. L'expression de $e(t)$ est ainsi la somme d'un terme
+      d'auto-inductance à savoir que le courant induit $i(t)$ génère une force s'opposant à son
+      établissement auquel s'ajoute un terme d'inductance mutuelle due à la présence du
+      solénoïde. Dans la mesure où l'inductance $L_\text{bobine}$ est proportionnelle à $N^2$ alors
+      que le coefficient d'inductance mutuelle $M$ est proportionnel à $n\times N$ et dans
+      l'hypothèse où $n\gg N$, la f.e.m se réduit à
       #+BEGIN_SRC latex
         \begin{align*}
-          e(t)\simeq-M\frac{dI}{dt}
+          e(t)\simeq-M\frac{\d I}{\d t}
         \end{align*}
       #+END_SRC
 
       Le courant induit $i(t)$ devient
       #+BEGIN_SRC latex
         \begin{align*}
-          e(t)=R\times i(t)\to i(t)&=-\frac{\mu_0nN\pi a^2}{R}\times\frac{dI}{dt}\\
+          e(t)=R\times i(t)\to i(t)&=-\frac{\mu_0nN\pi a^2}{R}\times\frac{\d I}{\d t}\\
           &=-\frac{\mu_0nN\pi a^2}{R}I_0\omega\cos\omega t
         \end{align*}
       #+END_SRC
@@ -7702,7 +7587,7 @@ prendre en compte l'effet d'un circuit vis-à-vis de l'autre soit
       circulation du champ électrique autour de ce circuit[fn:14]
       #+BEGIN_SRC latex
         \begin{align*}
-          e(t)&=\oint_\mathcal{C}\vv{E}.\vv{d\ell}=2\pi b\times N\times E
+          e(t)&=\oint_\mathcal{C}\vv{E}.\vv{\d\ell}=2\pi b\times N\times E
         \end{align*}
       #+END_SRC
       Le champ électrique est donc égal à
@@ -7773,31 +7658,30 @@ prendre en compte l'effet d'un circuit vis-à-vis de l'autre soit
    Le flux magnétique induit par le solénoïde au travers de la bobine s'écrit
    #+BEGIN_SRC latex
      \begin{align*}
-       \Phi_{S\to B}&=\iint_{S_B}\vv{B_1}.\vv{dS}=\frac{\mu_0ni_1}{2}\left(1-\cos\alpha\right)\times N\times\pi b^2\\
+       \Phi_{S\to B}&=\iint_{S_B}\vv{B_1}.\vv{\d S}=\frac{\mu_0ni_1}{2}\left(1-\cos\alpha\right)\times N\times\pi b^2\\
        &=M\times i_1\to M=\frac{\mu_0nN\,\pi b^2}{2}\left(1-\cos\alpha\right)
      \end{align*}
    #+END_SRC
 2) La bobine est traversée par le flux magnétique issu du solénoïde induisant
-   une force électro-motrice $e=-\frac{d\Phi_{S\to B}}{dt}=-M\frac{di_1}{dt}$. À
+   une force électro-motrice $e=-\frac{\d\Phi_{S\to B}}{\d t}=-M\frac{\d i_1}{\d t}$. À
    cette f.e.m, il convient d'ajouter l'inductance propre de la bobine
-   $e_\text{propre}=-\frac{d\Phi_\text{propre}}{dt}=-L\frac{di}{dt}$. Ainsi, la
+   $e_\text{propre}=-\frac{\d\Phi_\text{propre}}{\d t}=-L\frac{\d i}{\d t}$. Ainsi, la
    f.e.m aux bornes de la bobine est égale à
    #+BEGIN_SRC latex
      \begin{align*}
-       e=R\times i&=-\frac{d\Phi}{dt}\\
-       &=-\frac{d\Phi_{S\to B}}{dt}-\frac{d\Phi_\text{propre}}{dt}\\
-       &=-M\frac{di_1}{dt}-L\frac{di}{dt}\\
-       \frac{di}{dt} + \frac{R}{L}i &=-\frac{M}{L}\frac{di_1}{dt}
+       e=R\times i&=-\frac{\d\Phi}{\d t}\\
+       &=-\frac{\d\Phi_{S\to B}}{\d t}-\frac{\d\Phi_\text{propre}}{\d t}\\
+       &=-M\frac{\d i_1}{\d t}-L\frac{\d i}{\d t}\\
+       \frac{\d i}{\d t} + \frac{R}{L}i &=-\frac{M}{L}\frac{\d i_1}{\d t}
      \end{align*}
    #+END_SRC
-   où $i_1(t)=i_{1m}\cos\omega t$ donc $\frac{di_1}{dt}=-i_{1m}\omega\sin\omega
-   t$. Cette équation peut se résoudre en cherchant successivement la solution
-   homogène /i.e./ sans le membre constant $-\frac{M}{L}\frac{di_1}{dt}$ puis
-   une solution particulière en utilisant, par exemple, la méthode de variation
-   de la constante. On peut également procéder différemment en considérant que
-   $i(t)$ est la superposition d'un régime transitoire et d'un régime permanent
-   sinusoïdal. On cherche donc $i(t)$ sous la forme $A\cos\omega t+B\sin\omega
-   t$. L'équation différentielle devient
+   où $i_1(t)=i_{1m}\cos\omega t$ donc $\frac{\d i_1}{\d t}=-i_{1m}\omega\sin\omega t$. Cette équation
+   peut se résoudre en cherchant successivement la solution homogène /i.e./ sans le membre constant
+   $-\frac{M}{L}\frac{\d i_1}{\d t}$ puis une solution particulière en utilisant, par exemple, la
+   méthode de variation de la constante. On peut également procéder différemment en considérant que
+   $i(t)$ est la superposition d'un régime transitoire et d'un régime permanent sinusoïdal. On
+   cherche donc $i(t)$ sous la forme $A\cos\omega t+B\sin\omega t$. L'équation différentielle
+   devient
    #+BEGIN_SRC latex
      \begin{align*}
        -A\omega\sin\omega t+B\omega\cos\omega t+\frac{R}{L}\left(A\cos\omega t+B\sin\omega t\right)&=\frac{M}{L}i_{1m}\omega\sin\omega t
@@ -7843,13 +7727,12 @@ prendre en compte l'effet d'un circuit vis-à-vis de l'autre soit
      \end{align*}
    #+END_SRC
 
-   Sachant que $\tan\alpha=\frac{a}{z}$, l'expression de
-   $\frac{\partial\alpha}{\partial z}$ s'écrit
+   Sachant que $\tan\alpha=\frac{a}{z}$, l'expression de $\frac{\partial\alpha}{\partial z}$ s'écrit
    #+BEGIN_SRC latex
      \begin{align*}
-       \frac{d}{d\alpha}\tan\alpha&=\frac{\cos\alpha}{\cos\alpha}+\frac{\sin^2\alpha}{\cos^2\alpha}=\frac{1}{\cos^2\alpha}\\
-       d(\tan\alpha)&=\frac{d\alpha}{\cos^2\alpha}=d\left(\frac{a}{z}\right)=-\frac{a}{z^2}dz\\
-       \frac{\partial\alpha}{\partial z}&=\frac{d\alpha}{dz}=-\frac{a\cos^2\alpha}{z^2}\\
+       \frac{\d}{\d\alpha}\tan\alpha&=\frac{\cos\alpha}{\cos\alpha}+\frac{\sin^2\alpha}{\cos^2\alpha}=\frac{1}{\cos^2\alpha}\\
+       \d(\tan\alpha)&=\frac{\d\alpha}{\cos^2\alpha}=\d\left(\frac{a}{z}\right)=-\frac{a}{z^2}dz\\
+       \frac{\partial\alpha}{\partial z}&=\frac{\d\alpha}{\d z}=-\frac{a\cos^2\alpha}{z^2}\\
        &=-a\cos^2\alpha\times\frac{\tan^2\alpha}{a^2}=-\frac{\sin^2\alpha}{a}
      \end{align*}
    #+END_SRC
@@ -8068,23 +7951,23 @@ prendre en compte l'effet d'un circuit vis-à-vis de l'autre soit
         \end{align*}
       #+END_SRC
 4) La puissance dissipée par unité de volume est
-   $\frac{dP}{d\tau}=\vv{j}.\vv{E}=\gamma E^2$ soit
+   $\frac{\d P}{\d\tau}=\vv{j}.\vv{E}=\gamma E^2$ soit
    #+BEGIN_SRC latex
      \begin{align*}
-       \frac{dP}{d\tau}&=\frac{2}{\mu_0^2\gamma\delta^2}B_1^2\,e^{-\frac{2z}{\delta}}\,\cos^2\left(\frac{z}{\delta}-\omega t+\frac{3\pi}{4}\right)
+       \frac{\d P}{\d\tau}&=\frac{2}{\mu_0^2\gamma\delta^2}B_1^2\,e^{-\frac{2z}{\delta}}\,\cos^2\left(\frac{z}{\delta}-\omega t+\frac{3\pi}{4}\right)
      \end{align*}
    #+END_SRC
    On déduit de ce résultat que la puissance moyenne dissipée par effet Joule
    est
    #+BEGIN_SRC latex
      \begin{align*}
-       \left\langle\frac{dP}{d\tau}\right\rangle_T&=\frac{B_1^2}{\mu_0^2\gamma\delta^2}\,e^{-\frac{2z}{\delta}}
+       \left\langle\frac{\d P}{\d\tau}\right\rangle_T&=\frac{B_1^2}{\mu_0^2\gamma\delta^2}\,e^{-\frac{2z}{\delta}}
      \end{align*}
    #+END_SRC
    tandis que la puissance moyenne par unité de surface s'écrit
    #+BEGIN_SRC latex
      \begin{align*}
-       \left\langle\frac{dP}{dS}\right\rangle_T&=\frac{B_1^2}{\mu_0^2\gamma\delta^2}\,\int_0^{+\infty}e^{-\frac{2z}{\delta}}\,dz\\
+       \left\langle\frac{\d P}{\d S}\right\rangle_T&=\frac{B_1^2}{\mu_0^2\gamma\delta^2}\,\int_0^{+\infty}e^{-\frac{2z}{\delta}}\,\d z\\
        &=\frac{B_1^2}{\mu_0^2\gamma\delta^2}\left[-\frac{\delta}{2}e^{-\frac{2z}{\delta}}\right]_{0}^{+\infty}\\
        &=\frac{B_1^2}{\mu_0^2\gamma\delta^2}\times\frac{\delta}{2}=\frac{B_1^2}{2\mu_0^2\gamma\delta}
      \end{align*}
@@ -8122,13 +8005,11 @@ prendre en compte l'effet d'un circuit vis-à-vis de l'autre soit
 
 ** Footnotes
 
-[fn:12] l'expression de la force électro-motrice se déduit de la relation de
-Maxwell-Faraday $\rot\vv{E}=-\frac{\partial\vv{B}}{\partial t}$ qui, dans sa
-version intégrale, donne
-$\oint_\mathcal{C}\vv{E}.\vv{d\ell}=-\frac{\partial}{\partial
-t}\iint_{S/\mathcal{C}}\vv{B}.\vv{dS}=-\frac{d\Phi}{dt}$. La force
-électro-motrice $e(t)$ est donc équivalente à la circulation du champ électrique
-le long du contour $\mathcal{C}$.
+[fn:12] l'expression de la force électro-motrice se déduit de la relation de Maxwell-Faraday
+$\rot\vv{E}=-\frac{\partial\vv{B}}{\partial t}$ qui, dans sa version intégrale, donne
+$\oint_\mathcal{C}\vv{E}.\vv{d\ell}=-\frac{\partial}{\partial t}\iint_{S/\mathcal{C}}\vv{B}.\vv{\d
+S}=-\frac{\d\Phi}{\d t}$. La force électro-motrice $e(t)$ est donc équivalente à la circulation du
+champ électrique le long du contour $\mathcal{C}$.
 
 [fn:13] dans le cas de deux bobines chacune constituées respectivement de $N_1$
 et $N_2$ spires, le coefficient d'inductance mutuelle est proportionnel au
@@ -8370,7 +8251,7 @@ $E(M)=E(r,\theta,z)=E(r)$.
 Le théorème de Gauss
 #+BEGIN_SRC latex
   \begin{equation*}
-    \varoiint_{\mathcal{S}}\vv{E}\cdot d\vv{S}=\frac{Q_\text{int.}}{\epsilon_0}
+    \varoiint_{\mathcal{S}}\vv{E}\cdot\d\vv{S}=\frac{Q_\text{int.}}{\epsilon_0}
   \end{equation*}
 #+END_SRC
 où la surface de Gauss $\mathcal{S}$ est un cylindre de rayon $D'$ et
@@ -8536,7 +8417,7 @@ On pose $\gamma=(1-v^2/c^2)^{-1/2}$ où $\gamma$ dépend /a priori/ du temps.
    $\mathcal{E}$. Montrer que les équations du mouvement s'écrivent :
    #+BEGIN_SRC latex
      \begin{align*}
-       \frac{d}{dt}(\gamma m\vv{v})=q\vv{v}\times\vv{B}
+       \frac{\d}{\d t}(\gamma m\vv{v})=q\vv{v}\times\vv{B}
      \end{align*}
    #+END_SRC
    $\mathcal{E}$ est-elle constante ? En déduire que le mouvement est uniforme
@@ -8548,8 +8429,8 @@ L'impulsion relativiste s'écrit $\vv{p}=\gamma m\vv{v}$, l'énergie totale éta
 devient
 #+BEGIN_SRC latex
   \begin{align*}
-    \frac{d\vv{p}}{dt}&=\Upsigma\vv{F}\\
-    \frac{d}{dt}(\gamma m\vv{v})&=q\vv{v}\times\vv{B}
+    \frac{\d\vv{p}}{\d t}&=\Upsigma\vv{F}\\
+    \frac{\d}{\d t}(\gamma m\vv{v})&=q\vv{v}\times\vv{B}
   \end{align*}
 #+END_SRC
 
@@ -8566,7 +8447,7 @@ L'énergie $\mathcal{E}$ est donc constante \rightarrow $v=v_0$ et
 $\gamma=\tfrac{1}{\surd{1-v_0^2/c^2}}$. L'équation du mouvement devient
 #+BEGIN_SRC latex
   \begin{align*}
-    \gamma m\frac{d\vv{v}}{dt}&=q\vv{v}\times\vv{B}
+    \gamma m\frac{\d\vv{v}}{\d t}&=q\vv{v}\times\vv{B}
   \end{align*}
 #+END_SRC
 soit, au facteur $\gamma$ près, identique à l'équation du mouvement pour une
@@ -8594,7 +8475,7 @@ L'accélération dans le cas d'un mouvement uniforme circulaire est
 l'accélération centripète d'expression
 #+BEGIN_SRC latex
   \begin{align*}
-    \vv{a}=\frac{d\vv{v}}{dt}=-\frac{v_0^2}{R}\vv{u_r}
+    \vv{a}=\frac{\d\vv{v}}{\d t}=-\frac{v_0^2}{R}\vv{u_r}
   \end{align*}
 #+END_SRC
 Le produit vectoriel $\vv{v}\times\vv{a}$ devient
@@ -8656,16 +8537,16 @@ perdent de la vitesse. La variation d'énergie $d\mathcal{E}$ est égale à
 $-\mathcal{P}_r\,dt$ soit une variation du facteur de Lorentz $\gamma$
 #+BEGIN_SRC latex
   \begin{align*}
-    mc^2d\gamma&=-\mathcal{P}_rdt\\
-    \frac{d\gamma}{dt}&=-\mathcal{P}_r\times\frac{1}{mc^2}\\
+    mc^2\d\gamma&=-\mathcal{P}_r\d t\\
+    \frac{\d\gamma}{\d t}&=-\mathcal{P}_r\times\frac{1}{mc^2}\\
     &=-\frac{q^2\gamma^4}{6\pi\epsilon_0c^3}\times\frac{v^4}{R^2}\times\frac{1}{mc^2}
   \end{align*}
 #+END_SRC
-En supposant la trajectoire toujours circulaire de rayon
-$R=\gamma\tfrac{mv}{qB}=\tfrac{\gamma v}{\omega_c}$
+En supposant la trajectoire toujours circulaire de rayon $R=\gamma\tfrac{mv}{qB}=\tfrac{\gamma
+v}{\omega_c}$
 #+BEGIN_SRC latex
   \begin{align*}
-    \frac{d\gamma}{dt}&=-\frac{q^2\gamma^4}{6\pi\epsilon_0c^3}\times\frac{v^4}{R^2}\times\frac{1}{mc^2}\\
+    \frac{\d\gamma}{\d t}&=-\frac{q^2\gamma^4}{6\pi\epsilon_0c^3}\times\frac{v^4}{R^2}\times\frac{1}{mc^2}\\
     &=-\frac{q^2\gamma^4}{6\pi\epsilon_0c^3}\times\frac{v^4\omega_c^2}{\gamma^2v^2}\times\frac{1}{mc^2}\\
     &=-\frac{q^2\omega_c^2}{6\pi\epsilon_0c^3}\times\frac{1}{mc^2}\times\gamma^2v^2\\
   \end{align*}
@@ -8673,16 +8554,16 @@ $R=\gamma\tfrac{mv}{qB}=\tfrac{\gamma v}{\omega_c}$
 or $\gamma^2v^2=c^2(\gamma^2-1)$ d'où
 #+BEGIN_SRC latex
   \begin{align*}
-    \frac{d\gamma}{dt}&=-\frac{q^2\omega_c^2}{6\pi\epsilon_0mc^3}\times\left(\gamma^2-1\right)\\
-    \frac{d\gamma}{\gamma^2-1}&=-\frac{dt}{\tau}\text{ avec }\tau=\frac{6\pi\epsilon_0mc^3}{q^2\omega_c^2}
+    \frac{\d\gamma}{\d t}&=-\frac{q^2\omega_c^2}{6\pi\epsilon_0mc^3}\times\left(\gamma^2-1\right)\\
+    \frac{\d\gamma}{\gamma^2-1}&=-\frac{\d t}{\tau}\text{ avec }\tau=\frac{6\pi\epsilon_0mc^3}{q^2\omega_c^2}
   \end{align*}
 #+END_SRC
 En intégrant l'équation précédente, on obtient
 #+BEGIN_SRC latex
   \begin{align*}
-    \frac{d\gamma}{\gamma^2-1}&=-\frac{dt}{\tau}\\
-    \frac{d\gamma}{1-\gamma^2}&=\frac{dt}{\tau}\\
-    \frac{d\gamma}{1+\gamma}+\frac{d\gamma}{1-\gamma}&=2\frac{dt}{\tau}\\
+    \frac{\d\gamma}{\gamma^2-1}&=-\frac{\d t}{\tau}\\
+    \frac{\d\gamma}{1-\gamma^2}&=\frac{\d t}{\tau}\\
+    \frac{\d\gamma}{1+\gamma}+\frac{\d\gamma}{1-\gamma}&=2\frac{\d t}{\tau}\\
     \ln(\gamma+1)-\ln(\gamma-1)&=\frac{2t}{\tau}+\text{constante}\\
     \ln\frac{\gamma+1}{\gamma-1}&=\frac{2t}{\tau}+\text{constante}\\
     \frac{\gamma+1}{\gamma-1}&=Ke^{\tfrac{2t}{\tau}}
@@ -8818,7 +8699,7 @@ l'axe $x'$ et par rotation d'angle \theta : $\vv{E}'(M)=E(r)\vv{u}_r$.
 Théorème de Gauss :
 #+BEGIN_SRC latex
   \begin{equation*}
-    \varoiint_\mathcal{S}\vv{E}'(M)\cdot d\vv{S}=\frac{Q_\text{int.}}{\epsilon_0}
+    \varoiint_\mathcal{S}\vv{E}'(M)\cdot\d\vv{S}=\frac{Q_\text{int.}}{\epsilon_0}
   \end{equation*}
 #+END_SRC
 où la surface de Gauss est un cylindre de rayon $r<R$ et de hauteur $h$.
@@ -8917,7 +8798,7 @@ ainsi
 Le théorème d'Ampère :
 #+BEGIN_SRC latex
   \begin{equation*}
-    \oint_{\mathcal{C}}\vv{B}.d\vv{\ell}=\iint_\mathcal{S}\mu_0\vv{j}.d\vv{S}\text{ avec} \vv{j}=\rho u\vv{u}_x
+    \oint_{\mathcal{C}}\vv{B}.\d\vv{\ell}=\iint_\mathcal{S}\mu_0\vv{j}.\d\vv{S}\text{ avec} \vv{j}=\rho u\vv{u}_x
   \end{equation*}
 #+END_SRC
 Le contour $\mathcal{C}$ est donc une boucle de rayon $r$ orientée suivant
@@ -8965,15 +8846,15 @@ soit
 Le principe fondamental de la dynamique en relativité
 #+BEGIN_SRC latex
   \begin{align*}
-    \frac{d}{dt}\left(\gamma m\vv{u}\right)&=\Upsigma\vv{F}\\
-    \gamma m\frac{d\vv{u}}{dt}+m\vv{u}\frac{d\gamma}{dt}&=\vv{F}
+    \frac{\d}{\d t}\left(\gamma m\vv{u}\right)&=\Upsigma\vv{F}\\
+    \gamma m\frac{\d\vv{u}}{\d t}+m\vv{u}\frac{\d\gamma}{\d t}&=\vv{F}
   \end{align*}
 #+END_SRC
 or $\vv{F}\parallel\vv{u}_r$ impliquant que le second terme
 $m\vv{u}\tfrac{d\gamma}{dt}$ soit nul. Soit
 #+BEGIN_SRC latex
   \begin{align*}
-    \gamma m\frac{d\vv{u}}{dt}&=\vv{F}\\
+    \gamma m\frac{\d\vv{u}}{\d t}&=\vv{F}\\
     \gamma m\ddot{R}&=\frac{q\rho}{2\epsilon_0\gamma^2}R\\
     \ddot{R}-\frac{q\rho}{2\epsilon_0m}\frac{R}{\gamma^3}&=0
   \end{align*}
@@ -9020,24 +8901,23 @@ $V=\unit[10]{MV}$,$\gamma=21$ \rightarrow $\frac{\Delta R}{R_0}=1.5\,10^{-5}$
 On considère une particule de masse $m$, de quantité de mouvement $p$, d'énergie
 totale $\mathcal{E}$ et d'énergie cinétique $\mathcal{E}_c$.
 
-1) Exprimer $dv/v$ et $dp/p$ en fonction de $d\mathcal{E}/\mathcal{E}$.
+1) Exprimer $\d v/v$ et $\d p/p$ en fonction de $\d\mathcal{E}/\mathcal{E}$.
 #+END_QUESTION
 
-Soit l'énergie totale $\mathcal{E}=\gamma\,mc^2$ et
-$\gamma=\frac{1}{\surd1-v^2/c^2}$. On a
+Soit l'énergie totale $\mathcal{E}=\gamma\,mc^2$ et $\gamma=\frac{1}{\surd1-v^2/c^2}$. On a
 #+BEGIN_SRC latex
   \begin{align*}
-    \frac{d\mathcal{E}}{\mathcal{E}}&=\frac{d\gamma}{\gamma}\\
-    \text{avec }&d\gamma=-\frac{1}{2}\times\frac{1}{\left(1-v^2/c^2\right)^{3/2}}\times(-)2\frac{v}{c}dv\\
-    &d\gamma=\gamma^3\frac{v}{c}dv\\
-    \frac{d\mathcal{E}}{\mathcal{E}}&=\gamma^2\,\frac{v^2}{c^2}\times\frac{dv}{v}\\
-    &=\left(\gamma^2-1\right)\frac{dv}{v}
+    \frac{\d\mathcal{E}}{\mathcal{E}}&=\frac{\d\gamma}{\gamma}\\
+    \text{avec }&\d\gamma=-\frac{1}{2}\times\frac{1}{\left(1-v^2/c^2\right)^{3/2}}\times(-)2\frac{v}{c}dv\\
+    &\d\gamma=\gamma^3\frac{v}{c}dv\\
+    \frac{\d\mathcal{E}}{\mathcal{E}}&=\gamma^2\,\frac{v^2}{c^2}\times\frac{\d v}{v}\\
+    &=\left(\gamma^2-1\right)\frac{\d v}{v}
   \end{align*}
 #+END_SRC
 soit
 #+BEGIN_SRC latex
   \begin{align*}
-    \frac{dv}{v}=\frac{1}{\gamma^2-1}\,\frac{d\mathcal{E}}{\mathcal{E}}
+    \frac{\d v}{v}=\frac{1}{\gamma^2-1}\,\frac{\d\mathcal{E}}{\mathcal{E}}
   \end{align*}
 #+END_SRC
 
@@ -9045,11 +8925,11 @@ La quantité de mouvement $p=\gamma\,mv$ est liée à l'énergie totale à trave
 l'expression $\mathcal{E}^2=p^2c^2+m^2c^4$ soit en différentiant
 #+BEGIN_SRC latex
   \begin{align*}
-    2\mathcal{E}d\mathcal{E}&=2p\,dpc^2\\
-    \frac{dp}{p}&=\frac{\mathcal{E}d\mathcal{E}}{p^2c^2}\\
-    &=\frac{\mathcal{E}d\mathcal{E}}{\mathcal{E}^2-m^2c^4}\\
-    &=\frac{\gamma^2\,\cancel{m^2c^4}}{\gamma^2\,\cancel{m^2c^4}-\cancel{m^2c^4}}\,\frac{d\mathcal{E}}{\mathcal{E}}\\
-    &=\frac{\gamma^2}{\gamma^2-1}\,\frac{d\mathcal{E}}{\mathcal{E}}
+    2\mathcal{E}\d\mathcal{E}&=2p\,\d pc^2\\
+    \frac{\d p}{p}&=\frac{\mathcal{E}\d\mathcal{E}}{p^2c^2}\\
+    &=\frac{\mathcal{E}\d\mathcal{E}}{\mathcal{E}^2-m^2c^4}\\
+    &=\frac{\gamma^2\,\cancel{m^2c^4}}{\gamma^2\,\cancel{m^2c^4}-\cancel{m^2c^4}}\,\frac{\d\mathcal{E}}{\mathcal{E}}\\
+    &=\frac{\gamma^2}{\gamma^2-1}\,\frac{\d\mathcal{E}}{\mathcal{E}}
   \end{align*}
 #+END_SRC
 
@@ -9060,8 +8940,8 @@ l'expression $\mathcal{E}^2=p^2c^2+m^2c^4$ soit en différentiant
 $v\to c$ et $\gamma\gg1$ d'où
 #+BEGIN_SRC latex
   \begin{align*}
-    \frac{dv}{v}&\simeq\frac{1}{\gamma^2}\,\frac{d\mathcal{E}}{\mathcal{E}}\\
-    \frac{dp}{p}&\simeq\frac{d\mathcal{E}}{\mathcal{E}}
+    \frac{\d v}{v}&\simeq\frac{1}{\gamma^2}\,\frac{\d\mathcal{E}}{\mathcal{E}}\\
+    \frac{\d p}{p}&\simeq\frac{\d\mathcal{E}}{\mathcal{E}}
   \end{align*}
 #+END_SRC
 
@@ -9069,7 +8949,7 @@ $v\to c$ et $\gamma\gg1$ d'où
 3) [@3] On définit le facteur $\alpha$ par
    #+BEGIN_SRC latex
      \begin{align*}
-       \frac{d\mathcal{E}_c}{\mathcal{E}_c}=\alpha\,\frac{dp}{p}
+       \frac{\d\mathcal{E}_c}{\mathcal{E}_c}=\alpha\,\frac{\d p}{p}
      \end{align*}
    #+END_SRC
    Quelle est l'expression de $\alpha$ en fonction de $\beta$ ? Faire une
@@ -9077,11 +8957,11 @@ $v\to c$ et $\gamma\gg1$ d'où
 #+END_QUESTION
 
 L'énergie totale $\mathcal{E}$ est égale à $\mathcal{E}_c+mc^2$ d'où
-$d\mathcal{E}=d\mathcal{E}_c$. On a ainsi
+$\d\mathcal{E}=\d\mathcal{E}_c$. On a ainsi
 #+BEGIN_SRC latex
   \begin{align*}
-    \frac{dp}{p}&=\frac{\gamma^2}{\gamma^2-1}\times\frac{d\mathcal{E}_c}{\mathcal{E}}\times\frac{\mathcal{E}_c}{\mathcal{E}_c}\\
-    \frac{d\mathcal{E}_c}{\mathcal{E}_c}&=\underbrace{\frac{\gamma^2-1}{\gamma^2}\times\frac{\mathcal{E}}{\mathcal{E}_c}}_{\alpha}\times\frac{dp}{p}\\
+    \frac{\d p}{p}&=\frac{\gamma^2}{\gamma^2-1}\times\frac{\d\mathcal{E}_c}{\mathcal{E}}\times\frac{\mathcal{E}_c}{\mathcal{E}_c}\\
+    \frac{\d\mathcal{E}_c}{\mathcal{E}_c}&=\underbrace{\frac{\gamma^2-1}{\gamma^2}\times\frac{\mathcal{E}}{\mathcal{E}_c}}_{\alpha}\times\frac{\d p}{p}\\
     \alpha&=\frac{\gamma^2-1}{\gamma^2}\times\frac{\gamma\,\cancel{mc^2}}{\gamma\,\cancel{mc^2}-\cancel{mc^2}}\\
     &=\frac{\cancel{(\gamma-1)}(\gamma+1)}{\gamma^{\cancel{2}}}\times\frac{\cancel{\gamma}}{\cancel{\gamma-1}}\\
     &=\frac{\gamma+1}{\gamma}=1+\frac{1}{\gamma}=1+\sqrt{1-\beta^2}
