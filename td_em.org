@@ -843,7 +843,7 @@ Polarisation circulaire gauche
     \end{pmatrix}
   \end{align*}
   \begin{align*}
-    \frac{d\vv{E}(O,t)}{dt}=
+    \frac{\d\vv{E}(O,t)}{\d t}=
     \begin{pmatrix}
       -E_0\omega\sin\omega t\\E_0\omega\cos\omega t\\0
     \end{pmatrix}
@@ -861,21 +861,21 @@ Polarisation circulaire gauche
     \begin{pmatrix}
       -E_0\sin\omega t\\E_0\cos\omega t\\0
     \end{pmatrix}
-    =\frac{1}{\omega}\,\frac{d\vv{E}(O,t)}{dt}
+    =\frac{1}{\omega}\,\frac{\d\vv{E}(O,t)}{\d t}
   \end{align*}
 #+END_SRC
 d'où
 #+BEGIN_SRC latex
   \begin{align*}
-    \sigma_z=-\frac{q}{\omega}\int_0^T\vv{OM}.\frac{d\vv{E}(O,t)}{dt}dt
+    \sigma_z=-\frac{q}{\omega}\int_0^T\vv{OM}.\frac{\d\vv{E}(O,t)}{\d t}\d t
   \end{align*}
 #+END_SRC
 En intégrant par partie /i.e./ $(uv)'=u' v+v'
 u\rightarrow\int u' v=[uv]-\int v' u$
 #+BEGIN_SRC latex
   \begin{align*}
-    \sigma_z&=-\frac{q}{\omega}\left[\underbrace{\left[\vv{OM}.\vv{E}\right]_0^T}_{\vv{E}(O,0)=\vv{E}(O,T)}-\int_0^T\frac{d\vv{OM}}{dt}.\vv{E}(O,t)dt\right]\\
-    &=\frac{q}{\omega}\int_0^T\vv{v}.\vv{E}(O,t)\,dt=\frac{W}{\omega}
+    \sigma_z&=-\frac{q}{\omega}\left[\underbrace{\left[\vv{OM}.\vv{E}\right]_0^T}_{\vv{E}(O,0)=\vv{E}(O,T)}-\int_0^T\frac{d\vv{OM}}{dt}.\vv{E}(O,t)\d t\right]\\
+    &=\frac{q}{\omega}\int_0^T\vv{v}.\vv{E}(O,t)\,\d t=\frac{W}{\omega}
   \end{align*}
 #+END_SRC
 
