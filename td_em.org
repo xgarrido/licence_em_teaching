@@ -1033,8 +1033,8 @@ associé à une distribution statique de matière, de masse volumique $\rho$, v�
    \vv{\nabla}\cdot\vv{g}&=-4\pi G_N\rho,
   \end{align*}
 #+END_SRC
-où $G_N$ = 6,67.10^{−11} N.m^{2}.kg^{−2} est la constante de Newton et qu’il dérive d’un potentiel
-scalaire $\phi$, c’est-à-dire que $\vv{g} = −\vv{\nabla}\phi$.
+où $G_N$ = 6,67.10^{-11} N.m^{2}.kg^{-2} est la constante de Newton et qu’il dérive d’un potentiel
+scalaire $\phi$, c’est-à-dire que $\vv{g} = -\vv{\nabla}\phi$.
 
 3) [@3] Avec quelle(s) composante(s) du champ électromagnétique ($\vv{E},\vv{B}$) voyez-vous une
    analogie ? Vous justifierez votre proposition en complétant le tableau ci-dessous
@@ -1064,7 +1064,7 @@ scalaire $\phi$, c’est-à-dire que $\vv{g} = −\vv{\nabla}\phi$.
 
 4) [@4] Les deux différences principales entre les deux colonnes ci-dessus sont :
    - $\rho_e$ est à valeurs réelles quelconques tandis que $\rho\geq0$;
-   - $\epsilon_0>0$ a pour analogue $−1/(4\pi G_N) < 0$.
+   - $\epsilon_0>0$ a pour analogue $-1/(4\pi G_N) < 0$.
 
    L’origine physique de ces différences est :
    - l’existence de charges positives et négatives en électrostatique tandis que la gravitation a
@@ -1085,7 +1085,7 @@ Maxwell.
 
 5) [@5] L’analogue de la charge électrique étant la masse, l’analogue naturel de la densité de
    courant est la densité de courant de matière, autrement dit la densité de quantité de
-   mouvement. Ainsi, pour une distribution de matière de masse volumique ρ animée d’un champ de
+   mouvement. Ainsi, pour une distribution de matière de masse volumique $\rho$ animée d’un champ de
    vitesse $\vv{v}$ , on a
    #+BEGIN_SRC latex
      \begin{align*}
@@ -1326,7 +1326,7 @@ Cette différence est à l’origine de l’effet Lense-Thirring que l’on se p
     ce plan, autrement dit
     $\vv{B}_g(r,\pi/2)=B_\theta(r,\pi/2)\vv{u}_\theta=-B_\theta(r,\pi/2)$. Enfin, tout plan
     contenant l’axe $Oz$ est un plan d’antisymétrie de la distribution de courants
-    ($\vv{j}(r,\theta,\phi+\pi) = −\vv{j}(r, \theta, \phi)$) et, sur l’axe $Oz$, le pseudo-vecteur
+    ($\vv{j}(r,\theta,\phi+\pi) = -\vv{j}(r, \theta, \phi)$) et, sur l’axe $Oz$, le pseudo-vecteur
     $\vv{B}_g$ est contenu dans l’intersection de ces plans, c’est-à-dire que
     $\vv{B}_g(r,0)=-\vv{B}_g(r,\pi)=B_r(r,0)\vv{u}_r=B_g\vv{u}_z$.
 
@@ -4714,16 +4714,14 @@ $B_x(0,0,h/2)=\frac{B_x(0,0,0)}{2}$ d'où
 #+END_SRC
 
 #+BEGIN_QUESTION
-3) [@3] Application numérique.  Pour pouvoir réaliser un spectromètre RMN, on
-   voudrait un champ magnétique vérifiant les spécifications suivantes : on a
-   besoin d'un champ supérieur à 1.2 T avec une homogénéité de 10^{-4} dans un
-   volume shérique centré en $O$, de rayon 5 mm (c'est-à-dire que la variation
-   maximale de champ magnétique $\delta B$ doit être inférieure à 10^{-4} fois
-   la valeur du champ en \(O\)). Un fabricant propose un aimant permanent du
-   type étudié ici, fabriqué avec un alliage de NdFeB. L'aimantation à
-   saturation de cet alliage vaut $M_S$ = 8\times10^{5} A.m^{-1}, les dimensions
-   proposées sont $a$ = 50 mm, $b$ = 200 mm et $h$ = 105 mm. On donne $\mu_{0}$ =
-   4π×10^{-7} N.A^{-2}. Cette proposition peut-elle convenir ?
+3) [@3] Application numérique.  Pour pouvoir réaliser un spectromètre RMN, on voudrait un champ
+   magnétique vérifiant les spécifications suivantes : on a besoin d'un champ supérieur à 1.2 T avec
+   une homogénéité de 10^{-4} dans un volume shérique centré en $O$, de rayon 5 mm (c'est-à-dire que
+   la variation maximale de champ magnétique $\delta B$ doit être inférieure à 10^{-4} fois la
+   valeur du champ en \(O\)). Un fabricant propose un aimant permanent du type étudié ici, fabriqué
+   avec un alliage de NdFeB. L'aimantation à saturation de cet alliage vaut $M_S$ =
+   8\(\times\)10^{5} A.m^{-1}, les dimensions proposées sont $a$ = 50 mm, $b$ = 200 mm et $h$ = 105
+   mm. On donne $\mu_{0}$ = 4$\pi\times$10^{-7} N.A^{-2}. Cette proposition peut-elle convenir ?
 #+END_QUESTION
 
 Pour remplir les contraintes inhérentes à la réalisation d'un spectromètre
