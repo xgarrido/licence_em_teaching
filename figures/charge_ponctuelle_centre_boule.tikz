@@ -1,0 +1,32 @@
+%% document-wide tikz options and styles
+\tikzset{%
+  >=latex, % option for nice arrows
+  inner sep=0pt,%
+  outer sep=2pt,%
+  mark coordinate/.style={inner sep=0pt,outer sep=0pt,minimum size=3pt,
+    fill=black,circle}%
+}
+\begin{tikzpicture}
+  \sf
+  \definecolor{red}{RGB}{221,42,43}
+  \definecolor{green}{RGB}{105,182,40}
+  \definecolor{blue}{RGB}{0,51,153}
+  \definecolor{orange}{RGB}{192,128,64}
+  \definecolor{gray}{RGB}{107,108,110}
+
+  %% some definitions
+
+  \def\Rone{2.5} % sphere radius
+  \def\Rtwo{1.75} % sphere radius
+
+  \draw[black, fill=gray!20] (\Rone,0) arc(0:360:\Rone);
+  \draw[black, fill=white] (\Rtwo,0) arc(0:360:\Rtwo);
+
+  %% characteristic points
+  \coordinate[mark coordinate] (O) at (0,0) node[below] {$+q$};
+
+  %% %% draw lines and put labels
+  \draw[->] (O) -- (\Rone,0) node[midway, above] {$r_2$};
+  \draw[->] (O) -- (0.7*\Rtwo,0.7*\Rtwo) node[midway, above, yshift=2pt] {$r_1$};
+  \draw[] (0, -0.85*\Rone) node {$\epsilon_r$};
+\end{tikzpicture}
