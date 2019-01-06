@@ -7484,8 +7484,7 @@ Cette équation est *l'équation de Bessel d'ordre \nu*.
 
 #+NAME: fig::bessel_neumann
 #+CAPTION: *Les trois premières fonctions de Bessel (à gauche) et de Neumann (à droite)*
-#+ATTR_LATEX: :align p{0.45\textwidth}p{0.45\textwidth}
-| [[./figures/bessel_functions.pdf]] | [[./figures/neumann_functions.pdf]] |
+[[file:figures/bessel_neumann_functions.pdf]]
 
 Une solution de l'équation de Bessel est la fonction de Bessel de 1^{ère} espèce $J_\nu(x)$ définie
 par
