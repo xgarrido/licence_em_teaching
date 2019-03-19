@@ -5589,7 +5589,7 @@ l'électron au repos.
        \d\vv{V}&=\frac{\partial\vv{V}}{\partial t}\d t+\frac{\partial\vv{V}}{\partial x}\d x+\frac{\partial\vv{V}}{\partial y}\d y+\frac{\partial\vv{V}}{\partial z}\d z\\
        \frac{\d\vv{V}}{\d t}&=\frac{\partial\vv{V}}{\partial t}+\frac{\partial\vv{V}}{\partial x}\frac{\d x}{\d t}+\frac{\partial\vv{V}}{\partial y}\frac{\d y}{\d t}+\frac{\partial\vv{V}}{\partial z}\frac{\d z}{\d t}\\
        \frac{\d\vv{V}}{\d t}&=\frac{\partial\vv{V}}{\partial t}+\frac{\partial\vv{V}}{\partial x}V_x+\frac{\partial\vv{V}}{\partial y}V_y+\frac{\partial\vv{V}}{\partial z}V_z\\
-       \underbrace{\frac{\d\vv{V}}{\d t}}_{\text{dérivée particulaire}}&=\underbrace{\frac{\partial\vv{V}}{\partial t}}_{\text{dérivée locale}}+\underbrace{\left(\vv{V}.\grad\right).\vv{V}}_{\text{dérivée convective}}
+       \underbrace{\frac{\d\vv{V}}{\d t}}_{\text{dérivée particulaire}}&=\underbrace{\frac{\partial\vv{V}}{\partial t}}_{\text{dérivée locale}}+\underbrace{\left(\vv{V}.\grad\right)\vv{V}}_{\text{dérivée convective}}
      \end{align*}
    #+END_SRC
    En posant $\vv{V}=\vv{V_0}\,e^{i(\omega t-\vv{k}.\vv{r})}$, la dérivée locale
@@ -5597,7 +5597,7 @@ l'électron au repos.
    convective prenant la forme
    #+BEGIN_SRC latex
      \begin{align*}
-       \left(\vv{V}.\grad\right).\vv{V}=\vv{V}.(-)i\vv{k}.\vv{V}
+       \left(\vv{V}.\grad\right)\vv{V}=\vv{V}.(-)i\vv{k}\vv{V}
      \end{align*}
    #+END_SRC
    On déduit que
@@ -6137,7 +6137,7 @@ la pulsation plasma $\omega_p$ telle que $\omega_p^2=\frac{ne^2}{m\epsilon_0}$.
           \d\vv{V}&=\frac{\partial\vv{V}}{\partial t}\d t+\frac{\partial\vv{V}}{\partial x}\d x+\frac{\partial\vv{V}}{\partial y}\d y+\frac{\partial\vv{V}}{\partial z}\d z\\
           \frac{\d\vv{V}}{\d t}&=\frac{\partial\vv{V}}{\partial t}+\frac{\partial\vv{V}}{\partial x}\frac{\d x}{\d t}+\frac{\partial\vv{V}}{\partial y}\frac{\d y}{\d t}+\frac{\partial\vv{V}}{\partial z}\frac{\d z}{\d t}\\
           \frac{\d\vv{V}}{\d t}&=\frac{\partial\vv{V}}{\partial t}+\frac{\partial\vv{V}}{\partial x}V_x+\frac{\partial\vv{V}}{\partial y}V_y+\frac{\partial\vv{V}}{\partial z}V_z\\
-          \underbrace{\frac{\d\vv{V}}{\d t}}_{\text{dérivée particulaire}}&=\underbrace{\frac{\partial\vv{V}}{\partial t}}_{\text{dérivée locale}}+\underbrace{\left(\vv{V}.\grad\right).\vv{V}}_{\text{dérivée convective}}
+          \underbrace{\frac{\d\vv{V}}{\d t}}_{\text{dérivée particulaire}}&=\underbrace{\frac{\partial\vv{V}}{\partial t}}_{\text{dérivée locale}}+\underbrace{\left(\vv{V}.\grad\right)\vv{V}}_{\text{dérivée convective}}
         \end{align*}
       #+END_SRC
       En posant $\vv{V}=\vv{V_0}\,e^{i(\vv{k}.\vv{r}-\omega t)}$, la dérivée locale
@@ -6145,7 +6145,7 @@ la pulsation plasma $\omega_p$ telle que $\omega_p^2=\frac{ne^2}{m\epsilon_0}$.
       prenant la forme
       #+BEGIN_SRC latex
         \begin{align*}
-          \left(\vv{V}.\grad\right).\vv{V}=\vv{V}.i\vv{k}.\vv{V}
+          \left(\vv{V}.\grad\right)\vv{V}=\vv{V}.i\vv{k}\vv{V}
         \end{align*}
       #+END_SRC
       On déduit que
