@@ -4,10 +4,10 @@
 #+EMAIL:  xavier.garrido@u-psud.fr
 #+OPTIONS: ^:{} toc:2 tags:t author:nil email:nil split:html
 #+LATEX_CLASS: teaching-class
-# #+LATEX_CLASS_OPTIONS: [novc]
+#+LATEX_CLASS_OPTIONS: [novc]
 
 * TD1 : Équations de Maxwell dans le vide et champ électromagnétique
-** Équations de Maxwell dans le vide
+** COMMENT Équations de Maxwell dans le vide
 #+BEGIN_QUESTION
 1) [@1] On considère une onde plane scalaire en notation complexe :
    #+BEGIN_SRC latex
@@ -299,7 +299,7 @@ dont la fréquence est trop grande : l'intensité est par conséquent la quantit
 pertinente à estimer car mesurable expérimentalement.
 #+END_REMARK
 
-** Énergie magnétique stockée dans une bobine
+** COMMENT Énergie magnétique stockée dans une bobine
 
 #+BEGIN_QUESTION
 Une bobine de longueur \ell, de rayon $a$ et d'axe $(Oz)$ est constituée par un
@@ -560,8 +560,7 @@ Force de Lorentz : $\vv{F}=q\vv{E}+q\vv{v}\times\vv{B}$
 | Maxwell-Ampère                  | $\rot\vv{B}=\mu_0\vv{j}+\mu_0\epsilon_0\tfrac{\partial\vv{E}}{\partial t}$  |
 
 #+BEGIN_QUESTION
-2) [@2] À partir des équations de Maxwell, établir l'équation locale de
-   conservation de la charge.
+2) [@2] À partir des équations de Maxwell, établir l'équation locale de conservation de la charge.
 #+END_QUESTION
 Équation locale de conservation de la charge
 #+BEGIN_SRC latex
@@ -891,7 +890,7 @@ période $T$, le champ EM cède à la particule $q$, un moment cinétique égal 
 Le moment cinétique de photons polarisé circulairement droite est alors $-\hbar$, et $\sigma_z=0$
 pour une polarisation rectiligne (rectiligne \equiv circulaire droite + circulaire gauche)
 
-** Interprétation corpusculaire de la pression de radiation             :DM:
+** COMMENT Interprétation corpusculaire de la pression de radiation             :DM:
 
 #+BEGIN_CENTER
 #+ATTR_LATEX: :width 0.5\linewidth
@@ -996,7 +995,7 @@ Calcul de la pression de radiation
 pour les interféromètres de haute sensibilité tels que Virgo (/cf./
 [[http://tel.archives-ouvertes.fr/tel-00175254/en/]]).
 
-** Gravito-Électromagnétisme et effet Lense-Thirring                    :DM:
+** COMMENT Gravito-Électromagnétisme et effet Lense-Thirring                    :DM:
 #+BEGIN_QUESTION
 Dans ce problème, on se propose d’étudier l'effet Lense-Thirring, une prédiction de la théorie de la
 Relativité Générale (RG) datant de 1918, confirmée en 2011 de manière directe par les mesures de la
@@ -1475,108 +1474,6 @@ $I=\|\langle\vv{R}\rangle\|$ avec $\vv{R}=\frac{\vv{E}\times\vv{B}}{\mu_0}$ et
 $\vv{B}=\frac{\vv{k}\times\vv{E}}{\omega}$
 
 * TD2 : Électrostatique dans le vide
-** Rayon classique de l'électron
-#+BEGIN_QUESTION
-1) [@1] Calculer l'énergie électrostatique d'une boule de rayon $R$, chargée en volume avec la
-   densité volumique uniforme $\rho$.
-#+END_QUESTION
-
-1) L'énergie électrostatique $\mathcal{U}_e$ se calcule en intégrant la densité volumique d'énergie
-   électromagnétique $u=\epsilon_0\frac{E^2}{2}+\frac{B^2}{2\mu_0}$ qui, en l'absence de champ
-   magnétique, est uniquement de nature électrostatique soit
-   #+BEGIN_SRC latex
-     \begin{align*}
-       \mathcal{U}_e=\iiint_{\forall\text{espace}}\epsilon_0\frac{E^2}{2}\d\tau
-     \end{align*}
-   #+END_SRC
-   Il s'agit donc de calculer quel champ électrique génère la distribution de charge $\rho$. On
-   applique pour cela le théorème de Gauss /i.e./
-   #+BEGIN_SRC latex
-     \begin{align*}
-       \iiint_V\div\vv{E}\,\d\tau=\varoiint_{S/V}\vv{E}.\,\d\vv{S}&=\iiint_V\frac{\rho}{\epsilon_0}\d\tau=\frac{\Upsigma Q_\text{int.}}{\epsilon_0}
-     \end{align*}
-   #+END_SRC
-   Le choix de la surface fermée $S$ dépend de l'orientation de $\vv{E}$ et de ses
-   dépendances. Ainsi, dans le référentiel de coordonnées sphériques $(r,\theta,\phi)$, tout plan
-   contenant le vecteur $\vv{u}_r$ est plan de symétrie de la distribution de charge : le champ
-   électrostatique $\vv{E}$ appartient nécessairement à ces plans de symétrie et $\vv{E}$ est donc
-   parallèle à $\vv{u}_r$. Par ailleurs, le système est invariant par rotation d'angles $\theta$ et
-   $\phi$. Le champ $\vv{E}$ peut donc s'écrire sous la forme $\vv{E}=E(r)\vv{u}_r$.
-
-   La surface fermée $S$ dite de Gauss est alors une sphère de rayon $r$ et deux situations sont à
-   distinguer :
-   - à l'intérieur de la boule $r\leq R$
-     #+BEGIN_SRC latex
-       \begin{align*}
-         \varoiint_{S/V}\vv{E}.\,\d\vv{S}=E(r)\,4\pi r^2&=\iiint_V\frac{\rho}{\epsilon_0}\d\tau\\
-         &=\frac{\rho}{\epsilon_0}\,\frac{4}{3}\pi r^3\\
-         \vv{E}_\text{int.}&=\frac{\rho r}{3\epsilon_0}\vv{u}_r
-       \end{align*}
-     #+END_SRC
-   - à l'extérieur de la boule $r>R$
-     #+BEGIN_SRC latex
-       \begin{align*}
-         \varoiint_{S/V}\vv{E}.\,\d\vv{S}=E(r)\,4\pi r^2&=\iiint_V\frac{\rho}{\epsilon_0}\d\tau\\
-         &=\frac{\rho}{\epsilon_0}\,\frac{4}{3}\pi R^3\\
-         \vv{E}_\text{ext.}&=\frac{\rho R^3}{3\epsilon_0\,r^2}\vv{u}_r
-       \end{align*}
-     #+END_SRC
-
-   L'énergie électrostatique ainsi stockée dans cette boule est
-   #+BEGIN_SRC latex
-     \begin{align*}
-       \mathcal{U}_e&=\iiint_{\forall\text{espace}}\epsilon_0\frac{E^2}{2}\d\tau\\
-       &=\int_0^{2\pi}\int_0^{\pi}\int_0^\infty\epsilon_0\frac{E^2}{2}\,r^2\sin\theta \d r\d\theta\d\phi\\
-       &=\frac{4\pi}{2}\epsilon_0\times\left(\int_0^RE^2_\text{int.}\,r^2\d r+\int_R^\infty E^2_\text{ext.}\,r^2\d r\right)\\
-       &=2\pi\epsilon_0\times\left(\int_0^R\frac{\rho^2}{9\epsilon_0^2}r^2\,r^2\d r+\int_R^\infty\frac{\rho^2R^6}{9\epsilon_0^2r^4}\,r^2\d r\right)\\
-       &=2\pi\epsilon_0\times\left(\frac{\rho^2}{9\epsilon_0^2}\frac{R^5}{5}+\frac{\rho^2R^6}{9\epsilon_0^2}\frac{1}{R}\right)\\
-       &=\frac{2\pi\rho^2R^5}{9\epsilon_0}\left(\frac{1}{5}+1\right)=\frac{4\pi\rho^2R^5}{15\epsilon_0}
-     \end{align*}
-   #+END_SRC
-
-   En fonction de la charge totale $Q$ de la boule soit $Q=\frac{4}{3}\pi
-   R^3\,\rho$, on obtient
-   #+BEGIN_SRC latex
-     \begin{align*}
-       \mathcal{U}_e&=\frac{3Q^2}{20\pi\epsilon_0 R}
-     \end{align*}
-   #+END_SRC
-
-#+BEGIN_QUESTION
-2) [@2] Un électron de masse $m_e$ et de charge $-e$ ($e>0$) est assimilé à une telle
-   distribution. Définir et calculer le rayon classique de l'électron $R_e$. Commenter la valeur
-   numérique.
-#+END_QUESTION
-
-On assimile l'énergie électrostatique stockée dans un électron de rayon $R_e$ et de charge $Q=-e$ à
-l'énergie de masse ou au repos de l'électron soit
-#+BEGIN_SRC latex
-  \begin{align*}
-    \mathcal{U}_e&=m_ec^2=\frac{3e^2}{20\pi\epsilon_0 R_e}
-  \end{align*}
-#+END_SRC
-
-*Application numérique :*
-#+BEGIN_SRC latex
-  \begin{align*}
-    R_e&=\frac{3e^2}{20\pi\epsilon_0\,m_ec^2}\simeq\unit[1.7]{fm}
-  \end{align*}
-#+END_SRC
-L'ordre de grandeur ne semble pas aberrant mais il faut tenir des effets quantiques qui apparaissent
-à très petites échelles.
-
-#+BEGIN_QUESTION
-3) [@3] En réalité, bien avant d'arriver à des distances de l'ordre de $R_e$, d'autres phénomènes
-   sont à prendre en compte : en préciser la nature. Quelle longueur caractéristique fixe la limite
-   inférieure de validité de la théorie classique des champs pour un électron ? En donner l'ordre de
-   grandeur.
-#+END_QUESTION
-
-Il faut appliquer un traitement quantique aux systèmes dont les dimensions caractéristiques sont
-inférieures à la longueur d'onde de de Broglie $\lambda=\frac{h}{p}$. Cette dimension fixe la limite
-entre traitement classique et traitement quantique. La valeur caractéristique de
-$\lambda=\frac{h}{m_ec}\simeq$ 2.4\cdot10^{-12} m.
-
 ** Condensateur cylindrique
 
 #+BEGIN_QUESTION
@@ -1636,6 +1533,111 @@ $\vv{E}=-\grad\,V=-\tfrac{dV}{dr}\vv{u}_r$. Soit
     \frac{C}{h}=\frac{2\pi\epsilon_0}{\ln\frac{b}{a}}=\frac{2\pi\times8.85\,10^{-12}}{\ln8}=\unit[2.7\,10^{-11}]{F/m}
   \end{align*}
 #+END_SRC
+
+** Rayon classique de l'électron
+#+BEGIN_QUESTION
+1) [@1] À l'aide des symétries et invariances, déterminer l'expression du champ électrostatique
+   $\vv{E}(\vv{r})$ généré par une boule de rayon $R$, chargée en volume avec une densité volumique
+   uniforme $\rho$.
+#+END_QUESTION
+1) [@1] On applique le théorème de Gauss /i.e./
+   #+BEGIN_SRC latex
+     \begin{align*}
+       \iiint_V\div\vv{E}\,\d\tau=\varoiint_{S/V}\vv{E}.\,\d\vv{S}&=\iiint_V\frac{\rho}{\epsilon_0}\d\tau=\frac{\Upsigma Q_\text{int.}}{\epsilon_0}
+     \end{align*}
+   #+END_SRC
+   Le choix de la surface fermée $S$ dépend de l'orientation de $\vv{E}$ et de ses
+   dépendances. Ainsi, dans le référentiel de coordonnées sphériques $(r,\theta,\phi)$, tout plan
+   contenant le vecteur $\vv{u}_r$ est plan de symétrie de la distribution de charge : le champ
+   électrostatique $\vv{E}$ appartient nécessairement à ces plans de symétrie et $\vv{E}$ est donc
+   parallèle à $\vv{u}_r$. Par ailleurs, le système est invariant par rotation d'angles $\theta$ et
+   $\phi$. Le champ $\vv{E}$ peut donc s'écrire sous la forme $\vv{E}=E(r)\vv{u}_r$.
+
+   La surface fermée $S$ dite de Gauss est alors une sphère de rayon $r$ et deux situations sont à
+   distinguer :
+   - à l'intérieur de la boule $r\leq R$
+     #+BEGIN_SRC latex
+       \begin{align*}
+         \varoiint_{S/V}\vv{E}.\,\d\vv{S}=E(r)\,4\pi r^2&=\iiint_V\frac{\rho}{\epsilon_0}\d\tau\\
+         &=\frac{\rho}{\epsilon_0}\,\frac{4}{3}\pi r^3\\
+         \vv{E}_\text{int.}&=\frac{\rho r}{3\epsilon_0}\vv{u}_r
+       \end{align*}
+     #+END_SRC
+   - à l'extérieur de la boule $r>R$
+     #+BEGIN_SRC latex
+       \begin{align*}
+         \varoiint_{S/V}\vv{E}.\,\d\vv{S}=E(r)\,4\pi r^2&=\iiint_V\frac{\rho}{\epsilon_0}\d\tau\\
+         &=\frac{\rho}{\epsilon_0}\,\frac{4}{3}\pi R^3\\
+         \vv{E}_\text{ext.}&=\frac{\rho R^3}{3\epsilon_0\,r^2}\vv{u}_r
+       \end{align*}
+     #+END_SRC
+
+#+BEGIN_QUESTION
+2) [@2] Calculer l'énergie électrostatique de cette boule.
+#+END_QUESTION
+
+2) [@2] L'énergie électrostatique $\mathcal{U}_e$ se calcule en intégrant la densité volumique
+   d'énergie électromagnétique $u=\epsilon_0\frac{E^2}{2}+\frac{B^2}{2\mu_0}$ qui, en l'absence de
+   champ magnétique, est uniquement de nature électrostatique soit
+   #+BEGIN_SRC latex
+     \begin{align*}
+       \mathcal{U}_e=\iiint_{\forall\text{espace}}\epsilon_0\frac{E^2}{2}\d\tau
+     \end{align*}
+   #+END_SRC
+   L'énergie électrostatique ainsi stockée dans cette boule est
+   #+BEGIN_SRC latex
+     \begin{align*}
+       \mathcal{U}_e&=\iiint_{\forall\text{espace}}\epsilon_0\frac{E^2}{2}\d\tau\\
+       &=\int_0^{2\pi}\int_0^{\pi}\int_0^\infty\epsilon_0\frac{E^2}{2}\,r^2\sin\theta \d r\d\theta\d\phi\\
+       &=\frac{4\pi}{2}\epsilon_0\times\left(\int_0^RE^2_\text{int.}\,r^2\d r+\int_R^\infty E^2_\text{ext.}\,r^2\d r\right)\\
+       &=2\pi\epsilon_0\times\left(\int_0^R\frac{\rho^2}{9\epsilon_0^2}r^2\,r^2\d r+\int_R^\infty\frac{\rho^2R^6}{9\epsilon_0^2r^4}\,r^2\d r\right)\\
+       &=2\pi\epsilon_0\times\left(\frac{\rho^2}{9\epsilon_0^2}\frac{R^5}{5}+\frac{\rho^2R^6}{9\epsilon_0^2}\frac{1}{R}\right)\\
+       &=\frac{2\pi\rho^2R^5}{9\epsilon_0}\left(\frac{1}{5}+1\right)=\frac{4\pi\rho^2R^5}{15\epsilon_0}
+     \end{align*}
+   #+END_SRC
+
+   En fonction de la charge totale $Q$ de la boule soit $Q=\frac{4}{3}\pi
+   R^3\,\rho$, on obtient
+   #+BEGIN_SRC latex
+     \begin{align*}
+       \mathcal{U}_e&=\frac{3Q^2}{20\pi\epsilon_0 R}
+     \end{align*}
+   #+END_SRC
+
+#+BEGIN_QUESTION
+3) [@3] Un électron de masse $m_e$ et de charge $-e$ ($e>0$) est assimilé à une telle
+   distribution. Définir et calculer le rayon classique de l'électron $R_e$. Commenter la valeur
+   numérique.
+#+END_QUESTION
+
+On assimile l'énergie électrostatique stockée dans un électron de rayon $R_e$ et de charge $Q=-e$ à
+l'énergie de masse ou au repos de l'électron soit
+#+BEGIN_SRC latex
+  \begin{align*}
+    \mathcal{U}_e&=m_ec^2=\frac{3e^2}{20\pi\epsilon_0 R_e}
+  \end{align*}
+#+END_SRC
+
+*Application numérique :*
+#+BEGIN_SRC latex
+  \begin{align*}
+    R_e&=\frac{3e^2}{20\pi\epsilon_0\,m_ec^2}\simeq\unit[1.7]{fm}
+  \end{align*}
+#+END_SRC
+L'ordre de grandeur ne semble pas aberrant mais il faut tenir des effets quantiques qui apparaissent
+à très petites échelles.
+
+#+BEGIN_QUESTION
+4) [@4] En réalité, bien avant d'arriver à des distances de l'ordre de $R_e$, d'autres phénomènes
+   sont à prendre en compte : en préciser la nature. Quelle longueur caractéristique fixe la limite
+   inférieure de validité de la théorie classique des champs pour un électron ? En donner l'ordre de
+   grandeur.
+#+END_QUESTION
+
+Il faut appliquer un traitement quantique aux systèmes dont les dimensions caractéristiques sont
+inférieures à la longueur d'onde de de Broglie $\lambda=\frac{h}{p}$. Cette dimension fixe la limite
+entre traitement classique et traitement quantique. La valeur caractéristique de
+$\lambda=\frac{h}{m_ec}\simeq$ 2.4\cdot10^{-12} m.
 
 ** Boule conductrice en présence d'une charge ponctuelle : méthode des images
 #+BEGIN_CENTER
@@ -2026,7 +2028,7 @@ cette charge.
           \vv{F}_2&=-\vv{F}_1=-\frac{\pi R^2\,\sigma_0^2}{4\epsilon_0}\vv{u}_z
         \end{align*}
       #+END_SRC
-** Forces de Van der Waals
+** COMMENT Forces de Van der Waals
 *** Modèle de l'électron élastiquement lié : moment dipolaire induit d'un atome
 
 #+BEGIN_CENTER
@@ -2386,7 +2388,7 @@ cas, le vecteur $\vv{D}$ devient
 où $\epsilon$ et $\epsilon_r$ sont appellés respectivement la permitivité
 absolue et la permitivité relative du diélectrique.
 
-** Charge ponctuelle au centre d'une boule diélectrique
+** COMMENT Charge ponctuelle au centre d'une boule diélectrique
 #+BEGIN_QUESTION
 Une charge ponctuelle est plaçée au centre d'une cavité sphérique de rayon $r_1$ creusée dans une
 boule diélectrique l.h.i. de rayon externe $r_2$ et de permittivité relative $\epsilon_r$. Calculer
@@ -3168,7 +3170,7 @@ En projetant, le PFD selon $\vv{u}_z$, on obtient finalement l'équation suivant
   \end{align*}
 #+END_SRC
 
-** Lame piézoélectrique
+** COMMENT Lame piézoélectrique
 
 #+BEGIN_QUESTION
 Le phénomène de piézoélectricité consiste en l'apparition d'une polarisation électrique dans
@@ -3743,29 +3745,26 @@ l'ordre 2 de $B_z$ et $B_r$ soit
 *** Effet Meissner dans un supraconducteur
 
 #+BEGIN_QUESTION
-Dans toute cette partie, on s'intéresse à une boule supraconductrice de centre
-$O$ et de rayon $R$ placée dans un solénoïde très long et de section circulaire
-de rayon $a\gg R$, d'axe $z'Oz$, possédant $n$ spires par unité de longueur, et
-parcouru par un courant stationnaire $I$, le reste de l'espace étant vide. On
-pose $B_\infty=\mu_0nI$.
+Dans toute cette partie, on s'intéresse à une boule supraconductrice de centre $O$ et de rayon $R$
+placée dans un solénoïde très long et de section circulaire de rayon $a\gg R$, d'axe $z'Oz$,
+possédant $n$ spires par unité de longueur, et parcouru par un courant stationnaire $I$, le reste de
+l'espace étant vide. On pose $B_\infty=\mu_0nI$.
 
-On constate expérimentalement que la boule supraconductrice tend à expulser le
-champ magnétique en créant des courants localisés au voisinage de la surface
-(effet Meissner). Pour rendre compte de cet effet, on admettra que dans un
-supraconducteur, la loi d'Ohm est remplacée par la relation phénoménologique de
-London : $\vv{j}=-1/(\mu_0\delta^2)\vv{A}$ où $\vv{A}$ est un potentiel-vecteur
-de $\vv{B}$ et $\delta$ un paramètre caractéristique du matériau. On se place en
-régime stationnaire.
+On constate expérimentalement que la boule supraconductrice tend à expulser le champ magnétique en
+créant des courants localisés au voisinage de la surface (effet Meissner). Pour rendre compte de cet
+effet, on admettra que dans un supraconducteur, la loi d'Ohm est remplacée par la relation
+phénoménologique de London : $\vv{j}=-1/(\mu_0\delta^2)\vv{A}$ où $\vv{A}$ est un potentiel-vecteur
+de $\vv{B}$ et $\delta$ un paramètre caractéristique du matériau. On se place en régime
+stationnaire.
 
-1) [@1] Montrer que $\vv{A}$ doit satisfaire à la condition
-   $\div\vv{A}=0$. L'unicité de $\vv{A}$ justifie alors le caractère non
-   arbitraire de la loi de London. Écrire les équations de la Magnétostatique
-   dans un supraconducteur. En déduire l'équation aux dérivées partielles dont
-   est solution $\vv{B}$ et la dimension de $\delta$.
+1) [@1] Montrer que $\vv{A}$ doit satisfaire à la condition $\div\vv{A}=0$. L'unicité de $\vv{A}$
+   justifie alors le caractère non arbitraire de la loi de London. Écrire les équations de la
+   Magnétostatique dans un supraconducteur. En déduire l'équation aux dérivées partielles dont est
+   solution $\vv{B}$ et la dimension de $\delta$.
 #+END_QUESTION
 
-L'équation de conservation de la charge se déduit de la divergence du
-rotationnel de $\vv{B}$ à savoir
+L'équation de conservation de la charge se déduit de la divergence du rotationnel de $\vv{B}$ à
+savoir
 #+BEGIN_SRC latex
   \begin{align*}
     \div\left(\rot\vv{B}\right)=\vv{\nabla}.\left(\vv{\nabla}\times\vv{B}\right)&=0\\
@@ -3773,9 +3772,9 @@ rotationnel de $\vv{B}$ à savoir
     \div\vv{j}+\frac{\partial\rho}{\partial t}=0
   \end{align*}
 #+END_SRC
-En régime stationnaire, la densité volumique de charge \rho ne dépend pas du
-temps d'où $\frac{\partial\rho}{\partial t}=0$. On déduit ainsi que le
-potentiel vecteur est à flux conservatif car
+En régime stationnaire, la densité volumique de charge \rho ne dépend pas du temps d'où
+$\frac{\partial\rho}{\partial t}=0$. On déduit ainsi que le potentiel vecteur est à flux conservatif
+car
 #+BEGIN_SRC latex
   \begin{align*}
     \div\vv{j}=-\frac{1}{\mu_0\delta^2}\,\div\vv{A}=0\Longleftrightarrow\div\vv{A}=0
@@ -3789,8 +3788,7 @@ Les équations de la magnétostatique sont
     \rot\vv{B}&=\mu_0\vv{j}
   \end{align*}
 #+END_SRC
-En appliquant de nouveau l'opérateur rotationnel à la second expression, on
-obtient
+En appliquant de nouveau l'opérateur rotationnel à la second expression, on obtient
 #+BEGIN_SRC latex
   \begin{align*}
     \rot\left(\rot\vv{B}\right)&=\mu_0\rot\vv{j}\\
@@ -3798,39 +3796,33 @@ obtient
     \Delta\vv{B}&=\frac{\vv{B}}{\delta^2}
   \end{align*}
 #+END_SRC
-Le Laplacien faisant intervenir la dérivée seconde par rapport aux
-coordonnées spatiales, on déduit que la dimension de \delta est celle d'une
-longueur.
+Le Laplacien faisant intervenir la dérivée seconde par rapport aux coordonnées spatiales, on déduit
+que la dimension de \delta est celle d'une longueur.
 
 #+BEGIN_QUESTION
-2) [@2] La symétrie sphérique étant peu propice aux solutions simples, on
-   remplace d'abord le problème réel par le modèle $(M')$ suivant : la sphère
-   supraconductrice est assimilée à un demi-espace $x>0$; l'espace vide entre le
-   solénoïde et la sphère est remplacée par le demi-espace vide $x < 0$; le
-   solénoïde est oublié et impose uniquement la condition aux limites
+2) [@2] La symétrie sphérique étant peu propice aux solutions simples, on remplace d'abord le
+   problème réel par le modèle $(M')$ suivant : la sphère supraconductrice est assimilée à un
+   demi-espace $x>0$; l'espace vide entre le solénoïde et la sphère est remplacée par le demi-espace
+   vide $x < 0$; le solénoïde est oublié et impose uniquement la condition aux limites
    $\vv{B}(x=-\infty)=B_\infty\vv{u}_z$.
-   1) Montrer que $\vv{B}$ est uniforme dans le vide. Déterminer $\vv{B}$ dans
-      le supraconducteur en fonction de $B_\infty,x$ et $\delta$. Tracer le
-      graphe de $\vv{B}(x)$ et interpréter $\delta$.
-   2) Déterminer la densité volumique de courants $\vv{j}$ en fonction de
-      $B_\infty,x,\mu_0$ et $\delta$ et tracer le graphe de $j(x)$.
-   3) Montrer que la force totale subie par une colonne cylindrique de
-      supraconducteur, d'axe $\vv{u}_x$ et de section $dydz$ est de la forme
-      $d\vv{F}/dydz=B^2(x=0^-)/(2\mu_0)\vv{u}_x$.
-   4) En réalite $\delta$ est de l'ordre de 0.1 \mu{}m. Commentez
-      l'approximation d'une sphère par un plan. Pour simplifier encore, on se
-      propose de faire tendre $\delta$ vers zéro. Montrer qu'alors le champ
-      $\vv{B}$ ets discontinu et qu'il faut faire intervenir des courants
-      superficiels : calculer leur densité $\vv{j}_S$ en utilisant la relation
-      de passge et vérifier que $\vv{j}_S=\int_0^\infty\vv{j}(x)dx$ et
-      $d\vv{F}/dydz=(1/2)\vv{j}_S\times\vv{B}(x=0^-)$.
+   1) Montrer que $\vv{B}$ est uniforme dans le vide. Déterminer $\vv{B}$ dans le supraconducteur en
+      fonction de $B_\infty,x$ et $\delta$. Tracer le graphe de $\vv{B}(x)$ et interpréter $\delta$.
+   2) Déterminer la densité volumique de courants $\vv{j}$ en fonction de $B_\infty,x,\mu_0$ et
+      $\delta$ et tracer le graphe de $j(x)$.
+   3) Montrer que la force totale subie par une colonne cylindrique de supraconducteur, d'axe
+      $\vv{u}_x$ et de section $\d y\d z$ est de la forme $\d\vv{F}/\d y\d
+      z=B^2(x=0^-)/(2\mu_0)\vv{u}_x$.
+   4) En réalite $\delta$ est de l'ordre de 0.1 \mu{}m. Commentez l'approximation d'une sphère par
+      un plan. Pour simplifier encore, on se propose de faire tendre $\delta$ vers zéro. Montrer
+      qu'alors le champ $\vv{B}$ est discontinu et qu'il faut faire intervenir des courants
+      superficiels : calculer leur densité $\vv{j}_S$ en utilisant la relation de passge et vérifier
+      que $\vv{j}_S=\int_0^\infty\vv{j}(x)\d x$ et $d\vv{F}/\d y\d z=(1/2)\vv{j}_S\times\vv{B}(x=0^-)$.
 #+END_QUESTION
 
 2) [@2]
-   1) Pour $x<0$, la densité volumique de courant $\vv{j}$ est nul de même pour
-      $\vv{A}$. On obtient ainsi $\Delta\vv{B}=\vv{0}$. Par ailleurs, le
-      problème est invariant par translation $y,z$, les composantes du champ
-      magnétique ne dépendant donc que de $x$. On déduit ainsi que
+   1) Pour $x<0$, la densité volumique de courant $\vv{j}$ est nul. On obtient ainsi
+      $\Delta\vv{B}=\vv{0}$. Par ailleurs, le problème est invariant par translation $y,z$, les
+      composantes du champ magnétique ne dépendant donc que de $x$. On déduit ainsi que
       #+BEGIN_SRC latex
         \begin{align*}
           \Delta B_x&=\frac{\partial^2B_x}{\partial x^2}=0\\
@@ -3838,8 +3830,7 @@ longueur.
           \Delta B_z&=\frac{\partial^2B_z}{\partial x^2}=0
         \end{align*}
       #+END_SRC
-      Les composantes du champ magnétique sont donc des fonctions affines de $x$
-      soit
+      Les composantes du champ magnétique sont donc des fonctions affines de $x$ soit
       #+BEGIN_SRC latex
         \begin{align*}
           B_x&=a_xx+b_x\\
@@ -3848,15 +3839,14 @@ longueur.
         \end{align*}
       #+END_SRC
 
-      On utilise à présent la condition aux limites
-      $\vv{B}(x\to-\infty)=B_\infty\vv{u}_z$ qui implique
-      $B_x(x\to-\infty)=B_y(x\to-\infty)=0$. Les coefficients $a_{x,z}$ et
-      $b_{x,y}$ sont donc nuls. De plus, $B_z(x\to-\infty)=B_\infty$ implique
-      quant à lui que $a_z=0$ et $b_z=B_\infty$. Le champ magnétique dans le
-      demi-espace vide $x<0$ est donc uniforme et égale à $B_\infty\vv{u}_z$.
+      On utilise à présent la condition aux limites $\vv{B}(x\to-\infty)=B_\infty\vv{u}_z$ qui
+      implique $B_x(x\to-\infty)=B_y(x\to-\infty)=0$. Les coefficients $a_{x,z}$ et $b_{x,y}$ sont
+      donc nuls. De plus, $B_z(x\to-\infty)=B_\infty$ implique quant à lui que $a_z=0$ et
+      $b_z=B_\infty$. Le champ magnétique dans le demi-espace vide $x<0$ est donc uniforme et égale
+      à $B_\infty\vv{u}_z$.
 
-      Dans le supraconducteur $x>0$, les invariances restent les mêmes soit les
-      équations suivantes pour chaque composante du champ magnétique
+      Dans le supraconducteur $x>0$, les invariances restent les mêmes soit les équations suivantes
+      pour chaque composante du champ magnétique
       #+BEGIN_SRC latex
         \begin{align*}
           \frac{\partial^2B_x}{\partial x^2}&=\frac{B_x}{\delta^2}\\
@@ -3871,13 +3861,11 @@ longueur.
         \end{align*}
       #+END_SRC
 
-      Pour déterminer les coefficients $a_\alpha$ et $b_\alpha$, on utilise le
-      fait que $B$ doit rester fini quand $x\to+\infty$ impliquant que
-      $a_\alpha$ soit nul. On utilise, par ailleurs, la continuité de la
-      composante normale du champ magnétique à l'interface vide-supraconducteur
-      /i.e./ en $x=0$ de même que celle de la composante tangentielle en
-      l'absence de courant de surface (du moins à ce stade de la modélisation)
-      soit
+      Pour déterminer les coefficients $a_\alpha$ et $b_\alpha$, on utilise le fait que $B$ doit
+      rester fini quand $x\to+\infty$ impliquant que $a_\alpha$ soit nul. On utilise, par ailleurs,
+      la continuité de la composante normale du champ magnétique à l'interface vide-supraconducteur
+      /i.e./ en $x=0$ de même que celle de la composante tangentielle en l'absence de courant de
+      surface (du moins à ce stade de la modélisation) soit
       #+BEGIN_SRC latex
         \begin{align*}
           \vv{B}(x=0^-)=B_\infty\vv{u}_z\Longleftrightarrow&B_x(x=0^+)=0\to b_x=0\\
@@ -3897,12 +3885,11 @@ longueur.
       [[./figures/meissner_magnetic_field.pdf]]
       #+END_CENTER
 
-      \delta représente l'épaisseur au delà de laquelle le champ magnétique
-      extérieur (ici celui généré par le solénoïde) s'annule : le champ
-      magnétique pénètre ainsi de quelques \delta dans le supraconducteur \to
-      effet Meissner.
-   2) La densité volumique de courant demeure nulle dans le vide /i.e./
-      $\vv{j}(x<0)=\vv{0}$. Dans le supraconducteur, $\vv{j}$ s'écrit
+      \delta représente l'épaisseur au delà de laquelle le champ magnétique extérieur (ici celui
+      généré par le solénoïde) s'annule : le champ magnétique pénètre ainsi de quelques \delta dans
+      le supraconducteur \to effet Meissner.
+   2) La densité volumique de courant demeure nulle dans le vide /i.e./ $\vv{j}(x<0)=\vv{0}$. Dans le
+      supraconducteur, $\vv{j}$ s'écrit
       #+BEGIN_SRC latex
         \begin{align*}
           \vv{j}(x>0)&=\frac{1}{\mu_0}\,\rot\vv{B}(x>0)\\
@@ -3923,9 +3910,9 @@ longueur.
           &=\frac{B_\infty}{\mu_0\delta}\,e^{-x/\delta}\vv{u}_y
         \end{align*}
       #+END_SRC
-   3) La force de Laplace $\d\vv{F}$ est égale à $I\vv{\d\ell}\times\vv{B}$. En
-      fonction de la densité volumique de courant $\vv{j}$, son expression
-      devient $\d^3\vv{F}=\vv{j}\times\vv{B}\d\tau$ avec $\d\tau=\d x\d y\d z$. Ainsi,
+   3) La force de Laplace $\d\vv{F}$ est égale à $I\vv{\d\ell}\times\vv{B}$. En fonction de la
+      densité volumique de courant $\vv{j}$, son expression devient
+      $\d^3\vv{F}=\vv{j}\times\vv{B}\d\tau$ avec $\d\tau=\d x\d y\d z$. Ainsi,
       #+BEGIN_SRC latex
         \begin{align*}
           \frac{\d^3\vv{F}}{\d y\d z}&=\vv{j}\times\vv{B}\d x\\
@@ -3948,25 +3935,21 @@ longueur.
           &=\frac{B^2_\infty}{2\mu_0}\vv{u}_x=\frac{B^2(x=0^-)}{2\mu_0}\vv{u}_x
         \end{align*}
       #+END_SRC
-      La force par unité de surface tend à surélever le cylindre supraconducteur
-      par rapport au plan $x=0$ et ce en raison des courants en "surface" de ce
-      même supraconducteur.
-   4) $\delta\sim0.1\,\mu\text{m}$ : dans l'hypothèse où $\delta\ll R$ seuls les
-      premiers micromètres du supraconducteur ont une influence. La symétrie
-      sphérique du supraconducteur n'est plus effective et le problème peut se
-      résumer à un problème plan.  Par ailleurs, si $\delta\ll1$, le champ
-      magnétique à l'intérieur du supraconducteur devient nul notamment en
-      $x=0^+$. La discontinuité de la composante tangentielle du champ
-      magnétique étant égale à
+      La force par unité de surface tend à surélever le cylindre supraconducteur par rapport au plan
+      $x=0$ et ce en raison des courants en "surface" de ce même supraconducteur.
+   4) $\delta\sim0.1\,\mu\text{m}$ : dans l'hypothèse où $\delta\ll R$ seuls les premiers
+      micromètres du supraconducteur ont une influence. La symétrie sphérique du supraconducteur
+      n'est plus effective et le problème peut se résumer à un problème plan.  Par ailleurs, si
+      $\delta\ll1$, le champ magnétique à l'intérieur du supraconducteur devient nul notamment en
+      $x=0^+$. La discontinuité de la composante tangentielle du champ magnétique étant égale à
       #+BEGIN_SRC latex
         \begin{align*}
-          \vv{u}_x\times\left[\vv{B}(x=0^-)-\cancel{\vv{B}(x=0^+)}\right]&=\mu_0\vv{j_S}\\
-          \vv{u}_x\times B_\infty\vv{u}_z&=\mu_0\vv{j_S}\\
+          \vv{u}_x\times\left[\cancel{\vv{B}(x=0^+)}-\vv{B}(x=0^-)\right]&=\mu_0\vv{j_S}\\
+          -\vv{u}_x\times B_\infty\vv{u}_z&=\mu_0\vv{j_S}\\
           \vv{j_S}&=\frac{B_\infty}{\mu_0}\vv{u}_y=\frac{B(x=0^-)}{\mu_0}\vv{u}_y
         \end{align*}
       #+END_SRC
-      Le calcul de l'intégrale de la densité de courant dans le supraconducteur
-      s'écrit
+      Le calcul de l'intégrale de la densité de courant dans le supraconducteur s'écrit
       #+BEGIN_SRC latex
         \begin{align*}
           \int_0^\infty\vv{j}(x)\d x&=\frac{B_\infty}{\mu_0\delta}\int_0^\infty e^{-x/\delta}\d x\vv{u}_y\\
@@ -3982,71 +3965,60 @@ longueur.
       #+END_SRC
 
 #+BEGIN_QUESTION
-3) [@3] Dans la suite, on revient à la symétrie sphérique pour décrire
-   convenablement le champ $\vv{B}$ dans le vide, mais on suppose $\delta=0$
-   pour simplifier les calculs, ce qui revient à adopter le nouveau modèle
-   $(M'')$ :
-   - les champs $\vv{B}_\text{int.},\vv{j}$ et $\vv{A}$ sont nuls à l'intérieur
-     de la boule supraconductrice;
-   - la continuité de la composante normale de $\vv{B}$ impose la condition aux
-     limites $\vv{B}.\vv{n}=0$ au champ dans le vide à l'interface
-     vide-supraconducteur;
-   - le supraconducteur est parcouru par des courants superficiels $\vv{j}_S$
-     autorisant une discontinuité de la composante tangentielle du champ
-     magnétique $\vv{B}$ à sa surface;
-   - la boule supraconductrice subit des forces de Laplace surfaciques de la
-     forme $d\vv{F}/dS=1/2\vv{j}_S\times\vv{B}$ où $\vv{B}$ est le champ dans le
-     vide à sa surface.
+3) [@3] Dans la suite, on revient à la symétrie sphérique pour décrire convenablement le champ
+   $\vv{B}$ dans le vide, mais on suppose $\delta=0$ pour simplifier les calculs, ce qui revient à
+   adopter le nouveau modèle $(M'')$ :
+   - les champs $\vv{B}_\text{int.},\vv{j}$ et $\vv{A}$ sont nuls à l'intérieur de la boule
+     supraconductrice;
+   - la continuité de la composante normale de $\vv{B}$ impose la condition aux limites
+     $\vv{B}.\vv{n}=0$ au champ dans le vide à l'interface vide-supraconducteur;
+   - le supraconducteur est parcouru par des courants superficiels $\vv{j}_S$ autorisant une
+     discontinuité de la composante tangentielle du champ magnétique $\vv{B}$ à sa surface;
+   - la boule supraconductrice subit des forces de Laplace surfaciques de la forme
+     $\d\vv{F}/dS=1/2\vv{j}_S\times\vv{B}$ où $\vv{B}$ est le champ dans le vide à sa surface.
 
    Questions:
-   1) Écrire les équations locales dont $\vv{B}$ est solution dans le
-      vide. En déduire un problème de mécanique des fluides analogue et tracer
-      l'allure des lignes de champ de $\vv{B}$. Indiquer, sans calcul, des
-      points où $\|\vv{B}\|>B_\infty$ et des points où $\|\vv{B}\| < B_\infty$.
-   2) On cherche un potentiel scalaire $\phi$ tel que $\vv{B}=\grad\,\phi$. De
-      quelle équation $(L)$ est solution $\phi$ ? On cherche une solution de
-      $(L)$ de la forme $\phi=\alpha
-      r\cos\theta+\beta\cos\theta/r^2$. Justifier, sans calcul, par des
-      analogies électrostatiques que ces potentiels sont solutions de
-      $(L)$. Déterminer $\alpha$ et $\beta$ en fonction de $B_\infty$ et $R$.
-   3) En déduire $\vv{j}_s$. Soit $\vv{B}_S$ le champ magnétique créé par ces
-      courants au centre $O$ de la boule. Donner, sans calcul, sa direction. Une
-      portion de sphère de surface $dS=2\pi R^2\sin\theta d\theta$ est assimilée
-      à une spire circulaire parcourue par un courant infinitésimal
-      $dI$. Montrer que $dI=j_SRd\theta$ puis calculer $\vv{B}_S$ et commenter
-      le "mécanisme" de l'effet Meissner.
-   4) Calculer le moment magnétique $d\vv{\mathcal{M}}$ de la spire élémentaire
-      étudiée dans la question précédente. En déduire le moment magnétique total
-      $\vv{\mathcal{M}}$ de la boule supraconductrice, le mettre sous la forme
-      $\vv{\mathcal{M}}=\chi/\mu_0\,4\pi R^3/3\,\vv{B}_\infty$ et déduire la
-      constante $\chi$. Le milieu est-il paramagnétique ($\chi>0$) ou
-      diamagnétique $(\chi < 0)$ ?
-   5) Montrer par une analyse de symétrie des forces $d\vv{F}$ que la résultante
-      des forces de Laplace subies par la boule supraconductrice est nulle. Ce
-      résultat était prévisible sans calculs et sans expliciter les forces
-      $d\vv{F}$. Pourquoi\nbsp?
+   1) Écrire les équations locales dont $\vv{B}$ est solution dans le vide. En déduire un problème
+      de mécanique des fluides analogue et tracer l'allure des lignes de champ de
+      $\vv{B}$. Indiquer, sans calcul, des points où $\|\vv{B}\|>B_\infty$ et des points où
+      $\|\vv{B}\| < B_\infty$.
+   2) On cherche un potentiel scalaire $\phi$ tel que $\vv{B}=\grad\,\phi$. De quelle équation $(L)$
+      est solution $\phi$ ? On cherche une solution de $(L)$ de la forme $\phi=\alpha
+      r\cos\theta+\beta\cos\theta/r^2$. Justifier, sans calcul, par des analogies électrostatiques
+      que ces potentiels sont solutions de $(L)$. Déterminer $\alpha$ et $\beta$ en fonction de
+      $B_\infty$ et $R$.
+   3) En déduire $\vv{j}_s$. Soit $\vv{B}_S$ le champ magnétique créé par ces courants au centre $O$
+      de la boule. Donner, sans calcul, sa direction. Une portion de sphère de surface $\d S=2\pi
+      R^2\sin\theta \d\theta$ est assimilée à une spire circulaire parcourue par un courant
+      infinitésimal $\d I$. Montrer que $\d I=j_SR\d\theta$ puis calculer $\vv{B}_S$ et commenter le
+      "mécanisme" de l'effet Meissner.
+   4) Calculer le moment magnétique $\d\vv{\mathcal{M}}$ de la spire élémentaire étudiée dans la
+      question précédente. En déduire le moment magnétique total $\vv{\mathcal{M}}$ de la boule
+      supraconductrice, le mettre sous la forme $\vv{\mathcal{M}}=\chi/\mu_0\,4\pi
+      R^3/3\,\vv{B}_\infty$ et déduire la constante $\chi$. Le milieu est-il paramagnétique
+      ($\chi>0$) ou diamagnétique $(\chi < 0)$ ?
+   5) Montrer par une analyse de symétrie des forces $\d\vv{F}$ que la résultante des forces de
+      Laplace subies par la boule supraconductrice est nulle. Ce résultat était prévisible sans
+      calculs et sans expliciter les forces $\d\vv{F}$. Pourquoi\nbsp?
 #+END_QUESTION
-3) [@3] Les champs $\vv{B}_\text{int.}$, $\vv{j}$ et $\vv{A}$ sont nuls à l'intérieur
-   de la boule supraconductrice du fait qu'on considère à présent $\delta=0$.
+3) [@3] Les champs $\vv{B}_\text{int.}$, $\vv{j}$ et $\vv{A}$ sont nuls à l'intérieur de la boule
+   supraconductrice du fait qu'on considère à présent $\delta=0$.
    1) Dans le vide, $\vv{j}=\vv{0}$ d'où $\rot\vv{B}=\vv{0}$ et $\div\vv{B}=0$
-      (\(\Delta\vv{B}=\vv{0}\)). La répartition des lignes de champ magnétique est
-      alors identique aux lignes du champ de vitesse d'un fluide incompressible
-      s'écoulant sur la boule[fn:8]
+      (\(\Delta\vv{B}=\vv{0}\)). La répartition des lignes de champ magnétique est alors identique
+      aux lignes du champ de vitesse d'un fluide incompressible s'écoulant sur la boule[fn:8]
 
       #+BEGIN_CENTER
       #+ATTR_LATEX: :width 0.7\linewidth
       [[./figures/boule_supraconductrice.pdf]]
       #+END_CENTER
 
-      Le champ de vitesse/magnétique est ainsi plus faible à "l'équateur" /i.e./ en
-      $A$ et $B$ où $B_{A,B} < B_\infty$ et plus élevé aux pôles /i.e./ en $C$ et
-      $D$ où $B_{C,D}>B_\infty$.
-   2) Soit $\vv{B}=\grad\,\phi$ et
-      $\div\vv{B}=0=-\div(\grad\,\phi)=-\Delta\phi$. Le potentiel scalaire
-      $\phi$ est donc solution de l'équation de Laplace. La forme du potentiel
-      $\phi(r,\theta)=\alpha r\cos\theta+\beta\cos\theta/r^2$ est identique à la
-      solution trouvée à l'exercice "Boule uniformément polarisée" également
-      solution de l'équation de Laplace $\Delta V=0$ [fn:9].
+      Le champ de vitesse/magnétique est ainsi plus faible à "l'équateur" /i.e./ en $A$ et $B$ où
+      $B_{A,B} < B_\infty$ et plus élevé aux pôles /i.e./ en $C$ et $D$ où $B_{C,D}>B_\infty$.
+   2) Soit $\vv{B}=\grad\,\phi$ et $\div\vv{B}=0=\div(\grad\,\phi)=\Delta\phi$. Le potentiel
+      scalaire $\phi$ est donc solution de l'équation de Laplace. La forme du potentiel
+      $\phi(r,\theta)=\alpha r\cos\theta+\beta\cos\theta/r^2$ est identique à la solution trouvée à
+      l'exercice "Boule uniformément polarisée" également solution de l'équation de Laplace $\Delta
+      V=0$ [fn:9].
       #+BEGIN_SRC latex
         \begin{align*}
           \vv{B}&=\grad\,\phi\\
@@ -4055,9 +4027,8 @@ longueur.
           &=\left(\alpha\cos\theta-\frac{2\beta\cos\theta}{r^3}\right)\vv{u_r}-\left(\alpha\sin\theta+\frac{\beta\sin\theta}{r^3}\right)\vv{u_\theta}
         \end{align*}
       #+END_SRC
-      Pour déterminer les constantes \alpha et \beta, on utilise la continuïté
-      de la composante normale du champ magnétique à l'interface boule
-      supra./vide soit en $r=R$ où
+      Pour déterminer les constantes \alpha et \beta, on utilise la continuïté de la composante
+      normale du champ magnétique à l'interface boule supra./vide soit en $r=R$ où
       #+BEGIN_SRC latex
         \begin{align*}
           \vv{u_r}.\left(\vv{B}_\text{ext.}(r=R)-\cancel{\vv{B}_\text{int.}(r=R)}\right)&=0\\
@@ -4065,9 +4036,8 @@ longueur.
           \alpha&=\frac{2\beta}{R^3}
         \end{align*}
       #+END_SRC
-      Par ailleurs, loin de la boule supra. /i.e./ $r\to\infty$, le champ
-      magnétique est celui induit par le solénoïde soit
-      $\vv{B}(r\to\infty)=B_\infty\,\vv{u_z}$ d'où
+      Par ailleurs, loin de la boule supra. /i.e./ $r\to\infty$, le champ magnétique est celui induit
+      par le solénoïde soit $\vv{B}(r\to\infty)=B_\infty\,\vv{u_z}$ d'où
       #+BEGIN_SRC latex
         \begin{align*}
           \alpha\cos\theta\,\vv{u_r}-\alpha\sin\theta\,\vv{u_\theta}&=B_\infty\vv{u_z}\\
@@ -4081,8 +4051,8 @@ longueur.
           \vv{B}=B_\infty\cos\theta\left(1-\frac{R^3}{r^3}\right)\,\vv{u_r}-B_\infty\sin\theta\left(1+\frac{R^3}{2r^3}\right)\,\vv{u_\theta}
         \end{align*}
       #+END_SRC
-   3) La densité surfacique de courant se déduit de la discontinuïté de la
-      composante tangentielle du champ magnétique soit
+   3) La densité surfacique de courant se déduit de la discontinuïté de la composante tangentielle
+      du champ magnétique soit
       #+BEGIN_SRC latex
         \begin{align*}
           \vv{u_r}\times\left(\vv{B}_\text{ext.}(r=R)-\cancel{\vv{B}_\text{int.}(r=R)}\right)&=\mu_0\,\vv{j_S}\\
@@ -4123,7 +4093,7 @@ longueur.
           \vv{B_S}&=-\frac{3}{4}B_\infty\int_0^\pi\sin^3\theta\d\theta\,\vv{u_z}
         \end{align*}
       #+END_SRC
-      En posant $x=\cos\theta$, $dx=-\sin\theta\,d\theta$ avec $x\in[1,-1]$ d'où
+      En posant $x=\cos\theta$, $\d x=-\sin\theta\,\d\theta$ avec $x\in[1,-1]$ d'où
       #+BEGIN_SRC latex
         \begin{align*}
           \vv{B_S}&=-\frac{3}{4}B_\infty\,\vv{u_z}\int_0^\pi\sin^2\theta\sin\theta\,\d\theta\\
@@ -4351,7 +4321,7 @@ milieu s'aimante. Ainsi, l'aimantation $\vv{M}$ d'un matériau correspond à la 
 moment magnétique $\vv{m}$ soit
 #+BEGIN_SRC latex
   \begin{align*}
-    \vv{M}=\frac{d\vv{m}}{d\tau}
+    \vv{M}=\frac{\d\vv{m}}{\d\tau}
   \end{align*}
 #+END_SRC
 Pour rappel, le moment dipolaire magnétique $\vv{m}$ d'une boucle de courant est égale à
@@ -4824,7 +4794,7 @@ vis-à-vis des contraintes expérimentales imposées par ce spectromètre. Il
 faudrait augmenter la hauteur $h$ de l'aimant jusqu'à une valeur de l'ordre de
 700 mm (dans la limite où le développement limité précédent demeure valable).
 
-** Chaîne de gouttelettes d'une émulsion ferrofluide                    :DM:
+** COMMENT Chaîne de gouttelettes d'une émulsion ferrofluide                    :DM:
 #+BEGIN_QUESTION
 Un ferrofluide s'obtient en dispersant dans de l'huile de petites particules solides aimantées. On
 obtient alors un fluide aux propriétés particulières. En particulier, les particules ont tendance à
@@ -5788,15 +5758,15 @@ l'électron au repos.
       ($\vv{B}=\frac{\vv{k}\times\vv{E}}{\omega}$)
        #+BEGIN_SRC latex
          \begin{align*}
-           \vv{R_i}&=\frac{E^2}{\mu_0c}\vv{u_r}\\
-           \langle\vv{R_i}\rangle&=\frac{\langle E^2\rangle}{\mu_0c}=\frac{E_0^2}{2\mu_0c}\,\vv{u_r}
+           \vv{R_i}&=\frac{E^2}{\mu_0c}\vv{u_k}\\
+           \langle\vv{R_i}\rangle&=\frac{\langle E^2\rangle}{\mu_0c}=\frac{E_0^2}{2\mu_0c}\,\vv{u_k}
          \end{align*}
        #+END_SRC
    2) Calcul de la section efficace \sigma de diffusion
       #+BEGIN_SRC latex
         \begin{align*}
           \sigma&=\frac{\langle P\rangle}{\langle\|\vv{R_i}\|\rangle}\\
-          &=\frac{\mu_0e^4\cancel{E_0^2}}{12\pi\cancel{c}\,m^2}\times\frac{2\mu_0c}{\cancel{E_0^2}}=\frac{\mu_0^2}{6\pi}\frac{e^4}{m^2}
+          &=\frac{\mu_0e^4\cancel{E_0^2}}{12\pi\cancel{c}\,m^2}\times\frac{2\mu_0\cancel{c}}{\cancel{E_0^2}}=\frac{\mu_0^2}{6\pi}\frac{e^4}{m^2}
         \end{align*}
       #+END_SRC
       La section efficace est proportionnelle à une surface et traduit la
@@ -5817,7 +5787,7 @@ l'électron au repos.
       Higgs voisine de 125 GeV) est voisine de 50 picobarns soit 50 10^{-12} barn
       soit 50 10^{-40} m^{2}.
 * TD7 : Propagation dans le vide et les milieux diélectriques
-** Réflexion d'onde en incidence oblique sur un conducteur parfait
+** COMMENT Réflexion d'onde en incidence oblique sur un conducteur parfait
 #+BEGIN_QUESTION
 On considère une surface plane séparant le vide d'un conducteur métallique
 parfait. Une onde plane électromagnétique incidente se propage dans le vide. Son
@@ -6682,7 +6652,7 @@ occasionnées par la traversée d'une couche de graphène pour une température 
 de l'ordre de 6 degrés pour une radiation infrarouge $-$ $\lambda\sim30\,\mu\text{m},
 \nu=\unit[1.5]{THz}$ $-$ et un champ magnétique de 8 Tesla.
 
-** Réflexion totale et onde évanescente                                 :DM:
+** COMMENT Réflexion totale et onde évanescente                                 :DM:
 
 #+BEGIN_QUESTION
 Le demi-espace $y<0$ est rempli d'un diélectrique LHI transparent (sans pertes)
@@ -7544,7 +7514,7 @@ Bessel:
 ** Footnotes
 
 [fn:11] pour les fonctions de Bessel, on considère toujours \lambda > 0
-* TD9 : Induction électromagnétique
+* COMMENT TD9 : Induction électromagnétique
 ** Introduction
 En régime variable, le champ magnétique demeure toujours à flux conservatif à
 savoir que
@@ -8097,7 +8067,7 @@ fréquence de 20 Hz et au-dessus d'un seuil d'intensité de 10 mT), un effet
 physiologique caractérisé par la perception visuelle de taches lumineuses; ce
 sont les magnétophosphènes."
 
-* TD10 : Électromagnétisme & relativité
+* COMMENT TD10 : Électromagnétisme & relativité
 ** Introduction
 *Transformation de Lorentz :* $\beta=\tfrac{v}{c}$ et
  $\gamma=\tfrac{1}{\surd{1-\beta^2}}$. Si $\mathcal{R}'$ est en mouvement
