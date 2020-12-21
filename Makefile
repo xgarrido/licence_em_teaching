@@ -15,10 +15,6 @@ doc/html/%.html: %.org
 	@echo "NOTICE: Exporting $< to html..."
 	@zsh -i -c "org-pages --html --generate-home-link --color=darkblue --debug generate"
 
-publish:
-	@echo "NOTICE: Publishing html documentation..."
-	@zsh -i -c "org-pages --html --generate-home-link --color=darkblue --debug publish"
-
 clean:
 	@rm -rf	latex.d doc *.tex *.pdf *.toc *.fdb* *.fls *.aux *.log *.out *~ README.el _minted* *.xdv
 
