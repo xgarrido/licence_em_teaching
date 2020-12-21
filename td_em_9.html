@@ -3,10 +3,11 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
-<meta  name="viewport" content="width=device-width, initial-scale=1" />
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>TD10 : Électromagnétisme &amp; relativité</title>
-<meta  name="generator" content="Org-mode" />
+<meta name="generator" content="Org mode" />
+<meta name="author" content="Xavier Garrido" />
 <link rel="stylesheet" href="css/styles.css" />
                <link rel="stylesheet" href="css/org-pygments.css" />
                <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" />
@@ -15,7 +16,7 @@
 @licstart  The following is the entire license notice for the
 JavaScript code in this tag.
 
-Copyright (C) 2012-2013 Free Software Foundation, Inc.
+Copyright (C) 2012-2018 Free Software Foundation, Inc.
 
 The JavaScript code in this tag is free software: you can
 redistribute it and/or modify it under the terms of the GNU
@@ -83,6 +84,7 @@ for the JavaScript code in this tag.
           extensions: ["cancel.js"],
           Macros: {
               vv: ["{\\vec{#1}}",1],
+              d: "{\\text{d}}",
               Upsigma: "{\\Sigma}",
               Updelta: "{\\Delta}",
               varoiint: "{\\iint}",
@@ -152,8 +154,8 @@ for the JavaScript code in this tag.
 </div>
 </div>
 
-<div id="outline-container-orgheadline1" class="outline-2">
-<h2 id="orgheadline1"><span class="section-number-2">1</span> Introduction</h2>
+<div id="outline-container-org78f7275" class="outline-2">
+<h2 id="org78f7275"><span class="section-number-2">1</span> Introduction</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 <b>Transformation de Lorentz :</b> \(\beta=\tfrac{v}{c}\) et
@@ -235,10 +237,10 @@ dit une longueur \(y\) restera inchangée sous la transformation
 </div>
 </div>
 
-<div id="outline-container-orgheadline2" class="outline-2">
-<h2 id="orgheadline2"><span class="section-number-2">2</span> Force entre des électrons qui se déplacent côte à côte</h2>
+<div id="outline-container-orgdc0d3b0" class="outline-2">
+<h2 id="orgdc0d3b0"><span class="section-number-2">2</span> Force entre des électrons qui se déplacent côte à côte</h2>
 <div class="outline-text-2" id="text-2">
-<div class="center">
+<div class="org-center">
 
 <div class="figure">
 <p><img src="./figures/referentiel_relat_1.png" alt="referentiel_relat_1.png" />
@@ -382,8 +384,8 @@ Pour \(\mathcal{E}=\unit[1]{MeV}\), \(\gamma\simeq3\)
 </div>
 </div>
 
-<div id="outline-container-orgheadline3" class="outline-2">
-<h2 id="orgheadline3"><span class="section-number-2">3</span> Fil chargé</h2>
+<div id="outline-container-orgc92f9f9" class="outline-2">
+<h2 id="orgc92f9f9"><span class="section-number-2">3</span> Fil chargé</h2>
 <div class="outline-text-2" id="text-3">
 <div class="QUESTION">
 <p>
@@ -391,7 +393,7 @@ Dans le référentiel \(R\) du laboratoire, un fil cylindrique infini d’axe \(
 section \(S\) se déplace à la vitesse \(\vv{u}=u\vv{u}_x\). Soit \(R'\) le référentiel
 propre du fil. Dans \(R'\), le fil est chargé uniformément en volume de sorte que
 sa charge linéique est \(\lambda'_0\). Les charges sont immobiles dans \(R'\). On
-pose \(\beta=u/c\) et \(\gamma=(1−\beta^2)^{-1/2}\).
+pose \(\beta=u/c\) et \(\gamma=(1-\beta^2)^{-1/2}\).
 </p>
 
 <ol class="org-ol">
@@ -440,7 +442,7 @@ invariante par rotation \(\theta\) et par translation \(x\equiv z\) donc
 Le théorème de Gauss
 </p>
 \begin{equation*}
-  \varoiint_{\mathcal{S}}\vv{E}\cdot d\vv{S}=\frac{Q_\text{int.}}{\epsilon_0}
+  \varoiint_{\mathcal{S}}\vv{E}\cdot\d\vv{S}=\frac{Q_\text{int.}}{\epsilon_0}
 \end{equation*}
 
 <p>
@@ -612,250 +614,10 @@ Transformation du champ magnétique
 </div>
 </div>
 
-<div id="outline-container-orgheadline4" class="outline-2">
-<h2 id="orgheadline4"><span class="section-number-2">4</span> Particule chargée dans un champ magnétique uniforme&#xa0;&#xa0;&#xa0;<span class="tag"><span class="DM">DM</span></span></h2>
+<div id="outline-container-org8747342" class="outline-2">
+<h2 id="org8747342"><span class="section-number-2">4</span> Particule chargée dans des champs électrique et magnétique perpendiculaires</h2>
 <div class="outline-text-2" id="text-4">
-<div class="QUESTION">
-<p>
-Une particule de charge \(q\), de masse \(m\), est lancée avec la vitesse initiale
-\(\vv{v}_0=v_0\vv{u}_x\) dans une région où règne un champ magnétique constant,
-uniforme \(\vv{B}=B\vv{u}_z\).
-On pose \(\gamma=(1-v^2/c^2)^{-1/2}\) où \(\gamma\) dépend <i>a priori</i> du temps.
-</p>
-
-<ol class="org-ol">
-<li value="1"><p>
-Rappeler L'impulsion généralisée \(\vv{p}\) de la particule et son énergie
-\(\mathcal{E}\). Montrer que les équations du mouvement s'écrivent :
-</p>
-\begin{align*}
-  \frac{d}{dt}(\gamma m\vv{v})=q\vv{v}\times\vv{B}
-\end{align*}
-
-<p>
-\(\mathcal{E}\) est-elle constante ? En déduire que le mouvement est uniforme
-et calculer \(\gamma\). En comparant à la mécanique non relativiste, décrire la
-trajectoire de la particule.
-</p></li>
-</ol>
-
-</div>
-<p>
-L'impulsion relativiste s'écrit \(\vv{p}=\gamma m\vv{v}\), l'énergie totale étant
-égale à \(\mathcal{E}=\gamma mc^2\). Le principe fondamental de la dynamique
-devient
-</p>
-\begin{align*}
-  \frac{d\vv{p}}{dt}&=\Upsigma\vv{F}\\
-  \frac{d}{dt}(\gamma m\vv{v})&=q\vv{v}\times\vv{B}
-\end{align*}
-
-<p>
-L'énergie totale \(\mathcal{E}\) est égale à la variation temporelle de
-puissance \(\tfrac{d\mathcal{P}}{dt}\). Or
-</p>
-\begin{align*}
-  \mathcal{P}&=\vv{F}_\text{magnétique}.\vv{v}\\
-  &=(q\vv{v}\times\vv{B}).\vv{v}\\
-  &=0
-\end{align*}
-
-<p>
-L'énergie \(\mathcal{E}\) est donc constante &rarr; \(v=v_0\) et
-\(\gamma=\tfrac{1}{\surd{1-v_0^2/c^2}}\). L'équation du mouvement devient
-</p>
-\begin{align*}
-  \gamma m\frac{d\vv{v}}{dt}&=q\vv{v}\times\vv{B}
-\end{align*}
-
-<p>
-soit, au facteur \(\gamma\) près, identique à l'équation du mouvement pour une
-particule non-relativiste. La pulsation \(\omega=\tfrac{qB}{m\gamma}\) est
-inférieure à la pulsation cyclotron classique \(\omega_c=\tfrac{qB}{m}\). La
-trajectoire est alors circulaire autour du champ magnétique \(\vv{B}\) et de
-rayon \(R=\gamma\tfrac{mv_0}{qB}\).
-</p>
-
-<div class="QUESTION">
-<ol class="org-ol">
-<li value="2"><p>
-On suppose désormais que la particule rayonne une puissance donnée par
-la formule d'Abraham :
-</p>
-\begin{align*}
-  \mathcal{P}_r=\frac{q^2\gamma^6}{6\pi\epsilon_0c^3}\left[\vv{a}^2-\left(\frac{1}{c}\vv{v}\times\vv{a}\right)^2\right]
-\end{align*}
-
-<p>
-où \(\vv{a}\) est l'accélération. Déterminer l'énergie rayonnée \(\mathcal{E}_r\)
-par tour. Que devient \(\mathcal{E}_r\) à la limite ultra-relativiste.
-</p>
-
-<p>
-Application numérique : calculer \(\mathcal{E}_r\) pour les électrons d'énergie
-\(\mathcal{E}=6\) GeV qui circulent sur une orbite circulaire de rayon \(R=134\)
-m à l'ESRF (Grenoble). Comparer \(\mathcal{E}_r\) à \(\mathcal{E}\).
-</p></li>
-</ol>
-
-</div>
-<p>
-L'accélération dans le cas d'un mouvement uniforme circulaire est
-l'accélération centripète d'expression
-</p>
-\begin{align*}
-  \vv{a}=\frac{d\vv{v}}{dt}=-\frac{v_0^2}{R}\vv{u_r}
-\end{align*}
-
-<p>
-Le produit vectoriel \(\vv{v}\times\vv{a}\) devient
-</p>
-\begin{align*}
-  \vv{v}\times\vv{a}=v_0\vv{u_\theta}\times-\frac{v_0^2}{R}\vv{u_r}=\frac{v_0^3}{R}\vv{u_z}
-\end{align*}
-
-<p>
-La puissance rayonnée \(\mathcal{P}_r\) se réduit à
-</p>
-\begin{align*}
-  \mathcal{P}_r&=\frac{q^2\gamma^6}{6\pi\epsilon_0c^3}\left[\vv{a}^2-\left(\frac{1}{c}\vv{v}\times\vv{a}\right)^2\right]\\
-  &=\frac{q^2\gamma^6}{6\pi\epsilon_0c^3}\left[\frac{v_0^4}{R^2}-\frac{v_0^6}{R^2c^2}\right]\\
-  &=\frac{q^2\gamma^6}{6\pi\epsilon_0c^3}\times\frac{v_0^4}{R^2}\left[1-\frac{v_0^2}{c^2}\right]\text{ avec } \frac{1}{\gamma^2}=1-\frac{v_0^2}{c^2}\\
-  &=\frac{q^2\gamma^4}{6\pi\epsilon_0c^3}\times\frac{v_0^4}{R^2}=\text{constante}
-\end{align*}
-
-<p>
-et l'énergie rayonnée par tour \(\mathcal{E}_r=\mathcal{P}_r\times T\) avec
-\(T=\tfrac{2\pi R}{v_0}\) devient
-</p>
-\begin{align*}
-  \mathcal{E}_r&=\frac{q^2\gamma^4}{6\pi\epsilon_0c^3}\times\frac{v_0^4}{R^2}\times\frac{2\pi R}{v_0}\\
-  &=\frac{q^2\gamma^4}{3\epsilon_0R}\times\frac{v_0^3}{c^3}
-\end{align*}
-
-<p>
-Dans la limite ultra-relativiste, \(v\rightarrow c\), l'énergie rayonnée est égale à
-\(\mathcal{E}_r=\frac{q^2\gamma^4}{3\epsilon_0R}\).
-</p>
-
-<p>
-<b>Application numérique :</b>
-</p>
-
-<p>
-Le faisceau de particules est constitué d'électrons de masse
-\(mc^2=\unit[0.511]{MeV}\). Le facteur de Lorentz \(\gamma\) se déduit de l'énergie
-totale \(\mathcal{E}=\unit[6]{GeV}\)
-</p>
-\begin{equation*}
-  \gamma=\frac{\mathcal{E}}{mc^2}=11\,742\text{ soit }\frac{v}{c}=0.99999999637\simeq1
-\end{equation*}
-
-<p>
-L'énergie rayonnée exprimée en eV est alors égale à
-</p>
-\begin{align*}
-  \left.\mathcal{E}_r\right|_\text{eV}&=\frac{e^2}{3\epsilon_0R}\times\gamma^4\times\frac{1}{e}\\
-  &=\frac{1.6\,10^{-19}}{3\times8.85\,10^{-12}\times134}\times(11742)^4\\
-  &=\unit[0.855]{MeV}=1.42\,10^{-4}\mathcal{E}
-\end{align*}
-
-<div class="QUESTION">
-<ol class="org-ol">
-<li value="3">Établir l'équation différentielle vérifiée par \(\gamma(t)\) en faisant
-l'approximation qu'à chaque instant la trajectoire est un cercle. En déduire
-la variation de l'énergie \(\mathcal{E}\) de la particule en fonction du
-temps. Quelle est la limite de \(\mathcal{E}\) quand \(t\) tend vers l'infini ?
-Décrire qualitativement le mouvement de la particule en tenant compte du
-rayonnement d'accélération.</li>
-</ol>
-
-</div>
-<p>
-Les pertes d'énergie induites par le rayonnement ont pour conséquence une
-diminution de l'énergie totale \(\mathcal{E}=\gamma mc^2\) : les particules
-perdent de la vitesse. La variation d'énergie \(d\mathcal{E}\) est égale à
-\(-\mathcal{P}_r\,dt\) soit une variation du facteur de Lorentz \(\gamma\)
-</p>
-\begin{align*}
-  mc^2d\gamma&=-\mathcal{P}_rdt\\
-  \frac{d\gamma}{dt}&=-\mathcal{P}_r\times\frac{1}{mc^2}\\
-  &=-\frac{q^2\gamma^4}{6\pi\epsilon_0c^3}\times\frac{v^4}{R^2}\times\frac{1}{mc^2}
-\end{align*}
-
-<p>
-En supposant la trajectoire toujours circulaire de rayon
-\(R=\gamma\tfrac{mv}{qB}=\tfrac{\gamma v}{\omega_c}\)
-</p>
-\begin{align*}
-  \frac{d\gamma}{dt}&=-\frac{q^2\gamma^4}{6\pi\epsilon_0c^3}\times\frac{v^4}{R^2}\times\frac{1}{mc^2}\\
-  &=-\frac{q^2\gamma^4}{6\pi\epsilon_0c^3}\times\frac{v^4\omega_c^2}{\gamma^2v^2}\times\frac{1}{mc^2}\\
-  &=-\frac{q^2\omega_c^2}{6\pi\epsilon_0c^3}\times\frac{1}{mc^2}\times\gamma^2v^2\\
-\end{align*}
-
-<p>
-or \(\gamma^2v^2=c^2(\gamma^2-1)\) d'où
-</p>
-\begin{align*}
-  \frac{d\gamma}{dt}&=-\frac{q^2\omega_c^2}{6\pi\epsilon_0mc^3}\times\left(\gamma^2-1\right)\\
-  \frac{d\gamma}{\gamma^2-1}&=-\frac{dt}{\tau}\text{ avec }\tau=\frac{6\pi\epsilon_0mc^3}{q^2\omega_c^2}
-\end{align*}
-
-<p>
-En intégrant l'équation précédente, on obtient
-</p>
-\begin{align*}
-  \frac{d\gamma}{\gamma^2-1}&=-\frac{dt}{\tau}\\
-  \frac{d\gamma}{1-\gamma^2}&=\frac{dt}{\tau}\\
-  \frac{d\gamma}{1+\gamma}+\frac{d\gamma}{1-\gamma}&=2\frac{dt}{\tau}\\
-  \ln(\gamma+1)-\ln(\gamma-1)&=\frac{2t}{\tau}+\text{constante}\\
-  \ln\frac{\gamma+1}{\gamma-1}&=\frac{2t}{\tau}+\text{constante}\\
-  \frac{\gamma+1}{\gamma-1}&=Ke^{\tfrac{2t}{\tau}}
-\end{align*}
-
-<p>
-où, à \(t=0,\gamma=\gamma_0=\tfrac{1}{\surd{1-v_0^2/c^2}}\),
-\(K=\frac{\gamma_0+1}{\gamma_0-1}\). On obtient ainsi
-</p>
-\begin{align*}
-  \gamma&=\frac{Ke^{\tfrac{2t}{\tau}}+1}{Ke^{\tfrac{2t}{\tau}}-1}\\
-  &=\frac{K+e^{-\tfrac{2t}{\tau}}}{K-e^{-\tfrac{2t}{\tau}}}
-\end{align*}
-
-<p>
-et
-</p>
-\begin{align*}
-  \mathcal{E}=\gamma mc^2=\frac{Ke^{\tfrac{2t}{\tau}}+1}{Ke^{\tfrac{2t}{\tau}}-1}\times mc^2
-\end{align*}
-
-<div class="center">
-
-<div class="figure">
-<p><img src="./figures/spiral_relativite.png" alt="spiral_relativite.png" />
-</p>
-</div>
-</div>
-
-<p>
-Lorsque \(t\rightarrow\infty\), \(\gamma\simeq\frac{K}{K}=1\) et l'énergie totale
-\(\mathcal{E}\) est alors uniquement l'énergie de masse de la particule, la
-vitesse et donc l'énergie cinétique sont nulles.
-</p>
-
-<p>
-Le rayon \(R\), proportionnel à \(\gamma v\), diminue en fonction du
-temps. Ainsi, la trajectoire demeure circulaire à chaque instant \(t\) mais
-avec un rayon de courbure chaque fois plus faible en raison des pertes
-d'énergie par rayonnement. Les particules décrivent une spirale.
-</p>
-</div>
-</div>
-
-<div id="outline-container-orgheadline5" class="outline-2">
-<h2 id="orgheadline5"><span class="section-number-2">5</span> Particule chargée dans des champs électrique et magnétique perpendiculaires</h2>
-<div class="outline-text-2" id="text-5">
-<div class="center">
+<div class="org-center">
 
 <div class="figure">
 <p><img src="./figures/referentiel_relat_4.png" alt="referentiel_relat_4.png" />
@@ -932,10 +694,10 @@ trajectoire circulaire de rayon \(R\)
 </div>
 </div>
 
-<div id="outline-container-orgheadline6" class="outline-2">
-<h2 id="orgheadline6"><span class="section-number-2">6</span> Étude de la charge d'espace</h2>
-<div class="outline-text-2" id="text-6">
-<div class="center">
+<div id="outline-container-orgba6bd0a" class="outline-2">
+<h2 id="orgba6bd0a"><span class="section-number-2">5</span> Étude de la charge d'espace</h2>
+<div class="outline-text-2" id="text-5">
+<div class="org-center">
 
 <div class="figure">
 <p><img src="./figures/referentiel_relat_3.png" alt="referentiel_relat_3.png" />
@@ -984,7 +746,7 @@ l'axe \(x'\) et par rotation d'angle &theta; : \(\vv{E}'(M)=E(r)\vv{u}_r\).
 Théorème de Gauss :
 </p>
 \begin{equation*}
-  \varoiint_\mathcal{S}\vv{E}'(M)\cdot d\vv{S}=\frac{Q_\text{int.}}{\epsilon_0}
+  \varoiint_\mathcal{S}\vv{E}'(M)\cdot\d\vv{S}=\frac{Q_\text{int.}}{\epsilon_0}
 \end{equation*}
 
 <p>
@@ -1108,7 +870,7 @@ ainsi
 Le théorème d'Ampère :
 </p>
 \begin{equation*}
-  \oint_{\mathcal{C}}\vv{B}.d\vv{\ell}=\iint_\mathcal{S}\mu_0\vv{j}.d\vv{S}\text{ avec} \vv{j}=\rho u\vv{u}_x
+  \oint_{\mathcal{C}}\vv{B}.\d\vv{\ell}=\iint_\mathcal{S}\mu_0\vv{j}.\d\vv{S}\text{ avec} \vv{j}=\rho u\vv{u}_x
 \end{equation*}
 
 <p>
@@ -1163,8 +925,8 @@ de la variation relative du rayon \(\Delta R/R_0\) en fonction de \(t\) et de
 Le principe fondamental de la dynamique en relativité
 </p>
 \begin{align*}
-  \frac{d}{dt}\left(\gamma m\vv{u}\right)&=\Upsigma\vv{F}\\
-  \gamma m\frac{d\vv{u}}{dt}+m\vv{u}\frac{d\gamma}{dt}&=\vv{F}
+  \frac{\d}{\d t}\left(\gamma m\vv{u}\right)&=\Upsigma\vv{F}\\
+  \gamma m\frac{\d\vv{u}}{\d t}+m\vv{u}\frac{\d\gamma}{\d t}&=\vv{F}
 \end{align*}
 
 <p>
@@ -1172,7 +934,7 @@ or \(\vv{F}\parallel\vv{u}_r\) impliquant que le second terme
 \(m\vv{u}\tfrac{d\gamma}{dt}\) soit nul. Soit
 </p>
 \begin{align*}
-  \gamma m\frac{d\vv{u}}{dt}&=\vv{F}\\
+  \gamma m\frac{\d\vv{u}}{\d t}&=\vv{F}\\
   \gamma m\ddot{R}&=\frac{q\rho}{2\epsilon_0\gamma^2}R\\
   \ddot{R}-\frac{q\rho}{2\epsilon_0m}\frac{R}{\gamma^3}&=0
 \end{align*}
@@ -1226,107 +988,6 @@ transerve devient
 </p>
 </div>
 </div>
-
-<div id="outline-container-orgheadline7" class="outline-2">
-<h2 id="orgheadline7"><span class="section-number-2">7</span> Variations relatives de vitesse, de quantité de mouvement et d'énergie&#xa0;&#xa0;&#xa0;<span class="tag"><span class="DM">DM</span></span></h2>
-<div class="outline-text-2" id="text-7">
-<div class="QUESTION">
-<p>
-On considère une particule de masse \(m\), de quantité de mouvement \(p\), d'énergie
-totale \(\mathcal{E}\) et d'énergie cinétique \(\mathcal{E}_c\).
-</p>
-
-<ol class="org-ol">
-<li>Exprimer \(dv/v\) et \(dp/p\) en fonction de \(d\mathcal{E}/\mathcal{E}\).</li>
-</ol>
-
-</div>
-
-<p>
-Soit l'énergie totale \(\mathcal{E}=\gamma\,mc^2\) et
-\(\gamma=\frac{1}{\surd1-v^2/c^2}\). On a
-</p>
-\begin{align*}
-  \frac{d\mathcal{E}}{\mathcal{E}}&=\frac{d\gamma}{\gamma}\\
-  \text{avec }&d\gamma=-\frac{1}{2}\times\frac{1}{\left(1-v^2/c^2\right)^{3/2}}\times(-)2\frac{v}{c}dv\\
-  &d\gamma=\gamma^3\frac{v}{c}dv\\
-  \frac{d\mathcal{E}}{\mathcal{E}}&=\gamma^2\,\frac{v^2}{c^2}\times\frac{dv}{v}\\
-  &=\left(\gamma^2-1\right)\frac{dv}{v}
-\end{align*}
-
-<p>
-soit
-</p>
-\begin{align*}
-  \frac{dv}{v}=\frac{1}{\gamma^2-1}\,\frac{d\mathcal{E}}{\mathcal{E}}
-\end{align*}
-
-<p>
-La quantité de mouvement \(p=\gamma\,mv\) est liée à l'énergie totale à travers
-l'expression \(\mathcal{E}^2=p^2c^2+m^2c^4\) soit en différentiant
-</p>
-\begin{align*}
-  2\mathcal{E}d\mathcal{E}&=2p\,dpc^2\\
-  \frac{dp}{p}&=\frac{\mathcal{E}d\mathcal{E}}{p^2c^2}\\
-  &=\frac{\mathcal{E}d\mathcal{E}}{\mathcal{E}^2-m^2c^4}\\
-  &=\frac{\gamma^2\,\cancel{m^2c^4}}{\gamma^2\,\cancel{m^2c^4}-\cancel{m^2c^4}}\,\frac{d\mathcal{E}}{\mathcal{E}}\\
-  &=\frac{\gamma^2}{\gamma^2-1}\,\frac{d\mathcal{E}}{\mathcal{E}}
-\end{align*}
-
-<div class="QUESTION">
-<ol class="org-ol">
-<li value="2">Que se passe-t-il à la limite ultrarelativiste ?</li>
-</ol>
-
-</div>
-
-<p>
-\(v\to c\) et \(\gamma\gg1\) d'où
-</p>
-\begin{align*}
-  \frac{dv}{v}&\simeq\frac{1}{\gamma^2}\,\frac{d\mathcal{E}}{\mathcal{E}}\\
-  \frac{dp}{p}&\simeq\frac{d\mathcal{E}}{\mathcal{E}}
-\end{align*}
-
-<div class="QUESTION">
-<ol class="org-ol">
-<li value="3"><p>
-On définit le facteur \(\alpha\) par
-</p>
-\begin{align*}
-  \frac{d\mathcal{E}_c}{\mathcal{E}_c}=\alpha\,\frac{dp}{p}
-\end{align*}
-
-<p>
-Quelle est l'expression de \(\alpha\) en fonction de \(\beta\) ? Faire une
-représentation graphique.
-</p></li>
-</ol>
-
-</div>
-
-<p>
-L'énergie totale \(\mathcal{E}\) est égale à \(\mathcal{E}_c+mc^2\) d'où
-\(d\mathcal{E}=d\mathcal{E}_c\). On a ainsi
-</p>
-\begin{align*}
-  \frac{dp}{p}&=\frac{\gamma^2}{\gamma^2-1}\times\frac{d\mathcal{E}_c}{\mathcal{E}}\times\frac{\mathcal{E}_c}{\mathcal{E}_c}\\
-  \frac{d\mathcal{E}_c}{\mathcal{E}_c}&=\underbrace{\frac{\gamma^2-1}{\gamma^2}\times\frac{\mathcal{E}}{\mathcal{E}_c}}_{\alpha}\times\frac{dp}{p}\\
-  \alpha&=\frac{\gamma^2-1}{\gamma^2}\times\frac{\gamma\,\cancel{mc^2}}{\gamma\,\cancel{mc^2}-\cancel{mc^2}}\\
-  &=\frac{\cancel{(\gamma-1)}(\gamma+1)}{\gamma^{\cancel{2}}}\times\frac{\cancel{\gamma}}{\cancel{\gamma-1}}\\
-  &=\frac{\gamma+1}{\gamma}=1+\frac{1}{\gamma}=1+\sqrt{1-\beta^2}
-\end{align*}
-
-<div class="center">
-
-<div class="figure">
-<p><img src="./figures/alpha_variation.png" alt="alpha_variation.png" />
-</p>
-<p><span class="figure-number">Figure 5:</span> <b>Variation du paramètre \(\alpha\) en fonction de la vitesse \(\beta\)</b></p>
-</div>
-</div>
-</div>
-</div>
 <div id="footnotes">
 <h2 class="footnotes"> </h2>
 <div id="text-footnotes">
@@ -1336,7 +997,7 @@ L'énergie totale \(\mathcal{E}\) est égale à \(\mathcal{E}_c+mc^2\) d'où
 </div>
 </div></div>
 <div id="postamble" class="status">
-File under <i class="fa fa-github-alt"></i> version control - commit <a href="https://github.com/xgarrido/licence_em_teaching/commit/311150a025b9911feb88eb5eafabc7b31c1ab20a">311150a</a> - 2016-06-28
+File under <i class="fa fa-github-alt"></i> version control - commit <a href="https://github.com/xgarrido/licence_em_teaching/commit/16aed20846016fe35284275cba92e3520e1831e1">16aed20</a> - 2020-12-21
 </div>
 </body>
 </html>

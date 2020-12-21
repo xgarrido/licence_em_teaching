@@ -3,10 +3,11 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
-<meta  name="viewport" content="width=device-width, initial-scale=1" />
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>TD9 : Induction électromagnétique</title>
-<meta  name="generator" content="Org-mode" />
+<meta name="generator" content="Org mode" />
+<meta name="author" content="Xavier Garrido" />
 <link rel="stylesheet" href="css/styles.css" />
                <link rel="stylesheet" href="css/org-pygments.css" />
                <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" />
@@ -15,7 +16,7 @@
 @licstart  The following is the entire license notice for the
 JavaScript code in this tag.
 
-Copyright (C) 2012-2013 Free Software Foundation, Inc.
+Copyright (C) 2012-2018 Free Software Foundation, Inc.
 
 The JavaScript code in this tag is free software: you can
 redistribute it and/or modify it under the terms of the GNU
@@ -83,6 +84,7 @@ for the JavaScript code in this tag.
           extensions: ["cancel.js"],
           Macros: {
               vv: ["{\\vec{#1}}",1],
+              d: "{\\text{d}}",
               Upsigma: "{\\Sigma}",
               Updelta: "{\\Delta}",
               varoiint: "{\\iint}",
@@ -152,25 +154,25 @@ for the JavaScript code in this tag.
 </div>
 </div>
 
-<div id="outline-container-orgheadline1" class="outline-2">
-<h2 id="orgheadline1"><span class="section-number-2">1</span> Introduction</h2>
+<div id="outline-container-org6e4b1c6" class="outline-2">
+<h2 id="org6e4b1c6"><span class="section-number-2">1</span> Introduction</h2>
 <div class="outline-text-2" id="text-1">
 <p>
 En régime variable, le champ magnétique demeure toujours à flux conservatif à
 savoir que
 </p>
 \begin{align*}
-  \varoiint_S\vv{B}.\vv{dS}=0
+  \varoiint_S\vv{B}.\vv{\d S}=0
 \end{align*}
 
 <p>
 reste vrai à tout instant \(t\). En revanche, la variation du flux magnétique au travers
 d'une surface (non-fermée) est à l'origine d'une force électro-motrice \(e(t)\)
 qui s'exprime selon la loi de Faraday<sup><a id="fnr.1" class="footref" href="#fn.1">1</a></sup>
- <div class="footdef"><sup><a id="fn.1" class="footnum" href="#fnr.1">1</a></sup> <div class="footpara"><p class="footpara"> l'expression de la force électro-motrice se déduit de la relation de Maxwell-Faraday \(\rot\vv{E}=-\frac{\partial\vv{B}}{\partial t}\) qui, dans sa version intégrale, donne \(\oint_\mathcal{C}\vv{E}.\vv{d\ell}=-\frac{\partial}{\partial t}\iint_{S/\mathcal{C}}\vv{B}.\vv{dS}=-\frac{d\Phi}{dt}\). La force électro-motrice \(e(t)\) est donc équivalente à la circulation du champ électrique le long du contour \(\mathcal{C}\). </p></div><br/></div>
+ <div class="footdef"><sup><a id="fn.1" class="footnum" href="#fnr.1">1</a></sup> <div class="footpara"><p class="footpara"> l'expression de la force électro-motrice se déduit de la relation de Maxwell-Faraday \(\rot\vv{E}=-\frac{\partial\vv{B}}{\partial t}\) qui, dans sa version intégrale, donne \(\oint_\mathcal{C}\vv{E}.\vv{d\ell}=-\frac{\partial}{\partial t}\iint_{S/\mathcal{C}}\vv{B}.\vv{\d S}=-\frac{\d\Phi}{\d t}\). La force électro-motrice \(e(t)\) est donc équivalente à la circulation du champ électrique le long du contour \(\mathcal{C}\). </p></div><br/></div>
 </p>
 \begin{align*}
-  e(t)=-\frac{d\Phi(t)}{dt}\text{ où }\Phi(t)=\iint_S\vv{B}.\vv{dS}
+  e(t)=-\frac{\d\Phi(t)}{\d t}\text{ où }\Phi(t)=\iint_S\vv{B}.\vv{\d S}
 \end{align*}
 
 <p>
@@ -179,7 +181,7 @@ magnétique \(\vv{B}_P(M,t)\) dont le flux s'oppose à l'augmentation du flux qu
 impose (loi de Lenz) : le flux magnétique propre s'écrit
 </p>
 \begin{align*}
-  \Phi_P=\iint_{S/\mathcal{C}}\vv{B}_P.\vv{dS}=L\times i
+  \Phi_P=\iint_{S/\mathcal{C}}\vv{B}_P.\vv{\d S}=L\times i
 \end{align*}
 
 <p>
@@ -187,27 +189,25 @@ où \(L\) est l'inductance propre du circuit. On parle d'<b>auto-induction</b>.
 </p>
 
 <p>
-Si un circuit filiforme auto-induit une force qui s'oppose à l'établissement du
-champ magnétique, deux circuits électriques induisent mutuellement une force sur
-chacun d'entre eux. En considèrant deux circuits parcourus respectivement par un
-courant \(i_1(t)\) et un courant \(i_2(t)\), le flux magnétique induit par le
-premier sur le second circuit s'exprime
+Si un circuit filiforme auto-induit une force qui s'oppose à l'établissement du champ magnétique,
+deux circuits électriques induisent mutuellement une force sur chacun d'entre eux. En considèrant
+deux circuits parcourus respectivement par un courant \(i_1(t)\) et un courant \(i_2(t)\), le flux
+magnétique induit par le premier sur le second circuit s'exprime
 </p>
 \begin{align*}
   \Phi_{1\to2}=M_{1\to2}I_1
 \end{align*}
 
 <p>
-de même que le deuxième circuit induit un flux magnétique égal à
-\(\Phi_{2\to1}=M_{2\to1}I_2\). Les coefficients \(M_{i\to j}\) sont appelés
-coefficients d'inductance mutuelle et sont, selon le théorème de Neumann,
-égaux <i>i.e.</i> \(M_{1\to2}=M_{2\to1}=M\) <sup><a id="fnr.2" class="footref" href="#fn.2">2</a></sup>.
+de même que le deuxième circuit induit un flux magnétique égal à \(\Phi_{2\to1}=M_{2\to1}I_2\). Les
+coefficients \(M_{i\to j}\) sont appelés coefficients d'inductance mutuelle et sont, selon le théorème
+de Neumann, égaux <i>i.e.</i> \(M_{1\to2}=M_{2\to1}=M\) <sup><a id="fnr.2" class="footref" href="#fn.2">2</a></sup>.
  <div class="footdef"><sup><a id="fn.2" class="footnum" href="#fnr.2">2</a></sup> <div class="footpara"><p class="footpara"> dans le cas de deux bobines chacune constituées respectivement de \(N_1\) et \(N_2\) spires, le coefficient d'inductance mutuelle est proportionnel au produit \(N_1N_2\). </p></div><br/></div>
 </p>
 
 <p>
-En ajoutant à l'inductance mutuelle, l'auto-induction, les flux magnétiques au
-travers du premier et du second circuit sont
+En ajoutant à l'inductance mutuelle, l'auto-induction, les flux magnétiques au travers du premier et
+du second circuit sont
 </p>
 \begin{align*}
   \Phi_1&=L_1i_1+Mi_2\\
@@ -218,14 +218,14 @@ travers du premier et du second circuit sont
 desquels on déduit les forces électro-motrices
 </p>
 \begin{align*}
-  e_1&=-\frac{d\Phi_1}{dt}=-L_1\frac{di_1}{dt}-M\frac{di_2}{dt}\\
-  e_2&=-\frac{d\Phi_1}{dt}=-L_2\frac{di_2}{dt}-M\frac{di_1}{dt}
+  e_1&=-\frac{\d\Phi_1}{\d t}=-L_1\frac{\d i_1}{\d t}-M\frac{\d i_2}{\d t}\\
+  e_2&=-\frac{\d\Phi_1}{\d t}=-L_2\frac{\d i_2}{\d t}-M\frac{\d i_1}{\d t}
 \end{align*}
 
 <p>
-D'un point de vue énergétique, l'énergie magnétique stockée dans un circuit est
-égale à \(\mathcal{E}_m=\frac{1}{2}Li^2\). Pour deux circuits, il s'agit de
-prendre en compte l'effet d'un circuit vis-à-vis de l'autre soit
+D'un point de vue énergétique, l'énergie magnétique stockée dans un circuit est égale à
+\(\mathcal{E}_m=\frac{1}{2}Li^2\). Pour deux circuits, il s'agit de prendre en compte l'effet d'un
+circuit vis-à-vis de l'autre soit
 </p>
 \begin{align*}
   \mathcal{E}_m=\frac{1}{2}L_1i_1^2+\frac{1}{2}L_2i_2^2+Mi_1i_2
@@ -233,18 +233,17 @@ prendre en compte l'effet d'un circuit vis-à-vis de l'autre soit
 </div>
 </div>
 
-<div id="outline-container-orgheadline2" class="outline-2">
-<h2 id="orgheadline2"><span class="section-number-2">2</span> Couplage entre un solénoïde et une bobine</h2>
+<div id="outline-container-org77df370" class="outline-2">
+<h2 id="org77df370"><span class="section-number-2">2</span> Couplage entre un solénoïde et une bobine</h2>
 <div class="outline-text-2" id="text-2">
 <ol class="org-ol">
 <li><p>
-L'unique champ magnétique est celui crée par le solénoïde que l'on considère
-comme infini. Ainsi le champ magnétique est égal à \(\mu_0nI\vv{u_z}\) pour
-\(r < a\) et nul à l'extérieur du solénoïde. Le flux magnétique induit par le
-solénoïde au travers de la bobine est donc égal à
+L'unique champ magnétique est celui crée par le solénoïde que l'on considère comme infini. Ainsi
+le champ magnétique est égal à \(\mu_0nI\vv{u_z}\) pour \(r < a\) et nul à l'extérieur du
+solénoïde. Le flux magnétique induit par le solénoïde au travers de la bobine est donc égal à
 </p>
 \begin{align*}
-  \Phi_{S\to B}=\iint_{S_B}\vv{B}.\vv{dS}=\mu_0nI\times\pi a^2\times N
+  \Phi_{S\to B}=\iint_{S_B}\vv{B}.\vv{\d S}=\mu_0nI\times\pi a^2\times N
 \end{align*}
 
 <p>
@@ -257,31 +256,30 @@ Le coefficient d'inductance mutuelle \(M\) s'écrit
 
 <li><ol class="org-ol">
 <li><p>
-La force électro-motrice \(e(t)\) qui correspond à la variation temporelle
-du flux magnétique au travers de la bobine s'écrit
+La force électro-motrice \(e(t)\) qui correspond à la variation temporelle du flux magnétique au
+travers de la bobine s'écrit
 </p>
 \begin{align*}
-  e(t)&=-\frac{d\Phi}{dt}=-L_\text{bobine}\frac{di}{dt}-M\frac{dI}{dt}
+  e(t)&=-\frac{\d\Phi}{\d t}=-L_\text{bobine}\frac{\d i}{\d t}-M\frac{\d I}{\d t}
 \end{align*}
 
 <p>
-où \(i(t)\) est le courant induit. L'expression de \(e(t)\) est ainsi la somme
-d'un terme d'auto-inductance à savoir que le courant induit \(i(t)\) génère
-une force s'opposant à son établissement auquel s'ajoute un terme
-d'inductance mutuelle due à la présence du solénoïde. Dans la mesure où
-l'inductance \(L_\text{bobine}\) est proportionnelle à \(N^2\) alors que le
-coefficient d'inductance mutuelle \(M\) est proportionnel à \(n\times N\) et
-dans l'hypothèse où \(n\gg N\), la f.e.m se réduit à
+où \(i(t)\) est le courant induit. L'expression de \(e(t)\) est ainsi la somme d'un terme
+d'auto-inductance à savoir que le courant induit \(i(t)\) génère une force s'opposant à son
+établissement auquel s'ajoute un terme d'inductance mutuelle due à la présence du
+solénoïde. Dans la mesure où l'inductance \(L_\text{bobine}\) est proportionnelle à \(N^2\) alors
+que le coefficient d'inductance mutuelle \(M\) est proportionnel à \(n\times N\) et dans
+l'hypothèse où \(n\gg N\), la f.e.m se réduit à
 </p>
 \begin{align*}
-  e(t)\simeq-M\frac{dI}{dt}
+  e(t)\simeq-M\frac{\d I}{\d t}
 \end{align*}
 
 <p>
 Le courant induit \(i(t)\) devient
 </p>
 \begin{align*}
-  e(t)=R\times i(t)\to i(t)&=-\frac{\mu_0nN\pi a^2}{R}\times\frac{dI}{dt}\\
+  e(t)=R\times i(t)\to i(t)&=-\frac{\mu_0nN\pi a^2}{R}\times\frac{\d I}{\d t}\\
   &=-\frac{\mu_0nN\pi a^2}{R}I_0\omega\cos\omega t
 \end{align*}</li>
 
@@ -291,7 +289,7 @@ circulation du champ électrique autour de ce circuit<sup><a id="fnr.3" class="f
  <div class="footdef"><sup><a id="fn.3" class="footnum" href="#fnr.3">3</a></sup> <div class="footpara"><p class="footpara"> le plan \((\vv{u_r},\vv{u_z})\) est un plan d'antisymétrie impliquant que le champ électrique soit orienté selon \(\vv{u_\theta}\) </p></div><br/></div>
 </p>
 \begin{align*}
-  e(t)&=\oint_\mathcal{C}\vv{E}.\vv{d\ell}=2\pi b\times N\times E
+  e(t)&=\oint_\mathcal{C}\vv{E}.\vv{\d\ell}=2\pi b\times N\times E
 \end{align*}
 
 <p>
@@ -357,8 +355,8 @@ On se place en \(r=b>a\),
 </div>
 </div>
 
-<div id="outline-container-orgheadline3" class="outline-2">
-<h2 id="orgheadline3"><span class="section-number-2">3</span> Lévitation magnétique</h2>
+<div id="outline-container-orgf615a10" class="outline-2">
+<h2 id="orgf615a10"><span class="section-number-2">3</span> Lévitation magnétique</h2>
 <div class="outline-text-2" id="text-3">
 <ol class="org-ol">
 <li><p>
@@ -381,33 +379,32 @@ devient
 Le flux magnétique induit par le solénoïde au travers de la bobine s'écrit
 </p>
 \begin{align*}
-  \Phi_{S\to B}&=\iint_{S_B}\vv{B_1}.\vv{dS}=\frac{\mu_0ni_1}{2}\left(1-\cos\alpha\right)\times N\times\pi b^2\\
+  \Phi_{S\to B}&=\iint_{S_B}\vv{B_1}.\vv{\d S}=\frac{\mu_0ni_1}{2}\left(1-\cos\alpha\right)\times N\times\pi b^2\\
   &=M\times i_1\to M=\frac{\mu_0nN\,\pi b^2}{2}\left(1-\cos\alpha\right)
 \end{align*}</li>
 
 <li><p>
 La bobine est traversée par le flux magnétique issu du solénoïde induisant
-une force électro-motrice \(e=-\frac{d\Phi_{S\to B}}{dt}=-M\frac{di_1}{dt}\). À
+une force électro-motrice \(e=-\frac{\d\Phi_{S\to B}}{\d t}=-M\frac{\d i_1}{\d t}\). À
 cette f.e.m, il convient d'ajouter l'inductance propre de la bobine
-\(e_\text{propre}=-\frac{d\Phi_\text{propre}}{dt}=-L\frac{di}{dt}\). Ainsi, la
+\(e_\text{propre}=-\frac{\d\Phi_\text{propre}}{\d t}=-L\frac{\d i}{\d t}\). Ainsi, la
 f.e.m aux bornes de la bobine est égale à
 </p>
 \begin{align*}
-  e=R\times i&=-\frac{d\Phi}{dt}\\
-  &=-\frac{d\Phi_{S\to B}}{dt}-\frac{d\Phi_\text{propre}}{dt}\\
-  &=-M\frac{di_1}{dt}-L\frac{di}{dt}\\
-  \frac{di}{dt} + \frac{R}{L}i &=-\frac{M}{L}\frac{di_1}{dt}
+  e=R\times i&=-\frac{\d\Phi}{\d t}\\
+  &=-\frac{\d\Phi_{S\to B}}{\d t}-\frac{\d\Phi_\text{propre}}{\d t}\\
+  &=-M\frac{\d i_1}{\d t}-L\frac{\d i}{\d t}\\
+  \frac{\d i}{\d t} + \frac{R}{L}i &=-\frac{M}{L}\frac{\d i_1}{\d t}
 \end{align*}
 
 <p>
-où \(i_1(t)=i_{1m}\cos\omega t\) donc \(\frac{di_1}{dt}=-i_{1m}\omega\sin\omega
-   t\). Cette équation peut se résoudre en cherchant successivement la solution
-homogène <i>i.e.</i> sans le membre constant \(-\frac{M}{L}\frac{di_1}{dt}\) puis
-une solution particulière en utilisant, par exemple, la méthode de variation
-de la constante. On peut également procéder différemment en considérant que
-\(i(t)\) est la superposition d'un régime transitoire et d'un régime permanent
-sinusoïdal. On cherche donc \(i(t)\) sous la forme \(A\cos\omega t+B\sin\omega
-   t\). L'équation différentielle devient
+où \(i_1(t)=i_{1m}\cos\omega t\) donc \(\frac{\d i_1}{\d t}=-i_{1m}\omega\sin\omega t\). Cette équation
+peut se résoudre en cherchant successivement la solution homogène <i>i.e.</i> sans le membre constant
+\(-\frac{M}{L}\frac{\d i_1}{\d t}\) puis une solution particulière en utilisant, par exemple, la
+méthode de variation de la constante. On peut également procéder différemment en considérant que
+\(i(t)\) est la superposition d'un régime transitoire et d'un régime permanent sinusoïdal. On
+cherche donc \(i(t)\) sous la forme \(A\cos\omega t+B\sin\omega t\). L'équation différentielle
+devient
 </p>
 \begin{align*}
   -A\omega\sin\omega t+B\omega\cos\omega t+\frac{R}{L}\left(A\cos\omega t+B\sin\omega t\right)&=\frac{M}{L}i_{1m}\omega\sin\omega t
@@ -459,13 +456,12 @@ La force qu'exerce le solénoïde sur ce dipôle magnétique s'écrit<sup><a id=
 \end{align*}
 
 <p>
-Sachant que \(\tan\alpha=\frac{a}{z}\), l'expression de
-\(\frac{\partial\alpha}{\partial z}\) s'écrit
+Sachant que \(\tan\alpha=\frac{a}{z}\), l'expression de \(\frac{\partial\alpha}{\partial z}\) s'écrit
 </p>
 \begin{align*}
-  \frac{d}{d\alpha}\tan\alpha&=\frac{\cos\alpha}{\cos\alpha}+\frac{\sin^2\alpha}{\cos^2\alpha}=\frac{1}{\cos^2\alpha}\\
-  d(\tan\alpha)&=\frac{d\alpha}{\cos^2\alpha}=d\left(\frac{a}{z}\right)=-\frac{a}{z^2}dz\\
-  \frac{\partial\alpha}{\partial z}&=\frac{d\alpha}{dz}=-\frac{a\cos^2\alpha}{z^2}\\
+  \frac{\d}{\d\alpha}\tan\alpha&=\frac{\cos\alpha}{\cos\alpha}+\frac{\sin^2\alpha}{\cos^2\alpha}=\frac{1}{\cos^2\alpha}\\
+  \d(\tan\alpha)&=\frac{\d\alpha}{\cos^2\alpha}=\d\left(\frac{a}{z}\right)=-\frac{a}{z^2}dz\\
+  \frac{\partial\alpha}{\partial z}&=\frac{\d\alpha}{\d z}=-\frac{a\cos^2\alpha}{z^2}\\
   &=-a\cos^2\alpha\times\frac{\tan^2\alpha}{a^2}=-\frac{\sin^2\alpha}{a}
 \end{align*}
 
@@ -517,7 +513,7 @@ expression
   i_\text{lim.}&=\sqrt{\frac{8mga\times\left(R^2+L^2\omega^2\right)}{L}}\times\frac{1}{\mu_0\omega nN\pi b^2}
 \end{align*}
 
-<div class="center">
+<div class="org-center">
 
 <div class="figure">
 <p><img src="./figures/magnetic_levitation.png" alt="magnetic_levitation.png" />
@@ -547,8 +543,8 @@ La puissance moyenne dissipée par effet Joule a pour expression
 </div>
 </div>
 
-<div id="outline-container-orgheadline4" class="outline-2">
-<h2 id="orgheadline4"><span class="section-number-2">4</span> Principe de la plaque de cuisson par induction</h2>
+<div id="outline-container-orgeb19240" class="outline-2">
+<h2 id="orgeb19240"><span class="section-number-2">4</span> Principe de la plaque de cuisson par induction</h2>
 <div class="outline-text-2" id="text-4">
 <ol class="org-ol">
 <li>On considère une casserole occupant le demi-espace \(z>0\), de conductivité
@@ -718,10 +714,10 @@ d'où l'expression réelle de \(E(z,t)\)
 
 <li><p>
 La puissance dissipée par unité de volume est
-\(\frac{dP}{d\tau}=\vv{j}.\vv{E}=\gamma E^2\) soit
+\(\frac{\d P}{\d\tau}=\vv{j}.\vv{E}=\gamma E^2\) soit
 </p>
 \begin{align*}
-  \frac{dP}{d\tau}&=\frac{2}{\mu_0^2\gamma\delta^2}B_1^2\,e^{-\frac{2z}{\delta}}\,\cos^2\left(\frac{z}{\delta}-\omega t+\frac{3\pi}{4}\right)
+  \frac{\d P}{\d\tau}&=\frac{2}{\mu_0^2\gamma\delta^2}B_1^2\,e^{-\frac{2z}{\delta}}\,\cos^2\left(\frac{z}{\delta}-\omega t+\frac{3\pi}{4}\right)
 \end{align*}
 
 <p>
@@ -729,14 +725,14 @@ On déduit de ce résultat que la puissance moyenne dissipée par effet Joule
 est
 </p>
 \begin{align*}
-  \left\langle\frac{dP}{d\tau}\right\rangle_T&=\frac{B_1^2}{\mu_0^2\gamma\delta^2}\,e^{-\frac{2z}{\delta}}
+  \left\langle\frac{\d P}{\d\tau}\right\rangle_T&=\frac{B_1^2}{\mu_0^2\gamma\delta^2}\,e^{-\frac{2z}{\delta}}
 \end{align*}
 
 <p>
 tandis que la puissance moyenne par unité de surface s'écrit
 </p>
 \begin{align*}
-  \left\langle\frac{dP}{dS}\right\rangle_T&=\frac{B_1^2}{\mu_0^2\gamma\delta^2}\,\int_0^{+\infty}e^{-\frac{2z}{\delta}}\,dz\\
+  \left\langle\frac{\d P}{\d S}\right\rangle_T&=\frac{B_1^2}{\mu_0^2\gamma\delta^2}\,\int_0^{+\infty}e^{-\frac{2z}{\delta}}\,\d z\\
   &=\frac{B_1^2}{\mu_0^2\gamma\delta^2}\left[-\frac{\delta}{2}e^{-\frac{2z}{\delta}}\right]_{0}^{+\infty}\\
   &=\frac{B_1^2}{\mu_0^2\gamma\delta^2}\times\frac{\delta}{2}=\frac{B_1^2}{2\mu_0^2\gamma\delta}
 \end{align*}</li>
@@ -796,7 +792,7 @@ d'efficacité de chauffage qu'en terme de sécurité<sup><a id="fnr.5" class="fo
 </div>
 </div></div>
 <div id="postamble" class="status">
-File under <i class="fa fa-github-alt"></i> version control - commit <a href="https://github.com/xgarrido/licence_em_teaching/commit/311150a025b9911feb88eb5eafabc7b31c1ab20a">311150a</a> - 2016-06-28
+File under <i class="fa fa-github-alt"></i> version control - commit <a href="https://github.com/xgarrido/licence_em_teaching/commit/16aed20846016fe35284275cba92e3520e1831e1">16aed20</a> - 2020-12-21
 </div>
 </body>
 </html>

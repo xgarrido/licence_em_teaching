@@ -3,10 +3,11 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
-<meta  name="viewport" content="width=device-width, initial-scale=1" />
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>TD1 : Équations de Maxwell dans le vide et champ électromagnétique</title>
-<meta  name="generator" content="Org-mode" />
+<meta name="generator" content="Org mode" />
+<meta name="author" content="Xavier Garrido" />
 <link rel="stylesheet" href="css/styles.css" />
                <link rel="stylesheet" href="css/org-pygments.css" />
                <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" />
@@ -15,7 +16,7 @@
 @licstart  The following is the entire license notice for the
 JavaScript code in this tag.
 
-Copyright (C) 2012-2013 Free Software Foundation, Inc.
+Copyright (C) 2012-2018 Free Software Foundation, Inc.
 
 The JavaScript code in this tag is free software: you can
 redistribute it and/or modify it under the terms of the GNU
@@ -83,6 +84,7 @@ for the JavaScript code in this tag.
           extensions: ["cancel.js"],
           Macros: {
               vv: ["{\\vec{#1}}",1],
+              d: "{\\text{d}}",
               Upsigma: "{\\Sigma}",
               Updelta: "{\\Delta}",
               varoiint: "{\\iint}",
@@ -152,8 +154,8 @@ for the JavaScript code in this tag.
 </div>
 </div>
 
-<div id="outline-container-orgheadline1" class="outline-2">
-<h2 id="orgheadline1"><span class="section-number-2">1</span> Équations de Maxwell dans le vide&#xa0;&#xa0;&#xa0;<span class="tag"><span class="DM">DM</span></span></h2>
+<div id="outline-container-org96eaa1a" class="outline-2">
+<h2 id="org96eaa1a"><span class="section-number-2">1</span> Équations de Maxwell dans le vide</h2>
 <div class="outline-text-2" id="text-1">
 <div class="QUESTION">
 <ol class="org-ol">
@@ -385,7 +387,7 @@ Finalement, en remplaçant l'expression du champ magnétique dans la relation (4
 
 <p>
 et en appliquant la relation
-\(\vv{a}\times(\vv{b}\times\vv{c})=(\vv{a}.\vv{c}).\vv{b}-(\vv{a}.\vv{b}).\vv{c}\),
+\(\vv{a}\times(\vv{b}\times\vv{c})=(\vv{a}.\vv{c})\vv{b}-(\vv{a}.\vv{b})\vv{c}\),
 on déduit
 </p>
 \begin{align*}
@@ -440,12 +442,12 @@ d'une onde polarisée rectilignement selon \(\vv{u}_x\) <i>i.e.</i> pour laquell
 champ électrique \(\vv{E}\) est colinéaire à \(\vv{u}_x\) on obtient ainsi
 </p>
 
-<div class="center">
+<div class="org-center">
 
-<div id="orgparagraph1" class="figure">
+<div id="orgef1c340" class="figure">
 <p><img src="figures/onde_polarise_rect.png" alt="onde_polarise_rect.png" />
 </p>
-<p><span class="figure-number">Figure 1:</span> <b>Représentation graphique d'une onde polarisée rectilignement.</b></p>
+<p><span class="figure-number">Figure 1: </span><b>Représentation graphique d'une onde polarisée rectilignement.</b></p>
 </div>
 </div>
 
@@ -454,12 +456,12 @@ Dans le cas d'une polarisation circulaire, le champ électrique \(\vv{E}\) décr
 au cours du temps, un cercle autour du vecteur d'onde \(\vv{k}\)
 </p>
 
-<div class="center">
+<div class="org-center">
 
 <div class="figure">
 <p><img src="figures/onde_polarise_circ.png" alt="onde_polarise_circ.png" />
 </p>
-<p><span class="figure-number">Figure 2:</span> <b>Représentation graphique d'une onde polarisée circulairement gauche.</b></p>
+<p><span class="figure-number">Figure 2: </span><b>Représentation graphique d'une onde polarisée circulairement gauche.</b></p>
 </div>
 </div>
 
@@ -471,9 +473,7 @@ au cours du temps, un cercle autour du vecteur d'onde \(\vv{k}\)
 </div>
 
 <p>
-Le vecteur de Poynting se calcule à partir des champs réels soit, dans le cas
-d'une onde polarisée rectilignement (\(\vv{E}_0\parallel\vv{u}_x\), <i>cf.</i> Figure
-<a href="#orgparagraph1">1</a>),
+Le vecteur de Poynting se calcule à partir des champs réels soit
 </p>
 \begin{align*}
   \vv{R}&=\frac{\text{Re}(\vv{E})\times\text{Re}(\vv{B})}{\mu_0}\\
@@ -495,8 +495,8 @@ Poynting
 
 <p>
 L'intensité \(I\) correspond à la variation de la puissance électromagnétique
-traversant un élément de surface \(d\vv{S}\). C'est donc la moyenne temporelle du
-vecteur de Poynting
+traversant un élément de surface \(d\vv{S}\). C'est donc la moyenne temporelle de
+la norme du vecteur de Poynting
 </p>
 \begin{align*}
   I&=\left\|\left\langle\vv{R}\right\rangle_T\right\|\\
@@ -514,8 +514,8 @@ pertinente à estimer car mesurable expérimentalement.
 </div>
 </div>
 
-<div id="outline-container-orgheadline2" class="outline-2">
-<h2 id="orgheadline2"><span class="section-number-2">2</span> Énergie magnétique stockée dans une bobine</h2>
+<div id="outline-container-org4103623" class="outline-2">
+<h2 id="org4103623"><span class="section-number-2">2</span> Énergie magnétique stockée dans une bobine</h2>
 <div class="outline-text-2" id="text-2">
 <div class="QUESTION">
 <p>
@@ -548,7 +548,7 @@ champ magnétique ne dépend que de la distance \(r\) à l'axe de la bobine
 En appliquant le théorème d'Ampère à savoir
 </p>
 \begin{align*}
-  \oint_\mathcal{C}\vv{B}.\vv{d\ell} &= \mu_0\iint_{\mathcal{S/C}}\vv{j}.\vv{dS}=\mu_0I_\mathcal{C}
+  \oint_\mathcal{C}\vv{B}.\vv{\d\ell} &= \mu_0\iint_{\mathcal{S/C}}\vv{j}.\vv{\d S}=\mu_0I_\mathcal{C}
 \end{align*}
 
 <p>
@@ -608,7 +608,7 @@ d'évolution du courant dans le circuit, fermé à l'instant \(t=0\) ?</li>
 
 </div>
 
-<div class="center">
+<div class="org-center">
 
 <div class="figure">
 <p><img src="figures/inductor_circuit.png" alt="inductor_circuit.png" />
@@ -620,7 +620,7 @@ d'évolution du courant dans le circuit, fermé à l'instant \(t=0\) ?</li>
 La loi d'évolution du courant est décrite par la formule
 </p>
 \begin{align*}
-  u_g-Ri(t)&=ri(t)+\mathcal{L}\frac{di(t)}{dt}
+  u_g-Ri(t)&=ri(t)+\mathcal{L}\frac{\d i(t)}{\d t}
 \end{align*}
 
 <p>
@@ -628,7 +628,7 @@ La loi d'évolution du courant est décrite par la formule
 différentielle du premier ordre
 </p>
 \begin{align*}
-\frac{di(t)}{dt}+\frac{R}{\mathcal{L}}\cdot i(t)-\frac{u_g}{\mathcal{L}}&=0
+\frac{\d i(t)}{\d t}+\frac{R}{\mathcal{L}}\cdot i(t)-\frac{u_g}{\mathcal{L}}&=0
 \end{align*}
 
 <p>
@@ -682,8 +682,8 @@ intégrale s'écrit alors
 
 \begin{align*}
   \rot\vv{E}&=-\tfrac{\partial\vv{B}}{\partial t}\\
-  \iint_\mathcal{S}\rot\vv{E}.\vv{dS}&=-\iint_\mathcal{S}\frac{\partial\vv{B}}{\partial t}.\vv{dS}\\
-  \oint_{\mathcal{C}/\mathcal{S}}\vv{E}.\vv{d\ell}&=-\iint_\mathcal{S}\frac{\partial\vv{B}}{\partial t}.\vv{dS}
+  \iint_\mathcal{S}\rot\vv{E}.\vv{\d S}&=-\iint_\mathcal{S}\frac{\partial\vv{B}}{\partial t}.\vv{\d S}\\
+  \oint_{\mathcal{C}/\mathcal{S}}\vv{E}.\vv{\d\ell}&=-\iint_\mathcal{S}\frac{\partial\vv{B}}{\partial t}.\vv{\d S}
 \end{align*}
 
 <p>
@@ -693,7 +693,7 @@ déduit ainsi que le champ électrique est égal à
 
 \begin{align*}
   2\pi rE(r,t)&=-\pi r^2\frac{\partial B_z}{\partial t}\\
-  \vv{E}(r,t)&=-\frac{r}{2}\mu_0n\frac{di(t)}{dt}\,\vv{u}_\theta\\
+  \vv{E}(r,t)&=-\frac{r}{2}\mu_0n\frac{\d i(t)}{\d t}\,\vv{u}_\theta\\
   \vv{E}(r,t)&=-\frac{r}{2}\times\frac{\mu_0u_gn}{R}\times\frac{1}{\tau}e^{-\frac{t}{\tau}}\,\vv{u}_\theta\\
   &=-\frac{r}{2}\times\frac{\mu_0u_gn}{\mathcal{L}}\times e^{-\frac{t}{\tau}}\,\vv{u}_\theta
 \end{align*}
@@ -748,7 +748,7 @@ devient
 
 \begin{align*}
   \vv{\pi}(r,t)&=\frac{\vv{E}\times\vv{B}}{\mu_0}\\
-  &=-\frac{r}{2}\times\frac{\mu_0^{\cancel{2}}n^2}{\cancel{\mu_0}}\,i\frac{di}{dt}\,\vv{u}_r
+  &=-\frac{r}{2}\times\frac{\mu_0^{\cancel{2}}n^2}{\cancel{\mu_0}}\,i\frac{\d i}{\d t}\,\vv{u}_r
 \end{align*}
 
 <p>
@@ -757,8 +757,8 @@ Le flux du vecteur de Poynting correspond à la puissance électromagnétique
 \((r=a)\) soit
 </p>
 \begin{align*}
-  \mathcal{P}_\text{EM}&=\int_{\theta=0}^{2\pi}\int_{z=0}^\ell\vv{\pi}(a,t).(ad\theta dz\vv{u}_r)\\
-  &=-\underbrace{\mu_0n^2\pi a^2\ell}_{\mathcal{L}} i\frac{di}{dt}=-\mathcal{L}i\frac{di}{dt}
+  \mathcal{P}_\text{EM}&=\int_{\theta=0}^{2\pi}\int_{z=0}^\ell\vv{\pi}(a,t).(a\d\theta \d z\vv{u}_r)\\
+  &=-\underbrace{\mu_0n^2\pi a^2\ell}_{\mathcal{L}} i\frac{\d i}{\d t}=-\mathcal{L}i\frac{\d i}{\d t}
 \end{align*}
 
 <p>
@@ -767,8 +767,8 @@ temporelle de la puissance entrante <i>i.e.</i>
 \(\mathcal{P}_\text{EM}^\text{sortant}=-\mathcal{P}_\text{EM}^\text{entrant}\)
 </p>
 \begin{align*}
-  \mathcal{E}&=\int\mathcal{P}_\text{EM}^\text{entrant}(t)dt=\int\mathcal{L}i\frac{di}{dt}dt\\
-  &=\int\mathcal{L}idi=\frac{1}{2}\mathcal{L}i^2(t)
+  \mathcal{E}&=\int\mathcal{P}_\text{EM}^\text{entrant}(t)\d t=\int\mathcal{L}i\frac{\d i}{\d t}\d t\\
+  &=\int\mathcal{L}i\d i=\frac{1}{2}\mathcal{L}i^2(t)
 \end{align*}
 
 <p>
@@ -781,19 +781,19 @@ est utilisée, par exemple, dans des dispositifs d'émission de lumière
 ultra-courte comme sur le montage ci-dessous
 </p>
 
-<div class="center">
+<div class="org-center">
 
 <div class="figure">
 <p><img src="figures/kapustinsky_circuit.png" alt="kapustinsky_circuit.png" />
 </p>
-<p><span class="figure-number">Figure 4:</span> <b>Dispositif électronique générant des impulsions lumineuses ultra-courte.</b> (J. S. Kapustinsky <i>et al.</i> (NIMA 241, 1985).</p>
+<p><span class="figure-number">Figure 4: </span><b>Dispositif électronique générant des impulsions lumineuses ultra-courte.</b> (J. S. Kapustinsky <i>et al.</i> (NIMA 241, 1985).</p>
 </div>
 </div>
 </div>
 </div>
 
-<div id="outline-container-orgheadline3" class="outline-2">
-<h2 id="orgheadline3"><span class="section-number-2">3</span> "Propriétés mécaniques" du champ électromagnétique</h2>
+<div id="outline-container-org3f737da" class="outline-2">
+<h2 id="org3f737da"><span class="section-number-2">3</span> "Propriétés mécaniques" du champ électromagnétique</h2>
 <div class="outline-text-2" id="text-3">
 <div class="QUESTION">
 <p>
@@ -849,8 +849,7 @@ Force de Lorentz : \(\vv{F}=q\vv{E}+q\vv{v}\times\vv{B}\)
 
 <div class="QUESTION">
 <ol class="org-ol">
-<li value="2">À partir des équations de Maxwell, établir l'équation locale de
-conservation de la charge.</li>
+<li value="2">À partir des équations de Maxwell, établir l'équation locale de conservation de la charge.</li>
 </ol>
 
 </div>
@@ -908,15 +907,15 @@ vitesse de la particule&nbsp;\(\vv{v}\) :
 
 <p>
 La puissance par unité de volume
-\(\tfrac{d\mathcal{P}}{d\tau}=nq\vv{E}.\vv{v}\) or \(\vv{j}=nq\vv{v}\) d'où
-\(\tfrac{d\mathcal{P}}{d\tau}=\vv{j}.\vv{E}\)
+\(\tfrac{\d\mathcal{P}}{\d\tau}=nq\vv{E}.\vv{v}\) or \(\vv{j}=nq\vv{v}\) d'où
+\(\tfrac{\d\mathcal{P}}{\d\tau}=\vv{j}.\vv{E}\)
 </p>
 
 <div class="QUESTION">
 <ol class="org-ol">
 <li value="4">On note \(\vv{R}\) le vecteur de Poynting et \(u\) la densité d'énergie
-électromagnétique. Calculer \(\div\vv{R}\) et en déduire l'équation locale de
-conservation de l'énergie.</li>
+électromagnétique. Calculer \(\div\vv{R}\) et en déduire l'équation locale de conservation de
+l'énergie.</li>
 </ol>
 
 </div>
@@ -938,9 +937,9 @@ conservation de l'énergie.</li>
 
 <div class="QUESTION">
 <ol class="org-ol">
-<li value="5">Montrer que dans le cas d'un régime périodique, la puissance moyenne
-entrant par rayonnement à travers une surface fermée est intégralement cédée
-à la matière contenue dans le volume intérieur à cette surface.</li>
+<li value="5">Montrer que dans le cas d'un régime périodique, la puissance moyenne entrant par rayonnement
+à travers une surface fermée est intégralement cédée à la matière contenue dans le volume
+intérieur à cette surface.</li>
 </ol>
 
 </div>
@@ -948,16 +947,16 @@ entrant par rayonnement à travers une surface fermée est intégralement cédé
 \(\vv{E}=\vv{E}_0\cos\omega t\), \(\vv{B}=\vv{B_0}\sin\omega t\)
 </p>
 \begin{align*}
-  \iiint_V\div\vv{R}d\tau+\iiint_V\frac{\partial u}{\partial t}d\tau+\iiint_V\vv{j}.\vv{E}d\tau=0\\
-  \iiint_V\div\vv{R}d\tau+\iiint_V\frac{\partial u}{\partial t}d\tau+\underbrace{\iiint_V\frac{d\mathcal{P}}{d\tau}d\tau}_{\mathcal{P}_{\text{EM}\rightarrow\,q}}=0\\
+  \iiint_V\div\vv{R}\d\tau+\iiint_V\frac{\partial u}{\partial t}\d\tau+\iiint_V\vv{j}.\vv{E}\d\tau=0\\
+  \iiint_V\div\vv{R}\d\tau+\iiint_V\frac{\partial u}{\partial t}\d\tau+\underbrace{\iiint_V\frac{\d\mathcal{P}}{\d\tau}\d\tau}_{\mathcal{P}_{\text{EM}\rightarrow\,q}}=0\\
 \end{align*}
 
 <p>
 En appliquant le théorème d'Ostrogradsky
-\(\varoiint_S\vv{a}.d\vv{S}=\iiint_V\div\vv{a}d\tau\), on obtient
+\(\varoiint_S\vv{a}.\d\vv{S}=\iiint_V\div\vv{a}\d\tau\), on obtient
 </p>
 \begin{align*}
-  \varoiint_S\vv{R}.d\vv{S}+\iiint_V\frac{\partial u}{\partial t}d\tau+\mathcal{P}_{\text{EM}\rightarrow\,q}=0
+  \varoiint_S\vv{R}.\d\vv{S}+\iiint_V\frac{\partial u}{\partial t}\d\tau+\mathcal{P}_{\text{EM}\rightarrow\,q}=0
 \end{align*}
 
 <p>
@@ -965,8 +964,8 @@ La puissance moyenne sortant de la surface fermée<sup><a id="fnr.1" class="foot
  <div class="footdef"><sup><a id="fn.1" class="footnum" href="#fnr.1">1</a></sup> <div class="footpara"><p class="footpara"> il s'agit de la puissance sortant d'une surface <b>fermée</b> qui correspond au différentiel entre la puissance ayant pénétrée dans le volume et la puissance sortant de ce volume. </p></div><br/></div>
 </p>
 \begin{align*}
-  \left\langle\varoiint_S\vv{R}.d\vv{S}\right\rangle_T+\left\langle\iiint_V\frac{\partial u}{\partial t}d\tau\right\rangle_T+\left\langle\mathcal{P}_{\text{EM}\rightarrow\,q}\right\rangle_T=0\\
-  \left\langle\mathcal{P}_\text{sortant}\right\rangle_T+\iiint_V\left\langle\frac{\partial u}{\partial t}d\tau\right\rangle_T+\left\langle\mathcal{P}_{\text{EM}\rightarrow\,q}\right\rangle_T=0
+  \left\langle\varoiint_S\vv{R}.\d\vv{S}\right\rangle_T+\left\langle\iiint_V\frac{\partial u}{\partial t}\d\tau\right\rangle_T+\left\langle\mathcal{P}_{\text{EM}\rightarrow\,q}\right\rangle_T=0\\
+  \left\langle\mathcal{P}_\text{sortant}\right\rangle_T+\iiint_V\left\langle\frac{\partial u}{\partial t}\d\tau\right\rangle_T+\left\langle\mathcal{P}_{\text{EM}\rightarrow\,q}\right\rangle_T=0
 \end{align*}
 
 <p>
@@ -992,17 +991,16 @@ soit
 </p>
 
 <p>
-On considère l'interaction entre une onde EM plane, homogène, harmonique de
-période \(T=2\pi/\omega\), progressive dans la direction et le sens \(Oz\) et une
-particule \(M\) (masse \(m\), charge \(q\)) animée sous l'action de la force de
-Lorentz et d'autres forces, d'un mouvement harmonique forcé, de période \(T\),
-dans le plan \(z=0\), au voisinage du point \(O\). La polarisation de l'onde et le
-mouvement forcé ne sont pas forcément rectilignes.
+On considère l'interaction entre une onde EM plane, homogène, harmonique de période \(T=2\pi/\omega\),
+progressive dans la direction et le sens \(Oz\) et une particule \(M\) (masse \(m\), charge \(q\)) animée
+sous l'action de la force de Lorentz et d'autres forces, d'un mouvement harmonique forcé, de période
+\(T\), dans le plan \(z=0\), au voisinage du point \(O\). La polarisation de l'onde et le mouvement forcé
+ne sont pas forcément rectilignes.
 </p>
 
 </div>
 
-<div class="center">
+<div class="org-center">
 
 <div class="figure">
 <p><img src="./figures/onde_plane.png" alt="onde_plane.png" />
@@ -1012,8 +1010,8 @@ mouvement forcé ne sont pas forcément rectilignes.
 
 <div class="QUESTION">
 <ol class="org-ol">
-<li value="1">Exprimer sous la forme d'une intégrale l'énergie \(W\) fournie par le
-champ EM à la particule en une période.</li>
+<li value="1">Exprimer sous la forme d'une intégrale l'énergie \(W\) fournie par le champ EM à la particule
+en une période.</li>
 </ol>
 
 </div>
@@ -1026,38 +1024,37 @@ Onde plane progressive \(\vv{B}=\tfrac{\vv{u}_z\times\vv{E}}{c}\)
 Calcul de la puissance \(\mathcal{P}\)
 </p>
 \begin{align*}
-  \mathcal{P}&=\frac{dW}{dt}\text{ avec }\mathcal{P}=q\vv{E}.\vv{v}\\
-  W&=\int_0^Tq\vv{E}.\vv{v}dt
+  \mathcal{P}&=\frac{\d W}{\d t}\text{ avec }\mathcal{P}=q\vv{E}.\vv{v}\\
+  W&=\int_0^Tq\vv{E}.\vv{v}\d t
 \end{align*}
 
 <div class="QUESTION">
 <ol class="org-ol">
-<li value="2">Déterminer l'impulsion \(\vv{p}\) cédée en une période par le champ à la
-particule en fonction de \(W\), \(c\) et de \(\vv{u}_z\).</li>
+<li value="2">Déterminer l'impulsion \(\vv{p}\) cédée en une période par le champ à la particule en fonction
+de \(W\), \(c\) et de \(\vv{u}_z\).</li>
 </ol>
 
 </div>
 
 <p>
-La variation d'impulsion \(\vv{p}\) par unité de temps induite par le passage de
-l'onde EM est égale à la force de Lorentz \(\vv{F}\)
+La variation d'impulsion \(\vv{p}\) par unité de temps induite par le passage de l'onde EM est égale à
+la force de Lorentz \(\vv{F}\)
 </p>
 \begin{align*}
-  \frac{d\vv{p}}{dt}=\vv{F}
+  \frac{\d\vv{p}}{\d t}=\vv{F}
 \end{align*}
 
 <p>
 d'où
 </p>
 \begin{align*}
-  \vv{p}&=\int_0^T\vv{F}dt=\int_0^Tq\left(\vv{E}+\vv{v}\times\vv{B}\right)dt\\
-  &=\int_0^Tq\vv{E}dt+\int_0^Tq\vv{v}\times\left(\frac{\vv{u}_z\times\vv{E}}{c}\right)dt
+  \vv{p}&=\int_0^T\vv{F}\d t=\int_0^Tq\left(\vv{E}+\vv{v}\times\vv{B}\right)\d t\\
+  &=\int_0^Tq\vv{E}\d t+\int_0^Tq\vv{v}\times\left(\frac{\vv{u}_z\times\vv{E}}{c}\right)\d t
 \end{align*}
 
 <p>
-La première intégrale est nulle car \(\vv{E}=\vv{E}_0\cos\omega t\). Pour
-déterminer l'expression de la seconde intégrale, on utilise la formule
-ci-dessous
+La première intégrale est nulle car \(\vv{E}=\vv{E}_0\cos\omega t\). Pour déterminer l'expression de
+la seconde intégrale, on utilise la formule ci-dessous
 </p>
 \begin{align*}
   \vv{a}\times\left(\vv{b}\times\vv{c}\right)=\left(\vv{a}.\vv{c}\right)\vv{b}-\left(\vv{a}.\vv{b}\right)\vv{c}
@@ -1067,27 +1064,27 @@ ci-dessous
 L'impulsion \(\vv{p}\) devient
 </p>
 \begin{align*}
-  \vv{p}&=\int_0^T\frac{q}{c}\left(\vv{v}.\vv{E}\right)\vv{u}_z\,dt-\int_0^T\frac{q}{c}\left(\vv{v}.\vv{u}_z\right)\vv{E}dt
+  \vv{p}&=\int_0^T\frac{q}{c}\left(\vv{v}.\vv{E}\right)\vv{u}_z\,\d t-\int_0^T\frac{q}{c}\left(\vv{v}.\vv{u}_z\right)\vv{E}\d t
 \end{align*}
 
 <p>
-or \(\vv{v}.\vv{u}_z=0\) car la particule est maintenue dans le plan
-\(z=0\). L'expression de l'impulsion se réduit donc
+or \(\vv{v}.\vv{u}_z=0\) car la particule est maintenue dans le plan \(z=0\). L'expression de
+l'impulsion se réduit donc
 </p>
 \begin{align*}
-  \vv{p}=\int_0^T\frac{q}{c}\left(\vv{v}.\vv{E}\right)\vv{u}_z\,dt=\frac{W}{c}\vv{u}_z
+  \vv{p}=\int_0^T\frac{q}{c}\left(\vv{v}.\vv{E}\right)\vv{u}_z\,\d t=\frac{W}{c}\vv{u}_z
 \end{align*}
 
 <div class="QUESTION">
 <ol class="org-ol">
-<li value="3">Rappeler le lien entre l'impulsion et l'énergie du photon. Vérifier la
-cohérence avec la question précédente.</li>
+<li value="3">Rappeler le lien entre l'impulsion et l'énergie du photon. Vérifier la cohérence avec la
+question précédente.</li>
 </ol>
 
 </div>
 <p>
-L'énergie d'un photon \(E=h\nu=\tfrac{hc}{\lambda}\) est égale à \(pc\) <i>via</i> la
-relation de de Broglie reliant onde et matière \(\lambda=\tfrac{h}{p}\)
+L'énergie d'un photon \(E=h\nu=\tfrac{hc}{\lambda}\) est égale à \(pc\) <i>via</i> la relation de de Broglie
+reliant onde et matière \(\lambda=\tfrac{h}{p}\)
 </p>
 
 <div class="QUESTION">
@@ -1096,26 +1093,23 @@ relation de de Broglie reliant onde et matière \(\lambda=\tfrac{h}{p}\)
 </p>
 
 <p>
-La situation est la même qu'à la question 2. On note \(\sigma_z\) la composante
-sur \(Oz\) du moment cinétique en \(O\) cédé par le champ à la particule en une
-période.
+La situation est la même qu'à la question 2. On note \(\sigma_z\) la composante sur \(Oz\) du moment
+cinétique en \(O\) cédé par le champ à la particule en une période.
 </p>
 
 <ol class="org-ol">
-<li value="1">Comparer les dimensions de \(W\) et \(\sigma_z\). Proposer une relation à
-une constante multiplicative près entre \(W\), \(\sigma_z\) et \(T\).</li>
+<li value="1">Comparer les dimensions de \(W\) et \(\sigma_z\). Proposer une relation à une constante
+multiplicative près entre \(W\), \(\sigma_z\) et \(T\).</li>
 </ol>
 
 </div>
 
 <p>
-\(\vv{\sigma}_O=\vv{r}\times\vv{p}=\vv{OM}\times\vv{p}\) et
-\(\sigma_z=\vv{\sigma}_O.\vv{u}_z\)
+\(\vv{\sigma}_O=\vv{r}\times\vv{p}=\vv{OM}\times\vv{p}\) et \(\sigma_z=\vv{\sigma}_O.\vv{u}_z\)
 </p>
 
 <p>
-\([\sigma_z]=[L]\times[M][L][T^{-1}]=[M]\times[L^2]\times[T^{-1}]\) et
-\([W]=[M][L^2][T^{-2}]\) d'où
+\([\sigma_z]=[L]\times[M][L][T^{-1}]=[M]\times[L^2]\times[T^{-1}]\) et \([W]=[M][L^2][T^{-2}]\) d'où
 </p>
 \begin{align*}
   [W]&=\frac{[\sigma_z]}{[T]}\\
@@ -1124,8 +1118,7 @@ une constante multiplicative près entre \(W\), \(\sigma_z\) et \(T\).</li>
 
 <div class="QUESTION">
 <ol class="org-ol">
-<li value="2">En utilisant le résultat de 2b), montrer que \(\sigma_z\) est indépendant
-du choix de \(O\).</li>
+<li value="2">En utilisant le résultat de 2b), montrer que \(\sigma_z\) est indépendant du choix de \(O\).</li>
 </ol>
 
 </div>
@@ -1152,30 +1145,29 @@ Expression de \(\sigma_z\) <sup><a id="fnr.2" class="footref" href="#fn.2">2</a>
 </p>
 \begin{align*}
   \vv{\sigma}&=\vv{OM}\times\vv{p}\text{ or }\frac{d\vv{p}}{dt}=\vv{F}_\text{Lorentz}=q\vv{E}+q\vv{v}\times\vv{B}\\
-  d\vv{\sigma}&=\vv{OM}\times d\vv{p}\\
-  d\sigma_z&=d\vv{\sigma}.\vv{u}_z\\
-  \sigma_z&=\left[\underbrace{\int_0^T\vv{OM}\times q\vv{E}dt}_{\text{\(\unicode{x2460}\)}}+\underbrace{\int_0^T\vv{OM}\times q(\vv{v}\times\vv{B})dt}_{\text{\(\unicode{x2461}\)}}\right].\vv{u}_z
+  \d\vv{\sigma}&=\vv{OM}\times \d\vv{p}\\
+  \d\sigma_z&=\d\vv{\sigma}.\vv{u}_z\\
+  \sigma_z&=\left[\underbrace{\int_0^T\vv{OM}\times q\vv{E}\d t}_{\text{\(\unicode{x2460}\)}}+\underbrace{\int_0^T\vv{OM}\times q(\vv{v}\times\vv{B})\d t}_{\text{\(\unicode{x2461}\)}}\right].\vv{u}_z
 \end{align*}
 
 <p>
 Calcul de \(\unicode{x2460}\)
 </p>
 \begin{align*}
-  \text{\(\unicode{x2460}\)}&=q\int_0^T\left(\vv{OM}\times\vv{E}\right).\vv{u}_z\,dt\\
-  &=q\int_0^T\left(\vv{E}\times\vv{u}_z\right).\vv{OM}\,dt\\
-  &=-q\int_0^T\vv{OM}.\left(\vv{u}_z\times\vv{E}(M,t)\right)\,dt
+  \text{\(\unicode{x2460}\)}&=q\int_0^T\left(\vv{OM}\times\vv{E}\right).\vv{u}_z\,\d t\\
+  &=q\int_0^T\left(\vv{E}\times\vv{u}_z\right).\vv{OM}\,\d t\\
+  &=-q\int_0^T\vv{OM}.\left(\vv{u}_z\times\vv{E}(M,t)\right)\,\d t
 \end{align*}
 
 <p>
-or \(\vv{E}(M,t)=\vv{E}(O,t)\) car l'onde EM est plane et le calcul se fait
-en \(z=0\)
+or \(\vv{E}(M,t)=\vv{E}(O,t)\) car l'onde EM est plane et le calcul se fait en \(z=0\)
 </p>
 
 <p>
 Calcul de \(\unicode{x2461}\)
 </p>
 \begin{align*}
-  \text{\(\unicode{x2461}\)}&=q\int_0^T\vv{OM}\times\left(\vv{v}\times\vv{B}\right).\vv{u}_zdt
+  \text{\(\unicode{x2461}\)}&=q\int_0^T\vv{OM}\times\left(\vv{v}\times\vv{B}\right).\vv{u}_z\d t
 \end{align*}
 
 <p>
@@ -1185,24 +1177,22 @@ or
   \vv{a}\times\left(\vv{b}\times\vv{c}\right)=\left(\vv{a}.\vv{c}\right)\vv{b}-\left(\vv{a}.\vv{b}\right)\vv{c}
 \end{align*}
 \begin{align*}
-  \text{\(\unicode{x2461}\)}&=q\left[\int_0^T\left(\vv{OM}.\vv{B}\right).\underbrace{\vv{v}.\vv{u}_z}_{\vv{v}\perp\vv{u}_z=0}dt-\int_0^T\left(\vv{OM}.\vv{v}\right).\underbrace{\vv{B}.\vv{u}_z}_{\vv{B}\perp\vv{u}_z=0}dt\right]
+  \text{\(\unicode{x2461}\)}&=q\left[\int_0^T\left(\vv{OM}.\vv{B}\right).\underbrace{\vv{v}.\vv{u}_z}_{\vv{v}\perp\vv{u}_z=0}\d t-\int_0^T\left(\vv{OM}.\vv{v}\right).\underbrace{\vv{B}.\vv{u}_z}_{\vv{B}\perp\vv{u}_z=0}\d t\right]
 \end{align*}
 
 <p>
-Seul le champ électrique \(\vv{E}\) de l'onde EM contribue au moment
-cinétique cédé à la particule \(q\)
+Seul le champ électrique \(\vv{E}\) de l'onde EM contribue au moment cinétique cédé à la particule&nbsp;\(q\)
 </p>
 \begin{align*}
-  \sigma_z=-q\int_0^T\vv{OM}.\left(\vv{u}_z\times\vv{E}(O,t)\right)dt
+  \sigma_z=-q\int_0^T\vv{OM}.\left(\vv{u}_z\times\vv{E}(O,t)\right)\d t
 \end{align*}
 
 <div class="QUESTION">
 <ol class="org-ol">
-<li value="4">On considère le cas où l'onde est à polarisation circulaire
-gauche. Exprimer \(\vv{u}_z\times\vv{E}(O,t)\) en fonction de
-\(\frac{d\vv{E}(O,t)}{dt}\). En intégrant par parties, trouver la relation
-entre \(\sigma_z\) et \(W\). Comparer à la question a). En déduire le moment
-cinétique selon \(Oz\) des photons dans cet état de polarisation.</li>
+<li value="4">On considère le cas où l'onde est à polarisation circulaire gauche. Exprimer
+\(\vv{u}_z\times\vv{E}(O,t)\) en fonction de \(\frac{\d\vv{E}(O,t)}{\d t}\). En intégrant par
+parties, trouver la relation entre \(\sigma_z\) et \(W\). Comparer à la question a). En déduire le
+moment cinétique selon \(Oz\) des photons dans cet état de polarisation.</li>
 </ol>
 
 </div>
@@ -1217,7 +1207,7 @@ Polarisation circulaire gauche
   \end{pmatrix}
 \end{align*}
 \begin{align*}
-  \frac{d\vv{E}(O,t)}{dt}=
+  \frac{\d\vv{E}(O,t)}{\d t}=
   \begin{pmatrix}
     -E_0\omega\sin\omega t\\E_0\omega\cos\omega t\\0
   \end{pmatrix}
@@ -1235,14 +1225,14 @@ Polarisation circulaire gauche
   \begin{pmatrix}
     -E_0\sin\omega t\\E_0\cos\omega t\\0
   \end{pmatrix}
-  =\frac{1}{\omega}\,\frac{d\vv{E}(O,t)}{dt}
+  =\frac{1}{\omega}\,\frac{\d\vv{E}(O,t)}{\d t}
 \end{align*}
 
 <p>
 d'où
 </p>
 \begin{align*}
-  \sigma_z=-\frac{q}{\omega}\int_0^T\vv{OM}.\frac{d\vv{E}(O,t)}{dt}dt
+  \sigma_z=-\frac{q}{\omega}\int_0^T\vv{OM}.\frac{\d\vv{E}(O,t)}{\d t}\d t
 \end{align*}
 
 <p>
@@ -1250,37 +1240,35 @@ En intégrant par partie <i>i.e.</i> \((uv)'=u' v+v'
 u\rightarrow\int u' v=[uv]-\int v' u\)
 </p>
 \begin{align*}
-  \sigma_z&=-\frac{q}{\omega}\left[\underbrace{\left[\vv{OM}.\vv{E}\right]_0^T}_{\vv{E}(O,0)=\vv{E}(O,T)}-\int_0^T\frac{d\vv{OM}}{dt}.\vv{E}(O,t)dt\right]\\
-  &=\frac{q}{\omega}\int_0^T\vv{v}.\vv{E}(O,t)\,dt=\frac{W}{\omega}
+  \sigma_z&=-\frac{q}{\omega}\left[\underbrace{\left[\vv{OM}.\vv{E}\right]_0^T}_{\vv{E}(O,0)=\vv{E}(O,T)}-\int_0^T\frac{d\vv{OM}}{dt}.\vv{E}(O,t)\d t\right]\\
+  &=\frac{q}{\omega}\int_0^T\vv{v}.\vv{E}(O,t)\,\d t=\frac{W}{\omega}
 \end{align*}
 
 <p>
-\(\omega=\tfrac{2\pi}{T}\) d'où \(W=2\pi\frac{\sigma_z}{T}=\hbar\omega\) soit
-\(\sigma_z=+\hbar\). Sur une période \(T\), le champ EM cède à la particule
-\(q\), un moment cinétique égal à \(+\hbar\)
+\(\omega=\tfrac{2\pi}{T}\) d'où \(W=2\pi\frac{\sigma_z}{T}=\hbar\omega\) soit \(\sigma_z=+\hbar\). Sur une
+période \(T\), le champ EM cède à la particule \(q\), un moment cinétique égal à \(+\hbar\)
 </p>
 
 <div class="QUESTION">
 <ol class="org-ol">
-<li value="5">Donner sans calcul, le moment cinétique des photons à polarisation
-circulaire droite. Pour un état de polarisation rectiligne, que donne la
-mesure du moment cinétique des photons selon \(Oz\) ?</li>
+<li value="5">Donner sans calcul, le moment cinétique des photons à polarisation circulaire droite. Pour
+un état de polarisation rectiligne, que donne la mesure du moment cinétique des photons selon
+\(Oz\) ?</li>
 </ol>
 
 </div>
 
 <p>
-Le moment cinétique de photons polarisé circulairement droite est alors
-\(-\hbar\), et \(\sigma_z=0\) pour une polarisation rectiligne (rectiligne &equiv;
-circulaire droite + circulaire gauche)
+Le moment cinétique de photons polarisé circulairement droite est alors \(-\hbar\), et \(\sigma_z=0\)
+pour une polarisation rectiligne (rectiligne &equiv; circulaire droite + circulaire gauche)
 </p>
 </div>
 </div>
 
-<div id="outline-container-orgheadline4" class="outline-2">
-<h2 id="orgheadline4"><span class="section-number-2">4</span> Interprétation corpusculaire de la pression de radiation&#xa0;&#xa0;&#xa0;<span class="tag"><span class="DM">DM</span></span></h2>
+<div id="outline-container-org2925e25" class="outline-2">
+<h2 id="org2925e25"><span class="section-number-2">4</span> Interprétation corpusculaire de la pression de radiation&#xa0;&#xa0;&#xa0;<span class="tag"><span class="DM">DM</span></span></h2>
 <div class="outline-text-2" id="text-4">
-<div class="center">
+<div class="org-center">
 
 <div class="figure">
 <p><img src="./figures/pression_radiation.png" alt="pression_radiation.png" />
@@ -1289,27 +1277,25 @@ circulaire droite + circulaire gauche)
 </div>
 
 \begin{align*}
-  \vv{F}=\frac{d\vv{p}}{dt}, P=\frac{F}{S}=\frac{d\vv{p}/dt}{S}
+  \vv{F}=\frac{\d\vv{p}}{\d t}, P=\frac{F}{S}=\frac{\d\vv{p}/\d t}{S}
 \end{align*}
 
 <div class="QUESTION">
 <p>
-Un faisceau cylindrique d'onde plane électromagnétique monochromatique produit
-par un laser à argon se propage dans le vide et rencontre un plan métallique
-parfaitement réfléchissant, dont la normale fait un angle de \(\theta\) = 30° avec
-la direction de propagation des photons associés à l'onde.
+Un faisceau cylindrique d'onde plane électromagnétique monochromatique produit par un laser à argon
+se propage dans le vide et rencontre un plan métallique parfaitement réfléchissant, dont la normale
+fait un angle de \(\theta\) = 30° avec la direction de propagation des photons associés à l'onde.
 </p>
 
 <p>
-On donne la longueur d'onde \(\lambda\) = 515 nm et l'intensité du faisceau
-(puissance moyenne transportée à travers une section droite unité) \(I\) = 90
-kW/m<sup>2</sup>. On note \(E_0\) l'amplitude du champ électrique.
+On donne la longueur d'onde \(\lambda\) = 515 nm et l'intensité du faisceau (puissance moyenne
+transportée à travers une section droite unité) \(I\) = 90 kW/m<sup>2</sup>. On note \(E_0\) l'amplitude du
+champ électrique.
 </p>
 
 <ol class="org-ol">
-<li value="1">Quelle est la moyenne temporelle \(\langle u\rangle\) de la densité
-volumique d'énergie électromagnétique de l'onde ? Exprimer \(\langle u\rangle\)
-en fonction de \(I\).</li>
+<li value="1">Quelle est la moyenne temporelle \(\langle u\rangle\) de la densité volumique d'énergie
+électromagnétique de l'onde ? Exprimer \(\langle u\rangle\) en fonction de \(I\).</li>
 </ol>
 
 </div>
@@ -1328,20 +1314,18 @@ densité volumique d'énergie électromagnétique \(u\) est égale à
 \end{align*}
 
 <p>
-L'intensité \(I\) est par définition la puissance moyenne par unité de surface
-\(S\) <sup><a id="fnr.3" class="footref" href="#fn.3">3</a></sup>
+L'intensité \(I\) est par définition la puissance moyenne par unité de surface \(S\) <sup><a id="fnr.3" class="footref" href="#fn.3">3</a></sup>
  <div class="footdef"><sup><a id="fn.3" class="footnum" href="#fnr.3">3</a></sup> <div class="footpara"><p class="footpara"> l'intensité \(I\) est également égale à la valeur moyenne du vecteur de Poynting \(I=\|\langle\vv{R}\rangle\|\) avec \(\vv{R}=\frac{\vv{E}\times\vv{B}}{\mu_0}\) et \(\vv{B}=\frac{\vv{k}\times\vv{E}}{\omega}\) </p></div><br/></div>
 </p>
 \begin{align*}
-  I&=\frac{P_W}{S}=\frac{dE}{Sdt}\text{ où }\\
-  dE&=\langle u\rangle\times S\times c\times dt\\
-  I&=\frac{\langle u\rangle\times Scdt}{Sdt}=\langle u\rangle\times c
+  I&=\frac{P_W}{S}=\frac{\d E}{S\d t}\text{ où }\\
+  \d E&=\langle u\rangle\times S\times c\times\d t\\
+  I&=\frac{\langle u\rangle\times Sc\d t}{S\d t}=\langle u\rangle\times c
 \end{align*}
 
 <div class="QUESTION">
 <ol class="org-ol">
-<li value="2">Calculer la densité \(N\) de photons dans le faisceau en fonction de \(I\)
-   et de \(\lambda\).</li>
+<li value="2">Calculer la densité \(N\) de photons dans le faisceau en fonction de \(I\) et de \(\lambda\).</li>
 </ol>
 
 </div>
@@ -1356,14 +1340,14 @@ Calcul de la densité \(N\) de photons dans le faisceau
 
 <div class="QUESTION">
 <ol class="org-ol">
-<li value="3">Quelle la quantité de mouvement \(\Delta\vv{p}_0\) transférée au métal par
-un photon qui subit un choc élastique.</li>
+<li value="3">Quelle la quantité de mouvement \(\Delta\vv{p}_0\) transférée au métal par un photon qui subit
+un choc élastique.</li>
 </ol>
 
 </div>
 <p>
-Choc élastique \(E_1=E_2\) d'où \(p_1c=p_2c\rightarrow p_1=p_2=p\). La conservation
-de l'impulsion se traduit par
+Choc élastique \(E_1=E_2\) d'où \(p_1c=p_2c\rightarrow p_1=p_2=p\). La conservation de l'impulsion se
+traduit par
 </p>
 \begin{align*}
   \vv{p}_1&=\vv{p}_2+\Updelta\vv{p}_0\\
@@ -1373,8 +1357,8 @@ de l'impulsion se traduit par
 
 <div class="QUESTION">
 <ol class="org-ol">
-<li value="4">Calculer le nombre \(x\) de photons reçus par le métal par unité de temps
-et par unité de surface.</li>
+<li value="4">Calculer le nombre \(x\) de photons reçus par le métal par unité de temps et par unité de
+surface.</li>
 </ol>
 
 </div>
@@ -1382,16 +1366,15 @@ et par unité de surface.</li>
 Calcul du flux de photon par unité de surface
 </p>
 \begin{align*}
-  x&=\frac{N\times V_\text{cylindre}}{S_\text{projetée}\times dt}\text{ où }S_\text{projetée}=S_\text{cylindre}/\cos\theta\\
-  &=\frac{N\times S_\text{cylindre}\times\cos\theta cdt}{S_\text{cylindre}\times dt}\\
+  x&=\frac{N\times V_\text{cylindre}}{S_\text{projetée}\times\d t}\text{ où }S_\text{projetée}=S_\text{cylindre}/\cos\theta\\
+  &=\frac{N\times S_\text{cylindre}\times\cos\theta c\d t}{S_\text{cylindre}\times\d t}\\
   &=Nc\cos\theta=\frac{I\lambda}{hc}\cos\theta\\
   &=\frac{9\,10^4\times5.15\,10^{-7}}{6.62\,10^{-34}\times3\,10^8}\cos 30=\unit[2\,10^{23}]{photon.m}^{-2}\text{.s}^{-1}
 \end{align*}
 
 <div class="QUESTION">
 <ol class="org-ol">
-<li value="5">En déduire la pression de radiation \(P\) en fonction de \(\theta\) et de
-\(E_0\).</li>
+<li value="5">En déduire la pression de radiation \(P\) en fonction de \(\theta\) et de \(E_0\).</li>
 </ol>
 
 </div>
@@ -1399,16 +1382,16 @@ Calcul du flux de photon par unité de surface
 Calcul de la pression de radiation
 </p>
 \begin{align*}
-  P&=\frac{d\vv{p}}{Sdt}=x\cdot\Updelta p_0\\
+  P&=\frac{\d\vv{p}}{S\d t}=x\cdot\Updelta p_0\\
   &=\frac{I\lambda}{hc}\cos\theta\times\frac{2h}{\lambda}\cos\theta\\
   &=\frac{2I\cos^2\theta}{c}=\frac{2\times9\,10^4\times\cos^230}{3\,10^8}=\unit[4.5\,10^{-4}]{N/m^2}\\
   &\text{ avec }I=\frac{\epsilon_0E_0^2c}{2}, P=\epsilon_0E_0^2\cos^2\theta
 \end{align*}
 
 <p>
-<b>Application expérimentale:</b> La pression de radiation aussi faible soit elle,
-est un bruit important pour les interféromètres de haute sensibilité tels que
-Virgo (<i>cf.</i> <a href="http://tel.archives-ouvertes.fr/tel-00175254/en/">http://tel.archives-ouvertes.fr/tel-00175254/en/</a>).
+<b>Application expérimentale:</b> La pression de radiation aussi faible soit elle, est un bruit important
+pour les interféromètres de haute sensibilité tels que Virgo (<i>cf.</i>
+<a href="http://tel.archives-ouvertes.fr/tel-00175254/en/">http://tel.archives-ouvertes.fr/tel-00175254/en/</a>).
 </p>
 </div>
 </div>
@@ -1423,7 +1406,7 @@ Virgo (<i>cf.</i> <a href="http://tel.archives-ouvertes.fr/tel-00175254/en/">htt
 </div>
 </div></div>
 <div id="postamble" class="status">
-File under <i class="fa fa-github-alt"></i> version control - commit <a href="https://github.com/xgarrido/licence_em_teaching/commit/311150a025b9911feb88eb5eafabc7b31c1ab20a">311150a</a> - 2016-06-28
+File under <i class="fa fa-github-alt"></i> version control - commit <a href="https://github.com/xgarrido/licence_em_teaching/commit/16aed20846016fe35284275cba92e3520e1831e1">16aed20</a> - 2020-12-21
 </div>
 </body>
 </html>

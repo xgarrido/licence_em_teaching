@@ -3,10 +3,11 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
-<meta  name="viewport" content="width=device-width, initial-scale=1" />
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>TD3 : Les milieux diélectriques</title>
-<meta  name="generator" content="Org-mode" />
+<meta name="generator" content="Org mode" />
+<meta name="author" content="Xavier Garrido" />
 <link rel="stylesheet" href="css/styles.css" />
                <link rel="stylesheet" href="css/org-pygments.css" />
                <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" />
@@ -15,7 +16,7 @@
 @licstart  The following is the entire license notice for the
 JavaScript code in this tag.
 
-Copyright (C) 2012-2013 Free Software Foundation, Inc.
+Copyright (C) 2012-2018 Free Software Foundation, Inc.
 
 The JavaScript code in this tag is free software: you can
 redistribute it and/or modify it under the terms of the GNU
@@ -83,6 +84,7 @@ for the JavaScript code in this tag.
           extensions: ["cancel.js"],
           Macros: {
               vv: ["{\\vec{#1}}",1],
+              d: "{\\text{d}}",
               Upsigma: "{\\Sigma}",
               Updelta: "{\\Delta}",
               varoiint: "{\\iint}",
@@ -152,22 +154,21 @@ for the JavaScript code in this tag.
 </div>
 </div>
 
-<div id="outline-container-orgheadline1" class="outline-2">
-<h2 id="orgheadline1"><span class="section-number-2">1</span> Introduction</h2>
+<div id="outline-container-org952b963" class="outline-2">
+<h2 id="org952b963"><span class="section-number-2">1</span> Introduction</h2>
 <div class="outline-text-2" id="text-1">
 <p>
-Historiquement, la découverte expérimentale des diélectriques est à mettre au
-profit de Michael Faraday qui nota que l'introduction d'un isolant entre les
-armatures d'un condensateur modifiait sa capacité.
+Historiquement, la découverte expérimentale des diélectriques est à mettre au profit de Michael
+Faraday qui nota que l'introduction d'un isolant entre les armatures d'un condensateur modifiait sa
+capacité.
 </p>
 
 <p>
-On exprime la polarisation \(\vv{P}\) d'un matériau comme la densité volumique de
-moment dipolaire \(\vv{p}\) soit \(\vv{P}=\frac{d\vv{p}}{d\tau}\). En calculant le
-potentiel électrique à partir d'une distribution de moment dipolaire, on déduit
-que la densité volumique de charge liées ou polarisées \(\rho_P\) est égale à la
-divergence du vecteur polarisation : \(\rho_P=-\div\vv{P}\). De même, la densité
-surfacique de charges liées est égale à \(\sigma_P=\vv{P}.\vv{n}\). L'équation de
+On exprime la polarisation \(\vv{P}\) d'un matériau comme la densité volumique de moment dipolaire
+\(\vv{p}\) soit \(\vv{P}=\frac{\d\vv{p}}{\d\tau}\). En calculant le potentiel électrique à partir d'une
+distribution de moment dipolaire, on déduit que la densité volumique de charge liées ou polarisées
+\(\rho_P\) est égale à la divergence du vecteur polarisation : \(\rho_P=-\div\vv{P}\). De même, la
+densité surfacique de charges liées est égale à \(\sigma_P=\vv{P}.\vv{n}\). L'équation de
 Maxwell-Gauss devient
 </p>
 \begin{align*}
@@ -179,7 +180,7 @@ En posant le vecteur \(\vv{D}=\epsilon_0\vv{E}+\vv{P}\), on obtient l'équation 
 suivante
 </p>
 \begin{align*}
-  \div\vv{D}=\rho_\text{libre}\rightarrow\varoiint_S\vv{D}.\,d\vv{S}=\Upsigma Q_\text{libre}
+  \div\vv{D}=\rho_\text{libre}\rightarrow\varoiint_S\vv{D}.\,\d\vv{S}=\Upsigma Q_\text{libre}
 \end{align*}
 
 <p>
@@ -199,9 +200,104 @@ absolue et la permitivité relative du diélectrique.
 </div>
 </div>
 
-<div id="outline-container-orgheadline2" class="outline-2">
-<h2 id="orgheadline2"><span class="section-number-2">2</span> Boule uniformément polarisée</h2>
+<div id="outline-container-org125339d" class="outline-2">
+<h2 id="org125339d"><span class="section-number-2">2</span> Charge ponctuelle au centre d'une boule diélectrique</h2>
 <div class="outline-text-2" id="text-2">
+<div class="QUESTION">
+<p>
+Une charge ponctuelle est plaçée au centre d'une cavité sphérique de rayon \(r_1\) creusée dans une
+boule diélectrique l.h.i. de rayon externe \(r_2\) et de permittivité relative \(\epsilon_r\). Calculer
+le champ électrostatique \(\vv{E}\) en tout point, le vecteur polarisation \(\vv{P}\) et les densités de
+charges équivalentes. Que se passe-t-il si \(r_1\to0\) ?
+</p>
+
+</div>
+
+<div class="org-center">
+
+<div class="figure">
+<p><img src="./figures/charge_ponctuelle_centre_boule.png" alt="charge_ponctuelle_centre_boule.png" />
+</p>
+</div>
+</div>
+
+<p>
+Le problème est à géométrie sphérique et les champs \(\vv{E},\vv{D}\) et \(\vv{P}\) sont donc radiaux et
+ne dépendent que de \(r\). On peut donc appliquer le théorème de Gauss généralisé aux milieux
+diélectriques en considérant une surface de Gauss sphérique de rayon \(r\). On distingue alors trois
+régions
+</p>
+
+<ul class="org-ul">
+<li><p>
+\(0<r<r_1\) : le problème se ramène à un problème d'électrostatique du vide
+</p>
+\begin{align*}
+  E(r)\times4\pi r^2&=\frac{+q}{\epsilon_0}\\
+  \vv{E}(M)&=\frac{q}{4\pi\epsilon_0}\,\frac{1}{r^2}\vv{u}_r
+\end{align*}</li>
+
+<li><p>
+\(r_1<r<r_2\) : dans le diélectrique, le théorème de Gauss appliqué au vecteur \(\vv{D}\)
+s'écrit
+</p>
+\begin{align*}
+  D(r)\times4\pi r^2&=+q\\
+  \vv{D}(M)&=\epsilon_0\epsilon_r\vv{E}(M)=\frac{q}{4\pi}\,\frac{1}{r^2}\vv{u}_r\\
+  \vv{E}(M)&=\frac{q}{4\pi\epsilon_0\epsilon_r}\,\frac{1}{r^2}\vv{u}_r
+\end{align*}</li>
+
+<li>\(r>r_2\) : le problème est identique à la région \(0<r<r_1\) et
+\(\vv{E}(M)=\frac{q}{4\pi\epsilon_0}\,\frac{1}{r^2}\vv{u}_r\)</li>
+</ul>
+
+<p>
+Le vecteur polarisation étant nul hors de milieux diélectriques, son expression à l'intérieur du
+l.h.i s'écrit
+</p>
+\begin{align*}
+  \vv{P}&=\chi_e\epsilon_0\vv{E}=\frac{q}{4\pi\epsilon_r}\,\frac{\chi_e}{r^2}\vv{u}_r\\
+  &=\frac{q}{4\pi}\,\frac{\chi_e}{1+\chi_e}\,\frac{1}{r^2}\vv{u}_r
+\end{align*}
+
+<p>
+La densité volumique de charges libres est \(\rho_\ell=+q\delta(\vv{r})\) tandis que la densité
+volumique de charges liées devient
+</p>
+\begin{align*}
+\rho_P&=-\div\vv{P}=-\chi_e\epsilon_0\div\vv{E}\\
+&=-\chi_e\epsilon_0\times\frac{q}{4\pi\epsilon_0\epsilon_r}\,\frac{\partial}{\partial r}\left(r^2\frac{1}{r^2}\right)=0
+\end{align*}
+
+<p>
+confirmant le fait que \(\rho_P\) soit nul dans un l.h.i si \(\rho_\ell\) est également nul dans ce
+matériau.
+</p>
+
+<p>
+Aux deux interfaces \(r=r_1\) et \(r=r_2\), la discontinuité du vecteur \(\vv{P}\) implique
+</p>
+\begin{align*}
+  \sigma_P(r=r_1)&=-\vv{u}_r.\left(\vv{P}(r=r_1)-\cancel{\vv{P}_\text{vide}}\right)=-\frac{q}{4\pi r_1^2}\,\frac{\chi_e}{1+\chi_e}\\
+  \sigma_P(r=r_2)&=-\vv{u}_r.\left(\cancel{\vv{P}_\text{vide}}-\vv{P}(r=r_2)\right)=+\frac{q}{4\pi r_2^2}\,\frac{\chi_e}{1+\chi_e}
+\end{align*}
+
+<p>
+Les densités surfaciques de charges libres \(\sigma_\ell(r=r_1)\) et \(\sigma_\ell(r=r_2)\) sont égales
+respectivement à \(\sigma_P(r=r_1)\) et \(\sigma_P(r=r_2)\). Ce résultat peut se démontrer à l'aide de
+la discontinuité de la composante normale du vecteur \(\vv{D}\).
+</p>
+
+<p>
+Si \(r_1\to0\), toute la densité surfacique de charge en \(r=r_1\) se retrouve alors localisée en \(r=0\)
+sous la forme d'une charge ponctuelle polarisée pendant de la charge libre \(+q\).
+</p>
+</div>
+</div>
+
+<div id="outline-container-org9a4a74a" class="outline-2">
+<h2 id="org9a4a74a"><span class="section-number-2">3</span> Boule uniformément polarisée</h2>
+<div class="outline-text-2" id="text-3">
 <div class="QUESTION">
 <p>
 On considère une boule uniformément polarisée de rayon \(R\).
@@ -371,18 +467,19 @@ car \(\vv{u}_z=\cos\theta\vv{u}_r-\sin\theta\vv{u}_\theta\). Sachant que
 \end{align*}
 
 <p>
-d'où \(\vv{p}=\frac{4}{3}\pi R^3\vv{P}\), on retrouve donc bien \(\vv{P}=\frac{d\vv{p}}{d\tau}\).
+d'où \(\vv{p}=\frac{4}{3}\pi R^3\vv{P}\), on retrouve donc bien \(\vv{P}=\frac{\d\vv{p}}{\d\tau}\).
 </p>
 </div>
 </div>
 
-<div id="outline-container-orgheadline8" class="outline-2">
-<h2 id="orgheadline8"><span class="section-number-2">3</span> Plaque diélectrique</h2>
-<div class="outline-text-2" id="text-3">
-</div><div id="outline-container-orgheadline3" class="outline-3">
-<h3 id="orgheadline3"><span class="section-number-3">3.1</span> Le condensateur plan</h3>
-<div class="outline-text-3" id="text-3-1">
-<div class="center">
+<div id="outline-container-org1e45b8b" class="outline-2">
+<h2 id="org1e45b8b"><span class="section-number-2">4</span> Plaque diélectrique</h2>
+<div class="outline-text-2" id="text-4">
+</div>
+<div id="outline-container-orgd45dd10" class="outline-3">
+<h3 id="orgd45dd10"><span class="section-number-3">4.1</span> Le condensateur plan</h3>
+<div class="outline-text-3" id="text-4-1">
+<div class="org-center">
 
 <div class="figure">
 <p><img src="./figures/plaque_dielectrique.png" alt="plaque_dielectrique.png" />
@@ -420,10 +517,10 @@ d'une surface fermée de forme cylindrique à l'intérieur du condensateur. Le
 théorème de Gauss implique
 </p>
 \begin{align*}
-  \varoiint_S\vv{E}.\vv{dS}=\frac{\Upsigma Q_\text{int.}}{\epsilon_0}&=0\text{ (pas de charge à l'intérieur du condensateur)}\\
+  \varoiint_S\vv{E}.\vv{\d S}=\frac{\Upsigma Q_\text{int.}}{\epsilon_0}&=0\text{ (pas de charge à l'intérieur du condensateur)}\\
   E(z_1)S - E(z_2)S&=0\rightarrow E(z_1)=E(z_2)=E_0\\
-  \vv{E}=E_0\vv{u}_z&=-\grad V=-\frac{dV}{dz}\vv{u}_z\\
-  \int_0^aE_0dz&=-\int_0^{V_0}dV\rightarrow E_0a=-V_0
+  \vv{E}=E_0\vv{u}_z&=-\grad V=-\frac{\d V}{\d z}\vv{u}_z\\
+  \int_0^aE_0\d z&=-\int_0^{V_0}\d V\rightarrow E_0a=-V_0
 \end{align*}
 
 <p>
@@ -460,7 +557,7 @@ en \(z=a\)
 </p>
 \begin{align*}
   U_0=\frac{1}{2}C_0V_0^2&\rightarrow U_0=\frac{\epsilon_0\ell\times L}{2a}V_0^2\\
-  u_\text{em}=\frac{\epsilon_0E^2}{2}&\rightarrow U=\int u_\text{em}\,d\tau=\frac{\epsilon_0\ell\times L}{2a}V_0^2=U_0
+  u_\text{em}=\frac{\epsilon_0E^2}{2}&\rightarrow U=\int u_\text{em}\,\d\tau=\frac{\epsilon_0\ell\times L}{2a}V_0^2=U_0
 \end{align*}
 
 <p>
@@ -469,23 +566,22 @@ L'énergie stockée dans le condensateur est bien d'origine électrostatique.
 </div>
 </div>
 
-<div id="outline-container-orgheadline4" class="outline-3">
-<h3 id="orgheadline4"><span class="section-number-3">3.2</span> Plaque diélectrique infinie</h3>
-<div class="outline-text-3" id="text-3-2">
+<div id="outline-container-org16891b1" class="outline-3">
+<h3 id="org16891b1"><span class="section-number-3">4.2</span> Plaque diélectrique infinie</h3>
+<div class="outline-text-3" id="text-4-2">
 <div class="QUESTION">
 <ol class="org-ol">
-<li value="1">Une surface élémentaire \(dS\) de normale \(\vv{n}\) porte une densité
-surfacique de dipôles \(\vv{P}_S=P_S\vv{n}\). Exprimer le potentiel électrique
-\(dV(M)\) créé au point \(M\) en fonction de l'angle solide algébrique \(d\Omega\)
-de la surface vue du point \(M\) (à l'infini le potentiel est nul). En déduire
-le potentiel crée par un plan infini de normale \(\vv{n}\) en tout point de
-l'espace, portant une densité surfacique de dipôles uniforme colinéaire à
-\(\vv{n}\). Calculer le champ électrique \(\vv{E}(M)\) en tout point.</li>
+<li value="1">Une surface élémentaire \(\d S\) de normale \(\vv{n}\) porte une densité surfacique de dipôles
+\(\vv{P}_S=P_S\vv{n}\). Exprimer le potentiel électrique \(\d V(M)\) créé au point \(M\) en fonction de
+l'angle solide algébrique \(\d\Omega\) de la surface vue du point \(M\) (à l'infini le potentiel est
+nul). En déduire le potentiel crée par un plan infini de normale \(\vv{n}\) en tout point de
+l'espace, portant une densité surfacique de dipôles uniforme colinéaire à \(\vv{n}\). Calculer le
+champ électrique \(\vv{E}(M)\) en tout point.</li>
 </ol>
 
 </div>
 
-<div class="center">
+<div class="org-center">
 
 <div class="figure">
 <p><img src="./figures/solid_angle.png" alt="solid_angle.png" />
@@ -493,32 +589,30 @@ l'espace, portant une densité surfacique de dipôles uniforme colinéaire à
 </div>
 </div>
 <p>
-Potentiel crée par un dipôle \(d\vv{p}\)
+Potentiel crée par un dipôle \(\d\vv{p}\)
 </p>
 \begin{align*}
-  dV(M)=\frac{1}{4\pi\epsilon_0}\,\frac{d\vv{p}.\vv{AM}}{AM^3}\text{ où $A$ est le barycentre du dipôle}
+  \d V(M)=\frac{1}{4\pi\epsilon_0}\,\frac{\d\vv{p}.\vv{AM}}{AM^3}\text{ où $A$ est le barycentre du dipôle}
 \end{align*}
 
 <p>
 La polarisation \(\vv{P}\) représente la densité volumique de moment dipolaire
-\(\frac{d\vv{p}}{d\tau}\). La polarisation surfacique \(\vv{P}_S\) est ainsi
-égale à
+\(\frac{\d\vv{p}}{\d\tau}\). La polarisation surfacique \(\vv{P}_S\) est ainsi égale à
 </p>
 \begin{align*}
-  \vv{P}_S&=\frac{d\vv{p}}{d\vv{S}}\\
-  d\vv{p}&=P_S\,d\vv{S}=P_S\,dS\vv{n}\\
-  dV(M)&=\frac{1}{4\pi\epsilon_0}\,\frac{P_SdS\vv{n}\vv{AM}}{AM^3}\\
+  \vv{P}_S&=\frac{\d\vv{p}}{\d\vv{S}}\\
+  d\vv{p}&=P_S\,\d\vv{S}=P_S\,\d S\vv{n}\\
+  \d V(M)&=\frac{1}{4\pi\epsilon_0}\,\frac{P_S\d S\vv{n}\vv{AM}}{AM^3}\\
   &\text{avec }\vv{AM}=-r\vv{u}_r\\
-  dV(M)&=-\frac{P_S}{4\pi\epsilon_0}\,d\Omega
+  \d V(M)&=-\frac{P_S}{4\pi\epsilon_0}\,\d\Omega
 \end{align*}
 
 <p>
-En fonction de la position du point \(M\) <i>i.e.</i> au dessus ou en dessous du
-plan infini le potentiel électrique \(V(M)\) change de signe du fait que
-l'angle solide \(\Omega=\pm2\pi\) sr.
+En fonction de la position du point \(M\) <i>i.e.</i> au dessus ou en dessous du plan infini le potentiel
+électrique \(V(M)\) change de signe du fait que l'angle solide \(\Omega=\pm2\pi\) sr.
 </p>
 
-<div class="center">
+<div class="org-center">
 
 <div class="figure">
 <p><img src="./figures/plan_infini.png" alt="plan_infini.png" />
@@ -527,36 +621,33 @@ l'angle solide \(\Omega=\pm2\pi\) sr.
 </div>
 
 <p>
-Ainsi, le potentiel vu en un point au dessus de la surface du diélectrique
-est égal à
+Ainsi, le potentiel vu en un point au dessus de la surface du diélectrique est égal à
 </p>
 \begin{align*}
-  V(M_+)&=\int_\text{plan}-\frac{P_S}{4\pi\epsilon_0}\,d\Omega=\frac{P_S}{2\epsilon_0}\\
+  V(M_+)&=\int_\text{plan}-\frac{P_S}{4\pi\epsilon_0}\,\d\Omega=\frac{P_S}{2\epsilon_0}\\
   V(M_-)&=-\frac{P_S}{2\epsilon_0}
 \end{align*}
 
 <p>
-Dans les deux cas, le potentiel électrique étant constant : \(\vv{E}=-\grad
-V=\vv{0}\).
+Dans les deux cas, le potentiel électrique étant constant : \(\vv{E}=-\grad V=\vv{0}\).
 </p>
 
 <div class="QUESTION">
 <ol class="org-ol">
-<li value="2">Une plaque diélectrique infinie parallèle au plan \(xOy\), d'épaisseur
-\(b\), porte les dipôles répartis en son volume de sorte que sa polarisation
-est \(\vv{P}=P(z)\vv{u}_z\). Calculer en tout point \(M\), le potentiel \(V_d(M)\)
-et le champ électrique \(\vv{E}_d(M)\). Indication : décomposer la plaque en
-tranches d'épaisseur \(dz\), exprimer \(V_d(M)\) par une intégrale de \(P(z)\) en
-distinguant les cas où \(M\) est extérieur ou intérieur à la plaque.</li>
+<li value="2">Une plaque diélectrique infinie parallèle au plan \(xOy\), d'épaisseur \(b\), porte les dipôles
+répartis en son volume de sorte que sa polarisation est \(\vv{P}=P(z)\vv{u}_z\). Calculer en tout
+point \(M\), le potentiel \(V_d(M)\) et le champ électrique \(\vv{E}_d(M)\). Indication : décomposer la
+plaque en tranches d'épaisseur \(\d z\), exprimer \(V_d(M)\) par une intégrale de \(P(z)\) en distinguant
+les cas où \(M\) est extérieur ou intérieur à la plaque.</li>
 </ol>
 
 </div>
 <p>
-En décomposant la plaque en tranche d'épaisseur infinitésimale \(dz'\), chacune
-porte une densité surfacique \(dP_S=P(z')dz'\)
+En décomposant la plaque en tranche d'épaisseur infinitésimale \(\d z'\), chacune porte une densité
+surfacique \(\d P_S=P(z')\d z'\)
 </p>
 
-<div class="center">
+<div class="org-center">
 
 <div class="figure">
 <p><img src="./figures/coupe_plaque_dielectrique.png" alt="coupe_plaque_dielectrique.png" />
@@ -572,14 +663,14 @@ En fonction de la position \(z\) du point \(M\), le potentiel électrique est
 si \(z>z'\)
 </p>
 \begin{align*}
-  dV(z)=\frac{dP_S}{2\epsilon_0}=\frac{P(z')dz'}{2\epsilon_0}
+  \d V(z)=\frac{\d P_S}{2\epsilon_0}=\frac{P(z')\d z'}{2\epsilon_0}
 \end{align*}</li>
 
 <li><p>
 si \(z<z'\)
 </p>
 \begin{align*}
-  dV(z)=-\frac{dP_S}{2\epsilon_0}=-\frac{P(z')dz'}{2\epsilon_0}
+  \d V(z)=-\frac{\d P_S}{2\epsilon_0}=-\frac{P(z')\d z'}{2\epsilon_0}
 \end{align*}</li>
 </ul>
 
@@ -591,43 +682,43 @@ On distingue par suite 3 situations
 pour tout point M tel que \(z<0\)
 </p>
 \begin{align*}
-  V_d(M)=-\underbrace{\int_0^b\frac{P(z')dz'}{2\epsilon_0}}_{\text{indépendant de $z$}}=\text{constante}\to\vv{E}=\vv{0}
+  V_d(M)=-\underbrace{\int_0^b\frac{P(z')\d z'}{2\epsilon_0}}_{\text{indépendant de $z$}}=\text{constante}\to\vv{E}=\vv{0}
 \end{align*}</li>
 
 <li><p>
 pour tout point M tel que \(z>b\)
 </p>
 \begin{align*}
-  V_d(M)=+\underbrace{\int_0^b\frac{P(z')dz'}{2\epsilon_0}}_{\text{indépendant de $z$}}=\text{constante}\to\vv{E}=\vv{0}
+  V_d(M)=+\underbrace{\int_0^b\frac{P(z')\d z'}{2\epsilon_0}}_{\text{indépendant de $z$}}=\text{constante}\to\vv{E}=\vv{0}
 \end{align*}</li>
 
 <li><p>
 pour tout point M tel que \(0<z<b\)
 </p>
 \begin{align*}
-  V_d(M)&=\frac{1}{2\epsilon_0}\left(\int_0^zP(z')dz'-\int_z^bP(z')dz'\right)\\
-  &=\frac{1}{2\epsilon_0}\left(\int_0^zP(z')dz'+\int_b^zP(z')dz'\right)\\
-  &=\frac{1}{2\epsilon_0}\left(\int_0^zP(z')dz'+\int_b^0P(z')dz'+\int_0^zP(z')dz'\right)\\
-  &=\frac{1}{2\epsilon_0}\left(2\int_0^zP(z')dz'-\underbrace{\int_0^bP(z')dz'}_{\text{constante}}\right)\\
-  V_d(M)&=\text{constante} + \int_0^z\frac{P(z')}{\epsilon_0}dz'
+  V_d(M)&=\frac{1}{2\epsilon_0}\left(\int_0^zP(z')\d z'-\int_z^bP(z')\d z'\right)\\
+  &=\frac{1}{2\epsilon_0}\left(\int_0^zP(z')\d z'+\int_b^zP(z')\d z'\right)\\
+  &=\frac{1}{2\epsilon_0}\left(\int_0^zP(z')\d z'+\int_b^0P(z')\d z'+\int_0^zP(z')\d z'\right)\\
+  &=\frac{1}{2\epsilon_0}\left(2\int_0^zP(z')\d z'-\underbrace{\int_0^bP(z')\d z'}_{\text{constante}}\right)\\
+  V_d(M)&=\text{constante} + \int_0^z\frac{P(z')}{\epsilon_0}\d z'
 \end{align*}
 
 <p>
 Le champ électrique \(\vv{E}_d(M)\) s'écrit
 </p>
 \begin{align*}
-  \vv{E}_d(M)=-\grad V_d(M)&=-\frac{dV_d(M)}{dz}\vv{u}_z\\
-  &=-\frac{1}{\epsilon_0}\frac{d}{dz}\int_0^zP(z')dz'\vv{u}_z\\
+  \vv{E}_d(M)=-\grad V_d(M)&=-\frac{\d V_d(M)}{\d z}\vv{u}_z\\
+  &=-\frac{1}{\epsilon_0}\frac{\d}{\d z}\int_0^zP(z')\d z'\vv{u}_z\\
   &=-\frac{P(z)\vv{u}_z}{\epsilon_0}=-\frac{\vv{P}(M)}{\epsilon_0}=\text{champ dépolarisant}
 \end{align*}</li>
 </ul>
 </div>
 </div>
 
-<div id="outline-container-orgheadline5" class="outline-3">
-<h3 id="orgheadline5"><span class="section-number-3">3.3</span> Condensateur diélectrique à potentiel constant</h3>
-<div class="outline-text-3" id="text-3-3">
-<div class="center">
+<div id="outline-container-orgace4aee" class="outline-3">
+<h3 id="orgace4aee"><span class="section-number-3">4.3</span> Condensateur diélectrique à potentiel constant</h3>
+<div class="outline-text-3" id="text-4-3">
+<div class="org-center">
 
 <div class="figure">
 <p><img src="./figures/coupe_condensateur_dielectrique.png" alt="coupe_condensateur_dielectrique.png" />
@@ -637,35 +728,33 @@ Le champ électrique \(\vv{E}_d(M)\) s'écrit
 
 <div class="QUESTION">
 <p>
-On considère le condensateur de la question 1. On introduit la plaque de la
-question 2 entre ses deux armatures (\(b>a\)) tout en le maintenant à un potentiel
-constant \(V_1\). On considèrera le diélectrique linéaire, homogène, isotrope, de
-susceptibilité \(\chi\).
+On considère le condensateur de la question 1. On introduit la plaque de la question 2 entre ses
+deux armatures (\(b>a\)) tout en le maintenant à un potentiel constant \(V_1\). On considèrera le
+diélectrique linéaire, homogène, isotrope, de susceptibilité \(\chi\).
 </p>
 
 <ol class="org-ol">
-<li value="1">Montrer que les champs intervenant dans le problème sont parallèles à
-\(Oz\) et ne dépendent que de \(z\)</li>
+<li value="1">Montrer que les champs intervenant dans le problème sont parallèles à \(Oz\) et ne dépendent
+que de \(z\)</li>
 </ol>
 
 </div>
 
 <p>
-Les symétries restent les mêmes à savoir que tout plan contenant l'axe \(Oz\)
-est plan de symétrie de la distribution de charge. Les invariances du
-problèmes restent également les mêmes d'où \(\vv{E}(M)=E(z)\vv{u}_z\).
+Les symétries restent les mêmes à savoir que tout plan contenant l'axe \(Oz\) est plan de symétrie de
+la distribution de charge. Les invariances du problèmes restent également les mêmes d'où
+\(\vv{E}(M)=E(z)\vv{u}_z\).
 </p>
 
 <div class="QUESTION">
 <ol class="org-ol">
-<li value="2">Soit \(\vv{E}_1\) le champ électrique créé par les charges des armatures
-seules. Appliquer le principe de superposition pour calculer le champ
-\(\vv{E}\) total en fonction de \(\vv{E}_1\). Montrer que :
+<li value="2">Soit \(\vv{E}_1\) le champ électrique créé par les charges des armatures seules. Appliquer le
+principe de superposition pour calculer le champ \(\vv{E}\) total en fonction de
+\(\vv{E}_1\). Montrer que :
 <ul class="org-ul">
 <li>tous les champs sont uniformes.</li>
-<li>on retrouverait le même champ électrique en remplaçant la plaque
-diélectrique par deux plans chargés séparés par du vide. Quelles seraient
-leurs charges (charges de polarisation) ?</li>
+<li>on retrouverait le même champ électrique en remplaçant la plaque diélectrique par deux plans
+chargés séparés par du vide. Quelles seraient leurs charges (charges de polarisation) ?</li>
 </ul></li>
 </ol>
 
@@ -689,18 +778,17 @@ leurs charges (charges de polarisation) ?</li>
 </ul>
 
 <p>
-On a vu que la densité surfacique de charge \(\sigma_S=\pm\epsilon_0E_0\) sur
-les armatures du condensateur est à l'origine d'un champ électrique
-constant. Pour créer un champ uniforme d'expression
-\(-\frac{\vv{P}}{\epsilon_0}\), cela reviendrait à placer deux plaques <i>i.e.</i>
-deux armatures chargées en surface par des densités \(\sigma_S=\pm P\). Leurs
-charges \(Q_P=\pm P\times\ell\times L\).
+On a vu que la densité surfacique de charge \(\sigma_S=\pm\epsilon_0E_0\) sur les armatures du
+condensateur est à l'origine d'un champ électrique constant. Pour créer un champ uniforme
+d'expression \(-\frac{\vv{P}}{\epsilon_0}\), cela reviendrait à placer deux plaques <i>i.e.</i> deux
+armatures chargées en surface par des densités \(\sigma_S=\pm P\). Leurs charges \(Q_P=\pm
+P\times\ell\times L\).
 </p>
 
 <div class="QUESTION">
 <ol class="org-ol">
-<li value="3">Calculer la charge \(Q_1\) des armatures, la capacité \(C_1\) du
-condensateur et l'énergie stockée \(U_1\).</li>
+<li value="3">Calculer la charge \(Q_1\) des armatures, la capacité \(C_1\) du condensateur et l'énergie
+stockée \(U_1\).</li>
 </ol>
 
 </div>
@@ -709,8 +797,8 @@ condensateur et l'énergie stockée \(U_1\).</li>
 Le potentiel électrique \(V_1\) est égal à
 </p>
 \begin{align*}
-  \vv{E}&=-\grad V_1\rightarrow V_1=-\int_0^aE(z)dz\\
-  V_1&=-\int_0^cE_1dz-\int_c^{b+c}\frac{E_1}{1+\chi_e}dz-\int_{b+c}^aE_1dz\\
+  \vv{E}&=-\grad V_1\rightarrow V_1=-\int_0^aE(z)\d z\\
+  V_1&=-\int_0^cE_1dz-\int_c^{b+c}\frac{E_1}{1+\chi_e}\d z-\int_{b+c}^aE_1\d z\\
   &=-\cancel{E_1\times c}-\frac{E_1}{1+\chi_e}\times b-E_1\times a+E_1\times(b+\cancel{c})\\
   &=-E_1\left(a+\frac{b}{1+\chi_e}-b\right)=-E_1\left(a-\frac{b\chi_e}{1+\chi_e}\right)
 \end{align*}
@@ -719,7 +807,7 @@ Le potentiel électrique \(V_1\) est égal à
 La charge des armatures est égale
 </p>
 \begin{align*}
-  Q_1(z=0)=\sigma_Z\times\ell\times L=-E_1\epsilon_0\,\ell\times L\\
+  Q_1(z=0)=+\sigma_Z\times\ell\times L=-E_1\epsilon_0\,\ell\times L\\
   Q_1(z=a)=-\sigma_Z\times\ell\times L=E_1\epsilon_0\,\ell\times L
 \end{align*}
 
@@ -733,8 +821,8 @@ La capacité \(C_1\) du condensateur diélectrique est égale à
 \end{align*}
 
 <p>
-L'ajout du diélectrique a contribué à l'augmentation de la capacité du
-condensateur. L'énergie stockée dans le condensateur est
+L'ajout du diélectrique a contribué à l'augmentation de la capacité du condensateur. L'énergie
+stockée dans le condensateur est
 </p>
 \begin{align*}
   U_1&=\frac{1}{2}C_1V_1^2\\
@@ -743,26 +831,24 @@ condensateur. L'énergie stockée dans le condensateur est
 
 <div class="QUESTION">
 <ol class="org-ol">
-<li value="4">Retrouver les résultats précédents en utilisant le déplacement
-électrique et le théorème de Gauss.</li>
+<li value="4">Retrouver les résultats précédents en utilisant le déplacement électrique et le théorème de
+Gauss.</li>
 </ol>
 
 </div>
 
 <p>
-Le déplacement électrique \(\vv{D}\) est égal à \(\epsilon_0\vv{E}+\vv{P}\). Le
-theorème de Gauss appliqué aux diélectriques implique que
-\(\div\vv{D}=\rho_\text{libre}\rightarrow\varoiint\vv{D}.d\vv{S}=Q_\text{libre}^\text{int.}\). En
-tout point situé entre les armatures du condensateur y compris à l'intérieur
-du diélectrique, il n'y a pas de charges libres. Par ailleurs, le vecteur
-déplacement \(\vv{D}\) est égal dans le diélectrique à
-\(\epsilon_0\vv{E}+\vv{P}\) et à \(\epsilon_0\vv{E}_1\) entre le diélectrique et
-les armatures du condensateur. En choisissant une surface fermée cylindrique
-dont les sections circulaires sont de part et d'autre de l'interface
-diélectrique-vide, on a
+Le déplacement électrique \(\vv{D}\) est égal à \(\epsilon_0\vv{E}+\vv{P}\). Le theorème de Gauss
+appliqué aux diélectriques implique que
+\(\div\vv{D}=\rho_\text{libre}\rightarrow\varoiint\vv{D}.\d\vv{S}=Q_\text{libre}^\text{int.}\). En
+tout point situé entre les armatures du condensateur y compris à l'intérieur du diélectrique, il n'y
+a pas de charges libres. Par ailleurs, le vecteur déplacement \(\vv{D}\) est égal dans le diélectrique
+à \(\epsilon_0\vv{E}+\vv{P}\) et à \(\epsilon_0\vv{E}_1\) entre le diélectrique et les armatures du
+condensateur. En choisissant une surface fermée cylindrique dont les sections circulaires sont de
+part et d'autre de l'interface diélectrique-vide, on a
 </p>
 \begin{align*}
-  \varoiint\vv{D}.\,d\vv{S}&=0\\
+  \varoiint\vv{D}.\,\d\vv{S}&=0\\
   D_\text{vide}S-D_\text{diélectrique}S&=0\\
   \vv{D}_\text{vide}&=\vv{D}_\text{diélectrique}\\
   \epsilon_0\vv{E}_1&=\epsilon_0\vv{E}+\vv{P}\\
@@ -770,20 +856,20 @@ diélectrique-vide, on a
   \vv{E}&=\frac{\vv{E}_1}{1+\chi_e}
 \end{align*}
 
-<div class="center">
+<div class="org-center">
 
 <div class="figure">
 <p><img src="./figures/coupe_condensateur_dielectrique_charge.png" alt="coupe_condensateur_dielectrique_charge.png" />
 </p>
-<p><span class="figure-number">Figure 6:</span> <b>Distribution des charges de polarisation et du condensateur après ajout du diélectrique</b></p>
+<p><span class="figure-number">Figure 7: </span><b>Distribution des charges de polarisation et du condensateur après ajout du diélectrique</b></p>
 </div>
 </div>
 </div>
 </div>
 
-<div id="outline-container-orgheadline6" class="outline-3">
-<h3 id="orgheadline6"><span class="section-number-3">3.4</span> Condensateur diélectrique à charges constantes</h3>
-<div class="outline-text-3" id="text-3-4">
+<div id="outline-container-org1a0655b" class="outline-3">
+<h3 id="org1a0655b"><span class="section-number-3">4.4</span> Condensateur diélectrique à charges constantes</h3>
+<div class="outline-text-3" id="text-4-4">
 <div class="QUESTION">
 <p>
 On considère le condensateur de la question 1 initialement au potentiel
@@ -810,24 +896,22 @@ L}{a-\frac{b\chi_e}{1+\chi_e}}=C_1\). Finalement, l'énergie stockée \(U_2\) es
 </div>
 </div>
 
-<div id="outline-container-orgheadline7" class="outline-3">
-<h3 id="orgheadline7"><span class="section-number-3">3.5</span> Force électrostatique sur la plaque diélectrique</h3>
-<div class="outline-text-3" id="text-3-5">
+<div id="outline-container-org13d71bb" class="outline-3">
+<h3 id="org13d71bb"><span class="section-number-3">4.5</span> Force électrostatique sur la plaque diélectrique</h3>
+<div class="outline-text-3" id="text-4-5">
 <div class="QUESTION">
 <p>
-La plaque diélectrique est introduite dans le condensateur parallèlement à la
-longueur \(L\) de sorte qu'il subsiste une longueur \(x\) vide. On admet que les
-champs restent uniformes parallèles à \(Oz\).
+La plaque diélectrique est introduite dans le condensateur parallèlement à la longueur \(L\) de sorte
+qu'il subsiste une longueur \(x\) vide. On admet que les champs restent uniformes parallèles à \(Oz\).
 </p>
 
 <ol class="org-ol">
-<li value="1">En déduire les densités surfaciques de charge. Calculer \(Q\), \(C\), et \(U\)
-   en fonction de \(x\).</li>
+<li value="1">En déduire les densités surfaciques de charge. Calculer \(Q\), \(C\), et \(U\) en fonction de \(x\).</li>
 </ol>
 
 </div>
 
-<div class="center">
+<div class="org-center">
 
 <div class="figure">
 <p><img src="./figures/coupe_condensateur_dielectrique_force.png" alt="coupe_condensateur_dielectrique_force.png" />
@@ -836,9 +920,8 @@ champs restent uniformes parallèles à \(Oz\).
 </div>
 
 <p>
-On supposera la situation identique à celle de la question <a href="#orgheadline5">3.3</a> soit à potentiel constant
-\(V=V_1=E_1\left(a-\frac{b\chi_e}{1+\chi_e}\right)\). Dans la région \(\unicode{x2460}\),
-le champ électrique est égal à \(\vv{E}'_1=-\frac{V_1}{a}\vv{u}_z\).
+On supposera la situation identique à celle de la question <a href="#orgace4aee">4.3</a> soit à potentiel constant \(V=V_1=E_1\left(a-\frac{b\chi_e}{1+\chi_e}\right)\). Dans la
+région \(\unicode{x2460}\), le champ électrique est égal à \(\vv{E}'_1=-\frac{V_1}{a}\vv{u}_z\).
 </p>
 
 <p>
@@ -864,7 +947,7 @@ région \(\unicode{x2461}\) :
 La charge \(Q\) du condensateur est égale à
 </p>
 \begin{align*}
-  Q&=\int_0^x\sigma_S^\text{\(\unicode{x2461}\)}\,\ell dx+\int_x^L\sigma_S^\text{\(\unicode{x2460}\)}\,\ell dx\\
+  Q&=\int_0^x\sigma_S^\text{\(\unicode{x2461}\)}\,\ell\d x+\int_x^L\sigma_S^\text{\(\unicode{x2460}\)}\,\ell\d x\\
   &=\epsilon_0E_1\ell\left(\frac{x}{a}\left(a-\frac{b\chi_e}{1+\chi_e}\right)+L-x\right)\\
   &=\epsilon_0E_1\ell\left(L-\frac{\chi_e}{1+\chi_e}\frac{bx}{a}\right)
 \end{align*}
@@ -876,52 +959,49 @@ La capacité \(C\) est égale à \(\frac{Q}{V_1}\), l'énergie stockée
 
 <div class="QUESTION">
 <ol class="org-ol">
-<li value="2">Pour calculer la force \(\vv{F}\) que subit la plaque diélectrique on
-imagine que l'opérateur déplace la plaque de \(dx\) à vitesse nulle en lui
-appliquant la force \(\vv{F}_\text{op.}=-\vv{F}\). Calculer la variation
-d'énergie stockée, le travail de l'opérateur et le travail du générateur à
-potentiel constant. En déduire \(\vv{F}\).</li>
+<li value="2">Pour calculer la force \(\vv{F}\) que subit la plaque diélectrique on imagine que l'opérateur
+déplace la plaque de \(\d x\) à vitesse nulle en lui appliquant la force
+\(\vv{F}_\text{op.}=-\vv{F}\). Calculer la variation d'énergie stockée, le travail de l'opérateur
+et le travail du générateur à potentiel constant. En déduire \(\vv{F}\).</li>
 </ol>
 
 </div>
 <p>
-Lorsque la plaque diélectrique est introduite \(x\nearrow\), la charge du
-condensateur diminue de même que la capacité \(C\). L'énergie stockée diminue
-donc de pair avec l'introduction de la plaque.
+Lorsque la plaque diélectrique est introduite \(x\nearrow\), la charge du condensateur diminue de même
+que la capacité \(C\). L'énergie stockée diminue donc de pair avec l'introduction de la plaque.
 </p>
 \begin{align*}
-  dU=\frac{1}{2}V_1^2dC=\frac{1}{2}V_1dQ&=\frac{1}{2}V_1\frac{dQ}{dx}dx\\
-  &=\frac{1}{2}V_1\epsilon_0E_1\ell(-)\frac{\chi_e}{1+\chi_e}\frac{b}{a}dx
+  dU=\frac{1}{2}V_1^2\d C=\frac{1}{2}V_1\d Q&=\frac{1}{2}V_1\frac{\d Q}{\d x}\d x\\
+  &=\frac{1}{2}V_1\epsilon_0E_1\ell(-)\frac{\chi_e}{1+\chi_e}\frac{b}{a}\d x
 \end{align*}
 
 <p>
-Le travail \(dW_\text{op.}\) fourni par l'opérateur correspond au produit
-scalaire de la force \(\vv{F}_\text{op.}\) par le déplacement infinitésimal
-\(d\vv{x}\)
+Le travail \(dW_\text{op.}\) fourni par l'opérateur correspond au produit scalaire de la force
+\(\vv{F}_\text{op.}\) par le déplacement infinitésimal \(\d\vv{x}\)
 </p>
 \begin{align*}
-  dW_\text{op.}=\vv{F}_\text{op.}.d\vv{x}=F_\text{op.}dx=-Fdx
+  dW_\text{op.}=\vv{F}_\text{op.}.\d\vv{x}=F_\text{op.}\d x=-F\d x
 \end{align*}
 
 <p>
 La puissance du générateur \(P=V_1\times I\) d'où le travail \(dW_\text{g}\)
 </p>
 \begin{align*}
-  dW_\text{g}=Pdt=V_1Idt&=V_1dQ\\
-  &=-V_1\epsilon_0E_1\ell(-)\frac{\chi_e}{1+\chi_e}\frac{b}{a}dx=2dU
+  \d W_\text{g}=P\d t=V_1I\d t&=V_1\d Q\\
+  &=-V_1\epsilon_0E_1\ell(-)\frac{\chi_e}{1+\chi_e}\frac{b}{a}\d x=2\d U
 \end{align*}
 
 <p>
 Ainsi la variation d'énergie stockée correspond à
 </p>
 \begin{align*}
-  dU&=dW_\text{g}+dW_\text{op.}\\
-  dU&=2dU+dW_\text{op.}\\
-  F_\text{op.}dx&=-dU=\frac{1}{2}V_1\epsilon_0E_1\ell\frac{\chi_e}{1+\chi_e}\frac{b}{a}dx\\
+  \d U&=\d W_\text{g}+\d W_\text{op.}\\
+  \d U&=2\d U+\d W_\text{op.}\\
+  F_\text{op.}\d x&=-\d U=\frac{1}{2}V_1\epsilon_0E_1\ell\frac{\chi_e}{1+\chi_e}\frac{b}{a}\d x\\
   F_\text{op.}&=\frac{1}{2}V_1\epsilon_0E_1\ell\frac{\chi_e}{1+\chi_e}\frac{b}{a}>0
 \end{align*}
 
-<div class="center">
+<div class="org-center">
 
 <div class="figure">
 <p><img src="./figures/coupe_condensateur_dielectrique_force2.png" alt="coupe_condensateur_dielectrique_force2.png" />
@@ -931,33 +1011,31 @@ Ainsi la variation d'énergie stockée correspond à
 </div>
 </div>
 </div>
-<div id="outline-container-orgheadline9" class="outline-2">
-<h2 id="orgheadline9"><span class="section-number-2">4</span> Boule chargée flottant sur un diélectrique</h2>
-<div class="outline-text-2" id="text-4">
+<div id="outline-container-org55816bc" class="outline-2">
+<h2 id="org55816bc"><span class="section-number-2">5</span> Boule chargée flottant sur un diélectrique</h2>
+<div class="outline-text-2" id="text-5">
 <div class="QUESTION">
 <p>
-On considère une boule conductrice de centre \(O\), de masse \(m\), flottant à la
-surface d'un fluide diélectrique LHI de permittivité relative \(\epsilon_r\). On
-supposera que le milieu (1) est le vide. Non chargée, le quart de son volume est
-immergé à l'équilibre. On charge la boule en la portant au potentiel \(V_S\) par
-rapport à l'infini et on constate qu'elle est à moitié immergée à
-l'équilibre. On utilise alors les coordonnées sphériques de centre \(O\), l'axe
-\(Oz\) étant perpendiculaire au plan de séparation des deux milieux.
+On considère une boule conductrice de centre \(O\), de masse \(m\), flottant à la surface d'un fluide
+diélectrique LHI de permittivité relative \(\epsilon_r\). On supposera que le milieu (1) est le
+vide. Non chargée, le quart de son volume est immergé à l'équilibre. On charge la boule en la
+portant au potentiel \(V_S\) par rapport à l'infini et on constate qu'elle est à moitié immergée à
+l'équilibre. On utilise alors les coordonnées sphériques de centre \(O\), l'axe \(Oz\) étant
+perpendiculaire au plan de séparation des deux milieux.
 </p>
 
 <ol class="org-ol">
-<li value="1">Quelle est l'équation vérifiée par le potentiel électrique \(V(\vv{r})\)
-   dans chaque milieu ? Quelles conditions aux limites doit il vérifier ?</li>
+<li value="1">Quelle est l'équation vérifiée par le potentiel électrique \(V(\vv{r})\) dans chaque milieu ?
+Quelles conditions aux limites doit il vérifier ?</li>
 </ol>
 
 </div>
 
 <p>
-Le potentiel \(V(\vv{r})\) vérifie l'équation de Poisson dans chacun des
-milieux \(\Delta V(\vv{r})=-\frac{\rho_\text{tot.}}{\epsilon_0}\). Toutefois,
-le milieu \(\unicode{x2460}\) étant le vide et un conducteur n'ayant pas de densité
-volumique de charge libre, le potentiel \(V_1(\vv{r})\) vérifie l'équation de
-Laplace<sup><a id="fnr.2" class="footref" href="#fn.2">2</a></sup> \(\Delta V_1=0\). Les conditions aux limites sont les suivantes
+Le potentiel \(V(\vv{r})\) vérifie l'équation de Poisson dans chacun des milieux \(\Delta
+V(\vv{r})=-\frac{\rho_\text{tot.}}{\epsilon_0}\). Toutefois, le milieu \(\unicode{x2460}\) étant le vide et un
+conducteur n'ayant pas de densité volumique de charge libre, le potentiel \(V_1(\vv{r})\) vérifie
+l'équation de Laplace<sup><a id="fnr.2" class="footref" href="#fn.2">2</a></sup> \(\Delta V_1=0\). Les conditions aux limites sont les suivantes
  <div class="footdef"><sup><a id="fn.2" class="footnum" href="#fnr.2">2</a></sup> <div class="footpara"><p class="footpara"> dans le cas d'un diélectrique Linéaire, Homogène et Isotrope, la densité volumique de charges liées \(\rho_P=-\div\vv{P}=-\epsilon_0\chi_e\div\vv{E}\). Or \(\div\vv{E}=\frac{\rho_\text{tot.}}{\epsilon_0}\) d'où </p> \begin{align*} -\rho_P&=\epsilon_0\chi_e\div\vv{E}\\ &=\chi_e\rho_\text{tot.}\\ &=\chi_e(\rho_P+\rho_\ell)\\ \rho_P&=\rho_\ell\frac{\chi_e}{\chi_e-1} \end{align*} <p class="footpara"> S'il n'y a donc pas de densité volumique de charge libre \(\rho_\ell\), la densité volumique de charge liée est donc également nulle. </p></div><br/></div>
 </p>
 <ul class="org-ul">
@@ -971,9 +1049,9 @@ Laplace<sup><a id="fnr.2" class="footref" href="#fn.2">2</a></sup> \(\Delta V_1=
 <ol class="org-ol">
 <li>Déterminer \(V_1(r)\) en fonction de \(V_S\).</li>
 <li>En déduire le champ électrique \(\vv{E}_1\).</li>
-<li>Exprimer les densités superficielles de charges libres qur la boule
-\(\sigma{1\ell}\) et \(\sigma_{2\ell}\) en fonction de \(V_S\) et de \(R\). En
-déduire les densités de charges surfaciques de polarisation.</li>
+<li>Exprimer les densités superficielles de charges libres de la boule \(\sigma_{1\ell}\) et
+\(\sigma_{2\ell}\) en fonction de \(V_S\) et de \(R\). En déduire les densités de charges
+surfaciques de polarisation.</li>
 <li>Vérifier que \(V(r)\) est bien solution du problème.</li>
 </ol></li>
 </ol>
@@ -982,8 +1060,7 @@ déduire les densités de charges surfaciques de polarisation.</li>
 <ol class="org-ol">
 <li value="2"><ol class="org-ol">
 <li><p>
-L'équation de Laplace dans le milieu \(\unicode{x2460}\) s'écrit en coordonnées
-sphériques
+L'équation de Laplace dans le milieu \(\unicode{x2460}\) s'écrit en coordonnées sphériques
 </p>
 \begin{align*}
   \Delta V_1=\frac{1}{r^2}\frac{\partial}{\partial r}\left(r^2\frac{\partial V_1(r)}{\partial r}\right)&=0\\
@@ -992,8 +1069,8 @@ sphériques
 \end{align*}
 
 <p>
-En utilisant les conditions aux limites, on a \(V_1(r\to\infty)=B=0\) et
-\(V_1(R)=V_S\rightarrow A=RV_S\)
+En utilisant les conditions aux limites, on a \(V_1(r\to\infty)=B=0\) et \(V_1(R)=V_S\rightarrow
+      A=RV_S\)
 </p>
 \begin{align*}
   V_1(r)&=\frac{V_SR}{r}
@@ -1009,11 +1086,10 @@ Le champ électrique se déduit de la relation
 \end{align*}</li>
 
 <li><p>
-À la traversée de la surface conducteur-vide/diélectrique, la composante
-normale à la surface (ici \(\parallel\vv{u}_r\)) du vecteur déplacement
-\(\vv{D}\) est discontinue et égale à la densité surfacique de charge
-libre. Le champ électrique étant par ailleurs nul à l'intérieur d'un
-conducteur, nous avons en \(r=R\)
+À la traversée de la surface conducteur-vide/diélectrique, la composante normale à la surface
+(ici \(\parallel\vv{u}_r\)) du vecteur déplacement \(\vv{D}\) est discontinue et égale à la
+densité surfacique de charge libre. Le champ électrique étant par ailleurs nul à l'intérieur
+d'un conducteur, nous avons en \(r=R\)
 </p>
 \begin{align*}
   \vv{D}_1(R).\vv{u}_r&=\sigma_{\ell1}\\
@@ -1022,19 +1098,18 @@ conducteur, nous avons en \(r=R\)
 \end{align*}
 
 <p>
-Pour déterminer, la densité surfacique de charge libre dans le milieu
-\(\unicode{x2461}\), on utilise la même relation soit
+Pour déterminer, la densité surfacique de charge libre dans le milieu \(\unicode{x2461}\), on utilise
+la même relation soit
 </p>
 \begin{align*}
-  \vv{D}_2(R).\vv{u}_r&=\sigma_{\ell1}\\
-  \epsilon_r\epsilon_0E_2(R)&=\sigma_{\ell2}
+  \vv{D}_2(R).\vv{u}_r&=\sigma_{\ell2-}\\
+  \epsilon_r\epsilon_0\vv{E}_2(R).\vv{u}_r&=\sigma_{\ell2}
 \end{align*}
 
 <p>
-Pour calculer \(\vv{E}_2.\vv{u}_r\), on utilise la relation de continuité de
-la composante tangentielle du champ électrique à l'interface milieu
-\(\unicode{x2460}\) - milieu \(\unicode{x2461}\) et en surface du conducteur soit en
-\(r=R\). On a ainsi
+Pour calculer \(\vv{E}_2.\vv{u}_r\), on utilise la relation de continuité de la composante
+tangentielle du champ électrique à l'interface milieu \(\unicode{x2460}\) - milieu \(\unicode{x2461}\) et en
+surface du conducteur soit en \(r=R\). On a ainsi
 </p>
 \begin{align*}
   \vv{E}_2(r=R).\vv{u}_r&=\vv{E}_1(r=R).\vv{u}_r\\
@@ -1049,33 +1124,32 @@ d'où
 \end{align*}
 
 <p>
-Les densités surfaciques de charge de polarisation se déduisent de la
-discontinuité du vecteur polarisation
-\(\vv{P}=\epsilon_0\chi_e\vv{E}_2\). L'absence de polarisation dans le
-milieu \(\unicode{x2460}\) fait que \(\sigma_{P1}=0\) et
+Les densités surfaciques de charge de polarisation se déduisent de la discontinuité du vecteur
+polarisation \(\vv{P}=\epsilon_0\chi_e\vv{E}_2\). L'absence de polarisation dans le milieu
+\(\unicode{x2460}\) fait que \(\sigma_{P1}=0\) et
 </p>
 \begin{align*}
   \sigma_{P2}&=-\vv{P}.\vv{u}_r\\
   &=-\epsilon_0\chi_e\frac{V_S}{R}
 \end{align*}</li>
 
-<li>Les conditions aux limites sont vérifiées et \(V(r)\) est solution de
-l'équation de Poisson &rarr; théorème d'unicité, \(V(r)\) est l'unique solution</li>
+<li>Les conditions aux limites sont vérifiées et \(V(r)\) est solution de l'équation de Poisson &rarr;
+théorème d'unicité, \(V(r)\) est l'unique solution</li>
 </ol></li>
 </ol>
 
 <div class="QUESTION">
 <ol class="org-ol">
-<li value="3">Calculer \(V_S\) pour que la boule soit à moitié immergée. Application
-numérique : calculer \(V_S\) avec \(m=10\) g et \(\epsilon_r=80\).</li>
+<li value="3">Calculer \(V_S\) pour que la boule soit à moitié immergée. Application numérique&nbsp;:
+calculer \(V_S\) avec \(m=10\) g et \(\epsilon_r=80\).</li>
 </ol>
 
 </div>
 
 <p>
-En l'absence de potentiel \(V=0\) <i>i.e.</i> \(\sigma_{\ell1}=\sigma_{\ell2}=0\), seul
-le quart de la boule est immergé. Le système étant à l'équilibre on déduit
-ainsi la poussé d'Archimède s'exerçant sur la boule
+En l'absence de potentiel \(V=0\) <i>i.e.</i> \(\sigma_{\ell1}=\sigma_{\ell2}=0\), seul le quart de la boule
+est immergé. Le système étant à l'équilibre on déduit ainsi la poussé d'Archimède s'exerçant sur la
+boule
 </p>
 \begin{align*}
   \Upsigma\vv{F}&=\vv{0}\\
@@ -1084,9 +1158,8 @@ ainsi la poussé d'Archimède s'exerçant sur la boule
 \end{align*}
 
 <p>
-Lorsque la boule est au potentiel \(V_S\), le volume immergé correspond à la
-moitié du volume de la boule en raison de la pression électrostatique qui
-s'exerce à présent sur les parois du conducteur :
+Lorsque la boule est au potentiel \(V_S\), le volume immergé correspond à la moitié du volume de la
+boule en raison de la pression électrostatique qui s'exerce à présent sur les parois du conducteur :
 </p>
 \begin{align*}
   &\Upsigma\vv{F}=\vv{0}\\
@@ -1094,14 +1167,14 @@ s'exerce à présent sur les parois du conducteur :
 \end{align*}
 
 <p>
-où \(\vv{F}_1\) et \(\vv{F}_2\) correspondent aux forces de pression s'exerçant
-sur chacune des demi-sphères. Soit
+où \(\vv{F}_1\) et \(\vv{F}_2\) correspondent aux forces de pression s'exerçant sur chacune des
+demi-sphères. Soit
 </p>
 \begin{align*}
-  \vv{F}_{1,2}&=\iint P_{1,2}d\vv{S}\\
-  F_{1,2z}&=\vv{F}_{1,2}.\vv{u}_z=\int_0^{2\pi}d\phi\int_0^{\pi/2}P_{1,2}\cos\theta R^2\sin\theta d\theta\\
+  \vv{F}_{1,2}&=\iint P_{1,2}\d\vv{S}\\
+  F_{1,2z}&=\vv{F}_{1,2}.\vv{u}_z=\int_0^{2\pi}\d\phi\int_0^{\pi/2}P_{1,2}\cos\theta R^2\sin\theta \d\theta\\
   &\text{(seule la composante selon $\vv{u}_z$ reste non nulle)}\\
-  &=2\pi R^2P_{1,2}\int_0^{\pi/2}\sin\theta d(\sin\theta)=2\pi R^2P_{1,2}\left[\frac{\sin^2\theta}{2}\right]_0^{\pi/2}\\
+  &=2\pi R^2P_{1,2}\int_0^{\pi/2}\sin\theta \d(\sin\theta)=2\pi R^2P_{1,2}\left[\frac{\sin^2\theta}{2}\right]_0^{\pi/2}\\
   &=\pi R^2P_{1,2}
 \end{align*}
 
@@ -1110,8 +1183,8 @@ Les pressions électrostatiques \(P_{1,2}\) sont égales à
 </p>
 \begin{align*}
   P_1&=\frac{\sigma^2_{\ell1}}{2\epsilon_0}\\
-  P_2&=\frac{d\vv{F}_2}{d\vv{S}}=\frac{\vv{E}_2dq}{d\vv{S}}\\
-  &=\frac{\sigma_{\text{tot.}2}/\epsilon_0\times\sigma_{\ell2}dS}{dS}\text{ et }\sigma_{\text{tot.}2}=\sigma_{\ell2}+\sigma_{P2}=\frac{\sigma_{\ell2}}{\epsilon_r}\\
+  P_2&=\frac{\d\vv{F}_2}{\d\vv{S}}=\frac{\vv{E}_2\d q}{\d\vv{S}}\\
+  &=\frac{\sigma_{\text{tot.}2}/\epsilon_0\times\sigma_{\ell2}\d S}{\d S}\text{ et }\sigma_{\text{tot.}2}=\sigma_{\ell2}+\sigma_{P2}=\frac{\sigma_{\ell2}}{\epsilon_r}\\
   &=\frac{\sigma^2_{\ell2}}{2\epsilon_0\epsilon_r}=\frac{\epsilon_r\sigma^2_{\ell1}}{2\epsilon_0}
 \end{align*}
 
@@ -1128,24 +1201,22 @@ En projetant, le PFD selon \(\vv{u}_z\), on obtient finalement l'équation suiva
 </div>
 </div>
 
-<div id="outline-container-orgheadline10" class="outline-2">
-<h2 id="orgheadline10"><span class="section-number-2">5</span> Lame piézoélectrique</h2>
-<div class="outline-text-2" id="text-5">
+<div id="outline-container-orgc41324c" class="outline-2">
+<h2 id="orgc41324c"><span class="section-number-2">6</span> Lame piézoélectrique</h2>
+<div class="outline-text-2" id="text-6">
 <div class="QUESTION">
 <p>
-Le phénomène de piézoélectricité consiste en l'apparition d'une polarisation
-électrique dans certains diélectriques sous l'effet d'une force exercée dans une
-direction convenable, ici \(Oz\). Deux armatures conductrices sont déposées sur
-les faces opposées d'une lame diélectrique d'épaisseur \(d\) et de surface
-\(S\). L'ensemble est un condensateur plan et constitue le capteur
+Le phénomène de piézoélectricité consiste en l'apparition d'une polarisation électrique dans
+certains diélectriques sous l'effet d'une force exercée dans une direction convenable, ici
+\(Oz\). Deux armatures conductrices sont déposées sur les faces opposées d'une lame diélectrique
+d'épaisseur \(d\) et de surface \(S\). L'ensemble est un condensateur plan et constitue le capteur
 piézoélectrique.
 </p>
 
 <p>
-Pendant tout l'exercice, on admet que les champs \(\vv{P}\), \(\vv{E}\) et \(\vv{D}\)
-sont parallèles à \(Oz\) et que les variations d'épaisseur de la lame sont
-négligeables devant \(d\). On note \(q\) la charge de l'armature \(z=0\) et \(-q\) celle
-de l'armature \(z=d\).
+Pendant tout l'exercice, on admet que les champs \(\vv{P}\), \(\vv{E}\) et \(\vv{D}\) sont parallèles à
+\(Oz\) et que les variations d'épaisseur de la lame sont négligeables devant \(d\). On note \(q\) la
+charge de l'armature \(z=0\) et \(-q\) celle de l'armature \(z=d\).
 </p>
 
 <ol class="org-ol">
@@ -1160,11 +1231,10 @@ ne dépendent que de \(z\).
 </p>
 
 <p>
-À l'intérieur du diélectrique soit entre les armatures, il n'y a pas de
-charges libres. On applique donc le théorème de Gauss au vecteur déplacement
-\(\vv{D}\) en choisissant pour surface fermée un cylindre. Seuls les disques
-de surface \(S\) en \(z_1\) et en \(z_2\) donnent un produit \(\vv{D}.d\vv{S}\) non
-nul. On obtient ainsi
+À l'intérieur du diélectrique soit entre les armatures, il n'y a pas de charges libres. On applique
+donc le théorème de Gauss au vecteur déplacement \(\vv{D}\) en choisissant pour surface fermée un
+cylindre. Seuls les disques de surface \(S\) en \(z_1\) et en \(z_2\) donnent un produit \(\vv{D}.d\vv{S}\)
+non nul. On obtient ainsi
 </p>
 \begin{align*}
   D(z=z_1)S-D(z=z_2)S=\Upsigma Q_\text{libre}&=0\\
@@ -1172,10 +1242,10 @@ nul. On obtient ainsi
 \end{align*}
 
 <p>
-L'expression du vecteur déplacement ne dépend donc pas de la position à
-l'intérieur du diélectrique. Pour déterminer la valeur du champ \(\vv{D}\), on
-se place à l'interface armature-diélectrique et on applique la relation de
-discontinuité de la composante normale du vecteur déplacement soit
+L'expression du vecteur déplacement ne dépend donc pas de la position à l'intérieur du
+diélectrique. Pour déterminer la valeur du champ \(\vv{D}\), on se place à l'interface
+armature-diélectrique et on applique la relation de discontinuité de la composante normale du
+vecteur déplacement soit
 </p>
 \begin{align*}
   \left.\left(\vv{D}_\text{int.}-\cancel{\vv{D}_\text{ext.}}\right)\right|_{z=0}.\vv{u}_z&=\sigma_\ell=\frac{+q}{S}\\
@@ -1185,46 +1255,42 @@ discontinuité de la composante normale du vecteur déplacement soit
 <div class="QUESTION">
 <ol class="org-ol">
 <li value="2"><p>
-On suppose que le diélectrique est <i>piézoélectrique</i> de permittivité
-\(\epsilon\). Sous l'action d'une force extérieure, l'épaisseur de la lame
-devient \(d+\delta\) avec \(\delta\ll d\). La déformation du diélectrique induit
-une polarisation indépendante de la charge \(q\). La relation constitutive du
-piézoélectrique s'écrit :
+On suppose que le diélectrique est <i>piézoélectrique</i> de permittivité \(\epsilon\). Sous l'action
+d'une force extérieure, l'épaisseur de la lame devient \(d+\delta\) avec \(\delta\ll d\). La
+déformation du diélectrique induit une polarisation indépendante de la charge \(q\). La relation
+constitutive du piézoélectrique s'écrit :
 </p>
 \begin{align*}
   \vv{P}=\epsilon_0\chi\vv{E}+\frac{\epsilon\alpha\delta}{d}\vv{u}_z
 \end{align*}
 
 <p>
-Le premier terme est la polarisation d'un diélectrique LHI. L'état du capteur
-dépend maintenant de deux variables \(\delta\) et \(q\). Le deuxième terme
-représente l'effet piézoélectrique, \(\alpha\) est une constante (typiquement
-\(\alpha=10^{10}\) V/m).
+Le premier terme est la polarisation d'un diélectrique LHI. L'état du capteur dépend maintenant
+de deux variables \(\delta\) et \(q\). Le deuxième terme représente l'effet piézoélectrique, \(\alpha\)
+est une constante (typiquement \(\alpha=10^{10}\) V/m).
 </p>
 <ol class="org-ol">
-<li>Déterminer la tension aux bornes du condensateur \(V(\delta,q)\). Pourquoi
-peut-on négliger le deuxième ordre ?</li>
+<li>Déterminer la tension aux bornes du condensateur \(V(\delta,q)\). Pourquoi peut-on négliger le
+deuxième ordre ?</li>
 <li><p>
-On se propose de déterminer l'énergie potentielle \(W(\delta,q)\) du système
-avec \(W(0,0)=0\). Un opérateur fait varier \(\delta\) en appliquant une force
-\(F\), tandis qu'un générateur fait varier la charge \(q\). L'énergie
-potentielle étant une fonction d'état, on peut aller de l'état \((0,0)\) à
-l'état \((\delta,q)\) par n'importe quel chemin. On décompose la
-transformation en deux étapes&nbsp;:
+On se propose de déterminer l'énergie potentielle \(W(\delta,q)\) du système avec \(W(0,0)=0\). Un
+opérateur fait varier \(\delta\) en appliquant une force \(F\), tandis qu'un générateur fait
+varier la charge \(q\). L'énergie potentielle étant une fonction d'état, on peut aller de l'état
+\((0,0)\) à l'état \((\delta,q)\) par n'importe quel chemin. On décompose la transformation en
+deux étapes&nbsp;:
 </p>
 <ul class="org-ul">
-<li>à \(q=0\), pour maintenir la déformation \(\delta'\), l'opérateur doit
-appliquer une force \(K\delta'\) sur la surface \(z=d\), la face \(z=0\) étant
-fixe. La constante \(K>0\) décrit la rigidité du matériau. L'opérateur
-fait varier \(\delta'\) de 0 à \(\delta\).</li>
+<li>à \(q=0\), pour maintenir la déformation \(\delta'\), l'opérateur doit appliquer une force
+\(K\delta'\) sur la surface \(z=d\), la face \(z=0\) étant fixe. La constante \(K>0\) décrit la
+rigidité du matériau. L'opérateur fait varier \(\delta'\) de 0 à \(\delta\).</li>
 <li>à \(\delta\) constant, le générateur fait varier la charge \(q'\) de 0 à
 \(q\).</li>
 </ul>
 <p>
-Pour chacune des étapes, exprimer le travail de l'opérateur \(W_\text{op.}\)
-et celui du générateur \(W_G\). En déduire \(W(\delta,q)\).
+Pour chacune des étapes, exprimer le travail de l'opérateur \(W_\text{op.}\) et celui du
+générateur \(W_G\). En déduire \(W(\delta,q)\).
 </p></li>
-<li>Sachant que \(dW=Fd\delta+Vdq\), déterminer \(F(\delta,q)\).</li>
+<li>Sachant que \(\d W=F\d\delta+V\d q\), déterminer \(F(\delta,q)\).</li>
 </ol></li>
 </ol>
 
@@ -1247,8 +1313,8 @@ champ électrique à l'intérieur de la lame piézoélectrique devient
 La tension \(V(\delta,q)\) s'exprime ainsi
 </p>
 \begin{align*}
-  \vv{E}&=-\grad V=-\frac{dV}{dz}\vv{u}_z\\
-  V(\delta,q)=-\int_{V(0)}^{V(d)}dV&=\int_0^d\left(\frac{q}{\epsilon S}-\frac{\alpha\delta}{d}\right)dz\\
+  \vv{E}&=-\grad V=-\frac{\d V}{\d z}\vv{u}_z\\
+  V(\delta,q)=-\int_{V(0)}^{V(d)}\d V&=\int_0^d\left(\frac{q}{\epsilon S}-\frac{\alpha\delta}{d}\right)\d z\\
   V(\delta,q)&=\frac{qd}{\epsilon S}-\alpha\delta
 \end{align*}</li>
 
@@ -1256,17 +1322,17 @@ La tension \(V(\delta,q)\) s'exprime ainsi
 À \(q=0\), le travail de l'opérateur s'écrit
 </p>
 \begin{align*}
-  dW_\text{op.}&=\vv{F}_\text{op.}.\vv{dz}\\
-  W_\text{op.}&=\int_0^\delta K\delta'd\delta'=K\frac{\delta^2}{2}+\text{constante}
+  dW_\text{op.}&=\vv{F}_\text{op.}.\vv{\d z}\\
+  W_\text{op.}&=\int_0^\delta K\delta'\d\delta'=K\frac{\delta^2}{2}+\text{constante}
 \end{align*}
 
 <p>
 À \(\delta\) constant, le travail du générateur est le suivant
 </p>
 \begin{align*}
-  dW_\text{G}&=Pdt=V\times Idt=Vdq\\
-  W_\text{G}&=\int_0^qV(\delta,q')dq'\\
-  &=\int_0^q\left(\frac{q'd}{\epsilon S}-\alpha\delta\right)dq'\\
+  \d W_\text{G}&=P\d t=V\times I\d t=V\d q\\
+  W_\text{G}&=\int_0^qV(\delta,q')\d q'\\
+  &=\int_0^q\left(\frac{q'd}{\epsilon S}-\alpha\delta\right)\d q'\\
   &=\frac{q^2d}{2\epsilon S}-\alpha\delta q+\text{constante}
 \end{align*}
 
@@ -1283,15 +1349,15 @@ L'énergie potentielle du système devient
 Sachant que
 </p>
 \begin{align*}
-  dW(\delta,q)&=\frac{\partial W}{\partial\delta}d\delta+\frac{\partial W}{\partial q}dq\\
-  &=Fd\delta+Vdq
+  \d W(\delta,q)&=\frac{\partial W}{\partial\delta}\d\delta+\frac{\partial W}{\partial q}\d q\\
+  &=F\d\delta+V\d q
 \end{align*}
 
 <p>
 on déduit que
 </p>
 \begin{align*}
-  F(\delta,q)&=\frac{\partial W}{\partial\delta}=K\delta-\epsilon_r\alpha q
+  F(\delta,q)&=\frac{\partial W}{\partial\delta}=K\delta-\alpha q
 \end{align*}
 
 <p>
@@ -1314,7 +1380,7 @@ et on vérifie que
 </div>
 </div></div>
 <div id="postamble" class="status">
-File under <i class="fa fa-github-alt"></i> version control - commit <a href="https://github.com/xgarrido/licence_em_teaching/commit/311150a025b9911feb88eb5eafabc7b31c1ab20a">311150a</a> - 2016-06-28
+File under <i class="fa fa-github-alt"></i> version control - commit <a href="https://github.com/xgarrido/licence_em_teaching/commit/16aed20846016fe35284275cba92e3520e1831e1">16aed20</a> - 2020-12-21
 </div>
 </body>
 </html>

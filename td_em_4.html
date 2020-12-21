@@ -3,10 +3,11 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
-<meta  name="viewport" content="width=device-width, initial-scale=1" />
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>TD5 : Milieux magnétiques</title>
-<meta  name="generator" content="Org-mode" />
+<meta name="generator" content="Org mode" />
+<meta name="author" content="Xavier Garrido" />
 <link rel="stylesheet" href="css/styles.css" />
                <link rel="stylesheet" href="css/org-pygments.css" />
                <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" />
@@ -15,7 +16,7 @@
 @licstart  The following is the entire license notice for the
 JavaScript code in this tag.
 
-Copyright (C) 2012-2013 Free Software Foundation, Inc.
+Copyright (C) 2012-2018 Free Software Foundation, Inc.
 
 The JavaScript code in this tag is free software: you can
 redistribute it and/or modify it under the terms of the GNU
@@ -83,6 +84,7 @@ for the JavaScript code in this tag.
           extensions: ["cancel.js"],
           Macros: {
               vv: ["{\\vec{#1}}",1],
+              d: "{\\text{d}}",
               Upsigma: "{\\Sigma}",
               Updelta: "{\\Delta}",
               varoiint: "{\\iint}",
@@ -152,28 +154,27 @@ for the JavaScript code in this tag.
 </div>
 </div>
 
-<div id="outline-container-orgheadline1" class="outline-2">
-<h2 id="orgheadline1"><span class="section-number-2">1</span> Introduction</h2>
+<div id="outline-container-orge6d95c9" class="outline-2">
+<h2 id="orge6d95c9"><span class="section-number-2">1</span> Introduction</h2>
 <div class="outline-text-2" id="text-1">
 <p>
-Dans la plupart des matériaux soumis à un champ magnétique, les charges liées se
-déplacent à l'échelle atomique faisant apparaître des boucles de courant <i>i.e.</i>
-<b>des dipôles magnétiques</b> : la milieu s'aimante. Ainsi, l'aimantation \(\vv{M}\)
-d'un matériau correspond à la densité volumique de moment magnétique \(\vv{m}\)
-soit
+Dans la plupart des matériaux soumis à un champ magnétique, les charges liées se déplacent à
+l'échelle atomique faisant apparaître des boucles de courant <i>i.e.</i> <b>des dipôles magnétiques</b> : le
+milieu s'aimante. Ainsi, l'aimantation \(\vv{M}\) d'un matériau correspond à la densité volumique de
+moment magnétique \(\vv{m}\) soit
 </p>
 \begin{align*}
-  \vv{M}=\frac{d\vv{m}}{d\tau}
+  \vv{M}=\frac{\d\vv{m}}{\d\tau}
 \end{align*}
 
 <p>
-Pour rappel, le moment dipolaire magnétique \(\vv{m}\) d'une boucle de courant est
-égale à \(\vv{m}=I\times\vv{S}\).
+Pour rappel, le moment dipolaire magnétique \(\vv{m}\) d'une boucle de courant est égale à
+\(\vv{m}=I\times\vv{S}\).
 </p>
 
 <p>
-On peut alors introduire une densité de courant liés (ou d'aimantation)
-\(\vv{j}_\text{liés}\) correspondant au rotationnel de l'aimantation
+On peut alors introduire une densité de courant liés (ou d'aimantation) \(\vv{j}_\text{liés}\)
+correspondant au rotationnel de l'aimantation
 </p>
 \begin{align*}
   \rot\vv{M}=\vv{j}_\text{liés}
@@ -190,19 +191,19 @@ L'équation de Maxwell-Ampère devient
 \end{align*}
 
 <p>
-où \(\vv{H}=\frac{\vv{B}}{\mu_0}-\vv{M}\) est le vecteur d'excitation magnétique
-dont l'unité est l'Ampère par mètre.
+où \(\vv{H}=\frac{\vv{B}}{\mu_0}-\vv{M}\) est le vecteur d'excitation magnétique dont l'unité est
+l'Ampère par mètre.
 </p>
 
 <p>
 Le théorème d'Ampère généralisé s'écrit
 </p>
 \begin{align*}
-  \oint_\mathcal{C}\vv{H}.\vv{d\ell}&=\iint_{\mathcal{S}}\vv{j}_\text{libres}.\vv{dS}=\Upsigma I_\text{libres}^\text{enlacés}
+  \oint_\mathcal{C}\vv{H}.\vv{\d\ell}&=\iint_{\mathcal{S}}\vv{j}_\text{libres}.\vv{\d S}=\Upsigma I_\text{libres}^\text{enlacés}
 \end{align*}
 
 <p>
-Les relations de passage demeurent inchangés pour ce qui concerne la composante
+Les relations de passage demeurent inchangées pour ce qui concerne la composante
 normale du champ magnétique
 \(\vv{n}_{1\to2}.\left(\vv{B}_2-\vv{B}_1\right)=0\). La composante tangentielle
 devient
@@ -229,8 +230,8 @@ plus proportionnelle à l'excitation magnétique \(\vv{M}\neq\chi_m\vv{H}\).
 </div>
 </div>
 
-<div id="outline-container-orgheadline2" class="outline-2">
-<h2 id="orgheadline2"><span class="section-number-2">2</span> Plaque magnétique</h2>
+<div id="outline-container-orge20158f" class="outline-2">
+<h2 id="orge20158f"><span class="section-number-2">2</span> Plaque magnétique</h2>
 <div class="outline-text-2" id="text-2">
 <div class="QUESTION">
 <p>
@@ -292,7 +293,7 @@ tangentielle de \(\vv{B}_i\) sera donc sensiblement plus faible que celle
 du champ extérieur \(B_{i\parallel}\lesssim B_{0\parallel}\).
 </p>
 
-<div class="center">
+<div class="org-center">
 
 <div class="figure">
 <p><img src="./figures/plaque_diamagnetique.png" alt="plaque_diamagnetique.png" />
@@ -301,11 +302,11 @@ du champ extérieur \(B_{i\parallel}\lesssim B_{0\parallel}\).
 </div></dd>
 <dt>milieu paramagnétique</dt><dd><p>
 \(\chi_m\ll1\) avec \(\chi_m>0\) (\(\chi_m\sim10^{-4}\)
-        oxygène, platine, aluminium), \(\mu_r\gtrsim1\to B_{i\parallel}\gtrsim
+oxygène, platine, aluminium), \(\mu_r\gtrsim1\to B_{i\parallel}\gtrsim
         B_{0\parallel}\)
 </p>
 
-<div class="center">
+<div class="org-center">
 
 <div class="figure">
 <p><img src="./figures/plaque_paramagnetique.png" alt="plaque_paramagnetique.png" />
@@ -319,7 +320,7 @@ le milieu demeure linéaire donc
 mu-métal) &rarr; \(\vv{B}_i\simeq\mu_r\vv{B}_{0\parallel}\)
 </p>
 
-<div class="center">
+<div class="org-center">
 
 <div class="figure">
 <p><img src="./figures/plaque_ferromagnetique.png" alt="plaque_ferromagnetique.png" />
@@ -334,32 +335,31 @@ Les lignes de champ magnétique sont canalisées&rarr; blindages magnétiques
 </div>
 </div>
 
-<div id="outline-container-orgheadline3" class="outline-2">
-<h2 id="orgheadline3"><span class="section-number-2">3</span> L'électro-aimant</h2>
+<div id="outline-container-org18edac4" class="outline-2">
+<h2 id="org18edac4"><span class="section-number-2">3</span> L'électro-aimant</h2>
 <div class="outline-text-2" id="text-3">
 <div class="QUESTION">
 <p>
-Un électro-aimant est constitué d'un barreau de ferromagnétique doux appelé fer,
-de section constante \(S\), replié sur lui-même de façon que les deux extrémités
-planes soient en regard l'une de l'autre à la distance \(d\). L'espace vide entre
-les extrémités est appelé entrefer. On donne la longueur de la ligne médiane du
-barreau &ell; = 1.5 m, \(d\) = 5 cm, la perméabilité relative du fer
-\(\mu_r=4000\). Un enroulement de \(N\) spires est bobiné sur une partie du fer. Il
-est traversé par le courant \(I\). On admet que dans le fer les lignes de champ
-sont parallèles à la ligne médiane donc à la surface du barreau et que la norme
-de \(\vv{B}\) dans le fer notée \(B_1\) est constante sur une section droite.
+Un électro-aimant est constitué d'un barreau de ferromagnétique doux appelé fer, de section
+constante \(S\), replié sur lui-même de façon que les deux extrémités planes soient en regard l'une de
+l'autre à la distance \(d\). L'espace vide entre les extrémités est appelé entrefer. On donne la
+longueur de la ligne médiane du barreau &ell; = 1.5 m, \(d\) = 5 cm, la perméabilité relative du fer
+\(\mu_r=4000\). Un enroulement de \(N\) spires est bobiné sur une partie du fer. Il est traversé par le
+courant \(I\). On admet que dans le fer les lignes de champ sont parallèles à la ligne médiane donc à
+la surface du barreau et que la norme de \(\vv{B}\) dans le fer notée \(B_1\) est constante sur une
+section droite.
 </p>
 
 <ol class="org-ol">
-<li value="1">Montrer que \(B_1\) est constante dans tout le fer. Calculer \(H_1\) norme
-de \(\vv{H}\) dans le fer en fonction de \(B_1\) en régime linéaire.</li>
+<li value="1">Montrer que \(B_1\) est constante dans tout le fer. Calculer \(H_1\) norme de \(\vv{H}\) dans le
+fer en fonction de \(B_1\) en régime linéaire.</li>
 </ol>
 
 </div>
 <p>
-La conservation du flux magnétique, toujours vérifiée y compris au sein de
-milieux magnétiques, impose que \(\varoiint_\mathcal{S}\vv{B}.\vv{dS}=0\). Le
-champ magnétique dans le fer étant perpendiculaire à la section, on obtient
+La conservation du flux magnétique, toujours vérifiée y compris au sein de milieux magnétiques,
+impose que \(\varoiint_\mathcal{S}\vv{B}.\vv{\d S}=0\). Le champ magnétique dans le fer étant
+perpendiculaire à la section, on obtient
 </p>
 \begin{align*}
   B_1(x_1)S_\text{barreau}&=B_1(x_2)S_\text{barreau}\\
@@ -367,8 +367,8 @@ champ magnétique dans le fer étant perpendiculaire à la section, on obtient
 \end{align*}
 
 <p>
-En régime linéaire, l'excitation magnétique \(\vv{H}\) est proportionnelle au
-champ magnétique \(\vv{B}\). Ainsi,
+En régime linéaire, l'excitation magnétique \(\vv{H}\) est proportionnelle au champ magnétique
+\(\vv{B}\). Ainsi,
 </p>
 \begin{align*}
   \|\vv{H}\|=H_1=\frac{B_1}{\mu_r\mu_0}
@@ -376,26 +376,24 @@ champ magnétique \(\vv{B}\). Ainsi,
 
 <div class="QUESTION">
 <ol class="org-ol">
-<li value="2">On admet aussi que les lignes de champ dans l'entrefer sont
-perpendiculaires aux faces. Montrer que le champ \(B_2\) dans l'entrefer est
-uniforme. Calculer \(B_2\) en fonction de \(B_1\). En déduire \(H_2\) dans
-l'entrefer.</li>
+<li value="2">On admet aussi que les lignes de champ dans l'entrefer sont perpendiculaires aux
+faces. Montrer que le champ \(B_2\) dans l'entrefer est uniforme. Calculer \(B_2\) en fonction de
+\(B_1\). En déduire \(H_2\) dans l'entrefer.</li>
 </ol>
 
 </div>
 <p>
-Le champ magnétique dans l'entrefer \(\vv{B}_2\) est une fonction de la
-position \(x,y,z\), son orientation restant perpendiculaire à la section du
-barreau soit \(\vv{B}_2=B_2(x,y,z)\vv{u_z}\). La conservation du flux
-magnétique impose que
+Le champ magnétique dans l'entrefer \(\vv{B}_2\) est une fonction de la position \(x,y,z\), son
+orientation restant perpendiculaire à la section du barreau soit \(\vv{B}_2=B_2(x,y,z)\vv{u_z}\). La
+conservation du flux magnétique impose que
 </p>
 \begin{align*}
   \div\vv{B}_2&=\frac{\partial B_2}{\partial z}=0\to \vv{B}_2=B_2(x,y,\cancel{z})\vv{u_z}
 \end{align*}
 
 <p>
-Par ailleurs, la continuité de la composante normale du champ magnétique à
-l'interface barreau/entrefer impose
+Par ailleurs, la continuité de la composante normale du champ magnétique à l'interface
+barreau/entrefer impose
 </p>
 \begin{align*}
   B_{1\perp}&=B_{2\perp}=\text{constante est vrai pour }\forall x,y\\
@@ -410,8 +408,8 @@ L'excitation magnétique \(H_2\) dans l'entrefer est alors égale à
 <div class="QUESTION">
 <ol class="org-ol">
 <li value="3"><p>
-À l'aide du théorème d'Ampère, calculer \(H_1,H_2,B_1\) et \(B_2\) en
-fonction de \(\mu_0,\mu_r,\ell,d,N\) et \(I\).
+À l'aide du théorème d'Ampère, calculer \(H_1,H_2,B_1\) et \(B_2\) en fonction de
+\(\mu_0,\mu_r,\ell,d,N\) et \(I\).
 </p>
 
 <p>
@@ -424,7 +422,7 @@ A.N: \(B_2=1\) T pour \(I=100\) A. Calculer \(N\).
 Le théorème d'Ampère généralisé s'écrit
 </p>
 \begin{align*}
-  \oint_\mathcal{C}\vv{H}.\vv{d\ell}&=\Upsigma I_\text{enlacé}^\text{libres}=N\times I\\
+  \oint_\mathcal{C}\vv{H}.\vv{\d\ell}&=\Upsigma I_\text{enlacé}^\text{libres}=N\times I\\
   H_1\times\ell+H_2\times d&=NI\\
   \frac{B_1}{\mu_r\mu_0}\ell+\frac{B_1}{\mu_0}d&=NI\\
   B_1&=\frac{\mu_0NI}{\ell/\mu_r+d}=\frac{\mu_r\mu_0NI}{\ell+\mu_rd}\\
@@ -465,8 +463,8 @@ théorème d'Ampère on obtient
 </div>
 </div>
 
-<div id="outline-container-orgheadline6" class="outline-2">
-<h2 id="orgheadline6"><span class="section-number-2">4</span> Aimant permanent</h2>
+<div id="outline-container-org68ad06c" class="outline-2">
+<h2 id="org68ad06c"><span class="section-number-2">4</span> Aimant permanent</h2>
 <div class="outline-text-2" id="text-4">
 <div class="QUESTION">
 <p>
@@ -494,8 +492,8 @@ l'extérieur.
 </div>
 </div>
 
-<div id="outline-container-orgheadline4" class="outline-3">
-<h3 id="orgheadline4"><span class="section-number-3">4.1</span> Étude de l'aimant permanent</h3>
+<div id="outline-container-org8a42d9f" class="outline-3">
+<h3 id="org8a42d9f"><span class="section-number-3">4.1</span> Étude de l'aimant permanent</h3>
 <div class="outline-text-3" id="text-4-1">
 <div class="QUESTION">
 <ol class="org-ol">
@@ -531,7 +529,7 @@ donc que des courants d'aimantation :
 <p>
 <b>Calcul de \(\vv{j_{SM}}\)</b>
 </p>
-<div class="center">
+<div class="org-center">
 
 <div class="figure">
 <p><img src="./figures/aimant_permanent.png" alt="aimant_permanent.png" />
@@ -561,14 +559,14 @@ donc
 </p>
 \begin{align*}
   \vv{B}_\text{int.}&=\vv{B}(j_{SM}(r=a))+\vv{B}(j_{SM}(r=b))+\vv{B}(j_M(a < r < b))\\
-  &=\cancel{\frac{\mu_0M_0}{2}\vv{u_x}}-\cancel{\frac{\mu_0M_0}{2}\vv{u_x}}+\int_a^b\frac{2\mu_0M_0}{2r}dr\,\vv{u_x}\\
+  &=\cancel{\frac{\mu_0M_0}{2}\vv{u_x}}-\cancel{\frac{\mu_0M_0}{2}\vv{u_x}}+\int_a^b\frac{2\mu_0M_0}{2r}\d r\,\vv{u_x}\\
   &=\mu_0M_0\ln\frac{b}{a}\vv{u_x}\equiv\text{uniforme}
 \end{align*}
 </div>
 </div>
 
-<div id="outline-container-orgheadline5" class="outline-3">
-<h3 id="orgheadline5"><span class="section-number-3">4.2</span> Étude de l'homogénéité du champ crée par l'aimant permanent</h3>
+<div id="outline-container-org2f876da" class="outline-3">
+<h3 id="org2f876da"><span class="section-number-3">4.2</span> Étude de l'homogénéité du champ crée par l'aimant permanent</h3>
 <div class="outline-text-3" id="text-4-2">
 <div class="QUESTION">
 <p>
@@ -729,16 +727,14 @@ La valeur de \(B_x(0,0,0)\simeq\mu_0M_0\ln\frac{b}{a}\) et
 
 <div class="QUESTION">
 <ol class="org-ol">
-<li value="3">Application numérique.  Pour pouvoir réaliser un spectromètre RMN, on
-voudrait un champ magnétique vérifiant les spécifications suivantes : on a
-besoin d'un champ supérieur à 1.2 T avec une homogénéité de 10<sup>-4</sup> dans un
-volume shérique centré en \(O\), de rayon 5 mm (c'est-à-dire que la variation
-maximale de champ magnétique \(\delta B\) doit être inférieure à 10<sup>-4</sup> fois
-la valeur du champ en \(O\)). Un fabricant propose un aimant permanent du
-type étudié ici, fabriqué avec un alliage de NdFeB. L'aimantation à
-saturation de cet alliage vaut \(M_S\) = 8&times;10<sup>5</sup> A.m<sup>-1</sup>, les dimensions
-proposées sont \(a\) = 50 mm, \(b\) = 200 mm et \(h\) = 105 mm. On donne \(\mu_{0}\) =
-4π×10<sup>-7</sup> N.A<sup>-2</sup>. Cette proposition peut-elle convenir ?</li>
+<li value="3">Application numérique.  Pour pouvoir réaliser un spectromètre RMN, on voudrait un champ
+magnétique vérifiant les spécifications suivantes : on a besoin d'un champ supérieur à 1.2 T avec
+une homogénéité de 10<sup>-4</sup> dans un volume shérique centré en \(O\), de rayon 5 mm (c'est-à-dire que
+la variation maximale de champ magnétique \(\delta B\) doit être inférieure à 10<sup>-4</sup> fois la
+valeur du champ en \(O\)). Un fabricant propose un aimant permanent du type étudié ici, fabriqué
+avec un alliage de NdFeB. L'aimantation à saturation de cet alliage vaut \(M_S\) =
+8\(\times\)10<sup>5</sup> A.m<sup>-1</sup>, les dimensions proposées sont \(a\) = 50 mm, \(b\) = 200 mm et \(h\) = 105
+mm. On donne \(\mu_{0}\) = 4$&pi;&times;$10<sup>-7</sup> N.A<sup>-2</sup>. Cette proposition peut-elle convenir ?</li>
 </ol>
 
 </div>
@@ -775,425 +771,9 @@ faudrait augmenter la hauteur \(h\) de l'aimant jusqu'à une valeur de l'ordre d
 </div>
 </div>
 </div>
-
-<div id="outline-container-orgheadline7" class="outline-2">
-<h2 id="orgheadline7"><span class="section-number-2">5</span> Chaîne de gouttelettes d'une émulsion ferrofluide&#xa0;&#xa0;&#xa0;<span class="tag"><span class="DM">DM</span></span></h2>
-<div class="outline-text-2" id="text-5">
-<div class="QUESTION">
-<p>
-Un ferrofluide s'obtient en dispersant dans de l'huile de petites particules
-solides aimantées. On obtient alors un fluide aux propriétés particulières. En
-particulier, les particules ont tendance à s'aligner le long des lignes de champ
-ce qui génère des pointes tout à fait inhabituelles dans les liquides.
-</p>
-
-<p>
-Une émulsion ferrofluide est une suspension diluée de gouttelettes de ce fluide
-dans l'eau. Des techniques physico-chimiques permettent de contrôler la taille
-des gouttelettes et la stabilité de cette suspension. La taille des gouttelettes
-est d'environ un micromètre. Sous l'effet d'un champ magnétique extérieur, les
-gouttelettes s'organisent en longues chaînes parallèles au champ.
-</p>
-
-<p>
-On rappelle qu'un dipôle magnétique \(\vv{m}\) crée un champ magnétique, en
-coordonnées sphériques, de la forme :
-</p>
-\begin{align*}
-  \vv{B}=\frac{\mu_0}{4\pi}\left(\frac{2m\cos\theta}{r^3}\vv{u}_r+\frac{m\sin\theta}{r^3}\vv{u}_\theta\right)
-\end{align*}
-
-<p>
-et que l'énergie potentielle d'un dipôle \(\vv{m}\) soumis à un champ magnétique
-\(\vv{B}\) est \(E_p=-\vv{m}.\vv{B}\).
-</p>
-
-<ol class="org-ol">
-<li value="1">On considère deux dipôles magnétiques \(\vv{m}_1\) et \(\vv{m}_2\)
-   identiques, parallèles à \(\vv{u}_z\) et de même sens.
-<ol class="org-ol">
-<li>Donner l'expression de l'énergie potentielle d'interaction \(W\) entre
-les dipôles \(\vv{m}_1\), placé à l'origine, et \(\vv{m}_2\), au point de
-coordonnées polaires \((r,\theta)\). En déduire l'expression de la force
-d'interaction \(\vv{F}\) exercée par \(\vv{m}_1\) sur \(\vv{m}_2\).</li>
-<li>À \(r\) fixé, pour quelle direction &theta; l'énergie est-elle minimale ? La
-force d'interaction est-elle répulsive ou attractive dans cette direction
-?</li>
-</ol></li>
-</ol>
-
-</div>
-
-<ol class="org-ol">
-<li>Interaction entre deux dipôles magnétiques identiques \(m_1=m_2=m\)
-<ol class="org-ol">
-<li><p>
-L'énergie potentielle s'écrit \(W=-\vv{m_2}.\vv{B_1}\) où \(\vv{m_2}\) est, en
-coordonnées sphériques, égal à \((m\cos\theta, -m\sin\theta, 0)\) et
-\(\vv{B_1}\) correspond au champ magnétique généré par le dipôle \(m_1\) au
-point \(P\). On déduit l'expression de \(W\)
-</p>
-\begin{align*}
-  W&=-\left|\begin{array}{l}
-  m\cos\theta\\
-  -m\sin\theta\\
-  0
-  \end{array}\right.\cdot\frac{\mu_0}{4\pi}
-  \left|\begin{array}{l}
-  \frac{2m\cos\theta}{r^3}\\
-  \frac{m\sin\theta}{r^3}\\
-  0
-  \end{array}\right.\\
-  &=-\frac{\mu_0m^2}{4\pi r^3}\left(2\cos^2\theta-\sin^2\theta\right)\\
-  &=-\frac{\mu_0m^2}{4\pi r^3}\left(3\cos^2\theta-1\right)
-\end{align*}
-
-<p>
-La force d'interaction \(\vv{F}\) est égal à \(-\grad W\) soit
-</p>
-\begin{align*}
-  \vv{F}&=-\grad W=-\frac{\partial W}{\partial r}\vv{u_r}-\frac{1}{r}\frac{\partial W}{\partial\theta}\vv{u_\theta}\\
-  &=-\frac{3\mu_0m^2}{4\pi r^4}\left(3\cos^2\theta-1\right)\,\vv{u_r}-\frac{3\mu_0m^2}{4\pi r^4}\left(2\cos\theta\sin\theta\right)\,\vv{u_\theta}\\
-  &=\left|\begin{array}{l}
-  -\frac{3\mu_0m^2}{4\pi r^4}\left(3\cos^2\theta-1\right)\\
-  -\frac{3\mu_0m^2}{4\pi r^4}\,\sin2\theta\\
-  0
-  \end{array}\right.
-\end{align*}</li>
-
-<li><p>
-À distance \(r\) fixée, l'énergie est minimale dès lors que
-\(3\cos^2\theta-1\) est maximal soit pour \(\theta=0\,[\pi]\). La composante
-polaire de la force \(\vv{F}\) est alors nulle tandis que la composante
-radiale se réduit à
-</p>
-\begin{align*}
-  F_r&=-\frac{3\mu_0m^2}{2\pi r^4}
-\end{align*}
-
-<p>
-Les moments magnétiques \(\vv{m_1}\) et \(\vv{m_2}\) s'alignent selon la
-direction portant les deux dipôles et la force est donc attractive.
-</p></li>
-</ol></li>
-</ol>
-
-<div class="QUESTION">
-<ol class="org-ol">
-<li value="2">Chaque particule solide aimantée du ferrofluide porte un moment
-magnétique permanent \(\vv{\mu}\) et possède un volume \(v\). On note &Phi; la
-fraction volumique en particules dans le fluide (&Phi; &Lt; 1).
-<ol class="org-ol">
-<li>Expliquer qualitativement pourquoi, en l'absence de champ extérieur, cette
-assemblée de particules aimantées ne possède aucune propriété magnétique
-macroscopique.</li>
-<li>On considère maintenant une goutte sphérique unique de ferrofluide de
-rayon \(R\) plongée dans l'eau. Sous l'effet d'un champ magnétique extérieur
-\(\vv{B}\), cette goutte acquiert une aimantation uniforme \(\vv{M}\). Pour
-des valeurs du champ pas trop élevées, cette aimantation lui est
-proportionnelle; on pose alors \(\vv{M}=\chi\vv{B}/\mu_0\) avec ici &chi; &Lt;
-1 à cause de la dilution et de l'agitation thermique. Quelle est la
-dimension de &chi; ? Quelle nom peut-on lui donner ? Quel est le moment
-magnétique \(\vv{m}^{(1)}\) de la goutte ?</li>
-</ol></li>
-</ol>
-
-</div>
-<ol class="org-ol">
-<li value="2"><ol class="org-ol">
-<li>La fraction volumique en particules \(\Phi\) est très faible donc les dipôles
-sont très éloignés les uns des autres. Par conséquent, le champ magnétique
-dû aux particules voisines est faible et les dipôles ne s'orientent pas les
-uns par rapport aux autres : il n'y a pas d'effet proche à proche. Les
-dipôles pointent donc dans des directions aléatoires, l'aimantation
-résultante est nulle, le milieu n'ayant pas de propriété magnétique
-macroscopique.</li>
-<li><p>
-\(\chi\) correspond à la susceptibilité magnétique et est sans
-dimension. Sachant que l'aimantation est égale à la densité volumique de
-moment magnétique \(\vv{M}=\frac{d\vv{m}}{d\tau}\), on déduit que le moment
-magnétique associé à chaque goutte s'écrit
-</p>
-\begin{align*}
-  \vv{m}^{(1)}&=\vv{M}\times V_\text{goutte}=\vv{M}\times\frac{4}{3}\pi R^3\\
-  &=\frac{4}{3}\pi R^3\frac{\chi\vv{B}}{\mu_0}
-\end{align*}</li>
-</ol></li>
-</ol>
-
-<div class="QUESTION">
-<ol class="org-ol">
-<li value="3">On considère une émulsion diluée de ces gouttelettes dans l'eau. Sous
-l'action d'un champ extérieur uniforme \(\vv{B}_0=B_0\vv{u}_z\), les
-gouttelettes s'alignent et forment des chaînes de \(N\) gouttelettes (\(N\)
-&asymp; 30), parallèles au champ appliqué. Chaque gouttelette de rayon \(R\)
-est assimilée à un dipôle magnétique \(\vv{m}^{(N)}\). On néglige toute
-interaction entre chaînes. Dans une chaîne isolée, supposée infinie, \(d\)
-désigne la distance supposée constante entre les centres de deux gouttelettes
-successives.
-<ol class="org-ol">
-<li>Expliquer pourquoi les moments s'alignent.</li>
-<li>Soit une gouttelette quelconque de la chaîne. Calculer le champ
-\(\vv{B}_\infty\) créé par les autres gouttelettes sur celle-ci. Exprimer ce
-champ en fonction de \(\vv{m}^{(\infty)}\), de \(d\) et de
-\(\alpha=\sum_{p=1}^\infty1/p^3\approx1.202\).</li>
-<li>Exprimer alors \(\vv{m}^{(\infty)}\) en fonction de \(\vv{B}_0\), &chi;, \(R\) et
-\(d\).</li>
-</ol></li>
-</ol>
-
-</div>
-<ol class="org-ol">
-<li value="3"><ol class="org-ol">
-<li>Les gouttelettes alignent toutes leur moment magnétique sur le champ
-extérieur \(\vv{B_0}\). Afin de minimiser l'énergie totale du sytème, les
-centres s'alignent les uns sur les autres conformément au résultat de la
-première question : les gouttelettes forment ainsi une chaîne colinéaire à
-la direction du champ magnétique externe.</li>
-<li><p>
-Considérons la gouttelette \(i\) sur la figure ci-dessous
-</p>
-
-<div class="center">
-
-<div class="figure">
-<p><img src="./figures/emulsion_ferrofluide.png" alt="emulsion_ferrofluide.png" />
-</p>
-</div>
-</div>
-
-<p>
-Le champ magnétique \(\vv{B}_\infty\) exercée par les autres gouttelettes
-sur celle-ci s'obtient en sommant les champs induits par les gouttelettes
-situées en \(z<z_i\) et celles au-dessus <i>i.e.</i> \(z>z_i\) soit
-</p>
-\begin{align*}
-  \vv{B}_\infty=&\cdots+\vv{B}_{-2}+\vv{B}_{-1}+\vv{B}_1+\vv{B}_2+\cdots\\
-  =&\cdots+\frac{\mu_0}{4\pi}\frac{2m^{(\infty)}\cos\pi}{(2d)^3}(-)\vv{u}_z+\frac{\mu_0}{4\pi}\frac{2m^{(\infty)}\cos\pi}{d^3}(-)\vv{u}_z\\
-  &+\frac{\mu_0}{4\pi}\frac{2m^{(\infty)}\cos0}{(2d)^3}\vv{u}_z+\frac{\mu_0}{4\pi}\frac{2m^{(\infty)}\cos0}{d^3}\vv{u}_z+\cdots\\
-  =&-\sum_{p=1}^\infty\frac{\mu_0}{4\pi}\frac{2m^{(\infty)}\cos\pi}{(pd)^3}\vv{u}_z+\sum_{p=1}^\infty\frac{\mu_0}{4\pi}\frac{2m^{(\infty)}\cos0}{(pd)^3}\vv{u}_z\\
-  =&\frac{\mu_0m^{(\infty)}}{4\pi d^3}\times2\sum_{p=1}^\infty\frac{2}{p^3}\,\vv{u}_z=\frac{\mu_0\alpha\vv{m}^{(\infty)}}{\pi d^3}
-\end{align*}</li>
-
-<li><p>
-Le champ magnétique total s'exerçant sur une gouttelette est donc
-\(\vv{B}=\vv{B}_0+\vv{B}_\infty\) d'où, en utilisant le résultat de la
-question 2b,
-</p>
-\begin{align*}
-  \vv{m}^{(\infty)}&=\frac{4}{3}\pi R^3\times\frac{\chi\left(\vv{B}_0+\vv{B}_\infty\right)}{\mu_0}\\
-  &=\frac{4}{3}\pi R^3\times\frac{\chi\left(\vv{B}_0+\frac{\mu_0\alpha\vv{m}^{(\infty)}}{\pi d^3}\right)}{\mu_0}\\
-  &=\frac{4}{3}\pi R^3\frac{\chi}{1-\frac{4\alpha\chi}{3}\left(\frac{R}{d}\right)^3}\frac{\vv{B}_0}{\mu_0}
-\end{align*}</li>
-</ol></li>
-</ol>
-
-<div class="QUESTION">
-<ol class="org-ol">
-<li value="4">Pour calculer la force attractive d'origine magnétique qui s'exerce à
-l'intérieur d'une chaîne infinie, on divise par la pensée, la chaîne en deux
-parties.
-<ol class="org-ol">
-<li><p>
-Calculer la force qu'exercent les dipôles de l'une des moitiés (la partie
-inférieure) sur les dipôles de l'autre. Montrer qu'elle s'exprime sous la
-forme :
-</p>
-\begin{align*}
-  \vv{F}_\infty=-\frac{3\mu_0\alpha(m^{(\infty)})^2}{2\pi\,d^4}\vv{u}_z
-\end{align*}</li>
-
-<li>Déterminer de la même manière la force \(\vv{F}_2\) s'exerçant entre deux
-gouttelettes lorsque la chaîne ne contient que deux gouttelettes. Exprimer
-cette force en fonction de \(\vv{m}^{(2)}\). Calculer \(\vv{m}^{(2)}\) puis
-exprimer \(F_\infty/F_2\) en fonction de &chi;, \(R\) et \(d\).</li>
-<li>Calculer \(F_\infty\), \(F_2\) et \(F_\infty/F_2\) pour &chi; = 0.11, \(R\) = 98
-nm, \(d\) = 200 nm et \(B_0\) = 6.3 10<sup>-2</sup> T. Commenter.</li>
-</ol></li>
-</ol>
-
-</div>
-<ol class="org-ol">
-<li value="4"><ol class="org-ol">
-<li><p>
-Calcul de la force exercée par la moitié inférieure de la chaîne sur la
-moitié supérieure
-</p>
-
-<div class="center">
-
-<div class="figure">
-<p><img src="./figures/emulsion_ferrofluide2.png" alt="emulsion_ferrofluide2.png" />
-</p>
-</div>
-</div>
-
-<p>
-La force qu'exerce la $p$-ième gouttelette sur la $q$-ième s'écrit
-\(f_z=m_q\frac{\partial B_p}{\partial z}\). Sachant que la dérivée de \(B_p\)
-est proportionnelle à \(-3/z^4\) et que la distance séparant les deux
-gouttelettes est égale à \((p+q-1)\,d\), l'expression de \(f_z\) devient
-</p>
-\begin{align*}
-  f_z=-m^{(\infty)}\,\frac{\mu_0}{4\pi}\frac{2m^{(\infty)}\times3}{((p+q-1)d)^4}
-\end{align*}
-
-<p>
-La force totale qu'exerce une moitié de la chaîne sur l'autre s'écrit
-</p>
-\begin{align*}
-  F_z&=-\frac{3\mu_0(m^{(\infty)})^2}{2\pi d^4}\sum_{p=1}^\infty\sum_{q=1}^\infty\frac{1}{(p+q-1)^4}
-\end{align*}
-
-<p>
-En posant \(p+q-1=n\), on obtient
-</p>
-\begin{align*}
-  \left.
-  \begin{array}{lcl}
-    p=1&\to&q=n\\
-    p=2&\to&q=n-1\\
-    &\vdots\\
-    p=n&\to&q=1
-    \end{array}\right\}\text{soit }n\text{ possibilités}
-  \end{align*}
-
-<p>
-La double somme sur les entiers \(p\) et \(q\) est donc équivalente à une somme
-simple sur \(n\) <i>i.e.</i>
-</p>
-\begin{align*}
-  \sum_{p=1}^\infty\sum_{q=1}^\infty\frac{1}{(p+q-1)^4}=\sum_{n=1}^\infty\frac{1}{n^4}\times n=\sum_{n=1}^\infty\frac{1}{n^3}=\alpha
-\end{align*}
-
-<p>
-On déduit que la force totale \(\vv{F}_\infty\) s'écrit
-</p>
-\begin{align*}
-  \vv{F}_\infty=F_z\vv{u}_z=-\frac{3\mu_0\alpha(m^{(\infty)})^2}{2\pi\,d^4}\vv{u}_z
-\end{align*}</li>
-
-<li><p>
-En ne considérant que deux gouttelettes, la force \(\vv{F}_2\) entre les
-deux gouttelettes se déduit de l'expression de \(f_z\) où \(p=1\) et \(q=1\) soit
-</p>
-\begin{align*}
-  \vv{F}_2=-\frac{3\mu_0}{2\pi\,d^4}(m^{(2)})^2\vv{u}_z
-\end{align*}
-
-<p>
-Le calcul de \(\vv{m}^{(2)}\) est identique à celui réalisé à la question 3c
-où \(\vv{B}^{(2)}\) est le champ magnétique généré par seulement deux
-gouttelettes <i>i.e.</i>
-</p>
-\begin{align*}
-  \vv{B}^{(2)}=\frac{\mu_0\vv{m}^{(2)}}{2\pi\,d^3}
-\end{align*}
-
-<p>
-L'expression de \(\vv{m}^{(2)}\) s'écrit
-</p>
-\begin{align*}
-  \vv{m}^{(2)}&=\frac{4}{3}\pi R^3\frac{\chi\left(\vv{B}_0+\vv{B}^{(2)}\right)}{\mu_0}\\
-  &=\frac{4}{3}\pi R^3\frac{\chi\left(\vv{B}_0+\frac{\mu_0\vv{m}^{(2)}}{2\pi\,d^3}\right)}{\mu_0}\\
-  &=\frac{4}{3}\pi R^3\frac{\chi}{1-\frac{2\chi}{3}\left(\frac{R}{d}\right)^3}\frac{\vv{B}_0}{\mu_0}
-\end{align*}
-
-<p>
-L'intensité de la force s'exerçant sur la chaine \(\vv{F}_\infty\) ramenée à
-la force entre gouttelettes \(\vv{F}_2\) est donc égale à
-</p>
-\begin{align*}
-  \frac{F_\infty}{F_2}&=\alpha\,\left(\frac{m^{(\infty)}}{m^{(2)}}\right)^2\\
-  &=\alpha\,\left(\frac{1-\frac{2\chi R^3}{3d^3}}{1-\frac{4\alpha\chi R^3}{3d^3}}\right)^2
-\end{align*}</li>
-
-<li>\(F_\infty=\unit[0.22\,10^{-12}]{N}\), \(F_2=\unit[0.18\,10^{-12}]{N}\) et
-\(F_\infty/F_2=1.23\). La force qui s'exerce entre les deux moitiés d'une
-chaîne infinie est donc plus grande que celle qui s'exerce entre deux
-gouttelettes seules : cette propriété explique la stabilité des longues
-chaînes de gouttelettes dans une émulsion de ferrofluides.</li>
-</ol></li>
-</ol>
-<div class="QUESTION">
-<ol class="org-ol">
-<li value="5">Les gouttelettes d'une chaîne, toutes de rayon \(R\), sont supposées
-incompressibles et indéformables.
-<ol class="org-ol">
-<li>En l'absence d'interaction entre gouttelettes autre que l'interaction
-magnétique, quelle est la distance \(d_\ell\) entre elles ?</li>
-<li>En réalité, il existe une force répulsive d'origine électrostatique de
-sorte qu'à l'équilibre, \(d>d_\ell\). L'émulsion est éclairée par un
-faisceau parallèle de lumière blanche se propageant selon
-\(\vv{u}_z\). Chaque gouttelette de ferrofluide absorbe une partie de la
-lumière qu'elle reçoit et diffracte l'autre dans toutes les directions. La
-distribution spectrale \(I(\lambda)\) de la lumière retrodiffusée (dans la
-direction \(-\vv{u}\)) est analysée par un spectrographe (&lambda; est la
-longueur d'onde dans le vide). Elle présente un maximum très prononcé pour
-une longueur d'onde &lambda;<sub>0</sub> dans le spectre visible associée à une
-coloration très nette.
-<ol class="org-ol">
-<li>Interpréter qualitativement ce phénomène de coloration.</li>
-<li>Exprimer \(d\) en fonction de &lambda;<sub>0</sub> et de l'indice \(n\) de
-l'eau. Calculer numériquement &lambda;<sub>0</sub> pour \(d\) = 220 nm et \(n\) =
-1.33. De quelle couleur apparaît l'échantillon ?</li>
-<li>Décrire la séquence de couleurs observées en rétrodiffusion lorsque le
-champ extérieur appliqué \(\vv{B}_0\) augmente. Quelle est la longueur
-d'onde limite &lambda;<sub>&ell;</sub> observable ? Donner sa valeur numérique
-ainsi que la couleur correspondante pour \(R\) = 98 nm.</li>
-</ol></li>
-</ol></li>
-</ol>
-
-</div>
-<ol class="org-ol">
-<li value="5"><ol class="org-ol">
-<li>L'énergie minimale du système \(W=-\frac{\mu_0m^2}{2\pi\,d^3}\) est d'autant
-plus faible que la distance séparant les gouttelettes est faible. Les
-gouttes étant incompressibles et indéformables, la distance minimale entre
-deux gouttes est donc égale à \(d_\ell=2R\).</li>
-<li><ol class="org-ol">
-<li>Chaque gouttelette renvoie dans toutes les directions la lumière
-qu'elle n'a pas absorbée et ceci sans distinction de longueur
-d'onde. Le rayonnement diffracté par les gouttelettes de l'émulsion est
-cohérent puisqu'issu de la même source de telle sorte qu'une chaîne de
-gouttelettes se comporte comme un <b>réseau de diffraction</b>. La lumière
-renvoyée dans une direction dépend de la longueur d'onde d'où le
-phénomène de coloration.</li>
-<li><p>
-En retrodiffusion, la différence de marche entre les ondes diffractées
-par deux gouttelettes successives correspond à un aller-retour
-supplémentaire soit \(\delta=2nd\). Les interférences sont constructives
-si \(\delta\) est une valeur entière de la longueur d'onde \(\lambda_0\)
-d'où
-</p>
-\begin{align*}
-  \delta=p\lambda_0\to \lambda_0=\frac{2nd}{p}
-\end{align*}
-
-<p>
-Application numérique : le fait que \(\lambda_0\) appartienne au spectre
-visible (400 nm &lt; &lambda; &lt; 700 nm), on considère uniquement le
-premier ordre \(p=1\) soit \(\lambda_0=\unit[585]{nm}\). L'échantillon vu
-en rétrodiffusion apparait donc jaune.
-</p></li>
-<li>Lorsque le champ extérieur \(B_0\) augmente, les interactions entre
-gouttelettes augmentent en raison de l'augmentation du moment
-magnétique associé à chacune des gouttes. L'énergie potentielle diminue
-donc entrainant une diminution de la distance inter-gouttes. Au minimum
-de l'énergie, cette distance tend vers la limite \(d_\ell=2R\). La
-longueur d'onde retrodiffusée est alors
-\(\lambda_0=4nR=\unit[521]{nm}\). La solution devient donc verte. Cette
-technique de spectrométrie permet donc de mesurer la taille \(R\) des
-gouttelettes.</li>
-</ol></li>
-</ol></li>
-</ol>
-</div>
-</div>
 </div>
 <div id="postamble" class="status">
-File under <i class="fa fa-github-alt"></i> version control - commit <a href="https://github.com/xgarrido/licence_em_teaching/commit/311150a025b9911feb88eb5eafabc7b31c1ab20a">311150a</a> - 2016-06-28
+File under <i class="fa fa-github-alt"></i> version control - commit <a href="https://github.com/xgarrido/licence_em_teaching/commit/16aed20846016fe35284275cba92e3520e1831e1">16aed20</a> - 2020-12-21
 </div>
 </body>
 </html>

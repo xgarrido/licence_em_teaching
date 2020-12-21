@@ -3,10 +3,11 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
-<meta  name="viewport" content="width=device-width, initial-scale=1" />
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>TD8 : Guides d'onde</title>
-<meta  name="generator" content="Org-mode" />
+<meta name="generator" content="Org mode" />
+<meta name="author" content="Xavier Garrido" />
 <link rel="stylesheet" href="css/styles.css" />
                <link rel="stylesheet" href="css/org-pygments.css" />
                <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" />
@@ -15,7 +16,7 @@
 @licstart  The following is the entire license notice for the
 JavaScript code in this tag.
 
-Copyright (C) 2012-2013 Free Software Foundation, Inc.
+Copyright (C) 2012-2018 Free Software Foundation, Inc.
 
 The JavaScript code in this tag is free software: you can
 redistribute it and/or modify it under the terms of the GNU
@@ -83,6 +84,7 @@ for the JavaScript code in this tag.
           extensions: ["cancel.js"],
           Macros: {
               vv: ["{\\vec{#1}}",1],
+              d: "{\\text{d}}",
               Upsigma: "{\\Sigma}",
               Updelta: "{\\Delta}",
               varoiint: "{\\iint}",
@@ -152,23 +154,22 @@ for the JavaScript code in this tag.
 </div>
 </div>
 
-<div id="outline-container-orgheadline4" class="outline-2">
-<h2 id="orgheadline4"><span class="section-number-2">1</span> Cavité cylindrique résonante</h2>
+<div id="outline-container-orga76b0ba" class="outline-2">
+<h2 id="orga76b0ba"><span class="section-number-2">1</span> Cavité cylindrique résonante</h2>
 <div class="outline-text-2" id="text-1">
 <div class="QUESTION">
 <p>
-On cherche à étudier les caractéristiques de certains modes d'une cavité
-cylindrique résonantes. La cavité est constituée d'un cylindre métallique creux
-de rayon intérieur \(a\), fermé en \(z=0\) et \(z=h\) par deux plans métalliques. On
-négligera l'influence des différents dispositifs permettant d'injecter et de
-détecter l'onde dans la cavité.
+On cherche à étudier les caractéristiques de certains modes d'une cavité cylindrique résonante. La
+cavité est constituée d'un cylindre métallique creux de rayon intérieur \(a\), fermé en \(z=0\) et \(z=h\)
+par deux plans métalliques. On négligera l'influence des différents dispositifs permettant
+d'injecter et de détecter l'onde dans la cavité.
 </p>
 
 </div>
 </div>
 
-<div id="outline-container-orgheadline1" class="outline-3">
-<h3 id="orgheadline1"><span class="section-number-3">1.1</span> Détermination des fréquences de résonance</h3>
+<div id="outline-container-orgb19ee4a" class="outline-3">
+<h3 id="orgb19ee4a"><span class="section-number-3">1.1</span> Détermination des fréquences de résonance</h3>
 <div class="outline-text-3" id="text-1-1">
 <div class="QUESTION">
 <p>
@@ -197,28 +198,27 @@ Les équations de Maxwell sont
 <div class="QUESTION">
 <ol class="org-ol">
 <li value="2"><p>
-En utilisant la méthode de séparation des variables, on va résoudre
-l'équation de propagation des ondes pour la composante \(E_z\) du champ
-électrique. Compte tenu de la géométrie de la cavité, on a intérêt à utiliser
-les coordonnées cylindriques pour la fonction scalaire \(E_z\).
+En utilisant la méthode de séparation des variables, on va résoudre l'équation de
+propagation des ondes pour la composante \(E_z\) du champ électrique. Compte tenu de la géométrie
+de la cavité, on a intérêt à utiliser les coordonnées cylindriques pour la fonction scalaire
+\(E_z\).
 </p>
 \begin{align*}
   E_z(r,\theta,z,t)=F(\theta)G(r)H(z)\exp(-i\omega t)
 \end{align*}
 
 <p>
-Montrer que les quantités \(F''(\theta)/F(\theta)\) et \(H''(z)/H(z)\) sont
-égales à des constantes que l'on notera \(\alpha^2\) et \(\beta^2\) (\(\alpha^2\)
-et \(\beta^2\) réels). En déduire les solutions possibles pour \(F\) et \(H\).
+Montrer que les quantités \(F''(\theta)/F(\theta)\) et \(H''(z)/H(z)\) sont égales à des constantes
+que l'on notera \(\alpha^2\) et \(\beta^2\) (\(\alpha^2\) et \(\beta^2\) réels). En déduire les solutions
+possibles pour \(F\) et \(H\).
 </p></li>
 </ol>
 
 </div>
 
 <p>
-Soit \(E_z\) la composante du champ électrique colinéaire à l'axe du
-cylindre. En coordonnées cylindriques, l'expression de \(E_z(r,\theta,z,t)\)
-s'écrit
+Soit \(E_z\) la composante du champ électrique colinéaire à l'axe du cylindre. En coordonnées
+cylindriques, l'expression de \(E_z(r,\theta,z,t)\) s'écrit
 </p>
 \begin{align*}
   E_z(r,\theta,z,t)=F(\theta)G(r)H(z)\exp\left(-i\omega t\right)
@@ -244,13 +244,12 @@ avec
 soit
 </p>
 \begin{align*}
-  FH\frac{\partial^2G}{\partial r^2}+\frac{1}{r}FH\frac{\partial G}{\partial r}+\frac{1}{r^2}GH\frac{\partial^2F}{\partial t^2}+FG\frac{\partial^2H}{\partial z^2}+\mu_0\epsilon_0\omega^2FGH&=0\\
+  FH\frac{\partial^2G}{\partial r^2}+\frac{1}{r}FH\frac{\partial G}{\partial r}+\frac{1}{r^2}GH\frac{\partial^2F}{\partial\theta^2}+FG\frac{\partial^2H}{\partial z^2}+\mu_0\epsilon_0\omega^2FGH&=0\\
   \underbrace{\frac{1}{G}\frac{\partial^2G}{\partial r^2}+\frac{1}{rG}\frac{\partial G}{\partial r}+\frac{1}{r^2F}\frac{\partial^2F}{\partial\theta^2}}_{f(r,\theta)}+\underbrace{\frac{1}{H}\frac{\partial^2H}{\partial z^2}}_{g(z)}+\underbrace{\mu_0\epsilon_0\omega^2}_{\text{constante}}&=0
 \end{align*}
 
 <p>
-Les deux fonctions \(f(r,\theta)\) et \(g(z)\) sont donc nécessairement des
-constantes d'où
+Les deux fonctions \(f(r,\theta)\) et \(g(z)\) sont donc nécessairement des constantes d'où
 </p>
 \begin{align*}
   \frac{H''(z)}{H(z)}=\beta^2\to H(z)=H_0e^{\beta z}+H_1e^{-\beta z}
@@ -265,43 +264,40 @@ On a donc
 \end{align*}
 
 <p>
-Pour les mêmes raisons, le rapport \(\frac{F''(\theta)}{F(\theta)}\) est donc
-constant et égal à \(\alpha^2\). On déduit que l'expression de \(F(\theta)\) est
-de la forme
+Pour les mêmes raisons, le rapport \(\frac{F''(\theta)}{F(\theta)}\) est donc constant et égal à
+\(\alpha^2\). On déduit que l'expression de \(F(\theta)\) est de la forme
 </p>
 \begin{align*}
   \frac{F''(\theta)}{F(\theta)}=\alpha^2\to F(\theta)=F_0e^{\alpha\theta}+F_1e^{-\alpha\theta}
 \end{align*}
 
 <p>
-<b>Remarques :</b> &alpha;<sup>2</sup> et &beta;<sup>2</sup> étant réels, &alpha; et &beta; sont donc
-soit réels soit imaginaires purs.
+<b>Remarques :</b> &alpha;<sup>2</sup> et &beta;<sup>2</sup> étant réels, &alpha; et &beta; sont donc soit réels soit
+imaginaires purs.
 </p>
 
 <div class="QUESTION">
 <ol class="org-ol">
 <li value="3"><p>
-Conditions aux limites : En utilisant le fait que
-\(\vv{E}(\theta+2\pi)=\vv{E}(\theta)\), déterminer les valeurs possibles pour
-la constante \(\alpha\). On pourra introduire un nombre entier \(\lambda\).
+Conditions aux limites : En utilisant le fait que \(\vv{E}(\theta+2\pi)=\vv{E}(\theta)\),
+déterminer les valeurs possibles pour la constante \(\alpha\). On pourra introduire un nombre
+entier \(\lambda\).
 </p>
 
 <p>
-On montre que les composantes \(E_r\) et \(E_\theta\) sont de la forme
-\(D(r,\theta)H'(z)\exp(-i\omega t)\) (la fonction \(D(r,\theta)\) dépend de la
-composante choisie), où \(H'(z)\) est la dérivée de la fonction \(H(z)\) trouvée
-précédemment. En appliquant les conditions aux limites en \(z=0\) et \(z=h\),
-déterminer les valeurs possibles pour \(\beta\), ainsi que les fonctions
-correspondantes. On pourra introduire un nombre entier \(p\).
+On montre que les composantes \(E_r\) et \(E_\theta\) sont de la forme \(D(r,\theta)H'(z)\exp(-i\omega
+   t)\) (la fonction \(D(r,\theta)\) dépend de la composante choisie), où \(H'(z)\) est la dérivée de la
+fonction \(H(z)\) trouvée précédemment. En appliquant les conditions aux limites en \(z=0\) et \(z=h\),
+déterminer les valeurs possibles pour \(\beta\), ainsi que les fonctions correspondantes. On pourra
+introduire un nombre entier \(p\).
 </p></li>
 </ol>
 
 </div>
 
 <p>
-Les conditions aux limites imposent que \(\vv{E}(\theta)=\vv{E}(\theta+2\pi)\)
-<i>i.e.</i> \(F\) est 2&pi; périodique : &alpha; est donc nécessairement imaginaire
-pur \(\alpha=i\lambda\).
+Les conditions aux limites imposent que \(\vv{E}(\theta)=\vv{E}(\theta+2\pi)\) <i>i.e.</i> \(F\) est 2&pi;
+périodique : &alpha; est donc nécessairement imaginaire pur \(\alpha=i\lambda\).
 </p>
 \begin{align*}
   F(\theta)=F_0e^{i\lambda\theta}+F_1e^{-i\lambda\theta}&=F(\theta+2\pi)\\
@@ -313,9 +309,9 @@ d'où \(e^{i2\pi\lambda}=1\) <i>i.e.</i> &lambda; est donc entier relatif.
 </p>
 
 <p>
-Par ailleurs, en \(z=0\) et \(z=h\), la composante tangentielle du champ électrique
-est toujours continue. Les parois étant un conducteur parfait, le champ
-électrique est nul à l'intérieur d'où les relations
+Par ailleurs, en \(z=0\) et \(z=h\), la composante tangentielle du champ électrique est toujours
+continue. Les parois étant un conducteur parfait, le champ électrique est nul à l'intérieur d'où les
+relations
 </p>
 \begin{align*}
   \vv{E}_\parallel(z=0)=E_r(z=0)\vv{u_r}+E_\theta(z=0)\vv{u_\theta}&=\vv{0}\\
@@ -324,8 +320,7 @@ est toujours continue. Les parois étant un conducteur parfait, le champ
 \end{align*}
 
 <p>
-De même en \(z=h\), \(H'(z=h)=0\). Or \(H'\) est égal à \(H_0\beta e^{\beta
-z}-H_1\beta e^{-i\beta}\) soit
+De même en \(z=h\), \(H'(z=h)=0\). Or \(H'\) est égal à \(H_0\beta e^{\beta z}-H_1\beta e^{-i\beta}\) soit
 </p>
 \begin{align*}
   \text{en }z=0&\to H_0\beta-H_1\beta=0\to H_0=H_1\\
@@ -337,12 +332,12 @@ Il existe une solution "triviale" où &beta; est un réel nul. Si
 \(\beta=i\delta\) on obtient
 </p>
 \begin{align*}
-  e^{i\delta h}-e^{i\delta h}=\sin\delta h=0\to\delta h=p\pi\text{ avec }p\in\mathbb{N}
+  e^{i\delta h}-e^{i\delta h}=2i\sin\delta h=0\to\delta h=p\pi\text{ avec }p\in\mathbb{N}
 \end{align*}
 
 <p>
-La constante &beta; est donc égale à \(\frac{ip\pi}{h}\). On déduit que
-l'expression de la fonction \(H(z)\) est
+La constante &beta; est donc égale à \(\frac{ip\pi}{h}\). On déduit que l'expression de la fonction
+\(H(z)\) est
 </p>
 \begin{align*}
   H(z)&=H_0\left(e^{\frac{ip\pi}{h}z}+e^{-\frac{ip\pi}{h}z}\right)=2H_0\cos\left(\frac{p\pi}{h}z\right)
@@ -350,14 +345,13 @@ l'expression de la fonction \(H(z)\) est
 
 <div class="QUESTION">
 <ol class="org-ol">
-<li value="4">Solutions pour \(G(r)\) : Écrire l'équation différentielle satisfaite par
-\(G(r)\). Il est toujours possible de trouver \(\Gamma(u)\) telle que
-\(\Gamma(\gamma r)=G(r)\) où \(\gamma\) est à priori une constante
-quelconque. Écrire l'équation différentielle satisfaite par
-\(\Gamma(u)\). Donner ses solutions. En appliquant les conditions aux limites
-en \(r=0\) et \(r=a\), déterminer \(G(r)\) et les valeurs possibles de la constante
-\(\gamma\). On note \(x_{\lambda n}\) le \(n\)<sup>ième</sup> zéro de \(J_\lambda(r)\). En
-déduire les valeurs des fréquences de résonance des modes obtenus.</li>
+<li value="4">Solutions pour \(G(r)\) : Écrire l'équation différentielle satisfaite par \(G(r)\). Il est
+toujours possible de trouver \(\Gamma(u)\) telle que \(\Gamma(\gamma r)=G(r)\) où \(\gamma\) est à
+priori une constante quelconque. Écrire l'équation différentielle satisfaite par
+\(\Gamma(u)\). Donner ses solutions. En appliquant les conditions aux limites en \(r=0\) et \(r=a\),
+déterminer \(G(r)\) et les valeurs possibles de la constante \(\gamma\). On note \(x_{\lambda n}\) le
+\(n\)<sup>ième</sup> zéro de \(J_\lambda(r)\). En déduire les valeurs des fréquences de résonance des modes
+obtenus.</li>
 </ol>
 
 </div>
@@ -372,8 +366,8 @@ L'équation satisfaite par \(G(r)\) est
 \end{align*}
 
 <p>
-La fonction \(\Gamma(u)\) est telle que \(\Gamma(\gamma r)=G(r)\) avec &gamma; une
-constante quelconque. Les dérivées de \(G(r)\) peuvent donc s'écrire
+La fonction \(\Gamma(u)\) est telle que \(\Gamma(\gamma r)=G(r)\) avec &gamma; une constante
+quelconque. Les dérivées de \(G(r)\) peuvent donc s'écrire
 </p>
 \begin{align*}
   G'(r)&=\frac{\partial G}{\partial r}=\frac{\partial\Gamma(u)}{\partial u}\times\frac{\partial u}{\partial r}\\
@@ -391,8 +385,7 @@ L'équation solution de \(G(r)\) est, exprimée en fonction de &Gamma;,
 \end{align*}
 
 <p>
-En choisissant \(\gamma\) tel que
-\(\gamma^2=\mu_0\epsilon_0\omega^2-\frac{\pi^2}{h^2}p^2\), on obtient
+En choisissant \(\gamma\) tel que \(\gamma^2=\mu_0\epsilon_0\omega^2-\frac{\pi^2}{h^2}p^2\), on obtient
 l'équation
 </p>
 \begin{align*}
@@ -400,8 +393,8 @@ l'équation
 \end{align*}
 
 <p>
-qui correspond à l'équation de Bessel d'ordre &lambda; avec &lambda;
-entier. Les solutions de cette équation sont de la forme
+qui correspond à l'équation de Bessel d'ordre &lambda; avec &lambda; entier. Les solutions de cette
+équation sont de la forme
 </p>
 \begin{align*}
   \Gamma(u)=A_\lambda J_\lambda(u)+B_\lambda N_\lambda(u)
@@ -416,19 +409,18 @@ où
 </ul>
 
 <p>
-La fonction \(G(r)=A_\lambda J_\lambda(\gamma r)+B_\lambda N_\lambda(\gamma
-r)\) doit être bornée en \(r\to0\) : or \(N_\lambda(\gamma r)\to\left(\gamma
-r\right)^{-\lambda}\) pour \(r\to0\). Si \(\lambda>0\) <sup><a id="fnr.1" class="footref" href="#fn.1">1</a></sup> il y a donc divergence de
-la fonction \(G(r\to0)\) imposant que la constante \(B_\lambda\) soit nulle.
+La fonction \(G(r)=A_\lambda J_\lambda(\gamma r)+B_\lambda N_\lambda(\gamma r)\) doit être bornée en
+\(r\to0\) : or \(N_\lambda(\gamma r)\to\left(\gamma r\right)^{-\lambda}\) pour \(r\to0\). Si
+\(\lambda>0\) <sup><a id="fnr.1" class="footref" href="#fn.1">1</a></sup> il y a donc divergence de la fonction \(G(r\to0)\) imposant que la constante
+\(B_\lambda\) soit nulle.
  <div class="footdef"><sup><a id="fn.1" class="footnum" href="#fnr.1">1</a></sup> <div class="footpara"><p class="footpara"> pour les fonctions de Bessel, on considère toujours &lambda; &gt; 0 </p></div><br/></div>
 </p>
 
 <p>
-Par ailleurs, en \(r=a\), la composante tangentielle du champ électrique est
-conservée d'où \(E_z(a,\theta,z,t)=E_\text{paroi}(a,\theta,z,t)=0\) soit
-\(G(a)=A_\lambda J_\lambda(\gamma a)=0\). La fonction de Bessel \(J_\lambda\) est
-nulle pour \(\gamma a=x_{\lambda n}\) où \(x_{\lambda n}\) est le \(n\)-ième zéro
-de la fonction de Bessel \(J_\lambda(x)\).
+Par ailleurs, en \(r=a\), la composante tangentielle du champ électrique est conservée d'où
+\(E_z(a,\theta,z,t)=E_\text{paroi}(a,\theta,z,t)=0\) soit \(G(a)=A_\lambda J_\lambda(\gamma a)=0\). La
+fonction de Bessel \(J_\lambda\) est nulle pour \(\gamma a=x_{\lambda n}\) où \(x_{\lambda n}\) est le
+\(n\)-ième zéro de la fonction de Bessel \(J_\lambda(x)\).
 </p>
 
 <p>
@@ -458,33 +450,28 @@ entiers.
 </div>
 </div>
 
-<div id="outline-container-orgheadline2" class="outline-3">
-<h3 id="orgheadline2"><span class="section-number-3">1.2</span> Étude du mode fondamental</h3>
+<div id="outline-container-org416f110" class="outline-3">
+<h3 id="org416f110"><span class="section-number-3">1.2</span> Étude du mode fondamental</h3>
 <div class="outline-text-3" id="text-1-2">
 <div class="QUESTION">
 <p>
-Le but de cette partie est de déterminer les composantes des champs \(\vv{E}\) et
-\(\vv{B}\) pour le mode ayant la plus faible fréquence de résonance appelé mode
-fondamental.
+Le but de cette partie est de déterminer les composantes des champs \(\vv{E}\) et \(\vv{B}\) pour le
+mode ayant la plus faible fréquence de résonance appelé mode fondamental.
 </p>
 
 <ol class="org-ol">
-<li value="1">Déterminer les valeurs de \(n,\lambda\) et \(p\) pour le mode fondamental,
-en admettant que le premier zéro des fonctions de Bessel de première espèce
-est \(x_{01}\). Déterminer la fonction \(G(r)\) introduite précédemment et
-calculer toutes les composantes de \(\vv{E}\). Vérifier que le champ \(\vv{E}\)
-présente une invariance par rotation autour de l'axe \(Oz\) et ne dépend pas de
-\(z\).</li>
+<li value="1">Déterminer les valeurs de \(n,\lambda\) et \(p\) pour le mode fondamental, en admettant que le
+premier zéro des fonctions de Bessel de première espèce est \(x_{01}\). Déterminer la fonction
+\(G(r)\) introduite précédemment et calculer toutes les composantes de \(\vv{E}\). Vérifier que le
+champ \(\vv{E}\) présente une invariance par rotation autour de l'axe \(Oz\) et ne dépend pas de \(z\).</li>
 </ol>
 
 </div>
 
 <p>
-Le problème est invariant par rotation autour de \(Oz\) : le champ électrique
-ne dépend donc pas de \(\theta\to
-F(\theta)=\text{constante}\to\lambda=0\). D'autre part, le mode fondamental
-correspond à la plus petite des valeurs de &omega; <i>i.e.</i> celle correspondant
-donc à \(p=0\) et \(n=1\) soit
+Le problème est invariant par rotation autour de \(Oz\) : le champ électrique ne dépend donc pas de
+\(\theta\to F(\theta)=\text{constante}\to\lambda=0\). D'autre part, le mode fondamental correspond à
+la plus petite des valeurs de &omega; <i>i.e.</i> celle correspondant donc à \(p=0\) et \(n=1\) soit
 </p>
 \begin{align*}
   \omega&=c\sqrt{\frac{\pi^2}{h^2}p^2+\frac{x_{\lambda n}^2}{a^2}}\\
@@ -492,20 +479,19 @@ donc à \(p=0\) et \(n=1\) soit
 \end{align*}
 
 <p>
-La fonction \(G(r)\) devient égale à \(A_0J_0\left(\frac{x_{01}}{a}r\right)\),
-l'expression de \(E_z\) se limitant à
+La fonction \(G(r)\) est alors égale à \(A_0J_0\left(\frac{x_{01}}{a}r\right)\), l'expression de \(E_z\)
+se limitant à
 </p>
 \begin{align*}
   E_z(r,\theta,z,t)&=E_0J_0\left(\frac{x_{01}}{a}r\right)\exp(-i\omega_{01} t)
 \end{align*}
 
 <p>
-En raison des symétries du problème, le plan \((\vv{u_r},\vv{u_z})\) est plan
-de symétrie, le champ électrique \(\vv{E}\) appartenant nécessairement à ce
-dernier : \(E_\theta=0\). Par ailleurs, l'expression de \(E_r\) est de la forme
-\(D(r,\theta)H'(z)\exp(-i\omega t)\) avec \(H'(z)=-H\frac{\pi
-p}{h}\sin\left(\frac{\pi p}{h}z\right)=0\) pour \(p=0\). La composante radiale
-du champ électrique est donc également nulle.
+En raison des symétries du problème, le plan \((\vv{u_r},\vv{u_z})\) est plan de symétrie, le champ
+électrique \(\vv{E}\) appartenant nécessairement à ce dernier : \(E_\theta=0\). Par ailleurs,
+l'expression de \(E_r\) est de la forme \(D(r,\theta)H'(z)\exp(-i\omega t)\) avec \(H'(z)=-H\frac{\pi
+p}{h}\sin\left(\frac{\pi p}{h}z\right)=0\) pour \(p=0\). La composante radiale du champ électrique est
+donc également nulle.
 </p>
 
 <p>
@@ -516,22 +502,21 @@ Le champ électrique est ainsi
 \end{align*}
 
 <p>
-confirmant l'invariance par rotation autour de l'axe \(Oz\) et son indépendance
-vis-à-vis de la composante \(z\).
+confirmant l'invariance par rotation autour de l'axe \(Oz\) et son indépendance vis-à-vis de la
+composante \(z\).
 </p>
 
 <div class="QUESTION">
 <ol class="org-ol">
-<li value="2">En utilisant les conditions aux limites, déterminer \(B_z(z=0)\). En
-supposant que toutes les composantes de \(E\) et \(B\) ne dépendent pas de \(z\),
-en déduire toutes les composantes de \(\vv{B}\).</li>
+<li value="2">En utilisant les conditions aux limites, déterminer \(B_z(z=0)\). En supposant que toutes les
+composantes de \(E\) et \(B\) ne dépendent pas de \(z\), en déduire toutes les composantes de \(\vv{B}\).</li>
 </ol>
 
 </div>
 <p>
-À l'interface cavité-plan, la composante normale du champ magnétique est
-conservée d'où \(B_z(z=0)=B_\text{paroi}(z=0)=0\). En appliquant la relation de
-Maxwell-Faraday, on déduit le champ magnétique dans la cavité
+À l'interface cavité-plan, la composante normale du champ magnétique est conservée d'où
+\(B_z(z=0)=B_\text{paroi}(z=0)=0\). En appliquant la relation de Maxwell-Faraday, on déduit le champ
+magnétique dans la cavité
 </p>
 \begin{align*}
   \rot\vv{E}=-\frac{\partial\vv{B}}{\partial t}=-i\omega\vv{B}
@@ -556,8 +541,8 @@ Le champ magnétique s'écrit
 
 <div class="QUESTION">
 <ol class="org-ol">
-<li value="3">Application numérique : \(a=11\) cm, \(h=19\) cm, \(x_{01}=2.4048\). Calculer
-la fréquence de résonance du mode fondamental.</li>
+<li value="3">Application numérique : \(a=11\) cm, \(h=19\) cm, \(x_{01}=2.4048\). Calculer la fréquence de
+résonance du mode fondamental.</li>
 </ol>
 
 </div>
@@ -571,11 +556,11 @@ Application numérique :
 </div>
 </div>
 
-<div id="outline-container-orgheadline3" class="outline-3">
-<h3 id="orgheadline3"><span class="section-number-3">1.3</span> Facteur de qualité de la cavité pour le mode fondamental</h3>
+<div id="outline-container-org722c426" class="outline-3">
+<h3 id="org722c426"><span class="section-number-3">1.3</span> Facteur de qualité de la cavité pour le mode fondamental</h3>
 <div class="outline-text-3" id="text-1-3">
 <div class="QUESTION">
-<div class="center">
+<div class="org-center">
 
 <div class="figure">
 <p><img src="./figures/quality_factor.png" alt="quality_factor.png" />
@@ -583,21 +568,19 @@ Application numérique :
 </div>
 </div>
 <p>
-En pratique, le métal employé pour fabriquer la cavité n'est pas parfait; il
-présente une conductivité finie. Ceci a pour conséquence de donner une largeur
-non nulle aux raies de résonance. Le but de cette partie est d'évaluer la
-largeur de raie du mode fondamental.
+En pratique, le métal employé pour fabriquer la cavité n'est pas parfait; il présente une
+conductivité finie. Ceci a pour conséquence de donner une largeur non nulle aux raies de
+résonance. Le but de cette partie est d'évaluer la largeur de raie du mode fondamental.
 </p>
 
 <ol class="org-ol">
 <li value="1"><p>
-Déterminer l'énergie \(\mathcal{E}\) emmagasinée sous forme
-électromagnétique dans la cavité. On exprimera \(\mathcal{E}\) en fonction de
-l'amplitude du champ électrique \(E_0,I,a,h\) et des constantes usuelles. \(I\)
-est l'intégrale suivante :
+Déterminer l'énergie \(\mathcal{E}\) emmagasinée sous forme électromagnétique dans la
+cavité. On exprimera \(\mathcal{E}\) en fonction de l'amplitude du champ électrique \(E_0,I,a,h\) et
+des constantes usuelles. \(I\) est l'intégrale suivante :
 </p>
 \begin{align*}
-  I = \int_{0}^{x_{01}}xJ_0^2(x)dx=\int_0^{x_{01}}xJ'^2_0(x)dx
+  I = \int_{0}^{x_{01}}xJ_0^2(x)\d x=\int_0^{x_{01}}xJ'^2_0(x)\d x
 \end{align*}
 
 <p>
@@ -608,12 +591,12 @@ On pourra exprimer \(\mathcal{E}\) sous la forme : \(\mathcal{E}=K_1E_0^2\).
 </div>
 
 <p>
-Calcul de l'énergie électromagnétique dans la cavité pour le mode fondamental
-<i>i.e.</i> \(\omega_{01}=\omega_{0}\)
+Calcul de l'énergie électromagnétique dans la cavité pour le mode fondamental <i>i.e.</i>
+\(\omega_{01}=\omega_{0}\)
 </p>
 \begin{align*}
-  \mathcal{E}&=\iiint u_\text{EM}\,d\tau\\
-  &=\iiint\left(\frac{\epsilon_0E^2}{2}+\frac{B^2}{2\mu_0}\right)d\tau\text{ où } E,B\text{ sont les parties réelles}\\
+  \mathcal{E}&=\iiint u_\text{EM}\,\d\tau\\
+  &=\iiint\left(\frac{\epsilon_0E^2}{2}+\frac{B^2}{2\mu_0}\right)\d\tau\text{ où } E,B\text{ sont les parties réelles}\\
   u_\text{EM}&=\frac{\epsilon_0}{2}E_0^2J_0^2\left(\frac{x_{0}}{a}r\right)\cos^2\omega_{0}t+\frac{1}{2\mu_0c^2}E_0^2J'^2_0\left(\frac{x_{0}}{a}r\right)\sin^2\omega_{0}t\\
   &=\frac{\epsilon_0E_0^2}{2}\left[J^2_0\left(\frac{x_{0}}{a}r\right)\cos^2\omega_{0}t+J'^2_0\left(\frac{x_{0}}{a}r\right)\sin^2\omega_{0}t\right]
 \end{align*}
@@ -622,16 +605,16 @@ Calcul de l'énergie électromagnétique dans la cavité pour le mode fondamenta
 L'énergie totale stockée dans la cavité est
 </p>
 \begin{align*}
-  \mathcal{E}&=\frac{\epsilon_0E_0^2}{2}\int_0^hdz\int_0^{2\pi}d\theta\left[\cos^2\omega_0t\int_0^aJ_0^2\left(\frac{x_{01}}{a}r\right)rdr+\sin^2\omega_0t\int_0^aJ'^2_0\left(\frac{x_{01}}{a}r\right)rdr\right]\\
-  &=\pi h\epsilon_0E_0^2\left[\cos^2\omega_0t\int_0^aJ_0^2\left(\frac{x_{01}}{a}r\right)rdr+\sin^2\omega_0t\int_0^aJ'^2_0\left(\frac{x_{01}}{a}r\right)rdr\right]
+  \mathcal{E}&=\frac{\epsilon_0E_0^2}{2}\int_0^h\d z\int_0^{2\pi}\d\theta\left[\cos^2\omega_0t\int_0^aJ_0^2\left(\frac{x_{01}}{a}r\right)r\d r+\sin^2\omega_0t\int_0^aJ'^2_0\left(\frac{x_{01}}{a}r\right)r\d r\right]\\
+  &=\pi h\epsilon_0E_0^2\left[\cos^2\omega_0t\int_0^aJ_0^2\left(\frac{x_{01}}{a}r\right)r\d r+\sin^2\omega_0t\int_0^aJ'^2_0\left(\frac{x_{01}}{a}r\right)r\d r\right]
 \end{align*}
 
 <p>
-En posant \(x=\frac{x_{01}}{a}r, dx=\frac{x_{01}}{a}dr\) avec \(x\in[0,x_{01}]\),
-on obtient l'expression suivante
+En posant \(x=\frac{x_{01}}{a}r, dx=\frac{x_{01}}{a}dr\) avec \(x\in[0,x_{01}]\), on obtient
+l'expression suivante
 </p>
 \begin{align*}
-  \mathcal{E}&=\pi h\epsilon_0E_0^2\times\frac{a^2}{x_{01}^2}\left[\cos^2\omega_0t\int_0^{x_{01}}xJ_0^2(x)dx+\sin^2\omega_0t\int_0^{x_{01}}xJ'^2_0(x)dx\right]\\
+  \mathcal{E}&=\pi h\epsilon_0E_0^2\times\frac{a^2}{x_{01}^2}\left[\cos^2\omega_0t\int_0^{x_{01}}xJ_0^2(x)\d x+\sin^2\omega_0t\int_0^{x_{01}}xJ'^2_0(x)\d x\right]\\
   &=\pi a^2h\times\epsilon_0E_0^2\times\frac{I}{x_{01}^2}
 \end{align*}
 
@@ -644,19 +627,17 @@ En exprimant \(\mathcal{E}=K_1E_0^2\), on déduit que \(K_1\) est égal à
 
 <div class="QUESTION">
 <ol class="org-ol">
-<li value="2">En utilisant les conditions aux limites pour une interface métal vide,
-calculer la densité surfacique de charge \(\sigma\) et la densité de courant
-surfacique \(J_S\) sur les parois de la cavité. Vérifier la conservation de la
-charge.</li>
+<li value="2">En utilisant les conditions aux limites pour une interface métal vide, calculer la densité
+surfacique de charge \(\sigma\) et la densité de courant surfacique \(J_S\) sur les parois de la
+cavité. Vérifier la conservation de la charge.</li>
 </ol>
 
 </div>
 <p>
-La densité surfacique de charge sur la surface du cylindre est nulle car le
-champ électrique est colinéaire à l'axe du cylindre \(Oz\). En revanche, aux
-extrémités du cylindre, sur la surface des parois métalliques <i>i.e.</i> en \(z=0\)
-et \(z=h\), la discontinuïté de la composante normale du champ électrique
-impose
+La densité surfacique de charge sur la surface du cylindre est nulle car le champ électrique est
+colinéaire à l'axe du cylindre \(Oz\). En revanche, aux extrémités du cylindre, sur la surface des
+parois métalliques <i>i.e.</i> en \(z=0\) et \(z=h\), la discontinuïté de la composante normale du champ
+électrique impose
 </p>
 <ul class="org-ul">
 <li><p>
@@ -677,13 +658,12 @@ en \(z=h\)
 </ul>
 
 <p>
-On note que la somme des charges demeure nulle (le système est donc bien
-isolé).
+On note que la somme des charges demeure nulle (le système est donc bien isolé).
 </p>
 
 <p>
-Pour le calcul de la densité surfacique de courant \(J_S\), chacune des parois
-métalliques portent des courants :
+Pour le calcul de la densité surfacique de courant \(J_S\), chacune des parois métalliques portent des
+courants :
 </p>
 <ul class="org-ul">
 <li><p>
@@ -717,13 +697,12 @@ paroi plane en \(z=h\)
 <div class="QUESTION">
 <ol class="org-ol">
 <li value="3"><p>
-En réalité, le courant n'est pas surfacique et circule sur une très
-faible épaisseur \(\delta\) (épaisseur de peau). On rappelle que la puissance
-instantanée dissipée par effet Joule pour un élément de surface \(dS\) de la
-paroi est :
+En réalité, le courant n'est pas surfacique et circule sur une très faible épaisseur
+\(\delta\) (épaisseur de peau). On rappelle que la puissance instantanée dissipée par effet Joule
+pour un élément de surface \(\d S\) de la paroi est :
 </p>
 \begin{align*}
-  d^2P=\frac{1}{\delta\gamma}J^2_SdS=R_SJ^2_SdS
+  \d^2P=\frac{1}{\delta\gamma}J^2_S\d S=R_SJ^2_S\d S
 \end{align*}
 
 <p>
@@ -731,23 +710,21 @@ où \(R_S = 1/(\delta\gamma)\) est appelée <i>résistance de surface</i>.
 </p>
 
 <p>
-Donner l'expression de l'énergie dissipée par les parois de la cavité lorsque
-le mode fondamental est excité avec un champ d'amplitude \(E_0\). On mettra
-l'énergie dissipée par la paroi latérale et celle dissipée par un plan \(z=0\)
-ou \(h\) sous la forme :
+Donner l'expression de l'énergie dissipée par les parois de la cavité lorsque le mode fondamental
+est excité avec un champ d'amplitude \(E_0\). On mettra l'énergie dissipée par la paroi latérale et
+celle dissipée par un plan \(z=0\) ou \(h\) sous la forme :
 </p>
 \begin{align*}
-  P_\text{latérale} &= K_ZE_0^2\\
+  P_\text{latérale} &= K_2E_0^2\\
   P_\text{plan} &= K_3E_0^2
 \end{align*}
 
 <p>
-En l'absence de sources compensant les pertes d'énergie par les parois,
-quelle équation doit vérifier \(E_0\) ? Résoudre cette équation. On notera
-\(\tau\) la durée caractéristique pour laquelle \(E_0\) est divisé par un facteur
-\(e\) \((e=2.718)\). On montre que la largeur de raie de la cavité vaut : \(\Delta
-   f=1/(\pi\tau)\). En déduire la largeur de raie du mode fondamental, ainsi que
-le facteur de qualité de la cavité utilisée comme résonateur.
+En l'absence de sources compensant les pertes d'énergie par les parois, quelle équation doit
+vérifier \(E_0\) ? Résoudre cette équation. On notera \(\tau\) la durée caractéristique pour laquelle
+\(E_0\) est divisé par un facteur \(e\) \((e=2.718)\). On montre que la largeur de raie de la cavité
+vaut : \(\Delta f=1/(\pi\tau)\). En déduire la largeur de raie du mode fondamental, ainsi que le
+facteur de qualité de la cavité utilisée comme résonateur.
 </p></li>
 </ol>
 
@@ -756,23 +733,22 @@ le facteur de qualité de la cavité utilisée comme résonateur.
 Calcul des puissances dissipées sur chacune des parois
 </p>
 \begin{align*}
-  d^2P_\text{latérale}&=R_Sj^2_S(r=a)dS\\
+  \d^2P_\text{latérale}&=R_Sj^2_S(r=a)\d S\\
   \langle P_\text{latérale}\rangle&=R_S\times\frac{1}{(\mu_0c)^2}J'^2_0(x_{01})\langle\sin^2\omega_0t\rangle\times2\pi ah\times E_0^2\\
   &=\underbrace{\frac{R_S}{(\mu_0c)^2}J'^2_0(x_{01})\pi ah}_{K_2}\times E_0^2\\
-  d^2P_\text{plan}(z=0)&=R_Sj^2_S(z=0)dS\\
-  \langle P_\text{plan}(z=0)\rangle&=\frac{R_S}{(\mu_0c)^2}\langle\sin^2\omega_0t\rangle\times\int_0^{2\pi}d\theta\int_0^aJ'^2_0\left(\frac{x_{01}}{a}r\right)rdr\times E_0^2\\
-  &=\frac{R_S}{(\mu_0c)^2}\pi\times\frac{a^2}{x_{01}^2}\times\underbrace{\int_0^{x_{01}}xJ'^2_0(x)dx}_{I}\times E_0^2\\
-  &=\underbrace{\frac{\pi a^2\,R_S}{(\mu_0c)^2}I}_{K_3}\times E_0^2
+  \d^2P_\text{plan}(z=0)&=R_Sj^2_S(z=0)\d S\\
+  \langle P_\text{plan}(z=0)\rangle&=\frac{R_S}{(\mu_0c)^2}\langle\sin^2\omega_0t\rangle\times\int_0^{2\pi}d\theta\int_0^aJ'^2_0\left(\frac{x_{01}}{a}r\right)r\d r\times E_0^2\\
+  &=\frac{R_S}{(\mu_0c)^2}\pi\times\frac{a^2}{x_{01}^2}\times\underbrace{\int_0^{x_{01}}xJ'^2_0(x)\d x}_{I}\times E_0^2\\
+  &=\underbrace{\frac{\pi a^2\,R_S}{(\mu_0cx_{01})^2}I}_{K_3}\times E_0^2
 \end{align*}
 
 <p>
-En l'absence de source compensant les pertes, la variation de l'énergie
-totale au cours du temps est uniquement due à la dissipation de l'énergie sur
-les parois de la cavité d'où
+En l'absence de source compensant les pertes, la variation de l'énergie totale au cours du temps est
+uniquement due à la dissipation de l'énergie sur les parois de la cavité d'où
 </p>
 \begin{align*}
-  \frac{d\mathcal{E}}{dt}&=-\langle P_\text{latérale}\rangle-2\langle P_\text{paroi}\rangle\\
-  K_1\frac{dE^2_0}{dt}&=-K_2E_0^2-2K_3E_0^2\\
+  \frac{\d\mathcal{E}}{\d t}&=-\langle P_\text{latérale}\rangle-2\langle P_\text{paroi}\rangle\\
+  K_1\frac{\d E^2_0}{\d t}&=-K_2E_0^2-2K_3E_0^2\\
   2K_1E_0\frac{dE_0}{dt}+(K_2+2K_3)E_0^2&=0\\
   \frac{dE_0}{dt}+\frac{K_2+2K_3}{2K_1}E_0&=0
 \end{align*}
@@ -781,7 +757,7 @@ les parois de la cavité d'où
 En posant \(\tau=\frac{2K_1}{K_2+2K_3}\), l'équation précédente devient
 </p>
 \begin{align*}
-  \frac{dE_0}{dt}+\frac{1}{\tau}E_0=0
+  \frac{\d E_0}{\d t}+\frac{1}{\tau}E_0=0
 \end{align*}
 
 <p>
@@ -837,146 +813,6 @@ pour retirer les tatouages.
 </div>
 </div>
 </div>
-
-<div id="outline-container-orgheadline7" class="outline-2">
-<h2 id="orgheadline7"><span class="section-number-2">2</span> Résolution de l'équation de Bessel&#xa0;&#xa0;&#xa0;<span class="tag"><span class="ANNEXE">ANNEXE</span></span></h2>
-<div class="outline-text-2" id="text-2">
-</div><div id="outline-container-orgheadline5" class="outline-3">
-<h3 id="orgheadline5"><span class="section-number-3">2.1</span> Équation de Bessel</h3>
-<div class="outline-text-3" id="text-2-1">
-<p>
-La résolution de l'équation de Laplace en coordonnées cylindriques
-\((r,\theta,z)\) :
-</p>
-\begin{align*}
-  \Delta V=\frac{\partial^2V}{\partial r^2}+\frac{1}{r}\frac{\partial V}{\partial r}+\frac{1}{r^2}\frac{\partial^2V}{\partial\theta^2}+\frac{\partial^2V}{\partial z^2}=0
-\end{align*}
-
-<p>
-peut se faire en cherchant une solution de la forme
-\(V(,r\theta,z)=R(r)\Theta(\theta)Z(z)\). On obtient alors pour \(\Theta\)
-</p>
-\begin{align*}
-  \frac{d^2\Theta}{d\theta^2}=-\nu^2\Theta\quad\text{soit}\quad\Theta=C_\nu\cos(\nu\theta)+D_\nu\sin(\nu\theta)
-\end{align*}
-
-<p>
-où \(\nu,C_\nu\) et \(D_\nu\) sont des constantes. Pour \(Z\), on a de même
-</p>
-\begin{align*}
-  \frac{d^2Z}{dz^2}=k^2Z\quad\text{soit}\quad Z=A_ke^{kz}+B_ke^{-kz}
-\end{align*}
-
-<p>
-où \(k,A_k\) et \(B_k\) sont des constantes. L'équation décrivant l'évolution de \(R\)
-devient
-</p>
-\begin{align*}
-  r^2\frac{d^2R}{dr^2}+r\frac{dR}{dr}+(k^2r^2-\nu^2)R=0
-\end{align*}
-
-<p>
-En faisant le changement de variable \(x=kr\), on obtient
-</p>
-\begin{align*}
-  x^2\frac{d^2R}{dx^2}+x\frac{dR}{dx}+(x^2-\nu^2)R=0
-\end{align*}
-
-<p>
-Cette équation est <b>l'équation de Bessel d'ordre &nu;</b>.
-</p>
-</div>
-</div>
-<div id="outline-container-orgheadline6" class="outline-3">
-<h3 id="orgheadline6"><span class="section-number-3">2.2</span> Fonctions de Bessel et fonctions de Neumann</h3>
-<div class="outline-text-3" id="text-2-2">
-<table id="orgtable1" border="2" cellspacing="0" cellpadding="6" rules="groups" frame="void">
-<caption class="t-above"><span class="table-number">Table 1:</span> <b>Les trois premières fonctions de Bessel (à gauche) et de Neumann (à droite)</b></caption>
-
-<colgroup>
-<col  class="org-left" />
-
-<col  class="org-left" />
-</colgroup>
-<tbody>
-<tr>
-<td class="org-left"><img src="./figures/bessel_functions.png" alt="bessel_functions.png" /></td>
-<td class="org-left"><img src="./figures/neumann_functions.png" alt="neumann_functions.png" /></td>
-</tr>
-</tbody>
-</table>
-
-<p>
-Une solution de l'équation de Bessel est la fonction de Bessel de 1<sup>ère</sup> espèce
-\(J_\nu(x)\) définie par
-</p>
-\begin{align*}
-  J_\nu(x)=\sum_{k=0}^{+\infty}\frac{(-1)^k}{\Gamma(k+1)\Gamma(\nu+k+1)}\left(\frac{x}{2}\right)^{\nu+2k}
-\end{align*}
-
-<p>
-où \(\Gamma(x)\) est la fonction définie par
-</p>
-\begin{align*}
-  \Gamma(x)=\int_0^{+\infty}e^{-t}t^{x-1}dt
-\end{align*}
-
-<p>
-Les variations des permières fonctions de Bessel sont données sur la Figure
-<a href="#orgtable1">1</a>.
-Une autre solution de l'équation de Bessel est \(J_{-\nu}(x)\). Lorsque \(\nu\)
-n'est pas entier, \(J_\nu(x)\) et \(J_{-\nu}(x)\) sont linéairement indépendants. Si
-\(\nu=n\) est entier, on peut montrer que
-</p>
-
-\begin{align*}
-  J_n(x)=(-1)^nJ_n(-x)
-\end{align*}
-
-<p>
-La fonction de Bessel de 2<sup>ème</sup> espèce ou fonction de Neumann \(N_\nu(x)\) est
-définie par
-</p>
-\begin{align*}
-  N_\nu(x)=\lim_{m\to\nu}\left(\frac{\cos(m\pi)J_m(x)-J_{-m}(x)}{\sin(mx)}\right)
-\end{align*}
-
-<p>
-Les variations des premières fonctions de Neumann sont données sur la Figure
-<a href="#orgtable1">1</a>. On peut montrer que
-</p>
-
-\begin{align*}
-  N_\nu(x)\underset{x\to0}{\longrightarrow}x^{-\nu}\quad\text{et}\quad N_\nu(x)\underset{x\to+\infty}{\longrightarrow}\ln x
-\end{align*}
-
-
-<p>
-En fonction de la nature du paramètre &nu;, on distingue deux types de solution à
-l'équation de Bessel:
-</p>
-<ul class="org-ul">
-<li><p>
-<b>si &nu; n'est pas entier</b> : la solution de l'équation de Bessel est une
-combinaison linéaire de \(J_\nu(x)\) et \(J_(-\nu)(x)\)
-</p>
-\begin{align*}
-  R(x)=C_1J_\nu(x)+C_2J_{-\nu}(x)
-\end{align*}</li>
-
-<li><p>
-<b>si &nu; est entier</b> : si \(\nu=n\), \(J_n(x)\) et \(J_n(-x)\) ne sont pas
-linéairement indépendants du fait que \(J_n(x)=(-1)^nJ_n(-x)\). On peut montrer
-que la solution de l'équation de Bessel est alors une combinaison linéaire de
-\(J_n(x)\) et \(N_n(x)\)
-</p>
-\begin{align*}
-  R(x)=C_1J_n(x)+C_2N_n(x)
-\end{align*}</li>
-</ul>
-</div>
-</div>
-</div>
 <div id="footnotes">
 <h2 class="footnotes"> </h2>
 <div id="text-footnotes">
@@ -986,7 +822,7 @@ que la solution de l'équation de Bessel est alors une combinaison linéaire de
 </div>
 </div></div>
 <div id="postamble" class="status">
-File under <i class="fa fa-github-alt"></i> version control - commit <a href="https://github.com/xgarrido/licence_em_teaching/commit/311150a025b9911feb88eb5eafabc7b31c1ab20a">311150a</a> - 2016-06-28
+File under <i class="fa fa-github-alt"></i> version control - commit <a href="https://github.com/xgarrido/licence_em_teaching/commit/16aed20846016fe35284275cba92e3520e1831e1">16aed20</a> - 2020-12-21
 </div>
 </body>
 </html>

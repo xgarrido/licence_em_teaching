@@ -3,10 +3,11 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
-<meta  name="viewport" content="width=device-width, initial-scale=1" />
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>TD7 : Propagation dans le vide et les milieux diélectriques</title>
-<meta  name="generator" content="Org-mode" />
+<meta name="generator" content="Org mode" />
+<meta name="author" content="Xavier Garrido" />
 <link rel="stylesheet" href="css/styles.css" />
                <link rel="stylesheet" href="css/org-pygments.css" />
                <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" />
@@ -15,7 +16,7 @@
 @licstart  The following is the entire license notice for the
 JavaScript code in this tag.
 
-Copyright (C) 2012-2013 Free Software Foundation, Inc.
+Copyright (C) 2012-2018 Free Software Foundation, Inc.
 
 The JavaScript code in this tag is free software: you can
 redistribute it and/or modify it under the terms of the GNU
@@ -83,6 +84,7 @@ for the JavaScript code in this tag.
           extensions: ["cancel.js"],
           Macros: {
               vv: ["{\\vec{#1}}",1],
+              d: "{\\text{d}}",
               Upsigma: "{\\Sigma}",
               Updelta: "{\\Delta}",
               varoiint: "{\\iint}",
@@ -152,8 +154,8 @@ for the JavaScript code in this tag.
 </div>
 </div>
 
-<div id="outline-container-orgheadline1" class="outline-2">
-<h2 id="orgheadline1"><span class="section-number-2">1</span> Réflexion d'onde en incidence oblique sur un conducteur parfait</h2>
+<div id="outline-container-org55e3573" class="outline-2">
+<h2 id="org55e3573"><span class="section-number-2">1</span> Réflexion d'onde en incidence oblique sur un conducteur parfait</h2>
 <div class="outline-text-2" id="text-1">
 <div class="QUESTION">
 <p>
@@ -321,7 +323,7 @@ du métal ?</li>
 </div>
 <ol class="org-ol">
 <li value="4">Au voisinage de la surface du métal \(z\to0\) et donc \(\vv{E}\to\vv{0}\)
-   tandis que \(\vv{B}\to-2\frac{E_0}{c}\cos\theta\cos(kx\sin\theta-\omega
+tandis que \(\vv{B}\to-2\frac{E_0}{c}\cos\theta\cos(kx\sin\theta-\omega
    t)\,\vv{u_x}\)</li>
 </ol>
 
@@ -387,12 +389,11 @@ la densité d'énergie électromagnétique \(\langle u_\text{EM}\rangle\) soit
 </div>
 </div>
 
-
-<div id="outline-container-orgheadline6" class="outline-2">
-<h2 id="orgheadline6"><span class="section-number-2">2</span> Effet Faraday dans un diélectrique</h2>
+<div id="outline-container-orgcb75ef0" class="outline-2">
+<h2 id="orgcb75ef0"><span class="section-number-2">2</span> Effet Faraday dans un diélectrique</h2>
 <div class="outline-text-2" id="text-2">
 <div class="QUESTION">
-<div class="center">
+<div class="org-center">
 
 <div class="figure">
 <p><img src="./figures/effet_faraday.png" alt="effet_faraday.png" />
@@ -421,8 +422,8 @@ partir d'une origine fixe \(O\). Du point de vue microscopique, l'onde
 </div>
 </div>
 
-<div id="outline-container-orgheadline2" class="outline-3">
-<h3 id="orgheadline2"><span class="section-number-3">2.1</span> Équation de propagation des ondes</h3>
+<div id="outline-container-orgc10edd5" class="outline-3">
+<h3 id="orgc10edd5"><span class="section-number-3">2.1</span> Équation de propagation des ondes</h3>
 <div class="outline-text-3" id="text-2-1">
 <div class="QUESTION">
 <ol class="org-ol">
@@ -501,8 +502,8 @@ Dans le vide \(\vv{j}=\vv{0}\), on retrouve la relation de dispersion à savoir
 </div>
 </div>
 
-<div id="outline-container-orgheadline3" class="outline-3">
-<h3 id="orgheadline3"><span class="section-number-3">2.2</span> Détermination des caractéristiques du milieu</h3>
+<div id="outline-container-org88b8601" class="outline-3">
+<h3 id="org88b8601"><span class="section-number-3">2.2</span> Détermination des caractéristiques du milieu</h3>
 <div class="outline-text-3" id="text-2-2">
 <div class="QUESTION">
 <p>
@@ -529,7 +530,7 @@ champ magnétique \(\vv{B}_s\) lorsque l'électron est non relativiste.</li>
 Principe fondamental de la dynamique appliqué à un électron du milieu
 </p>
 \begin{align*}
-  m\frac{d\vv{V}}{dt}=-m\omega_0^2\vv{R}-e\vv{E}-e\vv{V}\times\left(\vv{B}+\vv{B_S}\right)
+  m\frac{\d\vv{V}}{\d t}=-m\omega_0^2\vv{R}-e\vv{E}-e\vv{V}\times\left(\vv{B}+\vv{B_S}\right)
 \end{align*}</li>
 
 <li><p>
@@ -550,19 +551,19 @@ En différentialisant le champ de vitesse où  \(\vv{V}\) est une fonction de
 l'espace et du temps <i>i.e.</i> \(f(\vv{r},t)\), on obtient
 </p>
 \begin{align*}
-  d\vv{V}&=\frac{\partial\vv{V}}{\partial t}dt+\frac{\partial\vv{V}}{\partial x}dx+\frac{\partial\vv{V}}{\partial y}dy+\frac{\partial\vv{V}}{\partial z}dz\\
-  \frac{d\vv{V}}{dt}&=\frac{\partial\vv{V}}{\partial t}+\frac{\partial\vv{V}}{\partial x}\frac{dx}{dt}+\frac{\partial\vv{V}}{\partial y}\frac{dy}{dt}+\frac{\partial\vv{V}}{\partial z}\frac{dz}{dt}\\
-  \frac{d\vv{V}}{dt}&=\frac{\partial\vv{V}}{\partial t}+\frac{\partial\vv{V}}{\partial x}v_x+\frac{\partial\vv{V}}{\partial y}v_y+\frac{\partial\vv{V}}{\partial z}v_z\\
-  \underbrace{\frac{d\vv{V}}{dt}}_{\text{dérivée particulaire}}&=\underbrace{\frac{\partial\vv{V}}{\partial t}}_{\text{dérivée locale}}+\underbrace{\left(\vv{V}.\grad\right).\vv{V}}_{\text{dérivée convective}}
+  \d\vv{V}&=\frac{\partial\vv{V}}{\partial t}\d t+\frac{\partial\vv{V}}{\partial x}\d x+\frac{\partial\vv{V}}{\partial y}\d y+\frac{\partial\vv{V}}{\partial z}\d z\\
+  \frac{\d\vv{V}}{\d t}&=\frac{\partial\vv{V}}{\partial t}+\frac{\partial\vv{V}}{\partial x}\frac{\d x}{\d t}+\frac{\partial\vv{V}}{\partial y}\frac{\d y}{\d t}+\frac{\partial\vv{V}}{\partial z}\frac{\d z}{\d t}\\
+  \frac{\d\vv{V}}{\d t}&=\frac{\partial\vv{V}}{\partial t}+\frac{\partial\vv{V}}{\partial x}V_x+\frac{\partial\vv{V}}{\partial y}V_y+\frac{\partial\vv{V}}{\partial z}V_z\\
+  \underbrace{\frac{\d\vv{V}}{\d t}}_{\text{dérivée particulaire}}&=\underbrace{\frac{\partial\vv{V}}{\partial t}}_{\text{dérivée locale}}+\underbrace{\left(\vv{V}.\grad\right)\vv{V}}_{\text{dérivée convective}}
 \end{align*}
 
 <p>
 En posant \(\vv{V}=\vv{V_0}\,e^{i(\vv{k}.\vv{r}-\omega t)}\), la dérivée locale
-\(\frac{\partial\vv{V}}{\partial t}\) est égale à \(-i\omega\vv{V}\), la dérivée
-convective prenant la forme
+\(\frac{\partial\vv{V}}{\partial t}\) est égale à \(-i\omega\vv{V}\), la dérivée convective
+prenant la forme
 </p>
 \begin{align*}
-  \left(\vv{V}.\grad\right).\vv{V}=\vv{V}.i\vv{k}.\vv{V}
+  \left(\vv{V}.\grad\right)\vv{V}=\vv{V}.i\vv{k}\vv{V}
 \end{align*}
 
 <p>
@@ -571,7 +572,7 @@ On déduit que
 \begin{align*}
   \frac{\partial\vv{V}}{\partial t}+\left(\vv{V}.\grad\right).\vv{V}&=-i\omega\vv{V}+i\vv{V}.\vv{k}.\vv{V}\\
   &=-i\omega\vv{V}\left(1-\frac{\vv{k}.\vv{V}}{\omega}\right)=-i\omega\vv{V}\left(1-\frac{V}{v_\phi}\right)\\
-  \frac{d\vv{V}}{dt}&\simeq\frac{\partial v}{\partial t}\to\frac{V}{v_\phi}=\frac{V}{c}\ll1
+  \frac{\d\vv{V}}{\d t}&\simeq\frac{\partial v}{\partial t}\to\frac{V}{v_\phi}=\frac{V}{c}\ll1
 \end{align*}</li>
 </ol></li>
 </ol>
@@ -759,7 +760,7 @@ puis enfin \(\frac{\partial\vv{j}}{\partial t}\) en fonction de \(\vv{E}\),
 les coefficients à l'aide des nombres \(\alpha,\beta,\gamma\) suivants :
 </p>
 \begin{align*}
-  \alpha = \frac{\omega_p^2}{\omega_0^2-\omega^2}\quad\beta=\frac{\omega_p^2\omega\omega_c}{(\omega_0^2-\omega^2)^2-\omega^2\omega_0^2}\quad\gamma=\frac{\omega_p^2(\omega_0^2-\omega^2)}{(\omega_0^2-\omega^2)^2-\omega^2\omega_c^2}
+  \alpha = \frac{\omega_p^2}{\omega_0^2-\omega^2}\quad\beta=\frac{\omega_p^2\omega\omega_c}{(\omega_0^2-\omega^2)^2-\omega^2\omega_c^2}\quad\gamma=\frac{\omega_p^2(\omega_0^2-\omega^2)}{(\omega_0^2-\omega^2)^2-\omega^2\omega_c^2}
 \end{align*}</li>
 </ol>
 
@@ -836,8 +837,8 @@ implique que le champ électrique \(\vv{E}\) est vecteur propre de
 </div>
 </div>
 
-<div id="outline-container-orgheadline4" class="outline-3">
-<h3 id="orgheadline4"><span class="section-number-3">2.3</span> Détermination des modes propres de propagation</h3>
+<div id="outline-container-org764fedf" class="outline-3">
+<h3 id="org764fedf"><span class="section-number-3">2.3</span> Détermination des modes propres de propagation</h3>
 <div class="outline-text-3" id="text-2-3">
 <div class="QUESTION">
 <ol class="org-ol">
@@ -878,18 +879,17 @@ La vitesse de phase se déduit de la relation de dispersion
 
 <div class="QUESTION">
 <ol class="org-ol">
-<li value="2">2<sup>ème</sup> cas : \(\vv{E}\) est vecteur propre de \(\bar{\bar{\chi}}\) avec une
-valeur propre différente de &alpha;. Déterminer les valeurs propres
-popssibles. Déterminer la direction de \(\vv{k}\) pour une onde
-transverse. Calculer les normes \(k_1\) et \(k_2\) des vecteurs d'ondes des ondes
-associées aux deux valeurs propres (modes propres). Étudier la polarisation
-de chaque mode propre.</li>
+<li value="2">2<sup>ème</sup> cas : \(\vv{E}\) est vecteur propre de \(\bar{\bar{\chi}}\) avec une valeur propre
+différente de &alpha;. Déterminer les valeurs propres possibles. Déterminer la direction de
+\(\vv{k}\) pour une onde transverse. Calculer les normes \(k_1\) et \(k_2\) des vecteurs d'ondes des
+ondes associées aux deux valeurs propres (modes propres). Étudier la polarisation de chaque mode
+propre.</li>
 </ol>
 
 </div>
 <p>
-On se restreint à présent au sous espace vectoriel \((\vv{u_x},\vv{u_y})\) et à
-la détermination des valeurs propres de la matrice réduite
+On se restreint à présent au sous espace vectoriel \((\vv{u_x},\vv{u_y})\) et à la détermination des
+valeurs propres de la matrice réduite
 </p>
 \begin{align*}
   \bar{\bar{\chi'}}&=\begin{bmatrix}
@@ -971,11 +971,11 @@ est donc <b>circulaire droite</b>.</li>
 </div>
 </div>
 
-<div id="outline-container-orgheadline5" class="outline-3">
-<h3 id="orgheadline5"><span class="section-number-3">2.4</span> Effet Faraday</h3>
+<div id="outline-container-orgc6eac2b" class="outline-3">
+<h3 id="orgc6eac2b"><span class="section-number-3">2.4</span> Effet Faraday</h3>
 <div class="outline-text-3" id="text-2-4">
 <div class="QUESTION">
-<div class="center">
+<div class="org-center">
 
 <div class="figure">
 <p><img src="./figures/effet_faraday_2.png" alt="effet_faraday_2.png" />
@@ -1042,7 +1042,7 @@ polarisée selon \(\vv{u_x}\) qu'à la condition que \(B_S\) soit nul.
 modes trouvés en C.2. Décomposer l'onde incidente
 \(\vv{E}_i(z=0,t)=E_0\cos\omega t\vv{u}_x\) en somme d'une onde à polarisation
 circulaire droite et une onde à polarisation circulaire gauche. Dans le
-milieu on cherche une solution \(\vv{E}(z,t)=\vv{E}_1(z,t)=\vv{E}_2(z,t)\) où
+milieu on cherche une solution \(\vv{E}(z,t)=\vv{E}_1(z,t)+\vv{E}_2(z,t)\) où
 l'indice 1 (respectivement 2) est relatif à une onde polarisation circulaire
 gauche (respectivement droite).</li>
 </ol>
@@ -1163,20 +1163,19 @@ expressions par
 \end{align*}
 
 <p>
-Ainsi, l'angle de rotation Faraday sera d'autant plus grand que le champ
-magnétique statique sera élevé et l'épaisseur \(L\) sera importante. On
-introduit ainsi la constante de Verdet \(\nu\) telle que \(\theta=\nu\,\ell
-B\). Une des applications de la rotation Faraday est la mesure du champ
-magnétique galactique en utilisant une source lumineuse polarisée (pulsar) et
-en intégrant la densité d'électron \(n\) le long de la visée
+Ainsi, l'angle de rotation Faraday sera d'autant plus grand que le champ magnétique statique sera
+élevé et l'épaisseur \(L\) sera importante. On introduit ainsi la constante de Verdet \(\nu\) telle que
+\(\theta=\nu\,\ell B\). Une des applications de la rotation Faraday est la mesure du champ magnétique
+galactique en utilisant une source lumineuse polarisée (pulsar) et en intégrant la densité
+d'électron \(n\) le long de la visée
 </p>
 \begin{align*}
-  \theta&=\int_0^d\frac{\omega_p^2}{\omega^2}\frac{e}{2mc}B_S(\ell)d\ell\\
-  &=\frac{e^3}{2m^2c\epsilon_0}\times\frac{\lambda^2}{4\pi^2c^2}\int_0^dn(\ell)B_S(\ell)d\ell\\
-  &=\frac{e^3}{8\pi^2\epsilon_0m^2c^3}\lambda^2\int_0^dn(\ell)B_S(\ell)d\ell
+  \theta&=\int_0^d\frac{\omega_p^2}{\omega^2}\frac{e}{2mc}B_S(\ell)\d\ell\\
+  &=\frac{e^3}{2m^2c\epsilon_0}\times\frac{\lambda^2}{4\pi^2c^2}\int_0^dn(\ell)B_S(\ell)\d\ell\\
+  &=\frac{e^3}{8\pi^2\epsilon_0m^2c^3}\lambda^2\int_0^dn(\ell)B_S(\ell)\d\ell
 \end{align*}
 
-<div class="center">
+<div class="org-center">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="void">
 
 
@@ -1195,281 +1194,14 @@ en intégrant la densité d'électron \(n\) le long de la visée
 </div>
 
 <p>
-Par ailleurs, le matériau qui induit la plus grande déflexion angulaire étant
-donnée une épaisseur est le graphène dont une seule couche atomique occasionne
-des déviations de l'ordre de quelques degrés (<i>cf.</i> <a href="http://arxiv.org/abs/1007.5286">"Giant Faraday rotation in
-single- and multilayer graphene"</a>, 2011). Les déflexions occasionnées par la
-traversée d'une couche de graphène pour une température de 5K sont, au maximum,
-de l'ordre de 6 degrés pour une radiation infrarouge \(-\)
-\(\lambda\sim30\,\mu\text{m}, \nu=\unit[1.5]{THz}\) \(-\) et un champ magnétique de
-8 Tesla.
+Par ailleurs, le matériau qui induit la plus grande déflexion angulaire étant donnée une épaisseur
+est le graphène dont une seule couche atomique occasionne des déviations de l'ordre de quelques
+degrés (<i>cf.</i> <a href="http://arxiv.org/abs/1007.5286">"Giant Faraday rotation in single- and multilayer graphene"</a>, 2011). Les déflexions
+occasionnées par la traversée d'une couche de graphène pour une température de 5K sont, au maximum,
+de l'ordre de 6 degrés pour une radiation infrarouge \(-\) \(\lambda\sim30\,\mu\text{m},
+\nu=\unit[1.5]{THz}\) \(-\) et un champ magnétique de 8 Tesla.
 </p>
 </div>
-</div>
-</div>
-
-<div id="outline-container-orgheadline7" class="outline-2">
-<h2 id="orgheadline7"><span class="section-number-2">3</span> Réflexion totale et onde évanescente&#xa0;&#xa0;&#xa0;<span class="tag"><span class="DM">DM</span></span></h2>
-<div class="outline-text-2" id="text-3">
-<div class="QUESTION">
-<p>
-Le demi-espace \(y<0\) est rempli d'un diélectrique LHI transparent (sans pertes)
-d'indice \(n_1\). Le demi-espace \(y>0\) est rempli d'un diélectrique LHI d'indice
-\(n_2<n_1\).
-</p>
-
-<p>
-Une onde électromagnétique monochromatique, plane, progressive, homogène (MPPH)
-arrive du milieu 1 sur le dioptre plan \(y=0\) avec l'angle d'incidence
-\(\theta_i\). L'onde incidente produit une onde MPPH réfléchie dans le milieu 1 et
-une onde MPPH transmise dans le milieu 2. On note avec les indices \(i,r,t\) les
-grandeurs physiques relatives aux ondes incidente, réfléchie et transmise. Ainsi
-le champ électrique de l'onde transmise s'écrit en notation complexe :
-</p>
-\begin{align*}
-\vv{E}_t=\vv{E}_{t0}\exp\left[i(\vv{k}_t.\vv{r}-\omega_tt)\right]
-\end{align*}
-
-<p>
-On choisit les axes \(Ox\) et \(Oz\) de sorte que \(k_{ix}=0\) et \(k_{iz}>0\).
-</p>
-
-<ol class="org-ol">
-<li value="1">En optique géométrique, à partir de quel angle limite \(\theta_l\) se
-produit le phénomène de réflexion totale ? La suite de l'exerice concerne le
-cas où \(\theta_i>\theta_l\).</li>
-</ol>
-
-</div>
-<p>
-Les lois de Snell &amp; Descartes impose qu'à la traversée du dioptre, l'angle
-transmis \(\theta_t\) est relié à l'angle d'incidence \(\theta_i\) par
-</p>
-\begin{align*}
-  n_1\sin\theta_i=n_2\sin\theta_t
-\end{align*}
-
-<p>
-Il y a réflexion totale dès lors que \(\sin\theta_t\geq1\) soit pour un angle
-d'incidence tel que
-</p>
-\begin{align*}
-  \sin\theta_t&\geq1\\
-  \sin\theta_i&\geq\frac{n_2}{n_1}\\
-  \theta_l&=\arcsin\left(\frac{n_2}{n_1}\right)\text{ avec }n_2 < n_1\\
-  \theta_i&\geq\theta_l\to\text{réflexion totale}
-\end{align*}
-
-<div class="QUESTION">
-<ol class="org-ol">
-<li value="2">En utilisant une relation de passage du milieu 1 au milieu 2, justifier
-que \(\omega_i=\omega_r=\omega_t=\omega\). De même justifier que
-\(k_{rx}=k_{tx}=k_{ix}=0\) et que \(k_{rz}=k_{tz}=k_{iz}\).</li>
-</ol>
-
-</div>
-<p>
-Les champs électriques associées aux différentes ondes s'écrivent
-</p>
-\begin{align*}
-  \vv{E_i}&=\vv{E_{i0}}\,e^{i\left(\vv{k_i}.\vv{r}-\omega_it\right)}\\
-  \vv{E_t}&=\vv{E_{t0}}\,e^{i\left(\vv{k_t}.\vv{r}-\omega_tt\right)}\\
-  \vv{E_r}&=\vv{E_{r0}}\,e^{i\left(\vv{k_r}.\vv{r}-\omega_rt\right)}
-\end{align*}
-
-<p>
-À l'interface entre les deux milieux \(n_1/n_2\) soit pour \(\vv{r_0}\) appartenant
-au plan \((\vv{u_x},\vv{u_z})\), la composante tangentielle du champ
-électrique est conservée soit
-</p>
-\begin{align*}
-  \vv{E_i}^\parallel(\vv{r_0},t)+\vv{E_r}^\parallel(\vv{r_0},t)&=\vv{E_t}^\parallel(\vv{r_0},t)\\
-  \vv{E_{i0}}^\parallel\,e^{i\left(\vv{k_i}.\vv{r_0}-\omega_it\right)}+\vv{E_{r0}}^\parallel\,e^{i\left(\vv{k_r}.\vv{r_0}-\omega_rt\right)}&=\vv{E_{t0}}^\parallel\,e^{i\left(\vv{k_t}.\vv{r_0}-\omega_tt\right)}
-\end{align*}
-
-<p>
-Cette égalité devant demeurer vrai pour tout \(t\), on déduit que les
-pulsations sont nécessairement toutes égales
-\(\omega_i=\omega_r=\omega_t=\omega\). Les longueurs d'ondes restent donc
-inchangées à la traversée/réflexion du dioptre. L'égalité précédente devient
-ainsi
-</p>
-\begin{align*}
-  \vv{E_{i0}}^\parallel\,e^{i\vv{k_i}.\vv{r_0}}+\vv{E_{r0}}^\parallel\,e^{i\vv{k_r}.\vv{r_0}}&=\vv{E_{t0}}^\parallel\,e^{i\vv{k_t}.\vv{r_0}}\\
-  \vv{E_{i0}}^\parallel+\vv{E_{r0}}^\parallel\,e^{i\left(\vv{k_r}-\vv{k_i}\right).\vv{r_0}}&=\vv{E_{t0}}^\parallel\,e^{i\left(\vv{k_t}-\vv{k_i}\right).\vv{r_0}}
-\end{align*}
-
-<p>
-et doit également demeurer vrai pour tout \(\vv{r_0}\) appartenant au plan
-\((\vv{u_x},\vv{u_z})\). Cette contrainte implique nécessairement que
-</p>
-\begin{align*}
-  \left(\vv{k_r}-\vv{k_i}\right).\vv{r_0}&=\left(\vv{k_t}-\vv{k_i}\right).\vv{r_0}=0\\
-  \text{d'où }&\vv{k_r}-\vv{k_i}\parallel\vv{u_y}\text{ et }\vv{k_t}-\vv{k_i}\parallel\vv{u_y}\\
-  \vv{k_r}=\vv{k_i}+\alpha\vv{u_y}&\text{ et }\vv{k_t}=\vv{k_i}+\beta\vv{u_y}
-\end{align*}
-
-<p>
-On déduit ainsi que \(k_{rx}=k_{tx}=k_{ix}=0\) et \(k_{rz}=k_{tz}=k_{iz}\).
-</p>
-
-<div class="QUESTION">
-<ol class="org-ol">
-<li value="3">Exprimer les normes \(k_i,k_r,k_t\) des vecteurs d'onde en fonction de
-\(\omega,c,n_1,n_2\). En déduire \(k_{tz}\) et \(k_{ty}\) en fonction de \(\theta_i\)
-et des constantes. Retrouver au passage les trois lois de Snell-Descartes de
-l'optique géométrique.</li>
-</ol>
-
-</div>
-<p>
-Les expressions des normes des vecteurs d'onde sont les suivantes
-</p>
-\begin{align*}
-  k_i&=\frac{\omega_i}{v_1}=\frac{\omega}{c}\times n_1\\
-  k_r&=\frac{\omega}{c}\times n_1\\
-  k_t&=\frac{\omega}{c}\times n_2
-\end{align*}
-
-<p>
-Sachant que \(k_{tz}=k_{iz}\) et que \(k_{iz}=k_i\sin\theta_i\), on déduit que
-\(k_{tz}=\frac{\omega}{c}\,n_1\sin\theta_i\). Par ailleurs, la norme au carré
-de \(k_t\) s'écrit
-</p>
-\begin{align*}
-  k_t^2&=\left(\frac{\omega}{c}\right)^2n_2^2=k_{tz}^2+k_{ty}^2\\
-  k_{ty}^2&=\left(\frac{\omega}{c}\right)^2n_2^2-\left(\frac{\omega}{c}\right)^2n_1^2\sin^2\theta_i\\
-  &=\left(\frac{\omega}{c}\right)^2\underbrace{\left(n_2^2-n_1^2\sin^2\theta_i\right)}_{<0\text{ car }\sin\theta_i>\frac{n_2}{n_1}}\\
-  k_{ty}&=\pm i\frac{\omega}{c}\sqrt{n_1^2\sin^2\theta_i-n_2^2}
-\end{align*}
-
-<p>
-On retrouve ainsi les trois lois de Snell-Descartes qui sont
-</p>
-<ul class="org-ul">
-<li><b>1<sup>ère</sup> loi de Descartes :</b> les vecteurs d'onde \(\vv{k_t}\), \(\vv{k_r}\)
-appartiennent au plan défini par les vecteurs \(\vv{k_i}\) et la normale au
-dioptre <i>i.e.</i> \(\vv{u_y}\).</li>
-<li><p>
-<b>2<sup>ème</sup> loi de Descartes :</b>
-</p>
-\begin{align*}
-  k_{iz}&=k_{rz}\\
-  \frac{\omega}{c}n_1\sin\theta_i&=\frac{\omega}{c}n_1\sin\theta_r\\
-  \theta_i&=\theta_r
-\end{align*}</li>
-
-<li><p>
-<b>3<sup>ème</sup> loi de Descartes :</b>
-</p>
-\begin{align*}
-  k_{iz}&=k_{tz}\\
-  \frac{\omega}{c}n_1\sin\theta_i&=\frac{\omega}{c}n_2\sin\theta_t\\
-  n_1\sin\theta_i&=n_2\sin\theta_t
-\end{align*}</li>
-</ul>
-
-<div class="QUESTION">
-<ol class="org-ol">
-<li value="4">On remarque que \(k_{ty}\) est imaginaire pur : \(k_{ty}=\pm im\) avec
-\(m>0\).
-<ol class="org-ol">
-<li>Écrire explicitement \(\vv{E}_t\) en fonction de \(y,z,\theta_i,m,\omega,c\).</li>
-<li>Quel signe faut-il choisir dans l'expression de \(k_{ty}\) ?</li>
-<li>Pour quelle valeur \(\delta\) de \(y\), l'amplitude du champ transmis est-elle
-divisée par \(e\) ?</li>
-<li>Quelle est la phase \(\phi\) de l'onde transmise ? Dans quelle direction se
-propage-t-elle ?</li>
-<li>Calculer la vitesse de phase. Peut-elle être plus grande que \(c\) ?</li>
-</ol></li>
-</ol>
-
-</div>
-<ol class="org-ol">
-<li value="4">\(k_{ty}=\pm im\) où \(m=\frac{\omega}{c}\sqrt{n_1^2\sin^2\theta_i-n_2^2}>0\)
-<ol class="org-ol">
-<li>\begin{align*}
-  \vv{E_t}&=\vv{E_{t0}}\,e^{i\left(\vv{k_{t}}.\vv{r}-\omega t\right)}\\
-  &=\vv{E_{t0}}\,e^{i\left(k_{ty}y+k_{tz}z-\omega t\right)}\\
-  &=\vv{E_{t0}}\,e^{\pm my}\,e^{i\frac{\omega}{c}n_1\sin\theta_iz}\,e^{-i\omega t}\\
-\end{align*}</li>
-
-<li><p>
-Lorsque \(y\to\infty\), le champ électrique transmis doit rester borné :
-seule l'expression \(e^{-my}\) est donc envisageable.
-</p>
-\begin{align*}
-  \vv{E_t}&=\vv{E_{t0}}\,\underbrace{e^{-my}}_{\text{onde evanescente}}\times\underbrace{e^{i\frac{\omega}{c}n_1\sin\theta_iz}}_{\text{onde progressive}}\times e^{-i\omega t}
-\end{align*}</li>
-
-<li><p>
-L'épaisseur &delta; est l'inverse de \(m\) soit
-</p>
-\begin{align*}
-  \delta=\frac{1}{m}=\frac{c}{w}\times\frac{1}{\sqrt{n_1^2\sin^2\theta_i-n_2^2}}
-\end{align*}</li>
-
-<li><p>
-La phase de l'onde transmise est égale à
-</p>
-\begin{align*}
-  \phi&=\frac{\omega}{c}n_1\sin\theta_iz-\omega t\\
-  &=k_i\sin\theta_iz-\omega t
-\end{align*}
-
-<p>
-cette dernière se propageant selon \(Oz\).
-</p></li>
-<li><p>
-Vitesse de phase
-</p>
-\begin{align*}
-  v_\phi&=\frac{\omega}{k}=\frac{\omega}{k_i\sin\theta_i}\\
-  &=\frac{\cancel{\omega} c}{\cancel{\omega}n_1\sin\theta_i}\leq c\,(\text{car }\theta_i\geq\theta_\ell\to n_1\sin\theta_i\geq n_2\geq1)
-\end{align*}</li>
-</ol></li>
-</ol>
-
-<div class="QUESTION">
-<ol class="org-ol">
-<li value="5">Déterminer le champ magnétique \(\vv{B}_t\) de l'onde transmise en la
-supposant polarisée rectilignement selon \(\vv{u}_x\).</li>
-</ol>
-
-</div>
-<p>
-Onde MPPH polarisée suivant \(\vv{u_x}\to\vv{E_t}\parallel\vv{u_x}\) et
-\(\vv{B_t}=\frac{\vv{k_t}\times\vv{E_t}}{\omega}\)
-</p>
-\begin{align*}
-  \vv{B_t}&=\frac{1}{\omega}\left|
-  \begin{array}{l}
-    0\\-im\\\frac{\omega}{c}n_1\sin\theta_i
-  \end{array}
-  \right.\times\left|
-  \begin{array}{l}
-    E_t\\0\\0
-  \end{array}
-  \right.\\
-  &=\frac{1}{\omega}\left|
-  \begin{array}{l}
-    0\\\frac{\omega}{c}n_1\sin\theta_iE_t\\imE_t
-  \end{array}
-  \right.\\
-  &=\frac{E_{t0}}{c}\,e^{-i\omega t}\,e^{ik_i\sin\theta_iz}\,e^{-y/\delta}\left(n_1\sin\theta_i\vv{u_y}+i\sqrt{n_1^2\sin^2\theta_i-n_2^2}\vv{u_z}\right)
-\end{align*}
-
-<div class="QUESTION">
-<ol class="org-ol">
-<li value="6">En déduire la valeur moyenne du vecteur de Poynting transmis. Commenter.</li>
-</ol>
-
-</div>
-
-\begin{align*}
-  \langle\vv{\pi_t}\rangle&=\frac{1}{2\mu_0}\text{Re}\left(\vv{E_t}\times\vv{B_t}^*\right)\\
-  &=\frac{1}{2\mu_0}\frac{E_{t0}^2}{c}\,e^{-2y/\delta}\,n_1\sin\theta_i\vv{u_z}
-\end{align*}
 </div>
 </div>
 <div id="footnotes">
@@ -1481,7 +1213,7 @@ Onde MPPH polarisée suivant \(\vv{u_x}\to\vv{E_t}\parallel\vv{u_x}\) et
 </div>
 </div></div>
 <div id="postamble" class="status">
-File under <i class="fa fa-github-alt"></i> version control - commit <a href="https://github.com/xgarrido/licence_em_teaching/commit/311150a025b9911feb88eb5eafabc7b31c1ab20a">311150a</a> - 2016-06-28
+File under <i class="fa fa-github-alt"></i> version control - commit <a href="https://github.com/xgarrido/licence_em_teaching/commit/16aed20846016fe35284275cba92e3520e1831e1">16aed20</a> - 2020-12-21
 </div>
 </body>
 </html>

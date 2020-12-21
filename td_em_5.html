@@ -3,10 +3,11 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
-<meta  name="viewport" content="width=device-width, initial-scale=1" />
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>TD6 : Rayonnement</title>
-<meta  name="generator" content="Org-mode" />
+<meta name="generator" content="Org mode" />
+<meta name="author" content="Xavier Garrido" />
 <link rel="stylesheet" href="css/styles.css" />
                <link rel="stylesheet" href="css/org-pygments.css" />
                <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" />
@@ -15,7 +16,7 @@
 @licstart  The following is the entire license notice for the
 JavaScript code in this tag.
 
-Copyright (C) 2012-2013 Free Software Foundation, Inc.
+Copyright (C) 2012-2018 Free Software Foundation, Inc.
 
 The JavaScript code in this tag is free software: you can
 redistribute it and/or modify it under the terms of the GNU
@@ -83,6 +84,7 @@ for the JavaScript code in this tag.
           extensions: ["cancel.js"],
           Macros: {
               vv: ["{\\vec{#1}}",1],
+              d: "{\\text{d}}",
               Upsigma: "{\\Sigma}",
               Updelta: "{\\Delta}",
               varoiint: "{\\iint}",
@@ -152,20 +154,19 @@ for the JavaScript code in this tag.
 </div>
 </div>
 
-<div id="outline-container-orgheadline1" class="outline-2">
-<h2 id="orgheadline1"><span class="section-number-2">1</span> Rayonnement d'une antenne</h2>
+<div id="outline-container-orgbd4ea23" class="outline-2">
+<h2 id="orgbd4ea23"><span class="section-number-2">1</span> Rayonnement d'une antenne</h2>
 <div class="outline-text-2" id="text-1">
 <div class="QUESTION">
 <p>
-On considère une portion de conducteur rectiligne \(MN\) de longueur &ell;, dirigée
-selon l'axe \(Oz\). Ce conducteur est parcouru par un courant \(I=I_0\cos\omega t\).
+On considère une portion de conducteur rectiligne \(MN\) de longueur &ell;, dirigée selon l'axe
+\(Oz\). Ce conducteur est parcouru par un courant \(I=I_0\cos\omega t\).
 </p>
 
 <ol class="org-ol">
-<li value="1">On suppose qu'à l'extérieur du tronçon \(MN\), la densité de courant est
-nulle. En utilisant la fonction de Heaviside (voir à la fin de l'énoncé) et
-la distribution de Dirac, donner l'expression de la densité de courant
-\(\vv{j}\) dans tout l'espace.</li>
+<li value="1">On suppose qu'à l'extérieur du tronçon \(MN\), la densité de courant est nulle. En utilisant
+la fonction de Heaviside (voir à la fin de l'énoncé) et la distribution de Dirac, donner
+l'expression de la densité de courant \(\vv{j}\) dans tout l'espace.</li>
 </ol>
 
 </div>
@@ -186,7 +187,7 @@ La fonction d'Heaviside est définie par
 et a pour représentation
 </p>
 
-<div class="center">
+<div class="org-center">
 
 <div class="figure">
 <p><img src="./figures/heaviside_function.png" alt="heaviside_function.png" />
@@ -195,16 +196,15 @@ et a pour représentation
 </div>
 
 <p>
-Par ailleurs, on note que \(\frac{d}{dx}\Theta(x)=\delta(x)\).
+Par ailleurs, on note que \(\frac{\d}{\d x}\Theta(x)=\delta(x)\).
 </p>
 
 <p>
-En supposant que \(\vv{j}\) est nul à l'extérieur du fil, seul le courant
-traversant le fil contribue à la densité volumique de courant
-\(j(x,y,z,t)\). Par définition, le courant \(I\) est égal au flux de \(\vv{j}\) au
-travers d'une surface \(S\) : \(I=\iint\vv{j}.\vv{dS}\). Le fil étant de section
-infinitésimale et le courant étant non nul pour \(z\in[-\ell/2,\ell/2]\), la
-densité de courant s'écrit
+En supposant que \(\vv{j}\) est nul à l'extérieur du fil, seul le courant traversant le fil contribue
+à la densité volumique de courant \(j(x,y,z,t)\). Par définition, le courant \(I\) est égal au flux de
+\(\vv{j}\) au travers d'une surface \(S\) : \(I=\iint\vv{j}.\vv{\d S}\). Le fil étant de section
+infinitésimale et le courant étant non nul pour \(z\in[-\ell/2,\ell/2]\), la densité de courant
+s'écrit
 </p>
 \begin{align*}
   \vv{j}(x,y,z,t)&=I(t)\times\delta(x)\times\delta(y)\times\Theta(z+\ell/2)\times\Theta(-z+\ell/2)\,\vv{u_z}\\
@@ -231,8 +231,8 @@ où
 </table>
 
 <p>
-On note, par ailleurs, que la dimension de \(j\) est bien celle d'une intensité
-par unité de surface car \(\delta=\frac{d\Theta}{dx}\to[\delta]=[L^{-1}]\).
+On note, par ailleurs, que la dimension de \(j\) est bien celle d'une intensité par unité de surface
+car \(\delta=\frac{\d\Theta}{\d x}\to[\delta]=[L^{-1}]\).
 </p>
 
 <div class="QUESTION">
@@ -251,18 +251,16 @@ L'équation de conservation de la charge s'écrit
 \begin{align*}
   \div\vv{j}+\frac{\partial\rho}{\partial t}&=0\\
   -\frac{\partial\rho}{\partial t}&=\frac{\partial j_z}{\partial z}\\
-  &=I_0\cos\omega t\delta(x)\delta(y)\left[\frac{d\Theta(z+\ell/2)}{dz}\Theta(-z+\ell/2)+\Theta(z+\ell/2)\frac{d\Theta(-z+\ell/2)}{dz}\right]\\
+  &=I_0\cos\omega t\delta(x)\delta(y)\left[\frac{\d\Theta(z+\ell/2)}{\d z}\Theta(-z+\ell/2)+\Theta(z+\ell/2)\frac{\d\Theta(-z+\ell/2)}{\d z}\right]\\
   &=I_0\cos\omega t\delta(x)\delta(y)\left[\delta(z+\ell/2)\Theta(-z+\ell/2)-\Theta(z+\ell/2)\delta(-z+\ell/2)\right]
 \end{align*}
 
 <p>
-Or \(\delta(z+\ell/2)\) est nul pour toute valeur de \(z\) différente de
-\(-\ell/2\). De même, \(\delta(-z+\ell/2)\) est nul pour toute valeur de \(z\)
-différente de \(+\ell/2\). On déduit donc que le produit
-\(\delta(z+\ell/2)\Theta(-z+\ell/2)\), respectivement
-\(\delta(-z+\ell/2)\Theta(z+\ell/2)\), est non nul uniquement en \(z=-\ell/2\),
-respectivement en \(z=+\ell/2\). L'expression de la dérivée temporelle de
-\(\rho(x,y,z,t)\) devient
+Or \(\delta(z+\ell/2)\) est nul pour toute valeur de \(z\) différente de \(-\ell/2\). De même,
+\(\delta(-z+\ell/2)\) est nul pour toute valeur de \(z\) différente de \(+\ell/2\). On déduit donc que le
+produit \(\delta(z+\ell/2)\Theta(-z+\ell/2)\), respectivement \(\delta(-z+\ell/2)\Theta(z+\ell/2)\), est
+non nul uniquement en \(z=-\ell/2\), respectivement en \(z=+\ell/2\). L'expression de la dérivée
+temporelle de \(\rho(x,y,z,t)\) devient
 </p>
 \begin{align*}
   -\frac{\partial\rho}{\partial t}&=I_0\cos\omega t\delta(x)\delta(y)\left[\delta(z+\ell/2)-\delta(-z+\ell/2)\right]\\
@@ -286,7 +284,7 @@ L'antenne est ainsi équivalente à un dipôle oscillant avec
 \(q=\frac{I_0}{\omega}\)
 </p>
 
-<div class="center">
+<div class="org-center">
 
 <div class="figure">
 <p><img src="./figures/dipole_oscillant.png" alt="dipole_oscillant.png" />
@@ -296,8 +294,8 @@ L'antenne est ainsi équivalente à un dipôle oscillant avec
 
 <div class="QUESTION">
 <ol class="org-ol">
-<li value="3">En déduire la densité de courant complexe \(\vv{j}(\vv{r},t)\) dans tout
-l'espace, ainsi que la densité de charge complexe \(\rho(\vv{r},t)\).</li>
+<li value="3">En déduire la densité de courant complexe \(\vv{j}(\vv{r},t)\) dans tout l'espace, ainsi que
+la densité de charge complexe \(\rho(\vv{r},t)\).</li>
 </ol>
 
 </div>
@@ -311,36 +309,32 @@ En notation complexe, les expressions de \(\vv{j}\) et \(\rho\) s'écrivent
 \end{align*}
 
 <p>
-L'utilisation de la notation complexe a pour unique but de faciliter les
-calculs : <b>seule la composante réelle a un sens physique</b>.
+L'utilisation de la notation complexe a pour unique but de faciliter les calculs : <b>seule la
+composante réelle a un sens physique</b>.
 </p>
 
 <div class="QUESTION">
 <ol class="org-ol">
-<li value="4">On cherche tout d'abord à calculer à l'instant \(t\) les potentiels en un
-point \(P\) de coordonées sphériques \((r,\theta,\phi)\).
+<li value="4">On cherche tout d'abord à calculer à l'instant \(t\) les potentiels en un point \(P\) de
+coordonnées sphériques \((r,\theta,\phi)\).
 <ol class="org-ol">
-<li>En utilisant l'expression des potentiels retardés, exprimer le potentiel
-scalaire \(V\) (en notation complexe) au point \(P\) en fonction des distances
-\(r_1=MP\) et \(r_2=NP\).</li>
+<li>En utilisant l'expression des potentiels retardés, exprimer le potentiel scalaire \(V\) (en
+notation complexe) au point \(P\) en fonction des distances \(r_1=MP\) et \(r_2=NP\).</li>
 <li><p>
-On note &lambda; la longueur d'onde du champ électromagnétique rayonné par
-le dipôle. On suppose \(r\gg\lambda\gg\ell\) (approximations dipolaire et
-champ lointain). Montrer que le potentiel scalaire complexe peut s'écrire
-en ne gardant que le terme principal du DL en &ell;/&lambda; et en
-&ell;/\(r\) :
+On note &lambda; la longueur d'onde du champ électromagnétique rayonné par le dipôle. On
+suppose \(r\gg\lambda\gg\ell\) (approximations dipolaire et champ lointain). Montrer que le
+potentiel scalaire complexe peut s'écrire en ne gardant que le terme principal du DL en
+&ell;/&lambda; et en &ell;/\(r\) :
 </p>
 \begin{align*}
   V = -\frac{1}{4\pi\epsilon_0}\frac{i\omega}{c r}\,p\cos\theta
 \end{align*}
 
 <p>
-en fonction du moment dipolaire complexe retardé
-\(p=iq\ell\exp(-i\omega(t-r/c))\).
+en fonction du moment dipolaire complexe retardé \(p=iq\ell\exp(-i\omega(t-r/c))\).
 </p></li>
 <li><p>
-Montrer que la seule composante non nulle du potentiel-vecteur \(\vv{A}\)
-      s'écrit&nbsp;:
+Montrer que la seule composante non nulle du potentiel-vecteur \(\vv{A}\) s'écrit&nbsp;:
 </p>
 \begin{align*}
   A_z = -\frac{\mu_0}{4\pi}\frac{i\omega}{r}\,p
@@ -354,7 +348,7 @@ Montrer que la seule composante non nulle du potentiel-vecteur \(\vv{A}\)
 Calcul des potentiels en un point \(P(r,\theta,\phi)\) à l'instant \(t\)
 </p>
 
-<div class="center">
+<div class="org-center">
 
 <div class="figure">
 <p><img src="./figures/potentiel_retarde.png" alt="potentiel_retarde.png" />
@@ -368,7 +362,7 @@ Expression du potentiel scalaire retardé (potentiel de Liénard-Wiechert)
 </p>
 
 \begin{align*}
-  V_\text{retardé}&=\frac{1}{4\pi\epsilon_0}\iiint\frac{\rho(r',t')}{\|\vv{r}-\vv{r'}\|}\vv{dr'}\\
+  V_\text{retardé}&=\frac{1}{4\pi\epsilon_0}\iiint\frac{\rho(r',t')}{\|\vv{r}-\vv{r'}\|}\vv{\d r'}\\
   &\text{où }t'=t-\frac{\|\vv{r}-\vv{r'}\|}{c}\text{ et }\|\vv{r}-\vv{r'}\|=QP
 \end{align*}
 
@@ -376,7 +370,7 @@ Expression du potentiel scalaire retardé (potentiel de Liénard-Wiechert)
 Soit
 </p>
 \begin{align*}
-  V_\text{retardé}&=-\frac{iq}{4\pi\epsilon_0}\iiint\frac{e^{-i\omega\left(t-\frac{\|\vv{r}-\vv{r'}\|}{c}\right)}}{\|\vv{r}-\vv{r'}\|}\left[\delta(\vv{r'}+\ell/2\vv{u_z})-\delta(-\vv{r'}+\ell/2\vv{u_z})\right]d\vv{r'}
+  V_\text{retardé}&=-\frac{iq}{4\pi\epsilon_0}\iiint\frac{e^{-i\omega\left(t-\frac{\|\vv{r}-\vv{r'}\|}{c}\right)}}{\|\vv{r}-\vv{r'}\|}\left[\delta(\vv{r'}+\ell/2\vv{u_z})-\delta(-\vv{r'}+\ell/2\vv{u_z})\right]\d\vv{r'}
 \end{align*}
 
 <p>
@@ -397,6 +391,7 @@ points \(M\) et \(N\) pour lesquels \(\|\vv{r}-\vv{r'}\|=MP=r_1\) et
 <li>\(r\gg\lambda\) : approximation champ lointain</li>
 <li>\(\lambda\gg\ell\) : approximation non-relativiste</li>
 </ul>
+
 <p>
 Sous ces approximations, les distances \(r_1\) et \(r_2\) deviennent
 </p>
@@ -444,9 +439,9 @@ et de la fonction cosinus est, au voisinage de 0,
 L'expression du potentiel-vecteur \(\vv{A}\) s'écrit
 </p>
 \begin{align*}
-  \vv{A}&=\frac{\mu_0}{4\pi}\iiint\frac{\vv{j}(\vv{r'},t')}{\|\vv{r}-\vv{r'}\|}\vv{dr'}\\
-  &=\frac{\mu_0I_0}{4\pi}\underbrace{\int\delta(x')dx'}_{=1}\underbrace{\int\delta(y')dy'}_{=1}\int_{-\ell/2}^{+\ell/2}\frac{e^{-i\omega\left(t-\frac{\|\vv{r}-\vv{r'}\|}{c}\right)}}{\|\vv{r}-\vv{r'}\|}dz'\vv{u_z}\\
-  &=\frac{\mu_0I_0}{4\pi}e^{-i\omega t}\vv{u_z}\times\int_{-\ell/2}^{+\ell/2}\frac{e^{i\omega\frac{\|\vv{r}-\vv{r'}\|}{c}}}{\|\vv{r}-\vv{r'}\|}dz'
+  \vv{A}&=\frac{\mu_0}{4\pi}\iiint\frac{\vv{j}(\vv{r'},t')}{\|\vv{r}-\vv{r'}\|}\vv{\d r'}\\
+  &=\frac{\mu_0I_0}{4\pi}\underbrace{\int\delta(x')\d x'}_{=1}\underbrace{\int\delta(y')\d y'}_{=1}\int_{-\ell/2}^{+\ell/2}\frac{e^{-i\omega\left(t-\frac{\|\vv{r}-\vv{r'}\|}{c}\right)}}{\|\vv{r}-\vv{r'}\|}\d z'\vv{u_z}\\
+  &=\frac{\mu_0I_0}{4\pi}e^{-i\omega t}\vv{u_z}\times\int_{-\ell/2}^{+\ell/2}\frac{e^{i\omega\frac{\|\vv{r}-\vv{r'}\|}{c}}}{\|\vv{r}-\vv{r'}\|}\d z'
 \end{align*}
 
 <p>
@@ -454,7 +449,7 @@ Dans la mesure où \(\|\vv{r}-\vv{r'}\|\sim r\), l'expression du
 potentiel-vecteur se réduit à
 </p>
 \begin{align*}
-  \vv{A}&\simeq\frac{\mu_0I_0}{4\pi}e^{-i\omega t}\vv{u_z}\times\frac{e^{i\omega\frac{r}{c}}}{r}\int_{-\ell/2}^{+\ell/2}dz'\\
+  \vv{A}&\simeq\frac{\mu_0I_0}{4\pi}e^{-i\omega t}\vv{u_z}\times\frac{e^{i\omega\frac{r}{c}}}{r}\int_{-\ell/2}^{+\ell/2}\d z'\\
   &\simeq\frac{\mu_0I_0}{4\pi}\times\frac{\ell}{r}e^{-i\omega\left(t-\frac{r}{c}\right)}\vv{u_z}
 \end{align*}
 
@@ -563,37 +558,36 @@ Le rapport des normes de \(\vv{E}\) et \(\vv{B}\) est égal à
   \frac{\|\vv{E}\|}{\|\vv{B}\|}=\frac{\mu_0\omega^2p\sin\theta}{4\pi\,r}\times\frac{4\pi\,r}{\mu_0\omega^2p\sin\theta}\times c=c
 \end{align*}
 
-<div class="center">
+<div class="org-center">
 
 <div class="figure">
 <p><img src="./figures/antenne_onde.png" alt="antenne_onde.png" />
 </p>
-<p><span class="figure-number">Figure 4:</span> <b>Onde plane progressive</b></p>
+<p><span class="figure-number">Figure 4: </span><b>Onde plane progressive</b></p>
 </div>
 </div>
 
 <div class="QUESTION">
 <ol class="org-ol">
 <li value="6"><p>
-On se propose maintenant de calculer la puissance rayonnée à grande
-distance par cette antenne dipolaire en fonction de l'amplitude \(I_0\) du
-courant circulant dans le conducteur \(MN\). Montrer que la puissance totale
-peut s'exprimer par&nbsp;:
+On se propose maintenant de calculer la puissance rayonnée à grande distance par cette
+antenne dipolaire en fonction de l'amplitude \(I_0\) du courant circulant dans le conducteur
+\(MN\). Montrer que la puissance totale peut s'exprimer par&nbsp;:
 </p>
 \begin{align*}
   P = \frac{1}{2}R_rI_0^2
 \end{align*}
 
 <p>
-où \(R_r\) est la <i>résistance de rayonnement</i> de l'antenne dont on donnera
-l'expression en fonction de &ell; et &lambda;.
+où \(R_r\) est la <i>résistance de rayonnement</i> de l'antenne dont on donnera l'expression en fonction
+de &ell; et &lambda;.
 </p></li>
 </ol>
 
 </div>
 <p>
-Pour calculer la puissance rayonnée par le dipôle, il faut intégrer le flux
-du vecteur de Poynting \(\vv{R}\) sur une sphère de rayon \(r\gg\lambda\)
+Pour calculer la puissance rayonnée par le dipôle, il faut intégrer le flux du vecteur de Poynting
+\(\vv{R}\) sur une sphère de rayon \(r\gg\lambda\)
 </p>
 
 \begin{align*}
@@ -609,8 +603,8 @@ du vecteur de Poynting \(\vv{R}\) sur une sphère de rayon \(r\gg\lambda\)
 La puissance rayonnée correspond au flux du vecteur de Poynting soit
 </p>
 \begin{align*}
-  P_r&=\iint\langle\vv{R}\rangle.\vv{dS}=\iint\langle\vv{R}\rangle\times r^2\sin\theta d\theta d\phi\\
-  &=\frac{\mu_0q^2\ell^2}{32\pi^2c}\omega^4\underbrace{\int_0^\pi\sin^3\theta d\theta}_{4/3}\int_0^{2\pi}d\phi\\
+  P_r&=\iint\langle\vv{R}\rangle.\vv{\d S}=\iint\langle\vv{R}\rangle\times r^2\sin\theta\d\theta\d\phi\\
+  &=\frac{\mu_0q^2\ell^2}{32\pi^2c}\omega^4\underbrace{\int_0^\pi\sin^3\theta\d\theta}_{4/3}\int_0^{2\pi}\d\phi\\
   &=\frac{\mu_0q^2\ell^2}{12\pi c}\omega^4\text{ avec }q=\frac{I_0}{\omega}\\
   &=\frac{\mu_0}{12\pi c}\omega^2\ell^2I_0^2\text{ d'où } R_r=\frac{\mu_0}{6\pi c}\omega^2\ell^2\\
   &\text{avec }\frac{\omega}{c}=\frac{2\pi}{\lambda}\to R_r=\frac{2\pi\mu_0c}{3}\frac{\ell^2}{\lambda^2}=\frac{2\pi}{3}\left(\frac{\ell}{\lambda}\right)^2\underbrace{\sqrt{\frac{\mu_0}{\epsilon_0}}}_{Z_0}
@@ -628,42 +622,41 @@ l'absorption pour décrire correctement la propagation de l'onde.
 </div>
 </div>
 
-<div id="outline-container-orgheadline4" class="outline-2">
-<h2 id="orgheadline4"><span class="section-number-2">2</span> Interaction onde électromagnétique-électron</h2>
+<div id="outline-container-orge38e98d" class="outline-2">
+<h2 id="orge38e98d"><span class="section-number-2">2</span> Interaction onde électromagnétique-électron</h2>
 <div class="outline-text-2" id="text-2">
-</div><div id="outline-container-orgheadline2" class="outline-3">
-<h3 id="orgheadline2"><span class="section-number-3">2.1</span> Cas de l'atome d'hydrogène</h3>
+</div>
+<div id="outline-container-org1d2fc61" class="outline-3">
+<h3 id="org1d2fc61"><span class="section-number-3">2.1</span> Cas de l'atome d'hydrogène</h3>
 <div class="outline-text-3" id="text-2-1">
 <div class="QUESTION">
 <p>
-Dans un modèle classique, chaque électron (de masse \(m\) et de charge \(-e\)) d'une
-molécule d'hydrogène soumis à l'attraction électrostatique du noyau, est rappelé
-vers sa position d'équilibre par une force de rappel
-\(\vv{f}_r=-m\omega_0^2\vv{r}\) lorsqu'il est écarté de \(\vv{r}\) de sa position
-équilibre.
+Dans un modèle classique, chaque électron (de masse \(m\) et de charge \(-e\)) d'une molécule
+d'hydrogène soumis à l'attraction électrostatique du noyau, est rappelé vers sa position d'équilibre
+par une force de rappel \(\vv{f}_r=-m\omega_0^2\vv{r}\) lorsqu'il est écarté de \(\vv{r}\) de sa
+position équilibre.
 </p>
 
 <p>
-L'électron est soumis à l'action d'une onde électromagnétique plane de pulsation
-\(\omega\) se propageant suivant \(Oz\) dont l'expression complexe du champ
-électrique \(\vv{\mathcal{E}}\) polarisé suivant \(Ox\) est :
+L'électron est soumis à l'action d'une onde électromagnétique plane de pulsation \(\omega\) se
+propageant suivant \(Oz\) dont l'expression complexe du champ électrique \(\vv{\mathcal{E}}\) polarisé
+suivant \(Ox\) est :
 </p>
 \begin{align*}
 \vv{\mathcal{E}}=E_0\exp\left(i\omega\left(t-\frac{z}{c}\right)\right)\vv{e_x}
 \end{align*}
 
 <p>
-On notera \(x(t)=A\exp(i(\omega t+\phi))\) la projection sur l'axe \(Ox\) de la
-position de l'électron, où \(A\) et \(\phi\) sont des constantes du problème. On
-supposera \(E_0>0\). On fixe l'origine du repère \((\vv{e_x},\vv{e_y},\vv{e_z})\) ou
-\((\vv{e_\rho},\vv{e_\theta},\vv{e_\phi})\) sur la position de l'électron au
-repos.
+On notera \(x(t)=A\exp(i(\omega t+\phi))\) la projection sur l'axe \(Ox\) de la position de l'électron,
+où \(A\) et \(\phi\) sont des constantes du problème. On supposera \(E_0>0\). On fixe l'origine du repère
+\((\vv{e_x},\vv{e_y},\vv{e_z})\) ou \((\vv{e_\rho},\vv{e_\theta},\vv{e_\phi})\) sur la position de
+l'électron au repos.
 </p>
 
 <ol class="org-ol">
-<li value="1">Écrire le principe fondamental de la dynamique appliqué à un électron en
-appelant \(\vv{V}\) sa vitesse. Pourquoi peut-on négliger l'effet du champ
-\(\vv{\mathcal{B}}\) de l'onde devant celui du champ \(\vv{\mathcal{E}}\) ?</li>
+<li value="1">Écrire le principe fondamental de la dynamique appliqué à un électron en appelant \(\vv{V}\)
+sa vitesse. Pourquoi peut-on négliger l'effet du champ \(\vv{\mathcal{B}}\) de l'onde devant celui
+du champ \(\vv{\mathcal{E}}\) ?</li>
 </ol>
 
 </div>
@@ -672,8 +665,8 @@ appelant \(\vv{V}\) sa vitesse. Pourquoi peut-on négliger l'effet du champ
 Le principe fondamental de la dynamique appliqué à l'électron
 </p>
 \begin{align*}
-  m\frac{d\vv{V}}{dt}&=-m\omega_0^2\vv{r}+\vv{F}_\text{Lorentz}\\
-  m\frac{d\vv{V}}{dt}&=-m\omega_0^2\vv{r}-e\vv{\mathcal{E}}-e\vv{V}\times\vv{\mathcal{B}}
+  m\frac{\d\vv{V}}{\d t}&=-m\omega_0^2\vv{r}+\vv{F}_\text{Lorentz}\\
+  m\frac{\d\vv{V}}{\d t}&=-m\omega_0^2\vv{r}-e\vv{\mathcal{E}}-e\vv{V}\times\vv{\mathcal{B}}
 \end{align*}
 
 <p>
@@ -698,14 +691,13 @@ Or la vitesse de phase \(v_\phi\) pour une onde se propageant dans le vide est
 L'équation déterminant la dynamique de l'électron se limite donc à
 </p>
 \begin{align*}
-  \frac{d\vv{V}}{dt}\simeq-m\omega_0^2\vv{r}-e\vv{\mathcal{E}}
+  \frac{\d\vv{V}}{\d t}\simeq-m\omega_0^2\vv{r}-e\vv{\mathcal{E}}
 \end{align*}</li>
 </ol>
 
 <div class="QUESTION">
 <ol class="org-ol">
-<li value="2">À quelle condition peut-on remplacer \(d\vv{V}/dt\) par
-\(\partial\vv{V}/\partial t\) ?</li>
+<li value="2">À quelle condition peut-on remplacer \(\d\vv{V}/\d t\) par \(\partial\vv{V}/\partial t\) ?</li>
 </ol>
 
 </div>
@@ -715,10 +707,10 @@ En différentialisant le champ de vitesse où \(\vv{V}\) est une fonction de
 l'espace et du temps <i>i.e.</i> \(f(\vv{r},t)\), on obtient
 </p>
 \begin{align*}
-  d\vv{V}&=\frac{\partial\vv{V}}{\partial t}dt+\frac{\partial\vv{V}}{\partial x}dx+\frac{\partial\vv{V}}{\partial y}dy+\frac{\partial\vv{V}}{\partial z}dz\\
-  \frac{d\vv{V}}{dt}&=\frac{\partial\vv{V}}{\partial t}+\frac{\partial\vv{V}}{\partial x}\frac{dx}{dt}+\frac{\partial\vv{V}}{\partial y}\frac{dy}{dt}+\frac{\partial\vv{V}}{\partial z}\frac{dz}{dt}\\
-  \frac{d\vv{V}}{dt}&=\frac{\partial\vv{V}}{\partial t}+\frac{\partial\vv{V}}{\partial x}V_x+\frac{\partial\vv{V}}{\partial y}V_y+\frac{\partial\vv{V}}{\partial z}V_z\\
-  \underbrace{\frac{d\vv{V}}{dt}}_{\text{dérivée particulaire}}&=\underbrace{\frac{\partial\vv{V}}{\partial t}}_{\text{dérivée locale}}+\underbrace{\left(\vv{V}.\grad\right).\vv{V}}_{\text{dérivée convective}}
+  \d\vv{V}&=\frac{\partial\vv{V}}{\partial t}\d t+\frac{\partial\vv{V}}{\partial x}\d x+\frac{\partial\vv{V}}{\partial y}\d y+\frac{\partial\vv{V}}{\partial z}\d z\\
+  \frac{\d\vv{V}}{\d t}&=\frac{\partial\vv{V}}{\partial t}+\frac{\partial\vv{V}}{\partial x}\frac{\d x}{\d t}+\frac{\partial\vv{V}}{\partial y}\frac{\d y}{\d t}+\frac{\partial\vv{V}}{\partial z}\frac{\d z}{\d t}\\
+  \frac{\d\vv{V}}{\d t}&=\frac{\partial\vv{V}}{\partial t}+\frac{\partial\vv{V}}{\partial x}V_x+\frac{\partial\vv{V}}{\partial y}V_y+\frac{\partial\vv{V}}{\partial z}V_z\\
+  \underbrace{\frac{\d\vv{V}}{\d t}}_{\text{dérivée particulaire}}&=\underbrace{\frac{\partial\vv{V}}{\partial t}}_{\text{dérivée locale}}+\underbrace{\left(\vv{V}.\grad\right)\vv{V}}_{\text{dérivée convective}}
 \end{align*}
 
 <p>
@@ -727,7 +719,7 @@ En posant \(\vv{V}=\vv{V_0}\,e^{i(\omega t-\vv{k}.\vv{r})}\), la dérivée local
 convective prenant la forme
 </p>
 \begin{align*}
-  \left(\vv{V}.\grad\right).\vv{V}=\vv{V}.(-)i\vv{k}.\vv{V}
+  \left(\vv{V}.\grad\right)\vv{V}=\vv{V}.(-)i\vv{k}\vv{V}
 \end{align*}
 
 <p>
@@ -736,7 +728,7 @@ On déduit que
 \begin{align*}
   \frac{\partial\vv{V}}{\partial t}+\left(\vv{V}.\grad\right).\vv{V}&=i\omega\vv{V}-i\vv{V}.\vv{k}.\vv{V}\\
   &=i\omega\vv{V}\left(1-\frac{\vv{k}.\vv{V}}{\omega}\right)=i\omega\vv{V}\left(1-\frac{V}{v_\phi}\right)\\
-  \frac{d\vv{V}}{dt}&\simeq\frac{\partial V}{\partial t}\to\frac{V}{v_\phi}=\frac{V}{c}\ll1
+  \frac{\d\vv{V}}{\d t}&\simeq\frac{\partial V}{\partial t}\to\frac{V}{v_\phi}=\frac{V}{c}\ll1
 \end{align*}</li>
 </ol>
 
@@ -772,7 +764,7 @@ En utilisant les notations complexes pour le champ électrique
 <ol class="org-ol">
 <li value="4"><p>
 En notation complexe, la composante \(E_x\) s'écrit \(E_0\,e^{i\omega t}\)
-   et la position \(x(t)\) prend la forme générale \(X_0\,e^{i(\omega
+et la position \(x(t)\) prend la forme générale \(X_0\,e^{i(\omega
    t+\phi)}\). L'équation précédente devient
 </p>
 \begin{align*}
@@ -827,7 +819,7 @@ dans tout l'espace en fonction de \(\omega\) et \(X_0\).</li>
 Moment dipolaire électrique
 </p>
 
-<div class="center">
+<div class="org-center">
 
 <div class="figure">
 <p><img src="./figures/onde_electron.png" alt="onde_electron.png" />
@@ -862,8 +854,8 @@ l'accélération &gamma;<sub>0</sub> est ainsi égale à \(\omega^2X_0\). Les ch
 
 <li>\begin{align*}
   \vv{R}&=\frac{\vv{E}\times\vv{B}}{\mu_0}=\frac{E_\theta^2}{\mu_0c}\,\vv{u_\theta}\times\vv{u_\phi}\\
-  \langle P\rangle&=\iint\langle\vv{R}\rangle.\vv{dS}=\iint\frac{\langle E_\theta^2\rangle}{\mu_0c}\rho^2\sin\theta d\theta d\phi\\
-  &=\frac{\mu_0^2e^2}{16\pi^2}\gamma_0^2\times\langle\cos^2(\omega t-k\rho)\rangle\times\frac{1}{\mu_0c}\int_0^{2\pi}d\phi\int_0^\pi\sin^3\theta d\theta\\
+  \langle P\rangle&=\iint\langle\vv{R}\rangle.\vv{dS}=\iint\frac{\langle E_\theta^2\rangle}{\mu_0c}\rho^2\sin\theta\d\theta\d\phi\\
+  &=\frac{\mu_0^2e^2}{16\pi^2}\gamma_0^2\times\langle\cos^2(\omega t-k\rho)\rangle\times\frac{1}{\mu_0c}\int_0^{2\pi}\d\phi\int_0^\pi\sin^3\theta\d\theta\\
   &=\frac{\mu_0e^2X_0^2}{16\pi c}\times\frac{4}{3}=\frac{\mu_0e^2X_0^2}{12\pi c}\,\omega^4
 \end{align*}</li>
 </ol></li>
@@ -876,7 +868,7 @@ l'accélération &gamma;<sub>0</sub> est ainsi égale à \(\omega^2X_0\). Les ch
 
 </div>
 <ol class="org-ol">
-<li><ol class="org-ol">
+<li value="6"><ol class="org-ol">
 <li><p>
 <b>électron libre</b> : la force de rappel est négligeable devant l'influence
 du champ électromagnétique <i>i.e.</i> \(\omega_0\ll\omega\)
@@ -907,8 +899,8 @@ la diffusion de Rayleigh.
 </div>
 </div>
 
-<div id="outline-container-orgheadline3" class="outline-3">
-<h3 id="orgheadline3"><span class="section-number-3">2.2</span> Généralisations</h3>
+<div id="outline-container-orga40eb95" class="outline-3">
+<h3 id="orga40eb95"><span class="section-number-3">2.2</span> Généralisations</h3>
 <div class="outline-text-3" id="text-2-2">
 <div class="QUESTION">
 <ol class="org-ol">
@@ -982,11 +974,11 @@ On donne \(\mu_0\) = 4&pi; 10<sup>-7</sup> SI, \(e\) = 1.6 10<sup>-19</sup> C et
 <li value="2"><ol class="org-ol">
 <li><p>
 Calcul du vecteur de Poynting \(\vv{R_i}\) pour <b>l'onde plane incidente</b>
-      (\(\vv{B}=\frac{\vv{k}\times\vv{E}}{\omega}\))
+(\(\vv{B}=\frac{\vv{k}\times\vv{E}}{\omega}\))
 </p>
 \begin{align*}
-  \vv{R_i}&=\frac{E^2}{\mu_0c}\vv{u_r}\\
-  \langle\vv{R_i}\rangle&=\frac{\langle E^2\rangle}{\mu_0c}=\frac{E_0^2}{2\mu_0c}\,\vv{u_r}
+  \vv{R_i}&=\frac{E^2}{\mu_0c}\vv{u_k}\\
+  \langle\vv{R_i}\rangle&=\frac{\langle E^2\rangle}{\mu_0c}=\frac{E_0^2}{2\mu_0c}\,\vv{u_k}
 \end{align*}</li>
 
 <li><p>
@@ -994,7 +986,7 @@ Calcul de la section efficace &sigma; de diffusion
 </p>
 \begin{align*}
   \sigma&=\frac{\langle P\rangle}{\langle\|\vv{R_i}\|\rangle}\\
-  &=\frac{\mu_0e^4\cancel{E_0^2}}{12\pi\cancel{c}\,m^2}\times\frac{2\mu_0c}{\cancel{E_0^2}}=\frac{\mu_0^2}{6\pi}\frac{e^4}{m^2}
+  &=\frac{\mu_0e^4\cancel{E_0^2}}{12\pi\cancel{c}\,m^2}\times\frac{2\mu_0\cancel{c}}{\cancel{E_0^2}}=\frac{\mu_0^2}{6\pi}\frac{e^4}{m^2}
 \end{align*}
 
 <p>
@@ -1025,7 +1017,7 @@ soit 50 10<sup>-40</sup> m<sup>2</sup>.
 </div>
 </div>
 <div id="postamble" class="status">
-File under <i class="fa fa-github-alt"></i> version control - commit <a href="https://github.com/xgarrido/licence_em_teaching/commit/311150a025b9911feb88eb5eafabc7b31c1ab20a">311150a</a> - 2016-06-28
+File under <i class="fa fa-github-alt"></i> version control - commit <a href="https://github.com/xgarrido/licence_em_teaching/commit/16aed20846016fe35284275cba92e3520e1831e1">16aed20</a> - 2020-12-21
 </div>
 </body>
 </html>
