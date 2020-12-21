@@ -7,7 +7,7 @@
 #+LATEX_CLASS_OPTIONS: [novc]
 
 * TD1 : Équations de Maxwell dans le vide et champ électromagnétique
-** COMMENT Équations de Maxwell dans le vide
+** Équations de Maxwell dans le vide
 #+BEGIN_QUESTION
 1) [@1] On considère une onde plane scalaire en notation complexe :
    #+BEGIN_SRC latex
@@ -299,7 +299,7 @@ dont la fréquence est trop grande : l'intensité est par conséquent la quantit
 pertinente à estimer car mesurable expérimentalement.
 #+END_REMARK
 
-** COMMENT Énergie magnétique stockée dans une bobine
+** Énergie magnétique stockée dans une bobine
 
 #+BEGIN_QUESTION
 Une bobine de longueur \ell, de rayon $a$ et d'axe $(Oz)$ est constituée par un
@@ -890,7 +890,7 @@ période $T$, le champ EM cède à la particule $q$, un moment cinétique égal 
 Le moment cinétique de photons polarisé circulairement droite est alors $-\hbar$, et $\sigma_z=0$
 pour une polarisation rectiligne (rectiligne \equiv circulaire droite + circulaire gauche)
 
-** COMMENT Interprétation corpusculaire de la pression de radiation             :DM:
+** Interprétation corpusculaire de la pression de radiation             :DM:
 
 #+BEGIN_CENTER
 #+ATTR_LATEX: :width 0.5\linewidth
@@ -2388,7 +2388,7 @@ cas, le vecteur $\vv{D}$ devient
 où $\epsilon$ et $\epsilon_r$ sont appellés respectivement la permitivité
 absolue et la permitivité relative du diélectrique.
 
-** COMMENT Charge ponctuelle au centre d'une boule diélectrique
+** Charge ponctuelle au centre d'une boule diélectrique
 #+BEGIN_QUESTION
 Une charge ponctuelle est plaçée au centre d'une cavité sphérique de rayon $r_1$ creusée dans une
 boule diélectrique l.h.i. de rayon externe $r_2$ et de permittivité relative $\epsilon_r$. Calculer
@@ -3170,7 +3170,7 @@ En projetant, le PFD selon $\vv{u}_z$, on obtient finalement l'équation suivant
   \end{align*}
 #+END_SRC
 
-** COMMENT Lame piézoélectrique
+** Lame piézoélectrique
 
 #+BEGIN_QUESTION
 Le phénomène de piézoélectricité consiste en l'apparition d'une polarisation électrique dans
@@ -3376,7 +3376,7 @@ vecteur déplacement soit
       on déduit que
       #+BEGIN_SRC latex
         \begin{align*}
-          F(\delta,q)&=\frac{\partial W}{\partial\delta}=K\delta-\epsilon_r\alpha q
+          F(\delta,q)&=\frac{\partial W}{\partial\delta}=K\delta-\alpha q
         \end{align*}
       #+END_SRC
       et on vérifie que
@@ -5115,13 +5115,12 @@ $E_p=-\vv{m}.\vv{B}$.
 * TD6 : Rayonnement
 ** Rayonnement d'une antenne
 #+BEGIN_QUESTION
-On considère une portion de conducteur rectiligne $MN$ de longueur \ell, dirigée
-selon l'axe $Oz$. Ce conducteur est parcouru par un courant $I=I_0\cos\omega t$.
+On considère une portion de conducteur rectiligne $MN$ de longueur \ell, dirigée selon l'axe
+$Oz$. Ce conducteur est parcouru par un courant $I=I_0\cos\omega t$.
 
-1) [@1] On suppose qu'à l'extérieur du tronçon $MN$, la densité de courant est
-   nulle. En utilisant la fonction de Heaviside (voir à la fin de l'énoncé) et
-   la distribution de Dirac, donner l'expression de la densité de courant
-   $\vv{j}$ dans tout l'espace.
+1) [@1] On suppose qu'à l'extérieur du tronçon $MN$, la densité de courant est nulle. En utilisant
+   la fonction de Heaviside (voir à la fin de l'énoncé) et la distribution de Dirac, donner
+   l'expression de la densité de courant $\vv{j}$ dans tout l'espace.
 #+END_QUESTION
 
 La fonction d'Heaviside est définie par
@@ -5142,14 +5141,13 @@ et a pour représentation
 [[./figures/heaviside_function.pdf]]
 #+END_CENTER
 
-Par ailleurs, on note que $\frac{d}{dx}\Theta(x)=\delta(x)$.
+Par ailleurs, on note que $\frac{\d}{\d x}\Theta(x)=\delta(x)$.
 
-En supposant que $\vv{j}$ est nul à l'extérieur du fil, seul le courant
-traversant le fil contribue à la densité volumique de courant
-$j(x,y,z,t)$. Par définition, le courant $I$ est égal au flux de $\vv{j}$ au
-travers d'une surface $S$ : $I=\iint\vv{j}.\vv{dS}$. Le fil étant de section
-infinitésimale et le courant étant non nul pour $z\in[-\ell/2,\ell/2]$, la
-densité de courant s'écrit
+En supposant que $\vv{j}$ est nul à l'extérieur du fil, seul le courant traversant le fil contribue
+à la densité volumique de courant $j(x,y,z,t)$. Par définition, le courant $I$ est égal au flux de
+$\vv{j}$ au travers d'une surface $S$ : $I=\iint\vv{j}.\vv{\d S}$. Le fil étant de section
+infinitésimale et le courant étant non nul pour $z\in[-\ell/2,\ell/2]$, la densité de courant
+s'écrit
 #+BEGIN_SRC latex
   \begin{align*}
     \vv{j}(x,y,z,t)&=I(t)\times\delta(x)\times\delta(y)\times\Theta(z+\ell/2)\times\Theta(-z+\ell/2)\,\vv{u_z}\\
@@ -5161,8 +5159,8 @@ où
 #+ATTR_LATEX: :align C{0.45\textwidth}C{0.45\textwidth}
 | [[./figures/heaviside_function_1.pdf]] | [[./figures/heaviside_function_2.pdf]] |
 
-On note, par ailleurs, que la dimension de $j$ est bien celle d'une intensité
-par unité de surface car $\delta=\frac{d\Theta}{dx}\to[\delta]=[L^{-1}]$.
+On note, par ailleurs, que la dimension de $j$ est bien celle d'une intensité par unité de surface
+car $\delta=\frac{\d\Theta}{\d x}\to[\delta]=[L^{-1}]$.
 
 #+BEGIN_QUESTION
 2) [@2] En utilisant la conservation de la charge, montrer que ce système peut
@@ -5787,7 +5785,7 @@ l'électron au repos.
       Higgs voisine de 125 GeV) est voisine de 50 picobarns soit 50 10^{-12} barn
       soit 50 10^{-40} m^{2}.
 * TD7 : Propagation dans le vide et les milieux diélectriques
-** COMMENT Réflexion d'onde en incidence oblique sur un conducteur parfait
+** Réflexion d'onde en incidence oblique sur un conducteur parfait
 #+BEGIN_QUESTION
 On considère une surface plane séparant le vide d'un conducteur métallique
 parfait. Une onde plane électromagnétique incidente se propage dans le vide. Son
@@ -7416,7 +7414,7 @@ laser beaucoup plus intense qu'en mode continu. Cette technique est connue
 sour le nom de [[http://en.wikipedia.org/wiki/Q-switching][/Q-switching/]] ou commutation Q et est, en particulier, utilisée
 pour retirer les tatouages.
 
-** Résolution de l'équation de Bessel                               :ANNEXE:
+** COMMENT Résolution de l'équation de Bessel                               :ANNEXE:
 *** Équation de Bessel
 La résolution de l'équation de Laplace en coordonnées cylindriques $(r,\theta,z)$ :
 #+BEGIN_SRC latex
@@ -7514,7 +7512,7 @@ Bessel:
 ** Footnotes
 
 [fn:11] pour les fonctions de Bessel, on considère toujours \lambda > 0
-* COMMENT TD9 : Induction électromagnétique
+* TD9 : Induction électromagnétique
 ** Introduction
 En régime variable, le champ magnétique demeure toujours à flux conservatif à
 savoir que
@@ -8067,7 +8065,7 @@ fréquence de 20 Hz et au-dessus d'un seuil d'intensité de 10 mT), un effet
 physiologique caractérisé par la perception visuelle de taches lumineuses; ce
 sont les magnétophosphènes."
 
-* COMMENT TD10 : Électromagnétisme & relativité
+* TD10 : Électromagnétisme & relativité
 ** Introduction
 *Transformation de Lorentz :* $\beta=\tfrac{v}{c}$ et
  $\gamma=\tfrac{1}{\surd{1-\beta^2}}$. Si $\mathcal{R}'$ est en mouvement
@@ -8446,7 +8444,7 @@ $\vv{E}'.\vv{B}'=0$ et $\vv{E}.\vv{B}=\frac{\gamma^2u}{c^2}E^{\prime2}\,\vv{u_\t
   \end{align*}
 #+END_SRC
 
-** Particule chargée dans un champ magnétique uniforme                  :DM:
+** COMMENT Particule chargée dans un champ magnétique uniforme                  :DM:
 #+BEGIN_QUESTION
 Une particule de charge $q$, de masse $m$, est lancée avec la vitesse initiale
 $\vv{v}_0=v_0\vv{u}_x$ dans une région où règne un champ magnétique constant,
@@ -8936,7 +8934,7 @@ $V=\unit[0.1]{MV}$, $\gamma=1.2$ \rightarrow $\frac{\Delta R}{R_0}=0.5=50\%$
 
 $V=\unit[10]{MV}$,$\gamma=21$ \rightarrow $\frac{\Delta R}{R_0}=1.5\,10^{-5}$
 
-** Variations relatives de vitesse, de quantité de mouvement et d'énergie :DM:
+** COMMENT Variations relatives de vitesse, de quantité de mouvement et d'énergie :DM:
 #+BEGIN_QUESTION
 On considère une particule de masse $m$, de quantité de mouvement $p$, d'énergie
 totale $\mathcal{E}$ et d'énergie cinétique $\mathcal{E}_c$.

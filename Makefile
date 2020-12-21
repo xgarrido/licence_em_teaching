@@ -13,7 +13,7 @@ doc/pdf/%.pdf: %.org
 html: $(files_html)
 doc/html/%.html: %.org
 	@echo "NOTICE: Exporting $< to html..."
-	@zsh -i -c "org-pages --html --color=blue --debug generate"
+	@zsh -i -c "org-pages --html --generate-home-link --color=darkblue --debug generate"
 
 clean:
 	@rm -rf	latex.d doc *.tex *.pdf *.toc *.fdb* *.fls *.aux *.log *.out *~ README.el _minted* *.xdv
